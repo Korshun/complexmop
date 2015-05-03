@@ -5,7 +5,7 @@ Actor PossessedPlasmaGunner : PossessedMonster
 	Health 20
 	Radius 20
 	Height 56
-	Speed 8
+	Speed 0.35 // FIXME: how to convert speeds?
 	Mass 100
 	PainChance 160
 	+FLOORCLIP
