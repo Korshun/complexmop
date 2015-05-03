@@ -1,0 +1,83 @@
+Actor PuppetMaster : PlayerPawn
+{
+	Speed 1
+	Health 1
+	Radius 0
+	Height 0
+	Mass 100
+	PainChance 0
+	Player.ViewHeight 25
+	Player.DisplayName "PuppetMaster"
+	Player.SoundClass "PuppetMaster"
+	Player.StartItem "mastergun"
+	Player.WeaponSlot 1, mastergun
+	FloatSpeed 0
+
+	RenderStyle "None"
+	-NOBLOODDECALS
+	-DONTSPLASH
+	-NOINTERACTION
+	-SHOOTABLE
+	-SOLID
+	-PICKUP
+	-TELESTOMP
+	+CANNOTPUSH
+	+NONSHOOTABLE
+	-FRIENDLY
+	+NOTARGET
+	
+	limitedtoteam 1
+  
+	States
+	{
+	Spawn:
+		NULL A 1
+		goto Ready
+	Ready:
+		NULL A 1
+		loop
+	See:
+		NULL AAAAAAAAAA 2 A_SpawnItemEx ("MGhost",-20,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		Loop
+	Missile:
+		NULL A 1
+		goto Ready
+	Death:
+		NULL A 1 A_hidething
+		NULL A -1 
+		stop
+	}
+}
+
+actor MGhost
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOTELEPORT
+	RenderStyle add
+	Alpha 0.15
+	scale 0.7
+	+RANDOMIZE
+	States
+	{	
+	Spawn:
+		SPIR AB 3
+		stop
+	}
+}
+
+ACTOR MDeathGhost
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOTELEPORT
+	RenderStyle add
+	alpha 1
+	scale 0.8
+	States
+	{
+	Spawn:
+		SPIR EFGHIJ 3
+		stop
+	}
+}

@@ -1,3 +1,4 @@
+#include "decorate/base/puppetmaster.txt"
 #include "decorate/base/possessed.txt"
 
 #include "decorate/PlasmaGunner.txt"
