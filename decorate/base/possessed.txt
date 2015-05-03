@@ -1,0 +1,77 @@
+Actor PossessedMonster : PlayerPawn
+{
+	States
+	{
+	Spawn:
+		NULL A -1
+		Loop
+	See:
+		NULL ABCD 4 
+		Loop
+	Missile:
+		NULL E 12 
+		Goto Spawn
+	Melee:
+		NULL F 6 BRIGHT
+		Goto Missile
+	Pain:
+		NULL G 4 
+		NULL G 4 A_Pain
+		Goto Spawn
+	Death:
+		NULL H 0 A_PlayerSkinCheck("AltSkinDeath")
+	Death1:
+		NULL H 10
+		NULL I 10 A_PlayerScream
+		NULL J 10 A_NoBlocking
+		NULL KLM 10
+		NULL N -1
+		Stop
+	XDeath:
+		NULL O 0 A_PlayerSkinCheck("AltSkinXDeath")
+	XDeath1:
+		NULL O 5
+		NULL P 5 A_XScream
+		NULL Q 5 A_NoBlocking
+		NULL RSTUV 5
+		NULL W -1
+		Stop
+	AltSkinDeath:
+		NULL H 6
+		NULL I 6 A_PlayerScream
+		NULL JK 6
+		NULL L 6 A_NoBlocking
+		NULL MNO 6
+		NULL P -1
+		Stop
+	AltSkinXDeath:
+		NULL Q 5 A_PlayerScream
+		NULL R 0 A_NoBlocking
+		NULL R 5 A_SkullPop
+		NULL STUVWX 5
+		NULL Y -1
+		Stop
+	}
+}
+
+Actor PossessedWeapon : Weapon
+{
+	States
+	{
+	Ready:
+		NULL A 1 A_WeaponReady
+		Loop
+	Select:
+		NULL A 1 A_Raise
+		Loop
+	Deselect:
+		NULL A 1 A_Lower
+		Loop
+	Fire:
+		NULL A 0
+		Goto Ready
+	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
