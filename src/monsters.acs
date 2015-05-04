@@ -5,7 +5,7 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 6
+#define NUM_MONSTER_TYPES 7
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "PlasmaGunner",			0.1, 0 },
@@ -13,7 +13,8 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DemonTechZombie",		0.2, 0 },
 	{ "RocketZombie",			0.5, 0 },
 	{ "ShotgunZombie",			0.2, 0 },
-	{ "AssaultShotgunZombie",	0.3, 0 }
+	{ "AssaultShotgunZombie",	0.3, 0 },
+	{ "SuperShotgunZombie",		0.5, 0 }
 };
 
 // List of items that monsters can carry.

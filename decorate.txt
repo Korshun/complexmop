@@ -8,6 +8,7 @@
 #include "decorate/RocketZombie.txt"
 #include "decorate/ShotgunZombie.txt"
 #include "decorate/AssaultShotgunZombie.txt"
+#include "decorate/SuperShotgunZombie.txt"
 
 Actor ZombieMan1 : ZombieMan {}
 

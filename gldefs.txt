@@ -23,7 +23,12 @@ OBJECT PossessedShotgunZombie
 Frame ZSP1F { Light ZOMBIEATK }
 }
 
-OBJECT AssaultShotgunZombie
+OBJECT PossessedAssaultShotgunZombie
 {
 Frame ASGZF { Light ZOMBIEATK }
+}
+
+OBJECT PossessedSuperShotgunZombie
+{
+Frame UDM2F { Light ZOMBIEATK }
 }
