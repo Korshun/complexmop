@@ -1,0 +1,13 @@
+#library "mop"
+#include "zcommon.acs"
+
+#define mop_possess 800
+#define mop_enter 801
+#define mop_respawn 802
+
+#define INT_MAX 2147483647
+#define TEMPTID 8080
+
+#include "monsters.acs"
+#include "game.acs"
+#include "possess.acs"

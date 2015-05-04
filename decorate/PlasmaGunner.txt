@@ -1,7 +1,8 @@
-Actor PossessedPlasmaGunner : PossessedMonster
+Actor PossessedPlasmaGunner : PlayerPawn
 {
-	Player.DisplayName "Plasma Gunner"// TEMPORARY
+	-PICKUP
 	Player.MorphWeapon "PlasmaGunnerWeapon"
+	
 	Health 20
 	Radius 20
 	Height 56
@@ -42,6 +43,9 @@ Actor PlasmaGunnerWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Loop
 	Fire:
 		TNT1 A 10
 	Hold:

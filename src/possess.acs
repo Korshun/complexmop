@@ -1,0 +1,86 @@
+function int FindMonsterTypeByTid(int tid)
+{
+	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
+			return i;
+
+	return -1;
+}
+
+script mop_possess (void)
+{
+	int player = 1000 + PlayerNumber();
+	printbold(d:ActivatorTid());
+	
+	// Select the monster we are pointing at.
+	SetActivatorToTarget(0);
+	if (PlayerNumber() != -1)
+		terminate; // Cannot possess a player.
+
+	// Store monster properties.
+	int x = GetActorX(0);
+	int y = GetActorY(0);
+	int z = GetActorZ(0);
+	int angle = GetActorAngle(0);
+	int health = GetActorProperty(0, APROP_Health);
+	
+	// Dead monsters can't be possessed.
+	if (health <= 0)
+		terminate;
+		
+	// Temporarily change the monster's tid to use ThingCountName
+	// and to be able to Thing_Remove it without removing the activator.
+	Thing_ChangeTid(0, TEMPTID);
+		
+	// Find out the monster's type.
+	int type;
+	for (type = 0; type < NUM_MONSTER_TYPES; type++)
+	{
+		printbold(s:MonsterTypes[type][MONSTER_ACTORNAME]);
+		if (ThingCountName(MonsterTypes[type][MONSTER_ACTORNAME], TEMPTID))
+			break;
+	}
+
+	printbold(d:type);
+
+	// Unknown actors can't be possessed.
+	if (type == NUM_MONSTER_TYPES)
+	{
+		Thing_ChangeTid(TEMPTID, 0);
+		terminate;
+	}
+
+	// Remove the monster and move puppetmaster to the exact position of the monster.
+	SetActivator(player);
+	Thing_Remove(TEMPTID);
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, angle);
+
+	// Morph!
+	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "", "");
+
+	// Set properties.
+	SetPlayerProperty(0, true, PROP_NoTarget);
+	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_Fly);
+	SetActorProperty(0, APROP_Health, health);
+
+	/*
+	// Show HUD.
+	ACS_ExecuteAlways(404, 0, PlayerNumber());
+	*/
+
+	// Fix instant shooting after morphing.
+	SetPlayerProperty(0, true, PROP_TotallyFrozen);
+	Delay(7);
+	SetPlayerProperty(0, false, PROP_TotallyFrozen);
+
+	// Wait until the posessed monster is dead.
+	while (GetActorProperty(0, APROP_HEALTH) > 0)
+		Delay(1);
+
+	/*
+	LeaveMonster(); // The posessed monster has died.
+	*/
+
+	print(s:"leave monster");
+}

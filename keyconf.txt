@@ -1,2 +1,3 @@
 ClearPlayerClasses
+AddPlayerClass ComplexDoomPlayer
 AddPlayerClass PuppetMaster

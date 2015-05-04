@@ -49,6 +49,53 @@ Actor PuppetMaster : PlayerPawn
 	}
 }
 
+Actor NoFlash //replaces TeleportFog
+{
+	RenderStyle None
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Stop
+	}
+}
+
+actor mastergun : Weapon
+{
+  Weapon.AmmoUse 0
+  +WEAPON.NOALERT
+  +WEAPON.NOAUTOFIRE
+  +WEAPON.AMMO_OPTIONAL
+  +WEAPON.ALT_AMMO_OPTIONAL
+  +WEAPON.CHEATNOTWEAPON
+  +INVENTORY.UNDROPPABLE
+  States
+  {
+  Ready:
+    TNT1 A 1 A_WeaponReady
+    Loop
+  Deselect:
+    TNT1 A 1 A_Lower
+    Loop
+  Select:
+    TNT1 A 1 A_Raise
+    Loop
+  Fire:
+    TNT1 A 0 ACS_ExecuteAlways(mop_possess)
+	TNT1 A 5
+	goto ready
+  AltFire:
+    TNT1 A 0 //ACS_ExecuteAlways(mop_findmarines)
+    TNT1 A 5
+	goto ready
+  Spawn:
+    TNT1 A 1 Thing_Remove (0)
+    Stop
+  }
+}
+
+
+
 actor MGhost
 {
 	+NOBLOCKMAP

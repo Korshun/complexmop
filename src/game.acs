@@ -1,0 +1,10 @@
+script mop_enter ENTER
+{
+	Thing_ChangeTid(0, 1000 + PlayerNumber());
+}
+script mop_respawn RESPAWN
+{
+	// Get rid of old tids.
+	Thing_ChangeTid(1000 + PlayerNumber(), 0);
+	Thing_ChangeTid(0, 1000 + PlayerNumber());
+}

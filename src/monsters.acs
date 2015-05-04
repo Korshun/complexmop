@@ -1,0 +1,13 @@
+#define MONSTER_ACTORNAME 0
+#define MONSTER_DIFFICULTY 1
+#define MONSTER_FLAGS 2
+#define NUM_MONSTER_PROPERTIES 3
+
+#define MONSTF_FLYING 1
+
+#define NUM_MONSTER_TYPES 2
+int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
+{
+	{ "ZombieMan1", 0.1, 0 },
+	{ "PlasmaGunner", 0.1, 0 }
+};
