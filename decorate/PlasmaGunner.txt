@@ -1,4 +1,4 @@
-Actor PossessedPlasmaGunner : PlayerPawn
+Actor PossessedPlasmaGunner : PossessedMonster
 {
 	-PICKUP
 	Player.MorphWeapon "PlasmaGunnerWeapon"
@@ -8,7 +8,7 @@ Actor PossessedPlasmaGunner : PlayerPawn
 	Height 56
 	Speed 0.35 // FIXME: how to convert speeds?
 	Mass 100
-	PainChance 160
+	//PainChance 160
 	+FLOORCLIP
 	+MISSILEMORE
 	SeeSound "fem/sight"
@@ -33,9 +33,6 @@ Actor PossessedPlasmaGunner : PlayerPawn
         ZMAY F 2 Bright
         ZMAY E 3
         Goto Missile+1
-	Pain:
-        ZMAY G 6 A_Pain
-        Goto See
     }
 }
 
