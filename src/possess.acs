@@ -20,7 +20,8 @@ script mop_possess (void)
 	int y = GetActorY(TEMPTID);
 	int z = GetActorZ(TEMPTID);
 	int angle = GetActorAngle(TEMPTID);
-	int health = GetActorProperty(TEMPTID, APROP_Health);
+	int health = GetActorProperty(TEMPTID, APROP_HEALTH);
+	int spawnhealth = GetActorProperty(TEMPTID, APROP_SPAWNHEALTH);
 	int vx = GetActorVelX(TEMPTID);
 	int vy = GetActorVelY(TEMPTID);
 	int vz = GetActorVelZ(TEMPTID);
@@ -48,9 +49,7 @@ script mop_possess (void)
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
 	// Show HUD.
-	/*
-	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber());
-	*/
+	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth);
 
 	// Fix firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
@@ -99,20 +98,20 @@ script mop_possess (void)
 }
 
 // Puppeter custom hud drawing.
-script mop_possessed_hud(int player) CLIENTSIDE
+script mop_possessed_hud(int player, int spawnhp) CLIENTSIDE
 {
 	if (ConsolePlayerNumber() != player)
 		terminate;
 
-	while (GetActorProperty(0, APROP_HEALTH) > 0)
+	while (GetActorProperty(0, APROP_HEALTH) > POSSESSED_ADDITIONAL_HP)
 	{
 		// Ripped from MOP-X.
 		SetHUDSize(400,300,0);
 		SetFont("SMALLFONT");
 		HUDMessage(
-			i:GetActorProperty(0,APROP_HEALTH),
+			i:GetActorProperty(0,APROP_HEALTH) - POSSESSED_ADDITIONAL_HP,
 			s:"/",
-			i:GetActorProperty(0,APROP_SPAWNHEALTH);
+			i:spawnhp;
 			HUDMSG_PLAIN, 0, CR_RED, 50.0, 280.0, 0.03
 		);
 		// End of MOP-X code.
