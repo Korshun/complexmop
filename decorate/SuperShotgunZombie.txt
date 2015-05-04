@@ -14,7 +14,6 @@ ACTOR PossessedSuperShotgunZombie : PossessedMonster
 	DropItem "AmmoPack" 65
 	DropItem "HandGrenadeAmmo" 150 1
 	DropItem "MineAmmo" 75 1
-	MONSTER 
 	+FLOORCLIP
 	+MISSILEMORE
 	SeeSound "grunt/sight"
