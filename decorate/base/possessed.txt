@@ -2,6 +2,8 @@ Actor PossessedMonster : PlayerPawn
 {
 	-PICKUP
 	+NOSKIN
+	+NOTARGET
+	-FRIENDLY
 }
 
 Actor PossessedWeapon : Weapon

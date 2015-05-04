@@ -1,12 +1,3 @@
-function int FindMonsterTypeByTid(int tid)
-{
-	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
-		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
-			return i;
-
-	return -1;
-}
-
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -16,40 +7,28 @@ script mop_possess (void)
 	SetActivatorToTarget(0);
 	if (PlayerNumber() != -1)
 		terminate; // Cannot possess a player.
+		
+	// Temporarily change the monster's tid.
+	Thing_ChangeTid(0, TEMPTID);
 
 	// Store monster properties.
-	int x = GetActorX(0);
-	int y = GetActorY(0);
-	int z = GetActorZ(0);
-	int angle = GetActorAngle(0);
-	int health = GetActorProperty(0, APROP_Health);
+	int type = IdentifyMonster(TEMPTID);
+	int x = GetActorX(TEMPTID);
+	int y = GetActorY(TEMPTID);
+	int z = GetActorZ(TEMPTID);
+	int angle = GetActorAngle(TEMPTID);
+	int health = GetActorProperty(TEMPTID, APROP_Health);
+	int vx = GetActorVelX(TEMPTID);
+	int vy = GetActorVelY(TEMPTID);
+	int vz = GetActorVelZ(TEMPTID);
 	
-	// Dead monsters can't be possessed.
-	if (health <= 0)
-		terminate;
-		
-	// Temporarily change the monster's tid to use ThingCountName
-	// and to be able to Thing_Remove it without removing the activator.
-	Thing_ChangeTid(0, TEMPTID);
-		
-	// Find out the monster's type.
-	int type;
-	for (type = 0; type < NUM_MONSTER_TYPES; type++)
-	{
-		printbold(s:MonsterTypes[type][MONSTER_ACTORNAME]);
-		if (ThingCountName(MonsterTypes[type][MONSTER_ACTORNAME], TEMPTID))
-			break;
-	}
-
-	printbold(d:type);
-
-	// Unknown actors can't be possessed.
-	if (type == NUM_MONSTER_TYPES)
+	// Dead and unknown actors can't be possessed.
+	if (health <= 0 || type == -1)
 	{
 		Thing_ChangeTid(TEMPTID, 0);
 		terminate;
 	}
-
+	
 	// Remove the monster and move puppetmaster to the exact position of the monster.
 	SetActivator(player);
 	Thing_Remove(TEMPTID);
@@ -60,9 +39,10 @@ script mop_possess (void)
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "", "");
 
 	// Set properties.
-	SetPlayerProperty(0, true, PROP_NoTarget);
-	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_Fly);
-	SetActorProperty(0, APROP_Health, health);
+	SetPlayerProperty(0, true, PROP_NOTARGET);
+	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_FLY);
+	SetActorProperty(0, APROP_HEALTH, health);
+	SetActorVelocity(0, vx, vy, vz, false, true);
 
 	/*
 	// Show HUD.
@@ -70,9 +50,9 @@ script mop_possess (void)
 	*/
 
 	// Fix instant shooting after morphing.
-	SetPlayerProperty(0, true, PROP_TotallyFrozen);
+	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
 	Delay(7);
-	SetPlayerProperty(0, false, PROP_TotallyFrozen);
+	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 
 	// Wait until the posessed monster is dead.
 	while (GetActorProperty(0, APROP_HEALTH) > 0)
@@ -81,6 +61,4 @@ script mop_possess (void)
 	/*
 	LeaveMonster(); // The posessed monster has died.
 	*/
-
-	print(s:"leave monster");
 }

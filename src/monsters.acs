@@ -11,3 +11,12 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "PlasmaGunner", 0.1, 0 },
 	{ "RailGunner",   0.1, 0 }
 };
+
+function int IdentifyMonster(int tid)
+{
+	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
+			return i;
+
+	return -1;
+}
