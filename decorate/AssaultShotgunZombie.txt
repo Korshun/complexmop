@@ -1,0 +1,58 @@
+ACTOR PossessedAssaultShotgunZombie : PossessedMonster
+{ 
+	Player.MorphWeapon "AssaultShotgunZombieWeapon"
+	
+	Health 40
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 140
+	DropItem "NewShell" 255 4
+	DropItem "HealthFlask" 55
+	DropItem "ArmorCharge" 55
+	DropItem "AmmoPack" 40
+	DropItem "HandGrenadeAmmo" 100 1
+	DropItem "MineAmmo" 50 1
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "grunt/sight"
+	AttackSound "AShotgun/Fire"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o got some extra holes from an Assault Shotgunner."
+	States
+	{
+	Spawn:
+		ASGZ A 10
+		ASGI A 10
+		Loop
+	See:
+		ASGZ AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ASGZ CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", -8, 7, 30, 4, 0, (0.1)*Random(30, 40), Random(-80, -90), 128)
+		ASGZ F 4 Bright
+		ASGZ E 8
+		ASGZ E 10
+		Goto See
+    }
+}
+
+Actor AssaultShotgunZombieWeapon : PossessedWeapon
+{
+	AttackSound "AShotgun/Fire"
+	
+	States
+	{
+	Fire:
+		TNT1 AAAA 0 Bright A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 4 Bright A_FireBullets(22.5,0,5,4)
+		TNT1 A 8 	
+		Goto Ready
+	}
+}

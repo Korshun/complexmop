@@ -22,3 +22,8 @@ OBJECT PossessedShotgunZombie
 {
 Frame ZSP1F { Light ZOMBIEATK }
 }
+
+OBJECT AssaultShotgunZombie
+{
+Frame ASGZF { Light ZOMBIEATK }
+}

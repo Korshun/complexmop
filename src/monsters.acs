@@ -5,14 +5,15 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 5
+#define NUM_MONSTER_TYPES 6
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner",		0.1, 0 },
-	{ "RailGunner",			0.1, 0 },
-	{ "DemonTechZombie",	0.2, 0 },
-	{ "RocketZombie",		0.5, 0 },
-	{ "ShotgunZombie",		0.2, 0 }
+	{ "PlasmaGunner",			0.1, 0 },
+	{ "RailGunner",				0.1, 0 },
+	{ "DemonTechZombie",		0.2, 0 },
+	{ "RocketZombie",			0.5, 0 },
+	{ "ShotgunZombie",			0.2, 0 },
+	{ "AssaultShotgunZombie",	0.3, 0 }
 };
 
 function int IdentifyMonsterType(int tid)
