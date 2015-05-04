@@ -1,6 +1,22 @@
+#define PLAYER_MARINE 1
+#define PLAYER_MOP 2
+
+int PlayerClasses[MAX_PLAYERS];
+
+int MarineCount = 0;
+int PuppetMasterCount = 0;
+int PossessedCount = 0;
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
+	
+	if (PlayerClass(PlayerNumber()) == 1)
+		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+	else
+		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
+		
+	UpdatePlayerCount();
 }
 script mop_respawn RESPAWN
 {
@@ -8,3 +24,46 @@ script mop_respawn RESPAWN
 	Thing_ChangeTid(1000 + PlayerNumber(), 0);
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
 }
+
+function void UpdatePlayerCount(void)
+{
+	MarineCount = 0;
+	PuppetMasterCount = 0;
+
+	for (int i = 0; i < MAX_PLAYERS; i++)
+	{
+		if (!PlayerInGame(i))
+			continue;
+
+		if (PlayerClasses[i] == PLAYER_MOP)
+			PuppetMasterCount++;
+		else if (PlayerClasses[i] == PLAYER_MARINE)
+			MarineCount++;
+	}
+}
+
+function int TotalMonsterCount(void)
+{
+	return GetLevelInfo(LEVELINFO_TOTAL_MONSTERS) + PossessedCount;
+}
+
+function int LivingMonsterCount(void)
+{
+	return TotalMonsterCount() - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
+}
+
+script 500 OPEN
+{
+	SetFont("SMALLFONT");
+	SetHudSize(640, 480, 1);
+	HudMessageBold(s:"Marines: ", d:MarineCount,
+		s:"\nmops: ", d:PuppetMasterCount,
+		s:"\n",
+		s:"\nmonsters: ", d:TotalMonsterCount(),
+		s:"\nalive: ", d:LivingMonsterCount();
+	HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+	
+	Delay(1);
+	restart;
+}
+

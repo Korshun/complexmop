@@ -41,6 +41,7 @@ script mop_possess (void)
 
 	// Morph!
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
+	PossessedCount++;
 
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
@@ -84,6 +85,7 @@ script mop_possess (void)
 	
 	// Unmorph.
 	UnmorphActor(0, true);
+	PossessedCount--;
 	SetActorProperty(0, APROP_HEALTH, 1);
 	
 	// Spawn the replacement actor.
