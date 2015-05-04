@@ -3,3 +3,4 @@
 #include "decorate/base/possessed.txt"
 
 #include "decorate/PlasmaGunner.txt"
+#include "decorate/RailGunner.txt"

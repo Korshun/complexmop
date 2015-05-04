@@ -5,8 +5,9 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 1
+#define NUM_MONSTER_TYPES 2
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner", 0.1, 0 }
+	{ "PlasmaGunner", 0.1, 0 },
+	{ "RailGunner",   0.1, 0 }
 };
