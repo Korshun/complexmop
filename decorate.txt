@@ -5,6 +5,7 @@
 #include "decorate/PlasmaGunner.txt"
 #include "decorate/RailGunner.txt"
 #include "decorate/DemonTechZombie.txt"
+#include "decorate/RocketZombie.txt"
 
 Actor ZombieMan1 : ZombieMan {}
 

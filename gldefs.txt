@@ -12,3 +12,8 @@ OBJECT PossessedDemonTechZombie
 {
 Frame ZSP3F { Light ZombieDemonTech1 }
 }
+
+OBJECT PossessedRocketZombie
+{
+Frame MPO2F { Light ZOMBIEATK }
+}
