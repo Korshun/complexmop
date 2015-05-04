@@ -86,7 +86,7 @@ script mop_possess (void)
 	SetActorProperty(0, APROP_HEALTH, 1);
 	
 	// Spawn the replacement actor.
-	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle);
+	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>256);
 	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
 	
 	// Transfer health.
