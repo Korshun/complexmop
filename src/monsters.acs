@@ -12,10 +12,19 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "RailGunner",   0.1, 0 }
 };
 
-function int IdentifyMonster(int tid)
+function int IdentifyMonsterType(int tid)
 {
 	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
 		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
+			return i;
+
+	return -1;
+}
+
+function int IdentifyPossessedMonsterType(int player)
+{
+	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+		if (ThingCountName(StrParam(s:"Possessed", s:MonsterTypes[i][MONSTER_ACTORNAME]), 1000 + player))
 			return i;
 
 	return -1;

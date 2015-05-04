@@ -1,7 +1,6 @@
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
-	printbold(d:ActivatorTid());
 	
 	// Select the monster we are pointing at.
 	SetActivatorToTarget(0);
@@ -12,7 +11,7 @@ script mop_possess (void)
 	Thing_ChangeTid(0, TEMPTID);
 
 	// Store monster properties.
-	int type = IdentifyMonster(TEMPTID);
+	int type = IdentifyMonsterType(TEMPTID);
 	int x = GetActorX(TEMPTID);
 	int y = GetActorY(TEMPTID);
 	int z = GetActorZ(TEMPTID);
@@ -44,21 +43,91 @@ script mop_possess (void)
 	SetActorProperty(0, APROP_HEALTH, health);
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
-	/*
 	// Show HUD.
-	ACS_ExecuteAlways(404, 0, PlayerNumber());
+	/*
+	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber());
 	*/
 
-	// Fix instant shooting after morphing.
+	// Fix firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
 	Delay(7);
 	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 
-	// Wait until the posessed monster is dead.
-	while (GetActorProperty(0, APROP_HEALTH) > 0)
+	// Wait until the monster dies or puppetmaster leaves.
+	// And record the hp difference in case the monster died.
+	int hp1 = GetActorProperty(0, APROP_HEALTH);
+	int hp2 = GetActorProperty(0, APROP_HEALTH);
+	while (hp2 >= 0 && !(GetPlayerInput(0, INPUT_BUTTONS) & BT_ALTATTACK))
+	{
+		hp1 = hp2;
+		hp2 = GetActorProperty(0, APROP_HEALTH);
 		Delay(1);
-
-	/*
-	LeaveMonster(); // The posessed monster has died.
-	*/
+	}
+	
+	UnmorphActor(0, true);
 }
+
+// Puppeter custom hud drawing.
+script mop_possessed_hud(int player) CLIENTSIDE
+{
+	if (ConsolePlayerNumber() != player)
+		terminate;
+
+	while (GetActorProperty(0, APROP_HEALTH) > 0)
+	{
+		// Ripped from MOP-X.
+		SetHUDSize(400,300,0);
+		SetFont("SMALLFONT");
+		HUDMessage(
+			i:GetActorProperty(0,APROP_HEALTH),
+			s:"/",
+			i:GetActorProperty(0,APROP_SPAWNHEALTH);
+			HUDMSG_PLAIN, 0, CR_RED, 50.0, 280.0, 0.03
+		);
+		// End of MOP-X code.
+		
+		Delay(1);
+	}
+}
+
+/*
+function void LeaveMonster(void)
+{
+	int type = IdentifyPossessedMonsterType(PlayerNumber());
+	if (type == -1)
+	{
+		print(s:"Error: trying to leave monster while not posessing");
+		return;
+	}
+
+	int x = GetActorX(0);
+	int y = GetActorY(0);
+	int z = GetActorZ(0);
+	int vx = GetActorVelX(0);
+	int vy = GetActorVelY(0);
+	int vz = GetActorVelZ(0);
+	int angle = GetActorAngle(0);
+	int health = GetActorProperty(0, APROP_HEALTH);
+
+	UnmorphActor(0, true);
+	
+	Spawn(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+	SetActorVelocity(
+
+	if (health > 0)
+	{
+		// Monster is alive. Transfer health spent by puppetmaster.
+		SetActorProperty(666, APROP_Health, health);
+	}
+	else
+	{
+		// Monster is dead. Transfer damage dealt to puppetmaster
+		// to display correct death animation.
+		int damage = GetActorProperty(666, APROP_SpawnHealth) - health;
+		Thing_Damage(666, damage);
+		//Log(s:"Transfering ", d:damage, s:" damage");
+	}
+
+	Thing_ChangeTid(666, 0);
+}
+*/
