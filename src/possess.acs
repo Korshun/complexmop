@@ -1,5 +1,7 @@
 int LastDeathPosition[MAX_PLAYERS][4];
 
+#define POSSESSED_ADDITIONAL_HP 10000
+
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -42,7 +44,7 @@ script mop_possess (void)
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
 	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_FLY);
-	SetActorProperty(0, APROP_HEALTH, health);
+	SetActorProperty(0, APROP_HEALTH, health + POSSESSED_ADDITIONAL_HP);
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
 	// Show HUD.
@@ -59,7 +61,7 @@ script mop_possess (void)
 	// And record the hp difference in case the monster died.
 	int hp1 = GetActorProperty(0, APROP_HEALTH);
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
-	while (hp2 >= 0 && !(GetPlayerInput(0, INPUT_BUTTONS) & BT_ALTATTACK))
+	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(0, INPUT_BUTTONS) & BT_ALTATTACK))
 	{
 		hp1 = hp2;
 		hp2 = GetActorProperty(0, APROP_HEALTH);
@@ -90,7 +92,7 @@ script mop_possess (void)
 	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
 	
 	// Transfer health.
-	SetActorProperty(TEMPTID, APROP_HEALTH, hp1);
+	SetActorProperty(TEMPTID, APROP_HEALTH, hp1 - POSSESSED_ADDITIONAL_HP);
 	Thing_Damage(TEMPTID, hp1 - hp2, 0);
 	
 	Thing_ChangeTid(TEMPTID, 0);
