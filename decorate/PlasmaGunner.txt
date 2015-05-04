@@ -1,6 +1,6 @@
 Actor PossessedPlasmaGunner : PossessedMonster
 {
-	Player.MorphWeapon "Zombie Plasma Gun"
+	Player.MorphWeapon "PlasmaGunnerWeapon"
 	
 	Health 20
 	Radius 20
@@ -40,7 +40,7 @@ Actor PossessedPlasmaGunner : PossessedMonster
     }
 }
 
-ACTOR "Zombie Plasma Gun" : PossessedWeapon
+ACTOR PlasmaGunnerWeapon : PossessedWeapon
 {
 	States
 	{
