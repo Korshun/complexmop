@@ -1,6 +1,5 @@
 Actor PossessedPlasmaGunner : PossessedMonster
 {
-	-PICKUP
 	Player.MorphWeapon "PlasmaGunnerWeapon"
 	
 	Health 20
