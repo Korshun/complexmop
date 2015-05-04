@@ -16,7 +16,6 @@ ACTOR PossessedRocketZombie : PossessedMonster
 	DropItem "HandGrenadeAmmo" 200 1
 	DropItem "MineAmmo" 100 1
 	DamageFactor "ZombieRocket", 0.2
-	MONSTER 
 	+FLOORCLIP
 	+MISSILEMORE
 	SeeSound "grunt/sight"

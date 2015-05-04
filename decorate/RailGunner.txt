@@ -14,7 +14,6 @@ Actor PossessedRailGunner : PossessedMonster
 	DropItem "HandGrenadeAmmo" 100 1
 	DropItem "MineAmmo" 50 1
 	DropItem "NewCell" 100 20
-	MONSTER 
 	+FLOORCLIP 
 	+MISSILEMORE
 	Obituary "%o caught a Railgunner's slug." 

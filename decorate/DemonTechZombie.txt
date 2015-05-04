@@ -16,7 +16,6 @@ ACTOR PossessedDemonTechZombie : PossessedMonster
 	DropItem "MineAmmo" 75 1
 	DropItem "DemonAmmo" 162 80
 	DamageFactor "ZombieDemonTech", 0.15
-	MONSTER 
 	+FLOORCLIP
 	+MISSILEMORE
 	+MISSILEEVENMORE
