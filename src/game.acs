@@ -15,7 +15,8 @@ script mop_enter ENTER
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
 	else
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
-		
+	
+	MakePuppetMasterFlying();
 	UpdatePlayerCount();
 }
 script mop_respawn RESPAWN
@@ -23,6 +24,13 @@ script mop_respawn RESPAWN
 	// Get rid of old tids.
 	Thing_ChangeTid(1000 + PlayerNumber(), 0);
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
+	MakePuppetMasterFlying();
+}
+
+function void MakePuppetMasterFlying(void)
+{
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+		SetPlayerProperty(0, true, PROP_FLY);
 }
 
 function void UpdatePlayerCount(void)
