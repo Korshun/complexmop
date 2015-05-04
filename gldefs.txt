@@ -7,3 +7,8 @@ OBJECT PossessedRailgunner
 {
 Frame RPOSF { Light ZombieRail1 }
 }
+
+OBJECT PossessedDemonTechZombie
+{
+Frame ZSP3F { Light ZombieDemonTech1 }
+}

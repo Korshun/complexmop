@@ -5,19 +5,23 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 2
+#define NUM_MONSTER_TYPES 3
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner", 0.1, 0 },
-	{ "RailGunner",   0.1, 0 }
+	{ "PlasmaGunner",		0.1, 0 },
+	{ "RailGunner",			0.1, 0 },
+	{ "DemonTechZombie",	0.2, 0 }
 };
 
 function int IdentifyMonsterType(int tid)
 {
 	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	{
+		printbold(s:MonsterTypes[i][MONSTER_ACTORNAME]);
 		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
 			return i;
-
+	}
+	
 	return -1;
 }
 
