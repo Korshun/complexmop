@@ -4,6 +4,13 @@ Actor PossessedMonster : PlayerPawn
 	+NOSKIN
 	+NOTARGET
 	-FRIENDLY
+	
+	States
+	{
+	Death:
+		NULL A 1
+		Loop
+	}
 }
 
 Actor PossessedWeapon : Weapon
