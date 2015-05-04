@@ -1,0 +1,201 @@
+//================
+// Fullscreen HUD
+//================
+
+MugShot "GodAnimated"
+{
+	{GOD0, GOD1, GOD2} 17;
+}
+
+MugShot "XDeath"
+{
+	XDTH0 2;
+	XDTH1 2;
+	XDTH2 2;
+	XDTH3 2;
+	XDTH4 -1;
+}
+
+StatusBar FullScreen, FullScreenOffsets
+{
+	// THIS LINE CAUSES A CRASH IN MorphActor IN MULTIPLAYER!!!
+	//DrawMugshot 5, AnimatedGodMode, XDeathFace, 86, -38;
+	
+	InInventory PowerStrength
+	{
+	DrawImage "ZERKA0", 22, -4, CenterBottom; 
+	}
+    InInventory Not PowerStrength
+	{
+	DrawImage "MEDIA0", 22, -4, CenterBottom;
+	}
+	
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Health, DrawShadow, 84, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Health, WhenNotZero, DrawShadow, 84, -22, 0, Red, 25, Green, 51;
+	
+    DrawImage ArmorIcon, 22, -27, CenterBottom;
+    DrawNumber 3, HUDFONT_DOOM, Green, Armor, WhenNotZero, DrawShadow, 84, -41, 0, Red, 25, Blue, 101;
+	
+	DrawImage AmmoIcon2, -16, -25, CenterBottom;
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo2, DrawShadow, -27, -41, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo2, WhenNotZero, DrawShadow, -27, -41, 0, Red, 10, Green, 21;
+
+    IsSelected "Hand Grenade"
+	{
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
+	}
+    IsSelected "Land Mine"
+	{
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
+	}
+    IsSelected Handgun
+	{
+	DrawImage "SEWPA0", -64, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 4, Green, 9;
+	}
+    IsSelected "Combat Shotgun"
+	{
+	DrawImage "SEWPA0", -56, -53;
+	DrawImage AmmoIcon1, -34, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
+	}
+    IsSelected "Assault Shotgun"
+	{
+	DrawImage "SEWPA0", -56, -53;
+	DrawImage AmmoIcon1, -32, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 4, Green, 10;
+	}
+    IsSelected "Double Barrel Shotgun"
+	{
+	DrawImage "SEWPA0", -56, -53;
+	DrawImage AmmoIcon1, -31, -5, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 1, Green, 2;
+	}
+    IsSelected "Quad Barrel Shotgun"
+	{
+	DrawImage "SEWPA0", -56, -53;
+	DrawImage AmmoIcon1, -31, -5, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 4;
+	}
+    IsSelected "Assault Rifle"
+	{
+	DrawImage "SEWPA0", -48, -53;
+	DrawImage AmmoIcon1, -30, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}
+    IsSelected "Minigun "
+	{
+	DrawImage "SEWPA0", -48, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 25, Green, 51;
+	}	
+    IsSelected "Rocket Launcher"
+	{
+	DrawImage "SEWPA0", -40, -53;
+	DrawImage AmmoIcon1, -29, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
+	}
+    IsSelected "Grenade Launcher"
+	{
+	DrawImage "SEWPA0", -40, -53;
+	DrawImage AmmoIcon1, -25, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
+	}
+    IsSelected "Plasma Rifle"
+	{
+	DrawImage "SEWPA0", -32, -53;
+	DrawImage AmmoIcon1, -28, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}
+    IsSelected "Demon Tech Rifle"
+	{
+	DrawImage "SEWPA0", -32, -53;
+	DrawImage AmmoIcon1, -32, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}
+    IsSelected "Railgun "
+	{
+	DrawImage "SEWPA0", -32, -53;
+	DrawImage AmmoIcon1, -27, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}
+    IsSelected BFG9500
+	{
+	DrawImage "SEWPA0", -24, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 40, Green, 81;
+	}
+    IsSelected "BFG10K "
+	{
+	DrawImage "SEWPA0", -24, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 30, Green, 61;
+	}
+    IsSelected "Demon Tech BFG10K"
+	{
+	DrawImage "SEWPA0", -24, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 100, Green, 201;
+	}
+    IsSelected MP40
+	{
+	DrawImage "SEWPA0", -16, -53;
+	DrawImage AmmoIcon1, -24, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}		
+	
+	DrawImage "HDCPA0", -14, -87;
+	DrawNumber 3, INDEXFONT, White, Ammo BulletMag, -16, -87;	
+	DrawImage "HDSLA0", -16, -80;
+	DrawNumber 3, INDEXFONT, White, Ammo NewShell, -16, -80;
+	DrawImage "HDRKA0", -15, -73;
+	DrawNumber 3, INDEXFONT, White, Ammo Missile, -16, -73;
+	DrawImage "HDCLA0", -14, -66;
+	DrawNumber 3, INDEXFONT, White, Ammo NewCell, -16, -66;
+	DrawImage "HDTKA0", -14, -59;
+	DrawNumber 3, INDEXFONT, White, Ammo DemonAmmo, -16, -59;
+	DrawImage "IGRNA0", -32, -54;	
+	DrawNumber 1, INDEXFONT, White, HandGrenadeAmmo, -37, -59;
+	DrawImage "HMINA0", -49, -54;	
+	DrawNumber 1, INDEXFONT, White, MineAmmo, -59, -59;	
+
+    DrawSwitchableImage WeaponSlot 2, "HUDNUM2", "HU2NUM2", -61, -50; 
+    DrawSwitchableImage WeaponSlot 3, "HUDNUM3", "HU2NUM3", -53, -50;
+    DrawSwitchableImage WeaponSlot 4, "HUDNUM4", "HU2NUM4", -45, -50;
+    DrawSwitchableImage WeaponSlot 5, "HUDNUM5", "HU2NUM5", -37, -50;
+    DrawSwitchableImage WeaponSlot 6, "HUDNUM6", "HU2NUM6", -29, -50;
+    DrawSwitchableImage WeaponSlot 7, "HUDNUM7", "HU2NUM7", -21, -50;
+	DrawSwitchableImage WeaponSlot 8, "HUDNUM8", "HU2NUM8", -13, -50;
+		
+	DrawSwitchableImage BlueCard && BlueSkull, "", "STKEYS0", "STKEYS3", "STKEYS6", -14, 4;
+	DrawSwitchableImage YellowCard && YellowSkull, "", "STKEYS1", "STKEYS4", "STKEYS7", -14, 13;
+	DrawSwitchableImage RedCard && RedSkull, "", "STKEYS2", "STKEYS5", "STKEYS8", -14, 22;
+	
+	DrawSelectedInventory INDEXFONT, -102, -32, -70, -12, White;
+}
+
+StatusBar InventoryFullscreen, FullScreenOffsets
+{
+   DrawInventoryBar Doom, NoArrows, Translucent, 6, INDEXFONT, -96 + Center, 0, -68 + Center, 2, White;
+}
