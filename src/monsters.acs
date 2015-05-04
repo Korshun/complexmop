@@ -16,6 +16,13 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "AssaultShotgunZombie",	0.3, 0 }
 };
 
+// List of items that monsters can carry.
+#define NUM_MONSTER_ITEMS 1
+int MonsterItems[NUM_MONSTER_ITEMS] =
+{
+	"SSGZombieToken"
+};
+
 function int IdentifyMonsterType(int tid)
 {
 	for (int i = 0; i < NUM_MONSTER_TYPES; i++)

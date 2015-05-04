@@ -2,6 +2,8 @@ int LastDeathPosition[MAX_PLAYERS][4];
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
+int MonsterItemsTemp[NUM_MONSTER_ITEMS];
+
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -33,6 +35,10 @@ script mop_possess (void)
 		terminate;
 	}
 	
+	// Save monster items.
+	for (int i = 0; i < NUM_MONSTER_ITEMS; i++)
+		MonsterItemsTemp[i] = CheckActorInventory(TEMPTID, MonsterItems[i]);
+	
 	// Remove the monster and move puppetmaster to the exact position of the monster.
 	SetActivator(player);
 	Thing_Remove(TEMPTID);
@@ -42,6 +48,10 @@ script mop_possess (void)
 	// Morph!
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 	PossessedCount++;
+	
+	// Give back items.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+		GiveInventory(MonsterItems[i], MonsterItemsTemp[i]);
 
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
@@ -61,7 +71,7 @@ script mop_possess (void)
 	// And record the hp difference in case the monster died.
 	int hp1 = GetActorProperty(0, APROP_HEALTH);
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
-	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(0, INPUT_BUTTONS) & BT_ALTATTACK))
+	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(0, INPUT_BUTTONS) & BT_CROUCH))
 	{
 		hp1 = hp2;
 		hp2 = GetActorProperty(0, APROP_HEALTH);
@@ -92,6 +102,13 @@ script mop_possess (void)
 	// Spawn the replacement actor.
 	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
 	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
+	
+	// Give back items and take them away from puppetmaster just in case.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+	{
+		GiveActorInventory(TEMPTID, MonsterItems[i], CheckInventory(MonsterItems[i]));
+		TakeInventory(MonsterItems[i], CheckInventory(MonsterItems[i]));
+	}
 	
 	// Transfer health.
 	SetActorProperty(TEMPTID, APROP_HEALTH, hp1 - POSSESSED_ADDITIONAL_HP);
