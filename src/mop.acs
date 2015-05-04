@@ -5,7 +5,9 @@
 #define mop_enter 801
 #define mop_respawn 802
 #define mop_possessed_hud 803
+#define mop_respawn_puppetmaster 804
 
+#define MAX_PLAYERS 64
 #define INT_MAX 2147483647
 #define TEMPTID 8080
 

@@ -1,3 +1,5 @@
+int LastDeathPosition[MAX_PLAYERS][4];
+
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -64,7 +66,34 @@ script mop_possess (void)
 		Delay(1);
 	}
 	
+	// Record last death's point to respawn there.
+	LastDeathPosition[PlayerNumber()][0] = GetActorX(0);
+	LastDeathPosition[PlayerNumber()][1] = GetActorY(0);
+	LastDeathPosition[PlayerNumber()][2] = GetActorZ(0);
+	LastDeathPosition[PlayerNumber()][3] = GetActorAngle(0);
+	
+	// The position of the monster.
+	x = GetActorX(0);
+	y = GetActorY(0);
+	z = GetActorZ(0);
+	vx = GetActorVelX(0);
+	vy = GetActorVelY(0);
+	vz = GetActorVelZ(0);
+	angle = GetActorAngle(0);
+	
+	// Unmorph.
 	UnmorphActor(0, true);
+	SetActorProperty(0, APROP_HEALTH, 1);
+	
+	// Spawn the replacement actor.
+	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle);
+	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
+	
+	// Transfer health.
+	SetActorProperty(TEMPTID, APROP_HEALTH, hp1);
+	Thing_Damage(TEMPTID, hp1 - hp2, 0);
+	
+	Thing_ChangeTid(TEMPTID, 0);
 }
 
 // Puppeter custom hud drawing.
@@ -88,6 +117,20 @@ script mop_possessed_hud(int player) CLIENTSIDE
 		
 		Delay(1);
 	}
+}
+
+// Move the puppetmaster to the place of his last death.
+script mop_respawn_puppetmaster RESPAWN
+{
+	if (!ThingCountName("PuppetMaster", 1000 + PlayerNumber()))
+		terminate;
+		
+	int x = LastDeathPosition[PlayerNumber()][0];
+	int y = LastDeathPosition[PlayerNumber()][1];
+	int z = LastDeathPosition[PlayerNumber()][2];
+
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, LastDeathPosition[PlayerNumber()][3]);
 }
 
 /*
