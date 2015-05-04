@@ -37,7 +37,7 @@ script mop_possess (void)
 	SetActorAngle(0, angle);
 
 	// Morph!
-	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "", "");
+	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
