@@ -32,3 +32,8 @@ OBJECT PossessedSuperShotgunZombie
 {
 Frame UDM2F { Light ZOMBIEATK }
 }
+
+OBJECT PossessedQuadShotgunZombie
+{
+Frame QSZMF { Light ZOMBIEATK }
+}

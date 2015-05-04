@@ -5,7 +5,7 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 7
+#define NUM_MONSTER_TYPES 8
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "PlasmaGunner",			0.1, 0 },
@@ -14,14 +14,16 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "RocketZombie",			0.5, 0 },
 	{ "ShotgunZombie",			0.2, 0 },
 	{ "AssaultShotgunZombie",	0.3, 0 },
-	{ "SuperShotgunZombie",		0.5, 0 }
+	{ "SuperShotgunZombie",		0.5, 0 },
+	{ "QuadShotgunZombie",		1.0, 0 }
 };
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 1
+#define NUM_MONSTER_ITEMS 2
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
-	"SSGZombieToken"
+	"SSGZombieToken",
+	"QSGZombieToken"
 };
 
 function int IdentifyMonsterType(int tid)
