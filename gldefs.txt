@@ -17,3 +17,8 @@ OBJECT PossessedRocketZombie
 {
 Frame MPO2F { Light ZOMBIEATK }
 }
+
+OBJECT PossessedShotgunZombie
+{
+Frame ZSP1F { Light ZOMBIEATK }
+}
