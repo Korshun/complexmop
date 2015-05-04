@@ -35,6 +35,7 @@ Actor PossessedPlasmaGunner : PossessedMonster
 		ZMAY F 2 Bright
         ZMAY E 3
 		ZMAY E 20
+		ZMAY E 10
         Goto See
     }
 }
