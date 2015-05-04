@@ -1,6 +1,7 @@
 Actor PossessedMonster : PlayerPawn
 {
 	-PICKUP
+	+NOSKIN
 }
 
 Actor PossessedWeapon : Weapon
