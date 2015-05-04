@@ -1,0 +1,9 @@
+OBJECT PossessedPlasmaGunner
+{
+Frame ZMAYF { Light ZombiePlasma1 }
+}
+
+OBJECT PossessedRailgunner
+{
+Frame RPOSF { Light ZombieRail1 }
+}
