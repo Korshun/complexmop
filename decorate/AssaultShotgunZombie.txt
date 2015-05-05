@@ -45,7 +45,6 @@ ACTOR PossessedAssaultShotgunZombie : PossessedMonster
 Actor AssaultShotgunZombieWeapon : PossessedWeapon
 {
 	AttackSound "AShotgun/Fire"
-	Decal BulletChip
 	
 	States
 	{
