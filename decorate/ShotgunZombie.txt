@@ -51,22 +51,6 @@ Actor ShotgunZombieWeapon : PossessedWeapon
 
 	States
 	{
-	Fire:
-		TNT1 AAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
-		TNT1 A 5 Bright A_FireBullets(22.5,0,5,4)
-		TNT1 A 10
-		TNT1 A 8 A_PlaySound("weapons/12gsgcock")
-		TNT1 A 8
-		Goto Ready
-	}
-}
-
-Actor ShotgunZombieWeapon : PossessedWeapon
-{
-	AttackSound "weapons/12gaugefire"
-
-	States
-	{
 	Ready:
 		SHTG A 1 A_WeaponReady
 		Loop
