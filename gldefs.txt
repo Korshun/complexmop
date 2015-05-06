@@ -42,3 +42,8 @@ OBJECT PossessedAssaultRifleZombie
 {
 Frame ARZMF { Light ZOMBIEATK }
 }
+
+OBJECT PossessedChaingunner
+{
+Frame DPOSF { Light ZOMBIEATK }
+}
