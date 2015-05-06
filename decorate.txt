@@ -12,8 +12,9 @@
 #include "decorate/QuadShotgunZombie.txt"
 #include "decorate/AssaultRifleZombie.txt"
 #include "decorate/Chaingunner.txt"
-
+// Add chaingunners here.
 #include "decorate/DevilImp.txt"
+#include "decorate/VoidImp.txt"
 
 Actor ZombieMan1 : ZombieMan {}
 

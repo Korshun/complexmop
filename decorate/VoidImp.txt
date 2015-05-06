@@ -1,0 +1,65 @@
+ACTOR PossessedVoidImp : PossessedDevilImp
+{
+	Player.MorphWeapon "VoidImpWeapon"
+
+    Health 70
+    PainChance 120
+    Obituary "%o was cursed by a Void Imp."
+    HitObituary "%o was torn up by a Void Imp."
+	BloodColor "Green"
+	SeeSound "superimp/sight"
+	PainSound "voidimp/pain"
+	DeathSound "superimp/death"
+	ActiveSound "superimp/active"
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+    States
+    {
+    Spawn:
+        DRKS A 10
+		DRKI A 10
+        Loop
+    See:
+		DRKS AABB 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		DRKS CCDD 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+        Loop
+    Missile:
+	    DRKS EF 6
+        DRKS G 5
+	    DRKS FE 6
+		DRKS E 5
+		Goto See
+    Melee:
+		DRKS EF 8 
+		DRKS G 1 Bright
+		DRKS G 1 Bright
+		DRKS G 4 Bright 
+		DRKS FE 6
+		DRKS E 10
+        Goto See
+	}
+}
+
+Actor VoidImpWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 8
+		TNT1 A 1 Bright
+		TNT1 A 0 Bright A_PlaySound("imp/attack")
+		TNT1 A 1 Bright A_FireCustomMissile("NightBall")
+		TNT1 A 0 Bright A_FireCustomMissile("NightBall", 5)
+		TNT1 A 4 Bright A_FireCustomMissile("NightBall", -5)
+		TNT1 AA 6
+		Goto Ready
+	AltFire:
+		TNT1 AA 6
+        TNT1 A 5 A_CustomPunch(3)
+	    TNT1 AA 6
+		Goto Ready
+	}
+}
