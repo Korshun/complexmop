@@ -61,6 +61,10 @@ script mop_possess (void)
 
 	// Show HUD.
 	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth);
+	
+	// Run script.
+	if (MonsterTypes[type][MONSTER_SCRIPT] != 0)
+		ACS_ExecuteAlways(MonsterTypes[type][MONSTER_SCRIPT], 0);
 
 	// Fix firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);

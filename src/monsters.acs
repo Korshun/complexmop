@@ -1,27 +1,29 @@
 #define MONSTER_ACTORNAME 0
 #define MONSTER_DIFFICULTY 1
 #define MONSTER_FLAGS 2
-#define NUM_MONSTER_PROPERTIES 3
+#define MONSTER_SCRIPT 3
+#define NUM_MONSTER_PROPERTIES 4
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 13
+#define NUM_MONSTER_TYPES 14
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner",			0.1, 0 },
-	{ "RailGunner",				0.1, 0 },
-	{ "DemonTechZombie",		0.2, 0 },
-	{ "RocketZombie",			0.5, 0 },
-	{ "ShotgunZombie",			0.2, 0 },
-	{ "AssaultShotgunZombie",	0.3, 0 },
-	{ "SuperShotgunZombie",		0.5, 0 },
-	{ "QuadShotgunZombie",		1.0, 0 },
-	{ "AssaultRifleZombie",		0.2, 0 },
-	{ "Chaingunner",			0.2, 0 },
+	{ "PlasmaGunner",			0.1, 0, 0 },
+	{ "RailGunner",				0.1, 0, 0 },
+	{ "DemonTechZombie",		0.2, 0, 0 },
+	{ "RocketZombie",			0.5, 0, 0 },
+	{ "ShotgunZombie",			0.2, 0, 0 },
+	{ "AssaultShotgunZombie",	0.3, 0, 0 },
+	{ "SuperShotgunZombie",		0.5, 0, 0 },
+	{ "QuadShotgunZombie",		1.0, 0, 0 },
+	{ "AssaultRifleZombie",		0.2, 0, 0 },
+	{ "Chaingunner",			0.2, 0, 0 },
 	// Add chaingunners here.
-	{ "DevilImp",				0.2, 0 },
-	{ "VoidImp",				0.2, 0 },
-	{ "SoulHarvester",			0.2, 0 }
+	{ "DevilImp",				0.2, 0, 0 },
+	{ "VoidImp",				0.2, 0, 0 },
+	{ "SoulHarvester",			0.2, 0, 0 },
+	{ "PhaseImp",				0.2, 0, mop_phaseimp }
 };
 
 // List of items that monsters can carry.
@@ -48,4 +50,10 @@ function int IdentifyPossessedMonsterType(int player)
 			return i;
 
 	return -1;
+}
+
+script mop_phaseimp (void)
+{
+	printbold(s:"Ur ranslucent!");
+	SetActorProperty(0, APROP_ALPHA, 0.5);
 }

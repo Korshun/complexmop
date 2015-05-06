@@ -16,6 +16,7 @@
 #include "decorate/DevilImp.txt"
 #include "decorate/VoidImp.txt"
 #include "decorate/SoulHarvester.txt"
+#include "decorate/PhaseImp.txt"
 
 Actor ZombieMan1 : ZombieMan {}
 
