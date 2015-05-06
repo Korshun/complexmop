@@ -12,6 +12,8 @@
 #include "decorate/QuadShotgunZombie.txt"
 #include "decorate/AssaultRifleZombie.txt"
 
+#include "decorate/DevilImp.txt"
+
 Actor ZombieMan1 : ZombieMan {}
 
 ACTOR PossessedZombieMan1 : PlayerPawn
