@@ -54,11 +54,11 @@ Actor DevilImpWeapon : PossessedWeapon
 		DCLW A 1 A_WeaponReady
 		Loop
      Fire:
-		DCLW A 8 A_FaceTarget
+		DCLW A 8 
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
-		DCLW AAA 6 A_FaceTarget
+		DCLW AAA 6
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)	
-		DCLW AA 4 A_FaceTarget	
+		DCLW AA 4
 		Goto Ready
      AltFire:
 		DCLW AB 5
