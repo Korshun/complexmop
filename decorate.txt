@@ -15,6 +15,7 @@
 // Add chaingunners here.
 #include "decorate/DevilImp.txt"
 #include "decorate/VoidImp.txt"
+#include "decorate/SoulHarvester.txt"
 
 Actor ZombieMan1 : ZombieMan {}
 

@@ -5,7 +5,7 @@
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 12
+#define NUM_MONSTER_TYPES 13
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "PlasmaGunner",			0.1, 0 },
@@ -20,7 +20,8 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Chaingunner",			0.2, 0 },
 	// Add chaingunners here.
 	{ "DevilImp",				0.2, 0 },
-	{ "VoidImp",				0.2, 0 }
+	{ "VoidImp",				0.2, 0 },
+	{ "SoulHarvester",			0.2, 0 }
 };
 
 // List of items that monsters can carry.
