@@ -5,7 +5,6 @@
 Actor PossessedPlasmaGunner : PossessedMonster
 {
 	Player.MorphWeapon "PlasmaGunnerWeapon"
-	
 	Health 20
 	Radius 20
 	Height 56
@@ -75,7 +74,6 @@ ACTOR PlasmaGunnerWeapon : PossessedWeapon
 Actor PossessedRailGunner : PossessedMonster
 {
 	Player.MorphWeapon "RailGunnerWeapon"
-
 	Health 30
 	Radius 20 
 	Height 56 
@@ -140,7 +138,6 @@ Actor RailGunnerWeapon : PossessedWeapon
 ACTOR PossessedDemonTechZombie : PossessedMonster
 { 
 	Player.MorphWeapon "DemonTechZombieWeapon"
-	
 	Health 60
 	Radius 20
 	Height 56
@@ -205,7 +202,6 @@ Actor DemonTechZombieWeapon : PossessedWeapon
 ACTOR PossessedRocketZombie : PossessedMonster
 { 
 	Player.MorphWeapon "RocketZombieWeapon"
-
 	Health 80
 	Radius 20
 	Height 56
@@ -274,7 +270,6 @@ Actor RocketZombieWeapon : PossessedWeapon
 ACTOR PossessedShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "ShotgunZombieWeapon"
-
 	Health 30
 	Radius 20
 	Height 56
@@ -348,7 +343,6 @@ Actor ShotgunZombieWeapon : PossessedWeapon
 ACTOR PossessedAssaultShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "AssaultShotgunZombieWeapon"
-	
 	Health 40
 	Radius 20
 	Height 56
@@ -415,7 +409,6 @@ Actor AssaultShotgunZombieWeapon : PossessedWeapon
 ACTOR PossessedSuperShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "SuperShotgunZombieWeapon"
-
 	Health 60
 	Radius 20
 	Height 56
@@ -567,7 +560,6 @@ Actor SuperShotgunZombieWeapon : PossessedWeapon
 ACTOR PossessedQuadShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "QuadShotgunZombieWeapon"
-
 	Health 80
 	Radius 20
 	Height 56
@@ -720,7 +712,6 @@ Actor QuadShotgunZombieWeapon : PossessedWeapon
 ACTOR PossessedAssaultRifleZombie : PossessedMonster
 {
 	Player.MorphWeapon "AssaultRifleZombieWeapon"
-
 	Health 60
 	Radius 20
 	Height 56
@@ -733,7 +724,7 @@ ACTOR PossessedAssaultRifleZombie : PossessedMonster
 	DropItem "HandGrenadeAmmo" 50 1
 	DropItem "MineAmmo" 25 1
 	DropItem "Assault Rifle" 256 1
-+FLOORCLIP
+	+FLOORCLIP
 	+MISSILEMORE
 	AttackSound "weapons/assaultrifle"
 	SeeSound "grunt/sight"
@@ -826,7 +817,6 @@ Actor AssaultRifleZombieWeapon : PossessedWeapon
 ACTOR PossessedChaingunner : PossessedMonster
 {
 	Player.MorphWeapon "ChaingunnerWeapon"
-
 	Obituary "%o was ripped to ribbons by a Chaingunner."
 	Health 70
 	Radius 20
@@ -885,23 +875,23 @@ Actor ChaingunnerWeapon : PossessedWeapon
 
 ACTOR Minigunner : ChaingunGuy 21150
 {
-  Health 90
-  PainChance 120
-  Speed 8
-  Mass 100
-  DropItem "StimKit" 80
-  DropItem "ArmorBooster" 80
-  DropItem "AmmoPack" 65
-  DropItem "HandGrenadeAmmo" 150 1
-  DropItem "MineAmmo" 75 1
-  DropItem "BulletMag" 256 10
-  SeeSound "superzombie/sight"
-  PainSound "superzombie/pain"
-  DeathSound "superzombie/death"
-  ActiveSound "superzombie/active"
-  AttackSound "weapons/minigunfire"
-  Obituary "%o was torn to shreds by a Minigunner."
-  +MISSILEMORE
+	Health 90
+	PainChance 120
+	Speed 8
+	Mass 100
+	DropItem "StimKit" 80
+	DropItem "ArmorBooster" 80
+	DropItem "AmmoPack" 65
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	DropItem "BulletMag" 256 10
+	SeeSound "superzombie/sight"
+	PainSound "superzombie/pain"
+	DeathSound "superzombie/death"
+	ActiveSound "superzombie/active"
+	AttackSound "weapons/minigunfire"
+	Obituary "%o was torn to shreds by a Minigunner."
+	+MISSILEMORE
 	States
 	{
 	Spawn:
@@ -968,26 +958,26 @@ ACTOR Minigunner : ChaingunGuy 21150
 
 ACTOR BFGZombieman 21225
 {
-  Obituary "A BFG9500 Commando disintegrated %o."
-  Health 110
-  Radius 20
-  Height 56
-  Mass 100
-  Speed 8
-  PainChance 100
-  DropItem "PortableMedkit" 120
-  DropItem "ArmorPlate" 120
-  DropItem "AmmoPack" 80
-  DropItem "HandGrenadeAmmo" 200 1
-  DropItem "MineAmmo" 100 1
-  DropItem "NewCellPack" 256 100
-  SeeSound "superzombie/sight"
-  PainSound "superzombie/pain"
-  DeathSound "superzombie/death"
-  ActiveSound "superzombie/active"
+	Obituary "A BFG9500 Commando disintegrated %o."
+	Health 110
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 100
+	DropItem "PortableMedkit" 120
+	DropItem "ArmorPlate" 120
+	DropItem "AmmoPack" 80
+	DropItem "HandGrenadeAmmo" 200 1
+	DropItem "MineAmmo" 100 1
+	DropItem "NewCellPack" 256 100
+	SeeSound "superzombie/sight"
+	PainSound "superzombie/pain"
+	DeathSound "superzombie/death"
+	ActiveSound "superzombie/active"
   MissileType SpiderBFG9500Ball
-+FLOORCLIP
-  +MISSILEMORE
+	+FLOORCLIP
+	+MISSILEMORE
 	States
 	{
 	Spawn:
@@ -1038,7 +1028,6 @@ ACTOR BFGZombieman 21225
 ACTOR PossessedDevilImp : PossessedMonster
 {
 	Player.MorphWeapon "DevilImpWeapon"
-
 	Health 60
 	Radius 20
 	Height 56
@@ -1108,11 +1097,10 @@ Actor DevilImpWeapon : PossessedWeapon
 ACTOR PossessedVoidImp : PossessedDevilImp
 {
 	Player.MorphWeapon "VoidImpWeapon"
-
-    Health 70
-    PainChance 120
-    Obituary "%o was cursed by a Void Imp."
-    HitObituary "%o was torn up by a Void Imp."
+	Health 70
+	PainChance 120
+	Obituary "%o was cursed by a Void Imp."
+	HitObituary "%o was torn up by a Void Imp."
 	BloodColor "Green"
 	SeeSound "superimp/sight"
 	PainSound "voidimp/pain"
@@ -1162,16 +1150,15 @@ Actor VoidImpWeapon : PossessedWeapon
 ACTOR PossessedSoulHarvester : PossessedDevilImp
 {
 	Player.MorphWeapon "SoulHarvesterWeapon"
-
 	Health 80
 	Speed 0.38
 	PainChance 100
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
-    SeeSound "harvester/sight"
-    DeathSound "harvester/death"
+	SeeSound "harvester/sight"
+	DeathSound "harvester/death"
 	PainSound "voidimp/pain"
-    Obituary "%o couldn't evade a Soul Harvester's seeker."
+	Obituary "%o couldn't evade a Soul Harvester's seeker."
 	HitObituary "%o was scratched by a Soul Harvester."
 	States
 	{
@@ -1210,21 +1197,20 @@ ACTOR PossessedPhaseImp : PossessedDevilImp
 {
 	Player.MorphWeapon "PhaseImpWeapon"
 	RenderStyle Translucent
-	
-    Health 100
-    Speed 0.4
-    PainChance 80
+	Health 100
+	Speed 0.4
+	PainChance 80
 	+QUICKTORETALIATE
 	BloodColor "cf 00 b0"
 	DropItem "LifeEssence" 125
 	DropItem "ArmorBonusMax" 125
 	DropItem "DemonAmmo" 128 60
-    SeeSound "phaseimp/sight"
-    PainSound "phaseimp/pain"
-    DeathSound "phaseimp/death"
-    ActiveSound "phaseimp/active"
-    Obituary "%o was pierced by a Phase Imp."
-    HitObituary "%o was lacerated by a Phase Imp."
+	SeeSound "phaseimp/sight"
+	PainSound "phaseimp/pain"
+	DeathSound "phaseimp/death"
+	ActiveSound "phaseimp/active"
+	Obituary "%o was pierced by a Phase Imp."
+	HitObituary "%o was lacerated by a Phase Imp."
 	States
 	{
 	Spawn:
@@ -1340,30 +1326,30 @@ Actor ImpPhase0 : CustomInventory
 
 ACTOR PossessedBullFiend : PossessedMonster
 { 
-Health 150 
-Speed 10 
-Height 48
-Radius 24
-Mass 600
-PainChance 120
-MeleeDamage 4
-Species "Fiends"
-DamageFactor "FiendFire", 0.0
-DamageFactor "DTFiendEx", 0.0
-DropItem "LifeEssence" 60
-DropItem "ArmorBonusMax" 60
-+FLOORCLIP
-+DONTHURTSPECIES
-+FASTMELEE
-+FASTER
-MaxTargetRange 200
-SeeSound "demon/sight"
-PainSound "demons/pain"
-DeathSound "demon/death"
-ActiveSound "demon/active"
-AttackSound "demon/melee"
-Obituary "%o was gored by a Bull Fiend."
-HitObituary "%o was mangled by a Bull Fiend."
+	Health 150 
+	Speed 10 
+	Height 48
+	Radius 24
+	Mass 600
+	PainChance 120
+	MeleeDamage 4
+	Species "Fiends"
+	DamageFactor "FiendFire", 0.0
+	DamageFactor "DTFiendEx", 0.0
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+FLOORCLIP
+	+DONTHURTSPECIES
+	+FASTMELEE
+	+FASTER
+	MaxTargetRange 200
+	SeeSound "demon/sight"
+	PainSound "demons/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	AttackSound "demon/melee"
+	Obituary "%o was gored by a Bull Fiend."
+	HitObituary "%o was mangled by a Bull Fiend."
 	States
 	{
 	Spawn:
@@ -1400,13 +1386,13 @@ HitObituary "%o was mangled by a Bull Fiend."
 
 ACTOR PinkyLunge
 {
-   Height 16
-   Radius 20
-   Speed 28
+	Height 16
+	Radius 20
+	Speed 28
    Damage (5*Random(4,8))
-   Species "Fiends"
-   SeeSound ""  
-   DeathSound ""
+	Species "Fiends"
+	SeeSound ""  
+	DeathSound ""
    PROJECTILE
 	States
 	{
@@ -1418,20 +1404,20 @@ ACTOR PinkyLunge
 
 ACTOR PossessedCyberFiend : PossessedBullFiend
 { 
-Health 200 
-Speed 12
-Scale 1.05
-PainChance 100
-DropItem "LifeEssence" 85
-DropItem "ArmorBonusMax" 85
-MaxTargetRange 250
-SeeSound "blooddemon/sight"
-PainSound "blooddemon/pain"
-DeathSound "blooddemon/death"
-ActiveSound "blooddemon/active"
-AttackSound "cyberfiend/melee"
-Obituary "%o was gored by a Cyber Fiend."
-HitObituary "%o was mauled by a Cyber Fiend."
+	Health 200 
+	Speed 12
+	Scale 1.05
+	PainChance 100
+	DropItem "LifeEssence" 85
+	DropItem "ArmorBonusMax" 85
+	MaxTargetRange 250
+	SeeSound "blooddemon/sight"
+	PainSound "blooddemon/pain"
+	DeathSound "blooddemon/death"
+	ActiveSound "blooddemon/active"
+	AttackSound "cyberfiend/melee"
+	Obituary "%o was gored by a Cyber Fiend."
+	HitObituary "%o was mauled by a Cyber Fiend."
 	States
 	{
 	Spawn:
@@ -1468,19 +1454,19 @@ HitObituary "%o was mauled by a Cyber Fiend."
 
 ACTOR PossessedMagmaFiend : PossessedBullFiend
 { 
-    Health 250
-    PainChance 80
+	Health 250
+	PainChance 80
 	Scale 1.1
 	MaxTargetRange 750
 	BloodColor "ff 50 00"
-    SeeSound "magma/sight"
-    PainSound "monster/psopain"
-    DeathSound "magma/death"
-    ActiveSound "magma/active"
+	SeeSound "magma/sight"
+	PainSound "monster/psopain"
+	DeathSound "magma/death"
+	ActiveSound "magma/active"
 	AttackSound "magma/attack"
 	DropItem "LifeEssence" 105
 	DropItem "ArmorBonusMax" 105
-    Obituary "%o was massacred by a Magma Fiend." 
+	Obituary "%o was massacred by a Magma Fiend." 
 	HitObituary "%o was gnawed on by a Magma Fiend."
 	States
 	{
@@ -1541,9 +1527,9 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 
 ACTOR PossessedDTechFiend : PossessedBullFiend
 { 
-    Health 300
-    Speed 12
-    PainChance 60
+	Health 300
+	Speed 12
+	PainChance 60
 	Damage 5
 	+MISSILEMORE
 	+QUICKTORETALIATE
@@ -1558,7 +1544,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 	DropItem "LifeEssence" 125
 	DropItem "ArmorBonusMax" 125
 	DropItem "DemonAmmo" 128 120
-    Obituary "%o was mown down by a DTech Fiend." 
+	Obituary "%o was mown down by a DTech Fiend." 
 	HitObituary "%o was bulldozed by a DTech Fiend."
 	States
 	{
@@ -1640,10 +1626,10 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 ACTOR PossessedSpectre~ : PossessedBullFiend
 { 
 Renderstyle Translucent
-Alpha 0.35
-Obituary "%o never saw the Spectre and was gored."
-HitObituary "%o was chewed up by a Spectre."
-BloodColor "12 12 12"
+	Alpha 0.35
+	Obituary "%o never saw the Spectre and was gored."
+	HitObituary "%o was chewed up by a Spectre."
+	BloodColor "12 12 12"
 	States
 	{
 	Spawn:
@@ -1680,17 +1666,17 @@ BloodColor "12 12 12"
 
 ACTOR PossessedLurker : PossessedBullFiend
 { 
-Health 150
-Speed 11
-PainChance 120
+	Health 150
+	Speed 11
+	PainChance 120
 Renderstyle Translucent
-Alpha 0.25
-Scale 1.05
-MaxTargetRange 250
-DropItem "LifeEssence" 85
-DropItem "ArmorBonusMax" 85
-Obituary "%o failed to spot the Lurker and was gored."
-HitObituary "%o was devoured by a Lurker."
+	Alpha 0.25
+	Scale 1.05
+	MaxTargetRange 250
+	DropItem "LifeEssence" 85
+	DropItem "ArmorBonusMax" 85
+	Obituary "%o failed to spot the Lurker and was gored."
+	HitObituary "%o was devoured by a Lurker."
 	States
 	{
 	Spawn:
@@ -1728,20 +1714,20 @@ HitObituary "%o was devoured by a Lurker."
 ACTOR PossessedSpook : PossessedBullFiend
 { 
 Renderstyle Translucent
-Alpha 0.15
-Health 250
-Speed 12
-Scale 1.1
-MaxTargetRange 350
-DropItem "LifeEssence" 105
-DropItem "ArmorBonusMax" 105
-SeeSound "magma/sight"
-PainSound "monster/psopain"
-DeathSound "magma/death"
-ActiveSound "magma/active"
-AttackSound "magma/attack"
-Obituary "%o could not see the Spook and was gored."
-HitObituary "%o was crunched by a Spook."
+	Alpha 0.15
+	Health 250
+	Speed 12
+	Scale 1.1
+	MaxTargetRange 350
+	DropItem "LifeEssence" 105
+	DropItem "ArmorBonusMax" 105
+	SeeSound "magma/sight"
+	PainSound "monster/psopain"
+	DeathSound "magma/death"
+	ActiveSound "magma/active"
+	AttackSound "magma/attack"
+	Obituary "%o could not see the Spook and was gored."
+	HitObituary "%o was crunched by a Spook."
 	States
 	{
 	Spawn:
@@ -1778,32 +1764,32 @@ HitObituary "%o was crunched by a Spook."
 
 ACTOR PossessedTerrorSoul : PossessedMonster
 {
-Health 70
-Radius 14
-Height 48
-Mass 50
-Speed 5
-FloatSpeed 5
-Damage 3
-Species "EleSouls"
-Species "Souls"
-PainChance 140
-DropItem "LifeEssence" 50
-DropItem "ArmorBonusMax" 50
-DamageFactor "SoulToxic", 0.0
-DamageFactor "BombBreath", 0.0
-Scale 0.6
-+FLOAT
-+NOGRAVITY
-+MISSILEMORE
-+DONTFALL
-+NOBLOOD
-+NOBLOODDECALS
-AttackSound "skull/melee"
-PainSound "monsters/terrorsoulpain"
-DeathSound "skull/death"
-ActiveSound "skull/active"
-Obituary "%o underestimated a Terror Soul."
+	Health 70
+	Radius 14
+	Height 48
+	Mass 50
+	Speed 5
+	FloatSpeed 5
+	Damage 3
+	Species "EleSouls"
+	Species "Souls"
+	PainChance 140
+	DropItem "LifeEssence" 50
+	DropItem "ArmorBonusMax" 50
+	DamageFactor "SoulToxic", 0.0
+	DamageFactor "BombBreath", 0.0
+	Scale 0.6
+	+FLOAT
+	+NOGRAVITY
+	+MISSILEMORE
+	+DONTFALL
+	+NOBLOOD
+	+NOBLOODDECALS
+	AttackSound "skull/melee"
+	PainSound "monsters/terrorsoulpain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	Obituary "%o underestimated a Terror Soul."
 	States
 	{
 	Spawn:
@@ -1847,17 +1833,17 @@ Obituary "%o underestimated a Terror Soul."
 
 ACTOR PossessedForgottenOne : PossessedTerrorSoul
 {
-  Obituary "%o was rammed by a Forgotten One."
-  Health 80
-  PainChance 120
-  Scale 0.5
-  DamageFactor "SoulToxic", 0.0
-  DropItem "LifeEssence" 75
-  DropItem "ArmorBonusMax" 75
-  SeeSound "forgotten/sight"
-  PainSound "forgotten/pain"
-  DeathSound "forgotten/death"
-  ActiveSound "forgotten/active"
+	Obituary "%o was rammed by a Forgotten One."
+	Health 80
+	PainChance 120
+	Scale 0.5
+	DamageFactor "SoulToxic", 0.0
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+	SeeSound "forgotten/sight"
+	PainSound "forgotten/pain"
+	DeathSound "forgotten/death"
+	ActiveSound "forgotten/active"
 	States
 	{
 	Spawn:
@@ -1899,18 +1885,18 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
 
 ACTOR PossessedPoisonSoul : PossessedTerrorSoul
 {
-Health 90
-PainChance 100
-Speed 5
-DropItem "LifeEssence" 100
-DropItem "ArmorBonusMax" 100
-DamageFactor "SoulToxic", 0.0
-+DONTHURTSPECIES
-AttackSound "monster/psoattack"
-PainSound "monster/psopain"
-DeathSound "monster/psodeath"
-ActiveSound "skull/active"
-Obituary "%o took a sniff of a Poison Soul's toxic fumes."
+	Health 90
+	PainChance 100
+	Speed 5
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	DamageFactor "SoulToxic", 0.0
+	+DONTHURTSPECIES
+	AttackSound "monster/psoattack"
+	PainSound "monster/psopain"
+	DeathSound "monster/psodeath"
+	ActiveSound "skull/active"
+	Obituary "%o took a sniff of a Poison Soul's toxic fumes."
 	States
 	{
 	Spawn:
@@ -1980,20 +1966,20 @@ Obituary "%o took a sniff of a Poison Soul's toxic fumes."
 
 ACTOR PossessedRictus : PossessedTerrorSoul
 {
-Health 100
-Speed 6
-PainChance 100
-DropItem "LifeEssence" 125
-DropItem "ArmorBonusMax" 125
-DamageFactor "SoulToxic", 0.0
-SeeSound "rictus/sight"
-AttackSound "rictus/attack"
-PainSound "rictus/pain"
-DeathSound "rictus/die"
-ActiveSound "rictus/active"
-Obituary "%o was wasted by a Rictus."
-+MISSILEEVENMORE
-+QUICKTORETALIATE
+	Health 100
+	Speed 6
+	PainChance 100
+	DropItem "LifeEssence" 125
+	DropItem "ArmorBonusMax" 125
+	DamageFactor "SoulToxic", 0.0
+	SeeSound "rictus/sight"
+	AttackSound "rictus/attack"
+	PainSound "rictus/pain"
+	DeathSound "rictus/die"
+	ActiveSound "rictus/active"
+	Obituary "%o was wasted by a Rictus."
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
 	States
 	{
 	Spawn:
@@ -2056,28 +2042,28 @@ Death.Suicide:
 
 ACTOR PossessedAbaddon : PossessedMonster
 {
-Health 400
-Speed 8
-FloatSpeed 5
-Radius 30
-Height 56
-PainChance 120
-Mass 500
-MeleeDamage 6
-DamageFactor "HelementalComet", 0.0
-BloodColor "Red"
-SeeSound "caco/sight"
-PainSound "monsters/abaddonpain"
-ActiveSound "caco/active"
-MeleeSound "caco/melee"
-DeathSound "cacos/death"
-Obituary "%o was smitten by an Abaddon."
-HitObituary "%o was eaten by an Abaddon." 
-DropItem "LifeEssence" 60
-DropItem "ArmorBonusMax" 60
-+NOGRAVITY
-+FLOAT
-+MISSILEMORE
+	Health 400
+	Speed 8
+	FloatSpeed 5
+	Radius 30
+	Height 56
+	PainChance 120
+	Mass 500
+	MeleeDamage 6
+	DamageFactor "HelementalComet", 0.0
+	BloodColor "Red"
+	SeeSound "caco/sight"
+	PainSound "monsters/abaddonpain"
+	ActiveSound "caco/active"
+	MeleeSound "caco/melee"
+	DeathSound "cacos/death"
+	Obituary "%o was smitten by an Abaddon."
+	HitObituary "%o was eaten by an Abaddon." 
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+NOGRAVITY
+	+FLOAT
+	+MISSILEMORE
 	States
 	{
 	Spawn:
@@ -2115,19 +2101,19 @@ DropItem "ArmorBonusMax" 60
 
 ACTOR PossessedWatcher : PossessedAbaddon
 {
-Health 600
-PainChance 100
-DamageFactor "HelementalComet", 0.0
-BloodColor "Green"
-SeeSound "monsters/watchersight"
-PainSound "monsters/watcherpain"
-DeathSound "monsters/watcherdeath"
-ActiveSound "caco/active"
-MeleeSound "caco/melee"
-Obituary "%o was eradicated by a Watcher."
-HitObituary "%o was munched on by a Watcher." 
-DropItem "LifeEssence" 90
-DropItem "ArmorBonusMax" 90
+	Health 600
+	PainChance 100
+	DamageFactor "HelementalComet", 0.0
+	BloodColor "Green"
+	SeeSound "monsters/watchersight"
+	PainSound "monsters/watcherpain"
+	DeathSound "monsters/watcherdeath"
+	ActiveSound "caco/active"
+	MeleeSound "caco/melee"
+	Obituary "%o was eradicated by a Watcher."
+	HitObituary "%o was munched on by a Watcher." 
+	DropItem "LifeEssence" 90
+	DropItem "ArmorBonusMax" 90
 	States
 	{
 	Spawn:
@@ -2173,19 +2159,19 @@ DropItem "ArmorBonusMax" 90
 
 ACTOR PossessedHelemental : PossessedAbaddon
 {
-  Obituary "%o was scorched by a Helemental."
-  HitObituary "%o got chomped by a Helemental."
-  Health 800
-  PainChance 80
-  Scale 0.95
-  DamageFactor "HelementalComet", 0.0
-  SeeSound "monster/helsit"
-  PainSound "monster/helpai"
-  DeathSound "monster/heldth"
-  ActiveSound "monster/helact"
-  MeleeSound "caco/melee"
-  DropItem "LifeEssence" 120
-  DropItem "ArmorBonusMax" 120
+	Obituary "%o was scorched by a Helemental."
+	HitObituary "%o got chomped by a Helemental."
+	Health 800
+	PainChance 80
+	Scale 0.95
+	DamageFactor "HelementalComet", 0.0
+	SeeSound "monster/helsit"
+	PainSound "monster/helpai"
+	DeathSound "monster/heldth"
+	ActiveSound "monster/helact"
+	MeleeSound "caco/melee"
+	DropItem "LifeEssence" 120
+	DropItem "ArmorBonusMax" 120
 	States
 	{
 	Spawn:
@@ -2239,15 +2225,15 @@ ACTOR PossessedHelemental : PossessedAbaddon
 
 ACTOR PossessedPainElemental : PossessedMonster
 {
-	Game
-		Doom SpawnID 115
+	Game Doom
+	SpawnID 115
 	Health 400
 	Radius 31
 	Height 56
 	Mass 400
 	Speed 8
 	PainChance 128
-+FLOAT 
+	+FLOAT 
 	+NOGRAVITY
 	SeeSound "pain/sight"
 	PainSound "pain/pain"
@@ -2257,33 +2243,33 @@ ACTOR PossessedPainElemental : PossessedMonster
 
 ACTOR PossessedSoulKeeper : PossessedMonster
 { 
-Health 400
-Speed 8
-FloatSpeed 6
-Radius 30
-Height 56
-PainChance 120
-MeleeDamage 6
-Mass 400
-Species "EleSouls"
-DropItem "LifeEssence" 60
-DropItem "ArmorBonusMax" 60
-+NOGRAVITY
-+FLOAT
-+DROPOFF
-+DONTFALL
-+MISSILEMORE
-+NOBLOOD
-+NOBLOODDECALS
-DamageFactor "SoulToxic", 0.0
-DamageFactor "BombBreath", 0.0
-SeeSound "Pain/Sight"
-PainSound "Pain/Pain"
-DeathSound "Pain/Death"
-ActiveSound "Pain/Active"
-MeleeSound "caco/melee"
-Obituary "%o was mutilated by a Soul Keeper."
-HitObituary "%o was chewed on by a Soul Keeper."
+	Health 400
+	Speed 8
+	FloatSpeed 6
+	Radius 30
+	Height 56
+	PainChance 120
+	MeleeDamage 6
+	Mass 400
+	Species "EleSouls"
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+NOGRAVITY
+	+FLOAT
+	+DROPOFF
+	+DONTFALL
+	+MISSILEMORE
+	+NOBLOOD
+	+NOBLOODDECALS
+	DamageFactor "SoulToxic", 0.0
+	DamageFactor "BombBreath", 0.0
+	SeeSound "Pain/Sight"
+	PainSound "Pain/Pain"
+	DeathSound "Pain/Death"
+	ActiveSound "Pain/Active"
+	MeleeSound "caco/melee"
+	Obituary "%o was mutilated by a Soul Keeper."
+	HitObituary "%o was chewed on by a Soul Keeper."
 	States
 	{
 	Spawn:
@@ -2424,9 +2410,9 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 	PainSound "bomb/pain"
 	ActiveSound "bomb/lava"
 	DamageType "SoulToxic"
-    DropItem "BossLifeEssence" 128 25
+	DropItem "BossLifeEssence" 128 25
 	DropItem "BossArmorBonusMax" 128 25
-    DropItem "DemonAmmoBox" 128 200
+	DropItem "DemonAmmoBox" 128 200
 	Obituary "%o was reduced to ashes by a Bomb Elemental."
 	HitObituary "%o was swallowed by a Bomb Elemental."
 	+MISSILEEVENMORE
@@ -2538,15 +2524,14 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 
 ACTOR PossessedFatso : PossessedMonster
 {
-	Game
-		Doom SpawnID 112
+	Game Doom
+	SpawnID 112
 	Health 600
 	Radius 48
 	Height 64
-	Mass
-		1000 Speed 8
+	Mass 1000 Speed 8
 	PainChance 80
-+FLOORCLIP
+	+FLOORCLIP
 	+BOSSDEATH
 	SeeSound "fatso/sight"
 	PainSound "fatso/pain"
@@ -2557,18 +2542,18 @@ ACTOR PossessedFatso : PossessedMonster
 
 ACTOR PossessedHectebus : PossessedFatso
 {
-Health 600
-Speed 6
-PainChance 120
-DropItem "LifeEssence" 80
-DropItem "ArmorBonusMax" 80
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
-BloodColor "30 30 30"
-Species "Fatsos"
-+MISSILEMORE
-ActiveSound "manc/idle"
-Obituary "%o was cooked by a Hectebus."
+	Health 600
+	Speed 6
+	PainChance 120
+	DropItem "LifeEssence" 80
+	DropItem "ArmorBonusMax" 80
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	BloodColor "30 30 30"
+	Species "Fatsos"
+	+MISSILEMORE
+	ActiveSound "manc/idle"
+	Obituary "%o was cooked by a Hectebus."
 	States
 	{
 	Spawn:
@@ -2681,21 +2666,21 @@ Obituary "%o was cooked by a Hectebus."
 
 ACTOR PossessedDaedabus : PossessedFatso
 {
-Health 850
-PainChance 100
-Scale 1.05
-BloodColor "Green"
-DropItem "LifeEssence" 110
-DropItem "ArmorBonusMax" 110
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
-Species "Fatsos"
-+MISSILEMORE
-SeeSound "Daedabus/Sight"
-PainSound "Daedabus/Pain"
-DeathSound "Daedabus/Death"
-ActiveSound "Daedabus/Active"
-Obituary "%o was overwhelmed by a Daedabus."
+	Health 850
+	PainChance 100
+	Scale 1.05
+	BloodColor "Green"
+	DropItem "LifeEssence" 110
+	DropItem "ArmorBonusMax" 110
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	Species "Fatsos"
+	+MISSILEMORE
+	SeeSound "Daedabus/Sight"
+	PainSound "Daedabus/Pain"
+	DeathSound "Daedabus/Death"
+	ActiveSound "Daedabus/Active"
+	Obituary "%o was overwhelmed by a Daedabus."
 	States
 	{
 	Spawn:
@@ -2806,21 +2791,20 @@ Obituary "%o was overwhelmed by a Daedabus."
 
 ACTOR PossessedBehemoth : PossessedFatso
 {
-Health
-		1100 PainChance 80
-Scale 1.1
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
-DropItem "LifeEssence" 140
-DropItem "ArmorBonusMax" 140
-Species "Fatsos"
-+MISSILEMORE
-+DONTHURTSPECIES
-SeeSound "monsters/volsee"
-PainSound "monsters/volpain"
-DeathSound "monsters/voldeath"
-ActiveSound "manc/idle"
-Obituary "%o was squashed by a Behemoth."
+	Health 1100 PainChance 80
+	Scale 1.1
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	DropItem "LifeEssence" 140
+	DropItem "ArmorBonusMax" 140
+	Species "Fatsos"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	SeeSound "monsters/volsee"
+	PainSound "monsters/volpain"
+	DeathSound "monsters/voldeath"
+	ActiveSound "manc/idle"
+	Obituary "%o was squashed by a Behemoth."
 	States
 	{
 	Spawn:
@@ -2866,29 +2850,27 @@ Obituary "%o was squashed by a Behemoth."
 
 ACTOR PossessedBarbatos : PossessedFatso
 {
-Health
-		1350 PainChance 60
-Speed 5
-Mass
-		2500 Scale 0.8
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 25
-DropItem "DemonAmmoBox" 128 200
-Species "Fatsos"
-+MISSILEMORE
-+DONTHURTSPECIES
-+QUICKTORETALIATE
-+FLOAT
-+NOGRAVITY
+	Health 1350 PainChance 60
+	Speed 5
+	Mass 2500 Scale 0.8
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	Species "Fatsos"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY
 -FLOORCLIP
-SeeSound "monsters/barbsee"
-PainSound "monsters/barbpain"
-DeathSound "monsters/barbdeath"
-ActiveSound "manc/idle"
-Obituary "%o was overpowered by a Barbatos."
-BloodColor "Green"
+	SeeSound "monsters/barbsee"
+	PainSound "monsters/barbpain"
+	DeathSound "monsters/barbdeath"
+	ActiveSound "manc/idle"
+	Obituary "%o was overpowered by a Barbatos."
+	BloodColor "Green"
 	States
 	{
 	Spawn:
@@ -2993,15 +2975,15 @@ BloodColor "Green"
 
 ACTOR PossessedArachnotron : PossessedMonster
 {
-	Game
-		Doom SpawnID 6
+	Game Doom
+	SpawnID 6
 	Health 500
 	Radius 64
 	Height 64
 	Mass 600
 	Speed 12
 	PainChance 128
-+FLOORCLIP
+	+FLOORCLIP
 	+BOSSDEATH
 	SeeSound "baby/sight"
 	PainSound "baby/pain"
@@ -3012,20 +2994,20 @@ ACTOR PossessedArachnotron : PossessedMonster
 
 ACTOR PossessedDualachnotron : PossessedArachnotron
 {
-  Obituary "%o was vaporized by a Dualachnotron."
-  Health 500
-  PainChance 120
-  Scale 0.75
-  Speed 12
-  DropItem "LifeEssence" 110
-  DropItem "ArmorBonusMax" 110
-  SeeSound "monsters/dualachsee"
-  PainSound "monsters/fusionitepain"
-  DeathSound "monsters/dualachdeath"
-  AttackSound ""
-  DamageFactor "Baby15K", 0.0
-  Species "BabySpiders"
-  +MISSILEMORE
+	Obituary "%o was vaporized by a Dualachnotron."
+	Health 500
+	PainChance 120
+	Scale 0.75
+	Speed 12
+	DropItem "LifeEssence" 110
+	DropItem "ArmorBonusMax" 110
+	SeeSound "monsters/dualachsee"
+	PainSound "monsters/fusionitepain"
+	DeathSound "monsters/dualachdeath"
+	AttackSound ""
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
 	States
 	{
 	Spawn:
@@ -3063,20 +3045,20 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
 
 ACTOR PossessedFusionite : PossessedArachnotron
 {
-Health 750
-PainChance 100
-Speed 13
-Scale 1.1
-Obituary "%o was liquefied by a Fusionite."
-SeeSound "baby/sight"
-PainSound "monsters/fusionitepain"
-DeathSound "baby/death"
-ActiveSound "baby/active"
-DropItem "LifeEssence" 80
-DropItem "ArmorBonusMax" 80
-DamageFactor "Baby15K", 0.0
-Species "BabySpiders"
-+MISSILEMORE
+	Health 750
+	PainChance 100
+	Speed 13
+	Scale 1.1
+	Obituary "%o was liquefied by a Fusionite."
+	SeeSound "baby/sight"
+	PainSound "monsters/fusionitepain"
+	DeathSound "baby/death"
+	ActiveSound "baby/active"
+	DropItem "LifeEssence" 80
+	DropItem "ArmorBonusMax" 80
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
 	States
 	{
 	Spawn:
@@ -3099,21 +3081,20 @@ Species "BabySpiders"
 
 ACTOR PossessedBabyDemolisher : PossessedArachnotron
 {
-  Health
-		1000 PainChance 80
-  Scale 1.2
-  Speed 14
-  SeeSound "minidemo/sight"
-  ActiveSound "minidemo/active"
-  PainSound "monsters/fusionitepain"
-  DeathSound "minidemo/death"
-  AttackSound ""
-  DropItem "LifeEssence" 140
-  DropItem "ArmorBonusMax" 140
-  DamageFactor "Baby15K", 0.0
-  Species "BabySpiders"
-  +MISSILEMORE
-  Obituary "%o got %p ass beat by a Baby Demolisher."
+	Health 1000 PainChance 80
+	Scale 1.2
+	Speed 14
+	SeeSound "minidemo/sight"
+	ActiveSound "minidemo/active"
+	PainSound "monsters/fusionitepain"
+	DeathSound "minidemo/death"
+	AttackSound ""
+	DropItem "LifeEssence" 140
+	DropItem "ArmorBonusMax" 140
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	Obituary "%o got %p ass beat by a Baby Demolisher."
 	States
 	{
 	Spawn:
@@ -3160,27 +3141,25 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
 
 ACTOR PossessedBabySentient : PossessedArachnotron
 {
-  Health
-		1250 PainChance 60
-  Scale 1.25
-  Speed 14
-  Mass
-		2500 FloatSpeed 8
-  SeeSound "barachnophyte/sight"
-  PainSound "barachnophyte/pain"
-  DeathSound "barachnophyte/death"
-  AttackSound ""
-  DropItem "BossLifeEssence" 128 25
-  DropItem "BossArmorBonusMax" 128 25
-  DropItem "DemonAmmoBox" 128 200
-  DamageFactor "Baby15K", 0.0
-  Species "BabySpiders"
-  +MISSILEMORE
-  +QUICKTORETALIATE
-  +FLOAT
-  +NOGRAVITY	
+	Health 1250 PainChance 60
+	Scale 1.25
+	Speed 14
+	Mass 2500 FloatSpeed 8
+	SeeSound "barachnophyte/sight"
+	PainSound "barachnophyte/pain"
+	DeathSound "barachnophyte/death"
+	AttackSound ""
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY	
   -FLOORCLIP
-  Obituary "%o was not intelligent enough to take on a Baby Sentient."
+	Obituary "%o was not intelligent enough to take on a Baby Sentient."
 	States
 	{
 	Spawn:
@@ -3330,15 +3309,15 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 
 ACTOR PossessedRevenant : PossessedMonster
 {
-	Game
-		Doom SpawnID 20
+	Game Doom
+	SpawnID 20
 	Health 300
 	Radius 20
 	Height 56
 	Mass 500
 	Speed 10
 	PainChance 100
-MeleeThreshold 196
+	MeleeThreshold 196
 	+MISSILEMORE 
 	+FLOORCLIP
 	SeeSound "skeleton/sight"
@@ -3352,27 +3331,27 @@ MeleeThreshold 196
 
 ACTOR PossessedGuardian : PossessedRevenant
 {
-Health 300
-Radius 20
-Height 56
-Mass 500
-Speed 10
-PainChance 100
-Scale 0.85
-DamageFactor "CadaverRocket", 0.0
-Obituary "%o was splattered by a Guardian's meteor."
-Hitobituary "%o was bitch slapped by a Guardian."
-SeeSound "skeletons/sight"
-PainSound "monsters/guardianpain"
-DropItem "LifeEssence" 75
-DropItem "ArmorBonusMax" 75
-Species "Skeletons"
-+FLOORCLIP
-+LONGMELEERANGE
-+MISSILEMORE
-+FASTMELEE
+	Health 300
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 10
+	PainChance 100
+	Scale 0.85
+	DamageFactor "CadaverRocket", 0.0
+	Obituary "%o was splattered by a Guardian's meteor."
+	Hitobituary "%o was bitch slapped by a Guardian."
+	SeeSound "skeletons/sight"
+	PainSound "monsters/guardianpain"
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+	Species "Skeletons"
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEMORE
+	+FASTMELEE
 BloodColor Red
-Species "Skeletons"
+	Species "Skeletons"
 	States
 	{
 	Spawn:
@@ -3402,17 +3381,17 @@ Species "Skeletons"
 
 ACTOR PosssessedCadaver : PossessedGuardian 
 {
-  PainChance 90
-  Health 450
-  DropItem "LifeEssence" 105
-  DropItem "ArmorBonusMax" 105
-  SeeSound "heavynant/sight"
-  PainSound "heavynant/pain"
-  DeathSound "heavynant/die"
-  ActiveSound "heavynant/active"
-  HitObituary "%o's face got caved in by a Cadaver."
-  Obituary "%o was blown to a mushy mess by a Cadaver."
-  BloodColor "Black"
+	PainChance 90
+	Health 450
+	DropItem "LifeEssence" 105
+	DropItem "ArmorBonusMax" 105
+	SeeSound "heavynant/sight"
+	PainSound "heavynant/pain"
+	DeathSound "heavynant/die"
+	ActiveSound "heavynant/active"
+	HitObituary "%o's face got caved in by a Cadaver."
+	Obituary "%o was blown to a mushy mess by a Cadaver."
+	BloodColor "Black"
 	States
 	{
 	Spawn:
@@ -3441,18 +3420,18 @@ ACTOR PosssessedCadaver : PossessedGuardian
 
 ACTOR PossessedHellfireRevenant : PossessedGuardian
 {
-Health 600
-PainChance 80
-BloodColor "ff 50 00"
-DropItem "LifeEssence" 135
-DropItem "ArmorBonusMax" 135
-Obituary "%o could not evade a Hellfire Revenant's seeker."
-HitObituary "%o could not evade a Hellfire Revenant's seeker."
+	Health 600
+	PainChance 80
+	BloodColor "ff 50 00"
+	DropItem "LifeEssence" 135
+	DropItem "ArmorBonusMax" 135
+	Obituary "%o could not evade a Hellfire Revenant's seeker."
+	HitObituary "%o could not evade a Hellfire Revenant's seeker."
 -FASTMELEE
 -LONGMELEERANGE
-SeeSound "monsters/hfirerevenantsight"
-DeathSound "monsters/hfirerevenantdeath"
-ActiveSound "monsters/hfirerevenantactive"
+	SeeSound "monsters/hfirerevenantsight"
+	DeathSound "monsters/hfirerevenantdeath"
+	ActiveSound "monsters/hfirerevenantactive"
 	States
 	{
 	Spawn:
@@ -3526,20 +3505,20 @@ ActiveSound "monsters/hfirerevenantactive"
 
 ACTOR PossessedFamine : PossessedGuardian
 {
-  PainChance 70
-  Health 750
-  Speed 12
-  SeeSound "famine/sight"
-  PainSound "guardian/pain"
-  DeathSound "famine/death"
-  ActiveSound "famine/active"
-  DropItem "LifeEssence" 0
-  DropItem "ArmorBonusMax" 0
-  HitObituary "%o got knocked the hell out by a Famine."
-  Obituary "%o was devastated by a Famine."
-  BloodColor "30 30 30"
-  MeleeThreshold 60
-  +QUICKTORETALIATE
+	PainChance 70
+	Health 750
+	Speed 12
+	SeeSound "famine/sight"
+	PainSound "guardian/pain"
+	DeathSound "famine/death"
+	ActiveSound "famine/active"
+	DropItem "LifeEssence" 0
+	DropItem "ArmorBonusMax" 0
+	HitObituary "%o got knocked the hell out by a Famine."
+	Obituary "%o was devastated by a Famine."
+	BloodColor "30 30 30"
+	MeleeThreshold 60
+	+QUICKTORETALIATE
   -LONGMELEERANGE
 	States
 	{
@@ -3668,15 +3647,13 @@ ACTOR PossessedFamine : PossessedGuardian
 
 ACTOR PossessedBaronOfHell : PossessedMonster
 {
-	Game
-		Doom SpawnID 3
-	Health
-		1000 Radius 24
+	Game Doom
+	SpawnID 3
+	Health 1000 Radius 24
 	Height 64
-	Mass
-		1000 Speed 8
+	Mass 1000 Speed 8
 	PainChance 50
-+FLOORCLIP
+	+FLOORCLIP
 	+BOSSDEATH
 	SeeSound "baron/sight"
 	PainSound "baron/pain"
@@ -3688,8 +3665,8 @@ ACTOR PossessedBaronOfHell : PossessedMonster
 
 ACTOR PossessedHellKnight : PossessedBaronOfHell
 {
-	Game
-		Doom SpawnID 113
+	Game Doom
+	SpawnID 113
 	Health 500
 	-BOSSDEATH
 	SeeSound "knight/sight"
@@ -3702,22 +3679,22 @@ ACTOR PossessedHellKnight : PossessedBaronOfHell
 
 ACTOR PossessedHellArchon : PossessedHellKnight
 { 
-Health 500
-PainChance 100
-MeleeDamage 8
-DropItem "LifeEssence" 90
-DropItem "ArmorBonusMax" 90
-DamageFactor "AfritComet", 0.0
-Species "Nobles"
-+MISSILEMORE
-+FASTMELEE
-Obituary "%o was annihilated by a Hell Archon." 
-HitObituary "The last thing %o saw was a Hell Archon's fist."
-SeeSound "monster/ar2sit" 
-ActiveSound "superbaron/act"
-PainSound "superbaron/pain"
-DeathSound "monster/ar2dth"
-MeleeSound "imp/melee"
+	Health 500
+	PainChance 100
+	MeleeDamage 8
+	DropItem "LifeEssence" 90
+	DropItem "ArmorBonusMax" 90
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEMORE
+	+FASTMELEE
+	Obituary "%o was annihilated by a Hell Archon." 
+	HitObituary "The last thing %o saw was a Hell Archon's fist."
+	SeeSound "monster/ar2sit" 
+	ActiveSound "superbaron/act"
+	PainSound "superbaron/pain"
+	DeathSound "monster/ar2dth"
+	MeleeSound "imp/melee"
 	States
 	{
 	Spawn:
@@ -3762,24 +3739,24 @@ MeleeSound "imp/melee"
 
 ACTOR PossessedPyroDemon : PossessedHellKnight
 { 
-Health 750
-PainChance 80
-Scale 1.05
-Bloodcolor "ff 5f 00"
-MeleeDamage 8
-DropItem "LifeEssence" 120
-DropItem "ArmorBonusMax" 120
-DamageFactor "AfritComet", 0.0
-Species "Nobles"
-+MISSILEMORE
-+FASTMELEE
-Obituary "A Pyro Demon turned %o into a steamy mess." 
-HitObituary "A Pyro Demon tore %o apart."
-SeeSound "monster/ar2sit" 
-ActiveSound "pyro/active"
-PainSound "superbaron/pain"
-DeathSound "monster/ar2dth"
-MeleeSound "imp/melee"
+	Health 750
+	PainChance 80
+	Scale 1.05
+	Bloodcolor "ff 5f 00"
+	MeleeDamage 8
+	DropItem "LifeEssence" 120
+	DropItem "ArmorBonusMax" 120
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEMORE
+	+FASTMELEE
+	Obituary "A Pyro Demon turned %o into a steamy mess." 
+	HitObituary "A Pyro Demon tore %o apart."
+	SeeSound "monster/ar2sit" 
+	ActiveSound "pyro/active"
+	PainSound "superbaron/pain"
+	DeathSound "monster/ar2dth"
+	MeleeSound "imp/melee"
 	States
 	{
 	Spawn:
@@ -3829,25 +3806,24 @@ MeleeSound "imp/melee"
 
 ACTOR PossessedCyberNoble : PossessedHellKnight
 { 
-  Health
-		1000 PainChance 60
-  MeleeDamage 8
-  Scale 1.1
-  Obituary "%o was slain by a Cyber Noble."
-  HitObituary "%o got whacked by a Cyber Noble."
-  SeeSound "monster/brusit" 
-  PainSound "cbaron/pain"
-  DeathSound "cbaron/death"
-  MeleeSound "baron/melee"
-  ActiveSound "cbaron/active"
-  DamageFactor "AfritComet", 0.0
-  DropItem "LifeEssence" 150
-  DropItem "ArmorBonusMax" 150
-  Species "Nobles"
-  BloodColor "Green"
-  +MISSILEMORE
-  +DONTHURTSPECIES
-  +FASTMELEE
+	Health 1000 PainChance 60
+	MeleeDamage 8
+	Scale 1.1
+	Obituary "%o was slain by a Cyber Noble."
+	HitObituary "%o got whacked by a Cyber Noble."
+	SeeSound "monster/brusit" 
+	PainSound "cbaron/pain"
+	DeathSound "cbaron/death"
+	MeleeSound "baron/melee"
+	ActiveSound "cbaron/active"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 150
+	DropItem "ArmorBonusMax" 150
+	Species "Nobles"
+	BloodColor "Green"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+FASTMELEE
 	States
 	{
 	Spawn:
@@ -3904,27 +3880,26 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
 
 ACTOR PossessedHellDuke : PossessedHellKnight
 { 
-Health
-		1250 PainChance 40
-PainChance "Explosion", 60
-Scale 1.15
-BloodColor "Green"
-MeleeDamage 8
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 25
-DropItem "DemonAmmoBox" 128 200
-DamageFactor "AfritComet", 0.0
-Species "Nobles"
-+MISSILEEVENMORE
-+FASTMELEE
-+QUICKTORETALIATE
-Obituary "A Hell Duke brutalized %o." 
-HitObituary "%o felt a Hell Duke's wrath."
-SeeSound "duke/see" 
-ActiveSound "duke/idle"
-PainSound "duke/pain"
-DeathSound "duke/death"
-MeleeSound "imp/melee"
+	Health 1250 PainChance 40
+	PainChance "Explosion", 60
+	Scale 1.15
+	BloodColor "Green"
+	MeleeDamage 8
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEEVENMORE
+	+FASTMELEE
+	+QUICKTORETALIATE
+	Obituary "A Hell Duke brutalized %o." 
+	HitObituary "%o felt a Hell Duke's wrath."
+	SeeSound "duke/see" 
+	ActiveSound "duke/idle"
+	PainSound "duke/pain"
+	DeathSound "duke/death"
+	MeleeSound "imp/melee"
 	States
 	{
 	Spawn:
@@ -4020,25 +3995,24 @@ MeleeSound "imp/melee"
 
 ACTOR PossessedBruiserDemon : PossessedBaronOfHell
 {
-Health
-		1000 PainChance 100
-Bloodcolor "ff 5f 00"
-DamageFactor "AfritComet", 0.0
-Species "Nobles"
-DropItem "LifeEssence" 100
-DropItem "ArmorBonusMax" 100
-MeleeDamage 8
-+FLOORCLIP
-+BOSSDEATH
-+MISSILEMORE
-+FASTMELEE
-SeeSound "superbaron/scream"
-PainSound "superbaron/pain"
-ActiveSound "superbaron/act"
-DeathSound "monsters/baronkingdeath"
-MeleeSound "baron/melee"
-Obituary "%o got whooped by a Bruiser Demon."
-HitObituary "%o was dismembered by a Bruiser Demon."
+	Health 1000 PainChance 100
+	Bloodcolor "ff 5f 00"
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	MeleeDamage 8
+	+FLOORCLIP
+	+BOSSDEATH
+	+MISSILEMORE
+	+FASTMELEE
+	SeeSound "superbaron/scream"
+	PainSound "superbaron/pain"
+	ActiveSound "superbaron/act"
+	DeathSound "monsters/baronkingdeath"
+	MeleeSound "baron/melee"
+	Obituary "%o got whooped by a Bruiser Demon."
+	HitObituary "%o was dismembered by a Bruiser Demon."
 	States
 	{
 	Spawn:
@@ -4085,26 +4059,25 @@ HitObituary "%o was dismembered by a Bruiser Demon."
 
 ACTOR PossessedAfrit : PossessedBaronOfHell
 { 
-Health
-		1250 PainChance 80
-Bloodcolor "ff 50 00"
-DamageFactor "AfritComet", 0.0
-DropItem "LifeEssence" 130
-DropItem "ArmorBonusMax" 130
-MeleeDamage 8
-SeeSound "barons/sight"
-PainSound "monsters/afritpain"
-DeathSound "barons/death"
-ActiveSound "superbaron/act"
-MeleeSound "baron/melee"
-Species "Nobles"
-Scale 1.05
-+MISSILEMORE
-+BOSSDEATH
-+DONTHURTSPECIES
-+FASTMELEE
-Obituary "%o was deep fried by an Afrit." 
-HitObituary "%o couldnt take an Afrits heat."
+	Health 1250 PainChance 80
+	Bloodcolor "ff 50 00"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 130
+	DropItem "ArmorBonusMax" 130
+	MeleeDamage 8
+	SeeSound "barons/sight"
+	PainSound "monsters/afritpain"
+	DeathSound "barons/death"
+	ActiveSound "superbaron/act"
+	MeleeSound "baron/melee"
+	Species "Nobles"
+	Scale 1.05
+	+MISSILEMORE
+	+BOSSDEATH
+	+DONTHURTSPECIES
+	+FASTMELEE
+	Obituary "%o was deep fried by an Afrit." 
+	HitObituary "%o couldnt take an Afrits heat."
 	States
 	{
 	Spawn:
@@ -4270,24 +4243,23 @@ HitObituary "%o couldnt take an Afrits heat."
 
 ACTOR PossessedCybruiser : PossessedBaronOfHell
 { 
-  Health
-		1500 PainChance 70
-  MeleeDamage 8
-  Scale 1.1
-  Species "Nobles"
-  Obituary "%o was blown away by a Cybruiser."
-  HitObituary "%o was smashed by a Cybruiser."
-  SeeSound "cbaron/sight" 
-  PainSound "blooddemon/pain"
-  DeathSound "monster/brudth"
-  MeleeSound "baron/melee"
-  ActiveSound "cbaron/active"
-  DamageFactor "AfritComet", 0.0
-  DropItem "LifeEssence" 160
-  DropItem "ArmorBonusMax" 160
-  +MISSILEMORE
-  +DONTHURTSPECIES
-  +FASTMELEE
+	Health 1500 PainChance 70
+	MeleeDamage 8
+	Scale 1.1
+	Species "Nobles"
+	Obituary "%o was blown away by a Cybruiser."
+	HitObituary "%o was smashed by a Cybruiser."
+	SeeSound "cbaron/sight" 
+	PainSound "blooddemon/pain"
+	DeathSound "monster/brudth"
+	MeleeSound "baron/melee"
+	ActiveSound "cbaron/active"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 160
+	DropItem "ArmorBonusMax" 160
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+FASTMELEE
 	States
 	{
 	Spawn:
@@ -4352,15 +4324,15 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
 
 ACTOR PossessedArchvile : PossessedMonster
 {
-	Game
-		Doom SpawnID 111
+	Game Doom
+	SpawnID 111
 	Health 700
 	Radius 20
 	Height 56
 	Mass 500
 	Speed 15
 	PainChance 10
-MaxTargetRange 896
+	MaxTargetRange 896
 	+QUICKTORETALIATE 
 	+FLOORCLIP 
 	+NOTARGET
@@ -4374,13 +4346,13 @@ MaxTargetRange 896
 
 ACTOR PossessedExile : PossessedArchVile
 {
-Species "Viles"
-DropItem "LifeEssence" 100
-DropItem "ArmorBonusMax" 100
-DamageFactor "VileFires", 0.0
-PainChance "Mine", 128
-Obituary "%o got caught in an Exile's void."
-DeathSound "avile/death"
+	Species "Viles"
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	Obituary "%o got caught in an Exile's void."
+	DeathSound "avile/death"
 	States
 	{
 	Spawn:
@@ -4458,19 +4430,19 @@ DeathSound "avile/death"
 
 ACTOR PossessedDiabolist : PossessedArchVile
 {
-  Health 850
-  DropItem "LifeEssence" 130
-  DropItem "ArmorBonusMax" 130
-  BloodColor "12 12 12"
-  Species "Viles"
-  DamageFactor "VileFires", 0.0
-  PainChance "Mine", 128
-  Obituary "%o got roasted alive by a Diabolist."
-+FLOORCLIP
-  +NOTARGET
-  SeeSound "Monster/diasit" 
-  ActiveSound "Monster/diaact" 
-  DeathSound "avile/death"
+	Health 850
+	DropItem "LifeEssence" 130
+	DropItem "ArmorBonusMax" 130
+	BloodColor "12 12 12"
+	Species "Viles"
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	Obituary "%o got roasted alive by a Diabolist."
+	+FLOORCLIP
+	+NOTARGET
+	SeeSound "Monster/diasit" 
+	ActiveSound "Monster/diaact" 
+	DeathSound "avile/death"
 	States
 	{
 	Spawn:
@@ -4547,22 +4519,22 @@ ACTOR PossessedDiabolist : PossessedArchVile
 
 ACTOR PossessedDarkHellion : PossessedArchVile 
 {
-  Health 1000
-  DropItem "LifeEssence" 160
-  DropItem "ArmorBonusMax" 160
-  DropItem "HellionRegen" 166 1
-  Obituary "A Dark Hellion cast %o into oblivion."
-  Scale 1.25
-+FLOORCLIP
-  +NOTARGET
-  Species "Viles"
-  DamageFactor "VileFires", 0.0
-  PainChance "Mine", 128
-  SeeSound "monster/hlnsit" 
-  ActiveSound "monster/hlnact" 
-  PainSound "monster/hlnpai"
-  DeathSound "monster/hlndeth"
-  BloodColor "Black"
+	Health 1000
+	DropItem "LifeEssence" 160
+	DropItem "ArmorBonusMax" 160
+	DropItem "HellionRegen" 166 1
+	Obituary "A Dark Hellion cast %o into oblivion."
+	Scale 1.25
+	+FLOORCLIP
+	+NOTARGET
+	Species "Viles"
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	SeeSound "monster/hlnsit" 
+	ActiveSound "monster/hlnact" 
+	PainSound "monster/hlnpai"
+	DeathSound "monster/hlndeth"
+	BloodColor "Black"
 	States
 	{
 	Spawn:
@@ -4727,15 +4699,13 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 
 ACTOR PossessedSpiderMastermind : PossessedMonster
 {
-	Game
-		Doom SpawnID 7
-	Health
-		3000 Radius 100
+	Game Doom
+	SpawnID 7
+	Health 3000 Radius 100
 	Height 100
-	Mass
-		1000 Speed 12
+	Mass 1000 Speed 12
 	PainChance 40
-MinMissileChance 160
+	MinMissileChance 160
 	+BOSS
 	+MISSILEMORE
 	+FLOORCLIP
@@ -4752,26 +4722,25 @@ MinMissileChance 160
 
 ACTOR PossessedDemolisher : PossessedSpiderMastermind 
 {
-Health
-		3000 Speed 15
-Radius 65
-PainChance 50
-PainChance "PDTBFG", 25
-PainChance "SoulToxic", 20
-PainChance "FatFlamer", 20
-PainChance "FiendFire", 20
-PainChance "Explosion", 80
-DropItem "BossLifeEssence" 128 25
-DropItem "ExtraArmor" 128 1
-Obituary "The Demolisher spider erased %o."
-PainSound "monsters/darkmasterpain"
-SeeSound "monsters/darkmastermindsee"
-DeathSound "monsters/darkmasterminddie"
-AttackSound ""
-Species "Masterminds"
-DamageFactor "DemolisherEx", 0.0
-DamageFactor "PDTBFG", 0.5
-DamageFactor "PDTBFGTracer", 0.8
+	Health 3000 Speed 15
+	Radius 65
+	PainChance 50
+	PainChance "PDTBFG", 25
+	PainChance "SoulToxic", 20
+	PainChance "FatFlamer", 20
+	PainChance "FiendFire", 20
+	PainChance "Explosion", 80
+	DropItem "BossLifeEssence" 128 25
+	DropItem "ExtraArmor" 128 1
+	Obituary "The Demolisher spider erased %o."
+	PainSound "monsters/darkmasterpain"
+	SeeSound "monsters/darkmastermindsee"
+	DeathSound "monsters/darkmasterminddie"
+	AttackSound ""
+	Species "Masterminds"
+	DamageFactor "DemolisherEx", 0.0
+	DamageFactor "PDTBFG", 0.5
+	DamageFactor "PDTBFGTracer", 0.8
 	States
 	{
 	Spawn:
@@ -4838,30 +4807,29 @@ DamageFactor "PDTBFGTracer", 0.8
 
 ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind 
 {
-Health
-		3500 Speed 18
-PainChance 40
-PainChance "PDTBFG", 20
-PainChance "SoulToxic", 15
-PainChance "FatFlamer", 15
-PainChance "FiendFire", 15
-PainChance "Explosion", 70
-Scale 1.05
-Radius 65
-DropItem "BossLifeEssence" 162 25
-DropItem "BossArmorBonusMax" 162 25
-DropItem "NewCellPack" 186 300
-Obituary "%o was destroyed by the Dark Demolisher."
-PainSound "monsters/darkmasterpain"
-SeeSound "monsters/darkdemolishersee"
-DeathSound "monsters/darkmasterminddie"
-AttackSound ""
-Species "Masterminds"
-+MISSILEEVENMORE
-DamageFactor "DarkDemoEx", 0.0
-DamageFactor "PDTBFG", 0.35
-DamageFactor "PDTBFGTracer", 0.7
-BloodColor "Green"
+	Health 3500 Speed 18
+	PainChance 40
+	PainChance "PDTBFG", 20
+	PainChance "SoulToxic", 15
+	PainChance "FatFlamer", 15
+	PainChance "FiendFire", 15
+	PainChance "Explosion", 70
+	Scale 1.05
+	Radius 65
+	DropItem "BossLifeEssence" 162 25
+	DropItem "BossArmorBonusMax" 162 25
+	DropItem "NewCellPack" 186 300
+	Obituary "%o was destroyed by the Dark Demolisher."
+	PainSound "monsters/darkmasterpain"
+	SeeSound "monsters/darkdemolishersee"
+	DeathSound "monsters/darkmasterminddie"
+	AttackSound ""
+	Species "Masterminds"
+	+MISSILEEVENMORE
+	DamageFactor "DarkDemoEx", 0.0
+	DamageFactor "PDTBFG", 0.35
+	DamageFactor "PDTBFGTracer", 0.7
+	BloodColor "Green"
 	States
 	{
 	Spawn:
@@ -4971,10 +4939,9 @@ BloodColor "Green"
 
 ACTOR PossessedCerebralSentient : SpiderMastermind
 {
-    Health
-		4000 Speed 12
+	Health 4000 Speed 12
 	FloatSpeed 12
-    PainChance 30
+	PainChance 30
 	PainChance "PDTBFG", 15
 	PainChance "SoulToxic", 10
 	PainChance "FatFlamer", 10
@@ -4998,11 +4965,11 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
 	DamageFactor "CerEnergyBall", 0.0
 	DamageFactor "PDTBFG", 0.2
 	DamageFactor "PDTBFGTracer", 0.6
-    SeeSound "arachnophyte/sight"
-    PainSound "arachnophyte/pain"
-    DeathSound "arachnophyte/death"
+	SeeSound "arachnophyte/sight"
+	PainSound "arachnophyte/pain"
+	DeathSound "arachnophyte/death"
 	Species "Masterminds"
-    Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
+	Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
 	States
 	{
 	Spawn:
@@ -5337,15 +5304,13 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
 
 ACTOR PossessedCyberdemon : PossessedMonster
 {
-	Game
-		Doom SpawnID 114
-	Health
-		4000 Radius 40
+	Game Doom
+	SpawnID 114
+	Health 4000 Radius 40
 	Height 110
-	Mass
-		1000 Speed 16
+	Mass 1000 Speed 16
 	PainChance 20
-MinMissileChance 160
+	MinMissileChance 160
 	+BOSS 
 	+MISSILEMORE
 	+FLOORCLIP
@@ -5361,24 +5326,23 @@ MinMissileChance 160
 
 ACTOR PossessedCyberLord : PossessedCyberdemon
 {
-Health
-		4000 PainChance 50
-PainChance "PDTBFG", 25
-PainChance "SoulToxic", 20
-PainChance "FatFlamer", 20
-PainChance "FiendFire", 20
-PainChance "Explosion", 80
-Species "Cybers"
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 25
-DropItem "MissileBox" 128 20
-Obituary "The Annihilator wrecked %o."
-DamageFactor "Cyber10K", 0.0
-DamageFactor "PDTBFG", 0.5
-DamageFactor "PDTBFGTracer", 0.8
-SeeSound "monsters/clsee"
-PainSound "monsters/cyberlordpain"
-DeathSound "monsters/cldie"
+	Health 4000 PainChance 50
+	PainChance "PDTBFG", 25
+	PainChance "SoulToxic", 20
+	PainChance "FatFlamer", 20
+	PainChance "FiendFire", 20
+	PainChance "Explosion", 80
+	Species "Cybers"
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "MissileBox" 128 20
+	Obituary "The Annihilator wrecked %o."
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.5
+	DamageFactor "PDTBFGTracer", 0.8
+	SeeSound "monsters/clsee"
+	PainSound "monsters/cyberlordpain"
+	DeathSound "monsters/cldie"
 	States
 	{
 	Spawn:
@@ -5439,29 +5403,28 @@ DeathSound "monsters/cldie"
 
 ACTOR PossessedDarkCyberdemon : Cyberdemon 
 {
-Health
-		4500 PainChance 40
-PainChance "PDTBFG", 20
-PainChance "SoulToxic", 15
-PainChance "FatFlamer", 15
-PainChance "FiendFire", 15
-PainChance "Explosion", 70
-Speed 18
-Scale 1.05
-DamageFactor "Cyber10K", 0.0
-DamageFactor "PDTBFG", 0.35
-DamageFactor "PDTBFGTracer", 0.7
-Species "Cybers"
-DropItem "BossLifeEssence" 162 25
-DropItem "BossArmorBonusMax" 162 25
-DropItem "NewCellPack" 186 300
-Obituary "%o was decimated by the Dark Cyberdemon."
-+NOTARGET
-+MISSILEEVENMORE
-SeeSound "monsters/darkcybersee"
-PainSound "monster/psopain"
-DeathSound "monsters/darkcyberdie"
-BloodColor "Green"
+	Health 4500 PainChance 40
+	PainChance "PDTBFG", 20
+	PainChance "SoulToxic", 15
+	PainChance "FatFlamer", 15
+	PainChance "FiendFire", 15
+	PainChance "Explosion", 70
+	Speed 18
+	Scale 1.05
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.35
+	DamageFactor "PDTBFGTracer", 0.7
+	Species "Cybers"
+	DropItem "BossLifeEssence" 162 25
+	DropItem "BossArmorBonusMax" 162 25
+	DropItem "NewCellPack" 186 300
+	Obituary "%o was decimated by the Dark Cyberdemon."
+	+NOTARGET
+	+MISSILEEVENMORE
+	SeeSound "monsters/darkcybersee"
+	PainSound "monster/psopain"
+	DeathSound "monsters/darkcyberdie"
+	BloodColor "Green"
 	States
 	{
 	Spawn:
@@ -5575,36 +5538,35 @@ BloodColor "Green"
 
 ACTOR PossessedCardinal : PossessedCyberdemon
 { 
-   Health
-		5000 Speed 10
-   FloatSpeed 8
-   PainChance 30
-   PainChance "PDTBFG", 15
-   PainChance "SoulToxic", 10
-   PainChance "FatFlamer", 10
-   PainChance "FiendFire", 10
-   PainChance "Explosion", 60
-   Species "Cybers"
-   DamageFactor "Cyber10K", 0.0
-   DamageFactor "PDTBFG", 0.2
-   DamageFactor "PDTBFGTracer", 0.6
-   DropItem "BossLifeEssence" 204 25
-   DropItem "BossArmorBonusMax" 204 25
-   DropItem "DemonAmmoBox" 128 200
-   DropItem "DemonicChalice" 128
-   SeeSound "Cardinal/Sight"
-   PainSound "Cardinal/Pain"
-   DeathSound "Cardinal/Death"
-   ActiveSound "Cardinal/Active"
-   Scale 1.1
-   Mass 2500
-   +NOTARGET
-   +MISSILEEVENMORE
-   +QUICKTORETALIATE
-   +FLOAT
-   +NOGRAVITY	
+	Health 5000 Speed 10
+	FloatSpeed 8
+	PainChance 30
+	PainChance "PDTBFG", 15
+	PainChance "SoulToxic", 10
+	PainChance "FatFlamer", 10
+	PainChance "FiendFire", 10
+	PainChance "Explosion", 60
+	Species "Cybers"
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.2
+	DamageFactor "PDTBFGTracer", 0.6
+	DropItem "BossLifeEssence" 204 25
+	DropItem "BossArmorBonusMax" 204 25
+	DropItem "DemonAmmoBox" 128 200
+	DropItem "DemonicChalice" 128
+	SeeSound "Cardinal/Sight"
+	PainSound "Cardinal/Pain"
+	DeathSound "Cardinal/Death"
+	ActiveSound "Cardinal/Active"
+	Scale 1.1
+	Mass 2500
+	+NOTARGET
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY	
    -FLOORCLIP
-   Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
+	Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
 	States
 	{
 	Spawn:
