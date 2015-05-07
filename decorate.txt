@@ -41,7 +41,7 @@ Actor PossessedPlasmaGunner : PossessedMonster
 		ZMAY E 20
 		ZMAY E 10
 		Goto See
-    }
+	}
 }
 
 ACTOR PlasmaGunnerWeapon : PossessedWeapon
@@ -69,7 +69,7 @@ ACTOR PlasmaGunnerWeapon : PossessedWeapon
 		PLSF A 2 Bright A_Light2
 		TNT1 A 0 A_Light0
 		Stop
-    }
+	}
 }
 
 Actor PossessedRailGunner : PossessedMonster
@@ -95,13 +95,12 @@ Actor PossessedRailGunner : PossessedMonster
 	PainSound "grunt/pain"
 	DeathSound "grunt/death"
 	ActiveSound "grunt/active"
-	
-	States 
-	{ 
+	States
+	{
 	Spawn:
 		RPOS A 10
 		RPOI A 10
-		Loop 
+		Loop
 	See:
 		RPOS AABB 3
 		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
@@ -113,7 +112,7 @@ Actor PossessedRailGunner : PossessedMonster
 		RPOS E 40
 		RPOS E 10
 		Goto See
-    } 
+	}
 }
 
 Actor RailGunnerWeapon : PossessedWeapon
@@ -181,7 +180,7 @@ ACTOR PossessedDemonTechZombie : PossessedMonster
 		ZSP3 F 3 Bright
 		ZSP3 E 10
 		Goto See
-    }
+	}
 }
 
 Actor DemonTechZombieWeapon : PossessedWeapon
@@ -245,7 +244,7 @@ ACTOR PossessedRocketZombie : PossessedMonster
 		MPO2 E 20 A_PlaySound("rocket/drumspin")
 		MPO2 E 10
 		Goto See
-    }
+	}
 }
 
 Actor RocketZombieWeapon : PossessedWeapon
@@ -269,7 +268,7 @@ Actor RocketZombieWeapon : PossessedWeapon
 		MISG A 4
 		MISG A 6
 		Goto Ready
-    }
+	}
 }
 
 ACTOR PossessedShotgunZombie : PossessedMonster
@@ -316,13 +315,12 @@ ACTOR PossessedShotgunZombie : PossessedMonster
 		ZSP1 E 8
 		ZSP1 E 10
 		Goto See
-    }
+	}
 }
 
 Actor ShotgunZombieWeapon : PossessedWeapon
 {
 	AttackSound "weapons/12gaugefire"
-
 	States
 	{
 	Ready:
@@ -344,7 +342,7 @@ Actor ShotgunZombieWeapon : PossessedWeapon
 		SHTG IHGF 1
 		SHTG EDCB 1
 		Goto Ready
-    }
+	}
 }
 
 ACTOR PossessedAssaultShotgunZombie : PossessedMonster
@@ -388,13 +386,12 @@ ACTOR PossessedAssaultShotgunZombie : PossessedMonster
 		ASGZ E 8
 		ASGZ E 10
 		Goto See
-    }
+	}
 }
 
 Actor AssaultShotgunZombieWeapon : PossessedWeapon
 {
 	AttackSound "AShotgun/Fire"
-	
 	States
 	{
 	Ready:
@@ -455,7 +452,7 @@ ACTOR PossessedSuperShotgunZombie : PossessedMonster
 		UDM2 F 4 Bright
 		UDM2 E 14
 		Goto See
-    }
+	}
 }
 
 Actor SuperShotgunZombieWeapon : PossessedWeapon
@@ -564,7 +561,7 @@ Actor SuperShotgunZombieWeapon : PossessedWeapon
 		SHT2 QR 2
 		TNT1 A 0 A_TakeInventory("SSGZombieToken", 1)
 		Goto Ready
-    }
+	}
 }
 
 ACTOR PossessedQuadShotgunZombie : PossessedMonster
@@ -607,7 +604,7 @@ ACTOR PossessedQuadShotgunZombie : PossessedMonster
 		QSZM F 5 Bright
 		QSZM E 12
 		Goto See
-    }
+	}
 }
 
 Actor QuadShotgunZombieWeapon : PossessedWeapon
@@ -717,7 +714,7 @@ Actor QuadShotgunZombieWeapon : PossessedWeapon
 		QSGN A 2
 		TNT1 A 0 A_TakeInventory("QSGZombieToken", 2)
 		Goto Ready
-    }
+	}
 }
 
 ACTOR PossessedAssaultRifleZombie : PossessedMonster
@@ -873,7 +870,6 @@ ACTOR PossessedChaingunner : PossessedMonster
 Actor ChaingunnerWeapon : PossessedWeapon
 {
 	AttackSound "doublecger/fire"
-
 	States
 	{
 	Fire:
@@ -906,19 +902,19 @@ ACTOR Minigunner : ChaingunGuy 21150
   AttackSound "weapons/minigunfire"
   Obituary "%o was torn to shreds by a Minigunner."
   +MISSILEMORE
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		CPS2 A 10
 		CPSI A 10
 		Loop
-  See:
+	See:
 		CPS2 AABB 3
 		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
 		CPS2 CCDD 3
 		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0 A_PlaySound("weapons/mgunspinstart")
 		CPS2 E 10
 		TNT1 A 0 Bright A_PlaySoundEx("weapons/mgunspin","Voice")
@@ -931,10 +927,10 @@ ACTOR Minigunner : ChaingunGuy 21150
 		TNT1 A 0 A_StopSoundEx("Voice")
 		TNT1 A 0 A_CPosRefire
 		Goto Missile+2
-  Pain:
+	Pain:
 		CPS2 G 6 A_Pain
 		Goto See
-  Death:
+	Death:
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
 		TNT1 A 0 A_Jump(178,2)
 		TNT1 A 0 A_SpawnItem("Minigun ",0,12)
@@ -945,7 +941,7 @@ ACTOR Minigunner : ChaingunGuy 21150
 		CPS2 LM 5
     CPS2 N -1
 		Stop
-  XDeath:
+	XDeath:
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "XAlwaysDrop")
 		TNT1 A 0 A_Jump(178,2)
 		TNT1 A 0 A_SpawnItem("Minigun ",0,12)
@@ -956,18 +952,18 @@ ACTOR Minigunner : ChaingunGuy 21150
 		CPS2 STUV 3
 	CPS2 W -1
 		Stop
-AlwaysDrop:
+	AlwaysDrop:
 		TNT1 A 0 A_SpawnItem("Minigun ",0,12)
 		Goto Death+3
-XAlwaysDrop:
+	XAlwaysDrop:
 		TNT1 A 0 A_SpawnItem("Minigun ",0,12)
 		Goto XDeath+3
-  Raise:
+	Raise:
 		TNT1 A 0
 		TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		CPS2 VUTSRQPO 5
 		Goto See
-  }
+	}
 }
 
 ACTOR BFGZombieman 21225
@@ -992,29 +988,29 @@ ACTOR BFGZombieman 21225
   MissileType SpiderBFG9500Ball
 +FLOORCLIP
   +MISSILEMORE
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		BFGZ A 10
 		BFGI A 10
 		Loop
-  See:
+	See:
 		BFGZ AABB 3
 		BFGZ B 0 A_SpawnItem("FootStep",0,0,0,0)
 		BFGZ CCDD 3
 		BFGZ D 0 A_SpawnItem("FootStep",0,0,0,0)
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
 		BFGZ E 15
 		BFGZ F 10 Bright
 		BFGZ F 10 Bright A_MissileAttack
 		BFGZ E 40
 		Goto See
-  Pain:
+	Pain:
 		BFGZ G 6 A_Pain
 		Goto See
-  Death:
+	Death:
 		BFGZ H 5
 		BFGZ I 5 A_Scream
 		BFGZ J 5
@@ -1023,7 +1019,7 @@ ACTOR BFGZombieman 21225
 		BFGZ M 5
     BFGZ N -1
 		Stop
-  XDeath:
+	XDeath:
 		TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
 		BFGZ O 3 A_XScream
 		BFGZ P 3
@@ -1031,12 +1027,12 @@ ACTOR BFGZombieman 21225
 		BFGZ RS 3
     BFGZ T -1
 		Stop
-  Raise:
+	Raise:
 		TNT1 A 0
 		TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		BFGZ SRQPO 5
 		Goto See
-  }
+	}
 }
 
 ACTOR PossessedDevilImp : PossessedMonster
@@ -1076,7 +1072,7 @@ ACTOR PossessedDevilImp : PossessedMonster
 		SIMP EF 5
 		SIMP G 4
 		SIMP FE 5
-		Goto See 
+		Goto See
 	Missile:
 		SIMP EF 8
 		SIMP G 4 Bright
@@ -1084,29 +1080,29 @@ ACTOR PossessedDevilImp : PossessedMonster
 		SIMP G 4 Bright
 		SIMP FE 4
 		Goto See
-		}
+	}
 }
 
 Actor DevilImpWeapon : PossessedWeapon
 {
-    States
-    {
-	 Ready:
+	States
+	{
+	Ready:
 		DCLW A 1 A_WeaponReady
 		Loop
-     Fire:
+	Fire:
 		DCLW A 8
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
 		DCLW AAA 6
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
 		DCLW AA 4
 		Goto Ready
-     AltFire:
+	AltFire:
 		DCLW AB 5
 		DCLW C 4 A_CustomPunch(3)
 		DCLW BA 5
 		Goto Ready
-     }
+	}
 }
 
 ACTOR PossessedVoidImp : PossessedDevilImp
@@ -1124,19 +1120,19 @@ ACTOR PossessedVoidImp : PossessedDevilImp
 	ActiveSound "superimp/active"
 	DropItem "LifeEssence" 75
 	DropItem "ArmorBonusMax" 75
-    States
-    {
-    Spawn:
+	States
+	{
+	Spawn:
 		DRKS A 10
 		DRKI A 10
 		Loop
-    See:
+	See:
 		DRKS AABB 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		DRKS CCDD 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		Loop
-    Missile:
+	Missile:
 		DRKS EF 8
 		DRKS G 1 Bright
 		DRKS G 1 Bright
@@ -1177,19 +1173,19 @@ ACTOR PossessedSoulHarvester : PossessedDevilImp
 	PainSound "voidimp/pain"
     Obituary "%o couldn't evade a Soul Harvester's seeker."
 	HitObituary "%o was scratched by a Soul Harvester."
-    States
-    {
-    Spawn:
+	States
+	{
+	Spawn:
 		SLHV A 10
 		SLHI A 10
 		Loop
-    See:
+	See:
 		SLHV AABB 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		SLHV CCDD 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		Loop
-    Missile:
+	Missile:
 		SLHV EF 6
 		SLHV G 5 Bright
 		SLHV FE 4
@@ -1229,19 +1225,19 @@ ACTOR PossessedPhaseImp : PossessedDevilImp
     ActiveSound "phaseimp/active"
     Obituary "%o was pierced by a Phase Imp."
     HitObituary "%o was lacerated by a Phase Imp."
-    States
-    {
-    Spawn:
+	States
+	{
+	Spawn:
 		DIMP A 10
 		DIMI A 10
 		Loop
-    See:
+	See:
 		DIMP AABB 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		DIMP CCDD 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		Loop
-    Missile:
+	Missile:
 		DIMP EF 6
 		TNT1 A 0 Bright
 		DIMP G 5 Bright
@@ -1367,25 +1363,25 @@ DeathSound "demon/death"
 ActiveSound "demon/active"
 AttackSound "demon/melee"
 Obituary "%o was gored by a Bull Fiend."
-HitObituary "%o was mangled by a Bull Fiend." 
-States 
-{ 
-Spawn:
+HitObituary "%o was mangled by a Bull Fiend."
+	States
+	{
+	Spawn:
 		SAR2 A 12
 		SAI2 A 12
 		Loop
-See:
+	See:
 		SAR2 AABB 2
 		TNT1 A 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		SAR2 CCDD 2
 		TNT1 A 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
-		Loop 
-Melee:
+		Loop
+	Melee:
 		SAR2 EF 5
 		SAR2 G 4 A_MeleeAttack
 		SAR2 E 5	A_FaceTarget
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(200,1)
 		Goto See
 		TNT1 A 0 A_PlaySound("demon/melee")
@@ -1398,8 +1394,8 @@ Missile:
 		SAR2 G 2 A_ScaleVelocity(0.2)
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 		SAR2 G 1 A_ScaleVelocity(0)
-		Goto See 
-       }
+		Goto See
+	}
 }
 
 ACTOR PinkyLunge
@@ -1412,12 +1408,12 @@ ACTOR PinkyLunge
    SeeSound ""  
    DeathSound ""
    PROJECTILE
-   States
-   {
-   Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 4
 		Stop
-    }
+	}
 }
 
 ACTOR PossessedCyberFiend : PossessedBullFiend
@@ -1435,25 +1431,25 @@ DeathSound "blooddemon/death"
 ActiveSound "blooddemon/active"
 AttackSound "cyberfiend/melee"
 Obituary "%o was gored by a Cyber Fiend."
-HitObituary "%o was mauled by a Cyber Fiend." 
-States 
-{ 
-Spawn:
+HitObituary "%o was mauled by a Cyber Fiend."
+	States
+	{
+	Spawn:
 		CYFN A 12
 		CYFI A 12
 		Loop
-See:
+	See:
 		TNT1 A 0 A_PlaySound("blooddemon/walk")
 		CYFN AABB 2
 		TNT1 A 0 A_PlaySound("blooddemon/walk")
 		CYFN CCDD 2
-		Loop 
-Melee:
+		Loop
+	Melee:
 		CYFN EF 5
 		CYFN G 4 A_MeleeAttack
 		CYFN E 5	A_FaceTarget
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(250,1)
 		Goto See
 		TNT1 A 0 A_PlaySound("cyberfiend/melee")
@@ -1467,7 +1463,7 @@ Missile:
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 		CYFN G 1 A_ScaleVelocity(0)
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedMagmaFiend : PossessedBullFiend
@@ -1485,9 +1481,9 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 	DropItem "LifeEssence" 105
 	DropItem "ArmorBonusMax" 105
     Obituary "%o was massacred by a Magma Fiend." 
-	HitObituary "%o was gnawed on by a Magma Fiend." 
-	States 
-	{ 
+	HitObituary "%o was gnawed on by a Magma Fiend."
+	States
+	{
 	Spawn:
 		SAR3 A 12 Bright
 		SAI3 A 12 Bright
@@ -1497,7 +1493,7 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 		TNT1 A 0 Bright A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		SAR3 CCDD 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("HeavyFleshStep",0,0,0,0)
-		Loop 
+		Loop
 	Melee:
 		SAR3 EF 5 Bright
 		SAR3 G 4 Bright A_MeleeAttack
@@ -1539,8 +1535,8 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 		TNT1 A 0
 		SAR3 FFF 2 Bright A_CustomMissile("MagmaBreath", 32, 0, Random(6,-6))
 		SAR3 E 5 Bright
-		Goto See 
-		}
+		Goto See
+	}
 }
 
 ACTOR PossessedDTechFiend : PossessedBullFiend
@@ -1563,10 +1559,10 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 	DropItem "ArmorBonusMax" 125
 	DropItem "DemonAmmo" 128 120
     Obituary "%o was mown down by a DTech Fiend." 
-	HitObituary "%o was bulldozed by a DTech Fiend." 
-    States 
-    { 
-    Spawn:
+	HitObituary "%o was bulldozed by a DTech Fiend."
+	States
+	{
+	Spawn:
 		DPNK A 12
 		DPII A 12
 		Loop
@@ -1577,7 +1573,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 		TNT1 A 0 A_PlaySound("blooddemon/walk")
 		DPNK CCDD 2
 		Loop
-    Rush:
+	Rush:
 		TNT1 A 0 A_PlaySound("blooddemon/walk")
 		TNT1 A 0 A_SpawnItemEx("DTFiendGhostA",0,0,0,0,0,0,0,128)
 		DPNK A 1
@@ -1598,7 +1594,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 		DPNK D 1
 		TNT1 A 0 A_Jump(87,"See")
 		Loop
-    Missile:
+	Missile:
 		TNT1 A 0 A_Jump(168,"DTech")
 	Lunge:
 		TNT1 A 0 A_JumpIfCloser(350,1)
@@ -1638,7 +1634,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 		TNT1 A 0 A_Jump(12,"Pause")
 		TNT1 A 0 A_SpidRefire
 		Goto DTech+1
-       }
+	}
 }
 
 ACTOR PossessedSpectre~ : PossessedBullFiend
@@ -1648,24 +1644,24 @@ Alpha 0.35
 Obituary "%o never saw the Spectre and was gored."
 HitObituary "%o was chewed up by a Spectre."
 BloodColor "12 12 12"
-States 
-{ 
-Spawn:
+	States
+	{
+	Spawn:
 		SAR6 A 12
 		SAI6 A 12
 		Loop
-See:
+	See:
 		SAR6 AABB 2
 		SAR6 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		SAR6 CCDD 2
 		SAR6 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
-		Loop 
-Melee:
+		Loop
+	Melee:
 		SAR6 EF 5
 		SAR6 G 4 A_MeleeAttack
 		SAR6 E 5	A_FaceTarget
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(200,1)
 		Goto See
 		TNT1 A 0 A_PlaySound("demon/melee")
@@ -1679,7 +1675,7 @@ Missile:
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 		TNT1 A 0 A_ScaleVelocity(0)
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedLurker : PossessedBullFiend
@@ -1695,24 +1691,24 @@ DropItem "LifeEssence" 85
 DropItem "ArmorBonusMax" 85
 Obituary "%o failed to spot the Lurker and was gored."
 HitObituary "%o was devoured by a Lurker."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		SAR7 A 12
 		SAI7 A 12
 		Loop
-See:
+	See:
 		SAR7 AABB 2
 		SAR7 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		SAR7 CCDD 2
 		SAR7 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		Loop
-Melee:
+	Melee:
 		SAR7 EF 5
 		SAR7 G 4 A_MeleeAttack
 		SAR7 E 5
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(250,1)
 		Goto See
 		TNT1 A 0 A_PlaySound("demon/melee")
@@ -1725,8 +1721,8 @@ Missile:
 		SAR7 G 2 A_ScaleVelocity(0.2)
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 		SAR7 G 1 A_ScaleVelocity(0)
-		Goto See 		
-        }
+		Goto See
+	}
 }
 
 ACTOR PossessedSpook : PossessedBullFiend
@@ -1746,24 +1742,24 @@ ActiveSound "magma/active"
 AttackSound "magma/attack"
 Obituary "%o could not see the Spook and was gored."
 HitObituary "%o was crunched by a Spook."
-States 
-{ 
-Spawn:
+	States
+	{
+	Spawn:
 		SAR4 A 12
 		SAI4 A 12
 		Loop
-See:
+	See:
 		SAR4 AABB 2
 		SAR4 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
 		SAR4 CCDD 2
 		SAR4 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
-		Loop 
-Melee:
+		Loop
+	Melee:
 		SAR4 EF 5
 		SAR4 G 4 A_MeleeAttack
 		SAR4 E 5	A_FaceTarget
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(350,1)
 		Goto See
 		TNT1 A 0 A_PlaySound("magma/attack")
@@ -1777,7 +1773,7 @@ Missile:
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 		SAR4 G 1 A_ScaleVelocity(0)
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedTerrorSoul : PossessedMonster
@@ -1808,19 +1804,19 @@ PainSound "monsters/terrorsoulpain"
 DeathSound "skull/death"
 ActiveSound "skull/active"
 Obituary "%o underestimated a Terror Soul."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		TERR A 2 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		TERR A 2 Bright
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(174,"Charge")
-Projectile:
+	Projectile:
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		TERR A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
@@ -1833,7 +1829,7 @@ Projectile:
 		TERR B 2 Bright A_CustomMissile("SoulBall", 10, 0, 0, 1)
 		TERR BBA 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		Goto See
-Charge:
+	Charge:
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		TERR A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
@@ -1862,9 +1858,9 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
   PainSound "forgotten/pain"
   DeathSound "forgotten/death"
   ActiveSound "forgotten/active"
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		FRGO A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
@@ -1874,7 +1870,7 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		FRGO B 2 Bright
 		Loop
-  See:
+	See:
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		FRGO A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
@@ -1884,7 +1880,7 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		FRGO B 2 Bright
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		FRGO A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
@@ -1898,7 +1894,7 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
 		FRGO D 2 Bright A_SkullAttack(22)
 		FRGO CCDD 2 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		Goto Missile+11
-  }
+	}
 }
 
 ACTOR PossessedPoisonSoul : PossessedTerrorSoul
@@ -1915,9 +1911,9 @@ PainSound "monster/psopain"
 DeathSound "monster/psodeath"
 ActiveSound "skull/active"
 Obituary "%o took a sniff of a Poison Soul's toxic fumes."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
 		PHNT A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
@@ -1927,7 +1923,7 @@ Spawn:
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
 		PHNT B 2 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 Bright A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
 		PHNT A 2 Bright
@@ -1939,7 +1935,7 @@ See:
 		PHNT B 2 Bright
 		TNT1 A 0 Bright A_Jump(16,"Evade")
 		Loop
-Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,13)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,16,0,0)
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
@@ -1964,8 +1960,8 @@ Evade:
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
 		PHNT B 2 Bright
 		TNT1 A 0 A_Stop
-		Goto See		
-Missile:
+		Goto See
+	Missile:
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
 		PHNT A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
@@ -1998,19 +1994,19 @@ ActiveSound "rictus/active"
 Obituary "%o was wasted by a Rictus."
 +MISSILEEVENMORE
 +QUICKTORETALIATE
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
 		RICT A 2 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
 		RICT A 2 Bright
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(28,"Kamikaze")
-Normal:
+	Normal:
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
 		RICT A 2 Bright
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
@@ -2019,17 +2015,17 @@ Normal:
 		RICT B 2 Bright A_CustomMissile("RictusBall",0,0,0)
 		RICT BA 2 Bright A_SpawnItem("RictFireSpawner",0,0,0,0)
 		Goto See
-Kamikaze:
+	Kamikaze:
 		TNT1 A 0 A_JumpIfCloser(450,1)
 		Goto Normal
 		TNT1 A 0
 		Goto PainSuicide+3
-Pain:
+	Pain:
 		TNT1 A 0 A_JumpIfHealthLower(35,"PainSuicide")
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
 		RICT B 3 Bright A_Pain
 		Goto See
-PainSuicide:
+	PainSuicide:
 		TNT1 A 0 A_JumpIfCloser(450,1)
 		Goto See
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
@@ -2041,7 +2037,7 @@ PainSuicide:
 		TNT1 A 0 A_CustomMissile("RictusSuicide",0,0,0,0)
 		RICT B 1 Bright A_Die("Suicide")
 		Stop
-Death:
+	Death:
 		TNT1 A 0
 		TNT1 A 0 A_Scream
 		TNT1 A 0 A_SetTranslucent(0.75,1)
@@ -2055,7 +2051,7 @@ Death.Suicide:
 		TNT1 A 0
 		TNT1 A 100 A_NoBlocking
 		Stop
-    }
+	}
 }
 
 ACTOR PossessedAbaddon : PossessedMonster
@@ -2082,16 +2078,16 @@ DropItem "ArmorBonusMax" 60
 +NOGRAVITY
 +FLOAT
 +MISSILEMORE
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		CALI A 1
 		Loop
-See:
+	See:
 		CALI A 3
 		TNT1 A 0 A_Jump(12,"Evade")
 		Loop
-Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,7)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,14,0,0)
 		CALI AAAA 3
@@ -2101,7 +2097,7 @@ Evade:
 		CALI AAAA 3
 		TNT1 A 0 A_Stop
 		Goto See
-Missile:
+	Missile:
 		CALI BC 6
 		CALI D 2 Bright
 		CALI D 1 Bright A_CustomMissile("ABBall",24,0,0,0,0)
@@ -2109,12 +2105,12 @@ Missile:
 		CALI D 1 Bright A_CustomMissile("ABBall",24,0,-6,0,0)
 		CALI CB 4
 		Goto See
-Melee:
+	Melee:
 		CALI BC 5
 		CALI D 5 A_MeleeAttack
 		CALI CB 5
-		Goto See   
-         }
+		Goto See
+	}
 }
 
 ACTOR PossessedWatcher : PossessedAbaddon
@@ -2132,16 +2128,16 @@ Obituary "%o was eradicated by a Watcher."
 HitObituary "%o was munched on by a Watcher." 
 DropItem "LifeEssence" 90
 DropItem "ArmorBonusMax" 90
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		HED4 A 1
 		Loop
-See:
+	See:
 		HED4 A 3
 		TNT1 A 0 A_Jump(14,"Evade")
 		Loop
-Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,7)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,14,0,0)
 		HED4 AAAA 3
@@ -2150,10 +2146,10 @@ Evade:
 		TNT1 A 0 ThrustThing(Angle*256/360+192,14,0,0)
 		HED4 AAAA 3
 		TNT1 A 0 A_Stop
-		Goto See		 
-Missile:
+		Goto See
+	Missile:
 		TNT1 A 0 A_Jump(128,"Seeking")
-Normal:
+	Normal:
 		HED4 BC 6
 		HED4 D 2 Bright
 		HED4 D 1 Bright A_CustomMissile("WatcherBall",24,0,0,0,0)
@@ -2162,17 +2158,17 @@ Normal:
 		HED4 CB 4
 		TNT1 A 0 A_Jump(87,"Seeking")
 		Goto See
-Seeking:
+	Seeking:
 		HED4 BC 6
 		HED4 D 4 Bright A_CustomMissile("WatcherTracer",24,0,0,0,0)
 		HED4 CB 4
 		Goto See
-Melee:
+	Melee:
 		HED4 BC 5
 		HED4 D 5 A_MeleeAttack
 		HED4 CB 4
-		Goto See       
-         }
+		Goto See
+	}
 }
 
 ACTOR PossessedHelemental : PossessedAbaddon
@@ -2190,16 +2186,16 @@ ACTOR PossessedHelemental : PossessedAbaddon
   MeleeSound "caco/melee"
   DropItem "LifeEssence" 120
   DropItem "ArmorBonusMax" 120
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		INFC A 10
 		Loop
-  See:
+	See:
 		INFC A 3
 		TNT1 A 0 A_Jump(16,"Evade")
 		Loop
-  Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,7)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,14,0,0)
 		INFC AAAA 3
@@ -2208,10 +2204,10 @@ ACTOR PossessedHelemental : PossessedAbaddon
 		TNT1 A 0 ThrustThing(Angle*256/360+192,14,0,0)
 		INFC AAAA 3
 		TNT1 A 0 A_Stop
-		Goto See	
-  Missile:
+		Goto See
+	Missile:
 		TNT1 A 0 A_Jump(128,"Seeking","Comet")
-  Normal:
+	Normal:
 		INFC EF 6
 		INFC G 1 Bright
 		TNT1 A 0 Bright A_CustomMissile("HadesBall",24,0,-4,0,0)
@@ -2221,24 +2217,24 @@ ACTOR PossessedHelemental : PossessedAbaddon
 		INFC FE 4
 		TNT1 A 0 A_Jump(87,"Seeking","Comet")
 		Goto See
-  Seeking:
+	Seeking:
 		INFC EF 6
 		INFC J 0 Bright A_CustomMissile("HeleBall",24,0,16,0,0)
 		INFC G 4 Bright A_CustomMissile("HeleBall",24,0,-16,0,0)
 		INFC FE 4
 		TNT1 A 0 A_Jump(87,"Comet")
 		Goto See
-  Comet:
+	Comet:
 		INFC EF 6
 		INFC G 5 Bright A_CustomMissile("HeleComet",24,0,0,0,0)
 		INFC FE 4
 		Goto See
-  Melee:
+	Melee:
 		INFC BC 4
 		INFC D 4 A_MeleeAttack
 		INFC CB 4
 		Goto See
-    }
+	}
 }
 
 ACTOR PossessedPainElemental : PossessedMonster
@@ -2288,32 +2284,32 @@ ActiveSound "Pain/Active"
 MeleeSound "caco/melee"
 Obituary "%o was mutilated by a Soul Keeper."
 HitObituary "%o was chewed on by a Soul Keeper."
-States 
-{
-Spawn:
+	States
+	{
+	Spawn:
 		PLEM A 10
 		Loop
-See:
+	See:
 		PLEM AABBCCBB 3
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(87,"Projectile")
-Normal:
+	Normal:
 		PLEM DE 6
 		PLEM F 5 Bright A_PainAttack("TerrorSoul")
 		PLEM ED 4
 		Goto See
-Projectile:
+	Projectile:
 		PLEM DE 5
 		PLEM F 4 Bright A_CustomMissile("SKBall", 20, 0, 0)
 		PLEM ED 3
 		Goto See
-Melee:
+	Melee:
 		PLEM DE 5
 		PLEM F 4 A_MeleeAttack
 		PLEM ED 3
 		Goto See
-      } 
+	}
 }
 
 ACTOR PossessedDefiler : PossessedSoulKeeper 
@@ -2354,9 +2350,9 @@ ACTOR PossessedDefiler : PossessedSoulKeeper
 		DEFI DE 5
 		DEFI F 4 A_MeleeAttack
 		DEFI ED 3
-		Goto See		
-      } 
-}		
+		Goto See
+	}
+}
 
 ACTOR PossessedPoisonElemental : PossessedSoulKeeper 
 {
@@ -2414,8 +2410,8 @@ ACTOR PossessedPoisonElemental : PossessedSoulKeeper
 		INFR BC 5
 		INFR D 4 A_MeleeAttack
 		INFR CB 3
-		Goto See		
-      } 
+		Goto See
+	}
 }
 
 ACTOR PossessedBombElemental : PossessedSoulKeeper
@@ -2489,7 +2485,7 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 		INFP EF 5 Bright
 		INFP G 4 Bright A_MeleeAttack
 		INFP FE 3 Bright
-		Goto See		
+		Goto See
 	Pain:
 		TNT1 A 0 A_LoopActiveSound
 		TNT1 A 0 A_JumpIfHealthLower(250,"PainSuicide")
@@ -2515,10 +2511,10 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 		TNT1 A 0 A_SpawnItem("BombFireSpawner",0,0,0,0)
 		TNT1 A 0 A_CustomMissile("BombSuicide",0,0,0,0)
 		INFP J 2 Bright A_Die("Suicide")
-		Stop		
+		Stop
 	PainMissile:
 		INFP K 9 Bright A_Pain
-		Goto Missile		
+		Goto Missile
 	Death:
 		TNT1 A 0 A_PlaySound("bomb/explode")
 		INFP L 5 Bright A_Explode(128,128)
@@ -2537,7 +2533,7 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 		TNT1 A 0
 		TNT1 A 100 A_NoBlocking
 		Stop
-        } 
+	}
 }
 
 ACTOR PossessedFatso : PossessedMonster
@@ -2573,23 +2569,23 @@ Species "Fatsos"
 +MISSILEMORE
 ActiveSound "manc/idle"
 Obituary "%o was cooked by a Hectebus."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		TABU C 8
 		TABU C 8
 		TABI C 8
 		TABI C 8
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		TABU AABBCCDD 3
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		TABU EEFF 3
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(260,"Flamethrowers")
-Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("fatso/raiseguns")
 		TABU G 15
 		TNT1 A 0 A_CustomMissile("HectebusBall", 30, 30, 0)
@@ -2604,7 +2600,7 @@ Normal:
 		TABU H 4 Bright A_CustomMissile("HectebusBall", 30, -30, 12)
 		TABU IG 12
 		Goto See
-Flamethrowers:
+	Flamethrowers:
 		TNT1 A 0 A_Jump(82,"Normal")
 		TNT1 A 0 A_PlaySound("hectebus/flameready")
 		TABU GG 10
@@ -2680,7 +2676,7 @@ Flamethrowers:
 		TABU H 1 Bright A_CustomMissile("HectebusFlamethrower", 30, -30, Random(6, -6))
 		TABU IG 12
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedDaedabus : PossessedFatso
@@ -2700,23 +2696,23 @@ PainSound "Daedabus/Pain"
 DeathSound "Daedabus/Death"
 ActiveSound "Daedabus/Active"
 Obituary "%o was overwhelmed by a Daedabus."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		HECT C 8
 		HECT C 8
 		HECI C 8
 		HECI C 8
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		HECT AABBCCDD 3
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		HECT EEFF 3
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(280,"ChemSpray")
-Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("Daedabus/Attack")
 		HECT G 15
 		TNT1 A 0 Bright A_CustomMissile("DaedabusBall", 30, -26, Random(0, 6))
@@ -2735,7 +2731,7 @@ Normal:
 		HECT H 4 Bright A_CustomMissile("DaedabusBall", 30, -26, Random(7, 12))
 		HECT IG 12
 		Goto See
-ChemSpray:
+	ChemSpray:
 		TNT1 A 0 A_Jump(94,"Normal")
 		TNT1 A 0 A_PlaySound("hectebus/flameready")
 		HECT GG 10
@@ -2804,8 +2800,8 @@ ChemSpray:
 		TNT1 A 0 A_CustomMissile("DaedabusChemSpray", 30, 30, Random(12, -12))
 		HECT H 2 Bright A_CustomMissile("DaedabusChemSpray", 30, -30, Random(12, -12))
 		HECT IG 12
-		Goto See	   
-       }
+		Goto See
+	}
 }
 
 ACTOR PossessedBehemoth : PossessedFatso
@@ -2825,23 +2821,23 @@ PainSound "monsters/volpain"
 DeathSound "monsters/voldeath"
 ActiveSound "manc/idle"
 Obituary "%o was squashed by a Behemoth."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		FAT2 C 8
 		FAT2 C 8
 		FATI C 8
 		FATI C 8
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		FAT2 AABBCCDD 3
 		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
 		FAT2 EEFF 3
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(82,"Seekers")
-Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("monsters/volattack")
 		FAT2 G 15
 		TNT1 A 0
@@ -2857,7 +2853,7 @@ Normal:
 		FAT2 H 6 Bright A_CustomMissile("BehemothComet", 30, -30, Random(7, 12))
 		FAT2 IG 12
 		Goto See
-Seekers:
+	Seekers:
 		TNT1 A 0 A_PlaySound("monsters/volattack")
 		FAT2 G 15
 		TNT1 A 0
@@ -2865,7 +2861,7 @@ Seekers:
 		FAT2 H 6 Bright A_CustomMissile("BehemothSeekingComet", 30, -30, 15)
 		FAT2 IG 12
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedBarbatos : PossessedFatso
@@ -2893,20 +2889,20 @@ DeathSound "monsters/barbdeath"
 ActiveSound "manc/idle"
 Obituary "%o was overpowered by a Barbatos."
 BloodColor "Green"
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		FFAT A 8
 		FFAT A 8
 		FFAI A 8
 		FFAI A 8
 		Loop
-See:
+	See:
 		FFAT A 2
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(300,"ChemSpray")
-Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("monsters/barbattack")
 		FFAT G 15
 		TNT1 A 0
@@ -2922,7 +2918,7 @@ Normal:
 		FFAT H 6 Bright A_CustomMissile("BarbatosComet", 36, -24, Random(7, 12))
 		FFAT FG 12
 		Goto See
-ChemSpray:
+	ChemSpray:
 		TNT1 A 0 A_Jump(106,"Normal")
 		TNT1 A 0 A_PlaySound("hectebus/flameready")
 		FFAT GG 10
@@ -2992,7 +2988,7 @@ ChemSpray:
 		FFAT H 2 Bright A_CustomMissile("DaedabusChemSpray", 36, -30, Random(16, -16))
 		FFAT FG 12
 		Goto See
-       }
+	}
 }
 
 ACTOR PossessedArachnotron : PossessedMonster
@@ -3030,18 +3026,18 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
   DamageFactor "Baby15K", 0.0
   Species "BabySpiders"
   +MISSILEMORE
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		CSPI B 10
 		Loop
-  See:
+	See:
 		CSPI A 2 A_PlaySound("monsters/dualachwalk")
 		CSPI AABBB 2
 		CSPI C 2 A_PlaySound("monsters/dualachwalk")
 		CSPI CCDDD 2
 		Loop
-  Missile:
+	Missile:
 		CSPI B 15
 		TNT1 A 0 A_PlaySound("dualach/plasma")
 		TNT1 A 0 A_CustomMissile("DualaPlasma",30,-12,0,CMF_AIMOFFSET)
@@ -3062,7 +3058,7 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
 		CSPI B 15
 		TNT1 A 0 A_SpidRefire
 		Goto Missile+1
-  }
+	}
 }
 
 ACTOR PossessedFusionite : PossessedArachnotron
@@ -3081,24 +3077,24 @@ DropItem "ArmorBonusMax" 80
 DamageFactor "Baby15K", 0.0
 Species "BabySpiders"
 +MISSILEMORE
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		FSPI A 10
 		Loop
-See:
+	See:
 		FSPI A 2 A_BabyMetal
 		FSPI ABBCC 2
 		FSPI D 2 A_BabyMetal
 		FSPI DEEFF 2
 		Loop
-Missile:
+	Missile:
 		FSPI A 15
 		FSPI G 4 Bright A_CustomMissile("FusionShot",30,0,Random(-850,850)/100.00,0)
 		FSPI H 4 Bright A_CustomMissile("FusionShot",30,0,Random(-850,850)/100.00,0)
 		TNT1 A 0 A_SpidRefire
 		Goto Missile+1
-    }
+	}
 }
 
 ACTOR PossessedBabyDemolisher : PossessedArachnotron
@@ -3118,23 +3114,23 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
   Species "BabySpiders"
   +MISSILEMORE
   Obituary "%o got %p ass beat by a Baby Demolisher."
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		MSPI A 10
 		Loop
-  See:
+	See:
 		MSPI A 2 A_BabyMetal
 		MSPI ABBCC 2
 		MSPI D 2 A_BabyMetal
 		MSPI DEEFF 2
 		Loop
-  Pause:
+	Pause:
 		MSPI A 10
 		Goto See
-  Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BFG15K")
-  Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
 		MSPI A 15
 		TNT1 A 0 Bright A_PlaySound("monsters/darkmasterwind2")
@@ -3148,7 +3144,7 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
 		TNT1 A 0 A_Jump(6,"Pause","BFG15K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+2
-  BFG15K:
+	BFG15K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		MSPI G 18 Bright
 		MSPI G 6 Bright
@@ -3159,7 +3155,7 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
 		MSPI H 4 Bright A_CustomMissile("BabyDemo15K",20,0,Random(4,-4))
 		MSPI G 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
-  }
+	}
 }
 
 ACTOR PossessedBabySentient : PossessedArachnotron
@@ -3185,22 +3181,22 @@ ACTOR PossessedBabySentient : PossessedArachnotron
   +NOGRAVITY	
   -FLOORCLIP
   Obituary "%o was not intelligent enough to take on a Baby Sentient."
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP A 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP B 2 Bright
 		Loop
-  See:
+	See:
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP A 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP B 2 Bright
 		TNT1 A 0 A_Jump(12,"Evade")
 		Loop
-  Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,19)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
@@ -3240,9 +3236,9 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 		MARP B 2 Bright
 		TNT1 A 0 A_Stop
 		Goto See
-  Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BFG10K")
-  Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP A 2 Bright
@@ -3272,7 +3268,7 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 		TNT1 A 0 A_Jump(6,"BFG10K","See")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+15
-  BFG10K:
+	BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP C 2 Bright
@@ -3329,7 +3325,7 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 		MARP C 2 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		MARP CCCCCCCCC 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		Goto See
-  }
+	}
 }
 
 ACTOR PossessedRevenant : PossessedMonster
@@ -3377,31 +3373,31 @@ Species "Skeletons"
 +FASTMELEE
 BloodColor Red
 Species "Skeletons"
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		SKEL A 10
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		SKEL AAABBBCCC 2
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		SKEL DDDEEEFFF 2
 		Loop
-Melee:
+	Melee:
 		TNT1 A 0
 		SKEL G 6 A_SkelWhoosh
 		SKEL H 4
 		SKEL I 3 A_SkelFist
 		SKEL HG 4
 		Goto See
-Missile:
+	Missile:
 		SKEL J 14 Bright
 		TNT1 A 0 A_CustomMissile("GuardianTracer", 40, -14, 0)
 		SKEL K 10 A_CustomMissile("GuardianTracer", 40, 14, 0)
 		SKEL K 10
 		Goto See
-    }
+	}
 }
 
 ACTOR PosssessedCadaver : PossessedGuardian 
@@ -3417,30 +3413,30 @@ ACTOR PosssessedCadaver : PossessedGuardian
   HitObituary "%o's face got caved in by a Cadaver."
   Obituary "%o was blown to a mushy mess by a Cadaver."
   BloodColor "Black"
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		RASK A 10
 		Loop
-  See:
+	See:
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		RASK AAABBBCCC 2
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		RASK DDDEEEFFF 2
 		Loop
-  Melee:
+	Melee:
 		TNT1 A 0
 		RASK G 5 A_SkelWhoosh
 		RASK H 4
 		RASK I 3 A_SkelFist
 		RASK HG 4
 		Goto See
-  Missile:
+	Missile:
 		RASK J 14 Bright
 		RASK K 6 A_CustomMissile("CadaverRocket",40,12,0)
 		RASK K 10
 		Goto See
-  }
+	}
 }
 
 ACTOR PossessedHellfireRevenant : PossessedGuardian
@@ -3457,13 +3453,13 @@ HitObituary "%o could not evade a Hellfire Revenant's seeker."
 SeeSound "monsters/hfirerevenantsight"
 DeathSound "monsters/hfirerevenantdeath"
 ActiveSound "monsters/hfirerevenantactive"
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
 		GREV A 3 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 Bright A_SpawnItem("BonyStep",0,0,0,0)
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
 		GREV A 2 Bright
@@ -3503,8 +3499,8 @@ See:
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
 		GREV F 2 Bright
 		Loop
-Melee:
-Missile:
+	Melee:
+	Missile:
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
 		GREV J 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
@@ -3525,7 +3521,7 @@ Missile:
 		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
 		GREV KKKKKKKKK 2 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)
 		Goto See
-    }
+	}
 }
 
 ACTOR PossessedFamine : PossessedGuardian
@@ -3545,20 +3541,20 @@ ACTOR PossessedFamine : PossessedGuardian
   MeleeThreshold 60
   +QUICKTORETALIATE
   -LONGMELEERANGE
-  States
-  {
-  Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0
 		NREV A 10
 		Loop
-  See:
+	See:
 		TNT1 A 0
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		NREV AABBCC 2
 		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 		NREV DDEEFF 2
 		Loop
-  Melee:
+	Melee:
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"Melee2")
 		TNT1 A 0
 		NREV G 4 A_SkelWhoosh
@@ -3566,22 +3562,22 @@ ACTOR PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
 		NREV I 4 A_SkelFist
 		Goto See
-  Melee2:
+	Melee2:
 		TNT1 A 0
 		NREV R 4 A_SkelWhoosh
 		NREV S 4
 		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
 		NREV T 4 A_SkelFist
 		Goto See
-  Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(275,"DashPunch")
-  Normal:
+	Normal:
 		NREV J 14 Bright
 		TNT1 A 0 A_CustomMissile("FamineTracer", 40, -14, 0)
 		NREV K 10 A_CustomMissile("FamineTracer", 40, 14, 0)
 		NREV K 10
 		Goto See
-  DashPunch:
+	DashPunch:
 		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
 		TNT1 A 0
@@ -3594,7 +3590,7 @@ ACTOR PossessedFamine : PossessedGuardian
 		NREV III 1 A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
 		NREV T 2 A_Stop
 		Goto See
-  DashPunch2:
+	DashPunch2:
 		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0
 		TNT1 A 0 A_Recoil(-40)
@@ -3605,13 +3601,13 @@ ACTOR PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_CustomMissile("FamineDashPunch",32,0,0,CMF_AIMDIRECTION)
 		NREV TTT 1 A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
 		NREV T 2 A_Stop
-		Goto See	
-  Pain:
+		Goto See
+	Pain:
 		TNT1 A 0 A_Jump(42,"PainEvade","PainEvade2")
 		TNT1 A 0 A_Jump(104,"MissilePain")
 		NREV L 10 A_Pain
 		Goto See
-  PainEvade:
+	PainEvade:
 		TNT1 A 0 A_Pain
 		TNT1 A 0
 		TNT1 A 0 A_ChangeFlag(NOPAIN,1)
@@ -3620,7 +3616,7 @@ ACTOR PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_ChangeFlag(NOPAIN,0)
 		TNT1 A 0 A_Jump(62,"Missile")
 		Goto See
-  PainEvade2:
+	PainEvade2:
 		TNT1 A 0 A_Pain
 		TNT1 A 0
 		TNT1 A 0 A_ChangeFlag(NOPAIN,1)
@@ -3629,16 +3625,16 @@ ACTOR PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_ChangeFlag(NOPAIN,0)
 		TNT1 A 0 A_Jump(62,"Missile")
 		Goto See
-  MissilePain:
+	MissilePain:
 		NREV L 10 A_Pain
 		Goto Missile
-  Death:
+	Death:
 		TNT1 A 0 A_ChangeFlag(NOPAIN,0)
 		TNT1 A 0 A_JumpIfInventory("FamineDeathToken",2,"TrueDeath")
 		TNT1 A 0 A_Die
 		TNT1 A 0 A_NoBlocking
 		TNT1 A 0 A_Jump(84,"FakeDeath")
-  TrueDeath:
+	TrueDeath:
 		TNT1 A 0 A_Jump(128,2,3,4)
 		TNT1 A 0 A_SpawnItem("DemonAmmoBox",0,12)
 		TNT1 A 0 A_SpawnItem("BossLifeEssence",0,12)
@@ -3654,7 +3650,7 @@ ACTOR PossessedFamine : PossessedGuardian
 		NREX J 4 A_TakeInventory("FamineDeathToken",2)
     NREX K -1
 		Stop
-  FakeDeath:
+	FakeDeath:
 		NREV L 7 A_GiveInventory("FamineDeathToken",1)
 		NREV MNO 7
 		NREV P 7 A_SpawnItem("BodyCrash",0,0,0,0)
@@ -3662,12 +3658,12 @@ ACTOR PossessedFamine : PossessedGuardian
 		NREV QQQQQ 100
 	NREV Q -1 A_CustomMissile("FamineResurrection",0,0,0)
 		Stop
-  Raise:
+	Raise:
 		TNT1 A 0
 		TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		NREV PONML 5
 		Goto See
-  }
+	}
 }
 
 ACTOR PossessedBaronOfHell : PossessedMonster
@@ -3722,46 +3718,46 @@ ActiveSound "superbaron/act"
 PainSound "superbaron/pain"
 DeathSound "monster/ar2dth"
 MeleeSound "imp/melee"
-States 
-{ 
-Spawn:
+	States
+	{
+	Spawn:
 		LOHS A 7 Bright
 		LOHS A 7 Bright
 		LOHI A 7 Bright
 		LOHI A 7 Bright
-		Loop 
-See:
+		Loop
+	See:
 		LOHS AABB 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		LOHS CCDD 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 Bright A_Jump(128,"BurstBall","Comet")
-Normal:
+	Normal:
 		LOHS EF 6 Bright
 		LOHS G 5 Bright A_Custommissile("ArchonFastBall", 32, 0, 0)
 		LOHS IJ 6 Bright
 		LOHS K 5 Bright A_Custommissile("ArchonFastBall", 32, 0, 0)
 		TNT1 A 0 Bright A_Jump(87,"BurstBall","Comet")
 		Goto See
-BurstBall:
+	BurstBall:
 		LOHS MN 7 Bright
 		LOHS O 1 Bright A_Custommissile("HABall", 32, 0, 0)
 		TNT1 A 0 Bright A_Custommissile("HABall", 32, 0, 6)
 		LOHS O 6 Bright A_Custommissile("HABall", 32, 0, -6)
 		TNT1 A 0 Bright A_Jump(87,"Comet")
 		Goto See
-Comet:
+	Comet:
 		LOHS MN 8 Bright
 		LOHS O 7 Bright A_Custommissile("HAComet", 32, 0, 0)
 		Goto See
-Melee:
+	Melee:
 		LOHS EF 4 Bright
 		LOHS G 4 Bright A_MeleeAttack
 		LOHS FE 4 Bright
 		Goto See
-        } 
+	}
 }
 
 ACTOR PossessedPyroDemon : PossessedHellKnight
@@ -3784,51 +3780,51 @@ ActiveSound "pyro/active"
 PainSound "superbaron/pain"
 DeathSound "monster/ar2dth"
 MeleeSound "imp/melee"
-States 
-{ 
-Spawn:
+	States
+	{
+	Spawn:
 		PYRO A 7 Bright
 		PYRO A 7 Bright
 		PYRI A 7 Bright
 		PYRI A 7 Bright
-		Loop 
-See:
+		Loop
+	See:
 		PYRO AABB 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		PYRO CCDD 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 Bright A_Jump(128,"Comet","FloorHugger")
-Normal:
+	Normal:
 		PYRO EF 7 Bright
 		PYRO G 1 Bright A_CustomMissile("PBall", 32, 0, 0)
 		TNT1 A 0 Bright A_CustomMissile("PBall", 32, 0, -5)
 		PYRO G 5 Bright A_CustomMissile("PBall", 32, 0, 5)
 		TNT1 A 0 Bright A_Jump(87,"Burst","Comet")
 		Goto See
-Burst:
+	Burst:
 		PYRO IJ 7 Bright
 		PYRO K 1 Bright A_CustomMissile("PBall", 32, 0, 0)
 		TNT1 A 0 Bright A_CustomMissile("PBall", 32, 0, -5)
 		PYRO K 5 Bright A_CustomMissile("PBall", 32, 0, 5)
 		TNT1 A 0 Bright A_Jump(87,"Comet","FloorHugger")
-		Goto See		
-Comet:
+		Goto See
+	Comet:
 		PYRO MN 8 Bright
 		PYRO O 7 Bright A_Custommissile("BruiserComet",32,0,0,0)
 		TNT1 A 0 Bright A_Jump(87,"FloorHugger")
 		Goto See
-FloorHugger:
+	FloorHugger:
 		PYRO MN 8 Bright
 		PYRO O 8 Bright A_Custommissile("PyroFireSpawner",16,0,0,0)
 		Goto See
-Melee:
+	Melee:
 		PYRO EF 4 Bright
 		PYRO G 5 Bright A_MeleeAttack
 		PYRO FE 4 Bright
 		Goto See
-        } 
+	}
 }
 
 ACTOR PossessedCyberNoble : PossessedHellKnight
@@ -3852,26 +3848,26 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
   +MISSILEMORE
   +DONTHURTSPECIES
   +FASTMELEE
-  States 
-  { 
-  Spawn:
+	States
+	{
+	Spawn:
 		CBOS A 7
 		CBOS A 7
 		CBOI A 7
 		CBOI A 7
-		Loop 
-  See:
+		Loop
+	See:
 		CBOS AABB 3
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		CBOS CCDD 3
 		TNT1 A 0 A_Playsound("monster/bruwlk")
 		Loop
-  Pause:
+	Pause:
 		CBOS E 10
 		Goto See
-  Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BurstBall","LargeBall","Rocket")
-  Normal:
+	Normal:
 		CBOS E 5
 		CBOS E 10
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 0, 12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
@@ -3881,29 +3877,29 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
 		TNT1 A 0 A_Jump(20,"Pause")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+1
-  BurstBall:
+	BurstBall:
 		CBOS PQ 7
 		CBOS R 1 Bright A_CustomMissile("CyNobleBall", 32, 0, 0)
 		TNT1 A 0 A_CustomMissile("CyNobleBall", 32, 0, 6)
 		CBOS R 5 Bright A_CustomMissile("CyNobleBall", 32, 0, -6)
 		TNT1 A 0 A_Jump(87,"LargeBall","Rocket")
 		Goto See
-  LargeBall:
+	LargeBall:
 		CBOS PQ 6
 		CBOS R 4 Bright A_CustomMissile("DukeBall2", 32, 0, 0)
 		TNT1 A 0 A_Jump(87,"Rocket")
 		Goto See
-  Rocket:
+	Rocket:
 		CBOS E 10
 		CBOS F 8 Bright A_CustomMissile("CyNobleRocket",32,0,0,0)
 		CBOS E 10
 		Goto See
-  Melee:
+	Melee:
 		CBOS PQ 4
 		CBOS R 4 A_MeleeAttack
 		CBOS QP 4
 		Goto See
-    } 
+	}
 }
 
 ACTOR PossessedHellDuke : PossessedHellKnight
@@ -3929,15 +3925,15 @@ ActiveSound "duke/idle"
 PainSound "duke/pain"
 DeathSound "duke/death"
 MeleeSound "imp/melee"
-States 
-{ 
-Spawn:
+	States
+	{
+	Spawn:
 		HDUK A 7 Bright
 		HDUK A 7 Bright
 		HDUI A 7 Bright
 		HDUI A 7 Bright
-		Loop 
-See:
+		Loop
+	See:
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
 		HDUK AA 3 Bright
@@ -3949,9 +3945,9 @@ See:
 		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
 		HDUK DD 3 Bright
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 Bright A_Jump(128,"GiantBalls","BurstComet","FloorHugger")
-Normal:
+	Normal:
 		HDUK EF 6 Bright
 		HDUK G 1 Bright A_CustomMissile("CyNobleBall", 32, 0, 0)
 		TNT1 A 0 A_CustomMissile("CyNobleBall", 32, 0, -5)
@@ -3962,37 +3958,37 @@ Normal:
 		HDUK K 4 Bright A_CustomMissile("CyNobleBall", 32, 0, 5)
 		TNT1 A 0 A_Jump(87,"GiantBalls","BurstComet","FloorHugger")
 		Goto See
-GiantBalls:
+	GiantBalls:
 		HDUK EF 7 Bright
 		HDUK G 6 Bright A_CustomMissile("DukeBall2", 32, 0, 0)
 		HDUK IJ 7 Bright
 		HDUK K 6 Bright A_CustomMissile("DukeBall2", 32, 0, 0)
 		TNT1 A 0 A_Jump(87,"BurstComet","FloorHugger")
-		Goto See				
-BurstComet:
+		Goto See
+	BurstComet:
 		HDUK MN 8 Bright
 		HDUK O 2 Bright A_Custommissile("HDComet",32,0,0)
 		TNT1 A 0 A_Custommissile("HDComet",32,0,-10)
 		HDUK O 5 Bright A_Custommissile("HDComet",32,0,10)
 		TNT1 A 0 A_Jump(87,"FloorHugger")
 		Goto See
-FloorHugger:
+	FloorHugger:
 		HDUK ON 8 Bright
 		HDUK M 2 Bright A_Custommissile("DukeFireSpawner",16,0,0)
 		TNT1 A 0 A_Custommissile("DukeFireSpawner",16,0,-18)
 		HDUK M 8 Bright A_Custommissile("DukeFireSpawner",16,0,18)
 		Goto See
-Melee:
+	Melee:
 		HDUK EF 4 Bright
 		HDUK G 5 Bright A_MeleeAttack
 		HDUK FE 4 Bright
 		Goto See
-Pain:
+	Pain:
 		TNT1 A 0 A_Jump(28,"PainHeal")
 		TNT1 A 0 A_Jump(104,"PainMissile","PainRage")
 		HDUK Q 10 Bright A_Pain
 		Goto See
-PainHeal:
+	PainHeal:
 		HDUK Q 10 Bright A_Pain
 		HDUK ON 6 Bright
 		TNT1 A 0 A_SetInvulnerable
@@ -4007,10 +4003,10 @@ PainHeal:
 		Goto See
 		TNT1 A 0
 		Goto BurstComet+2
-PainMissile:
+	PainMissile:
 		HDUK Q 10 Bright A_Pain
 		Goto Missile
-PainRage:
+	PainRage:
 		HDUK Q 10 Bright A_Pain
 		TNT1 A 0 A_JumpIfCloser(400,1)
 		Goto See
@@ -4018,8 +4014,8 @@ PainRage:
 		HDUK ON 5 Bright
 		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION,0)
 		HDUK N 5 Bright
-		Goto See 
-        } 
+		Goto See
+	}
 }
 
 ACTOR PossessedBruiserDemon : PossessedBaronOfHell
@@ -4043,23 +4039,23 @@ DeathSound "monsters/baronkingdeath"
 MeleeSound "baron/melee"
 Obituary "%o got whooped by a Bruiser Demon."
 HitObituary "%o was dismembered by a Bruiser Demon."
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		HFRY A 7 Bright
 		HFRY A 7 Bright
 		HFRI A 7 Bright
 		HFRI A 7 Bright
 		Loop
-See:
+	See:
 		HFRY AABB 3 Bright
 		HFRY B 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		HFRY CCDD 3 Bright
 		HFRY D 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 Bright A_Jump(128,"GiantBalls","Comet")
-Normal:
+	Normal:
 		HFRY KL 7 Bright
 		HFRY M 1 Bright A_CustomMissile("BBall", 32, 0, 0)
 		TNT1 A 0 Bright A_CustomMissile("BBall", 32, 0, 6)
@@ -4068,25 +4064,24 @@ Normal:
 		HFRY M 5 Bright A_CustomMissile("BBall", 32, 0, -12)
 		TNT1 A 0 Bright A_Jump(87,"GiantBalls","Comet")
 		Goto See
-GiantBalls:
+	GiantBalls:
 		HFRY EF 7 Bright
 		HFRY G 6 Bright A_CustomMissile("BBall2", 32, 0, 0)
 		HFRY HI 7 Bright
 		HFRY J 6 Bright A_CustomMissile("BBall2", 32, 0, 0)
 		TNT1 A 0 Bright A_Jump(87,"Comet")
 		Goto See
-Comet:
+	Comet:
 		HFRY KL 8 Bright
 		HFRY M 7 Bright A_CustomMissile("BruiserComet", 32, 0, 0)
 		Goto See
-Melee:
+	Melee:
 		HFRY EF 4 Bright
 		HFRY G 5 Bright A_MeleeAttack
 		HFRY FE 4 Bright
 		Goto See
- 	}
-}	 
-
+	}
+}
 
 ACTOR PossessedAfrit : PossessedBaronOfHell
 { 
@@ -4109,10 +4104,10 @@ Scale 1.05
 +DONTHURTSPECIES
 +FASTMELEE
 Obituary "%o was deep fried by an Afrit." 
-HitObituary "%o couldnt take an Afrits heat." 
-States 
-{ 
-Spawn:
+HitObituary "%o couldnt take an Afrits heat."
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT A 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4122,7 +4117,7 @@ Spawn:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT D 4 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT A 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4131,8 +4126,8 @@ See:
 		FRIT C 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT D 3 Bright
-		Loop      
-Melee:
+		Loop
+	Melee:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT E 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4144,9 +4139,9 @@ Melee:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT E 4 Bright
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BurstBall","Comets","FloorHugger")
-Normal:
+	Normal:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT E 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4189,7 +4184,7 @@ Normal:
 		FRIT K 3 Bright
 		TNT1 A 0 A_Jump(87,"BurstBall","Comets")
 		Goto See
-BurstBall:
+	BurstBall:
 		FRIT M 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT M 3 Bright
@@ -4211,8 +4206,8 @@ BurstBall:
 		FRIT O 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT O 2 Bright
-		TNT1 A 0 A_Jump(87,"BurstBall","FloorHugger")	  
-Comets:
+		TNT1 A 0 A_Jump(87,"BurstBall","FloorHugger")
+	Comets:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT M 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4231,8 +4226,8 @@ Comets:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT O 3 Bright
 		TNT1 A 0 A_Jump(87,"FloorHugger")
-		Goto See 
-FloorHugger:
+		Goto See
+	FloorHugger:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT O 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4260,17 +4255,17 @@ FloorHugger:
 		FRIT M 3 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT M 3 Bright
-		Goto See	  
-Pain:
+		Goto See
+	Pain:
 		TNT1 A 0 A_Jump(61,"MissilePain")
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT Q 8 Bright A_Pain
 		Goto See
-MissilePain:
+	MissilePain:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT Q 8 Bright A_Pain
 		Goto Missile
-      } 
+	}
 }
 
 ACTOR PossessedCybruiser : PossessedBaronOfHell
@@ -4293,23 +4288,23 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
   +MISSILEMORE
   +DONTHURTSPECIES
   +FASTMELEE
-  States 
-  { 
-  Spawn:
+	States
+	{
+	Spawn:
 		BRUS A 7
 		BRUS A 7
 		BRUI A 7
 		BRUI A 7
-		Loop 
-  See:
+		Loop
+	See:
 		BRUS AABB 3
 		TNT1 A 0 A_Playsound("monster/bruwlk")
 		BRUS CCDD 3
 		TNT1 A 0 A_Playsound("monster/bruwlk")
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"Rockets","HomingRockets","BFG15K")
-  Normal:
+	Normal:
 		TNT1 A 0 A_PlaySound("weapons/rgcharge")
 		BRUS EE 10
 		BRUS E 2
@@ -4320,7 +4315,7 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
 		BRUS E 20
 		TNT1 A 0 A_Jump(87,"Rockets","HomingRockets","BFG15K")
 		Goto See
-  Rockets:
+	Rockets:
 		BRUS E 10
 		BRUS F 8 Bright A_CustomMissile("CyNobleRocket",32,0,0,0)
 		BRUS E 10
@@ -4328,15 +4323,15 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
 		BRUS E 10
 		TNT1 A 0 A_Jump(87,"HomingRockets","BFG15K")
 		Goto See
-  HomingRockets:
+	HomingRockets:
 		BRUS E 10
 		BRUS F 8 Bright A_CustomMissile("BruiserMissile",32,0,0,0)
 		BRUS E 10
 		BRUS F 8 Bright A_CustomMissile("BruiserMissile",32,0,0,0)
 		BRUS E 10
 		TNT1 A 0 A_Jump(87,"BFG15K")
-		Goto See	
-  BFG15K:
+		Goto See
+	BFG15K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		BRUS E 18
 		BRUS E 6
@@ -4347,12 +4342,12 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
 		BRUS F 4 Bright A_CustomMissile("Cybruiser15K",32,0,Random(4,-4))
 		BRUS E 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
-  Melee:
+	Melee:
 		BRUS GH 4
 		BRUS I 4 A_MeleeAttack
 		BRUS HG 4
 		Goto See
-    } 
+	}
 }
 
 ACTOR PossessedArchvile : PossessedMonster
@@ -4386,19 +4381,19 @@ DamageFactor "VileFires", 0.0
 PainChance "Mine", 128
 Obituary "%o got caught in an Exile's void."
 DeathSound "avile/death"
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		VILE A 10
 		Loop
-See:
+	See:
 		TNT1 A 0 A_Jump(64,"Rush")
 		VILE A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		VILE AABBCC 2 A_VileChase
 		VILE D 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		VILE DDEEFF 2 A_VileChase
 		Loop
-Rush:
+	Rush:
 		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
 		VILE A 1 A_VileChase
 		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
@@ -4449,7 +4444,7 @@ Rush:
 		VILE F 1 A_VileChase
 		TNT1 A 0 A_Jump(182,"See")
 		Loop
-Missile:
+	Missile:
 		TNT1 A 0 Bright
 		VILE G 10 Bright A_PlaySound("exile/voidstart")
 		VILE H 8 Bright A_VileTarget
@@ -4458,7 +4453,7 @@ Missile:
 		VILE O 8 Bright A_VileAttack
 		VILE P 20 Bright
 		Goto See
-    }
+	}
 }
 
 ACTOR PossessedDiabolist : PossessedArchVile
@@ -4476,19 +4471,19 @@ ACTOR PossessedDiabolist : PossessedArchVile
   SeeSound "Monster/diasit" 
   ActiveSound "Monster/diaact" 
   DeathSound "avile/death"
-  States 
-  { 
-  Spawn:
+	States
+	{
+	Spawn:
 		DIAB A 10 Bright
-		Loop 
-See:
+		Loop
+	See:
 		TNT1 A 0 Bright A_Jump(64,"Rush")
 		DIAB A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
 		DIAB AABBCC 2 Bright A_VileChase
 		TNT1 A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
 		DIAB DDEEFF 2 Bright A_VileChase
 		Loop
-Rush:
+	Rush:
 		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
 		DIAB A 1 Bright A_VileChase
 		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
@@ -4539,15 +4534,15 @@ Rush:
 		DIAB F 1 Bright A_VileChase
 		TNT1 A 0 A_Jump(178,"See")
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0 Bright
 		DIAB G 10 Bright A_VileStart
 		DIAB H 8 Bright A_VileTarget("IFire")
 		DIAB IJKLMN 8 Bright
 		DIAB O 8 Bright A_VileAttack
 		DIAB P 20 Bright
-		Goto See  
-    }
+		Goto See
+	}
 }
 
 ACTOR PossessedDarkHellion : PossessedArchVile 
@@ -4568,15 +4563,15 @@ ACTOR PossessedDarkHellion : PossessedArchVile
   PainSound "monster/hlnpai"
   DeathSound "monster/hlndeth"
   BloodColor "Black"
-  States 
-  { 
-  Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN A 4
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN A 4
-		Loop 
-  See:
+		Loop
+	See:
 		TNT1 A 0 A_Jump(64,"Rush")
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
@@ -4605,7 +4600,7 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN F 2 A_VileChase
 		Loop
-  Rush:
+	Rush:
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
 		HELN A 1 A_VileChase
@@ -4680,7 +4675,7 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 		HELN F 1 A_VileChase
 		TNT1 A 0 A_Jump(164,"See")
 		Loop
-  Missile:
+	Missile:
 		TNT1 A 0
 		TNT1 A 0 A_PlaySound("hellion/smokestart")
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
@@ -4727,7 +4722,7 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
 		Goto See
-    }
+	}
 }
 
 ACTOR PossessedSpiderMastermind : PossessedMonster
@@ -4777,25 +4772,25 @@ Species "Masterminds"
 DamageFactor "DemolisherEx", 0.0
 DamageFactor "PDTBFG", 0.5
 DamageFactor "PDTBFGTracer", 0.8
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		DEMO A 10
 		Loop
-See:
+	See:
 		DEMO A 2 A_Metal
 		DEMO ABB 2
 		DEMO C 2 A_Metal
 		DEMO CDD 2
 		DEMO E 2 A_Metal
 		DEMO EFF 2
-		Loop 
-Pause:
+		Loop
+	Pause:
 		DEMO A 10
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BFG15K","BFG9K")
-Normal:
+	Normal:
 		TNT1 A 0 A_JumpIfCloser(2000,1)
 		Goto BFG15K
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
@@ -4812,7 +4807,7 @@ Normal:
 		TNT1 A 0 A_Jump(6,"Pause","BFG15K","BFG9K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+3
-BFG15K:
+	BFG15K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		DEMO T 18 Bright
 		DEMO T 6 Bright
@@ -4829,17 +4824,17 @@ BFG15K:
 		DEMO U 4 Bright A_CustomMissile("Spider15K",34,0,Random(-4, 4))
 		DEMO T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		TNT1 A 0 A_Jump(128,"BFG9K")
-		Goto See		
-BFG9K:
+		Goto See
+	BFG9K:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
 		DEMO T 15 Bright
 		DEMO T 10 Bright
 		DEMO U 8 Bright
 		DEMO U 4 Bright A_CustomMissile("SpiderBFG9500Ball",34,0,0,0)
 		DEMO T 15 Bright
-		Goto See	
-        }
-}	
+		Goto See
+	}
+}
 
 ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind 
 {
@@ -4867,12 +4862,12 @@ DamageFactor "DarkDemoEx", 0.0
 DamageFactor "PDTBFG", 0.35
 DamageFactor "PDTBFGTracer", 0.7
 BloodColor "Green"
-States
-{
-Spawn:
+	States
+	{
+	Spawn:
 		DEM2 A 10
 		Loop
-See:
+	See:
 		TNT1 A 0 A_Jump(62,"Rush")
 		DEM2 A 2 A_Metal
 		DEM2 ABB 2
@@ -4880,8 +4875,8 @@ See:
 		DEM2 CDD 2
 		DEM2 E 2 A_Metal
 		DEM2 EFF 2
-		Loop 
-Rush:
+		Loop
+	Rush:
 		TNT1 A 0 A_Metal
 		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostA",0,0,0,0,0,0,0,128)
 		DEM2 A 1
@@ -4911,12 +4906,12 @@ Rush:
 		DEM2 F 1
 		TNT1 A 0 A_Jump(84,"See")
 		Loop
-Pause:
+	Pause:
 		DEM2 A 10
-		Goto See			
-Missile:
+		Goto See
+	Missile:
 		TNT1 A 0 A_Jump(128,"BFG9K","BFG10K")
-Normal:
+	Normal:
 		TNT1 A 0 A_JumpIfCloser(2000,1)
 		Goto BFG9K
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
@@ -4932,8 +4927,8 @@ Normal:
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")
 		TNT1 A 0 A_Jump(6,"Pause","BFG9K","BFG10K")
 		TNT1 A 0 A_SpidRefire
-		Goto Normal+3		
-BFG9K:
+		Goto Normal+3
+	BFG9K:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
 		DEM2 T 15 Bright
 		DEM2 T 10 Bright
@@ -4948,7 +4943,7 @@ BFG9K:
 		DEM2 T 15 Bright
 		TNT1 A 0 A_Jump(128,"BFG10K")
 		Goto See
-BFG10K:
+	BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		DEM2 T 18 Bright
 		DEM2 T 6 Bright
@@ -4970,9 +4965,9 @@ BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright A_CustomMissile("DarkDemo10K", 44, 0, Random(4, -4))
 		DEM2 T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto See				
-        }
-}	
+		Goto See
+	}
+}
 
 ACTOR PossessedCerebralSentient : SpiderMastermind
 {
@@ -5008,22 +5003,22 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
     DeathSound "arachnophyte/death"
 	Species "Masterminds"
     Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
-    States
-    {
-Spawn:
+	States
+	{
+	Spawn:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 2 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR B 2 Bright
 		Loop
-See:
+	See:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 2 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR B 2 Bright
 		TNT1 A 0 A_Jump(26,"Evade")
 		Loop
-Evade:
+	Evade:
 		TNT1 A 0 A_Jump(128,19)
 		TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
@@ -5063,9 +5058,9 @@ Evade:
 		SUPR B 2 Bright
 		TNT1 A 0 A_Stop
 		Goto See
-Missile:
+	Missile:
 		TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
-Normal:
+	Normal:
 		TNT1 A 0 A_JumpIfCloser(2000,1)
 		Goto BFG10K
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -5086,7 +5081,7 @@ Normal:
 		TNT1 A 0 A_Jump(6,"See","BFG10K","DTBFG10K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+7
-BFG10K:
+	BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 3 Bright
@@ -5137,7 +5132,7 @@ BFG10K:
 		SUPR NNNNN 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"DTBFG10K")
 		Goto See
-DTBFG10K:
+	DTBFG10K:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_PlaySound("Cardinal/9k")
 		SUPR NN 2 Bright
@@ -5156,8 +5151,8 @@ DTBFG10K:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR O 2 Bright A_CustomMissile("SentientDTBFG10KBall", 34, 0, 0)
 		SUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		Goto See	
-Pain:
+		Goto See
+	Pain:
 		TNT1 A 0 A_Jump(46,"PainResurrect")
 		TNT1 A 0 A_Jump(128,"PainMissile")
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -5165,13 +5160,13 @@ Pain:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 3 Bright A_Pain
 		Goto See
-PainMissile:
+	PainMissile:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 3 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 3 Bright A_Pain
 		Goto Missile
-PainResurrect:
+	PainResurrect:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR A 3 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -5336,8 +5331,8 @@ PainResurrect:
 		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_UnSetInvulnerable
 		SUPR A 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		Goto See		
-    }
+		Goto See
+	}
 }
 
 ACTOR PossessedCyberdemon : PossessedMonster
@@ -5384,23 +5379,23 @@ DamageFactor "PDTBFGTracer", 0.8
 SeeSound "monsters/clsee"
 PainSound "monsters/cyberlordpain"
 DeathSound "monsters/cldie"
-States 
-{    
-Spawn:
+	States
+	{
+	Spawn:
 		ANNI A 10
 		ANNI A 10
 		ANII A 10
 		ANII A 10
-		Loop 
-See:
+		Loop
+	See:
 		ANNI A 3 A_Playsound("monsters/clhoof")
 		ANNI ABB 3
 		ANNI C 3 A_Playsound("monsters/clhoof")
 		ANNI CDD 3
-		Loop 
-Missile:
+		Loop
+	Missile:
 		TNT1 A 0 A_JumpIfCloser(400,"Grenadier")
-Normal:
+	Normal:
 		TNT1 A 0 A_Jump(128,"Seekers")
 		ANNI E 12
 		TNT1 A 0 Bright A_CustomMissile("CyberLordRocket", 40, 26, 0)
@@ -5414,7 +5409,7 @@ Normal:
 		ANNI E 12
 		TNT1 A 0 Bright A_Jump(128,"Seekers")
 		Goto See
-Seekers:
+	Seekers:
 		ANNI E 12
 		TNT1 A 0 Bright A_CustomMissile("CyberLordHomer", 40, 26, 0)
 		ANNI F 8 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
@@ -5426,7 +5421,7 @@ Seekers:
 		ANNI F 8 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
 		ANNI E 12
 		Goto See
-Grenadier:
+	Grenadier:
 		TNT1 A 0 A_Jump(178,"Normal")
 		ANNI E 10
 		ANNI E 2
@@ -5439,8 +5434,8 @@ Grenadier:
 		ANNI F 8 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
 		ANNI E 12
 		Goto See
-        }
-}	
+	}
+}
 
 ACTOR PossessedDarkCyberdemon : Cyberdemon 
 {
@@ -5467,23 +5462,23 @@ SeeSound "monsters/darkcybersee"
 PainSound "monster/psopain"
 DeathSound "monsters/darkcyberdie"
 BloodColor "Green"
-States 
-{    
-Spawn:
+	States
+	{
+	Spawn:
 		CBEP A 10
 		CBEP A 10
 		CBEI A 10
 		CBEI A 10
-		Loop 
-See:
+		Loop
+	See:
 		CBEP A 3 A_Hoof
 		CBEP ABBCC 3
 		CBEP D 3 A_Metal
 		CBEP D 3
-		Loop						
-Missile:
+		Loop
+	Missile:
 		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
-Rockets:
+	Rockets:
 		CBEP E 10
 		CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
 		CBEP E 6
@@ -5499,7 +5494,7 @@ Rockets:
 		CBEP E 10
 		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
 		Goto See
-HomingRockets:
+	HomingRockets:
 		CBEP E 10
 		CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
 		CBEP E 6
@@ -5514,8 +5509,8 @@ HomingRockets:
 		CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
 		CBEP E 10
 		TNT1 A 0 A_Jump(128,"FloorStomp","BFG9K","BFG15K")
-		Goto See		
-FloorStomp:
+		Goto See
+	FloorStomp:
 		CBEP G 10
 		TNT1 A 0 A_SetInvulnerable
 		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
@@ -5544,8 +5539,8 @@ FloorStomp:
 		CBE3 B 2 A_CustomMissile("DarkCyberFireSpawner",0,0,-45,0)
 		CBE3 B 20
 		TNT1 A 0 A_Jump(128,"BFG9K","BFG15K")
-		Goto See			
-BFG9K:
+		Goto See
+	BFG9K:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
 		CBEP EE 10
 		CBEP F 10 Bright
@@ -5558,7 +5553,7 @@ BFG9K:
 		CBEP E 10
 		TNT1 A 0 A_Jump(128,"BFG15K")
 		Goto See
-BFG15K:
+	BFG15K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		CBEP E 18 Bright
 		CBEP E 6 Bright
@@ -5574,8 +5569,8 @@ BFG15K:
 		CBEP E 4 Bright
 		CBEP F 4 Bright A_CustomMissile("DarkCyber15K",40,0,Random(-4, 4))
 		CBEP E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto See			
-        }
+		Goto See
+	}
 }
 
 ACTOR PossessedCardinal : PossessedCyberdemon
@@ -5609,24 +5604,24 @@ ACTOR PossessedCardinal : PossessedCyberdemon
    +FLOAT
    +NOGRAVITY	
    -FLOORCLIP
-   Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."  
-   States 
-   { 
-   Spawn:
+   Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
+	States
+	{
+	Spawn:
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD B 2 Bright
 		Loop
-   See:
+	See:
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD A 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD B 2 Bright
-		Loop	  
-   Missile:
+		Loop
+	Missile:
 		TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
-   Normal:
+	Normal:
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -5668,7 +5663,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
 		Goto See
-   Seekers:
+	Seekers:
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -5710,7 +5705,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
 		Goto See
-   BFG10K:
+	BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
@@ -5758,8 +5753,8 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		CARD CCCCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"DTBFG10K")
-		Goto See	  
-   DTBFG10K:
+		Goto See
+	DTBFG10K:
 		TNT1 A 0 A_PlaySound("Cardinal/9k")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
@@ -5780,7 +5775,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD DCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto See
-   Pain:
+	Pain:
 		TNT1 A 0 A_Jump(46,"PainRage")
 		TNT1 A 0 A_Jump(128,"PainMissile")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -5790,7 +5785,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD E 3 Bright
 		Goto See
-   PainMissile:
+	PainMissile:
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD E 3 Bright A_Pain
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -5798,7 +5793,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD E 3 Bright
 		Goto Missile
-   PainRage:
+	PainRage:
 		TNT1 A 0 A_JumpIfCloser(1000,1)
 		Goto Pain+1
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -5901,5 +5896,6 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_UnSetInvulnerable
 		CARD EE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto See
-      } 
+	}
 }
+
