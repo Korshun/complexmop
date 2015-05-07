@@ -909,8 +909,8 @@ ACTOR Minigunner : ChaingunGuy 21150
   States
   {
   Spawn:
-    CPS2 A 10 A_Look
-	CPSI A 10 A_Look
+    CPS2 A 10
+	CPSI A 10
     Loop
   See:
     CPS2 AABB 3 A_Chase
@@ -995,8 +995,8 @@ ACTOR BFGZombieman 21225
   States
   {
   Spawn:
-    BFGZ A 10 A_Look
-	BFGI A 10 A_Look
+    BFGZ A 10
+	BFGI A 10
     Loop
   See:
     BFGZ AABB 3 A_Chase
@@ -1372,8 +1372,8 @@ HitObituary "%o was mangled by a Bull Fiend."
 States 
 { 
 Spawn: 
-       SAR2 A 12 A_Look
-	   SAI2 A 12 A_Look
+       SAR2 A 12
+	   SAI2 A 12
        Loop
 See: 
        SAR2 AABB 2 A_Chase
@@ -1440,8 +1440,8 @@ HitObituary "%o was mauled by a Cyber Fiend."
 States 
 { 
 Spawn: 
-       CYFN A 12 A_Look
-	   CYFI A 12 A_Look
+       CYFN A 12
+	   CYFI A 12
        Loop
 See: 
        TNT1 A 0 A_PlaySound("blooddemon/walk")
@@ -1490,8 +1490,8 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 	States 
 	{ 
 	Spawn: 
-		SAR3 A 12 Bright A_Look
-		SAI3 A 12 Bright A_Look
+		SAR3 A 12 Bright
+		SAI3 A 12 Bright
         Loop
 	See: 
         SAR3 AABB 2 Bright A_Chase
@@ -1568,8 +1568,8 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
     States 
     { 
     Spawn: 
-       DPNK A 12 A_Look
-	   DPII A 12 A_Look
+       DPNK A 12
+	   DPII A 12
 	   Loop
 	See:
 	   TNT1 A 0 A_Jump(87,"Rush")
@@ -1652,8 +1652,8 @@ BloodColor "12 12 12"
 States 
 { 
 Spawn: 
-       SAR6 A 12 A_Look
-	   SAI6 A 12 A_Look
+       SAR6 A 12
+	   SAI6 A 12
        Loop
 See: 
        SAR6 AABB 2 A_Chase
@@ -1699,8 +1699,8 @@ HitObituary "%o was devoured by a Lurker."
 States
 {
 Spawn:
-        SAR7 A 12 A_Look
-		SAI7 A 12 A_Look
+        SAR7 A 12
+		SAI7 A 12
         Loop
 See:
         SAR7 AABB 2 A_Chase
@@ -1750,8 +1750,8 @@ HitObituary "%o was crunched by a Spook."
 States 
 { 
 Spawn:
-       SAR4 A 12 A_Look
-	   SAI4 A 12 A_Look
+       SAR4 A 12
+	   SAI4 A 12
        Loop
 See:
        SAR4 AABB 2 A_Chase
@@ -1813,7 +1813,7 @@ States
 {
 Spawn:
     TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-	TERR A 2 Bright A_Look
+	TERR A 2 Bright
 	Loop
 See:
     TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
@@ -1867,13 +1867,13 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
   {
   Spawn:
     TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    FRGO A 2 Bright A_Look
+    FRGO A 2 Bright
 	TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    FRGO A 2 Bright A_Look
+    FRGO A 2 Bright
     TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    FRGO B 2 Bright A_Look
+    FRGO B 2 Bright
 	TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    FRGO B 2 Bright A_Look
+    FRGO B 2 Bright
     Loop
   See:
     TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
@@ -1920,13 +1920,13 @@ States
 {
 Spawn:
     TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	PHNT A 2 Bright A_Look
+	PHNT A 2 Bright
     TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	PHNT A 2 Bright A_Look
+	PHNT A 2 Bright
     TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	PHNT B 2 Bright A_Look
+	PHNT B 2 Bright
     TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	PHNT B 2 Bright A_Look
+	PHNT B 2 Bright
 	Loop
 See:
     TNT1 A 0 Bright A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
@@ -2003,7 +2003,7 @@ States
 {
 Spawn:
     TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
-	RICT A 2 Bright A_Look
+	RICT A 2 Bright
 	Loop
 See:
     TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
@@ -2086,7 +2086,7 @@ DropItem "ArmorBonusMax" 60
 States
 {
 Spawn:
-         CALI A 1 A_Look
+         CALI A 1
 		 Loop
 See:
          CALI A 3 A_Chase
@@ -2136,7 +2136,7 @@ DropItem "ArmorBonusMax" 90
 States
 {
 Spawn:
-         HED4 A 1 A_Look
+         HED4 A 1
 	 Loop
 See:
          HED4 A 3 A_Chase
@@ -2194,7 +2194,7 @@ ACTOR PossessedHelemental : PossessedAbaddon
   States
   {
   Spawn:
-    INFC A 10 A_Look
+    INFC A 10
     Loop
   See:
     INFC A 3 A_Chase
@@ -2292,7 +2292,7 @@ HitObituary "%o was chewed on by a Soul Keeper."
 States 
 {
 Spawn:
-      PLEM A 10 A_Look
+      PLEM A 10
       Loop
 See:
       PLEM AABBCCBB 3 A_Chase
@@ -2331,7 +2331,7 @@ ACTOR PossessedDefiler : PossessedSoulKeeper
 	States
 	{
 	Spawn:
-		DEFI A 10 A_Look
+		DEFI A 10
 		Loop
 	See:
 		DEFI AABBCCBB 3 A_Chase
@@ -2374,7 +2374,7 @@ ACTOR PossessedPoisonElemental : PossessedSoulKeeper
 	States
 	{
 	Spawn:
-		INFR A 10 A_Look
+		INFR A 10
 		Loop
 	See:
 		INFR AA 3 A_Chase
@@ -2440,7 +2440,7 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 	{
 	Spawn:
 		TNT1 A 0 A_LoopActiveSound
-		INFP AABBCCDD 3 Bright A_Look
+		INFP AABBCCDD 3 Bright
 		Loop
 	See:
 		TNT1 A 0 A_LoopActiveSound
@@ -2577,10 +2577,10 @@ Obituary "%o was cooked by a Hectebus."
 States
 {
 Spawn:
-       TABU C 8 A_Look
-	   TABU C 8 A_Look
-	   TABI C 8 A_Look
-	   TABI C 8 A_Look
+       TABU C 8
+	   TABU C 8
+	   TABI C 8
+	   TABI C 8
        Loop
 See:
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
@@ -2704,10 +2704,10 @@ Obituary "%o was overwhelmed by a Daedabus."
 States
 {
 Spawn:
-       HECT C 8 A_Look
-	   HECT C 8 A_Look
-	   HECI C 8 A_Look
-	   HECI C 8 A_Look
+       HECT C 8
+	   HECT C 8
+	   HECI C 8
+	   HECI C 8
        Loop
 See:
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)     
@@ -2829,10 +2829,10 @@ Obituary "%o was squashed by a Behemoth."
 States
 {
 Spawn:
-       FAT2 C 8 A_Look
-	   FAT2 C 8 A_Look
-	   FATI C 8 A_Look
-	   FATI C 8 A_Look
+       FAT2 C 8
+	   FAT2 C 8
+	   FATI C 8
+	   FATI C 8
        Loop
 See:
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)     
@@ -2897,10 +2897,10 @@ BloodColor "Green"
 States
 {
 Spawn:
-       FFAT A 8 A_Look
-       FFAT A 8 A_Look
-	   FFAI A 8 A_Look
-	   FFAI A 8 A_Look  
+       FFAT A 8
+       FFAT A 8
+	   FFAI A 8
+	   FFAI A 8  
        Loop
 See:   
        FFAT A 2 A_Chase
@@ -3034,7 +3034,7 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
   States
   {
   Spawn:
-    CSPI B 10 A_Look
+    CSPI B 10
     Loop
   See:
     CSPI A 2 A_PlaySound("monsters/dualachwalk")
@@ -3085,7 +3085,7 @@ Species "BabySpiders"
 States
 {
 Spawn:
-    FSPI A 10 A_Look
+    FSPI A 10
     Loop
 See:
     FSPI A 2 A_BabyMetal
@@ -3122,7 +3122,7 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
   States
   {
   Spawn:
-    MSPI A 10 A_Look
+    MSPI A 10
     Loop
   See:
     MSPI A 2 A_BabyMetal
@@ -3190,9 +3190,9 @@ ACTOR PossessedBabySentient : PossessedArachnotron
   {
   Spawn:
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP A 2 Bright A_Look
+	MARP A 2 Bright
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP B 2 Bright A_Look
+	MARP B 2 Bright
     Loop
   See:
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
@@ -3381,7 +3381,7 @@ Species "Skeletons"
 States
 {
 Spawn:
-    SKEL A 10 A_Look
+    SKEL A 10
     Loop
 See:
     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
@@ -3421,7 +3421,7 @@ ACTOR PosssessedCadaver : PossessedGuardian
   States
   {
   Spawn:
-    RASK A 10 A_Look
+    RASK A 10
     Loop
   See:
     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
@@ -3462,7 +3462,7 @@ States
 {
 Spawn:
     TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
-    GREV A 3 Bright A_Look
+    GREV A 3 Bright
     Loop
 See:
 	TNT1 A 0 Bright A_SpawnItem("BonyStep",0,0,0,0)
@@ -3550,7 +3550,7 @@ ACTOR PossessedFamine : PossessedGuardian
   {
   Spawn:
     TNT1 A 0
-    NREV A 10 A_Look
+    NREV A 10
     Loop
   See:
     TNT1 A 0
@@ -3726,10 +3726,10 @@ MeleeSound "imp/melee"
 States 
 { 
 Spawn: 
-        LOHS A 7 Bright A_Look
-		LOHS A 7 Bright A_Look
-		LOHI A 7 Bright A_Look
-		LOHI A 7 Bright A_Look
+        LOHS A 7 Bright
+		LOHS A 7 Bright
+		LOHI A 7 Bright
+		LOHI A 7 Bright
         Loop 
 See: 
         LOHS AABB 3 Bright A_Chase
@@ -3788,10 +3788,10 @@ MeleeSound "imp/melee"
 States 
 { 
 Spawn: 
-        PYRO A 7 Bright A_Look
-		PYRO A 7 Bright A_Look
-		PYRI A 7 Bright A_Look
-		PYRI A 7 Bright A_Look
+        PYRO A 7 Bright
+		PYRO A 7 Bright
+		PYRI A 7 Bright
+		PYRI A 7 Bright
         Loop 
 See: 
         PYRO AABB 3 Bright A_Chase
@@ -3856,10 +3856,10 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
   States 
   { 
   Spawn: 
-    CBOS A 7 A_Look
-	CBOS A 7 A_Look 
-	CBOI A 7 A_Look
-	CBOI A 7 A_Look
+    CBOS A 7
+	CBOS A 7 
+	CBOI A 7
+	CBOI A 7
     Loop 
   See:
     CBOS AABB 3 A_Chase
@@ -3933,10 +3933,10 @@ MeleeSound "imp/melee"
 States 
 { 
 Spawn: 
-        HDUK A 7 Bright A_Look
-		HDUK A 7 Bright A_Look
-		HDUI A 7 Bright A_Look
-		HDUI A 7 Bright A_Look
+        HDUK A 7 Bright
+		HDUK A 7 Bright
+		HDUI A 7 Bright
+		HDUI A 7 Bright
         Loop 
 See: 
         TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
@@ -4047,10 +4047,10 @@ HitObituary "%o was dismembered by a Bruiser Demon."
 States
 {
 Spawn:
-	HFRY A 7 Bright A_Look
-	HFRY A 7 Bright A_Look
-	HFRI A 7 Bright A_Look
-	HFRI A 7 Bright A_Look
+	HFRY A 7 Bright
+	HFRY A 7 Bright
+	HFRI A 7 Bright
+	HFRI A 7 Bright
 	Loop
 See:
     HFRY AABB 3 Bright A_Chase
@@ -4115,13 +4115,13 @@ States
 { 
 Spawn:
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      FRIT A 4 Bright A_Look
+      FRIT A 4 Bright
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      FRIT B 4 Bright A_Look
+      FRIT B 4 Bright
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      FRIT C 4 Bright A_Look
+      FRIT C 4 Bright
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      FRIT D 4 Bright A_Look	  
+      FRIT D 4 Bright	  
       Loop
 See:
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4297,10 +4297,10 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
   States 
   { 
   Spawn: 
-    BRUS A 7 A_Look
-	BRUS A 7 A_Look
-    BRUI A 7 A_Look
-	BRUI A 7 A_Look	
+    BRUS A 7
+	BRUS A 7
+    BRUI A 7
+	BRUI A 7	
     Loop 
   See:
     BRUS AABB 3 A_Chase
@@ -4390,7 +4390,7 @@ DeathSound "avile/death"
 States
 {
 Spawn:
-    VILE A 10 A_Look
+    VILE A 10
     Loop
 See:
 	TNT1 A 0 A_Jump(64,"Rush")
@@ -4480,7 +4480,7 @@ ACTOR PossessedDiabolist : PossessedArchVile
   States 
   { 
   Spawn: 
-    DIAB A 10 Bright A_Look 	
+    DIAB A 10 Bright 	
     Loop 
 See:
 	TNT1 A 0 Bright A_Jump(64,"Rush")
@@ -4573,9 +4573,9 @@ ACTOR PossessedDarkHellion : PossessedArchVile
   { 
   Spawn: 
   	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELN A 4 A_Look 
+    HELN A 4 
   	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELN A 4 A_Look 
+    HELN A 4 
     Loop 
   See:
 	TNT1 A 0 A_Jump(64,"Rush")
@@ -4781,7 +4781,7 @@ DamageFactor "PDTBFGTracer", 0.8
 States
 {
 Spawn:
-    	DEMO A 10 A_Look
+    	DEMO A 10
     	Loop
 See:
     	DEMO A 2 A_Metal 
@@ -4871,7 +4871,7 @@ BloodColor "Green"
 States
 {
 Spawn:
-    	DEM2 A 10 A_Look
+    	DEM2 A 10
     	Loop
 See:
 		TNT1 A 0 A_Jump(62,"Rush")
@@ -5013,9 +5013,9 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
     {
 Spawn:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR A 2 Bright A_Look
+	SUPR A 2 Bright
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR B 2 Bright A_Look
+	SUPR B 2 Bright
 	Loop
 See:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -5388,10 +5388,10 @@ DeathSound "monsters/cldie"
 States 
 {    
 Spawn: 
-        ANNI A 10 A_Look
-		ANNI A 10 A_Look
-		ANII A 10 A_Look
-		ANII A 10 A_Look
+        ANNI A 10
+		ANNI A 10
+		ANII A 10
+		ANII A 10
         Loop 
 See: 
         ANNI A 3 A_Playsound("monsters/clhoof")
@@ -5471,10 +5471,10 @@ BloodColor "Green"
 States 
 {    
 Spawn: 
-        CBEP A 10 A_Look
-		CBEP A 10 A_Look
-		CBEI A 10 A_Look
-		CBEI A 10 A_Look
+        CBEP A 10
+		CBEP A 10
+		CBEI A 10
+		CBEI A 10
         Loop 
 See:
 		CBEP A 3 A_Hoof
@@ -5615,9 +5615,9 @@ ACTOR PossessedCardinal : PossessedCyberdemon
    { 
    Spawn:
 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-      CARD A 2 Bright A_Look
+      CARD A 2 Bright
 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-      CARD B 2 Bright A_Look	  
+      CARD B 2 Bright	  
       Loop
    See:
 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
