@@ -5,8 +5,10 @@
 
 // Player speed multiplier is 0,04375.
 
-ACTOR PossessedBullFiend : PossessedMonster
+Actor PossessedBullFiend : PossessedMonster
 {
+	Player.MorphWeapon "BullFiendWeapon"
+
 	Health 150
 	Speed 0.4375 //10
 	Height 48
@@ -65,7 +67,17 @@ ACTOR PossessedBullFiend : PossessedMonster
 	}
 }
 
-ACTOR PinkyLunge
+Actor BullFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PinkyLunge
 {
 	Height 16
 	Radius 20
@@ -83,8 +95,10 @@ ACTOR PinkyLunge
 	}
 }
 
-ACTOR PossessedCyberFiend : PossessedBullFiend
+Actor PossessedCyberFiend : PossessedBullFiend
 {
+	Player.MorphWeapon "CyberFiendWeapon"
+
 	Health 200
 	Speed 0.525 //12
 	Scale 1.05
@@ -133,8 +147,20 @@ ACTOR PossessedCyberFiend : PossessedBullFiend
 	}
 }
 
-ACTOR PossessedMagmaFiend : PossessedBullFiend
+Actor CyberFiendWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedMagmaFiend : PossessedBullFiend
+{
+	Player.MorphWeapon "MagmaFiendWeapon"
+
 	Health 250
 	PainChance 80
 	Scale 1.1
@@ -206,8 +232,20 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 	}
 }
 
-ACTOR PossessedDTechFiend : PossessedBullFiend
+Actor MagmaFiendWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDTechFiend : PossessedBullFiend
+{
+	Player.MorphWeapon "DTechFiendWeapon"
+
 	Health 300
 	Speed 0.525 //12
 	PainChance 60
@@ -304,7 +342,17 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 	}
 }
 
-ACTOR PossessedSpectre~ : PossessedBullFiend
+Actor DTechFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpectre~ : PossessedBullFiend
 {
 Renderstyle Translucent
 	Alpha 0.35
@@ -345,8 +393,10 @@ Renderstyle Translucent
 	}
 }
 
-ACTOR PossessedLurker : PossessedBullFiend
+Actor PossessedLurker : PossessedBullFiend
 {
+	Player.MorphWeapon "LurkerWeapon"
+
 	Health 150
 	Speed 0.48125 //11
 	PainChance 120
@@ -392,9 +442,21 @@ Renderstyle Translucent
 	}
 }
 
-ACTOR PossessedSpook : PossessedBullFiend
+Actor LurkerWeapon : PossessedWeapon
 {
-Renderstyle Translucent
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpook : PossessedBullFiend
+{
+	Player.MorphWeapon "SpookWeapon"
+
+	Renderstyle Translucent
 	Alpha 0.15
 	Health 250
 	Speed 0.525 //12
@@ -443,8 +505,20 @@ Renderstyle Translucent
 	}
 }
 
-ACTOR PossessedTerrorSoul : PossessedMonster
+Actor SpookWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedTerrorSoul : PossessedMonster
+{
+	Player.MorphWeapon "TerrorSoulWeapon"
+
 	Health 70
 	Radius 14
 	Height 48
@@ -512,8 +586,20 @@ ACTOR PossessedTerrorSoul : PossessedMonster
 	}
 }
 
-ACTOR PossessedForgottenOne : PossessedTerrorSoul
+Actor TerrorSoulWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedForgottenOne : PossessedTerrorSoul
+{
+	Player.MorphWeapon "ForgottenOneWeapon"
+
 	Obituary "%o was rammed by a Forgotten One."
 	Health 80
 	PainChance 120
@@ -564,8 +650,20 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
 	}
 }
 
-ACTOR PossessedPoisonSoul : PossessedTerrorSoul
+Actor ForgottenOneWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPoisonSoul : PossessedTerrorSoul
+{
+	Player.MorphWeapon "PoisonSoulWeapon"
+
 	Health 90
 	PainChance 100
 	Speed 0.21875 //5
@@ -645,8 +743,20 @@ ACTOR PossessedPoisonSoul : PossessedTerrorSoul
 	}
 }
 
-ACTOR PossessedRictus : PossessedTerrorSoul
+Actor PoisonSoulWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedRictus : PossessedTerrorSoul
+{
+	Player.MorphWeapon "RictusWeapon"
+
 	Health 100
 	Speed 0.2625 //6
 	PainChance 100
@@ -721,8 +831,20 @@ Death.Suicide:
 	}
 }
 
-ACTOR PossessedAbaddon : PossessedMonster
+Actor RictusWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedAbaddon : PossessedMonster
+{
+	Player.MorphWeapon "AbaddonWeapon"
+
 	Health 400
 	Speed 0.35 //8
 	FloatSpeed 0.21875 //5
@@ -780,8 +902,20 @@ ACTOR PossessedAbaddon : PossessedMonster
 	}
 }
 
-ACTOR PossessedWatcher : PossessedAbaddon
+Actor AbaddonWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedWatcher : PossessedAbaddon
+{
+	Player.MorphWeapon "WatcherWeapon"
+
 	Health 600
 	PainChance 100
 	DamageFactor "HelementalComet", 0.0
@@ -838,8 +972,20 @@ ACTOR PossessedWatcher : PossessedAbaddon
 	}
 }
 
-ACTOR PossessedHelemental : PossessedAbaddon
+Actor WatcherWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHelemental : PossessedAbaddon
+{
+	Player.MorphWeapon "HelementalWeapon"
+
 	Obituary "%o was scorched by a Helemental."
 	HitObituary "%o got chomped by a Helemental."
 	Health 800
@@ -904,10 +1050,20 @@ ACTOR PossessedHelemental : PossessedAbaddon
 	}
 }
 
-ACTOR PossessedPainElemental : PossessedMonster
+Actor HelementalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPainElemental : PossessedMonster
 {
 	Game Doom
-	SpawnID 115
+	//SpawnID 115
 	Health 400
 	Radius 31
 	Height 56
@@ -922,8 +1078,10 @@ ACTOR PossessedPainElemental : PossessedMonster
 	ActiveSound "pain/active"
 }
 
-ACTOR PossessedSoulKeeper : PossessedMonster
+Actor PossessedSoulKeeper : PossessedMonster
 {
+	Player.MorphWeapon "SoulKeeperWeapon"
+
 	Health 400
 	Speed 0.35 //8
 	FloatSpeed 0.2625 //6
@@ -979,8 +1137,20 @@ ACTOR PossessedSoulKeeper : PossessedMonster
 	}
 }
 
-ACTOR PossessedDefiler : PossessedSoulKeeper
+Actor SoulKeeperWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDefiler : PossessedSoulKeeper
+{
+	Player.MorphWeapon "DefilerWeapon"
+
 	Health 550
 	Scale 1.05
 	PainChance 100
@@ -1021,8 +1191,20 @@ ACTOR PossessedDefiler : PossessedSoulKeeper
 	}
 }
 
-ACTOR PossessedPoisonElemental : PossessedSoulKeeper
+Actor DefilerWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPoisonElemental : PossessedSoulKeeper
+{
+	Player.MorphWeapon "PoisonElementalWeapon"
+
 	Health 700
 	PainChance 80
 	Scale 1.1
@@ -1081,8 +1263,20 @@ ACTOR PossessedPoisonElemental : PossessedSoulKeeper
 	}
 }
 
-ACTOR PossessedBombElemental : PossessedSoulKeeper
+Actor PoisonElementalWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBombElemental : PossessedSoulKeeper
+{
+	Player.MorphWeapon "BombElementalWeapon"
+
 	Health 850
 	PainChance 60
 	Scale 1.075
@@ -1203,10 +1397,20 @@ ACTOR PossessedBombElemental : PossessedSoulKeeper
 	}
 }
 
-ACTOR PossessedFatso : PossessedMonster
+Actor BombElementalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFatso : PossessedMonster
 {
 	Game Doom
-	SpawnID 112
+	//SpawnID 112
 	Health 600
 	Radius 48
 	Height 64
@@ -1222,8 +1426,10 @@ ACTOR PossessedFatso : PossessedMonster
 	Obituary "$OB_FATSO"
 }
 
-ACTOR PossessedHectebus : PossessedFatso
+Actor PossessedHectebus : PossessedFatso
 {
+	Player.MorphWeapon "HectebusWeapon"
+
 	Health 600
 	Speed 0.2625 //6
 	PainChance 120
@@ -1346,8 +1552,20 @@ ACTOR PossessedHectebus : PossessedFatso
 	}
 }
 
-ACTOR PossessedDaedabus : PossessedFatso
+Actor HectebusWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDaedabus : PossessedFatso
+{
+	Player.MorphWeapon "DaedabusWeapon"
+
 	Health 850
 	PainChance 100
 	Scale 1.05
@@ -1471,8 +1689,20 @@ ACTOR PossessedDaedabus : PossessedFatso
 	}
 }
 
-ACTOR PossessedBehemoth : PossessedFatso
+Actor DaedabusWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBehemoth : PossessedFatso
+{
+	Player.MorphWeapon "BehemothWeapon"
+
 	Health 1100 PainChance 80
 	Scale 1.1
 	DamageFactor "BeheComet", 0.0
@@ -1530,8 +1760,20 @@ ACTOR PossessedBehemoth : PossessedFatso
 	}
 }
 
-ACTOR PossessedBarbatos : PossessedFatso
+Actor BehemothWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBarbatos : PossessedFatso
+{
+	Player.MorphWeapon "BarbatosWeapon"
+
 	Health 1350 PainChance 60
 	Speed 0.21875 //5
 	Mass 2500 Scale 0.8
@@ -1655,10 +1897,20 @@ ACTOR PossessedBarbatos : PossessedFatso
 	}
 }
 
-ACTOR PossessedArachnotron : PossessedMonster
+Actor BarbatosWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedArachnotron : PossessedMonster
 {
 	Game Doom
-	SpawnID 6
+	//SpawnID 6
 	Health 500
 	Radius 64
 	Height 64
@@ -1674,8 +1926,10 @@ ACTOR PossessedArachnotron : PossessedMonster
 	Obituary "$OB_BABY"
 }
 
-ACTOR PossessedDualachnotron : PossessedArachnotron
+Actor PossessedDualachnotron : PossessedArachnotron
 {
+	Player.MorphWeapon "DualachnotronWeapon"
+
 	Obituary "%o was vaporized by a Dualachnotron."
 	Health 500
 	PainChance 120
@@ -1725,8 +1979,20 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
 	}
 }
 
-ACTOR PossessedFusionite : PossessedArachnotron
+Actor DualachnotronWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFusionite : PossessedArachnotron
+{
+	Player.MorphWeapon "FusioniteWeapon"
+
 	Health 750
 	PainChance 100
 	Speed 0.56875 //13
@@ -1761,8 +2027,20 @@ ACTOR PossessedFusionite : PossessedArachnotron
 	}
 }
 
-ACTOR PossessedBabyDemolisher : PossessedArachnotron
+Actor FusioniteWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBabyDemolisher : PossessedArachnotron
+{
+	Player.MorphWeapon "BabyDemolisherWeapon"
+
 	Health 1000 PainChance 80
 	Scale 1.2
 	Speed 0.6125 //14
@@ -1821,8 +2099,20 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
 	}
 }
 
-ACTOR PossessedBabySentient : PossessedArachnotron
+Actor BabyDemolisherWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBabySentient : PossessedArachnotron
+{
+	Player.MorphWeapon "BabySentientWeapon"
+
 	Health 1250 PainChance 60
 	Scale 1.25
 	Speed 0.6125 //14
@@ -1990,10 +2280,20 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 	}
 }
 
-ACTOR PossessedRevenant : PossessedMonster
+Actor BabySentientWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedRevenant : PossessedMonster
 {
 	Game Doom
-	SpawnID 20
+	//SpawnID 20
 	Health 300
 	Radius 20
 	Height 56
@@ -2012,8 +2312,10 @@ ACTOR PossessedRevenant : PossessedMonster
 	Obituary "$OB_UNDEAD"
 }
 
-ACTOR PossessedGuardian : PossessedRevenant
+Actor PossessedGuardian : PossessedRevenant
 {
+	Player.MorphWeapon "GuardianWeapon"
+
 	Health 300
 	Radius 20
 	Height 56
@@ -2062,8 +2364,20 @@ BloodColor Red
 	}
 }
 
-ACTOR PossessedCadaver : PossessedGuardian
+Actor GuardianWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCadaver : PossessedGuardian
+{
+	Player.MorphWeapon "CadaverWeapon"
+
 	PainChance 90
 	Health 450
 	DropItem "LifeEssence" 105
@@ -2101,8 +2415,20 @@ ACTOR PossessedCadaver : PossessedGuardian
 	}
 }
 
-ACTOR PossessedHellfireRevenant : PossessedGuardian
+Actor CadaverWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHellfireRevenant : PossessedGuardian
+{
+	Player.MorphWeapon "HellfireRevenantWeapon"
+
 	Health 600
 	PainChance 80
 	BloodColor "ff 50 00"
@@ -2186,8 +2512,20 @@ ACTOR PossessedHellfireRevenant : PossessedGuardian
 	}
 }
 
-ACTOR PossessedFamine : PossessedGuardian
+Actor HellfireRevenantWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFamine : PossessedGuardian
+{
+	Player.MorphWeapon "FamineWeapon"
+
 	PainChance 70
 	Health 750
 	Speed 0.525 //12
@@ -2328,13 +2666,25 @@ ACTOR PossessedFamine : PossessedGuardian
 	}
 }
 
-ACTOR PossessedBaronOfHell : PossessedMonster
+Actor FamineWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBaronOfHell : PossessedMonster
 {
 	Game Doom
-	SpawnID 3
-	Health 1000 Radius 24
+	//SpawnID 3
+	Health 1000
+	Radius 24
 	Height 64
-	Mass 1000 Speed 0.35 //8
+	Mass 1000
+	Speed 8
 	PainChance 50
 	+FLOORCLIP
 	+BOSSDEATH
@@ -2346,10 +2696,10 @@ ACTOR PossessedBaronOfHell : PossessedMonster
 	HitObituary "$OB_BARONHIT"
 }
 
-ACTOR PossessedHellKnight : PossessedBaronOfHell
+Actor PossessedHellKnight : PossessedBaronOfHell
 {
 	Game Doom
-	SpawnID 113
+	//SpawnID 113
 	Health 500
 	-BOSSDEATH
 	SeeSound "knight/sight"
@@ -2360,8 +2710,11 @@ ACTOR PossessedHellKnight : PossessedBaronOfHell
 	Obituary "$OB_KNIGHT"
 }
 
-ACTOR PossessedHellArchon : PossessedHellKnight
+
+Actor PossessedHellArchon : PossessedHellKnight
 {
+	Player.MorphWeapon "HellArchonWeapon"
+
 	Health 500
 	PainChance 100
 	MeleeDamage 8
@@ -2420,8 +2773,20 @@ ACTOR PossessedHellArchon : PossessedHellKnight
 	}
 }
 
-ACTOR PossessedPyroDemon : PossessedHellKnight
+Actor HellArchonWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPyroDemon : PossessedHellKnight
+{
+	Player.MorphWeapon "PyroDemonWeapon"
+
 	Health 750
 	PainChance 80
 	Scale 1.05
@@ -2487,8 +2852,20 @@ ACTOR PossessedPyroDemon : PossessedHellKnight
 	}
 }
 
-ACTOR PossessedCyberNoble : PossessedHellKnight
+Actor PyroDemonWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCyberNoble : PossessedHellKnight
+{
+	Player.MorphWeapon "CyberNobleWeapon"
+
 	Health 1000 PainChance 60
 	MeleeDamage 8
 	Scale 1.1
@@ -2561,8 +2938,20 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
 	}
 }
 
-ACTOR PossessedHellDuke : PossessedHellKnight
+Actor CyberNobleWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHellDuke : PossessedHellKnight
+{
+	Player.MorphWeapon "HellDukeWeapon"
+
 	Health 1250 PainChance 40
 	PainChance "Explosion", 60
 	Scale 1.15
@@ -2676,8 +3065,20 @@ ACTOR PossessedHellDuke : PossessedHellKnight
 	}
 }
 
-ACTOR PossessedBruiserDemon : PossessedBaronOfHell
+Actor HellDukeWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBruiserDemon : PossessedBaronOfHell
+{
+	Player.MorphWeapon "BruiserDemonWeapon"
+
 	Health 1000 PainChance 100
 	Bloodcolor "ff 5f 00"
 	DamageFactor "AfritComet", 0.0
@@ -2740,8 +3141,20 @@ ACTOR PossessedBruiserDemon : PossessedBaronOfHell
 	}
 }
 
-ACTOR PossessedAfrit : PossessedBaronOfHell
+Actor BruiserDemonWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedAfrit : PossessedBaronOfHell
+{
+	Player.MorphWeapon "AfritWeapon"
+
 	Health 1250 PainChance 80
 	Bloodcolor "ff 50 00"
 	DamageFactor "AfritComet", 0.0
@@ -2924,8 +3337,20 @@ ACTOR PossessedAfrit : PossessedBaronOfHell
 	}
 }
 
-ACTOR PossessedCybruiser : PossessedBaronOfHell
+Actor AfritWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCybruiser : PossessedBaronOfHell
+{
+	Player.MorphWeapon "CybruiserWeapon"
+
 	Health 1500 PainChance 70
 	MeleeDamage 8
 	Scale 1.1
@@ -3005,19 +3430,29 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
 	}
 }
 
-ACTOR PossessedArchvile : PossessedMonster
+Actor CybruiserWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedArchvile : PossessedMonster
 {
 	Game Doom
-	SpawnID 111
+	//SpawnID 111
 	Health 700
 	Radius 20
 	Height 56
 	Mass 500
-	Speed 0.65625 //15
+	Speed 15
 	PainChance 10
 	MaxTargetRange 896
-	+QUICKTORETALIATE
-	+FLOORCLIP
+	+QUICKTORETALIATE 
+	+FLOORCLIP 
 	+NOTARGET
 	SeeSound "vile/sight"
 	PainSound "vile/pain"
@@ -3027,8 +3462,11 @@ ACTOR PossessedArchvile : PossessedMonster
 	Obituary "$OB_VILE"
 }
 
-ACTOR PossessedExile : PossessedArchVile
+
+Actor PossessedExile : PossessedArchVile
 {
+	Player.MorphWeapon "ExileWeapon"
+
 	Species "Viles"
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
@@ -3111,8 +3549,20 @@ ACTOR PossessedExile : PossessedArchVile
 	}
 }
 
-ACTOR PossessedDiabolist : PossessedArchVile
+Actor ExileWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDiabolist : PossessedArchVile
+{
+	Player.MorphWeapon "DiabolistWeapon"
+
 	Health 850
 	DropItem "LifeEssence" 130
 	DropItem "ArmorBonusMax" 130
@@ -3200,8 +3650,20 @@ ACTOR PossessedDiabolist : PossessedArchVile
 	}
 }
 
-ACTOR PossessedDarkHellion : PossessedArchVile
+Actor DiabolistWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDarkHellion : PossessedArchVile
+{
+	Player.MorphWeapon "DarkHellionWeapon"
+
 	Health 1000
 	DropItem "LifeEssence" 160
 	DropItem "ArmorBonusMax" 160
@@ -3380,13 +3842,25 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 	}
 }
 
-ACTOR PossessedSpiderMastermind : PossessedMonster
+Actor DarkHellionWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpiderMastermind : PossessedMonster
 {
 	Game Doom
-	SpawnID 7
-	Health 3000 Radius 100
+	//SpawnID 7
+	Health 3000
+	Radius 100
 	Height 100
-	Mass 1000 Speed 0.525 //12
+	Mass 1000
+	Speed 12
 	PainChance 40
 	MinMissileChance 160
 	+BOSS
@@ -3403,8 +3877,10 @@ ACTOR PossessedSpiderMastermind : PossessedMonster
 	Obituary "$OB_SPIDER"
 }
 
-ACTOR PossessedDemolisher : PossessedSpiderMastermind
+Actor PossessedDemolisher : PossessedSpiderMastermind
 {
+	Player.MorphWeapon "DemolisherWeapon"
+
 	Health 3000 Speed 0.65625 //15
 	Radius 65
 	PainChance 50
@@ -3488,9 +3964,24 @@ ACTOR PossessedDemolisher : PossessedSpiderMastermind
 	}
 }
 
-ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind
+Actor DemolisherWeapon : PossessedWeapon
 {
-	Health 3500 Speed 0.7875 //18
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+
+
+Actor PossessedDarkDemolisher : PossessedSpiderMastermind
+{
+	Player.MorphWeapon "DarkDemolisherWeapon"
+
+	Health 3500
+	Speed 0.7875 //18
 	PainChance 40
 	PainChance "PDTBFG", 20
 	PainChance "SoulToxic", 15
@@ -3620,8 +4111,20 @@ ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind
 	}
 }
 
-ACTOR PossessedCerebralSentient : SpiderMastermind
+Actor DarkDemolisherWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCerebralSentient : PossessedSpiderMastermind
+{
+	Player.StartItem "CerebralSentientWeapon"
+
 	Health 4000
 	Speed 0.525 //12
 	FloatSpeed 0.525 //12
@@ -3986,16 +4489,28 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
 	}
 }
 
-ACTOR PossessedCyberdemon : PossessedMonster
+Actor CerebralSentientWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCyberdemon : PossessedMonster
 {
 	Game Doom
-	SpawnID 114
-	Health 4000 Radius 40
+	//SpawnID 114
+	Health 4000
+	Radius 40
 	Height 110
-	Mass 1000 Speed 0.7 //16
+	Mass 1000
+	Speed 16
 	PainChance 20
 	MinMissileChance 160
-	+BOSS
+	+BOSS 
 	+MISSILEMORE
 	+FLOORCLIP
 	+NORADIUSDMG
@@ -4008,8 +4523,10 @@ ACTOR PossessedCyberdemon : PossessedMonster
 	Obituary "$OB_CYBORG"
 }
 
-ACTOR PossessedCyberLord : PossessedCyberdemon
+Actor PossessedCyberLord : PossessedCyberdemon
 {
+	Player.MorphWeapon "CyberLordWeapon"
+
 	Health 4000 PainChance 50
 	PainChance "PDTBFG", 25
 	PainChance "SoulToxic", 20
@@ -4085,7 +4602,17 @@ ACTOR PossessedCyberLord : PossessedCyberdemon
 	}
 }
 
-ACTOR PossessedDarkCyberdemon : Cyberdemon
+Actor CyberLordWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDarkCyberdemon : Cyberdemon
 {
 	Health 4500 PainChance 40
 	PainChance "PDTBFG", 20
@@ -4220,8 +4747,11 @@ ACTOR PossessedDarkCyberdemon : Cyberdemon
 	}
 }
 
-ACTOR PossessedCardinal : PossessedCyberdemon
+
+Actor PossessedCardinal : PossessedCyberdemon
 {
+	Player.MorphWeapon "CardinalWeapon"
+
 	Health 5000
 	Speed 0.4375 //10
 	FloatSpeed 0.35 //8
@@ -4545,6 +5075,16 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		Goto See
 	}
 }
+
+Actor CardinalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
 
 
 
