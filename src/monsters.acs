@@ -2,28 +2,76 @@
 #define MONSTER_DIFFICULTY 1
 #define MONSTER_FLAGS 2
 #define MONSTER_SCRIPT 3
-#define NUM_MONSTER_PROPERTIES 4
+#define MONSTER_NAME 4
+#define NUM_MONSTER_PROPERTIES 5
 
 #define MONSTF_FLYING 1
 
-#define NUM_MONSTER_TYPES 14
+#define NUM_MONSTER_TYPES 62
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner",			0.1, 0, 0 },
-	{ "RailGunner",				0.1, 0, 0 },
-	{ "DemonTechZombie",		0.2, 0, 0 },
-	{ "RocketZombie",			0.5, 0, 0 },
-	{ "ShotgunZombie",			0.2, 0, 0 },
-	{ "AssaultShotgunZombie",	0.3, 0, 0 },
-	{ "SuperShotgunZombie",		0.5, 0, 0 },
-	{ "QuadShotgunZombie",		1.0, 0, 0 },
-	{ "AssaultRifleZombie",		0.2, 0, 0 },
-	{ "Chaingunner",			0.2, 0, 0 },
-	// Add chaingunners here.
-	{ "DevilImp",				0.2, 0, 0 },
-	{ "VoidImp",				0.2, 0, 0 },
-	{ "SoulHarvester",			0.2, 0, 0 },
-	{ "PhaseImp",				0.2, 0, mop_phaseimp }
+	{ "PlasmaGunner",			1.0, 0, 0, "" },
+	{ "RailGunner",				1.0, 0, 0, "" },
+	{ "DemonTechZombie",		1.0, 0, 0, "" },
+	{ "RocketZombie",			1.0, 0, 0, "" },
+	{ "ShotgunZombie",			1.0, 0, 0, "" },
+	{ "AssaultShotgunZombie",	1.0, 0, 0, "" },
+	{ "SuperShotgunZombie",		1.0, 0, 0, "" },
+	{ "QuadShotgunZombie",		1.0, 0, 0, "" },
+	{ "AssaultRifleZombie",		1.0, 0, 0, "" },
+	{ "Chaingunner",			1.0, 0, 0, "" },
+	{ "Minigunner",				1.0, 0, 0, "" },
+	{ "BFGZombieman",			1.0, 0, 0, "" },
+	{ "DevilImp",				1.0, 0, 0, "" },
+	{ "VoidImp",				1.0, 0, 0, "" },
+	{ "SoulHarvester",			1.0, 0, 0, "" },
+	{ "PhaseImp",				1.0, 0, 0, "" },
+	{ "BullFiend",				1.0, 0, 0, "" },
+	{ "CyberFiend",				1.0, 0, 0, "" },
+	{ "MagmaFiend",				1.0, 0, 0, "" },
+	{ "DTechFiend",				1.0, 0, 0, "" },
+	{ "Spectre~",				1.0, 0, 0, "" },
+	{ "Lurker",					1.0, 0, 0, "" },
+	{ "Spook",					1.0, 0, 0, "" },
+	{ "TerrorSoul",				1.0, 0, 0, "" },
+	{ "ForgottenOne",			1.0, 0, 0, "" },
+	{ "PoisonSoul",				1.0, 0, 0, "" },
+	{ "Rictus",					1.0, 0, 0, "" },
+	{ "Abaddon",				1.0, 0, 0, "" },
+	{ "Watcher",				1.0, 0, 0, "" },
+	{ "Helemental",				1.0, 0, 0, "" },
+	{ "SoulKeeper",				1.0, 0, 0, "" },
+	{ "Defiler",				1.0, 0, 0, "" },
+	{ "PoisonElemental",		1.0, 0, 0, "" },
+	{ "BombElemental",			1.0, 0, 0, "" },
+	{ "Dualachnotron",			1.0, 0, 0, "" },
+	{ "Fusionite",				1.0, 0, 0, "" },
+	{ "BabyDemolisher",			1.0, 0, 0, "" },
+	{ "BabySentient",			1.0, 0, 0, "" },
+	{ "Hectebus",				1.0, 0, 0, "" },
+	{ "Daedabus",				1.0, 0, 0, "" },
+	{ "Behemoth",				1.0, 0, 0, "" },
+	{ "Barbatos",				1.0, 0, 0, "" },
+	{ "Guardian",				1.0, 0, 0, "" },
+	{ "Cadaver",				1.0, 0, 0, "" },
+	{ "HellfireRevenant",		1.0, 0, 0, "" },
+	{ "Famine",					1.0, 0, 0, "" },
+	{ "HellArchon",				1.0, 0, 0, "" },
+	{ "PyroDemon",				1.0, 0, 0, "" },
+	{ "CyberNoble",				1.0, 0, 0, "" },
+	{ "HellDuke",				1.0, 0, 0, "" },
+	{ "BruiserDemon",			1.0, 0, 0, "" },
+	{ "Afrit",					1.0, 0, 0, "" },
+	{ "Cybruiser",				1.0, 0, 0, "" },
+	{ "Exile",					1.0, 0, 0, "" },
+	{ "Diabolist",				1.0, 0, 0, "" },
+	{ "DarkHellion",			1.0, 0, 0, "" },
+	{ "Demolisher",				1.0, 0, 0, "" },
+	{ "DarkDemolisher",			1.0, 0, 0, "" },
+	{ "CerebralSentient",		1.0, 0, 0, "" },
+	{ "CyberLord",				1.0, 0, 0, "" },
+	{ "DarkCyberdemon",			1.0, 0, 0, "" },
+	{ "Cardinal",				1.0, 0, 0, "" }
 };
 
 // List of items that monsters can carry.
@@ -50,10 +98,4 @@ function int IdentifyPossessedMonsterType(int player)
 			return i;
 
 	return -1;
-}
-
-script mop_phaseimp (void)
-{
-	printbold(s:"Ur ranslucent!");
-	SetActorProperty(0, APROP_ALPHA, 0.5);
 }
