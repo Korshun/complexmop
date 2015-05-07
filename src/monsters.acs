@@ -1,7 +1,7 @@
 #define MONSTER_ACTORNAME 0
 #define MONSTER_DIFFICULTY 1
-#define MONSTER_FLAGS 2
-#define MONSTER_SCRIPT 3
+#define MONSTER_SCRIPT 2
+#define MONSTER_FLAGS 3
 #define MONSTER_NAME 4
 #define NUM_MONSTER_PROPERTIES 5
 
@@ -33,25 +33,25 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Spectre~",				1.0, 0, 0, "" },
 	{ "Lurker",					1.0, 0, 0, "" },
 	{ "Spook",					1.0, 0, 0, "" },
-	{ "TerrorSoul",				1.0, 0, 0, "" },
-	{ "ForgottenOne",			1.0, 0, 0, "" },
-	{ "PoisonSoul",				1.0, 0, 0, "" },
-	{ "Rictus",					1.0, 0, 0, "" },
-	{ "Abaddon",				1.0, 0, 0, "" },
-	{ "Watcher",				1.0, 0, 0, "" },
-	{ "Helemental",				1.0, 0, 0, "" },
-	{ "SoulKeeper",				1.0, 0, 0, "" },
-	{ "Defiler",				1.0, 0, 0, "" },
-	{ "PoisonElemental",		1.0, 0, 0, "" },
-	{ "BombElemental",			1.0, 0, 0, "" },
+	{ "TerrorSoul",				1.0, 0, MONSTF_FLYING, "" },
+	{ "ForgottenOne",			1.0, 0, MONSTF_FLYING, "" },
+	{ "PoisonSoul",				1.0, 0, MONSTF_FLYING, "" },
+	{ "Rictus",					1.0, 0, MONSTF_FLYING, "" },
+	{ "Abaddon",				1.0, 0, MONSTF_FLYING, "" },
+	{ "Watcher",				1.0, 0, MONSTF_FLYING, "" },
+	{ "Helemental",				1.0, 0, MONSTF_FLYING, "" },
+	{ "SoulKeeper",				1.0, 0, MONSTF_FLYING, "" },
+	{ "Defiler",				1.0, 0, MONSTF_FLYING, "" },
+	{ "PoisonElemental",		1.0, 0, MONSTF_FLYING, "" },
+	{ "BombElemental",			1.0, 0, MONSTF_FLYING, "" },
 	{ "Dualachnotron",			1.0, 0, 0, "" },
 	{ "Fusionite",				1.0, 0, 0, "" },
 	{ "BabyDemolisher",			1.0, 0, 0, "" },
-	{ "BabySentient",			1.0, 0, 0, "" },
+	{ "BabySentient",			1.0, 0, MONSTF_FLYING, "" },
 	{ "Hectebus",				1.0, 0, 0, "" },
 	{ "Daedabus",				1.0, 0, 0, "" },
 	{ "Behemoth",				1.0, 0, 0, "" },
-	{ "Barbatos",				1.0, 0, 0, "" },
+	{ "Barbatos",				1.0, 0, MONSTF_FLYING, "" },
 	{ "Guardian",				1.0, 0, 0, "" },
 	{ "Cadaver",				1.0, 0, 0, "" },
 	{ "HellfireRevenant",		1.0, 0, 0, "" },
@@ -68,10 +68,10 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DarkHellion",			1.0, 0, 0, "" },
 	{ "Demolisher",				1.0, 0, 0, "" },
 	{ "DarkDemolisher",			1.0, 0, 0, "" },
-	{ "CerebralSentient",		1.0, 0, 0, "" },
+	{ "CerebralSentient",		1.0, 0, MONSTF_FLYING, "" },
 	{ "CyberLord",				1.0, 0, 0, "" },
 	{ "DarkCyberdemon",			1.0, 0, 0, "" },
-	{ "Cardinal",				1.0, 0, 0, "" }
+	{ "Cardinal",				1.0, 0, MONSTF_FLYING, "" }
 };
 
 // List of items that monsters can carry.
