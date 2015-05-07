@@ -2062,7 +2062,7 @@ BloodColor Red
 	}
 }
 
-ACTOR PosssessedCadaver : PossessedGuardian
+ACTOR PossessedCadaver : PossessedGuardian
 {
 	PainChance 90
 	Health 450
