@@ -2684,7 +2684,7 @@ Actor PossessedBaronOfHell : PossessedMonster
 	Radius 24
 	Height 64
 	Mass 1000
-	Speed 8
+	Speed 0.35 //8
 	PainChance 50
 	+FLOORCLIP
 	+BOSSDEATH
@@ -3448,7 +3448,7 @@ Actor PossessedArchvile : PossessedMonster
 	Radius 20
 	Height 56
 	Mass 500
-	Speed 15
+	Speed 0.65625 //15
 	PainChance 10
 	MaxTargetRange 896
 	+QUICKTORETALIATE 
@@ -3860,7 +3860,7 @@ Actor PossessedSpiderMastermind : PossessedMonster
 	Radius 100
 	Height 100
 	Mass 1000
-	Speed 12
+	Speed 0.525 //12
 	PainChance 40
 	MinMissileChance 160
 	+BOSS
@@ -3881,7 +3881,8 @@ Actor PossessedDemolisher : PossessedSpiderMastermind
 {
 	Player.MorphWeapon "DemolisherWeapon"
 
-	Health 3000 Speed 0.65625 //15
+	Health 3000
+	Speed 0.65625 //15
 	Radius 65
 	PainChance 50
 	PainChance "PDTBFG", 25
@@ -4507,7 +4508,7 @@ Actor PossessedCyberdemon : PossessedMonster
 	Radius 40
 	Height 110
 	Mass 1000
-	Speed 16
+	Speed 0.7 //16
 	PainChance 20
 	MinMissileChance 160
 	+BOSS 
