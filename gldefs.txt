@@ -1,3 +1,7 @@
+//================
+// Monster Lights
+//================
+
 OBJECT PossessedPlasmaGunner
 {
 Frame ZMAYF { Light ZombiePlasma1 }
@@ -46,4 +50,323 @@ Frame ARZMF { Light ZOMBIEATK }
 OBJECT PossessedChaingunner
 {
 Frame DPOSF { Light ZOMBIEATK }
+}
+
+OBJECT PossessedMinigunner
+{
+Frame CPS2F { Light ZOMBIEATK }
+}
+
+OBJECT PossessedBFGZombieman
+{
+Frame BFGZE { Light ZombieBFG1 }
+Frame BFGZF { Light ZombieBFG2 }
+}
+
+OBJECT PossessedMagmaFiend
+{
+Frame SAR3 { Light InfernoVileFire1 }
+Frame SAI3 { Light InfernoVileFire1 }
+}
+
+OBJECT PossessedDTechFiend
+{
+Frame DPNKF { Light ZombieDemonTech1 }
+}
+
+OBJECT PossessedTerrorSoul
+{
+Frame TERR { Light SoulFire1 }
+}
+
+OBJECT PossessedForgottenOne
+{
+Frame FRGO { Light SoulFire1 }
+}
+
+OBJECT PossessedPoisonSoul
+{
+Frame PHNT { Light SoulFire2 }
+}
+
+OBJECT PossessedRictus
+{
+Frame RICT { Light SoulFire1 }
+Frame MISL { Light SoulFire1 }
+}
+
+OBJECT PossessedSoulKeeper
+{
+Frame PLEMJ { Light HeleExplosion1 }
+Frame PLEMK { Light HeleExplosion1 }
+Frame PLEML { Light HeleExplosion1 }
+Frame PLEMM { Light HeleExplosion1 }
+}
+
+OBJECT PossessedDefiler
+{
+Frame DEFIJ { Light HeleExplosion1 }
+Frame DEFIK { Light HeleExplosion1 }
+Frame DEFIL { Light HeleExplosion1 }
+Frame DEFIM { Light HeleExplosion1 }
+}
+
+OBJECT PossessedPoisonElemental
+{
+Frame INFRG { Light PoiElExplosion1 }
+Frame INFRH { Light PoiElExplosion1 }
+Frame INFRI { Light PoiElExplosion1 }
+Frame INFRJ { Light PoiElExplosion1 }
+Frame INFRK { Light PoiElExplosion1 }
+}
+
+OBJECT PossessedBombElemental
+{
+Frame INFP { Light BombEleLight1 }
+}
+
+OBJECT PossessedHectebus
+{
+Frame TABUH { Light HectebusLight1 }
+}
+
+OBJECT PossessedDaedabus
+{
+Frame HECTH { Light DaedabusLight1 }
+}
+
+OBJECT PossessedBehemoth
+{
+Frame FFATH { Light BehemothFire1 }
+}
+
+OBJECT PossessedDualachnotron
+{
+Frame CSPIE { Light DualachnotronLight1 }
+Frame CSP2G { Light BabySpiderBoom1 }
+}
+
+OBJECT PossessedFusionite
+{
+Frame FSPIG { Light FusioniteLight1 }
+Frame FSPIH { Light FusioniteLight1 }
+Frame FSP2K { Light BabySpiderBoom1 }
+}
+
+OBJECT PossessedDualachnotron
+{
+Frame CSPIG { Light ZOMBIEATK }
+Frame CSPIH { Light ZOMBIEATK }
+Frame CSP2G { Light BabySpiderBoom1 }
+}
+
+OBJECT PossessedBabyDemolisher
+{
+Frame MSPIG { Light BabyDemolisherLight1 }
+Frame MSPIH { Light BabyDemolisherLight2 }
+Frame MSPIQ { Light ZOMBIEATK }
+Frame MSPIR { Light ZOMBIEATK }
+Frame MSP2K { Light BabySpiderBoom1 }
+}
+
+OBJECT PossessedBabySentient
+{
+Frame MARP { Light BabySentientFire1 }
+}
+
+OBJECT PossessedGuardian
+{
+Frame SKELJ { Light GuardianLight1 }
+}
+
+OBJECT PossessedCadaver
+{
+Frame RASKJ { Light ZOMBIEATK }
+}
+
+OBJECT PossessedHellfireRevenant
+{
+Frame GREV { Light InfernoVileFire1 }
+}
+
+OBJECT PossessedFamine
+{
+Frame NREVJ { Light GuardianLight1 }
+Frame NREXA { Light HellArchonExplosion1 }
+Frame NREXB { Light HellArchonExplosion1 }
+Frame NREXC { Light HellArchonExplosion1 }
+Frame NREXD { Light HellArchonExplosion1 }
+Frame NREXE { Light HellArchonExplosion1 }
+Frame NREXF { Light HellArchonExplosion1 }
+Frame NREXG { Light HellArchonExplosion1 }
+Frame NREXH { Light HellArchonExplosion1 }
+}
+
+OBJECT PossessedHellArchon
+{
+Frame LOHSR { Light HellArchonExplosion1 }
+Frame LOHSS { Light HellArchonExplosion1 }
+Frame LOHST { Light HellArchonExplosion1 }
+Frame LOHSU { Light HellArchonExplosion1 }
+Frame LOHSV { Light HellArchonExplosion1 }
+Frame LOHSW { Light HellArchonExplosion1 }
+Frame LOHSX { Light HellArchonExplosion1 }
+Frame LOHSY { Light HellArchonExplosion1 }
+Frame LOHSZ { Light HellArchonExplosion1 }
+}
+
+OBJECT PossessedPyroDemon
+{
+Frame PYROR { Light PyroDemonExplosion1 }
+Frame PYROS { Light PyroDemonExplosion1 }
+Frame PYROT { Light PyroDemonExplosion1 }
+Frame PYROU { Light PyroDemonExplosion1 }
+Frame PYROV { Light PyroDemonExplosion1 }
+Frame PYROW { Light PyroDemonExplosion1 }
+Frame PYROX { Light PyroDemonExplosion1 }
+Frame PYROY { Light PyroDemonExplosion1 }
+Frame PYROZ { Light PyroDemonExplosion1 }
+}
+
+OBJECT PossessedCyberNoble
+{
+Frame CBOSF { Light ZOMBIEATK }
+Frame CBOD { Light CyberNobleExplosion1 }
+}
+
+OBJECT PossessedBruiserDemon
+{
+Frame HFRDA { Light PyroDemonExplosion1 }
+Frame HFRDB { Light PyroDemonExplosion1 }
+Frame HFRDC { Light PyroDemonExplosion1 }
+Frame HFRDD { Light PyroDemonExplosion1 }
+Frame HFRDE { Light PyroDemonExplosion1 }
+Frame HFRDF { Light PyroDemonExplosion1 }
+Frame HFRDG { Light PyroDemonExplosion1 }
+Frame HFRDH { Light PyroDemonExplosion1 }
+Frame HFRDI { Light PyroDemonExplosion1 }
+Frame HFRDJ { Light PyroDemonExplosion1 }
+Frame HFRDK { Light PyroDemonExplosion1 }
+Frame HFRDL { Light PyroDemonExplosion1 }
+Frame HFRDM { Light PyroDemonExplosion1 }
+Frame HFRDN { Light PyroDemonExplosion1 }
+Frame HFRDO { Light PyroDemonExplosion1 }
+Frame HFRDP { Light PyroDemonExplosion1 }
+Frame HFRDQ { Light PyroDemonExplosion1 }
+}
+
+OBJECT PossessedAfrit
+{
+Frame FRIT { Light AfritFire1 }
+}
+
+OBJECT PossessedCybruiser
+{
+Frame BRURA { Light CybruisRail1 }
+Frame BRUSF { Light ZOMBIEATK }
+Frame BRUD { Light HellArchonExplosion1 }
+}
+
+OBJECT PossessedExile
+{
+Frame VILEG { Light HellArchonExplosion1 }
+Frame VILEH { Light HellArchonExplosion1 }
+Frame VILEI { Light HellArchonExplosion1 }
+Frame VILEJ { Light HellArchonExplosion1 }
+Frame VILEK { Light HellArchonExplosion1 }
+Frame VILEL { Light HellArchonExplosion1 }
+Frame VILEM { Light HellArchonExplosion1 }
+Frame VILEN { Light HellArchonExplosion1 }
+Frame VILEO { Light HellArchonExplosion1 }
+Frame VILEP { Light HellArchonExplosion1 }
+Frame VILE[ { Light HellArchonExplosion1 }
+Frame VILE^ { Light HellArchonExplosion1 }
+Frame VILE] { Light HellArchonExplosion1 }
+}
+
+OBJECT PossessedDiabolist
+{
+Frame DIAB { Light InfernoVileFire1 }
+Frame DIA2 { Light InfernoVileFire1 }
+}
+
+OBJECT PossessedDarkHellion
+{
+Frame HELNG { Light HellionAttackLight1 }
+Frame HELNH { Light HellionAttackLight1 }
+Frame HELNI { Light HellionAttackLight1 }
+Frame HELNJ { Light HellionAttackLight1 }
+Frame HELNK { Light HellionAttackLight1 }
+Frame HELHA { Light HellionAttackLight1 }
+Frame HELHB { Light HellionAttackLight1 }
+}
+
+OBJECT PossessedDemolisher
+{
+Frame DEMOH { Light DemolisherAttack1 }
+Frame DEMOT { Light DemolisherAttack2 }
+Frame DEMOU { Light DemolisherAttack3 }
+Frame DEMOJ { Light DemolisherExplode1 }
+Frame DEMOK { Light DemolisherExplode1 }
+Frame DEMOL { Light DemolisherExplode1 }
+Frame DEMOM { Light DemolisherExplode1 }
+Frame DEMON { Light DemolisherExplode1 }
+Frame DEMOO { Light DemolisherExplode1 }
+Frame DEMOP { Light DemolisherExplode1 }
+Frame DEMOQ { Light DemolisherExplode1 }
+Frame DEMOR { Light DemolisherExplode1 }
+}
+
+OBJECT PossessedDarkDemolisher
+{
+Frame DEM2H { Light DDemolisherAttack1 }
+Frame DEM2T { Light DDemolisherAttack2 }
+Frame DEM2U { Light DDemolisherAttack3 }
+Frame DEM2J { Light DDemolisherExplode1 }
+Frame DEM2K { Light DDemolisherExplode1 }
+Frame DEM2L { Light DDemolisherExplode1 }
+Frame DEM2M { Light DDemolisherExplode1 }
+Frame DEM2N { Light DDemolisherExplode1 }
+Frame DEM2O { Light DDemolisherExplode1 }
+Frame DEM2P { Light DDemolisherExplode1 }
+Frame DEM2Q { Light DDemolisherExplode1 }
+Frame DEM2R { Light DDemolisherExplode1 }
+}
+
+OBJECT PossessedCerebralSentient
+{
+Frame SUPR { Light BossFire1 }
+}
+
+OBJECT PossessedCyberLord
+{
+Frame ANNIF { Light BossFire1 }
+Frame ANNIH { Light BossFire1 }
+Frame ANNII { Light BossFire1 }
+Frame ANNIJ { Light BossFire1 }
+Frame ANNIK { Light BossFire1 }
+Frame ANNIL { Light BossFire1 }
+Frame ANNIM { Light BossFire1 }
+Frame ANNIN { Light BossFire1 }
+Frame ANNIO { Light BossFire1 }
+}
+
+OBJECT PossessedDarkCyberdemon
+{
+Frame CBE3G { Light BossFire2 }
+Frame CBEPF { Light BossFire2 }
+Frame CBE2F { Light BossFire2 }
+Frame CBEPH { Light BossFire2 }
+Frame CBEPI { Light BossFire2 }
+Frame CBEPJ { Light BossFire2 }
+Frame CBEPK { Light BossFire2 }
+Frame CBEPL { Light BossFire2 }
+Frame CBEPM { Light BossFire2 }
+Frame CBEPN { Light BossFire2 }
+Frame CBEPO { Light BossFire2 }
+}
+
+OBJECT PossessedCardinal
+{
+Frame CARD { Light BossFire1 }
 }
