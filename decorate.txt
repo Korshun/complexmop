@@ -3,10 +3,12 @@
 #include "decorate/possessed.txt"
 #include "decorate/zombies.txt"
 
+// Player speed multiplier is 0,04375.
+
 ACTOR PossessedBullFiend : PossessedMonster
 {
 	Health 150
-	Speed 10
+	Speed 0.4375 //10
 	Height 48
 	Radius 24
 	Mass 600
@@ -84,7 +86,7 @@ ACTOR PinkyLunge
 ACTOR PossessedCyberFiend : PossessedBullFiend
 {
 	Health 200
-	Speed 12
+	Speed 0.525 //12
 	Scale 1.05
 	PainChance 100
 	DropItem "LifeEssence" 85
@@ -207,7 +209,7 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 ACTOR PossessedDTechFiend : PossessedBullFiend
 {
 	Health 300
-	Speed 12
+	Speed 0.525 //12
 	PainChance 60
 	Damage 5
 	+MISSILEMORE
@@ -346,7 +348,7 @@ Renderstyle Translucent
 ACTOR PossessedLurker : PossessedBullFiend
 {
 	Health 150
-	Speed 11
+	Speed 0.48125 //11
 	PainChance 120
 Renderstyle Translucent
 	Alpha 0.25
@@ -395,7 +397,7 @@ ACTOR PossessedSpook : PossessedBullFiend
 Renderstyle Translucent
 	Alpha 0.15
 	Health 250
-	Speed 12
+	Speed 0.525 //12
 	Scale 1.1
 	MaxTargetRange 350
 	DropItem "LifeEssence" 105
@@ -447,8 +449,8 @@ ACTOR PossessedTerrorSoul : PossessedMonster
 	Radius 14
 	Height 48
 	Mass 50
-	Speed 5
-	FloatSpeed 5
+	Speed 0.21875 //5
+	FloatSpeed 0.21875 //5
 	Damage 3
 	Species "EleSouls"
 	Species "Souls"
@@ -566,7 +568,7 @@ ACTOR PossessedPoisonSoul : PossessedTerrorSoul
 {
 	Health 90
 	PainChance 100
-	Speed 5
+	Speed 0.21875 //5
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
 	DamageFactor "SoulToxic", 0.0
@@ -646,7 +648,7 @@ ACTOR PossessedPoisonSoul : PossessedTerrorSoul
 ACTOR PossessedRictus : PossessedTerrorSoul
 {
 	Health 100
-	Speed 6
+	Speed 0.2625 //6
 	PainChance 100
 	DropItem "LifeEssence" 125
 	DropItem "ArmorBonusMax" 125
@@ -722,8 +724,8 @@ Death.Suicide:
 ACTOR PossessedAbaddon : PossessedMonster
 {
 	Health 400
-	Speed 8
-	FloatSpeed 5
+	Speed 0.35 //8
+	FloatSpeed 0.21875 //5
 	Radius 30
 	Height 56
 	PainChance 120
@@ -910,7 +912,7 @@ ACTOR PossessedPainElemental : PossessedMonster
 	Radius 31
 	Height 56
 	Mass 400
-	Speed 8
+	Speed 0.35 //8
 	PainChance 128
 	+FLOAT
 	+NOGRAVITY
@@ -923,8 +925,8 @@ ACTOR PossessedPainElemental : PossessedMonster
 ACTOR PossessedSoulKeeper : PossessedMonster
 {
 	Health 400
-	Speed 8
-	FloatSpeed 6
+	Speed 0.35 //8
+	FloatSpeed 0.2625 //6
 	Radius 30
 	Height 56
 	PainChance 120
@@ -1208,7 +1210,8 @@ ACTOR PossessedFatso : PossessedMonster
 	Health 600
 	Radius 48
 	Height 64
-	Mass 1000 Speed 8
+	Mass 1000
+	Speed 0.35 //8
 	PainChance 80
 	+FLOORCLIP
 	+BOSSDEATH
@@ -1222,7 +1225,7 @@ ACTOR PossessedFatso : PossessedMonster
 ACTOR PossessedHectebus : PossessedFatso
 {
 	Health 600
-	Speed 6
+	Speed 0.2625 //6
 	PainChance 120
 	DropItem "LifeEssence" 80
 	DropItem "ArmorBonusMax" 80
@@ -1530,7 +1533,7 @@ ACTOR PossessedBehemoth : PossessedFatso
 ACTOR PossessedBarbatos : PossessedFatso
 {
 	Health 1350 PainChance 60
-	Speed 5
+	Speed 0.21875 //5
 	Mass 2500 Scale 0.8
 	DamageFactor "BeheComet", 0.0
 	DamageFactor "FatFlamer", 0.0
@@ -1660,7 +1663,7 @@ ACTOR PossessedArachnotron : PossessedMonster
 	Radius 64
 	Height 64
 	Mass 600
-	Speed 12
+	Speed 0.525 //12
 	PainChance 128
 	+FLOORCLIP
 	+BOSSDEATH
@@ -1677,7 +1680,7 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
 	Health 500
 	PainChance 120
 	Scale 0.75
-	Speed 12
+	Speed 0.525 //12
 	DropItem "LifeEssence" 110
 	DropItem "ArmorBonusMax" 110
 	SeeSound "monsters/dualachsee"
@@ -1726,7 +1729,7 @@ ACTOR PossessedFusionite : PossessedArachnotron
 {
 	Health 750
 	PainChance 100
-	Speed 13
+	Speed 0.56875 //13
 	Scale 1.1
 	Obituary "%o was liquefied by a Fusionite."
 	SeeSound "baby/sight"
@@ -1762,7 +1765,7 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
 {
 	Health 1000 PainChance 80
 	Scale 1.2
-	Speed 14
+	Speed 0.6125 //14
 	SeeSound "minidemo/sight"
 	ActiveSound "minidemo/active"
 	PainSound "monsters/fusionitepain"
@@ -1822,8 +1825,9 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 {
 	Health 1250 PainChance 60
 	Scale 1.25
-	Speed 14
-	Mass 2500 FloatSpeed 8
+	Speed 0.6125 //14
+	Mass 2500
+	FloatSpeed 0.35 //8
 	SeeSound "barachnophyte/sight"
 	PainSound "barachnophyte/pain"
 	DeathSound "barachnophyte/death"
@@ -1994,7 +1998,7 @@ ACTOR PossessedRevenant : PossessedMonster
 	Radius 20
 	Height 56
 	Mass 500
-	Speed 10
+	Speed 0.4375 //10
 	PainChance 100
 	MeleeThreshold 196
 	+MISSILEMORE
@@ -2014,7 +2018,7 @@ ACTOR PossessedGuardian : PossessedRevenant
 	Radius 20
 	Height 56
 	Mass 500
-	Speed 10
+	Speed 0.4375 //10
 	PainChance 100
 	Scale 0.85
 	DamageFactor "CadaverRocket", 0.0
@@ -2186,7 +2190,7 @@ ACTOR PossessedFamine : PossessedGuardian
 {
 	PainChance 70
 	Health 750
-	Speed 12
+	Speed 0.525 //12
 	SeeSound "famine/sight"
 	PainSound "guardian/pain"
 	DeathSound "famine/death"
@@ -2330,7 +2334,7 @@ ACTOR PossessedBaronOfHell : PossessedMonster
 	SpawnID 3
 	Health 1000 Radius 24
 	Height 64
-	Mass 1000 Speed 8
+	Mass 1000 Speed 0.35 //8
 	PainChance 50
 	+FLOORCLIP
 	+BOSSDEATH
@@ -3009,7 +3013,7 @@ ACTOR PossessedArchvile : PossessedMonster
 	Radius 20
 	Height 56
 	Mass 500
-	Speed 15
+	Speed 0.65625 //15
 	PainChance 10
 	MaxTargetRange 896
 	+QUICKTORETALIATE
@@ -3382,7 +3386,7 @@ ACTOR PossessedSpiderMastermind : PossessedMonster
 	SpawnID 7
 	Health 3000 Radius 100
 	Height 100
-	Mass 1000 Speed 12
+	Mass 1000 Speed 0.525 //12
 	PainChance 40
 	MinMissileChance 160
 	+BOSS
@@ -3401,7 +3405,7 @@ ACTOR PossessedSpiderMastermind : PossessedMonster
 
 ACTOR PossessedDemolisher : PossessedSpiderMastermind
 {
-	Health 3000 Speed 15
+	Health 3000 Speed 0.65625 //15
 	Radius 65
 	PainChance 50
 	PainChance "PDTBFG", 25
@@ -3486,7 +3490,7 @@ ACTOR PossessedDemolisher : PossessedSpiderMastermind
 
 ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind
 {
-	Health 3500 Speed 18
+	Health 3500 Speed 0.7875 //18
 	PainChance 40
 	PainChance "PDTBFG", 20
 	PainChance "SoulToxic", 15
@@ -3618,8 +3622,9 @@ ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind
 
 ACTOR PossessedCerebralSentient : SpiderMastermind
 {
-	Health 4000 Speed 12
-	FloatSpeed 12
+	Health 4000
+	Speed 0.525 //12
+	FloatSpeed 0.525 //12
 	PainChance 30
 	PainChance "PDTBFG", 15
 	PainChance "SoulToxic", 10
@@ -3987,7 +3992,7 @@ ACTOR PossessedCyberdemon : PossessedMonster
 	SpawnID 114
 	Health 4000 Radius 40
 	Height 110
-	Mass 1000 Speed 16
+	Mass 1000 Speed 0.7 //16
 	PainChance 20
 	MinMissileChance 160
 	+BOSS
@@ -4088,7 +4093,7 @@ ACTOR PossessedDarkCyberdemon : Cyberdemon
 	PainChance "FatFlamer", 15
 	PainChance "FiendFire", 15
 	PainChance "Explosion", 70
-	Speed 18
+	Speed 0.7875 //18
 	Scale 1.05
 	DamageFactor "Cyber10K", 0.0
 	DamageFactor "PDTBFG", 0.35
@@ -4217,8 +4222,9 @@ ACTOR PossessedDarkCyberdemon : Cyberdemon
 
 ACTOR PossessedCardinal : PossessedCyberdemon
 {
-	Health 5000 Speed 10
-	FloatSpeed 8
+	Health 5000
+	Speed 0.4375 //10
+	FloatSpeed 0.35 //8
 	PainChance 30
 	PainChance "PDTBFG", 15
 	PainChance "SoulToxic", 10
@@ -4539,4 +4545,6 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 		Goto See
 	}
 }
+
+
 
