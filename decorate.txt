@@ -2864,7 +2864,7 @@ ACTOR PossessedBarbatos : PossessedFatso
 	+QUICKTORETALIATE
 	+FLOAT
 	+NOGRAVITY
--FLOORCLIP
+	-FLOORCLIP
 	SeeSound "monsters/barbsee"
 	PainSound "monsters/barbpain"
 	DeathSound "monsters/barbdeath"
@@ -3158,7 +3158,7 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 	+QUICKTORETALIATE
 	+FLOAT
 	+NOGRAVITY
-  -FLOORCLIP
+	-FLOORCLIP
 	Obituary "%o was not intelligent enough to take on a Baby Sentient."
 	States
 	{
@@ -3427,8 +3427,8 @@ ACTOR PossessedHellfireRevenant : PossessedGuardian
 	DropItem "ArmorBonusMax" 135
 	Obituary "%o could not evade a Hellfire Revenant's seeker."
 	HitObituary "%o could not evade a Hellfire Revenant's seeker."
--FASTMELEE
--LONGMELEERANGE
+	-FASTMELEE
+	-LONGMELEERANGE
 	SeeSound "monsters/hfirerevenantsight"
 	DeathSound "monsters/hfirerevenantdeath"
 	ActiveSound "monsters/hfirerevenantactive"
@@ -3519,7 +3519,7 @@ ACTOR PossessedFamine : PossessedGuardian
 	BloodColor "30 30 30"
 	MeleeThreshold 60
 	+QUICKTORETALIATE
-  -LONGMELEERANGE
+	-LONGMELEERANGE
 	States
 	{
 	Spawn:
@@ -5565,7 +5565,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 	+QUICKTORETALIATE
 	+FLOAT
 	+NOGRAVITY
-   -FLOORCLIP
+	-FLOORCLIP
 	Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
 	States
 	{
