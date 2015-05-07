@@ -1402,25 +1402,7 @@ Missile:
 	   SAR2 G 2 A_ScaleVelocity(0.2)
 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 	   SAR2 G 1 A_ScaleVelocity(0)
-	   Goto See
-Pain: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR2 H 4 A_Pain
-       Goto See
-Death: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR2 I 5 
-       SAR2 J 5 A_Scream
-       SAR2 K 4
-       SAR2 L 4 A_NoBlocking     
-       SAR2 M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-       SAR2 N -1 
-       Stop
-Raise: 
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       SAR2 NMLKJI 5 
-       Goto See 
+	   Goto See 
        }
 }
 
@@ -1489,24 +1471,6 @@ Missile:
 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 	   CYFN G 1 A_ScaleVelocity(0)
 	   Goto See
-Pain: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       CYFN H 4 A_Pain
-       Goto See
-Death: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       CYFN I 5 
-       CYFN J 5 A_Scream   
-       CYFN K 4
-       CYFN L 4 A_NoBlocking     
-       CYFN M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-       CYFN N -1 
-       Stop
-Raise: 
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       CYFN NMLKJI 5 
-       Goto See 
        }
 }
 
@@ -1579,33 +1543,7 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 		TNT1 A 0 A_FaceTarget		
 	    SAR3 FFF 2 Bright A_CustomMissile("MagmaBreath", 32, 0, Random(6,-6))
 	    SAR3 E 5 Bright 
-	    Goto See
-	Pain: 
-		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-        SAR3 H 4 Bright A_Pain
-        Goto See
-	Death: 
-	    TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-        SARD I 5 Bright
-        SARD J 5 Bright A_Scream
-        SARD K 4 Bright
-        SARD L 4 Bright A_NoBlocking     
-        SARD M 4 Bright A_SpawnItem("BodyCrash",0,0,0,0)
-        SARD N -1 Bright
-        Stop
-	XDeath:
-		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-        SARD O 3 Bright 
-        SARD P 3 Bright A_XScream
-        SARD Q 3 Bright A_NoBlocking
-        SARD RSTUV 3 Bright
-        SARD W -1 Bright
-        Stop
-	Raise: 
-		TNT1 A 0
-	    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-        SARD NMLKJI 5 Bright
-        Goto See 
+	    Goto See 
 		}
 }
 
@@ -1704,34 +1642,6 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 	   TNT1 A 0 A_Jump(12,"Pause")
 	   TNT1 A 0 A_SpidRefire
 	   Goto DTech+1
-	Pause:
-	   DPNK E 15 A_PlaySound("weapons/demontechsteam")
-	   Goto See	   
-	Pain: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       DPNK H 4 A_Pain
-       Goto See
-	Death:
-	   TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-	   TNT1 A 0 A_Jump(174,2)
-	   TNT1 A 0 A_SpawnItem("Demon Tech Rifle",0,12)
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       DPNK I 5 
-       DPNK J 5 A_Scream   
-	   TNT1 AA 0 A_CustomMissile("GreenBloodCloud", random(30,60), 0, random(0,360), 2, random(0,360))
-       DPNK K 4 A_SpawnItemEx("DTFiendArm",10,0,32,0,Random(6,8),0,0,128)
-       DPNK L 4 A_NoBlocking     
-       DPNK M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-       DPNK N -1 
-       Stop
-	AlwaysDrop:
-	   TNT1 A 0 A_SpawnItem("Demon Tech Rifle",0,12)
-	   Goto Death+3
-	Raise:
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       DPNK NMLKJI 5 
-       Goto See 
        }
 }
 
@@ -1773,28 +1683,6 @@ Missile:
 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 	   TNT1 A 0 A_ScaleVelocity(0)
 	   Goto See
-Pain: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR6 H 4 A_Pain
-       Goto See
-Death: 
-XDeath:
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR6 I 5 
-       SAR6 J 5 A_Scream
-       SAR6 K 4
-       SAR6 L 4 A_NoBlocking     
-       SAR6 M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-       SAR6 N -1 
-       Stop
-Raise: 
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       SAR6 NMLKJI 5 
-       Goto See
-Crush:
-	   SAR6 O -1 A_PlaySound("gib/squish")
-	   Stop	   
        }
 }
 
@@ -1841,29 +1729,7 @@ Missile:
 	    SAR7 G 2 A_ScaleVelocity(0.2)
 		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 	    SAR7 G 1 A_ScaleVelocity(0)
-		Goto See
-Pain:
-		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-        SAR7 H 4 A_Pain
-        Goto See
-Death:
-XDeath:
-	    TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-        SAR7 I 5
-        SAR7 J 5 A_Scream
-        SAR7 K 4
-        SAR7 L 4 A_NoBlocking
-        SAR7 M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-        SAR7 N -1
-	    Stop
-Raise:
-	    TNT1 A 0
-	    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-        SAR7 MLKJI 5
-        Goto See
-Crush:
-	    SAR7 O -1 A_PlaySound("gib/squish")
-	    Stop	 		
+		Goto See 		
         }
 }
 
@@ -1915,25 +1781,6 @@ Missile:
 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
 	   SAR4 G 1 A_ScaleVelocity(0)
 	   Goto See
-Pain: 
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR4 H 4 A_Pain
-       Goto See
-Death: 
-XDeath:
-	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-       SAR4 I 5 
-       SAR4 J 5 A_Scream
-       SAR4 K 4
-       SAR4 L 4 A_NoBlocking     
-       SAR4 M 4 A_SpawnItem("BodyCrash",0,0,0,0)
-       SAR4 N -1 
-       Stop
-Raise: 
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       SAR4 NMLKJI 5 
-       Goto See  
        }
 }
 
@@ -2004,22 +1851,6 @@ Charge:
 	TERR B 2 Bright A_SkullAttack(15)
     TERR B 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)	
     Goto Charge+10
-Pain:
-    TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-	TERR C 3 Bright A_Pain
-	TERR C 3 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-	Goto See
-Death:
-    TNT1 A 0
-    TNT1 A 0 A_SetTranslucent(0.75,1)
-	TERR F 4 Bright A_NoGravity
-	TERR G 4 Bright A_Scream
-	TERR H 4 Bright
-	TERR I 4 Bright A_Fall
-    TNT1 AA 0 A_SpawnItemEx("OrangeParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128) 
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))
-	TERR JK 4
-    Stop
 	}
 }
 
@@ -2072,22 +1903,6 @@ ACTOR PossessedForgottenOne : PossessedTerrorSoul
     FRGO D 2 Bright A_SkullAttack(22)
     FRGO CCDD 2 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
     Goto Missile+11
-  Pain:
-	TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    FRGO E 3 Bright A_Pain
-    FRGO E 3 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-    Goto See
-  Death:
-    TNT1 A 0
-    TNT1 A 0 A_SetTranslucent(0.75,1)
-    FRGO EF 4 Bright
-    FRGO G 4 Bright A_Scream
-    FRGO H 4 Bright		
-    TNT1 AA 0 A_SpawnItemEx("OrangeParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128) 
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))
-    FRGO I 4 Bright A_NoBlocking
-    FRGO JK 4 Bright
-    Stop
   }
 }
 
@@ -2169,24 +1984,6 @@ Missile:
 	TNT1 A 0 Bright A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
 	PHNT CC 2 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
     Goto Missile+8
-Pain:
-    TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	PHNT E 3 Bright A_Pain
-	PHNT E 3 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
-	Goto See
-Death:
-    TNT1 A 0
-    TNT1 A 0 A_SetTranslucent(0.75,1)
-	PHNT F 4 Bright A_NoGravity
-	PHNT G 4 Bright A_Scream
-	PHNT H 4 Bright
-	PHNT I 4 Bright A_Fall
-    TNT1 AA 0 A_SpawnItemEx("GreenParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128) 
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))
-	TNT1 AAAAAA 0 A_SpawnItemEx("PSoulDeathCloud",0,0,4,Random(2,-2),Random(2,-2),Random(4,-4))	
-	PHNT J 4
-	PHNT K 4 
-    Stop
 	}
 }
 
@@ -2322,29 +2119,7 @@ Melee:
          CALI BC 5 A_FaceTarget
          CALI D 5 A_MeleeAttack
 		 CALI CB 5 A_FaceTarget
-         Goto See
-Pain:
-		 CALI E 3
-		 CALI F 6 A_Pain
-         Goto See
-Death:
-         CALI G 8 A_Scream
-         CALI H 8 A_NoBlocking
-		 CALI H -1
-		 Stop
-Crash:
-		 TNT1 A 0
-		 TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-		 CALI I 4 A_PlaySound("Gore/Splat")
-		 CALI J 4 A_NoBlocking
-		 CALI K 4
-		 CALI L -1 A_SetFloorClip
-		 Stop
-Raise:
-	     TNT1 A 0
-	     TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-	     CALI KJIHG 4
-	     Goto See         
+         Goto See   
          }
 }
 
@@ -2398,36 +2173,11 @@ Seeking:
          HED4 D 4 Bright A_CustomMissile("WatcherTracer",24,0,0,0,0)
          HED4 CB 4
          Goto See
-Pain:
-		 TNT1 A 0 A_Jump(61,"PainMissile")
-		 HED4 F 9 A_Pain
-         Goto See
-PainMissile:
-		 HED4 F 9 A_Pain
-		 Goto Missile
 Melee:
          HED4 BC 5 A_FaceTarget
          HED4 D 5 A_MeleeAttack
 		 HED4 CB 4 A_FaceTarget
-         Goto See
-Death:
-         HED4 G 8 A_Scream
-         HED4 H 8 A_NoBlocking
-		 HED4 H -1
-		 Stop
-Crash:
-		 TNT1 A 0
-		 TNT1 A 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-		 HED4 I 4 A_PlaySound("Gore/Splat")
-		 HED4 J 4 A_NoBlocking
-		 HED4 K 4
-		 HED4 L -1 A_SetFloorClip
-		 Stop
-Raise:
-	     TNT1 A 0
-	     TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-		 HED4 LKJIHG 5
-		 Goto See         
+         Goto See       
          }
 }
 
@@ -2494,31 +2244,6 @@ ACTOR PossessedHelemental : PossessedAbaddon
     INFC D 4 A_MeleeAttack
     INFC CB 4 A_Facetarget	
     Goto See
-  Pain:
-    TNT1 A 0 A_Jump(87,"PainMissile")
-    INFC H 9 A_Pain
-    Goto See
-  PainMissile:
-    INFC H 9 A_Pain
-    Goto Missile
-  Death:
-    INFC I 5 A_Scream
-    INFC J 5 A_NoBlocking	
-	INFC J -1
-	Stop
-  Crash:
-	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	INFC K 4 A_PlaySound("Gore/Splat")
-	INFC L 4 A_NoBlocking
-	INFC MN 4
-	INFC O -1 A_SetFloorClip
-	Stop	
-  Raise: 
-  	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    INFC NMLKJI 5 Bright
-	Goto See
     }
 }
 
@@ -2596,20 +2321,6 @@ Melee:
       PLEM F 4 A_MeleeAttack
 	  PLEM ED 3 A_FaceTarget
       Goto See
-Pain:
-      PLEM G 9 A_Pain
-      Goto See
-Death: 
-      PLEM H 5 Bright
-      PLEM I 5 Bright A_Scream
-      PLEM J 5 Bright A_NoBlocking
-	  TNT1 A 0 A_SetTranslucent(0.75,1)
-	  TNT1 AAAA 0 A_SpawnItemEx("OrangeParticleSpawner", 0, 0, random(20,40), 0, 0, 0, 0, 128)  
-	  TNT1 AAAA 0 A_CustomMissile("SmokeFX", random(20,40), 0, random(0,360), 2, random(0,360))
-	  TNT1 AAAA 0 A_CustomMissile("Kaboom3", random(20,40), 0, random(0,360), 2, random(0,360))	 
-	  PLEM K 5 Bright A_PainDie("TerrorSoul")
-      PLEM LM 5 Bright 
-      Stop
       } 
 }
 
@@ -2652,24 +2363,6 @@ ACTOR PossessedDefiler : PossessedSoulKeeper
         DEFI F 4 A_MeleeAttack
 	    DEFI ED 3 A_FaceTarget
         Goto See		
-	Pain:
-		TNT1 A 0 A_Jump(61,"PainMissile")
-		DEFI G 9 A_Pain
-		Goto See
-	PainMissile:
-		DEFI G 9 A_Pain
-		Goto Missile	
-	Death:
-		DEFI H 5 
-		DEFI I 5 Bright A_Scream
-		DEFI J 5 Bright A_NoBlocking
-		TNT1 A 0 A_SetTranslucent(0.75,1)
-	    TNT1 AAAA 0 A_SpawnItemEx("OrangeParticleSpawner", 0, 0, random(20,40), 0, 0, 0, 0, 128)
-		TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAA 0 A_CustomMissile("Kaboom3", random(20,40), 0, random(0,360), 2, random(0,360))		
-		DEFI K 5 Bright A_PainDie("ForgottenOne")
-		DEFI LM 5 Bright
-		Stop
       } 
 }		
 
@@ -2730,25 +2423,6 @@ ACTOR PossessedPoisonElemental : PossessedSoulKeeper
         INFR D 4 A_MeleeAttack
 	    INFR CB 3 A_FaceTarget
         Goto See		
-	Pain: 
-		TNT1 A 0 A_Jump(107,"PainMissile")
-		INFR E 9 A_Pain
-		Goto See
-	PainMissile:
-		INFR E 9 A_Pain
-		Goto Missile		
-	Death:
-		INFR G 5
-		INFR H 5 Bright A_Scream
-		INFR I 5 Bright A_NoBlocking
-		TNT1 A 0 A_SetTranslucent(0.75,1)
-	    TNT1 AAAA 0 A_SpawnItemEx("GreenParticleSpawner", 0, 0, random(20,40), 0, 0, 0, 0, 128)
-		TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAA 0 A_CustomMissile("Kaboom4", random(20,40), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("PoisonEleBreath",0,0,10,Random(10,-10),Random(10,-10),Random(6,-6))		
-		INFR J 5 Bright A_PainDie("PoisonSoul")
-		INFR K 5 Bright
-		Stop
       } 
 }
 
@@ -3015,24 +2689,6 @@ Flamethrowers:
        TABU H 1 Bright A_CustomMissile("HectebusFlamethrower", 30, -30, Random(6, -6))   
 	   TABU IG 12
 	   Goto See
-Pain:
-       TABU J 6 A_Pain
-       Goto See  
-Death:
-       TABU K 6
-       TABU L 6 A_Scream
-       TNT1 A 0 A_SpawnItemEx("BlackGibbedGenerator",0,0,0,0,0,0,0,128,0)
-       TABU M 6 A_NoBlocking
-       TNT1 A 0 A_SpawnItemEx("BlackGibbedGenerator",0,0,0,0,0,0,0,128,0)
-       TABU NOPQR 6
-       TABU S 6
-       TABU T -1 A_KillMaster
-       Stop
-Raise:
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       TABU SRQPONMLK 6
-       Goto See
        }
 }
 
@@ -3158,28 +2814,6 @@ ChemSpray:
        HECT H 2 Bright A_CustomMissile("DaedabusChemSpray", 30, -30, Random(12, -12))
 	   HECT IG 12
 	   Goto See	   
-Pain:
-       TNT1 A 0 A_Jump(61,"PainMissile")
-       HECT J 6 A_Pain
-       Goto See
-PainMissile:
-       HECT J 6 A_Pain
-       Goto Missile	   
-Death:
-       HECT K 6 
-       HECT L 6 A_Scream
-       HECT L 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-       HECT M 6 A_NoBlocking
-       HECT M 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-       HECT NOPQR 6
-       HECT S 6
-       HECT T -1 A_KillMaster
-       Stop
-Raise:
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       HECT SRQPONMLK 6
-       Goto See
        }
 }
 
@@ -3239,28 +2873,6 @@ Seekers:
        TNT1 A 0 A_CustomMissile("BehemothSeekingComet", 30, 30, -15)
        FAT2 H 6 Bright A_CustomMissile("BehemothSeekingComet", 30, -30, 15)
        FAT2 IG 12    
-       Goto See
-Pain:	
-       TNT1 A 0 A_Jump(87,"PainMissile")
-       FAT2 J 6 A_Pain
-       Goto See
-PainMissile:
-       FAT2 J 6 A_Pain
-       Goto Missile
-Death:
-	   FAT2 K 6
-       FAT2 L 6 A_Scream
-       TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-       FAT2 M 6 A_NoBlocking
-       TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-       FAT2 NOPQR 6
-       FAT2 S 6
-       FAT2 T -1 A_KillMaster
-       Stop
-Raise:
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       FAT2 SRQPONMLK 6
        Goto See
        }
 }
@@ -3389,31 +3001,6 @@ ChemSpray:
        FFAT H 2 Bright A_CustomMissile("DaedabusChemSpray", 36, -30, Random(16, -16))
 	   FFAT FG 12
 	   Goto See
-Pain:	
-       TNT1 A 0 A_Jump(102,"PainMissile")
-       FFAT J 6 A_Pain
-       Goto See
-PainMissile:
-       FFAT J 6 A_Pain
-       Goto Missile
-Death:
-       FFAT K 6
-       FFAT L 6 A_Scream
-       TNT1 A 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-       FFAT M 6 A_NoBlocking
-       TNT1 A 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-	   TNT1 A 0 A_PlaySound("monsters/barbgas")
-	   TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BarbatosPoison",0,0,20,Random(8,-8),Random(8,-8),Random(6,-6))	   
-       FFAT NO 6
-	   FFAT P 6 A_KillMaster
-       FFAT Q -1 A_SetFloorClip
-       Stop
-Raise:
-	   TNT1 A 0
-	   TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-       FFAT P 6 A_UnSetFloorClip
-       FFAT ONMLK 6
-       Goto See
        }
 }
 
@@ -3485,24 +3072,6 @@ ACTOR PossessedDualachnotron : PossessedArachnotron
 	CSPI B 15 A_FaceTarget
     TNT1 A 0 A_SpidRefire
     Goto Missile+1
-  Pain:
-    CSPI F 12 A_Pain
-    Goto See
-  Death:
-    CSPI F 20 A_Scream
-	CSPI G 6
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	CSP2 GGGGG 2 Bright A_CustomMissile("Kaboom2", random(20,40), random(10,-10), random(0,360), 2, random(0,360))
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-    CSPI H 6 A_NoBlocking
-    CSPI IJK 6
-    CSPI L -1 A_KillMaster
-    Stop
-  Raise:
-    TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    CSPI KJIHGF 5
-    Goto See+1
   }
 }
 
@@ -3539,29 +3108,6 @@ Missile:
     FSPI H 4 Bright A_CustomMissile("FusionShot",30,0,Random(-850,850)/100.00,0)
     TNT1 A 0 A_SpidRefire
     Goto Missile+1
-Pain:
-    TNT1 A 0 A_Jump(61,"PainMissile")
-    FSPI I 12 A_Pain
-    Goto See
-PainMissile:
-    FSPI I 12 A_Pain
-    Goto Missile
-Death:
-    FSPI I 20 A_Scream
-	FSPI J 6
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-    FSP2 KKKKK 2 Bright A_CustomMissile("Kaboom2", random(20,40), random(10,-10), random(0,360), 2, random(0,360))
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-    FSPI L 6 A_NoBlocking
-    FSPI MN 6
-    FSPI O 6
-    FSPI P -1 A_KillMaster
-    Stop
-Raise:
-	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-	FSPI ONMLKJ 6
-	Goto See+1
     }
 }
 
@@ -3623,29 +3169,6 @@ ACTOR PossessedBabyDemolisher : PossessedArachnotron
     MSPI H 4 Bright A_CustomMissile("BabyDemo15K",20,0,Random(4,-4)) 	
     MSPI G 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
     Goto See
-  Pain:
-    TNT1 A 0 A_Jump(87,"PainMissile")
-    MSPI I 12 A_Pain
-    Goto See
-  PainMissile:
-	MSPI I 12 A_Pain
-    Goto Missile
-  Death:
-    MSPI I 20 A_Scream
-	MSPI J 6
-	TNT1 AAA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	MSP2 KKKKK 2 Bright A_CustomMissile("Kaboom2", random(20,40), random(10,-10), random(0,360), 2, random(0,360))
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-    MSPI L 6 A_NoBlocking
-    MSPI MN 6
-    MSPI O 6
-    MSPI P -1 A_KillMaster
-    Stop
-  Raise:
-  	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    MSPI PONMLKJ 5
-    Goto See+1
   }
 }
 
@@ -3816,36 +3339,6 @@ ACTOR PossessedBabySentient : PossessedArachnotron
     MARP C 2 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	MARP CCCCCCCCC 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
     Goto See
-  Pain:
-    TNT1 A 0 A_Jump(104,"PainMissile")
-	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-    MARP A 3 Bright A_Pain
-	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP A 3 Bright
-    Goto See
-  PainMissile:
-	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-    MARP A 3 Bright A_Pain
-	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP A 3 Bright
-    Goto Missile
-  Death:
-    MARP A 20 Bright A_Scream
-    MARP E 6 Bright A_Fall
-	MARP F 6 Bright
-	TNT1 AAA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	MARP GGGGG 2 Bright A_CustomMissile("Kaboom2", random(20,40), random(10,-10), random(0,360), 2, random(0,360))
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", random(20,40), 0, random(0,360), 2, random(0,360))
-    MARP H 6 Bright
-    MARP I 4
-	MARP J 2
-    TNT1 A -1 A_KillMaster
-    Stop
-  Raise:
-  	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    MARP JIHGFE 5
-    Goto See
   }
 }
 
@@ -3920,21 +3413,6 @@ Missile:
     SKEL K 10 A_CustomMissile("GuardianTracer", 40, 14, 0) 
     SKEL K 10 A_FaceTarget
     Goto See
-Pain:
-    SKEL L 10 A_Pain
-    Goto See
-Death:
-    SKEL LM 7
-    SKEL N 7 A_Scream
-    SKEL O 7 A_NoBlocking
-    SKEL P 7 A_SpawnItem("BodyCrash",0,0,0,0)
-    SKEL Q -1
-    Stop
-Raise:
-	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    SKEL PONML 5
-    Goto See
     }
 }
 
@@ -3973,25 +3451,6 @@ ACTOR PosssessedCadaver : PossessedGuardian
     RASK J 14 Bright A_FaceTarget
     RASK K 6 A_CustomMissile("CadaverRocket",40,12,0)
 	RASK K 10
-    Goto See
-  Pain:
-    TNT1 A 0 A_Jump(61,"MissilePain")
-    RASK L 10 A_Pain
-    Goto See
-  MissilePain:
-	RASK L 10 A_Pain
-    Goto Missile
-  Death:
-    RASK LM 7
-    RASK N 7 A_Scream
-    RASK O 7 A_NoBlocking
-    RASK P 7 A_SpawnItem("BodyCrash",0,0,0,0)
-    RASK Q -1
-    Stop	
-  Raise:
-  	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    RASK PONML 5
     Goto See
   }
 }
@@ -4077,29 +3536,6 @@ Missile:
     GREV K 2 Bright A_CustomMissile("HellFireRocket", 40, 14, 0)  
 	TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
     GREV KKKKKKKKK 2 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)	
-    Goto See
-Pain:
-    TNT1 A 0 A_Jump(87,"MissilePain")
-	TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)	
-    GREV L 2 Bright A_Pain		
-    GREV LLLL 2 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0) 
-	Goto See
-MissilePain:
-	TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)	
-    GREV L 2 Bright A_Pain		
-    GREV LLLL 2 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0) 
-    Goto Missile	
-Death:
-    GREV LM 7 Bright
-    GREV N 7 Bright A_Scream
-    GREV O 7 Bright A_NoBlocking
-    TNT1 A 0 Bright A_SpawnItem("BodyCrash",0,0,0,0)	
-    GRED P -1 Bright
-    Stop
-Raise:
-	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    GREV ONML 7 Bright
     Goto See
     }
 }
@@ -4338,25 +3774,6 @@ Melee:
         LOHS G 4 Bright A_MeleeAttack 
         LOHS FE 4 Bright A_FaceTarget 		
         Goto See
-Pain: 
-        LOHS Q 10 Bright A_Pain 
-        Goto See 
-Death: 
-        LOHS R 8 Bright
-        LOHS S 7 Bright A_Scream 
-		TNT1 AAA 0 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 40, 0, 0, 0, 0, 128)
-        LOHS U 5 Bright A_Fall 
-        LOHS VW 5 Bright
-		TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(30,60), 0, random(0,360), 2, random(0,360))
-    	LOHS X 4 Bright A_CustomMissile("ArchonSoul",86,0,0,2,90)
-    	LOHS Z 4 Bright
-        TNT1 A -1
-	    Stop
-Raise: 
-	    TNT1 A 0
-	    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-        LOHS ZYXWVUTSR 5 Bright
-        Goto See 
         } 
 }
 
@@ -4424,29 +3841,6 @@ Melee:
         PYRO G 5 Bright A_MeleeAttack 
         PYRO FE 4 Bright A_FaceTarget 		
         Goto See
-Pain: 
-		TNT1 A 0 A_Jump(61,"PainMissile")
-        PYRO Q 10 Bright A_Pain
-        Goto See 
-PainMissile:
-		PYRO Q 10 Bright A_Pain
-        Goto Missile 
-Death: 
-        PYRO R 8 Bright
-        PYRO S 7 Bright A_Scream 
-		TNT1 AAA 0 Bright A_SpawnItemEx("OrangeParticleSpawner", Random(10,-10), Random(10,-10), Random(30,60), 0, 0, 0, 0, 128) 
-        PYRO U 5 Bright A_Fall 
-        PYRO VW 5 Bright
-        TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(30,60), 0, random(0,360), 2, random(0,360))			
-    	PYRO X 4 Bright A_CustomMissile("PyroSoul",86,0,0,2,90)
-    	PYRO Z 4 Bright
-        TNT1 A -1
-	    Stop
-Raise: 
-	    TNT1 A 0
-	    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-        PYRO ZYXWVUTSR 5 Bright
-        Goto See 
         } 
 }
 
@@ -4522,35 +3916,6 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
     CBOS R 4 A_MeleeAttack
 	CBOS QP 4 A_FaceTarget
     Goto See
-  Pain: 
-    TNT1 A 0 A_Jump(87,"PainMissile")
-    CBOS H 8 A_Pain
-    Goto See
-  PainMissile:
-    CBOS H 8 A_Pain
-    Goto Missile	
-  Death:
-  	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-	TNT1 A 0 A_Jump(132,2)
-	TNT1 A 0 A_SpawnItem("Assault Shotgun",0,12)
-    CBOD I 20 A_Scream
-	TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)	
-	CBOD JJJKKK 2 Bright A_CustomMissile ("Kaboom5", Random(10,50), 0, random(0,360), 2, random(0,360))
-	TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",0,0,0,0,0,0,0,128,0)
-    TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(30,60), 0, random(0,360), 2, random(0,360))	
-    CBOD L 4 Bright A_NoBlocking
-    CBOD MN 3 Bright
-    CBOS O -1
-    Stop
-  AlwaysDrop:
-	TNT1 A 0 A_SpawnItem("Assault Shotgun",0,12)
-	Goto Death+3
-  Raise:
-  	TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    CBOD N 5
-	CBOD MLKJI 5
-	Goto See
     } 
 }
 
@@ -4667,20 +4032,6 @@ PainRage:
 		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION,0)
 		HDUK N 5 Bright
         Goto See 
-Death: 
-        HDUK R 10 Bright A_Scream
-		HDUK RRRRSSSSTTTTUUUUVVVV 2 Bright A_CustomMissile("Kaboom4", random(20,80), 0, random(0,360), 2, random(0,360))
-        TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(40,80), 0, random(0,360), 2, random(0,360))
-    	HDUK W 8 A_Fall
-    	HDUK XY 6
-        HDUK Z -1
-	    Stop
-Raise: 
-	    TNT1 A 0
-	    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-        HDUK YXW 3
-        HDUK VUTSR 3 Bright
-        Goto See 
         } 
 }
 
@@ -4746,25 +4097,6 @@ Melee:
 	HFRY EF 4 Bright A_FaceTarget
 	HFRY G 5 Bright A_MeleeAttack
 	HFRY FE 4 Bright A_FaceTarget
-	Goto See
-Pain:
-	HFRY N 10 Bright A_Pain
-	Goto See
-Death: 
-    HFRD A 7 Bright
-    HFRD B 6 Bright A_Scream 
-    HFRD D 5 Bright A_Fall 
-    TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(30,60), 0, random(0,360), 2, random(0,360))	
-    HFRD EFGHIJKLMNO 4 Bright A_SpawnItemEx("OrangeParticleSpawner", Random(10,-10), Random(10,-10), Random(30,60), 0, 0, 0, 0, 128)	
-    HFRD PQRST 4	
-    HFRD V 4 A_SpawnItem("BodyCrash",0,0,0,0)
-    HFRD W -1 A_KillMaster
-    Stop 
-Raise:
-	TNT1 A 0
-    TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-	HFRD VUTSRQP 2
-	HFRD ONMLKJIHGFEDCBA 2 Bright
 	Goto See
  	}
 }	 
@@ -4952,19 +4284,7 @@ Pain:
 MissilePain:
       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
       FRIT Q 8 Bright A_Pain
-      Goto Missile	  
-Death: 
-      FRIT R 4 Bright A_Scream
-      FRIT S 4 Bright A_Fall
-	  TNT1 AAAA 0 A_CustomMissile("SmokeFX2", Random(50,80), 0, random(0,360), 2, random(0,360))	  
-      FRIT TUVWXYZ 3 Bright
-	  TNT1 A -1 Bright A_KillMaster
-      Stop  
-Raise:
-	  TNT1 A 0
-	  TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-      FRIT ZYXWVUTSR 3 Bright
-      Goto See
+      Goto Missile
       } 
 }
 
@@ -5047,43 +4367,6 @@ ACTOR PossessedCybruiser : PossessedBaronOfHell
     BRUS I 4 A_MeleeAttack
 	BRUS HG 4 A_FaceTarget
     Goto See
-  Pain: 
-    TNT1 A 0 A_Jump(87,"MissilePain")
-    BRUS J 8 A_Pain
-    Goto See
-  MissilePain:
-    BRUS J 8 A_Pain
-    Goto Missile	
-  Death: 
-    TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-	TNT1 A 0 A_Jump(88,2)
-	TNT1 A 0 A_SpawnItem("Railgun ",0,12)
-    BRUD K 20 A_Scream
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	TNT1 AA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))	
-	BRUD KKKLLL 2 Bright A_CustomMissile("Kaboom17", Random(10,50), 0, random(0,360), 2, random(0,360))
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	TNT1 AA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))	
-	BRUD MMMNNN 2 Bright A_CustomMissile("Kaboom17", Random(10,50), 0, random(0,360), 2, random(0,360))
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	TNT1 AA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))	
-	BRUD OOOPPP 2 Bright A_CustomMissile("Kaboom17", Random(10,50), 0, random(0,360), 2, random(0,360))
-	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-	TNT1 AAAA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))
-    BRUD Q 4 Bright A_NoBlocking
-    BRUD R 3 Bright 
-	BRUS S 3
-    BRUS T -1 A_KillMaster
-    Stop
-  AlwaysDrop:
-	TNT1 A 0 A_SpawnItem("Railgun ",0,12)
-	Goto Death+3	
-  Raise:
-    TNT1 A 0
-	TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-    BRUS S 4
-	BRUD RQPONMLK 4
-	Goto See
     } 
 }
 
@@ -5190,23 +4473,7 @@ Missile:
 	TNT1 A 0 A_PlaySound("exile/voidend")
     VILE O 8 Bright A_VileAttack
     VILE P 20 Bright
-    Goto See	
-Heal:
-    VILE "[\]" 10 Bright
     Goto See
-Pain:
-    VILE Q 10 A_Pain
-    Goto See
-Death:
-    VILE Q 6
-    VILE R 6 A_Scream
-    TNT1 A 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-    VILE S 6 A_Fall
-    VILE TUVW 6
-	TNT1 A 0 A_SpawnItem("BodyCrash",0,0,0,0)
-    VILE XY 4
-    VILE Z -1
-    Stop 
     }
 }
 
@@ -5296,22 +4563,7 @@ Rush:
     DIAB IJKLMN 8 Bright A_FaceTarget
     DIAB O 8 Bright A_VileAttack
     DIAB P 20 Bright
-    Goto See
-  Pain: 
-    DIAB Q 10 Bright A_Pain 
-	Goto See	
-  Heal:
-    DIA2 ABC 8 Bright
-    Goto See	
-  Death:
-    DIAD R 6 Bright A_Scream
-    DIAD S 6 Bright A_Fall
-	TNT1 A 0 A_SpawnItemEx("BlackGibbedGenerator",0,0,0,0,0,0,0,128,0)
-    DIAD TUVW 6 Bright
-	TNT1 A 0 Bright A_SpawnItem("BodyCrash",0,0,0,0)
-    DIAD XY 4 Bright
-    DIAD Z -1 Bright
-    Stop   
+    Goto See  
     }
 }
 
@@ -5493,63 +4745,6 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)	
 	HELN L 4
     Goto See
-  Pain: 
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELN M 10 A_Pain 
-	Goto See
-  Heal:
-	TNT1 A 0 A_PlaySound("brain/spit")
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,0,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,20,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,40,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,60,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,80,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,100,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,120,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,140,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,160,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,180,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,200,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,220,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,240,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,260,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,280,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,300,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,320,0)
-	TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,340,0)
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH B 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH B 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH B 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH B 4 Bright	
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright
-	TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-    HELH A 4 Bright		
-    Goto See	
-  Death:
-    HELD N 6 A_Scream
-    HELD O 6 A_Fall
-    HELD PQ 6
-    HELD R 4 A_SpawnItemEx("BlackGibbedGenerator",0,0,0,0,0,0,0,128,0)
-	HELD S 4 A_SpawnItem("BodyCrash",0,0,0,0)
-    HELD T -1
-    Stop   
     }
 }
 
@@ -5661,47 +4856,7 @@ BFG9K:
 	    DEMO U 8 Bright A_FaceTarget
     	DEMO U 4 Bright A_CustomMissile("SpiderBFG9500Ball",34,0,0,0)
 		DEMO T 15 Bright
-    	Goto See
-Pain:
-    	TNT1 A 0 A_Jump(61,"PainMissile")
-		DEMO I 6 A_Pain
-    	Goto See
-PainMissile:
-		DEMO I 6 A_Pain
-    	Goto Missile
-Death:
-		TNT1 A 0 A_Scream
-		DEMO I 20 A_Fall
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-		DEMO JJJJJ 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-		DEMO KKKKK 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEMO LLLLL 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEMO MMMMM 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEMO NNNNN 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEMO OOOOO 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEMO PPPPP 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))		
-		TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", random(10,60), random(30,-30), random(0,360), 2, random(0,360))	
-		DEMO QR 5
-		DEMO S -1 A_KillMaster
-		Stop
-Crush:
-	    BOCR A -1 A_PlaySound("gib/squish")
-	    Stop	 		
+    	Goto See	
         }
 }	
 
@@ -5834,53 +4989,7 @@ BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright A_CustomMissile("DarkDemo10K", 44, 0, Random(4, -4))	
 		DEM2 T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto See		
-Pain:
-    	TNT1 A 0 A_Jump(87,"PainMissile")
-		DEM2 I 6 A_Pain
-    	Goto See
-PainMissile:
-		DEM2 I 6 A_Pain
-    	Goto Missile
-Death:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_SpawnItem("BFG10K ",0,12)
-		TNT1 A 0 A_Scream
-		DEM2 I 20 A_Fall
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-		DEM2 JJJJJ 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-		DEM2 KKKKK 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEM2 LLLLL 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEM2 MMMMM 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEM2 NNNNN 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEM2 OOOOO 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		DEM2 PPPPP 2 Bright A_CustomMissile("Kaboom5", random(10,60), random(30,-30), random(0,360), 2, random(0,360))		
-		TNT1 AAAA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAAAAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", random(10,60), random(30,-30), random(0,360), 2, random(0,360))	
-		DEM2 QR 5
-		DEM2 S -1 A_KillMaster
-		Stop
-AlwaysDrop:
-		TNT1 A 0 A_SpawnItem("BFG10K ",0,12)
-		Goto Death+3		
-Crush:
-	    BOCG A -1 A_PlaySound("gib/squish")
-	    Stop	 		
+		Goto See				
         }
 }	
 
@@ -6246,34 +5355,7 @@ PainResurrect:
 	SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_UnSetInvulnerable
 	SUPR A 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto See	
-Death:
-	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-	TNT1 A 0 A_Jump(52,2)
-	TNT1 A 0 A_SpawnItem("Demon Tech BFG10K",0,12)
-	TNT1 A 0 Bright A_Scream
-	SUPR H 20 Bright A_Fall
-    TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-	SUPR IIIII 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-    SUPR JJJJJ 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-    SUPR KKKKK 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-    SUPR LLLLL 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-	TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", random(10,60), random(30,-30), random(0,360), 2, random(0,360))	
-	SUPR LM 5
-	TNT1 A -1 A_KillMaster
-	Stop
-AlwaysDrop:
-	TNT1 A 0 A_SpawnItem("Demon Tech BFG10K",0,12)
-	Goto Death+3		
+	Goto See		
     }
 }
 
@@ -6377,46 +5459,6 @@ Grenadier:
         ANNI F 8 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
 		ANNI E 12
 		Goto See
-Pain:
-		TNT1 A 0 A_Jump(61,"PainMissile")
-        ANNI G 10 A_Pain
-        Goto See
-PainMissile:
-		ANNI G 10 A_Pain
-        Goto Missile
-Death:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_SpawnItem("Grenade Launcher",0,12)
-		ANNI G 10 A_Scream
-		ANNI H 10 A_NoBlocking
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        ANNI IIIII 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        ANNI JJJJJ 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))		
-        ANNI KKKKK 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)		
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        ANNI LLLLL 1 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        ANNI MMMMM 1 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", Random(20,80), 0, random(0,360), 2, random(0,360))	
-        ANNI NO 5
-        ANNI P -1 A_KillMaster
-        Stop
-AlwaysDrop:
-		TNT1 A 0 A_SpawnItem("Grenade Launcher",0,12)
-		Goto Death+3		
-Crush:
-	    BOCR A -1 A_PlaySound("gib/squish")
-	    Stop
         }
 }	
 
@@ -6458,10 +5500,7 @@ See:
 		CBEP ABBCC 3 A_Chase
 		CBEP D 3 A_Metal
 		CBEP D 3 A_Chase
-		Loop				
-Pause:
-		CBEP E 20 A_PlaySound("weapons/demontechsteam")
-		Goto See		
+		Loop						
 Missile:
         TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
 Rockets:
@@ -6555,47 +5594,7 @@ BFG15K:
 		CBEP E 4 Bright A_FaceTarget
 		CBEP F 4 Bright A_CustomMissile("DarkCyber15K",40,0,Random(-4, 4))
 		CBEP E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
-		Goto See		
-Pain:
-		TNT1 A 0 A_Jump(87,"PainMissile")
-        CBEP G 10 A_Pain
-        Goto See
-PainMissile:
-		CBEP G 10 A_Pain
-        Goto Missile
-Death:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-		TNT1 A 0 A_Jump(128,2)
-		TNT1 A 0 A_SpawnItem("BFG10K ",0,12)
-		CBEP G 10 A_Scream
-		CBEP H 10 A_NoBlocking
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        CBEP IIIII 2 Bright A_CustomMissile("Kaboom5", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        CBEP JJJJJ 2 Bright A_CustomMissile("Kaboom5", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))		
-        CBEP KKKKK 2 Bright A_CustomMissile("Kaboom5", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)		
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        CBEP LLLLL 1 Bright A_CustomMissile("Kaboom5", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-        CBEP MMMMM 1 Bright A_CustomMissile("Kaboom5", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-		TNT1 AAAA 0 A_SpawnItemEx("GreenGibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-		TNT1 AAAAAA 0 A_CustomMissile("BigGreenBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-		TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", Random(20,80), 0, random(0,360), 2, random(0,360))	
-        CBEP NO 5
-        CBEP P -1 A_KillMaster
-        Stop
-AlwaysDrop:
-		TNT1 A 0 A_SpawnItem("BFG10K ",0,12)
-		Goto Death+3		
-Crush:
-	    BOCG A -1 A_PlaySound("gib/squish")
-	    Stop	 		
+		Goto See			
         }
 }
 
@@ -6922,35 +5921,5 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 	  TNT1 A 0 Bright A_UnSetInvulnerable
       CARD EE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 	  Goto See
-   Death: 
-   	  TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
-	  TNT1 A 0 A_Jump(52,2)
-	  TNT1 A 0 A_SpawnItem("Demon Tech BFG10K",0,12)
-	  CARD E 10 A_Scream
-	  CARD F 10 A_NoBlocking
-	  TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	  TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-      CARD GGGGG 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-	  TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	  TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-      CARD HHHHH 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-	  TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	  TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))		
-      CARD IIIII 2 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-	  TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)		
-	  TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-      CARD JJJJJ 1 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-	  TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	  TNT1 AAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-      CARD KKKKK 1 Bright A_CustomMissile("Kaboom", random(20,80), random(20,-20), random(0,360), 2, random(0,360))
-	  TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	  TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-	  TNT1 AAAAAAAA 0 A_CustomMissile("SmokeFX3", Random(20,80), 0, random(0,360), 2, random(0,360))	
-      CARD L 5
-      TNT1 A -1 Bright A_KillMaster
-      Stop
-   AlwaysDrop:
-	  TNT1 A 0 A_SpawnItem("Demon Tech BFG10K",0,12)
-	  Goto Death+3
       } 
 }
