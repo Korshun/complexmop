@@ -548,49 +548,32 @@ Actor PossessedTerrorSoul : PossessedMonster
 	States
 	{
 	Spawn:
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		Loop
 	See:
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
+		TERR A 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		Loop
 	Missile:
-		TNT1 A 0 A_Jump(174,"Charge")
-	Projectile:
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR B 2 Bright A_CustomMissile("SoulBall", 10, 0, 0, 1)
-		TERR BBA 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
+		TERR BBBA 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
 		Goto See
-	Charge:
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		TERR B 2 Bright A_SkullAttack(15)
-		TERR B 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
-		Goto Charge+10
 	}
 }
 
 Actor TerrorSoulWeapon : PossessedWeapon
 {
+	AttackSound "skull/melee"
+
 	States
 	{
 	Fire:
+		TNT1 A 2 A_FireCustomMissile("SoulBall")
+		TNT1 A 16
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-5)
+		Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(3)
+		TNT1 A 16
 		Goto Ready
 	}
 }
@@ -634,17 +617,6 @@ Actor PossessedForgottenOne : PossessedTerrorSoul
 		FRGO B 2 Bright
 		Loop
 	Missile:
-		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		FRGO A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		FRGO A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		FRGO A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("forgotten/attack")
-		FRGO C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		FRGO D 2 Bright A_SkullAttack(22)
 		FRGO CCDD 2 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
 		Goto Missile+11
 	}
@@ -655,6 +627,12 @@ Actor ForgottenOneWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-8)
+		Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(3)
+		TNT1 A 16
 		Goto Ready
 	}
 }
