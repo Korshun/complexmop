@@ -86,6 +86,12 @@ script mop_possess (void)
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
 	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_CROUCH))
 	{
+		if (CheckInventory("PossessedSuicide") == 1)
+		{
+			SetActorState(0, "Suicide");
+			GiveInventory("PossessedSuicide", 1);
+		}
+		
 		hp1 = hp2;
 		hp2 = GetActorProperty(0, APROP_HEALTH);
 		Delay(1);
@@ -106,6 +112,9 @@ script mop_possess (void)
 	vz = GetActorVelZ(0);
 	angle = GetActorAngle(0);
 	
+	// Was it suicide?
+	int suicide = CheckInventory("PossessedSuicide");
+	
 	// Unmorph.
 	UnmorphActor(0, true);
 	PossessedCount--;
@@ -114,6 +123,13 @@ script mop_possess (void)
 	
 	// Take away flag.
 	TakeInventory("IsPossessed", 1);
+	
+	// Don't spawn body if suicided.
+	if (suicide)
+	{
+		TakeInventory("PossessedSuicide", 2);
+		terminate;
+	}
 	
 	// Spawn the replacement actor.
 	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);

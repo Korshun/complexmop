@@ -37,7 +37,13 @@ Actor PossessedWeapon : Weapon
 	}
 }
 
+Actor PossessedSuicide : Inventory
+{
+	Inventory.MaxAmount 2
+}
+
 Actor IsPossessed : Inventory
 {
 	Inventory.MaxAmount 1
 }
+
