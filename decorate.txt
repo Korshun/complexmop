@@ -75,8 +75,8 @@ Actor PossessedRailGunner : PossessedMonster
 {
 	Player.MorphWeapon "RailGunnerWeapon"
 	Health 30
-	Radius 20 
-	Height 56 
+	Radius 20
+	Height 56
 	Speed 0.35
 	Mass 100
 	PainChance 140
@@ -86,9 +86,9 @@ Actor PossessedRailGunner : PossessedMonster
 	DropItem "HandGrenadeAmmo" 100 1
 	DropItem "MineAmmo" 50 1
 	DropItem "NewCell" 100 20
-	+FLOORCLIP 
+	+FLOORCLIP
 	+MISSILEMORE
-	Obituary "%o caught a Railgunner's slug." 
+	Obituary "%o caught a Railgunner's slug."
 	SeeSound "grunt/sight"
 	PainSound "grunt/pain"
 	DeathSound "grunt/death"
@@ -136,7 +136,7 @@ Actor RailGunnerWeapon : PossessedWeapon
 }
 
 ACTOR PossessedDemonTechZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "DemonTechZombieWeapon"
 	Health 60
 	Radius 20
@@ -200,7 +200,7 @@ Actor DemonTechZombieWeapon : PossessedWeapon
 }
 
 ACTOR PossessedRocketZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "RocketZombieWeapon"
 	Health 80
 	Radius 20
@@ -268,7 +268,7 @@ Actor RocketZombieWeapon : PossessedWeapon
 }
 
 ACTOR PossessedShotgunZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "ShotgunZombieWeapon"
 	Health 30
 	Radius 20
@@ -341,7 +341,7 @@ Actor ShotgunZombieWeapon : PossessedWeapon
 }
 
 ACTOR PossessedAssaultShotgunZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "AssaultShotgunZombieWeapon"
 	Health 40
 	Radius 20
@@ -407,7 +407,7 @@ Actor AssaultShotgunZombieWeapon : PossessedWeapon
 }
 
 ACTOR PossessedSuperShotgunZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "SuperShotgunZombieWeapon"
 	Health 60
 	Radius 20
@@ -558,7 +558,7 @@ Actor SuperShotgunZombieWeapon : PossessedWeapon
 }
 
 ACTOR PossessedQuadShotgunZombie : PossessedMonster
-{ 
+{
 	Player.MorphWeapon "QuadShotgunZombieWeapon"
 	Health 80
 	Radius 20
@@ -1325,9 +1325,9 @@ Actor ImpPhase0 : CustomInventory
 }
 
 ACTOR PossessedBullFiend : PossessedMonster
-{ 
-	Health 150 
-	Speed 10 
+{
+	Health 150
+	Speed 10
 	Height 48
 	Radius 24
 	Mass 600
@@ -1391,7 +1391,7 @@ ACTOR PinkyLunge
 	Speed 28
    Damage (5*Random(4,8))
 	Species "Fiends"
-	SeeSound ""  
+	SeeSound ""
 	DeathSound ""
    PROJECTILE
 	States
@@ -1403,8 +1403,8 @@ ACTOR PinkyLunge
 }
 
 ACTOR PossessedCyberFiend : PossessedBullFiend
-{ 
-	Health 200 
+{
+	Health 200
 	Speed 12
 	Scale 1.05
 	PainChance 100
@@ -1453,7 +1453,7 @@ ACTOR PossessedCyberFiend : PossessedBullFiend
 }
 
 ACTOR PossessedMagmaFiend : PossessedBullFiend
-{ 
+{
 	Health 250
 	PainChance 80
 	Scale 1.1
@@ -1466,7 +1466,7 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 	AttackSound "magma/attack"
 	DropItem "LifeEssence" 105
 	DropItem "ArmorBonusMax" 105
-	Obituary "%o was massacred by a Magma Fiend." 
+	Obituary "%o was massacred by a Magma Fiend."
 	HitObituary "%o was gnawed on by a Magma Fiend."
 	States
 	{
@@ -1526,7 +1526,7 @@ ACTOR PossessedMagmaFiend : PossessedBullFiend
 }
 
 ACTOR PossessedDTechFiend : PossessedBullFiend
-{ 
+{
 	Health 300
 	Speed 12
 	PainChance 60
@@ -1544,7 +1544,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 	DropItem "LifeEssence" 125
 	DropItem "ArmorBonusMax" 125
 	DropItem "DemonAmmo" 128 120
-	Obituary "%o was mown down by a DTech Fiend." 
+	Obituary "%o was mown down by a DTech Fiend."
 	HitObituary "%o was bulldozed by a DTech Fiend."
 	States
 	{
@@ -1624,7 +1624,7 @@ ACTOR PossessedDTechFiend : PossessedBullFiend
 }
 
 ACTOR PossessedSpectre~ : PossessedBullFiend
-{ 
+{
 Renderstyle Translucent
 	Alpha 0.35
 	Obituary "%o never saw the Spectre and was gored."
@@ -1665,7 +1665,7 @@ Renderstyle Translucent
 }
 
 ACTOR PossessedLurker : PossessedBullFiend
-{ 
+{
 	Health 150
 	Speed 11
 	PainChance 120
@@ -1712,7 +1712,7 @@ Renderstyle Translucent
 }
 
 ACTOR PossessedSpook : PossessedBullFiend
-{ 
+{
 Renderstyle Translucent
 	Alpha 0.15
 	Health 250
@@ -2058,7 +2058,7 @@ ACTOR PossessedAbaddon : PossessedMonster
 	MeleeSound "caco/melee"
 	DeathSound "cacos/death"
 	Obituary "%o was smitten by an Abaddon."
-	HitObituary "%o was eaten by an Abaddon." 
+	HitObituary "%o was eaten by an Abaddon."
 	DropItem "LifeEssence" 60
 	DropItem "ArmorBonusMax" 60
 	+NOGRAVITY
@@ -2111,7 +2111,7 @@ ACTOR PossessedWatcher : PossessedAbaddon
 	ActiveSound "caco/active"
 	MeleeSound "caco/melee"
 	Obituary "%o was eradicated by a Watcher."
-	HitObituary "%o was munched on by a Watcher." 
+	HitObituary "%o was munched on by a Watcher."
 	DropItem "LifeEssence" 90
 	DropItem "ArmorBonusMax" 90
 	States
@@ -2233,7 +2233,7 @@ ACTOR PossessedPainElemental : PossessedMonster
 	Mass 400
 	Speed 8
 	PainChance 128
-	+FLOAT 
+	+FLOAT
 	+NOGRAVITY
 	SeeSound "pain/sight"
 	PainSound "pain/pain"
@@ -2242,7 +2242,7 @@ ACTOR PossessedPainElemental : PossessedMonster
 }
 
 ACTOR PossessedSoulKeeper : PossessedMonster
-{ 
+{
 	Health 400
 	Speed 8
 	FloatSpeed 6
@@ -2298,7 +2298,7 @@ ACTOR PossessedSoulKeeper : PossessedMonster
 	}
 }
 
-ACTOR PossessedDefiler : PossessedSoulKeeper 
+ACTOR PossessedDefiler : PossessedSoulKeeper
 {
 	Health 550
 	Scale 1.05
@@ -2340,7 +2340,7 @@ ACTOR PossessedDefiler : PossessedSoulKeeper
 	}
 }
 
-ACTOR PossessedPoisonElemental : PossessedSoulKeeper 
+ACTOR PossessedPoisonElemental : PossessedSoulKeeper
 {
 	Health 700
 	PainChance 80
@@ -3157,7 +3157,7 @@ ACTOR PossessedBabySentient : PossessedArachnotron
 	+MISSILEMORE
 	+QUICKTORETALIATE
 	+FLOAT
-	+NOGRAVITY	
+	+NOGRAVITY
   -FLOORCLIP
 	Obituary "%o was not intelligent enough to take on a Baby Sentient."
 	States
@@ -3318,7 +3318,7 @@ ACTOR PossessedRevenant : PossessedMonster
 	Speed 10
 	PainChance 100
 	MeleeThreshold 196
-	+MISSILEMORE 
+	+MISSILEMORE
 	+FLOORCLIP
 	SeeSound "skeleton/sight"
 	PainSound "skeleton/pain"
@@ -3379,7 +3379,7 @@ BloodColor Red
 	}
 }
 
-ACTOR PosssessedCadaver : PossessedGuardian 
+ACTOR PosssessedCadaver : PossessedGuardian
 {
 	PainChance 90
 	Health 450
@@ -3678,7 +3678,7 @@ ACTOR PossessedHellKnight : PossessedBaronOfHell
 }
 
 ACTOR PossessedHellArchon : PossessedHellKnight
-{ 
+{
 	Health 500
 	PainChance 100
 	MeleeDamage 8
@@ -3688,9 +3688,9 @@ ACTOR PossessedHellArchon : PossessedHellKnight
 	Species "Nobles"
 	+MISSILEMORE
 	+FASTMELEE
-	Obituary "%o was annihilated by a Hell Archon." 
+	Obituary "%o was annihilated by a Hell Archon."
 	HitObituary "The last thing %o saw was a Hell Archon's fist."
-	SeeSound "monster/ar2sit" 
+	SeeSound "monster/ar2sit"
 	ActiveSound "superbaron/act"
 	PainSound "superbaron/pain"
 	DeathSound "monster/ar2dth"
@@ -3738,7 +3738,7 @@ ACTOR PossessedHellArchon : PossessedHellKnight
 }
 
 ACTOR PossessedPyroDemon : PossessedHellKnight
-{ 
+{
 	Health 750
 	PainChance 80
 	Scale 1.05
@@ -3750,9 +3750,9 @@ ACTOR PossessedPyroDemon : PossessedHellKnight
 	Species "Nobles"
 	+MISSILEMORE
 	+FASTMELEE
-	Obituary "A Pyro Demon turned %o into a steamy mess." 
+	Obituary "A Pyro Demon turned %o into a steamy mess."
 	HitObituary "A Pyro Demon tore %o apart."
-	SeeSound "monster/ar2sit" 
+	SeeSound "monster/ar2sit"
 	ActiveSound "pyro/active"
 	PainSound "superbaron/pain"
 	DeathSound "monster/ar2dth"
@@ -3805,13 +3805,13 @@ ACTOR PossessedPyroDemon : PossessedHellKnight
 }
 
 ACTOR PossessedCyberNoble : PossessedHellKnight
-{ 
+{
 	Health 1000 PainChance 60
 	MeleeDamage 8
 	Scale 1.1
 	Obituary "%o was slain by a Cyber Noble."
 	HitObituary "%o got whacked by a Cyber Noble."
-	SeeSound "monster/brusit" 
+	SeeSound "monster/brusit"
 	PainSound "cbaron/pain"
 	DeathSound "cbaron/death"
 	MeleeSound "baron/melee"
@@ -3879,7 +3879,7 @@ ACTOR PossessedCyberNoble : PossessedHellKnight
 }
 
 ACTOR PossessedHellDuke : PossessedHellKnight
-{ 
+{
 	Health 1250 PainChance 40
 	PainChance "Explosion", 60
 	Scale 1.15
@@ -3893,9 +3893,9 @@ ACTOR PossessedHellDuke : PossessedHellKnight
 	+MISSILEEVENMORE
 	+FASTMELEE
 	+QUICKTORETALIATE
-	Obituary "A Hell Duke brutalized %o." 
+	Obituary "A Hell Duke brutalized %o."
 	HitObituary "%o felt a Hell Duke's wrath."
-	SeeSound "duke/see" 
+	SeeSound "duke/see"
 	ActiveSound "duke/idle"
 	PainSound "duke/pain"
 	DeathSound "duke/death"
@@ -4058,7 +4058,7 @@ ACTOR PossessedBruiserDemon : PossessedBaronOfHell
 }
 
 ACTOR PossessedAfrit : PossessedBaronOfHell
-{ 
+{
 	Health 1250 PainChance 80
 	Bloodcolor "ff 50 00"
 	DamageFactor "AfritComet", 0.0
@@ -4076,7 +4076,7 @@ ACTOR PossessedAfrit : PossessedBaronOfHell
 	+BOSSDEATH
 	+DONTHURTSPECIES
 	+FASTMELEE
-	Obituary "%o was deep fried by an Afrit." 
+	Obituary "%o was deep fried by an Afrit."
 	HitObituary "%o couldnt take an Afrits heat."
 	States
 	{
@@ -4242,14 +4242,14 @@ ACTOR PossessedAfrit : PossessedBaronOfHell
 }
 
 ACTOR PossessedCybruiser : PossessedBaronOfHell
-{ 
+{
 	Health 1500 PainChance 70
 	MeleeDamage 8
 	Scale 1.1
 	Species "Nobles"
 	Obituary "%o was blown away by a Cybruiser."
 	HitObituary "%o was smashed by a Cybruiser."
-	SeeSound "cbaron/sight" 
+	SeeSound "cbaron/sight"
 	PainSound "blooddemon/pain"
 	DeathSound "monster/brudth"
 	MeleeSound "baron/melee"
@@ -4333,8 +4333,8 @@ ACTOR PossessedArchvile : PossessedMonster
 	Speed 15
 	PainChance 10
 	MaxTargetRange 896
-	+QUICKTORETALIATE 
-	+FLOORCLIP 
+	+QUICKTORETALIATE
+	+FLOORCLIP
 	+NOTARGET
 	SeeSound "vile/sight"
 	PainSound "vile/pain"
@@ -4440,8 +4440,8 @@ ACTOR PossessedDiabolist : PossessedArchVile
 	Obituary "%o got roasted alive by a Diabolist."
 	+FLOORCLIP
 	+NOTARGET
-	SeeSound "Monster/diasit" 
-	ActiveSound "Monster/diaact" 
+	SeeSound "Monster/diasit"
+	ActiveSound "Monster/diaact"
 	DeathSound "avile/death"
 	States
 	{
@@ -4517,7 +4517,7 @@ ACTOR PossessedDiabolist : PossessedArchVile
 	}
 }
 
-ACTOR PossessedDarkHellion : PossessedArchVile 
+ACTOR PossessedDarkHellion : PossessedArchVile
 {
 	Health 1000
 	DropItem "LifeEssence" 160
@@ -4530,8 +4530,8 @@ ACTOR PossessedDarkHellion : PossessedArchVile
 	Species "Viles"
 	DamageFactor "VileFires", 0.0
 	PainChance "Mine", 128
-	SeeSound "monster/hlnsit" 
-	ActiveSound "monster/hlnact" 
+	SeeSound "monster/hlnsit"
+	ActiveSound "monster/hlnact"
 	PainSound "monster/hlnpai"
 	DeathSound "monster/hlndeth"
 	BloodColor "Black"
@@ -4720,7 +4720,7 @@ ACTOR PossessedSpiderMastermind : PossessedMonster
 	Obituary "$OB_SPIDER"
 }
 
-ACTOR PossessedDemolisher : PossessedSpiderMastermind 
+ACTOR PossessedDemolisher : PossessedSpiderMastermind
 {
 	Health 3000 Speed 15
 	Radius 65
@@ -4805,7 +4805,7 @@ ACTOR PossessedDemolisher : PossessedSpiderMastermind
 	}
 }
 
-ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind 
+ACTOR PossessedDarkDemolisher : PossessedSpiderMastermind
 {
 	Health 3500 Speed 18
 	PainChance 40
@@ -4958,10 +4958,10 @@ ACTOR PossessedCerebralSentient : SpiderMastermind
 	+MISSILEEVENMORE
 	+QUICKTORETALIATE
 	+FLOAT
-	+NOGRAVITY	
+	+NOGRAVITY
 	-FLOORCLIP
 	AttackSound ""
-	DamageFactor "CerChainguns", 0.0	
+	DamageFactor "CerChainguns", 0.0
 	DamageFactor "CerEnergyBall", 0.0
 	DamageFactor "PDTBFG", 0.2
 	DamageFactor "PDTBFGTracer", 0.6
@@ -5311,7 +5311,7 @@ ACTOR PossessedCyberdemon : PossessedMonster
 	Mass 1000 Speed 16
 	PainChance 20
 	MinMissileChance 160
-	+BOSS 
+	+BOSS
 	+MISSILEMORE
 	+FLOORCLIP
 	+NORADIUSDMG
@@ -5401,7 +5401,7 @@ ACTOR PossessedCyberLord : PossessedCyberdemon
 	}
 }
 
-ACTOR PossessedDarkCyberdemon : Cyberdemon 
+ACTOR PossessedDarkCyberdemon : Cyberdemon
 {
 	Health 4500 PainChance 40
 	PainChance "PDTBFG", 20
@@ -5537,7 +5537,7 @@ ACTOR PossessedDarkCyberdemon : Cyberdemon
 }
 
 ACTOR PossessedCardinal : PossessedCyberdemon
-{ 
+{
 	Health 5000 Speed 10
 	FloatSpeed 8
 	PainChance 30
@@ -5564,7 +5564,7 @@ ACTOR PossessedCardinal : PossessedCyberdemon
 	+MISSILEEVENMORE
 	+QUICKTORETALIATE
 	+FLOAT
-	+NOGRAVITY	
+	+NOGRAVITY
    -FLOORCLIP
 	Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
 	States
