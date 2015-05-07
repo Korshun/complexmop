@@ -36,3 +36,8 @@ Actor PossessedWeapon : Weapon
 		Stop
 	}
 }
+
+Actor IsPossessed : Inventory
+{
+	Inventory.MaxAmount 1
+}

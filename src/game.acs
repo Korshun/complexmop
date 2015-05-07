@@ -60,6 +60,12 @@ function int LivingMonsterCount(void)
 	return TotalMonsterCount() - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
 }
 
+script mop_autoconfig OPEN
+{
+	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	ConsoleCommand("sv_disallowsuicide 1");
+}
+
 script 500 OPEN
 {
 	SetFont("SMALLFONT");
@@ -74,4 +80,5 @@ script 500 OPEN
 	Delay(1);
 	restart;
 }
+
 

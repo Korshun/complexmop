@@ -618,7 +618,7 @@ Actor PossessedForgottenOne : PossessedTerrorSoul
 		Loop
 	Missile:
 		FRGO CCDD 2 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
-		Goto Missile+11
+		Goto See
 	}
 }
 

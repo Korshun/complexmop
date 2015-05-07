@@ -49,6 +49,9 @@ script mop_possess (void)
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 	PossessedCount++;
 	
+	// Give flag.
+	GiveInventory("IsPossessed", 1);
+	
 	// Give back items.
 	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
 		GiveInventory(MonsterItems[i], MonsterItemsTemp[i]);
@@ -63,8 +66,14 @@ script mop_possess (void)
 	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth);
 	
 	// Run script.
-	if (MonsterTypes[type][MONSTER_SCRIPT] != 0)
-		ACS_ExecuteAlways(MonsterTypes[type][MONSTER_SCRIPT], 0);
+	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT]- 2146435072;
+	if (scriptnum != 0)
+		ACS_ExecuteAlways(scriptnum, 0);
+	
+	// Run evasion script.
+	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED] - 2146435072;
+	if (evadespeed != 0)
+		ACS_ExecuteAlways(mop_evade, 0, evadespeed);
 
 	// Fix firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
@@ -102,6 +111,9 @@ script mop_possess (void)
 	PossessedCount--;
 	SetActorProperty(0, APROP_HEALTH, 1);
 	SetPlayerProperty(0, true, PROP_FLY);
+	
+	// Take away flag.
+	TakeInventory("IsPossessed", 1);
 	
 	// Spawn the replacement actor.
 	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
