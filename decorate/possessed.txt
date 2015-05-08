@@ -37,6 +37,12 @@ Actor PossessedWeapon : Weapon
 	}
 }
 
+Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
+
 Actor PossessedSuicide : Inventory
 {
 	Inventory.MaxAmount 2

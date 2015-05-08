@@ -52,6 +52,9 @@ script mop_possess (void)
 	// Give flag.
 	GiveInventory("IsPossessed", 1);
 	
+	// Select first attack.
+	GiveInventory("Attack1", 1);
+	
 	// Give back items.
 	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
 		GiveInventory(MonsterItems[i], MonsterItemsTemp[i]);

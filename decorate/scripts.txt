@@ -1,2 +1,3 @@
 const int mop_possess = 800;
 const int mop_phaseimp = 807;
+const int mop_magmafiend = 808;
