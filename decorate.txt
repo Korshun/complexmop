@@ -1055,12 +1055,12 @@ Actor PossessedDevilImp : PossessedMonster
 		SIMP CCDD 3
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		Loop
-	Melee:
-		SIMP EF 5
+	Missile:
+		SIMP F 5
 		SIMP G 4
 		SIMP FE 5
 		Goto See
-	Missile:
+	Melee:
 		SIMP EF 8
 		SIMP G 4 Bright
 		SIMP FEF 6
@@ -1078,7 +1078,7 @@ Actor DevilImpWeapon : PossessedWeapon
 		DCLW A 1 A_WeaponReady
 		Loop
 	Fire:
-		DCLW A 8
+		DCLW A 8 A_GunFlash
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
 		DCLW AAA 6
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
