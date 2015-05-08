@@ -1321,7 +1321,7 @@ Actor PossessedBullFiend : PossessedMonster
 		Loop
 	Melee:
 		SAR2 EF 5
-		SAR2 G 4 A_MeleeAttack
+		SAR2 G 4
 		SAR2 E 5
 		Goto See
 	Missile:
@@ -1596,7 +1596,9 @@ Actor DTechFiendWeapon : PossessedWeapon
 
 Actor PossessedSpectre~ : PossessedBullFiend
 {
-Renderstyle Translucent
+	Player.MorphWeapon "SpectreWeapon"
+
+	Renderstyle Translucent
 	Alpha 0.35
 	Obituary "%o never saw the Spectre and was gored."
 	HitObituary "%o was chewed up by a Spectre."
@@ -1615,25 +1617,42 @@ Renderstyle Translucent
 		Loop
 	Melee:
 		SAR6 EF 5
-		SAR6 G 4 A_MeleeAttack
+		SAR6 G 4
 		SAR6 E 5	
 		Goto See
 	Missile:
-		TNT1 A 0 A_JumpIfCloser(200,1)
-		Goto See
-		TNT1 A 0 A_PlaySound("demon/melee")
-		SAR6 EF 7
-		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,1)
-		TNT1 A 0 ThrustThingZ(0,20,0,1)
-		SAR6 F 2 A_Recoil(-24)
-		SAR6 F 3 A_CustomMissile("PinkyLunge",18,0,0,CMF_AIMDIRECTION)
+		SAR6 F 2
+		SAR6 F 3
 		SAR6 G 6
-		SAR6 G 2 A_ScaleVelocity(0.2)
-		TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
-		TNT1 A 0 A_ScaleVelocity(0)
+		SAR6 G 2 
 		Goto See
 	}
 }
+
+Actor SpectreWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("demon/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+		
 
 Actor PossessedLurker : PossessedBullFiend
 {
