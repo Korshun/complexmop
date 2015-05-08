@@ -10,6 +10,7 @@ Actor PuppetMaster : PlayerPawn
 	Player.DisplayName "PuppetMaster"
 	Player.SoundClass "PuppetMaster"
 	Player.StartItem "mastergun"
+	Player.StartItem "IsPuppetmaster"
 	Player.WeaponSlot 1, mastergun
 	FloatSpeed 0
 
@@ -60,6 +61,8 @@ Actor NoFlash //replaces TeleportFog
 	}
 }
 
+Actor IsPuppetmaster : Inventory {}
+
 actor mastergun : Weapon
 {
   Weapon.AmmoUse 0
@@ -93,8 +96,6 @@ actor mastergun : Weapon
     Stop
   }
 }
-
-
 
 actor MGhost
 {
