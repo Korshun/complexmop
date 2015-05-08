@@ -18,8 +18,11 @@ MugShot "XDeath"
 
 StatusBar FullScreen, FullScreenOffsets
 {
-	// THIS LINE CAUSES A CRASH IN MorphActor IN MULTIPLAYER!!!
-	//DrawMugshot 5, AnimatedGodMode, XDeathFace, 86, -38;
+	InInventory not IsPuppetmaster
+	{
+
+	// THIS LINE CAUSES A CRASH IN MorphActor IN MULTIPLAYER IF USED ON PUPPETMASTERS
+	DrawMugshot 5, AnimatedGodMode, XDeathFace, 86, -38;
 	
 	InInventory PowerStrength
 	{
@@ -193,6 +196,8 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawSwitchableImage RedCard && RedSkull, "", "STKEYS2", "STKEYS5", "STKEYS8", -14, 22;
 	
 	DrawSelectedInventory INDEXFONT, -102, -32, -70, -12, White;
+	
+	}
 }
 
 StatusBar InventoryFullscreen, FullScreenOffsets
