@@ -1078,9 +1078,10 @@ Actor DevilImpWeapon : PossessedWeapon
 		DCLW A 1 A_WeaponReady
 		Loop
 	Fire:
-		DCLW A 8 A_GunFlash
+		SCLW A 8 Bright A_GunFlash
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
-		DCLW AAA 6
+		DCLW AA 6
+		SCLW A 6
 		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
 		DCLW AA 4
 		Goto Ready
@@ -1133,14 +1134,18 @@ Actor VoidImpWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
 	Fire:
-		TNT1 AA 8
-		TNT1 A 1 Bright
+		DCLW A 8
+		VCLW A 8 Bright
+		VCLW B 1 Bright
 		TNT1 A 0 Bright A_PlaySound("imp/attack")
-		TNT1 A 1 Bright A_FireCustomMissile("NightBall")
+		DCLW A 1 Bright A_FireCustomMissile("NightBall")
 		TNT1 A 0 Bright A_FireCustomMissile("NightBall", 5)
-		TNT1 A 4 Bright A_FireCustomMissile("NightBall", -5)
-		TNT1 AA 6
+		DCLW A 4 Bright A_FireCustomMissile("NightBall", -5)
+		DCLW AA 6
 		Goto Ready
 	}
 }
@@ -1235,11 +1240,15 @@ Actor PhaseImpWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
 	Fire:
-		TNT1 AA 6
-		TNT1 A 0 Bright A_PlaySound("imp/attack")
-		TNT1 A 5 Bright A_FireCustomMissile("PhaseImpBall")
-		TNT1 AA 4
+		DCLW A 6
+		PCLW A 6 Bright
+		DCLW A 0 Bright A_PlaySound("imp/attack")
+		PCLW B 5 Bright A_FireCustomMissile("PhaseImpBall")
+		DCLW AA 4
 		Goto Ready
 	AltFire:
 		TNT1 A 1 ACS_ExecuteAlways(mop_phaseimp, 0)
