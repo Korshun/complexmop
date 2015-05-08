@@ -2213,42 +2213,70 @@ Actor PossessedHelemental : PossessedAbaddon
 		INFC A 3
 		Loop
 	Missile:
-		TNT1 A 0 A_Jump(128,"Seeking","Comet")
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
 	Normal:
 		INFC EF 6
 		INFC G 1 Bright
-		TNT1 A 0 Bright A_CustomMissile("HadesBall",24,0,-4,0,0)
-		INFC G 1 Bright A_CustomMissile("HadesBall",24,0,4,0,0)
-		TNT1 A 0 Bright A_CustomMissile("HadesBall",24,0,-8,0,0)
-		INFC G 2 Bright A_CustomMissile("HadesBall",24,0,8,0,0)
+		TNT1 A 0 Bright
+		INFC G 1 Bright
+		TNT1 A 0 Bright
+		INFC G 2 Bright
 		INFC FE 4
-		TNT1 A 0 A_Jump(87,"Seeking","Comet")
+		TNT1 A 0
 		Goto See
 	Seeking:
 		INFC EF 6
-		INFC J 0 Bright A_CustomMissile("HeleBall",24,0,16,0,0)
-		INFC G 4 Bright A_CustomMissile("HeleBall",24,0,-16,0,0)
+		INFC J 0 Bright
+		INFC G 4 Bright
 		INFC FE 4
-		TNT1 A 0 A_Jump(87,"Comet")
 		Goto See
 	Comet:
 		INFC EF 6
-		INFC G 5 Bright A_CustomMissile("HeleComet",24,0,0,0,0)
+		INFC G 5 Bright
 		INFC FE 4
-		Goto See
-	Melee:
-		INFC BC 4
-		INFC D 4 A_MeleeAttack
-		INFC CB 4
 		Goto See
 	}
 }
 
 Actor HelementalWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_helemental, 0)
+		Goto Ready
+	Normal:
+		TNT1 AA 6
+		TNT1 A 1
+		TNT1 A 0 A_FireCustomMissile("HadesBall", -4)
+		TNT1 A 1 A_FireCustomMissile("HadesBall", 4)
+		TNT1 A 0 A_FireCustomMissile("HadesBall", -8)
+		TNT1 A 2 A_FireCustomMissile("HadesBall", 8)
+		TNT1 AA 4
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Seeking:
+		TNT1 AA 6
+		TNT1 A 0 A_FireCustomMissile("HeleBall", 16)
+		TNT1 A 4 A_FireCustomMissile("HeleBall", -16)
+		TNT1 AA 4
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 AA 6
+		TNT1 A 5 A_FireCustomMissile("HeleComet")
+		TNT1 AA 4
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
