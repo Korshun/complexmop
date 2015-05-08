@@ -26,7 +26,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DevilImp",				1.0, 0, 0, 0, "Devil Imp" },
 	{ "VoidImp",				1.0, 0, 0, 0, "Void Imp" },
 	{ "SoulHarvester",			1.0, 0, 0, 0, "Soul Harvester" },
-	{ "PhaseImp",				1.0, 0, 0, 0, "Phase Imp" },
+	{ "PhaseImp",				1.0, 0, 16, 0, "Phase Imp" },
 	{ "BullFiend",				1.0, 0, 0, 0, "Bull Fiend" },
 	{ "CyberFiend",				1.0, 0, 0, 0, "Cyber Fiend" },
 	{ "MagmaFiend",				1.0, 0, 0, 0, "Magma Fiend" },
@@ -82,6 +82,37 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	"SSGZombieToken",
 	"QSGZombieToken"
 };
+
+script mop_phaseimp (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseImp_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseImp_Phased", 1);
+	GiveInventory("PhaseImp_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseImp_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseImp_Phased", 1);
+}
 
 function int IdentifyMonsterType(int tid)
 {
