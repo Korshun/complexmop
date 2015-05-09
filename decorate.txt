@@ -1255,7 +1255,7 @@ Actor PhaseImpWeapon : PossessedWeapon
 		DCLW AA 4
 		Goto Ready
 	AltFire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_phaseimp, 0)
+		TNT1 A 0 ACS_ExecuteAlways(mop_phaseimp, 0)
 		Goto Ready
 	}
 }
@@ -1509,7 +1509,7 @@ Actor MagmaFiendWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FireBreath")
 		Goto Ready
 	AltFire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_magmafiend, 0)
+		TNT1 A 0 ACS_ExecuteAlways(mop_magmafiend, 0)
 		Goto Ready
 	Fireball:
 		TNT1 A 7
@@ -2257,7 +2257,7 @@ Actor HelementalWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
 		Goto Ready
 	AltFire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_helemental, 0)
+		TNT1 A 0 ACS_ExecuteAlways(mop_helemental, 0)
 		Goto Ready
 	Normal:
 		TNT1 AA 6
@@ -4206,7 +4206,7 @@ Actor HellArchonWeapon : PossessedWeapon
 		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
 		Goto Ready
 	AltFire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_hellarchon, 0)
+		TNT1 A 0 ACS_ExecuteAlways(mop_hellarchon, 0)
 		Goto Ready
 	Normal:
 		TNT1 EF 6
@@ -4304,7 +4304,7 @@ Actor PyroDemonWeapon : PossessedWeapon
 		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FloorHugger")
 		Goto Ready
 	AltFire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_pyrodemon, 0)
+		TNT1 A 0 ACS_ExecuteAlways(mop_pyrodemon, 0)
 		Goto Ready
 	Normal:
 		TNT1 EF 7
@@ -4492,7 +4492,13 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK DD 3 Bright
 		Loop
 	Missile:
-		
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "BurstComet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto See
 	Normal:
 		HDUK EF 6 Bright
 		HDUK G 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
@@ -4502,21 +4508,18 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK K 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
 		TNT1 A 0 //A_FireCustomMissile("CyNobleBall", -5, 0, 0)
 		HDUK K 4 Bright //A_FireCustomMissile("CyNobleBall", 5, 0, 0)
-		TNT1 A 0 A_Jump(87,"GiantBalls","BurstComet","FloorHugger")
 		Goto See
 	GiantBalls:
 		HDUK EF 7 Bright
 		HDUK G 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
 		HDUK IJ 7 Bright
 		HDUK K 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
-		TNT1 A 0 A_Jump(87,"BurstComet","FloorHugger")
 		Goto See
 	BurstComet:
 		HDUK MN 8 Bright
 		HDUK O 2 Bright //A_FireCustomMissile("HDComet", 0, 0, 0)
 		TNT1 A 0 //A_FireCustomMissile("HDComet", -10, 0, 0)
 		HDUK O 5 Bright //A_FireCustomMissile("HDComet", 10, 0, 0)
-		TNT1 A 0 A_Jump(87,"FloorHugger")
 		Goto See
 	FloorHugger:
 		HDUK ON 8 Bright
@@ -4524,19 +4527,56 @@ Actor PossessedHellDuke : PossessedHellKnight
 		TNT1 A 0 //A_FireCustomMissile("DukeFireSpawner", -18, 0, 0)
 		HDUK M 8 Bright //A_FireCustomMissile("DukeFireSpawner", 18, 0, 0)
 		Goto See
-	Melee:
-		HDUK EF 4 Bright
-		HDUK G 5 Bright A_MeleeAttack
-		HDUK FE 4 Bright
-		Goto See
 	}
 }
 
 Actor HellDukeWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "BurstComet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_hellduke, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 6
+		TNT1 G 1 A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		TNT1 G 4 A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		TNT1 IJ 6
+		TNT1 K 1 A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		TNT1 K 4 A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	GiantBalls:
+		TNT1 EF 7
+		TNT1 G 6 A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		TNT1 IJ 7
+		TNT1 K 6 A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstComet:
+		TNT1 MN 8
+		TNT1 O 2 A_FireCustomMissile("HDComet", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("HDComet", -10, 0, 0)
+		TNT1 O 5 A_FireCustomMissile("HDComet", 10, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 ON 8
+		TNT1 M 2 A_FireCustomMissile("DukeFireSpawner", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("DukeFireSpawner", -18, 0, 0)
+		TNT1 M 8 A_FireCustomMissile("DukeFireSpawner", 18, 0, 0)
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
