@@ -7,6 +7,8 @@ int MarineCount = 0;
 int PuppetMasterCount = 0;
 int PossessedCount = 0;
 
+int Lives = 0;
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
@@ -60,10 +62,41 @@ function int LivingMonsterCount(void)
 	return TotalMonsterCount() - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
 }
 
-script mop_autoconfig OPEN
+int Bossbrain = 0;
+
+script mop_init OPEN
 {
 	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
 	ConsoleCommand("sv_disallowsuicide 1");
+	
+	if (GameSkill() < 5)
+		ConsoleCommand("teamdamage 1");
+	else
+		ConsoleCommand("teamdamage 1.5");
+		
+	Delay(5); // Let monster replacers spawn.
+	
+	int monsterforces = 0.0;
+	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	{
+		monsterforces += MonsterTypes[i][MONSTER_DIFFICULTY] * ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], 0);
+		printbold(s:MonsterTypes[i][MONSTER_ACTORNAME], s:" ", f:MonsterTypes[i][MONSTER_DIFFICULTY]);
+	}
+	
+	Lives = (monsterforces>>16) + 1;
+	
+	if (ThingCountName("BossBrain", 0))
+	{
+		BossBrain = true;
+		ConsoleCommand("sv_noexit 0");
+		Lives += 10;
+	}
+	else
+	{
+		ConsoleCommand("sv_noexit 1");
+	}
+	
+	ACS_ExecuteAlways(mop_wincondition, 0);
 }
 
 script 500 OPEN
@@ -73,12 +106,120 @@ script 500 OPEN
 	HudMessageBold(s:"Marines: ", d:MarineCount,
 		s:"\nmops: ", d:PuppetMasterCount,
 		s:"\n",
-		s:"\nmonsters: ", d:TotalMonsterCount(),
-		s:"\nalive: ", d:LivingMonsterCount();
+		s:"\nmonsters: ", d:LivingMonsterCount(),
+		s:"\nlives: ", d:Lives;
 	HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
 	
 	Delay(1);
 	restart;
 }
 
+int may_exit;
+
+script mop_wincondition (void)
+{
+	if (!Bossbrain && !may_exit && LivingMonsterCount() < TotalMonsterCount() / 2)
+	{
+		AmbientSound("game/canexit" ,127);
+		SetHudSize(320, 240, 0);
+		SetFont("BIGFONT");
+		hudmessageBOLd(s:"Marines may now exit.";
+			HUDMSG_FADEOUT, 0, CR_GREEN, 160.0,155.0, 2.5);
+
+		may_exit = true;
+		ConsoleCommand("sv_noexit 0");
+	}
+	
+	if (LivingMonsterCount() == 0)
+	{
+		ACS_ExecuteAlways(mop_marinewin, 0);
+	}
+	
+	if (Lives <= 0)
+	{
+		ACS_ExecuteAlways(mop_demonwin, 0);
+	}
+	
+	Delay(1);
+	restart;
+}
+
+int won = false;
+
+// Marines win.
+script mop_marinewin (void)
+{
+	if (won)
+		terminate;
+	won = true;
+
+	SetHudSize(320, 240, 0);
+	SetFont("BIGFONT");
+	hudmessageBOLd(s:"Marines Win!";
+		HUDMSG_FADEOUT, 0, CR_GREEN, 160.0,155.0, 3.5);
+
+	// Ripped from MOP-X.
+	AmbientSound("grunt/death1",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death2",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death3",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(random(10,15));
+	AmbientSound("caco/death",127);
+	delay(random(10,15));
+	AmbientSound("baron/death",127);
+	delay(15);
+	AmbientSound("skeleton/death",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(13);
+	AmbientSound("grunt/death1",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death2",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death3",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(random(10,15));
+	AmbientSound("caco/death",127);
+	delay(random(10,15));
+	AmbientSound("baron/death",127);
+	delay(15);
+	AmbientSound("skeleton/death",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	// End of MOP-X code.
+
+	Exit_Normal(0);
+}
+
+// Puppetmasters win.
+Script mop_demonwin (void)
+{
+	if (won)
+		terminate;
+	won = true;
+
+	// Ripped from MOP-X.
+	ConsoleCommand("sv_noexit 0");
+	delay(15);
+	SetHUDSize(320,240,0);
+	setfont("BIGFONT");
+	hudmessageBOLd(s:"Puppet Masters Win!";
+		HUDMSG_FADEOUT, 0, CR_RED, 160.0,155.0, 3.5);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(35 * 3);
+	Exit_normal(0);
+	delay(1);
+	terminate;
+	// End of MOP-X code.
+}
 

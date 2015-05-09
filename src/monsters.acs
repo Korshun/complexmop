@@ -12,11 +12,11 @@
 #define NUM_MONSTER_TYPES 62
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner",			1, 0, 0, 0, "Plasma zombiewoman", "ZMAYA1" },
-	{ "RailGunner",				1, 0, 0, 0, "Railgunner", "RPOSA1" },
-	{ "DemonTechZombie",		1, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
-	{ "RocketZombie",			1, 0, 0, 0, "Rocket zombie", "MPO2A1" },
-	{ "ShotgunZombie",			1, 0, 0, 0, "Shotgunner", "ZSP1A1" },
+	{ "PlasmaGunner",			1.0, 0, 0, 0, "Plasma zombiewoman", "ZMAYA1" },
+	{ "RailGunner",				1.0, 0, 0, 0, "Railgunner", "RPOSA1" },
+	{ "DemonTechZombie",		1.0, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
+	{ "RocketZombie",			1.0, 0, 0, 0, "Rocket zombie", "MPO2A1" },
+	{ "ShotgunZombie",			1.0, 0, 0, 0, "Shotgunner", "ZSP1A1" },
 	{ "AssaultShotgunZombie",	1.0, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
 	{ "SuperShotgunZombie",		1.0, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
 	{ "QuadShotgunZombie",		1.0, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
