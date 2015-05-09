@@ -16,6 +16,7 @@
 #define mop_cybernoble 812
 #define mop_hellduke 813
 #define mop_bruiserdemon 814
+#define mop_afrit 815
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647

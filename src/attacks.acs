@@ -203,3 +203,37 @@ script mop_bruiserdemon (void)
 	}
 }
 
+script mop_afrit (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\ciburst ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cicomets");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cifloor hugger");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cinormal");
+		terminate;
+	}
+}

@@ -4744,7 +4744,13 @@ Actor PossessedAfrit : PossessedBaronOfHell
 		FRIT E 4 Bright
 		Goto See
 	Missile:
-		TNT1 A 0 A_Jump(128,"BurstBall","Comets","FloorHugger")
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto See
 	Normal:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT E 3 Bright
@@ -4786,7 +4792,6 @@ Actor PossessedAfrit : PossessedBaronOfHell
 		FRIT K 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT K 3 Bright
-		TNT1 A 0 A_Jump(87,"BurstBall","Comets")
 		Goto See
 	BurstBall:
 		FRIT M 3 Bright
@@ -4829,7 +4834,6 @@ Actor PossessedAfrit : PossessedBaronOfHell
 		FRIT O 3 Bright //A_FireCustomMissile("Comet", -10, 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT O 3 Bright
-		TNT1 A 0 A_Jump(87,"FloorHugger")
 		Goto See
 	FloorHugger:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
@@ -4860,23 +4864,141 @@ Actor PossessedAfrit : PossessedBaronOfHell
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT M 3 Bright
 		Goto See
-	Pain:
-		TNT1 A 0 A_Jump(61,"MissilePain")
-		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-		FRIT Q 8 Bright A_Pain
-		Goto See
-	MissilePain:
-		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-		FRIT Q 8 Bright A_Pain
-		Goto Missile
 	}
 }
 
 Actor AfritWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_afrit, 0)
+		Goto Ready
+	Normal:
+		TNT1 A 0
+		TNT1 E 3
+		TNT1 A 0
+		TNT1 E 2
+		TNT1 A 0
+		TNT1 E 2
+		TNT1 A 0
+		TNT1 F 3
+		TNT1 A 0
+		TNT1 F 2
+		TNT1 A 0
+		TNT1 F 2
+		TNT1 A 0
+		TNT1 G 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 4, 0, 0)
+		TNT1 G 1 A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0
+		TNT1 G 2
+		TNT1 A 0
+		TNT1 G 3
+		TNT1 A 0
+		TNT1 I 3
+		TNT1 A 0
+		TNT1 I 2
+		TNT1 A 0
+		TNT1 I 2
+		TNT1 A 0
+		TNT1 J 3
+		TNT1 A 0
+		TNT1 J 2
+		TNT1 A 0
+		TNT1 J 2
+		TNT1 A 0
+		TNT1 K 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 4, 0, 0)
+		TNT1 K 1 A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0
+		TNT1 K 2
+		TNT1 A 0
+		TNT1 K 3
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstBall:
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 2
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 2
+		TNT1 A 0
+		TNT1 O 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 6, 0, 0)
+		TNT1 O 1 A_FireCustomMissile("AfritBall", -6, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 12, 0, 0)
+		TNT1 O 1 A_FireCustomMissile("AfritBall", -12, 0, 0)
+		TNT1 A 0
+		TNT1 O 2
+		TNT1 A 0
+		TNT1 O 2
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comets:
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 O 2 A_FireCustomMissile("Comet", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("Comet", 10, 0, 0)
+		TNT1 O 3 A_FireCustomMissile("Comet", -10, 0, 0)
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("AfritTracer", 0, 0, 50)
+		TNT1 M 1 A_FireCustomMissile("AfritTracer", 0, 0, -50)
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
