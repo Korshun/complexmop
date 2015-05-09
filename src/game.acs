@@ -91,7 +91,6 @@ script mop_init OPEN
 	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
 	{
 		monsterforces += MonsterTypes[i][MONSTER_DIFFICULTY] * ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], 0);
-		printbold(s:MonsterTypes[i][MONSTER_ACTORNAME], s:" ", f:MonsterTypes[i][MONSTER_DIFFICULTY]);
 	}
 	
 	Lives = (monsterforces>>16) + 1;
