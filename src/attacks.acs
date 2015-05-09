@@ -51,3 +51,189 @@ script mop_helemental (void)
 		terminate;
 	}
 }
+
+script mop_hellarchon (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cgburst ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cgcomet");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cgnormal");
+		terminate;
+	}
+}
+
+script mop_pyrodemon (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cicomet");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cifloor hugger");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cinormal");
+		terminate;
+	}
+}
+
+script mop_cybernoble (void)
+{
+		if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cdburst ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cdlarge ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"rocket");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"shotgun");
+		terminate;
+	}
+}
+
+script mop_hellduke (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cdgiant ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cdburst comet");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cdfloor hugger");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cdnormal");
+		terminate;
+	}
+}
+
+script mop_bruiserdemon (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cigiant balls");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cicomet");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cinormal");
+		terminate;
+	}
+}
+
+script mop_afrit (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\ciburst ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cicomets");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cifloor hugger");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cinormal");
+		terminate;
+	}
+}
