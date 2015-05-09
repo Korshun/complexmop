@@ -7,40 +7,6 @@ int MarineCount = 0;
 int PuppetMasterCount = 0;
 int PossessedCount = 0;
 
-
-script mop_print_monsterinfo(void)
-{
-	// Select the monster we are pointing at.
-	SetActivatorToTarget(0);
-	if (PlayerNumber() != -1)
-	{
-		delay(1);
-		restart;
-	}
-		
-	// Temporarily change the monster's tid.
-	Thing_ChangeTid(0, TEMPTID+1);
-
-	// Store monster properties.
-	int type = IdentifyMonsterType(TEMPTID+1);
-	int hp = GetActorProperty(TEMPTID+1, APROP_HEALTH);
-	int maxhp = GetActorProperty(TEMPTID+1, APROP_SPAWNHEALTH);
-	
-	// Ignore dead & unknown actors.
-	//if (!(hp <= 0 || type == -1))
-	//{
-		SetHUDSize(640,480,0);
-		SetFont("SMALLFONT");
-		int p = (maxhp / 100) * hp;
-		//HUDMessage(s:MonsterTypes[type][MONSTER_NAME], s:" - ", d:p; HUDMSG_PLAIN, 0, CR_RED, 640.0/2, 480.0/2, 0.03);
-		print(s:MonsterTypes[type][MONSTER_NAME], s:" - ", d:p);
-	//}
-	
-	Thing_ChangeTid(TEMPTID+1, 0);
-	delay(1);
-	restart;
-}
-
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());

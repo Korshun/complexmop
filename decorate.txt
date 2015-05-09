@@ -5036,22 +5036,26 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		Loop
 	See:
 		BRUS AABB 3
-		TNT1 A 0 //A_PlaySound("monster/bruwlk")
+		TNT1 A 0 A_PlaySound("monster/bruwlk")
 		BRUS CCDD 3
-		TNT1 A 0 //A_PlaySound("monster/bruwlk")
+		TNT1 A 0 A_PlaySound("monster/bruwlk")
 		Loop
 	Missile:
-		TNT1 A 0 A_Jump(128,"Rockets","HomingRockets","BFG15K")
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
 	Normal:
 		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
 		BRUS EE 10
 		BRUS E 2
 		TNT1 A 0 //A_PlaySound("railgunner/chargedshot")
-		TNT1 A 0 A_CustomMissile("RailgunImpact",40)
-		TNT1 A 0 A_CustomMissile("BruiserRailgunSlug",40)
-		BRUR A 5 Bright A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
+		TNT1 A 0 //A_CustomMissile("RailgunImpact",40)
+		TNT1 A 0 //A_CustomMissile("BruiserRailgunSlug",40)
+		BRUR A 5 Bright //A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
 		BRUS E 20
-		TNT1 A 0 A_Jump(87,"Rockets","HomingRockets","BFG15K")
 		Goto See
 	Rockets:
 		BRUS E 10
@@ -5059,7 +5063,6 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		BRUS E 10
 		BRUS F 8 Bright //A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
 		BRUS E 10
-		TNT1 A 0 A_Jump(87,"HomingRockets","BFG15K")
 		Goto See
 	HomingRockets:
 		BRUS E 10
@@ -5067,7 +5070,6 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		BRUS E 10
 		BRUS F 8 Bright //A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
 		BRUS E 10
-		TNT1 A 0 A_Jump(87,"BFG15K")
 		Goto See
 	BFG15K:
 		TNT1 A 0 //A_PlaySound("weapons/charge15k")
@@ -5080,19 +5082,63 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
 		BRUS E 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
-	Melee:
-		BRUS GH 4
-		BRUS I 4 A_MeleeAttack
-		BRUS HG 4
-		Goto See
 	}
 }
 
 Actor CybruiserWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_cybruiser, 0)
+		Goto Ready
+	Normal:
+		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+		TNT1 EE 10
+		TNT1 E 2
+		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 A_FireCustomMissile("RailgunImpact")
+		TNT1 A 0 A_FireCustomMissile("BruiserRailgunSlug")
+		TNT1 A 5 A_RailAttack(-1, 10, 0, "00 85 FF", None, 1, 1)
+		TNT1 E 20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Rockets:
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	HomingRockets:
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BFG15K:
+		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 E 18
+		TNT1 E 6
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 4
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 4
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }

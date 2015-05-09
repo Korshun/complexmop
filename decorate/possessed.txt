@@ -5,6 +5,8 @@ Actor PossessedMonster : PlayerPawn
 	+NOTARGET
 	-FRIENDLY
 	
+	DamageFactor "Slime", 0
+	
 	States
 	{
 	Death:
