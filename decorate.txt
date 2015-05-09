@@ -4028,89 +4028,33 @@ Actor PossessedFamine : PossessedGuardian
 		NREV DDEEFF 2
 		Loop
 	Melee:
-		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"Melee2")
-		TNT1 A 0
-		NREV G 4 //A_PlaySound("skeleton/swing")
-		NREV H 4
-		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
-		TNT1 A 0 //A_PlaySound("skeleton/melee")
-		NREV I 4 //A_CustomPunch(6 * Random(1, 10), 1)
-		Goto See
-	Melee2:
-		TNT1 A 0
-		NREV R 4 //A_PlaySound("skeleton/swing")
-		NREV S 4
-		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
-		TNT1 A 0 //A_PlaySound("skeleton/melee")
-		NREV T 4 //A_CustomPunch(6 * Random(1, 10), 1)
-		Goto See
-	Missile:
-		TNT1 A 0 A_JumpIfCloser(275,"DashPunch")
-	Normal:
 		NREV J 14 Bright
 		TNT1 A 0 //A_FireCustomMissile("FamineTracer", 0, 0, -14)
 		NREV K 10 //A_FireCustomMissile("FamineTracer", 0, 0, 14)
 		NREV K 10
 		Goto See
-	DashPunch:
-		TNT1 A 0 A_Jump(32,"Normal")
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
 		TNT1 A 0
 		TNT1 A 0 //A_Recoil(-40)
 		TNT1 A 0 //A_PlaySound("skeleton/swing")
-		NREV GGGGG 1 A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
-		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
-		NREV HHHHH 1 A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
+		NREV GGGGG 1 //A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
+		TNT1 A 0
+		NREV HHHHH 1 //A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
 		TNT1 A 0 //A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
-		NREV III 1 A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
-		NREV T 2 A_Stop
+		NREV III 1 //A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
+		NREV T 2 //A_Stop
 		Goto See
 	DashPunch2:
-		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0
 		TNT1 A 0 //A_Recoil(-40)
 		TNT1 A 0 //A_PlaySound("skeleton/swing")
-		NREV RRRRR 1 A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
-		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
-		NREV SSSSS 1 A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
-		TNT1 A 0 //A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
-		NREV TTT 1 A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
-		NREV T 2 A_Stop
-		Goto See
-	Death:
-		TNT1 A 0 A_ChangeFlag(NOPAIN,0)
-		TNT1 A 0 A_JumpIfInventory("FamineDeathToken",2,"TrueDeath")
-		TNT1 A 0 A_Die
-		TNT1 A 0 A_NoBlocking
-		TNT1 A 0 A_Jump(84,"FakeDeath")
-	TrueDeath:
-		TNT1 A 0 A_Jump(128,2,3,4)
-		TNT1 A 0 A_SpawnItem("DemonAmmoBox",0,12)
-		TNT1 A 0 A_SpawnItem("BossLifeEssence",0,12)
-		TNT1 A 0 A_SpawnItem("BossArmorBonusMax",0,12)
-		NREX A 5 Bright
-		TNT1 AAA 0 A_SpawnItemEx("RedParticleSpawner", 0, 0, 40, 0, 0, 0, 0, 128)
-		NREX B 5 Bright A_Scream
-		NREX C 5 Bright
-		NREX D 5 Bright //A_FireCustomMissile("FamineSoul", 0,2,90, 0, 0)
-		TNT1 AAAA 0 //A_FireCustomMissile("SmokeFX", Random(0,360), 2, random(0,360 ), 0, 60), 0)
-		NREX EFGH 4 Bright
-		NREX I 4 A_SpawnItem("BodyCrash",0,0,0,0)
-		NREX J 4 A_TakeInventory("FamineDeathToken",2)
-    NREX K -1
-		Stop
-	FakeDeath:
-		NREV L 7 A_GiveInventory("FamineDeathToken",1)
-		NREV MNO 7
-		NREV P 7 A_SpawnItem("BodyCrash",0,0,0,0)
-		TNT1 A 0 A_Jump(128,2,3,4,5)
-		NREV QQQQQ 100
-	NREV Q -1 //A_FireCustomMissile("FamineResurrection", 0, 0, 0)
-		Stop
-	Raise:
+		NREV RRRRR 1 //A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
 		TNT1 A 0
-		TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
-		NREV PONML 5
+		NREV SSSSS 1 //A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 //A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		NREV TTT 1 //A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
+		NREV T 2 //A_Stop
 		Goto See
 	}
 }
@@ -4120,6 +4064,35 @@ Actor FamineWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 J 14 A_GunFlash
+		TNT1 A 0 A_FireCustomMissile("FamineTracer", 0, 0, -14)
+		TNT1 K 10 A_FireCustomMissile("FamineTracer", 0, 0, 14)
+		TNT1 K 10
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
+		TNT1 A 0
+		TNT1 A 0 A_Recoil(-40)
+		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 GGGGG 1 A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
+		TNT1 HHHHH 1 A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		TNT1 III 1 A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
+		TNT1 T 2 A_Stop
+		Goto Ready
+	DashPunch2:
+		TNT1 A 0
+		TNT1 A 0 A_Recoil(-40)
+		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 RRRRR 1 A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
+		TNT1 SSSSS 1 A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		TNT1 TTT 1 A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
+		TNT1 T 2 A_Stop
 		Goto Ready
 	}
 }
