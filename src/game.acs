@@ -80,10 +80,10 @@ script mop_init OPEN
 		ConsoleCommand("sv_noautomapallies 1");
 	}
 	
-	if (GameSkill() < 5)
-		ConsoleCommand("teamdamage 1");
-	else
+	if (GameSkill() > 3)
 		ConsoleCommand("teamdamage 1.5");
+	else
+		ConsoleCommand("teamdamage 1");
 		
 	Delay(5); // Let monster replacers spawn.
 	
