@@ -1188,10 +1188,14 @@ Actor SoulHarvesterWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
 	Fire:
-		TNT1 AA 6
-		TNT1 A 5 Bright A_FireCustomMissile("SoulHarvesterBall")
-		TNT1 AA 4
+		DCLW A 6
+		KCLW A 6 Bright
+		KCLW B 5 Bright A_FireCustomMissile("SoulHarvesterBall")
+		DCLW AA 4
 		Goto Ready
 	}
 }
