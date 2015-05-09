@@ -237,3 +237,39 @@ script mop_afrit (void)
 		terminate;
 	}
 }
+
+script mop_cybruiser (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"rockets");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"homing rockets");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cgBFG15K");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\chrailgun");
+		terminate;
+	}
+}
+
