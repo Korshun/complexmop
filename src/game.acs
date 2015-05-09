@@ -98,12 +98,7 @@ script mop_init OPEN
 	if (ThingCountName("BossBrain", 0))
 	{
 		BossBrain = true;
-		ConsoleCommand("sv_noexit 0");
 		Lives += 10;
-	}
-	else
-	{
-		ConsoleCommand("sv_noexit 1");
 	}
 	
 	ACS_ExecuteAlways(mop_wincondition, 0);
@@ -162,7 +157,6 @@ script mop_wincondition (void)
 			HUDMSG_FADEOUT, 0, CR_GREEN, 160.0,155.0, 2.5);
 
 		may_exit = true;
-		ConsoleCommand("sv_noexit 0");
 	}
 	
 	if (LivingMonsterCount() == 0)
@@ -177,11 +171,25 @@ script mop_wincondition (void)
 int won = false;
 
 // Marines win.
-script mop_marinewin (void)
+script mop_marinewin (int secret)
 {
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+	{
+		print(s:"\cgPuppetmasters can't exit.");
+		terminate;
+	}
+	
+	if (LivingMonsterCount() >= TotalMonsterCount() / 2)
+	{
+		print(s:"\cdHalf of monsters must be dead before marines can exit.");
+		terminate;
+	}
+	
 	if (won)
 		terminate;
 	won = true;
+	
+	print(s:"\cd", n:1 + PlayerNumber(), s:" has reached the exit.");
 
 	SetHudSize(320, 240, 0);
 	SetFont("BIGFONT");
@@ -222,7 +230,10 @@ script mop_marinewin (void)
 	AmbientSound("demon/death",127);
 	// End of MOP-X code.
 
-	Exit_Normal(0);
+	if (secret)
+		Exit_Secret(0);
+	else
+		Exit_Normal(0);
 }
 
 // Puppetmasters win.
