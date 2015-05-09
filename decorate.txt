@@ -4689,6 +4689,7 @@ Actor BruiserDemonWeapon : PossessedWeapon
 Actor PossessedAfrit : PossessedBaronOfHell
 {
 	Player.MorphWeapon "AfritWeapon"
+	Player.ViewHeight 70
 
 	Health 1250 PainChance 80
 	Bloodcolor "ff 50 00"
