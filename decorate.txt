@@ -3801,7 +3801,18 @@ Actor GuardianWeapon : PossessedWeapon
 	States
 	{
 	Fire:
-		
+		TNT1 A 0 A_GunFlash
+		TNT1 G 6 A_PlaySound("skeleton/swing")
+		TNT1 H 4
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 I 3 A_CustomPunch(6 * Random(1, 10), 1)
+		TNT1 HG 4
+		Goto Ready
+	AltFire:
+		TNT1 J 14 Bright
+		TNT1 A 0 A_FireCustomMissile("GuardianTracer", 0, 0, -14)
+		TNT1 K 10 A_FireCustomMissile("GuardianTracer", 0, 0, 14)
+		TNT1 K 10
 		Goto Ready
 	}
 }
