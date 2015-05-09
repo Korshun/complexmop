@@ -3781,9 +3781,10 @@ Actor PossessedGuardian : PossessedRevenant
 		Loop
 	Melee:
 		TNT1 A 0
-		SKEL G 6 A_SkelWhoosh
+		SKEL G 6 A_PlaySound("skeleton/swing")
 		SKEL H 4
-		SKEL I 3 A_SkelFist
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		SKEL I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		SKEL HG 4
 		Goto See
 	Missile:
@@ -3834,9 +3835,10 @@ Actor PossessedCadaver : PossessedGuardian
 		Loop
 	Melee:
 		TNT1 A 0
-		RASK G 5 A_SkelWhoosh
+		RASK G 5 A_PlaySound("skeleton/swing")
 		RASK H 4
-		RASK I 3 A_SkelFist
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		RASK I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		RASK HG 4
 		Goto See
 	Missile:
@@ -3989,17 +3991,19 @@ Actor PossessedFamine : PossessedGuardian
 	Melee:
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"Melee2")
 		TNT1 A 0
-		NREV G 4 A_SkelWhoosh
+		NREV G 4 A_PlaySound("skeleton/swing")
 		NREV H 4
 		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
-		NREV I 4 A_SkelFist
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		NREV I 4 //A_CustomPunch(6 * Random(1, 10), 1)
 		Goto See
 	Melee2:
 		TNT1 A 0
-		NREV R 4 A_SkelWhoosh
+		NREV R 4 A_PlaySound("skeleton/swing")
 		NREV S 4
 		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
-		NREV T 4 A_SkelFist
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		NREV T 4 //A_CustomPunch(6 * Random(1, 10), 1)
 		Goto See
 	Missile:
 		TNT1 A 0 A_JumpIfCloser(275,"DashPunch")
@@ -4014,7 +4018,7 @@ Actor PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
 		TNT1 A 0
 		TNT1 A 0 A_Recoil(-40)
-		TNT1 A 0 A_SkelWhoosh
+		TNT1 A 0 A_PlaySound("skeleton/swing")
 		NREV GGGGG 1 A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
 		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
 		NREV HHHHH 1 A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
@@ -4026,7 +4030,7 @@ Actor PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0
 		TNT1 A 0 A_Recoil(-40)
-		TNT1 A 0 A_SkelWhoosh
+		TNT1 A 0 A_PlaySound("skeleton/swing")
 		NREV RRRRR 1 A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
 		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
 		NREV SSSSS 1 A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
