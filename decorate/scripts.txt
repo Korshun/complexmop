@@ -4,3 +4,4 @@ const int mop_magmafiend = 808;
 const int mop_helemental = 809;
 const int mop_hellarchon = 810;
 const int mop_pyrodemon = 811;
+const int mop_cybernoble = 812;
