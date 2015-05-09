@@ -33,6 +33,7 @@ Actor PuppetMaster : PlayerPawn
 	{
 	Spawn:
 		NULL A 1
+		NULL A 0 ACS_ExecuteAlways(mop_print_monsterinfo)
 		goto Ready
 	Ready:
 		NULL A 1
