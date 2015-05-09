@@ -2653,16 +2653,16 @@ Actor PossessedHectebus : PossessedFatso
 	Melee:
 		TNT1 A 0 
 		TABU G 15
-		TNT1 A 0 A_CustomMissile("HectebusBall", 30, 30, 0)
-		TABU H 6 Bright A_CustomMissile("HectebusBall", 30, -30, 12)
+		TNT1 A 0
+		TABU H 6 Bright 
 		TABU IG 8
-		TNT1 A 0 A_CustomMissile("HectebusBall", 30, 30, -12)
-		TABU H 6 Bright A_CustomMissile("HectebusBall", 30, -30, 0)
+		TNT1 A 0 
+		TABU H 6 Bright 
 		TABU IG 12
-		TNT1 A 0 A_CustomMissile("HectebusBall", 30, 30, -6)
-		TABU H 2 Bright A_CustomMissile("HectebusBall", 30, -30, 6)
-		TNT1 A 0 A_CustomMissile("HectebusBall", 30, 30, -12)
-		TABU H 4 Bright A_CustomMissile("HectebusBall", 30, -30, 12)
+		TNT1 A 0 
+		TABU H 2 Bright 
+		TNT1 A 0 
+		TABU H 4 Bright 
 		TABU IG 12
 		Goto See
 	Flamethrowers:
