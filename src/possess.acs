@@ -87,16 +87,17 @@ script mop_possess (void)
 	int hp1 = GetActorProperty(0, APROP_HEALTH);
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
 	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_CROUCH | BT_SPEED)))
-	{
+	{	
 		if (CheckInventory("PossessedSuicide") == 1)
 		{
 			SetActorState(0, "Suicide");
 			GiveInventory("PossessedSuicide", 1);
 		}
+	
+		Delay(1);
 		
 		hp1 = hp2;
 		hp2 = GetActorProperty(0, APROP_HEALTH);
-		Delay(1);
 	}
 	
 	// Record last death's point to respawn there.
