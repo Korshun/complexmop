@@ -51,3 +51,30 @@ script mop_helemental (void)
 		terminate;
 	}
 }
+
+script mop_hellarchon (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cgburst ball");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cgcomet");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"\cgnormal");
+		terminate;
+	}
+}

@@ -4168,38 +4168,64 @@ Actor PossessedHellArchon : PossessedHellKnight
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
 	Missile:
-		TNT1 A 0 Bright A_Jump(128,"BurstBall","Comet")
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
 	Normal:
 		LOHS EF 6 Bright
 		LOHS G 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
 		LOHS IJ 6 Bright
 		LOHS K 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"BurstBall","Comet")
 		Goto See
 	BurstBall:
 		LOHS MN 7 Bright
 		LOHS O 1 Bright //A_FireCustomMissile("HABall", 0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("HABall", 6, 0, 0)
 		LOHS O 6 Bright //A_FireCustomMissile("HABall", -6, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"Comet")
 		Goto See
 	Comet:
 		LOHS MN 8 Bright
 		LOHS O 7 Bright //A_FireCustomMissile("HAComet", 0, 0, 0)
-		Goto See
-	Melee:
-		LOHS EF 4 Bright
-		LOHS G 4 Bright A_MeleeAttack
-		LOHS FE 4 Bright
 		Goto See
 	}
 }
 
 Actor HellArchonWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_hellarchon, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 6
+		TNT1 G 5 A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		TNT1 IJ 6
+		TNT1 K 5 A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstBall:
+		TNT1 MN 7
+		TNT1 O 1 A_FireCustomMissile("HABall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("HABall", 6, 0, 0)
+		TNT1 O 6 A_FireCustomMissile("HABall", -6, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 MN 8
+		TNT1 O 7 A_FireCustomMissile("HAComet", 0, 0, 0)
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
