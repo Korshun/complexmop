@@ -112,7 +112,7 @@ script mop_cybernoble (void)
 	{
 		TakeInventory("Attack1", 1);
 		GiveInventory("Attack2", 1);
-		print(s:"\ciburst ball");
+		print(s:"\cdburst ball");
 		terminate;
 	}
 	
@@ -120,7 +120,7 @@ script mop_cybernoble (void)
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cilarge ball");
+		print(s:"\cdlarge ball");
 		terminate;
 	}
 	
@@ -128,7 +128,7 @@ script mop_cybernoble (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack4", 1);
-		print(s:"\cirocket");
+		print(s:"rocket");
 		terminate;
 	}
 	
@@ -136,7 +136,7 @@ script mop_cybernoble (void)
 	{
 		TakeInventory("Attack4", 1);
 		GiveInventory("Attack1", 1);
-		print(s:"\cishotgun");
+		print(s:"shotgun");
 		terminate;
 	}
 }

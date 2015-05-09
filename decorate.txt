@@ -4380,6 +4380,7 @@ Actor PossessedCyberNoble : PossessedHellKnight
 		TNT1 AAAA 0 //A_FireCustomMissile("MonsterTracer2", Random(5,-5))
 		CBOS F 2 Bright //A_PlaySoundEx("AShotgun/Fire","Weapon")
 		CBOS E 10
+		CBOS E 10
 		Goto See
 	BurstBall:
 		CBOS PQ 7
@@ -4491,7 +4492,7 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK DD 3 Bright
 		Loop
 	Missile:
-		TNT1 A 0 Bright A_Jump(128,"GiantBalls","BurstComet","FloorHugger")
+		
 	Normal:
 		HDUK EF 6 Bright
 		HDUK G 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
@@ -4527,38 +4528,6 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK EF 4 Bright
 		HDUK G 5 Bright A_MeleeAttack
 		HDUK FE 4 Bright
-		Goto See
-	Pain:
-		TNT1 A 0 A_Jump(28,"PainHeal")
-		TNT1 A 0 A_Jump(104,"PainMissile","PainRage")
-		HDUK Q 10 Bright A_Pain
-		Goto See
-	PainHeal:
-		HDUK Q 10 Bright A_Pain
-		HDUK ON 6 Bright
-		TNT1 A 0 A_SetInvulnerable
-		TNT1 A 0
-		TNT1 A 0 //A_PlaySound("duke/see")
-		TNT1 A 0 A_GiveInventory("Health",600)
-		HDUK MMMMMM 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-		TNT1 A 0
-		HDUK MMMMMM 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-		HDUK N 6 Bright A_UnSetInvulnerable
-		TNT1 A 0 A_Jump(87,1)
-		Goto See
-		TNT1 A 0
-		Goto BurstComet+2
-	PainMissile:
-		HDUK Q 10 Bright A_Pain
-		Goto Missile
-	PainRage:
-		HDUK Q 10 Bright A_Pain
-		TNT1 A 0 A_JumpIfCloser(400,1)
-		Goto See
-		TNT1 A 0 Bright //A_PlaySound("brain/spit")
-		HDUK ON 5 Bright
-		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION,0)
-		HDUK N 5 Bright
 		Goto See
 	}
 }
