@@ -87,7 +87,7 @@ script mop_possess (void)
 	// And record the hp difference in case the monster died.
 	int hp1 = GetActorProperty(0, APROP_HEALTH);
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
-	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_CROUCH))
+	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_CROUCH | BT_SPEED)))
 	{
 		if (CheckInventory("PossessedSuicide") == 1)
 		{
