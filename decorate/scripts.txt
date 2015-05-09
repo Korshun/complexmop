@@ -6,3 +6,4 @@ const int mop_hellarchon = 810;
 const int mop_pyrodemon = 811;
 const int mop_cybernoble = 812;
 const int mop_hellduke = 813;
+const int mop_bruiserdemon = 814;

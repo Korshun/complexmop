@@ -4619,7 +4619,12 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 		HFRY D 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
 	Missile:
-		TNT1 A 0 Bright A_Jump(128,"GiantBalls","Comet")
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
 	Normal:
 		HFRY KL 7 Bright
 		HFRY M 1 Bright //A_FireCustomMissile("BBall", 0, 0, 0)
@@ -4627,32 +4632,55 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 		HFRY M 1 Bright //A_FireCustomMissile("BBall", -6, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("BBall", 12, 0, 0)
 		HFRY M 5 Bright //A_FireCustomMissile("BBall", -12, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"GiantBalls","Comet")
 		Goto See
 	GiantBalls:
 		HFRY EF 7 Bright
 		HFRY G 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
 		HFRY HI 7 Bright
 		HFRY J 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"Comet")
 		Goto See
 	Comet:
 		HFRY KL 8 Bright
 		HFRY M 7 Bright //A_FireCustomMissile("BruiserComet", 0, 0, 0)
-		Goto See
-	Melee:
-		HFRY EF 4 Bright
-		HFRY G 5 Bright A_MeleeAttack
-		HFRY FE 4 Bright
 		Goto See
 	}
 }
 
 Actor BruiserDemonWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_bruiserdemon, 0)
+		Goto Ready
+	Normal:
+		TNT1 KL 7
+		TNT1 M 1 A_FireCustomMissile("BBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("BBall", 6, 0, 0)
+		TNT1 M 1 A_FireCustomMissile("BBall", -6, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("BBall", 12, 0, 0)
+		TNT1 M 5 A_FireCustomMissile("BBall", -12, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	GiantBalls:
+		TNT1 EF 7
+		TNT1 G 6 A_FireCustomMissile("BBall2", 0, 0, 0)
+		TNT1 HI 7
+		TNT1 J 6 A_FireCustomMissile("BBall2", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 KL 8
+		TNT1 M 7 A_FireCustomMissile("BruiserComet", 0, 0, 0)
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
