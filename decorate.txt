@@ -4268,43 +4268,60 @@ Actor PossessedPyroDemon : PossessedHellKnight
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
 		Loop
 	Missile:
-		TNT1 A 0 Bright A_Jump(128,"Comet","FloorHugger")
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Comet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FloorHugger")
+		Goto See
 	Normal:
 		PYRO EF 7 Bright
 		PYRO G 1 Bright //A_FireCustomMissile("PBall", 0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("PBall", -5, 0, 0)
 		PYRO G 5 Bright //A_FireCustomMissile("PBall", 5, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"Burst","Comet")
-		Goto See
-	Burst:
-		PYRO IJ 7 Bright
-		PYRO K 1 Bright //A_FireCustomMissile("PBall", 0, 0, 0)
-		TNT1 A 0 Bright //A_FireCustomMissile("PBall", -5, 0, 0)
-		PYRO K 5 Bright //A_FireCustomMissile("PBall", 5, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"Comet","FloorHugger")
 		Goto See
 	Comet:
 		PYRO MN 8 Bright
 		PYRO O 7 Bright //A_FireCustomMissile("BruiserComet", 0,0, 0, 0)
-		TNT1 A 0 Bright A_Jump(87,"FloorHugger")
 		Goto See
 	FloorHugger:
 		PYRO MN 8 Bright
 		PYRO O 8 Bright //A_FireCustomMissile("PyroFireSpawner", 0,0, 0, 0)
-		Goto See
-	Melee:
-		PYRO EF 4 Bright
-		PYRO G 5 Bright A_MeleeAttack
-		PYRO FE 4 Bright
 		Goto See
 	}
 }
 
 Actor PyroDemonWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Comet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_pyrodemon, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 7
+		TNT1 G 1 A_FireCustomMissile("PBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("PBall", -5, 0, 0)
+		TNT1 G 5 A_FireCustomMissile("PBall", 5, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 MN 8
+		TNT1 O 7 A_FireCustomMissile("BruiserComet", 0,0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 MN 8
+		TNT1 O 8 Bright A_FireCustomMissile("PyroFireSpawner", 0,0, 0, 0)
+		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
 }
