@@ -66,7 +66,7 @@ script mop_possess (void)
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
 	// Show HUD.
-	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth);
+	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth, type);
 	
 	// Run script.
 	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT]- 2146435072;
@@ -153,7 +153,7 @@ script mop_possess (void)
 }
 
 // Puppeter custom hud drawing.
-script mop_possessed_hud(int player, int spawnhp) CLIENTSIDE
+script mop_possessed_hud(int player, int spawnhp, int type) CLIENTSIDE
 {
 	if (ConsolePlayerNumber() != player)
 		terminate;
@@ -170,6 +170,9 @@ script mop_possessed_hud(int player, int spawnhp) CLIENTSIDE
 			HUDMSG_PLAIN, 0, CR_RED, 50.0, 280.0, 0.03
 		);
 		// End of MOP-X code.
+		SetHUDSize(400,300,0);
+		SetFont(MonsterTypes[type][MONSTER_SPRITE]);
+		HUDMessage(s:"A"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED, 60.0, 275.0, 0.03);
 		
 		Delay(1);
 	}
