@@ -29,6 +29,11 @@ script mop_respawn RESPAWN
 	MakePuppetMasterFlying();
 }
 
+script mop_disconnect (int player) DISCONNECT
+{
+	UpdatePlayerCount();
+}
+
 function void MakePuppetMasterFlying(void)
 {
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
@@ -99,19 +104,44 @@ script mop_init OPEN
 	ACS_ExecuteAlways(mop_wincondition, 0);
 }
 
-script 500 OPEN
+script mop_status OPEN
 {
-	SetFont("SMALLFONT");
-	SetHudSize(640, 480, 1);
-	HudMessageBold(s:"Marines: ", d:MarineCount,
-		s:"\nmops: ", d:PuppetMasterCount,
-		s:"\n",
-		s:"\nmonsters: ", d:LivingMonsterCount(),
-		s:"\nlives: ", d:Lives;
-	HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+	int prev_MarineCount = -1;
+	int prev_PuppetmasterCount;
+	int prev_Lives;
+	int prev_LivingMonsterCount;
+	
+	while (true)
+	{
+	
+	if (MarineCount != prev_MarineCount || PuppetMasterCount != prev_PuppetMasterCount || Lives != prev_Lives || LivingMonsterCount() != prev_LivingMonsterCount)
+	{	
+		SetFont("SMALLFONT");
+		SetHudSize(640, 480, 1);
+		HudMessageBold(s:"Marines: ", d:MarineCount,
+			s:"\nmops: ", d:PuppetMasterCount,
+			s:"\n",
+			s:"\nmonsters: ", d:LivingMonsterCount(),
+			s:"\nlives: ", d:Lives;
+		HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+		
+		prev_MarineCount = MarineCount;
+		prev_PuppetmasterCount = PuppetmasterCount;
+		prev_Lives = Lives;
+		prev_LivingMonsterCount = LivingMonsterCount();
+	}
 	
 	Delay(1);
-	restart;
+	}
+}
+
+script mop_marinedeath DEATH
+{
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
+		Lives--;
+		
+	if (Lives <= 0)
+		ACS_ExecuteAlways(mop_demonwin, 0);
 }
 
 int may_exit;
@@ -133,11 +163,6 @@ script mop_wincondition (void)
 	if (LivingMonsterCount() == 0)
 	{
 		ACS_ExecuteAlways(mop_marinewin, 0);
-	}
-	
-	if (Lives <= 0)
-	{
-		ACS_ExecuteAlways(mop_demonwin, 0);
 	}
 	
 	Delay(1);
@@ -204,7 +229,6 @@ Script mop_demonwin (void)
 
 	// Ripped from MOP-X.
 	ConsoleCommand("sv_noexit 0");
-	delay(15);
 	SetHUDSize(320,240,0);
 	setfont("BIGFONT");
 	hudmessageBOLd(s:"Puppet Masters Win!";

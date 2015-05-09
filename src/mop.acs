@@ -22,6 +22,9 @@
 #define mop_marinewin 818
 #define mop_demonwin 819
 #define mop_init 820
+#define mop_marinedeath 821
+#define mop_status 822
+#define mop_disconnect 823
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
