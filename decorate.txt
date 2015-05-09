@@ -3781,9 +3781,9 @@ Actor PossessedGuardian : PossessedRevenant
 		Loop
 	Melee:
 		TNT1 A 0
-		SKEL G 6 A_PlaySound("skeleton/swing")
+		SKEL G 6 //A_PlaySound("skeleton/swing")
 		SKEL H 4
-		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		SKEL I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		SKEL HG 4
 		Goto See
@@ -3835,9 +3835,9 @@ Actor PossessedCadaver : PossessedGuardian
 		Loop
 	Melee:
 		TNT1 A 0
-		RASK G 5 A_PlaySound("skeleton/swing")
+		RASK G 5 //A_PlaySound("skeleton/swing")
 		RASK H 4
-		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		RASK I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		RASK HG 4
 		Goto See
@@ -3991,18 +3991,18 @@ Actor PossessedFamine : PossessedGuardian
 	Melee:
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"Melee2")
 		TNT1 A 0
-		NREV G 4 A_PlaySound("skeleton/swing")
+		NREV G 4 //A_PlaySound("skeleton/swing")
 		NREV H 4
 		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
-		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		NREV I 4 //A_CustomPunch(6 * Random(1, 10), 1)
 		Goto See
 	Melee2:
 		TNT1 A 0
-		NREV R 4 A_PlaySound("skeleton/swing")
+		NREV R 4 //A_PlaySound("skeleton/swing")
 		NREV S 4
 		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
-		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		NREV T 4 //A_CustomPunch(6 * Random(1, 10), 1)
 		Goto See
 	Missile:
@@ -4017,8 +4017,8 @@ Actor PossessedFamine : PossessedGuardian
 		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
 		TNT1 A 0
-		TNT1 A 0 A_Recoil(-40)
-		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 A 0 //A_Recoil(-40)
+		TNT1 A 0 //A_PlaySound("skeleton/swing")
 		NREV GGGGG 1 A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
 		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
 		NREV HHHHH 1 A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
@@ -4029,8 +4029,8 @@ Actor PossessedFamine : PossessedGuardian
 	DashPunch2:
 		TNT1 A 0 A_Jump(32,"Normal")
 		TNT1 A 0
-		TNT1 A 0 A_Recoil(-40)
-		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 A 0 //A_Recoil(-40)
+		TNT1 A 0 //A_PlaySound("skeleton/swing")
 		NREV RRRRR 1 A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
 		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
 		NREV SSSSS 1 A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
@@ -4306,7 +4306,7 @@ Actor PossessedCyberNoble : PossessedHellKnight
 		CBOS AABB 3
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		CBOS CCDD 3
-		TNT1 A 0 A_Playsound("monster/bruwlk")
+		TNT1 A 0 //A_PlaySound("monster/bruwlk")
 		Loop
 	Pause:
 		CBOS E 10
@@ -4319,7 +4319,7 @@ Actor PossessedCyberNoble : PossessedHellKnight
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 0, 12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 		TNT1 AAA 0 //A_FireCustomMissile("ProjectileBullet", Random(-1000,1000)/100.00,0, 0, 0)
 		TNT1 AAAA 0 //A_FireCustomMissile("MonsterTracer2", 0,Random(5,-5),0, 0, 44))
-		CBOS F 2 Bright A_PlaySoundEx("AShotgun/Fire","Weapon")
+		CBOS F 2 Bright //A_PlaySoundEx("AShotgun/Fire","Weapon")
 		TNT1 A 0 A_Jump(20,"Pause")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+1
@@ -4450,7 +4450,7 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK ON 6 Bright
 		TNT1 A 0 A_SetInvulnerable
 		TNT1 A 0
-		TNT1 A 0 A_PlaySound("duke/see")
+		TNT1 A 0 //A_PlaySound("duke/see")
 		TNT1 A 0 A_GiveInventory("Health",600)
 		HDUK MMMMMM 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
 		TNT1 A 0
@@ -4467,7 +4467,7 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK Q 10 Bright A_Pain
 		TNT1 A 0 A_JumpIfCloser(400,1)
 		Goto See
-		TNT1 A 0 Bright A_PlaySound("brain/spit")
+		TNT1 A 0 Bright //A_PlaySound("brain/spit")
 		HDUK ON 5 Bright
 		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION,0)
 		HDUK N 5 Bright
@@ -4788,17 +4788,17 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		Loop
 	See:
 		BRUS AABB 3
-		TNT1 A 0 A_Playsound("monster/bruwlk")
+		TNT1 A 0 //A_PlaySound("monster/bruwlk")
 		BRUS CCDD 3
-		TNT1 A 0 A_Playsound("monster/bruwlk")
+		TNT1 A 0 //A_PlaySound("monster/bruwlk")
 		Loop
 	Missile:
 		TNT1 A 0 A_Jump(128,"Rockets","HomingRockets","BFG15K")
 	Normal:
-		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
 		BRUS EE 10
 		BRUS E 2
-		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 //A_PlaySound("railgunner/chargedshot")
 		TNT1 A 0 A_CustomMissile("RailgunImpact",40)
 		TNT1 A 0 A_CustomMissile("BruiserRailgunSlug",40)
 		BRUR A 5 Bright A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
@@ -4822,7 +4822,7 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		TNT1 A 0 A_Jump(87,"BFG15K")
 		Goto See
 	BFG15K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		BRUS E 18
 		BRUS E 6
 		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
@@ -4830,7 +4830,7 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
 		BRUS E 4
 		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
-		BRUS E 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		BRUS E 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
 	Melee:
 		BRUS GH 4
@@ -4949,10 +4949,10 @@ Actor PossessedExile : PossessedArchVile
 		Loop
 	Missile:
 		TNT1 A 0 Bright
-		VILE G 10 Bright A_PlaySound("exile/voidstart")
+		VILE G 10 Bright //A_PlaySound("exile/voidstart")
 		VILE H 8 Bright A_VileTarget
 		VILE IJKLMN 8 Bright
-		TNT1 A 0 A_PlaySound("exile/voidend")
+		TNT1 A 0 //A_PlaySound("exile/voidend")
 		VILE O 8 Bright A_VileAttack
 		VILE P 20 Bright
 		Goto See
@@ -5204,7 +5204,7 @@ Actor PossessedDarkHellion : PossessedArchVile
 		Loop
 	Missile:
 		TNT1 A 0
-		TNT1 A 0 A_PlaySound("hellion/smokestart")
+		TNT1 A 0 //A_PlaySound("hellion/smokestart")
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN G 5
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
@@ -5236,7 +5236,7 @@ Actor PossessedDarkHellion : PossessedArchVile
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN K 4
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("exile/voidend")
+		TNT1 A 0 //A_PlaySound("exile/voidend")
 		HELN K 4 A_VileAttack
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
@@ -5332,22 +5332,22 @@ Actor PossessedDemolisher : PossessedSpiderMastermind
 	Normal:
 		TNT1 A 0 A_JumpIfCloser(2000,1)
 		Goto BFG15K
-		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind")
 		DEMO A 10
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
 		TNT1 A 0 A_SPosAttackUseAtkSound
 		DEMO G 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
 		TNT1 A 0 A_SPosAttackUseAtkSound
 		DEMO H 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
-		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind2")
 		TNT1 A 0 A_Jump(6,"Pause","BFG15K","BFG9K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+3
 	BFG15K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		DEMO T 18 Bright
 		DEMO T 6 Bright
 		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
@@ -5361,11 +5361,11 @@ Actor PossessedDemolisher : PossessedSpiderMastermind
 		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
 		DEMO T 4 Bright
 		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
-		DEMO T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		DEMO T 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		TNT1 A 0 A_Jump(128,"BFG9K")
 		Goto See
 	BFG9K:
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
 		DEMO T 15 Bright
 		DEMO T 10 Bright
 		DEMO U 8 Bright
@@ -5467,28 +5467,28 @@ Actor PossessedDarkDemolisher : PossessedSpiderMastermind
 	Normal:
 		TNT1 A 0 A_JumpIfCloser(2000,1)
 		Goto BFG9K
-		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind")
 		DEM2 A 10
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
 		TNT1 A 0 A_SPosAttackUseAtkSound
 		DEM2 G 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
 		TNT1 A 0 A_SPosAttackUseAtkSound
 		DEM2 H 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
-		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind2")
 		TNT1 A 0 A_Jump(6,"Pause","BFG9K","BFG10K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+3
 	BFG9K:
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
 		DEM2 T 15 Bright
 		DEM2 T 10 Bright
 		DEM2 U 8 Bright
 		DEM2 U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball", 0,0, 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
 		DEM2 T 15 Bright
 		DEM2 T 10 Bright
 		DEM2 U 8 Bright
@@ -5497,27 +5497,27 @@ Actor PossessedDarkDemolisher : PossessedSpiderMastermind
 		TNT1 A 0 A_Jump(128,"BFG10K")
 		Goto See
 	BFG10K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		DEM2 T 18 Bright
 		DEM2 T 6 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
 		DEM2 T 5 Bright
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
-		DEM2 T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		DEM2 T 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
 	}
 }
@@ -5595,18 +5595,18 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 		SUPR A 2 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-		TNT1 A 0 A_PlaySound("sentient/fire")
+		TNT1 A 0 //A_PlaySound("sentient/fire")
 		SUPR F 4 Bright //A_FireCustomMissile("SentientExplosiveTracer", Random(-1250,1250)/100.00,0, 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-		TNT1 A 0 A_PlaySound("sentient/fire")
+		TNT1 A 0 //A_PlaySound("sentient/fire")
 		SUPR E 4 Bright //A_FireCustomMissile("SentientExplosiveTracer", Random(-1250,1250)/100.00,0, 0, 0)
 		TNT1 A 0 A_StopSoundEx("Weapon")
 		TNT1 A 0 A_Jump(6,"See","BFG10K","DTBFG10K")
 		TNT1 A 0 A_SpidRefire
 		Goto Normal+7
 	BFG10K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 3 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -5624,41 +5624,41 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 3 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 4 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 4 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 4 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 4 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR N 4 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
 		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		SUPR N 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		SUPR N 3 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		SUPR NNNNN 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"DTBFG10K")
 		Goto See
 	DTBFG10K:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("Cardinal/9k")
+		TNT1 A 0 //A_PlaySound("Cardinal/9k")
 		SUPR NN 2 Bright
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		SUPR NN 2 Bright
@@ -5701,7 +5701,7 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 		TNT1 A 0 A_GiveInventory("Health",600)
 		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		SUPR P 3 Bright A_PlaySound("sentient/laugh")
+		SUPR P 3 Bright //A_PlaySound("sentient/laugh")
 		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 0,0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 30,0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 60,0, 0, 0)
@@ -5923,9 +5923,9 @@ Actor PossessedCyberLord : PossessedCyberdemon
 		ANII A 10
 		Loop
 	See:
-		ANNI A 3 A_Playsound("monsters/clhoof")
+		ANNI A 3 //A_PlaySound("monsters/clhoof")
 		ANNI ABB 3
-		ANNI C 3 A_Playsound("monsters/clhoof")
+		ANNI C 3 //A_PlaySound("monsters/clhoof")
 		ANNI CDD 3
 		Loop
 	Missile:
@@ -5960,11 +5960,11 @@ Actor PossessedCyberLord : PossessedCyberdemon
 		TNT1 A 0 A_Jump(178,"Normal")
 		ANNI E 10
 		ANNI E 2
-		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
 		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, 26)
 		ANNI F 8 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, -26)
 		ANNI EEEE 2
-		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
 		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, 26)
 		ANNI F 8 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, -26)
 		ANNI E 12
@@ -6058,7 +6058,7 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP G 10
 		TNT1 A 0 A_SetInvulnerable
 		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
-		CBE3 G 3 Bright A_PlaySoundEx("DarkCyber/Laugh","Voice")
+		CBE3 G 3 Bright //A_PlaySoundEx("DarkCyber/Laugh","Voice")
 		TNT1 A 0
 		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 A 0
@@ -6073,7 +6073,7 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP G 7
 		CBE3 A 5
 		TNT1 A 0 Radius_Quake(10,8,0,24,0)
-		CBE3 B 6 A_PlaySound("monsters/darkcyberstomp")
+		CBE3 B 6 //A_PlaySound("monsters/darkcyberstomp")
 		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", 0,0, 0, 0)
 		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 15,0, 0, 0)
 		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -15,0, 0, 0)
@@ -6085,12 +6085,12 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		TNT1 A 0 A_Jump(128,"BFG9K","BFG15K")
 		Goto See
 	BFG9K:
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
 		CBEP EE 10
 		CBEP F 10 Bright
 		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
 		CBEP E 4
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
 		CBEP EE 10
 		CBEP F 10 Bright
 		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
@@ -6098,7 +6098,7 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		TNT1 A 0 A_Jump(128,"BFG15K")
 		Goto See
 	BFG15K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		CBEP E 18 Bright
 		CBEP E 6 Bright
 		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
@@ -6112,7 +6112,7 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
 		CBEP E 4 Bright
 		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
-		CBEP E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		CBEP E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto See
 	}
 }
@@ -6253,7 +6253,7 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
 		Goto See
 	BFG10K:
-		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -6269,40 +6269,40 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright A_PlaySound("weapons/bfg15kfire")
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		CARD CCCCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(128,"DTBFG10K")
 		Goto See
 	DTBFG10K:
-		TNT1 A 0 A_PlaySound("Cardinal/9k")
+		TNT1 A 0 //A_PlaySound("Cardinal/9k")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -6349,7 +6349,7 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright A_SetInvulnerable
 		TNT1 A 0 Bright Radius_Quake(10,80,0,24,0)
 		TNT1 A 0 Bright A_GiveInventory("Health",600)
-		TNT1 A 0 Bright A_PlaySound("Cardinal/Laugh")
+		TNT1 A 0 Bright //A_PlaySound("Cardinal/Laugh")
 		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
 		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
