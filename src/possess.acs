@@ -1,5 +1,4 @@
 int LastDeathPosition[MAX_PLAYERS][4];
-
 #define POSSESSED_ADDITIONAL_HP 10000
 
 int MonsterItemsTemp[NUM_MONSTER_ITEMS];
@@ -62,11 +61,11 @@ script mop_possess (void)
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
 	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_FLY);
-	SetActorProperty(0, APROP_HEALTH, health + POSSESSED_ADDITIONAL_HP);
+	SetActorProperty(0, APROP_HEALTH, health * DamageFactor / 1.0 + POSSESSED_ADDITIONAL_HP);
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
 	// Show HUD.
-	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), spawnhealth, type);
+	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), DamageFactor, spawnhealth << 16 | type);
 	
 	// Run script.
 	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT]- 2146435072;
@@ -146,17 +145,20 @@ script mop_possess (void)
 	}
 	
 	// Transfer health.
-	SetActorProperty(TEMPTID, APROP_HEALTH, hp1 - POSSESSED_ADDITIONAL_HP);
+	SetActorProperty(TEMPTID, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);
 	Thing_Damage(TEMPTID, hp1 - hp2, 0);
 	
 	Thing_ChangeTid(TEMPTID, 0);
 }
 
 // Puppeter custom hud drawing.
-script mop_possessed_hud(int player, int spawnhp, int type) CLIENTSIDE
+script mop_possessed_hud(int player, int df, int spawnhp_type) CLIENTSIDE
 {
 	if (ConsolePlayerNumber() != player)
 		terminate;
+		
+	int spawnhp = spawnhp_type >> 16;
+	int type = spawnhp_type & 0x0000ffff;
 
 	while (GetActorProperty(0, APROP_HEALTH) > POSSESSED_ADDITIONAL_HP)
 	{
@@ -164,7 +166,7 @@ script mop_possessed_hud(int player, int spawnhp, int type) CLIENTSIDE
 		SetHUDSize(400,300,0);
 		SetFont("SMALLFONT");
 		HUDMessage(
-			i:GetActorProperty(0,APROP_HEALTH) - POSSESSED_ADDITIONAL_HP,
+			i:FixedDiv((GetActorProperty(0,APROP_HEALTH) - POSSESSED_ADDITIONAL_HP) * 1.0, df) / 1.0,
 			s:"/",
 			i:spawnhp;
 			HUDMSG_PLAIN, 0, CR_RED, 50.0, 280.0, 0.03

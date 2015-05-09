@@ -68,6 +68,7 @@ function int LivingMonsterCount(void)
 }
 
 int Bossbrain = 0;
+int DamageFactor = 1.0;
 
 script mop_init OPEN
 {
@@ -81,9 +82,15 @@ script mop_init OPEN
 	}
 	
 	if (GameSkill() > 3)
+	{
+		DamageFactor = 1.5;
 		ConsoleCommand("teamdamage 1.5");
+	}
 	else
+	{
+		DamageFactor = 1.0;
 		ConsoleCommand("teamdamage 1");
+	}
 		
 	Delay(5); // Let monster replacers spawn.
 	
@@ -244,7 +251,6 @@ Script mop_demonwin (void)
 	won = true;
 
 	// Ripped from MOP-X.
-	ConsoleCommand("sv_noexit 0");
 	SetHUDSize(320,240,0);
 	setfont("BIGFONT");
 	hudmessageBOLd(s:"Puppet Masters Win!";
