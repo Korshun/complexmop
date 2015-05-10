@@ -27,7 +27,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DevilImp",				0.08, 0, 0, 0, "Devil Imp", "SIMPA1C1" },
 	{ "VoidImp",				0.08, 0, 0, 0, "Void Imp", "DRKSA1" },
 	{ "SoulHarvester",			0.08, 0, 0, 0, "Soul Harvester", "SLHVA1" },
-	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1" },
+	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
 	{ "CyberFiend",				0.1, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
 	{ "MagmaFiend",				0.1, 0, 0, 0, "Magma Fiend", "SAR3A1" },
