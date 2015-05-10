@@ -7,7 +7,7 @@ int MarineCount = 0;
 int PuppetMasterCount = 0;
 int PossessedCount = 0;
 
-int Lives = 0;
+int Lives = 999;
 
 script mop_log_join(int player, int team) clientside
 {
@@ -175,6 +175,41 @@ script mop_marinedeath DEATH
 	if (Lives <= 0)
 		ACS_ExecuteAlways(mop_demonwin, 0);
 }
+
+function int TryToGoToMarine(int number)
+{	
+	if (!PlayerInGame(number) || playerClasses[number] != PLAYER_MARINE || GetActorProperty(1000 + number, APROP_HEALTH) <= 0)
+		return false;
+		
+	int x = GetActorX(1000 + number);
+	int y = GetActorY(1000 + number);
+	int z = GetActorZ(1000 + number);
+	int angle = GetActorAngle(1000 + number);
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, angle);
+	
+	TakeInventory("LastFoundMarine", 0x7fffffff);
+	GiveInventory("LastFoundMarine", number);
+	
+	return true;
+}
+
+script mop_findmarines (void)
+{
+	int last = CheckInventory("LastFoundMarine");
+	
+	for (int i = last + 1; i < MAX_PLAYERS; i++)
+	{
+		if (TryToGoToMarine(i))
+			terminate;
+	}
+	
+	for (i = 0; i <= last; i++)
+	{
+		if (TryToGoToMarine(i))
+			terminate;
+	}
+}		
 
 int may_exit;
 
