@@ -14,9 +14,15 @@ script mop_enter ENTER
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
 	
 	if (PlayerClass(PlayerNumber()) == 1)
+	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+		Log(n:0, s:" becomes a Puppet Master.");
+	}
 	else
+	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
+		Log(n:0, s:" becomes a Doom Guy.");
+	}
 	
 	MakePuppetMasterFlying();
 	UpdatePlayerCount();
@@ -125,11 +131,11 @@ script mop_status OPEN
 	{	
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
-		HudMessageBold(s:"Marines: ", d:MarineCount,
-			s:"\nmops: ", d:PuppetMasterCount,
+		HudMessageBold(s:"\cdMarines\c-: ", d:MarineCount,
+			s:"\n\cgMops\c-: ", d:PuppetMasterCount,
 			s:"\n",
-			s:"\nlives: ", d:Lives,
-			s:"\nmonsters: ", d:LivingMonsterCount();
+			s:"\nReinforcements: ", d:Lives,
+			s:"\nMonsters: ", d:LivingMonsterCount();
 		HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
 		
 		prev_MarineCount = MarineCount;
@@ -269,3 +275,27 @@ Script mop_demonwin (void)
 	// End of MOP-X code.
 }
 
+script mop_death_log DEATH
+{
+	str victim = StrParam(n:0);
+	int vplayer = PlayerNumber();
+	SetActivatorToTarget(0);
+	
+	int kplayer = PlayerNumber();
+	// we don't care about monsters
+	if (kplayer == -1)
+		terminate;
+	
+	str killer = StrParam(n:0);
+	
+	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
+	{
+		Log(s:killer, s:"\ct TEAMKILLED! \c-", s:victim);
+		terminate;
+	}
+	
+	if (PlayerClasses[kplayer] == PLAYER_MOP)
+		Log(s:killer, s:"\cg -> \c-", s:victim);
+	else
+		Log(s:killer, s:"\cd -> \c-", s:victim);
+}
