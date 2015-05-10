@@ -155,7 +155,10 @@ script mop_status OPEN
 
 script mop_marinedeath DEATH
 {
-	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
+	int victim = PlayerNumber();
+	SetActivatorToTarget(0);
+	int killer = PlayerNumber();
+	if (PlayerClasses[victim] == PLAYER_MARINE && PlayerClasses[killer] != PLAYER_MARINE)
 		Lives--;
 		
 	if (Lives <= 0)
@@ -278,29 +281,4 @@ Script mop_demonwin (void)
 	delay(1);
 	terminate;
 	// End of MOP-X code.
-}
-
-script mop_death_log DEATH
-{
-	str victim = StrParam(n:0);
-	int vplayer = PlayerNumber();
-	SetActivatorToTarget(0);
-	
-	int kplayer = PlayerNumber();
-	// we don't care about monsters
-	if (kplayer == -1)
-		terminate;
-	
-	str killer = StrParam(n:0);
-	
-	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
-	{
-		Log(s:killer, s:"\ct TEAMKILLED! \c-", s:victim);
-		terminate;
-	}
-	
-	if (PlayerClasses[kplayer] == PLAYER_MOP)
-		Log(s:killer, s:"\cg -> \c-", s:victim);
-	else
-		Log(s:killer, s:"\cd -> \c-", s:victim);
 }

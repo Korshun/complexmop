@@ -159,6 +159,34 @@ script mop_possess (void)
 	Thing_ChangeTid(utid, 0);
 }
 
+script mop_monster_getinfo (void)
+{
+	int activator = ActivatorTID();
+	int tid = GenTempTid() + MAX_PLAYERS+1;
+	// Select the monster we are pointing at.
+	SetActivatorToTarget(0);
+	if (PlayerNumber() != -1)
+		terminate;
+		
+	Thing_ChangeTid(0, tid);
+		
+	// Store monster properties.
+	int type = IdentifyMonsterType(tid);
+	int health = GetActorProperty(tid, APROP_HEALTH);
+
+	Thing_ChangeTid(tid, 0);
+	SetActivator(activator);
+	SetHUDSize(640,480,0);
+	SetFont("SMALLFONT");
+	HUDMessage(
+		s:MonsterTypes[type][MONSTER_NAME],
+		s:" - \cg",
+		i:health,
+		s:"hp";
+		HUDMSG_PLAIN, 0, CR_GOLD, 640.0/2, (480.0/2)+10.0, 0.03
+		);
+}
+
 // Puppeter custom hud drawing.
 script mop_possessed_hud(int player, int df, int spawnhp_type) CLIENTSIDE
 {
