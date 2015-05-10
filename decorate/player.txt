@@ -1,0 +1,25 @@
+ACTOR ComplexMoPPlayer : ComplexDoomPlayer
+{
+	DamageFactor "Player", 0
+
+	Player.StartItem "Handgun"
+	//Player.StartItem "Frag Grenade"
+	Player.StartItem "HandGrenadeAmmo" 2
+	//Player.StartItem "Land Mine"
+	Player.StartItem "MineAmmo" 2
+	Player.StartItem "Melee"
+	Player.StartItem "BulletMag" 60
+	Player.StartItem "PistolMagazine" 16
+	Player.StartItem "ShotgunMagazine" 9
+	Player.StartItem "SSGShell" 2
+	Player.StartItem "ShotgunDrum" 16
+	Player.StartItem "QuadShell" 4
+	Player.StartItem "ARMagazine" 41
+	Player.StartItem "RocketDrum" 7
+	Player.StartItem "GrenadeDrum" 7
+	Player.StartItem "PlasmaCell" 50
+	Player.StartItem "DemonMagazine" 60
+	Player.StartItem "CellCharge" 50
+	Player.StartItem "MP40Mag" 33
+	Player.StartItem "StartingArmor"
+}

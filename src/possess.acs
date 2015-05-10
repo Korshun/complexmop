@@ -105,6 +105,8 @@ script mop_possess (void)
 		hp2 = GetActorProperty(0, APROP_HEALTH);
 	}
 	
+	Log(s:MonsterTypes[type][MONSTER_NAME], s:" ", d:hp1, s:" ", d:hp2);
+	
 	// Record last death's point to respawn there.
 	LastDeathPosition[PlayerNumber()][0] = GetActorX(0);
 	LastDeathPosition[PlayerNumber()][1] = GetActorY(0);
