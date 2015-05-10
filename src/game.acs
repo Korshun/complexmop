@@ -73,6 +73,11 @@ function int LivingMonsterCount(void)
 	return TotalMonsterCount() - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
 }
 
+function int GenTempTid(void)
+{
+	return TEMPTID + PlayerNumber();
+}
+
 int Bossbrain = 0;
 int DamageFactor = 1.0;
 

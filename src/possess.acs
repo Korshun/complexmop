@@ -6,6 +6,11 @@ int MonsterItemsTemp[NUM_MONSTER_ITEMS];
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
+
+	// use unique tid for every player
+	// otherwise this could cause some serious problems like imps with over 9000 hp
+	// based on vctf tidfuck expirience
+	int utid = GenTempTid();
 	
 	// Select the monster we are pointing at.
 	SetActivatorToTarget(0);
@@ -13,34 +18,34 @@ script mop_possess (void)
 		terminate; // Cannot possess a player.
 		
 	// Temporarily change the monster's tid.
-	Thing_ChangeTid(0, TEMPTID);
+	Thing_ChangeTid(0, utid);
 
 	// Store monster properties.
-	int type = IdentifyMonsterType(TEMPTID);
-	int x = GetActorX(TEMPTID);
-	int y = GetActorY(TEMPTID);
-	int z = GetActorZ(TEMPTID);
-	int angle = GetActorAngle(TEMPTID);
-	int health = GetActorProperty(TEMPTID, APROP_HEALTH);
-	int spawnhealth = GetActorProperty(TEMPTID, APROP_SPAWNHEALTH);
-	int vx = GetActorVelX(TEMPTID);
-	int vy = GetActorVelY(TEMPTID);
-	int vz = GetActorVelZ(TEMPTID);
+	int type = IdentifyMonsterType(utid);
+	int x = GetActorX(utid);
+	int y = GetActorY(utid);
+	int z = GetActorZ(utid);
+	int angle = GetActorAngle(utid);
+	int health = GetActorProperty(utid, APROP_HEALTH);
+	int spawnhealth = GetActorProperty(utid, APROP_SPAWNHEALTH);
+	int vx = GetActorVelX(utid);
+	int vy = GetActorVelY(utid);
+	int vz = GetActorVelZ(utid);
 	
 	// Dead and unknown actors can't be possessed.
 	if (health <= 0 || type == -1)
 	{
-		Thing_ChangeTid(TEMPTID, 0);
+		Thing_ChangeTid(utid, 0);
 		terminate;
 	}
 	
 	// Save monster items.
 	for (int i = 0; i < NUM_MONSTER_ITEMS; i++)
-		MonsterItemsTemp[i] = CheckActorInventory(TEMPTID, MonsterItems[i]);
+		MonsterItemsTemp[i] = CheckActorInventory(utid, MonsterItems[i]);
 	
 	// Remove the monster and move puppetmaster to the exact position of the monster.
 	SetActivator(player);
-	Thing_Remove(TEMPTID);
+	Thing_Remove(utid);
 	SetActorPosition(0, x, y, z, false);
 	SetActorAngle(0, angle);
 
@@ -135,21 +140,21 @@ script mop_possess (void)
 	}
 	
 	// Spawn the replacement actor.
-	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
-	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
+	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, utid, angle>>8);
+	SetActorVelocity(utid, vx, vy, vz, false, true);
 	
 	// Give back items and take them away from puppetmaster just in case.
 	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
 	{
-		GiveActorInventory(TEMPTID, MonsterItems[i], CheckInventory(MonsterItems[i]));
+		GiveActorInventory(utid, MonsterItems[i], CheckInventory(MonsterItems[i]));
 		TakeInventory(MonsterItems[i], CheckInventory(MonsterItems[i]));
 	}
 	
 	// Transfer health.
-	SetActorProperty(TEMPTID, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);
-	Thing_Damage(TEMPTID, hp1 - hp2, 0);
+	SetActorProperty(utid, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);
+	Thing_Damage(utid, hp1 - hp2, 0);
 	
-	Thing_ChangeTid(TEMPTID, 0);
+	Thing_ChangeTid(utid, 0);
 }
 
 // Puppeter custom hud drawing.
