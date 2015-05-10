@@ -164,7 +164,10 @@ script mop_status OPEN
 
 script mop_marinedeath DEATH
 {
-	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
+	int victim = PlayerNumber();
+	SetActivatorToTarget(0);
+	int killer = PlayerNumber();
+	if (PlayerClasses[victim] == PLAYER_MARINE && PlayerClasses[killer] != PLAYER_MARINE)
 		Lives--;
 		
 	if (Lives <= 0)
