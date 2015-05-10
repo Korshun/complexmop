@@ -9,6 +9,15 @@ int PossessedCount = 0;
 
 int Lives = 0;
 
+script mop_log_join(int player, int team) clientside
+{
+	switch(team)
+	{
+	case PLAYER_MARINE: Log(n:player, s:" becomes a Doom Guy."); break;
+	case PLAYER_MOP: Log(n:player, s:" becomes a Puppet Master."); break;
+	}
+}
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
@@ -16,13 +25,13 @@ script mop_enter ENTER
 	if (PlayerClass(PlayerNumber()) == 1)
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
-		Log(n:0, s:" becomes a Puppet Master.");
 	}
 	else
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
-		Log(n:0, s:" becomes a Doom Guy.");
 	}
+	
+	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
 	
 	MakePuppetMasterFlying();
 	UpdatePlayerCount();
@@ -281,4 +290,36 @@ Script mop_demonwin (void)
 	delay(1);
 	terminate;
 	// End of MOP-X code.
+}
+
+script mop_log_kill(int killer, int victim, int type) clientside
+{
+	switch(type)
+	{
+	case 0: Log(n:killer, s:"\cg -> \c-", n:victim); break;
+	case 1: Log(n:killer, s:"\cd -> \c-", n:victim); break;
+	case 2: Log(n:killer, s:"\ct TEAMKILLED! \c-", n:victim); break;
+	}
+}
+
+script mop_death_log DEATH
+{
+	int vplayer = PlayerNumber();
+	SetActivatorToTarget(0);
+	
+	int kplayer = PlayerNumber();
+	// we don't care about monsters
+	if (kplayer == -1)
+		terminate;
+	
+	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
+	{
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 2);
+		terminate;
+	}
+	
+	if (PlayerClasses[kplayer] == PLAYER_MOP)
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 0);
+	else
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
 }

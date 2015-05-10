@@ -27,6 +27,8 @@
 #define mop_disconnect 823
 #define mop_death_log 824
 #define mop_monster_getinfo 825
+#define mop_log_join 826
+#define mop_log_kill 827
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
