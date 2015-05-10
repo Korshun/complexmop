@@ -220,6 +220,8 @@ script mop_monsterinfo (void)
 		
 		Delay(1);
 	}
+	
+	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
 }
 
 // Puppeter custom hud drawing.
