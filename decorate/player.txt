@@ -2,12 +2,12 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 {
 	DamageFactor "Player", 0
 
-	Player.StartItem "Handgun"
+	Player.StartItem "MOP Handgun"
 	//Player.StartItem "Frag Grenade"
 	Player.StartItem "HandGrenadeAmmo" 2
 	//Player.StartItem "Land Mine"
 	Player.StartItem "MineAmmo" 2
-	Player.StartItem "Melee"
+	Player.StartItem "MOP Melee"
 	Player.StartItem "BulletMag" 60
 	Player.StartItem "PistolMagazine" 16
 	Player.StartItem "ShotgunMagazine" 9

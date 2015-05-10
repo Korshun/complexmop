@@ -148,7 +148,7 @@ script mop_status OPEN
 		HudMessageBold(s:"\cdMarines\c-: ", d:MarineCount,
 			s:"\n\cgMops\c-: ", d:PuppetMasterCount,
 			s:"\n",
-			s:"\nReinforcements: ", d:Lives,
+			s:"\nLives: ", d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
 		HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
 		
