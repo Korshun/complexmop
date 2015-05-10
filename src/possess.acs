@@ -208,10 +208,10 @@ script mop_monsterinfo (void)
 			SetFont("SMALLFONT");
 			HUDMessage(
 				s:MonsterTypes[type][MONSTER_NAME],
-				s:" - \cg",
+				s:"\n\n",
 				i:hp,
-				s:"hp";
-				HUDMSG_PLAIN, HID_MONSTERINFO, CR_GOLD, 640.0/2, (480.0/2)+10.0, 0
+				s:" hp";
+				HUDMSG_PLAIN, HID_MONSTERINFO, CR_RED, 640.0/2 + 0.4, (480.0/2)+100.0, 0
 			);
 			
 			prev_type = type;
