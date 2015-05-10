@@ -256,7 +256,10 @@ script mop_marinewin (int secret)
 		terminate;
 	won = true;
 	
-	print(s:"\cd", n:1 + PlayerNumber(), s:" has reached the exit.");
+	if (LivingMonsterCount() == 0)
+		print(s:"\cdAll monsters are dead.");
+	else
+		print(n:1 + PlayerNumber(), s:" \cdhas reached the exit.");
 
 	SetHudSize(320, 240, 0);
 	SetFont("BIGFONT");
