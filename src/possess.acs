@@ -39,6 +39,15 @@ script mop_possess (void)
 		terminate;
 	}
 	
+	// Is it implemented yet?
+	if (MonsterTypes[type][MONSTER_FLAGS] & MONSTF_NOPOSSESS)
+	{
+		SetActivator(1000 + player);
+		print(s:"\cgThis monster is not playable yet.");
+		Thing_ChangeTid(utid, 0);
+		terminate;
+	}
+	
 	// Save monster items.
 	for (int i = 0; i < NUM_MONSTER_ITEMS; i++)
 		MonsterItemsTemp[i] = CheckActorInventory(utid, MonsterItems[i]);
