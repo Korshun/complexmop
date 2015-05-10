@@ -13,8 +13,8 @@ script mop_log_join(int player, int team) clientside
 {
 	switch(team)
 	{
-	case PLAYER_MARINE: Log(n:player, s:" becomes a Doom Guy."); break;
-	case PLAYER_MOP: Log(n:player, s:" becomes a Puppet Master."); break;
+	case PLAYER_MARINE: Log(n:player+1, s:" becomes a Doom Guy."); break;
+	case PLAYER_MOP: Log(n:player+1, s:" becomes a Puppet Master."); break;
 	}
 }
 
@@ -257,9 +257,9 @@ script mop_marinewin (int secret)
 	won = true;
 	
 	if (LivingMonsterCount() == 0)
-		print(s:"\cdAll monsters are dead.");
+		printbold(s:"\cdAll monsters are dead.");
 	else
-		print(n:1 + PlayerNumber(), s:" \cdhas reached the exit.");
+		printbold(n:1 + PlayerNumber(), s:" \cdhas reached the exit.");
 
 	SetHudSize(320, 240, 0);
 	SetFont("BIGFONT");
@@ -336,9 +336,9 @@ script mop_log_kill(int killer, int victim, int type) clientside
 {
 	switch(type)
 	{
-	case 0: Log(n:killer, s:"\cg -> \c-", n:victim); break;
-	case 1: Log(n:killer, s:"\cd -> \c-", n:victim); break;
-	case 2: Log(n:killer, s:"\ct TEAMKILLED! \c-", n:victim); break;
+	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
+	case 1: Log(n:killer+1, s:"\cd -> \c-", n:victim+1); break;
+	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
 	}
 }
 
@@ -364,6 +364,6 @@ script mop_death_log DEATH
 	
 	if (PlayerClasses[kplayer] == PLAYER_MOP)
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 0);
-	else
+	else if (PlayerClasses[kplayer] == PLAYER_MARINE)
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
 }
