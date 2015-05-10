@@ -76,7 +76,6 @@ actor mastergun : Weapon
   {
   Ready:
     TNT1 A 1 A_WeaponReady
-	TNT1 A 0 ACS_ExecuteAlways(mop_monster_getinfo)
     Loop
   Deselect:
     TNT1 A 1 A_Lower

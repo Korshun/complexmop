@@ -25,6 +25,7 @@ script mop_enter ENTER
 	if (PlayerClass(PlayerNumber()) == 1)
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+		ACS_ExecuteAlways(mop_monsterinfo, 0);
 	}
 	else
 	{
@@ -46,6 +47,7 @@ script mop_respawn RESPAWN
 
 script mop_disconnect (int player) DISCONNECT
 {
+	PlayerClasses[PlayerNumber()] = 0;
 	UpdatePlayerCount();
 }
 
