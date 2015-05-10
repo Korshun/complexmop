@@ -1,0 +1,10 @@
+Complex Doom is made by Daedalus.
+Master of Puppets is made by Silva.
+
+Complex MOP is an addon for Complex Doom that brings Master of Puppets game mode to Complex Doom.
+
+Only the code necessary to make possessed monsters behave like Complex Doom ones was taken from Complex Doom.
+
+ACS scripts are original and are not taken from Master of Puppets, except some hud messages and victory songs.
+
+Complex MOP is made by Korshun, Monsterovich and DJ Skaarj.
