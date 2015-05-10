@@ -1,24 +1,24 @@
-Actor MonsterBulletPuff : ModdedBulletPuff
+Actor MonsterBulletPuff : ModdedBulletPuff replaces ModdedBulletPuff
 {
 	DamageType "Monster"
 }
 
-ACTOR PlayerModdedBulletPuff : ModdedBulletPuff replaces ModdedBulletPuff
+ACTOR PlayerModdedBulletPuff : ModdedBulletPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerFistPuff : ModdedBulletPuff replaces FistPuff
+ACTOR PlayerFistPuff : ModdedBulletPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerFootPuff : FootPuff replaces FootPuff
+ACTOR PlayerFootPuff : FootPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerSawScreech : SawScreech replaces SawScreech
+ACTOR PlayerSawScreech : SawScreech
 {
 	DamageType "Player"
 }
