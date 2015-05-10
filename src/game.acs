@@ -279,28 +279,3 @@ Script mop_demonwin (void)
 	terminate;
 	// End of MOP-X code.
 }
-
-script mop_death_log DEATH
-{
-	str victim = StrParam(n:0);
-	int vplayer = PlayerNumber();
-	SetActivatorToTarget(0);
-	
-	int kplayer = PlayerNumber();
-	// we don't care about monsters
-	if (kplayer == -1)
-		terminate;
-	
-	str killer = StrParam(n:0);
-	
-	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
-	{
-		Log(s:killer, s:"\ct TEAMKILLED! \c-", s:victim);
-		terminate;
-	}
-	
-	if (PlayerClasses[kplayer] == PLAYER_MOP)
-		Log(s:killer, s:"\cg -> \c-", s:victim);
-	else
-		Log(s:killer, s:"\cd -> \c-", s:victim);
-}
