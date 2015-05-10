@@ -313,6 +313,10 @@ script mop_death_log DEATH
 	// we don't care about monsters
 	if (kplayer == -1)
 		terminate;
+		
+	// we don't care about idiots
+	if (kplayer == vplayer)
+		terminate;
 	
 	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
 	{
