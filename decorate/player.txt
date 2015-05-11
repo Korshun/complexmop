@@ -22,4 +22,8 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 	Player.StartItem "CellCharge" 50
 	Player.StartItem "MP40Mag" 33
 	Player.StartItem "StartingArmor"
+	
+	Player.StartItem "IsMarine"
 }
+
+Actor IsMarine : Inventory { Inventory.MaxAmount 1 }

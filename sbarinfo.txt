@@ -18,7 +18,7 @@ MugShot "XDeath"
 
 StatusBar FullScreen, FullScreenOffsets
 {
-	InInventory not IsPuppetmaster
+	InInventory IsMarine
 	{
 
 	// THIS LINE CAUSES A CRASH IN MorphActor IN MULTIPLAYER IF USED ON PUPPETMASTERS
