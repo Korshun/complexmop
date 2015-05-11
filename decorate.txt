@@ -3408,6 +3408,7 @@ Actor PossessedFusionite : PossessedArachnotron
 	Missile:
 		FSPI G 4 Bright
 		FSPI H 4 Bright
+		FSPI H 1 Bright
 		Goto See
 	}
 }
@@ -3416,10 +3417,10 @@ Actor FusioniteWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
 		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
-		Goto Missile+1
+		Goto Ready
 	}
 }
 
