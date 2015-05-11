@@ -85,16 +85,15 @@ script mop_possess (void)
 	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED] - 2146435072;
 	if (evadespeed != 0)
 		ACS_ExecuteAlways(mop_evade, 0, evadespeed);
-
-	// Fix firing instantly after possessing.
+	
+	// Lock weapons to prevent firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
-	Delay(7);
-	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
-
+	
 	// Wait until the monster dies or puppetmaster leaves.
 	// And record the hp difference in case the monster died.
 	int hp1 = GetActorProperty(0, APROP_HEALTH);
 	int hp2 = GetActorProperty(0, APROP_HEALTH);
+	int weapontimeout = 7;
 	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_CROUCH | BT_SPEED)))
 	{	
 		if (CheckInventory("PossessedSuicide") == 1)
@@ -102,6 +101,12 @@ script mop_possess (void)
 			SetActorState(0, "Suicide");
 			GiveInventory("PossessedSuicide", 1);
 		}
+		
+		// Unlock weapons after some time to prevent
+		// firing instantly after possessing.
+		weapontimeout--;
+		if (weapontimeout == 0)
+			SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	
 		Delay(1);
 		
@@ -109,7 +114,8 @@ script mop_possess (void)
 		hp2 = GetActorProperty(0, APROP_HEALTH);
 	}
 	
-	Log(s:MonsterTypes[type][MONSTER_NAME], s:" ", d:hp1, s:" ", d:hp2);
+	// Unlock puppetmaster if he died before being unlocked.
+	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	
 	// Record last death's point to respawn there.
 	LastDeathPosition[PlayerNumber()][0] = GetActorX(0);
