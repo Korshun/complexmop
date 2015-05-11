@@ -10,9 +10,10 @@
 #define MONSTF_FLYING 1
 #define MONSTF_NOPOSSESS 2
 
-#define NUM_MONSTER_TYPES 62
+#define NUM_MONSTER_TYPES 63
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
+	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
 	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombiewoman", "ZMAYA1" },
 	{ "RailGunner",				0.06, 0, 0, 0, "Railgunner", "RPOSA1" },
 	{ "DemonTechZombie",		0.06, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },

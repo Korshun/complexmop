@@ -6778,3 +6778,42 @@ Actor CardinalWeapon : PossessedWeapon
 		Goto Ready
 	}
 }
+
+
+Actor PossessedModdedExplosiveBarrel : PossessedMonster
+{
+	Player.MorphWeapon "ModdedExplosiveBarrelWeapon"
+	Speed 0.2
+
+	Game Doom
+	//SpawnID 125
+	Health 20
+	Radius 10
+	Height 42
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	+OLDRADIUSDMG
+	DeathSound "world/barrelx"
+	Obituary "$OB_BARREL"
+	
+	States
+	{
+	Spawn:
+		BAR1 AB 6
+		Loop
+	}
+}
+
+Actor ModdedExplosiveBarrelWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 2 Thing_Damage(0, 1000)
+		Stop
+	}
+}
