@@ -42,7 +42,7 @@ script mop_possess (void)
 	// Is it implemented yet?
 	if (MonsterTypes[type][MONSTER_FLAGS] & MONSTF_NOPOSSESS)
 	{
-		SetActivator(1000 + player);
+		SetActivator(player);
 		print(s:"\cgThis monster is not playable yet.");
 		Thing_ChangeTid(utid, 0);
 		terminate;
