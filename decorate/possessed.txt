@@ -7,6 +7,24 @@ Actor PossessedMonster : PlayerPawn
 	
 	DamageFactor "Monster", 0
 	DamageFactor "Slime", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieRocket", 0
+	DamageFactor "DTFiendEx", 0
+	DamageFactor "SoulToxic", 0
+	DamageFactor "FiendFire", 0
+	DamageFactor "BombBreath", 0
+	DamageFactor "FatFlamer", 0
+	DamageFactor "Baby15K", 0
+	DamageFactor "CadaverRocket", 0
+	DamageFactor "AfritComet", 0
+	DamageFactor "BeheComet", 0
+	DamageFactor "HelementalComet", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "DarkDemoEx", 0
+	DamageFactor "CerEnergyBall", 0
+	DamageFactor "Cyber10K", 0
+	
 	
 	States
 	{

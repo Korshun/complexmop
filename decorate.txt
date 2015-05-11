@@ -4,6 +4,7 @@
 #include "decorate/puffs.txt"
 #include "decorate/player.txt"
 #include "decorate/weapons.txt"
+#include "decorate/projectiles.txt"
 
 // Player speed multiplier is 0,04375.
 

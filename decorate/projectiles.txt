@@ -1,0 +1,4 @@
+Actor ZombiePlasmaBallMOP : ZombiePlasmaBall replaces ZombiePlasmaBall
+{
+	DamageType "Monster"
+}
