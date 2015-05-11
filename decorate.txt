@@ -258,7 +258,7 @@ Actor RocketZombieWeapon : PossessedWeapon
 		Loop
 	Fire:
 		TNT1 A 0 Radius_Quake(4,3,0,1,0)
-		MISF A 2 Bright A_FireCustomMissile("NewRocket")
+		MISF A 2 Bright A_FireCustomMissile("NewZombieRocket")
 		MISF B 2
 		MISF C 1 Bright A_Light2
 		MISF D 1 Bright
@@ -271,6 +271,11 @@ Actor RocketZombieWeapon : PossessedWeapon
 		MISG A 6
 		Goto Ready
 	}
+}
+
+Actor NewZombieRocket : NewRocket
+{
+	DamageType "Monster"
 }
 
 Actor PossessedShotgunZombie : PossessedMonster
