@@ -44,7 +44,7 @@ script mop_evade (int speed)
 		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
 			restart;
 			
-		timeout = 10;
+		timeout = 5;
 		while (!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT))
 		{
 			if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
@@ -87,7 +87,7 @@ script mop_evade (int speed)
 		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
 			restart;
 			
-		timeout = 10;
+		timeout = 5;
 		while (!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT))
 		{
 			if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
