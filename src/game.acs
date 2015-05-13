@@ -82,6 +82,7 @@ script mop_enter ENTER
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
+	ACS_ExecuteAlways(mop_ally_hud, 0);
 	
 	MakePuppetMasterFlying();
 	UpdatePlayerCount();
@@ -421,23 +422,22 @@ script mop_death_log DEATH
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
 }
 
-script mop_ally_hud ENTER
+script mop_ally_hud (void)
 {
-	while(true)
+	while (GetActorProperty(0, APROP_HEALTH) > 0)
 	{
-		int selfnum = PlayerNumber();
-		int selftid = ActivatorTid();
+		int player = PlayerNumber();
 		
 		SetActivatorToTarget(0);
-		int targetnum = PlayerNumber();
+		int ally = PlayerNumber();
+		SetActivator(1000 + player);
 		
-		if(targetnum != -1 && PlayerClasses[targetnum] == PlayerClasses[selfnum])
+		if (ally != player && ally != -1 && PlayerClasses[ally] == PlayerClasses[player])
 		{
-			int hp = GetActorProperty(0, APROP_HEALTH);
-			SetActivator(selftid);
+			int hp = GetActorProperty(1000 + ally, APROP_HEALTH);
 			print(d:hp);
 		}
-		else SetActivator(selftid);
-		delay(1);
+		
+		Delay(1);
 	}
 }
