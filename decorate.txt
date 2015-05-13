@@ -1,148 +1,6819 @@
-#include "decorate/base/scripts.txt"
-#include "decorate/base/puppetmaster.txt"
-#include "decorate/base/possessed.txt"
+#include "decorate/scripts.txt"
+#include "decorate/puppetmaster.txt"
+#include "decorate/possessed.txt"
+#include "decorate/puffs.txt"
+#include "decorate/player.txt"
+#include "decorate/weapons.txt"
+#include "decorate/projectiles.txt"
 
-#include "decorate/PlasmaGunner.txt"
-#include "decorate/RailGunner.txt"
-#include "decorate/DemonTechZombie.txt"
-#include "decorate/RocketZombie.txt"
-#include "decorate/ShotgunZombie.txt"
-#include "decorate/AssaultShotgunZombie.txt"
-#include "decorate/SuperShotgunZombie.txt"
-#include "decorate/QuadShotgunZombie.txt"
-#include "decorate/AssaultRifleZombie.txt"
-#include "decorate/Chaingunner.txt"
-// Add chaingunners here.
-#include "decorate/DevilImp.txt"
-#include "decorate/VoidImp.txt"
-#include "decorate/SoulHarvester.txt"
-#include "decorate/PhaseImp.txt"
+// Player speed multiplier is 0,04375.
 
-Actor ZombieMan1 : ZombieMan {}
-
-ACTOR PossessedZombieMan1 : PlayerPawn
+Actor PossessedPlasmaGunner : PossessedMonster
 {
-  Health 20
-  Speed 0.4
+	Player.MorphWeapon "PlasmaGunnerWeapon"
+	Health 20
+	Radius 20
+	Height 56
+	Speed 0.35 // FIXME: how to convert speeds?
+	Mass 100
+	PainChance 160
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "fem/sight"
+	PainSound "fem/pain"
+	DeathSound "fem/death"
+	ActiveSound "fem/active"
+	Obituary "%o was humiliated by a Plasma zombiewoman."
+	States
+	{
+	Spawn:
+		ZMAY A 10
+		ZMAI A 10
+		Loop
+	See:
+		ZMAY AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ZMAY CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		ZMAY F 2 Bright
+		ZMAY E 3
+		ZMAY F 2 Bright
+		ZMAY E 3
+		ZMAY F 2 Bright
+		ZMAY E 3
+		ZMAY E 20
+		ZMAY E 10
+		Goto See
+	}
+}
+
+Actor PlasmaGunnerWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		PKPL A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_GunFlash
+		PLSF B 2 A_FireCustomMissile("ZombiePlasmaBall")
+		PKPL A 3 Bright
+		PLSF B 2 A_FireCustomMissile("ZombiePlasmaBall")
+		PKPL A 3 Bright
+		PLSF B 2 A_FireCustomMissile("ZombiePlasmaBall")
+		PKPL A 3 Bright
+		PKPL DEF 1
+		PKPL G 7
+		PKPL FED 2
+		PKPL CBA 1
+		Goto Ready
+	Flash:
+		TNT1 A 2 Bright A_Light1
+		PLSF A 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		Stop
+	}
+}
+
+Actor PossessedRailGunner : PossessedMonster
+{
+	Player.MorphWeapon "RailGunnerWeapon"
+	Health 30
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 140
+	DropItem "HealthFlask" 55
+	DropItem "ArmorCharge" 55
+	DropItem "AmmoPack" 40
+	DropItem "HandGrenadeAmmo" 100 1
+	DropItem "MineAmmo" 50 1
+	DropItem "NewCell" 100 20
+	+FLOORCLIP
+	+MISSILEMORE
+	Obituary "%o caught a Railgunner's slug."
+	SeeSound "grunt/sight"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	States
+	{
+	Spawn:
+		RPOS A 10
+		RPOI A 10
+		Loop
+	See:
+		RPOS AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		RPOS CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		RPOS F 5 Bright
+		RPOS E 40
+		RPOS E 10
+		Goto See
+	}
+}
+
+Actor RailGunnerWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		RAIR A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 A_FireCustomMissile("RailgunImpactRed")
+		RAIF A 2 Bright A_RailAttack(Random(15,25), 0, 1, "Red", None, RGF_SILENT, 1)
+		RAIF B 3 Bright A_Light2
+		TNT1 A 0 A_Light0
+		RAER ABCD 2
+		RAER EFG 1
+		RAIR A 29
+		Goto Ready
+	}
+}
+
+Actor PossessedDemonTechZombie : PossessedMonster
+{
+	Player.MorphWeapon "DemonTechZombieWeapon"
+	Health 60
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 120
+	PainChance "ZombieDemonTech", 0
+	DropItem "StimKit" 80
+	DropItem "ArmorBooster" 80
+	DropItem "AmmoPack" 65
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	DropItem "DemonAmmo" 162 80
+	DamageFactor "ZombieDemonTech", 0.15
+	+FLOORCLIP
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	SeeSound "grunt/sight"
+	AttackSound "Null"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o was seared by a Demon Tech zombie."
+	States
+	{
+	Spawn:
+		ZSP3 A 10
+		ZSII A 10
+		Loop
+	See:
+		ZSP3 AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ZSP3 CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		ZSP3 F 3 Bright
+		ZSP3 E 10
+		Goto See
+	}
+}
+
+Actor DemonTechZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		DTEK A 30 A_WeaponReady
+		DTEK BCDE 4 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 A_PlaySoundEx("weapons/demontechfire","Weapon")
+		DTKF A 2 Bright A_FireCustomMissile("ZDemonTechProjectile")
+		DTKF B 1 Bright A_Light2
+		DTKF C 2 A_Light0
+		Goto Ready
+	}
+}
+
+Actor PossessedRocketZombie : PossessedMonster
+{
+	Player.MorphWeapon "RocketZombieWeapon"
+	Health 80
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 100
+	PainChance "ZombieRocket", 0
+	DropItem "PortableMedkit" 120
+	DropItem "ArmorPlate" 120
+	DropItem "AmmoPack" 80
+	DropItem "Missile" 256 5
+	DropItem "HandGrenadeAmmo" 200 1
+	DropItem "MineAmmo" 100 1
+	DamageFactor "ZombieRocket", 0.2
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "grunt/sight"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o ate a Zombie's rocket."
+	States
+	{
+	Spawn:
+		MPO2 A 10
+		MPOI A 10
+		Loop
+	See:
+		MPO2 AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		MPO2 CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		MPO2 F 6 Bright
+		MPO2 E 20 A_PlaySound("rocket/drumspin")
+		MPO2 E 10
+		Goto See
+	}
+}
+
+Actor RocketZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		MISG A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 Radius_Quake(4,3,0,1,0)
+		MISF A 2 Bright A_FireCustomMissile("NewZombieRocket")
+		MISF B 2
+		MISF C 1 Bright A_Light2
+		MISF D 1 Bright
+		TNT1 A 0 A_PlaySound("rocket/drumspin")
+		MISF E 2 A_Light0
+		MISF FGHI 1
+		MISF J 3
+		MISF K 3
+		MISG A 4
+		MISG A 6
+		Goto Ready
+	}
+}
+
+Actor NewZombieRocket : NewRocket
+{
+	DamageType "Monster"
+}
+
+Actor PossessedShotgunZombie : PossessedMonster
+{
+	Player.MorphWeapon "ShotgunZombieWeapon"
+	Health 30
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 160
+	DropItem "HealthFlask" 35
+	DropItem "ArmorCharge" 35
+	DropItem "AmmoPack" 20
+	DropItem "HandGrenadeAmmo" 50 1
+	DropItem "MineAmmo" 25 1
+	DropItem "Combat Shotgun" 256 1
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "grunt/sight"
+	AttackSound "weapons/12gaugefire"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o was chopped down by a Shotgunner."
+	States
+	{
+	Spawn:
+		ZSP1 A 10
+		ZSPI A 10
+		Loop
+	See:
+		ZSP1 AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ZSP1 CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		TNT1 AAAA 0 Bright
+		ZSP1 F 5 Bright
+		ZSP1 E 10
+		ZSP1 E 8
+		ZSP1 E 8
+		ZSP1 E 10
+		Goto See
+	}
+}
+
+Actor ShotgunZombieWeapon : PossessedWeapon
+{
+	AttackSound "weapons/12gaugefire"
+	States
+	{
+	Ready:
+		SHTG A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 Radius_Quake(3,3,0,1,0)
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 AAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		SHTF A 3 Bright A_FireBullets(22.5,0,5,4)
+		SHTF B 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		SHTF CDEF 1
+		SHTG BCDEFG 1
+		SHTG G 2 A_PlaySound("weapons/12gsgcock")
+		SHTG HI 2
+		SHTG J 1 A_SpawnItemEx("ShellCasing",30,-2,25,Random(2,4),Random(3,6),Random(3,6),0)
+		SHTG IHGF 1
+		SHTG EDCB 1
+		Goto Ready
+	}
+}
+
+Actor PossessedAssaultShotgunZombie : PossessedMonster
+{
+	Player.MorphWeapon "AssaultShotgunZombieWeapon"
+	Health 40
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 140
+	DropItem "NewShell" 255 4
+	DropItem "HealthFlask" 55
+	DropItem "ArmorCharge" 55
+	DropItem "AmmoPack" 40
+	DropItem "HandGrenadeAmmo" 100 1
+	DropItem "MineAmmo" 50 1
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "grunt/sight"
+	AttackSound "AShotgun/Fire"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o got some extra holes from an Assault Shotgunner."
+	States
+	{
+	Spawn:
+		ASGZ A 10
+		ASGI A 10
+		Loop
+	See:
+		ASGZ AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ASGZ CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		ASGZ F 4 Bright
+		ASGZ E 8
+		ASGZ E 10
+		Goto See
+	}
+}
+
+Actor AssaultShotgunZombieWeapon : PossessedWeapon
+{
+	AttackSound "AShotgun/Fire"
+	States
+	{
+	Ready:
+		SMAG A 1 A_WeaponReady
+		Goto Ready
+	Fire:
+		TNT1 A 0 Radius_Quake(3,3,0,1,0)
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 A_SpawnItemEx("ShellCasing",30,5,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 AAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		SMAF A 2 Bright A_FireBullets(22.5,0,5,4)
+		SMAF B 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		SMAG BCDE 1
+		SMAG FA 2
+		Goto Ready
+	}
+}
+
+Actor PossessedSuperShotgunZombie : PossessedMonster
+{
+	Player.MorphWeapon "SuperShotgunZombieWeapon"
+	Health 60
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 120
+	DropItem "NewShell" 256 8
+	DropItem "StimKit" 80
+	DropItem "ArmorBooster" 80
+	DropItem "AmmoPack" 65
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "grunt/sight"
+	AttackSound ""
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o chewed on a Super Shotgun zombie's buckshot."
+	States
+	{
+	Spawn:
+		UDM2 A 10
+		UDMI A 10
+		Loop
+	See:
+		UDM2 AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		UDM2 CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		UDM2 F 4 Bright
+		UDM2 E 14
+		Goto See
+	}
+}
+
+Actor SuperShotgunZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken", 2, "Ready2")
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken", 1, "Ready1")
+		Goto Ready0
+	Ready2:
+		SHTE A 1 A_WeaponReady
+		Loop
+	Ready1:
+		SST2 A 1 A_WeaponReady
+		Loop
+	Ready0:
+		SHT2 A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken",1,"AltFire")
+	FireBoth:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 A_PlaySound("weapons/sshotf")
+		TNT1 A 0 Radius_Quake(6,3,0,1,0)
+		TNT1 A 0 A_GiveInventory("SSGZombieToken",2)
+		TNT1 AAAAAAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		SH2F A 2 Bright A_FireBullets(13.8, 9.6, 12, 5)
+		SH2F B 2 Bright A_Light2
+		SH2E A 1 A_Light0
+		SHT2 B 1
+		SHT2 CDEF 1
+		SHT2 EDCB 2
+		Goto ReloadBothInstant
+	AltFire:
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken",2,"Reload")
+		TNT1 A 0 A_PlaySound("weapons/ssgsingleshot")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 Radius_Quake(3,3,0,1,0)
+		TNT1 AAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken",1,"FireLeft")
+	FireRight:
+		TNT1 A 0 A_GiveInventory("SSGZombieToken",1)
+		S2SF A 2 Bright A_FireBullets(22.5,0,5,4)
+		S2SF B 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		SH2R ABCD 1
+		SST2 A 4
+		Goto Ready
+	FireLeft:
+		TNT1 A 0 A_GiveInventory("SSGZombieToken",1)
+		S2SF C 2 Bright A_FireBullets(22.5,0,5,4)
+		S2SF D 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		SH2R EFGH 1
+		SHTE A 4
+		Goto Reload
+	Reload:
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken",2,"ReloadBoth")
+		TNT1 A 0 A_JumpIfInventory("SSGZombieToken",1,"ReloadLeft")
+		Goto Ready
+	ReloadBoth:
+		SHT2 RQ 2
+	ReloadBothInstant:
+		SH2E B 2
+		SHT2 GH 2
+		SH2E F 1 A_PlayWeaponSound("weapons/sawedopen")
+		SHT2 I 1
+		SH2E G 1
+		TNT1 AA 0 A_SpawnItemEx("SSGShellCasing",25,-2,25,Random(2,4),Random(-3,-6),Random(3,6),0)
+		SH2E D 4
+		SHT2 J 2
+		SH2E EH 2
+		SHT2 K 3
+		SHT2 L 3 A_PlayWeaponSound("weapons/shellslide")
+		TNT1 A 0
+		SHT2 M 2
+		SHT2 N 2
+		SHT2 OP 1
+		SH2E I 1 A_PlayWeaponSound("weapons/sawedclose")
+		SH2E C 1
+		SH2E B 2
+		SHT2 QR 2
+		TNT1 A 0 A_TakeInventory("SSGZombieToken", 2)
+		Goto Ready
+	ReloadRight:
+		SHT2 RQ 2
+		SH2E B 2
+		SH2E C 1
+		SH2E I 1 A_PlayWeaponSound("weapons/sawedopen")
+		SHT2 PO 1
+		S2SR AB 1
+		TNT1 A 0 A_SpawnItemEx("SSGShellCasing",25,-2,25,Random(2,4),Random(-3,-6),Random(3,6),0)
+		S2SR C 4
+		S2SR DEFG 2
+		SHT2 L 2 A_PlayWeaponSound("weapons/shellslide")
+		TNT1 A 0
+		SHT2 M 2
+		SHT2 N 2
+		SHT2 OP 1
+		SH2E I 1 A_PlayWeaponSound("weapons/sawedclose")
+		SH2E C 1
+		SH2E B 2
+		SHT2 QR 2
+		TNT1 A 0 A_TakeInventory("SSGZombieToken", 1)
+		Goto Ready
+	}
+}
+
+Actor PossessedQuadShotgunZombie : PossessedMonster
+{
+	Player.MorphWeapon "QuadShotgunZombieWeapon"
+	Health 80
+	Radius 20
+	Height 56
+	Speed 0.4
+	Mass 100
+	PainChance 100
+	DropItem "PortableMedkit" 120
+	DropItem "ArmorPlate" 120
+	DropItem "AmmoPack" 80
+	DropItem "HandGrenadeAmmo" 200 1
+	DropItem "MineAmmo" 100 1
+	DropItem "NewShell" 256 8
+	+FLOORCLIP
+	+MISSILEMORE
+	SeeSound "superzombie/sight"
+	PainSound "superzombie/pain"
+	DeathSound "superzombie/death"
+	ActiveSound "superzombie/active"
+	AttackSound ""
+	Obituary "%o was destroyed by a Quad Shotgunner."
+	States
+	{
+	Spawn:
+		QSZM A 10
+		QSZI A 10
+		Loop
+	See:
+		QSZM AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		QSZM CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		QSZM F 5 Bright
+		QSZM E 12
+		Goto See
+	}
+}
+
+Actor QuadShotgunZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		QSGN A 1 A_WeaponReady
+		Goto Ready
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("QSGZombieToken", 2, "Reload")
+		TNT1 A 0 A_JumpIfInventory("QSGZombieToken", 1, "AltFire")
+	QuadFire:
+		TNT1 A 0 A_PlaySound("weapons/qsgfire")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 Radius_Quake(10,5,0,1,0)
+		TNT1 A 0 A_GiveInventory("QSGZombieToken", 2)
+		TNT1 AAAAAAAAAAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		QS4F A 2 Bright A_FireBullets(15.4,10.6,26,5)
+		QS4F B 3 Bright A_Light2
+		TNT1 A 0 A_Light0
+		QSGN CFG 1
+		QSGN H 2
+		QSER A 3
+		QSER B 6
+		QSGN GFEDC 2
+		Goto ReloadFourShellsInstant
+	AltFire:
+		TNT1 A 0 A_PlaySound("weapons/qsgdoublefire")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_Light1
+		TNT1 A 0 Radius_Quake(3,3,0,1,0)
+		TNT1 A 0 A_JumpIfInventory("QSGZombieToken",2,"Reload")
+		TNT1 A 0 A_JumpIfInventory("QSGZombieToken",1,"FireLower")
+	FireUpper:
+		TNT1 A 0 A_GiveInventory("QSGZombieToken", 1)
+		TNT1 AAAAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		QSGF A 2 Bright A_FireBullets(13.8,9.6,12,5)
+		QSGF B 3 Bright A_Light2
+		TNT1 A 0 A_Light0
+		QREC ABCDE 1
+		QSGN A 1
+		Goto Ready
+	FireLower:
+		TNT1 A 0 A_GiveInventory("QSGZombieToken", 1)
+		TNT1 AAAAAA 0 A_FireCustomMissile("MonsterTracer2",Random(6,-6),0,0,Random(6,-6))
+		QSGF C 2 Bright A_FireBullets(13.8,9.6,12,5)
+		QSGF D 2 Bright A_Light2
+		TNT1 A 0 A_Light0
+		QREC ABCDE 1
+		QSGN A 1
+		Goto Reload
+	Reload:
+		TNT1 A 0 A_JumpIfInventory("QSGZombieToken",2,"ReloadFourShells")
+	ReloadTwoShells:
+		QSGN SRQ 2
+		QSGN P 1
+		QSEX A 1
+		QSEX B 1
+		TNT1 AA 0 A_SpawnItemEx("SSGShellCasing",25,-2,25,Random(2,4),Random(-3,-6),Random(3,6),0)
+		QSEX C 1
+		QSGR I 12 A_PlayWeaponSound("weapons/qsgopen")
+		QSGR JK 1
+		QSGR LM 2
+		TNT1 A 0
+		TNT1 A 0
+		QSGR N 3 A_PlayWeaponSound("weapons/qsgshellslide")
+		QSGR O 3
+		QSGR P 2
+		QSGR Q 1
+		QSGN MNO 1
+		QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
+		QSGN QRS 2
+		QSGN A 2
+		TNT1 A 0 A_TakeInventory("QSGZombieToken", 1)
+		Goto Ready
+	ReloadFourShells:
+		QSGN S 2
+	ReloadFourShellsInstant:
+		QSGN RQ 2
+		QSGN PJ 1
+		QSGN K 1
+		TNT1 AAAA 0 A_SpawnItemEx("SSGShellCasing",25,-2,25,Random(2,4),Random(-3,-6),Random(3,6),0)
+		QSGN L 1
+		QSGR A 12 A_PlayWeaponSound("weapons/qsgopen")
+		QSGR B 1
+		QSGR CD 2
+		TNT1 A 0
+		TNT1 A 0
+		QSGR E 3 A_PlayWeaponSound("weapons/qsgshellslide")
+		QSGR F 3
+		QSGR G 2
+		QSGR H 1
+		QSGR I 8
+		QSGR JK 1
+		QSGR LM 2
+		TNT1 A 0
+		TNT1 A 0
+		QSGR N 3 A_PlayWeaponSound("weapons/qsgshellslide")
+		QSGR O 3
+		QSGR P 2
+		QSGR Q 1
+		QSGN MNO 1
+		QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
+		QSGN QRS 2
+		QSGN A 2
+		TNT1 A 0 A_TakeInventory("QSGZombieToken", 2)
+		Goto Ready
+	}
+}
+
+Actor PossessedAssaultRifleZombie : PossessedMonster
+{
+	Player.MorphWeapon "AssaultRifleZombieWeapon"
+	Health 60
+	Radius 20
+	Height 56
+	Speed 0.35
+	Mass 100
+	PainChance 160
+	DropItem "HealthFlask" 35
+	DropItem "ArmorCharge" 35
+	DropItem "AmmoPack" 20
+	DropItem "HandGrenadeAmmo" 50 1
+	DropItem "MineAmmo" 25 1
+	DropItem "Assault Rifle" 256 1
+	+FLOORCLIP
+	+MISSILEMORE
+	AttackSound "weapons/assaultrifle"
+	SeeSound "grunt/sight"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o was gunned down by a Zombieman."
+	States
+	{
+	Spawn:
+		ARZM A 10
+		ARII A 10
+		Loop
+	See:
+		ARZM AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		ARZM CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		ARZM F 2 Bright
+		ARZM E 2
+		TNT1 A 0 A_JumpIfInventory("PossessedARBurstFire", 1, 2)
+		ARZM E 10
+		Goto See
+		ARZM F 2 Bright
+		ARZM E 2
+		ARZM F 2 Bright
+		ARZM E 2
+		ARZM E 10
+		Goto See
+	}
+}
+
+Actor PossessedARBurstFire : Inventory { Inventory.MaxAmount 1 }
+
+Actor AssaultRifleZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		CHGG A 1 A_WeaponReady
+		Goto Ready
+	Flash:
+		TNT1 A 0
+		Goto LightDone
+	Fire:
+		TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+		TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light1
+		CHGF A 2 Bright A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 A_Light0
+		CHGF B 1
+		CHGF C 2
+		Goto Ready
+	Altfire:
+		TNT1 A 0 A_GiveInventory("PossessedARBurstFire", 1)
+		TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+		TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light1
+		CHGF A 2 Bright A_FireBullets(15.4,0,-1,5)
+		TNT1 A 0 A_Light0
+		CHGF BC 1
+		TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+		TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light1
+		CHGF A 2 Bright A_FireBullets(15.4,0,-1,5)
+		TNT1 A 0 A_Light0
+		CHGF BC 1
+		TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+		TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light1
+		CHGF A 2 Bright A_FireBullets(15.4,0,-1,5)
+		TNT1 A 0 A_Light0
+		CHGF BC 1
+		TNT1 A 0 A_TakeInventory("PossessedARBurstFire", 1)
+		CHGG A 10
+		Goto Ready
+	}
+}
+
+
+Actor PossessedChaingunner : PossessedMonster
+{
+	Player.MorphWeapon "ChaingunnerWeapon"
+	Obituary "%o was ripped to ribbons by a Chaingunner."
+	Health 70
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 0.35
+	PainChance 140
+	DropItem "HealthFlask" 55
+	DropItem "ArmorCharge" 55
+	DropItem "AmmoPack" 40
+	DropItem "HandGrenadeAmmo" 100 1
+	DropItem "MineAmmo" 50 1
+	SeeSound "chainguy/sight"
+	AttackSound "doublecger/fire"
+	PainSound "chainguy/pain"
+	DeathSound "chainguy/death"
+	ActiveSound "chainguy/active"
+	DropItem "BulletMag" 256 10
+	+FLOORCLIP
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		DPOS A 10
+		DPOI A 10
+		Loop
+	See:
+		DPOS AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		DPOS CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		DPOS E 3 Bright
+		DPOS F 3 Bright
+		DPOS E 3 Bright
+		Goto See
+	}
+}
+
+Actor ChaingunnerWeapon : PossessedWeapon
+{
+	AttackSound "doublecger/fire"
+	
+	States
+	{
+	Fire:
+		TNT1 A 0 Bright A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright A_SpawnItemEx("RifleCasing", 12, -6, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 3 Bright A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 Bright A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright A_SpawnItemEx("RifleCasing", 12, -6, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 3 Bright A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedChaingunGuy : PossessedMonster
+{
+  Health 70
   Radius 20
   Height 56
   Mass 100
-  PainChance 200
-  Player.MorphWeapon ZombieRifle
-  Player.DisplayName "ZombieMan"
-  Player.WeaponSlot 1, ZombieRifle
-  Player.MaxHealth 20
-  Player.ViewHeight 41
-  Player.SoundClass Brainless
-  Player.JumpZ 10
-
-  DamageFactor "MarineDamage", 0.6
-  DamageFactor "BFGSplash", 0.6
-  DamageFactor "MarineRLDamage", 0.6
-  DamageFactor "CybRLDamage", 0.2
-  DamageFactor "ImpBallDamage", 0
-  DamageFactor "CacoDamage", 0
-  DamageFactor "SkelDamage", 0
-  DamageFactor "FatsoDamage", 0
-  DamageFactor "KnightDamage", 0
-  DamageFactor "ArachDamage", 0
-  DamageFactor "viledamage", 0
-  DamageFactor "Control", 0
-  DamageFactor "ZombiesDamage", 0
-  DamageFactor "Slime", 0
-  
-  +NOSKIN
-  +NOPAIN
-  -PICKUP
-  -FRIENDLY
-  +NOTARGET
-  states
-  {
-  Spawn:
-    POSS AB 10 
-    Loop
-  See:
-    POSS A 0 
-    POSS A 0 A_Jump (240,2)
-    POSS A 0 A_PlaySoundEx ("grunt/active","body")
-    POSS ABCD 4 
-    Loop
-  Missile:
-    POSS E 3
-    POSS F 6 bright
-    POSS E 6 
-    Goto spawn
-  Death:
-    POSS H 5 A_SpawnItemEx ("Clip",0,0,random(29,38),0,0,0,0,32,0)
-    POSS I 5 A_PlaySoundEx ("grunt/death","Body")
-    POSS J 5 A_NoBlocking
-    POSS K 5 A_GiveToTarget ("MarineExp",2)
-    POSS A 0 A_SpawnItemEx ("MDeathGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
-  DeathWait:
-    POSS L 1 A_CheckSight("Removecorpse")
-    loop
-  XDeath:
-    POSS M 0 A_SpawnItemEx ("Clip",0,0,random(29,38),0,0,0,0,32,0)
-    POSS M 4 A_GiveToTarget ("MarineExp",2)
-    POSS N 4 A_XScream
-    POSS O 4 A_NoBlocking
-    POSS P 0 A_SpawnItemEx ("MDeathGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
-    POSS PQRST 4
-  XDeathWait:	
-    POSS U 2 A_CheckSight("Removecorpse")
-    loop
-  Removecorpse:
-    TNT1 A 0 Thing_Remove (0)
-    stop
-  }
+  Speed 8
+  PainChance 170
+  +FLOORCLIP
+  SeeSound "chainguy/sight"
+  PainSound "chainguy/pain"
+  DeathSound "chainguy/death"
+  ActiveSound "chainguy/active"
+  AttackSound "chainguy/attack"
+  Obituary "$OB_CHAINGUY"
+  Dropitem "Chaingun"
 }
 
-// Weapon 
+Actor PossessedMinigunner : PossessedChaingunGuy
+{
+	Player.MorphWeapon "MinigunnerWeapon"
+	Radius 20
+
+	Health 90
+	PainChance 120
+	Speed 0.35
+	Mass 100
+	DropItem "StimKit" 80
+	DropItem "ArmorBooster" 80
+	DropItem "AmmoPack" 65
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	DropItem "BulletMag" 256 10
+	SeeSound "superzombie/sight"
+	PainSound "superzombie/pain"
+	DeathSound "superzombie/death"
+	ActiveSound "superzombie/active"
+	AttackSound "weapons/minigunfire"
+	Obituary "%o was torn to shreds by a Minigunner."
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		CPS2 A 10
+		CPSI A 10
+		Loop
+	See:
+		CPS2 AABB 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		CPS2 CCDD 3
+		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		CPS2 E 10
+	Melee:
+		CPS2 E 2 Bright
+		CPS2 F 3 Bright
+		Goto See
+	}
+}
+
+Actor MinigunnerWeapon : PossessedWeapon
+{
+	AttackSound "weapons/minigunfire"
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("weapons/mgunspinstart")
+		TNT1 A 10
+	Hold:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySoundEx("weapons/mgunspin","Voice")
+		TNT1 A 0 A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 2 A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 A_PlaySoundEx("weapons/mgunspin","Voice")
+		TNT1 A 0 A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 3 A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 A_StopSoundEx("Voice")
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
 
 
-ACTOR ZombieRifle : Weapon 
-{ 
-  weapon.kickback 100
-  attacksound "weapons/pistol"
-  obituary "%o was killed by %k."
-  +NOEXTREMEDEATH
-  +WEAPON.NOALERT
-  +WEAPON.AMMO_OPTIONAL
-  +WEAPON.CHEATNOTWEAPON
-  +INVENTORY.UNDROPPABLE
+Actor PossessedBFGZombieman : PossessedMonster
+{
+	Player.MorphWeapon "BFGZombiemanWeapon"
 
-  states
-  {
-  Ready:
-    TNT1 A 7 A_WeaponReady
-    TNT1 A 0 A_JumpIfInventory ("Mskull",0,3)
-    TNT1 A 7 A_WeaponReady
-    TNT1 A 0 A_JumpIfInventory ("Mskull",3,1)
-    Loop
-    TNT1 A 0 HealThing(1)
-    goto ready 
-  Select:
-	TNT1 A 1 A_Raise 
-    loop
-  DeSelect:
-    TNT1 A 1 A_Lower
-    Loop
-  Fire:
-    TNT1 A 3 A_GunFlash
-    TNT1 B 3 bright A_FireBullets (0.5,0.5,1,8,"FBulletPuff",1)
-	TNT1 A 0 A_FireCustomMissile ("tracer",random(2,2),0,2,3,0,0)
-    TNT1 C 3 bright
-    TNT1 A 0 A_Refire
-    TNT1 A 5
-    Goto Ready
-  Flash:
-    TNT1 A 3 A_Light0
-    TNT1 A 3 A_Light1
-    TNT1 A 3 A_Light2
-    TNT1 A 0 A_Light0
-    Stop
-  AltFire:
-    TNT1 A 5 ACS_ExecuteAlways (419,0,1)
-	goto ready
-  }
+	Obituary "A BFG9500 Commando disintegrated %o."
+	Health 110
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 0.35
+	PainChance 100
+	DropItem "PortableMedkit" 120
+	DropItem "ArmorPlate" 120
+	DropItem "AmmoPack" 80
+	DropItem "HandGrenadeAmmo" 200 1
+	DropItem "MineAmmo" 100 1
+	DropItem "NewCellPack" 256 100
+	SeeSound "superzombie/sight"
+	PainSound "superzombie/pain"
+	DeathSound "superzombie/death"
+	ActiveSound "superzombie/active"
+	MissileType SpiderBFG9500Ball
+	+FLOORCLIP
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		BFGZ A 10
+		BFGI A 10
+		Loop
+	See:
+		BFGZ AABB 3
+		BFGZ B 0 A_SpawnItem("FootStep",0,0,0,0)
+		BFGZ CCDD 3
+		BFGZ D 0 A_SpawnItem("FootStep",0,0,0,0)
+		Loop
+	Missile:
+		BFGZ E 15
+		BFGZ F 10 Bright
+		BFGZ F 10 Bright
+		BFGZ E 40
+		BFGZ E 10
+		Goto See
+	}
+}
+
+Actor BFGZombiemanWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 15
+		TNT1 A 10
+		TNT1 A 10 A_FireCustomMissile("SpiderBFG9500Ball")
+		TNT1 A 40
+		Goto Ready
+	}
+}
+
+Actor PossessedDevilImp : PossessedMonster
+{
+	Player.MorphWeapon "DevilImpWeapon"
+	Health 60
+	Radius 20
+	Height 56
+	Speed 0.35
+	MeleeDamage 3
+	PainChance 140
+	DamageFactor "ImpComet", 0.0
+	SeeSound "imp/sight"
+	PainSound "imps/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	MeleeSound "imps/melee"
+	Obituary "%o got burned by a Devil Imp."
+	HitObituary "%o was shredded by a Devil Imp."
+	+FLOORCLIP
+	+MISSILEMORE
+	Species "Imps"
+	States
+	{
+	Spawn:
+		SIMP A 10
+		SIMI A 10
+		Loop
+	See:
+		SIMP AABB 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		SIMP CCDD 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		Loop
+	Missile:
+		SIMP F 5
+		SIMP G 4
+		SIMP FE 5
+		Goto See
+	Melee:
+		SIMP EF 8
+		SIMP G 4 Bright
+		SIMP FEF 6
+		SIMP G 4 Bright
+		SIMP FE 4
+		Goto See
+	}
+}
+
+Actor DevilImpWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
+	Fire:
+		SCLW A 8 Bright A_GunFlash
+		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
+		DCLW AA 6
+		SCLW A 6
+		SCLW B 4 Bright A_FireCustomMissile("NewImpBall", 0, 0, 0)
+		DCLW AA 4
+		Goto Ready
+	AltFire:
+		DCLW AB 5
+		DCLW C 4 A_CustomPunch(3)
+		DCLW BA 5
+		Goto Ready
+	}
+}
+
+Actor PossessedVoidImp : PossessedDevilImp
+{
+	Player.MorphWeapon "VoidImpWeapon"
+	Health 70
+	PainChance 120
+	Obituary "%o was cursed by a Void Imp."
+	HitObituary "%o was torn up by a Void Imp."
+	BloodColor "Green"
+	SeeSound "superimp/sight"
+	PainSound "voidimp/pain"
+	DeathSound "superimp/death"
+	ActiveSound "superimp/active"
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+	States
+	{
+	Spawn:
+		DRKS A 10
+		DRKI A 10
+		Loop
+	See:
+		DRKS AABB 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		DRKS CCDD 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		Loop
+	Missile:
+		DRKS EF 8
+		DRKS G 1 Bright
+		DRKS G 1 Bright
+		DRKS G 4 Bright
+		DRKS FE 6
+		DRKS E 10
+		Goto See
+	}
+}
+
+Actor VoidImpWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
+	Fire:
+		DCLW A 8
+		VCLW A 8 Bright
+		VCLW B 1 Bright
+		TNT1 A 0 Bright A_PlaySound("imp/attack")
+		DCLW A 1 Bright A_FireCustomMissile("NightBall")
+		TNT1 A 0 Bright A_FireCustomMissile("NightBall", 5)
+		DCLW A 4 Bright A_FireCustomMissile("NightBall", -5)
+		DCLW AA 6
+		Goto Ready
+	}
+}
+
+Actor PossessedSoulHarvester : PossessedDevilImp
+{
+	Player.MorphWeapon "SoulHarvesterWeapon"
+	Health 80
+	Speed 0.38
+	PainChance 100
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	SeeSound "harvester/sight"
+	DeathSound "harvester/death"
+	PainSound "voidimp/pain"
+	Obituary "%o couldn't evade a Soul Harvester's seeker."
+	HitObituary "%o was scratched by a Soul Harvester."
+	States
+	{
+	Spawn:
+		SLHV A 10
+		SLHI A 10
+		Loop
+	See:
+		SLHV AABB 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		SLHV CCDD 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		Loop
+	Missile:
+		SLHV EF 6
+		SLHV G 5 Bright
+		SLHV FE 4
+		SLHV E 10
+		Goto See
+	}
+}
+
+Actor SoulHarvesterWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
+	Fire:
+		DCLW A 6
+		KCLW A 6 Bright
+		KCLW B 5 Bright A_FireCustomMissile("SoulHarvesterBall")
+		DCLW AA 4
+		Goto Ready
+	}
+}
+
+Actor PossessedPhaseImp : PossessedDevilImp
+{
+	Player.MorphWeapon "PhaseImpWeapon"
+	RenderStyle Translucent
+	Health 100
+	Speed 0.4
+	PainChance 80
+	+QUICKTORETALIATE
+	BloodColor "cf 00 b0"
+	DropItem "LifeEssence" 125
+	DropItem "ArmorBonusMax" 125
+	DropItem "DemonAmmo" 128 60
+	SeeSound "phaseimp/sight"
+	PainSound "phaseimp/pain"
+	DeathSound "phaseimp/death"
+	ActiveSound "phaseimp/active"
+	Obituary "%o was pierced by a Phase Imp."
+	HitObituary "%o was lacerated by a Phase Imp."
+	States
+	{
+	Spawn:
+		DIMP A 10
+		DIMI A 10
+		Loop
+	See:
+		DIMP AABB 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		DIMP CCDD 3
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		Loop
+	Missile:
+		DIMP EF 6
+		TNT1 A 0 Bright
+		DIMP G 5 Bright
+		DIMP FE 4
+		DIMP E 10
+		Goto See
+	}
+}
+
+Actor PhaseImpWeapon : PossessedWeapon
+{
+	States
+	{
+	Ready:
+		DCLW A 1 A_WeaponReady
+		Loop
+	Fire:
+		DCLW A 6
+		PCLW A 6 Bright
+		DCLW A 0 Bright A_PlaySound("imp/attack")
+		PCLW B 5 Bright A_FireCustomMissile("PhaseImpBall")
+		DCLW AA 4
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_phaseimp, 0)
+		Goto Ready
+	}
+}
+
+Actor PhaseImp_Phased : Inventory { Inventory.MaxAmount 1 }
+
+Actor PhaseImp_Phase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(0)
+		Stop
+	}
+}
+
+Actor PhaseImp_Unphase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1)
+		Stop
+	}
+}
+
+
+Actor PossessedBullFiend : PossessedMonster
+{
+	Player.MorphWeapon "BullFiendWeapon"
+
+	Health 150
+	Speed 0.4375 //10
+	Height 48
+	Radius 24
+	Mass 600
+	PainChance 120
+	MeleeDamage 4
+	Species "Fiends"
+	DamageFactor "FiendFire", 0.0
+	DamageFactor "DTFiendEx", 0.0
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+FLOORCLIP
+	+DONTHURTSPECIES
+	+FASTMELEE
+	+FASTER
+	MaxTargetRange 200
+	SeeSound "demon/sight"
+	PainSound "demons/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	AttackSound "demon/melee"
+	Obituary "%o was gored by a Bull Fiend."
+	HitObituary "%o was mangled by a Bull Fiend."
+	States
+	{
+	Spawn:
+		SAR2 A 12
+		SAI2 A 12
+		Loop
+	See:
+		SAR2 AABB 2
+		TNT1 A 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		SAR2 CCDD 2
+		TNT1 A 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		Loop
+	Melee:
+		SAR2 EF 5
+		SAR2 G 4
+		SAR2 E 5
+		Goto See
+	Missile:
+		SAR2 F 2 
+		SAR2 F 3
+		SAR2 G 6
+		SAR2 G 2 A_ScaleVelocity(0.2)
+		SAR2 G 1 A_ScaleVelocity(0)
+		Goto See
+	}
+}
+
+Actor BullFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("demon/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCyberFiend : PossessedBullFiend
+{
+	Player.MorphWeapon "CyberFiendWeapon"
+
+	Health 200
+	Speed 0.525 //12
+	Scale 1.05
+	PainChance 100
+	DropItem "LifeEssence" 85
+	DropItem "ArmorBonusMax" 85
+	MaxTargetRange 250
+	SeeSound "blooddemon/sight"
+	PainSound "blooddemon/pain"
+	DeathSound "blooddemon/death"
+	ActiveSound "blooddemon/active"
+	AttackSound "cyberfiend/melee"
+	Obituary "%o was gored by a Cyber Fiend."
+	HitObituary "%o was mauled by a Cyber Fiend."
+	States
+	{
+	Spawn:
+		CYFN A 12
+		CYFI A 12
+		Loop
+	See:
+		TNT1 A 0 A_PlaySound("blooddemon/walk")
+		CYFN AABB 2
+		TNT1 A 0 A_PlaySound("blooddemon/walk")
+		CYFN CCDD 2
+		Loop
+	Melee:
+		CYFN EF 5
+		CYFN G 4
+		CYFN E 5	
+		Goto See
+	Missile:
+		CYFN F 2
+		CYFN F 3
+		CYFN G 6
+		CYFN G 2
+		CYFN G 1
+		Goto See
+	}
+}
+
+Actor CyberFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("cyberfiend/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedMagmaFiend : PossessedBullFiend
+{
+	Player.MorphWeapon "MagmaFiendWeapon"
+	Player.StartItem "Attack1"
+
+	Health 250
+	PainChance 80
+	Scale 1.1
+	MaxTargetRange 750
+	BloodColor "ff 50 00"
+	SeeSound "magma/sight"
+	PainSound "monster/psopain"
+	DeathSound "magma/death"
+	ActiveSound "magma/active"
+	AttackSound "magma/attack"
+	DropItem "LifeEssence" 105
+	DropItem "ArmorBonusMax" 105
+	Obituary "%o was massacred by a Magma Fiend."
+	HitObituary "%o was gnawed on by a Magma Fiend."
+	States
+	{
+	Spawn:
+		SAR3 A 12 Bright
+		SAI3 A 12 Bright
+		Loop
+	See:
+		SAR3 AABB 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		SAR3 CCDD 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		Loop
+	Missile:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Fireball")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Lunge")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FlameBreath")
+		Goto See
+	Fireball:
+		SAR3 E 7 Bright
+		SAR3 F 5 Bright
+		SAR3 E 4 Bright
+		Goto See
+	Lunge:
+		SAR3 F 2 Bright
+		SAR3 F 3 Bright
+		SAR3 G 6 Bright
+		SAR3 G 2 Bright
+		SAR3 G 1 Bright
+		Goto See
+	FlameBreath:
+		SAR3 F 5 Bright
+		TNT1 A 0
+		TNT1 A 0
+		SAR3 FFF 2 Bright
+		TNT1 A 0
+		SAR3 FFF 2 Bright
+		TNT1 A 0
+		SAR3 FFF 2 Bright
+		TNT1 A 0
+		SAR3 FFF 2 Bright
+		SAR3 E 5 Bright
+		Goto See
+	}
+}
+
+Actor MagmaFiendWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Fireball")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Lunge")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FireBreath")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_magmafiend, 0)
+		Goto Ready
+	Fireball:
+		TNT1 A 7
+		TNT1 A 5 A_FireCustomMissile("MagmaBall")
+		TNT1 A 4
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Lunge:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("magma/attack")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	FireBreath:
+		TNT1 A 5
+		TNT1 A 0 A_PlaySound("magma/firebreath")
+		TNT1 AAA 2 A_FireCustomMissile("MagmaBreath", Random(6,-6))
+		TNT1 AAA 2 A_FireCustomMissile("MagmaBreath", Random(6,-6))
+		TNT1 AAA 2 A_FireCustomMissile("MagmaBreath", Random(6,-6))
+		TNT1 AAA 2 A_FireCustomMissile("MagmaBreath", Random(6,-6))
+		TNT1 A 15 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDTechFiend : PossessedBullFiend
+{
+	Player.MorphWeapon "DTechFiendWeapon"
+
+	Health 300
+	Speed 0.525 //12
+	PainChance 60
+	Damage 5
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	-FASTMELEE
+	Scale 1.15
+	BloodColor "Green"
+	SeeSound "blooddemon/sight"
+	PainSound "blooddemon/pain"
+	DeathSound "blooddemon/death"
+	ActiveSound "blooddemon/active"
+	AttackSound "cyberfiend/melee"
+	DropItem "LifeEssence" 125
+	DropItem "ArmorBonusMax" 125
+	DropItem "DemonAmmo" 128 120
+	Obituary "%o was mown down by a DTech Fiend."
+	HitObituary "%o was bulldozed by a DTech Fiend."
+	States
+	{
+	Spawn:
+		DPNK A 12
+		DPII A 12
+		Loop
+	See:
+		TNT1 A 0 A_PlaySound("blooddemon/walk")
+		DPNK AABB 2
+		TNT1 A 0 A_PlaySound("blooddemon/walk")
+		DPNK CCDD 2
+		Loop
+	Missile:
+		DPNK E 4
+		DPNK F 3 Bright
+		DPNK E 4
+		Goto See
+	}
+}
+
+Actor DTechFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 4
+		TNT1 A 0 A_FireCustomMissile("DTFDemonTechProjectile", Random(150,-150)/100.0)
+		TNT1 A 3 A_PlaySoundEx("weapons/demontechfire","Weapon")
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpectre~ : PossessedBullFiend
+{
+	Player.MorphWeapon "SpectreWeapon"
+
+	Renderstyle Translucent
+	Alpha 0.35
+	Obituary "%o never saw the Spectre and was gored."
+	HitObituary "%o was chewed up by a Spectre."
+	BloodColor "12 12 12"
+	States
+	{
+	Spawn:
+		SAR6 A 12
+		SAI6 A 12
+		Loop
+	See:
+		SAR6 AABB 2
+		SAR6 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		SAR6 CCDD 2
+		SAR6 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		Loop
+	Melee:
+		SAR6 EF 5
+		SAR6 G 4
+		SAR6 E 5	
+		Goto See
+	Missile:
+		SAR6 F 2
+		SAR6 F 3
+		SAR6 G 6
+		SAR6 G 2 
+		Goto See
+	}
+}
+
+Actor SpectreWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("demon/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedLurker : PossessedBullFiend
+{
+	Player.MorphWeapon "LurkerWeapon"
+
+	Health 150
+	Speed 0.48125 //11
+	PainChance 120
+	Renderstyle Translucent
+	Alpha 0.25
+	Scale 1.05
+	MaxTargetRange 250
+	DropItem "LifeEssence" 85
+	DropItem "ArmorBonusMax" 85
+	Obituary "%o failed to spot the Lurker and was gored."
+	HitObituary "%o was devoured by a Lurker."
+	States
+	{
+	Spawn:
+		SAR7 A 12
+		SAI7 A 12
+		Loop
+	See:
+		SAR7 AABB 2
+		SAR7 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		SAR7 CCDD 2
+		SAR7 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		Loop
+	Melee:
+		SAR7 EF 5
+		SAR7 G 4
+		SAR7 E 5
+		Goto See
+	Missile:
+		SAR7 F 2
+		SAR7 F 3
+		SAR7 G 6
+		SAR7 G 2
+		SAR7 G 1
+		Goto See
+	}
+}
+
+Actor LurkerWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("demon/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpook : PossessedBullFiend
+{
+	Player.MorphWeapon "SpookWeapon"
+
+	Renderstyle Translucent
+	Alpha 0.15
+	Health 250
+	Speed 0.525 //12
+	Scale 1.1
+	MaxTargetRange 350
+	DropItem "LifeEssence" 105
+	DropItem "ArmorBonusMax" 105
+	SeeSound "magma/sight"
+	PainSound "monster/psopain"
+	DeathSound "magma/death"
+	ActiveSound "magma/active"
+	AttackSound "magma/attack"
+	Obituary "%o could not see the Spook and was gored."
+	HitObituary "%o was crunched by a Spook."
+	States
+	{
+	Spawn:
+		SAR4 A 12
+		SAI4 A 12
+		Loop
+	See:
+		SAR4 AABB 2
+		SAR4 B 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		SAR4 CCDD 2
+		SAR4 D 0 A_SpawnItem("HeavyFleshStep",0,0,0,0)
+		Loop
+	Melee:
+		SAR4 EF 5
+		SAR4 G 4
+		SAR4 E 5	
+		Goto See
+	Missile:
+		SAR4 F 2
+		SAR4 F 3
+		SAR4 G 6
+		SAR4 G 2
+		SAR4 G 1
+		Goto See
+	}
+}
+
+Actor SpookWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(4)
+		TNT1 A 5
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_PlaySound("demon/melee")
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 2 A_Recoil(-24)
+		TNT1 A 3 A_FireCustomMissile("PinkyLunge")
+		TNT1 A 6
+		TNT1 A 2 A_ScaleVelocity(0.2)
+		TNT1 A 1 A_ScaleVelocity(0)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedTerrorSoul : PossessedMonster
+{
+	Player.MorphWeapon "TerrorSoulWeapon"
+
+	Health 70
+	Radius 14
+	Height 48
+	Mass 50
+	Speed 0.21875 //5
+	FloatSpeed 0.21875 //5
+	Damage 3
+	Species "EleSouls"
+	Species "Souls"
+	PainChance 140
+	DropItem "LifeEssence" 50
+	DropItem "ArmorBonusMax" 50
+	DamageFactor "SoulToxic", 0.0
+	DamageFactor "BombBreath", 0.0
+	Scale 0.6
+	+FLOAT
+	+NOGRAVITY
+	+MISSILEMORE
+	+DONTFALL
+	+NOBLOOD
+	+NOBLOODDECALS
+	AttackSound "skull/melee"
+	PainSound "monsters/terrorsoulpain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	Obituary "%o underestimated a Terror Soul."
+	States
+	{
+	Spawn:
+	See:
+		TERR A 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
+		Loop
+	Missile:
+		TERR BBBA 2 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor TerrorSoulWeapon : PossessedWeapon
+{
+	AttackSound "skull/melee"
+
+	States
+	{
+	Fire:
+		TNT1 A 2 A_FireCustomMissile("SoulBall")
+		TNT1 A 16
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-5)
+		Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(3)
+		TNT1 A 16
+		Goto Ready
+	}
+}
+
+
+Actor PossessedForgottenOne : PossessedTerrorSoul
+{
+	Player.MorphWeapon "ForgottenOneWeapon"
+
+	Obituary "%o was rammed by a Forgotten One."
+	Health 80
+	PainChance 120
+	Scale 0.5
+	DamageFactor "SoulToxic", 0.0
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+	SeeSound "forgotten/sight"
+	PainSound "forgotten/pain"
+	DeathSound "forgotten/death"
+	ActiveSound "forgotten/active"
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO B 2 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO B 2 Bright
+		Loop
+	Missile:
+		FRGO CCDD 2 Bright A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor ForgottenOneWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-8)
+		Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(3)
+		TNT1 A 16
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPoisonSoul : PossessedTerrorSoul
+{
+	Player.MorphWeapon "PoisonSoulWeapon"
+
+	Health 90
+	PainChance 100
+	Speed 0.21875 //5
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	DamageFactor "SoulToxic", 0.0
+	+DONTHURTSPECIES
+	AttackSound "monster/psoattack"
+	PainSound "monster/psopain"
+	DeathSound "monster/psodeath"
+	ActiveSound "skull/active"
+	Obituary "%o took a sniff of a Poison Soul's toxic fumes."
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT B 2 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT B 2 Bright
+		Loop
+	Missile:
+		PHNT DD 2 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT CC 2 Bright A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor PoisonSoulWeapon : PossessedWeapon
+{
+	AttackSound "monster/psoattack"
+	
+	States
+	{
+	Fire:
+		TNT1 A 0 A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-9)
+		TNT1 A 0 A_JumpIfCloser(80, "Melee")
+		TNT1 A 2 A_Recoil(-9)
+		Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(3)
+		TNT1 A 16
+		Goto Ready
+	}
+}
+
+
+Actor PossessedRictus : PossessedTerrorSoul
+{
+	Player.MorphWeapon "RictusWeapon"
+
+	Health 100
+	Speed 0.2625 //6
+	PainChance 100
+	DropItem "LifeEssence" 125
+	DropItem "ArmorBonusMax" 125
+	DamageFactor "SoulToxic", 0.0
+	SeeSound "rictus/sight"
+	AttackSound "rictus/attack"
+	PainSound "rictus/pain"
+	DeathSound "rictus/die"
+	ActiveSound "rictus/active"
+	Obituary "%o was wasted by a Rictus."
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
+		RICT A 2 Bright
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
+		RICT A 2 Bright
+		Loop
+	Missile:
+		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
+		RICT B 2 Bright 
+		RICT BA 2 Bright A_SpawnItem("RictFireSpawner",0,0,0,0)
+		Goto See
+	Suicide:
+		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
+		RICT B 3 Bright A_Pain
+		RICT B 1 Bright
+		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
+		TNT1 A 0
+		RICT B 1 Bright Thing_Damage(0, 1000, 0)
+		Goto Death
+	}
+}
+
+Actor RictusWeapon : PossessedWeapon
+{
+	AttackSound "rictus/attack"
+
+	States
+	{
+	Fire:
+		TNT1 A 2 A_FireCustomMissile("RictusBall")
+		TNT1 A 16
+		Goto Ready
+	AltFire:
+		TNT1 A 4 A_GiveInventory("PossessedSuicide", 1)
+		TNT1 A 0 A_FireCustomMissile("RictusSuicide", 0, 0, 0, -16)
+		TNT1 A 20
+		Stop
+	}
+}
+
+
+Actor PossessedAbaddon : PossessedMonster
+{
+	Player.MorphWeapon "AbaddonWeapon"
+
+	Health 400
+	Speed 0.35 //8
+	FloatSpeed 0.21875 //5
+	Radius 30
+	Height 56
+	PainChance 120
+	Mass 500
+	MeleeDamage 6
+	DamageFactor "HelementalComet", 0.0
+	BloodColor "Red"
+	SeeSound "caco/sight"
+	PainSound "monsters/abaddonpain"
+	ActiveSound "caco/active"
+	MeleeSound "caco/melee"
+	DeathSound "cacos/death"
+	Obituary "%o was smitten by an Abaddon."
+	HitObituary "%o was eaten by an Abaddon."
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+NOGRAVITY
+	+FLOAT
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		CALI A 1
+		Loop
+	See:
+		CALI A 3
+		Loop
+	Melee:
+		CALI BC 6
+		CALI D 2 Bright
+		CALI D 1 Bright
+		TNT1 A 0 Bright
+		CALI D 1 Bright
+		CALI CB 4
+		Goto See
+	Missile:
+		CALI BC 5
+		CALI D 5
+		CALI CB 5
+		CALI B 5
+		Goto See
+	}
+}
+
+Actor AbaddonWeapon : PossessedWeapon
+{
+	MeleeSound "caco/melee"
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 6
+		TNT1 A 2
+		TNT1 A 1 A_FireCustomMissile("ABBall", 0)
+		TNT1 A 0 A_FireCustomMissile("ABBall", -6)
+		TNT1 A 1 A_FireCustomMissile("ABBall", 6)
+		TNT1 AA 4
+		Goto Ready
+	AltFire:
+		TNT1 AA 5
+		TNT1 A 5 A_CustomPunch(6)
+		TNT1 AA 5
+		Goto Ready
+	}
+}
+
+
+Actor PossessedWatcher : PossessedAbaddon
+{
+	Player.MorphWeapon "WatcherWeapon"
+
+	Health 600
+	PainChance 100
+	DamageFactor "HelementalComet", 0.0
+	BloodColor "Green"
+	SeeSound "monsters/watchersight"
+	PainSound "monsters/watcherpain"
+	DeathSound "monsters/watcherdeath"
+	ActiveSound "caco/active"
+	MeleeSound "caco/melee"
+	Obituary "%o was eradicated by a Watcher."
+	HitObituary "%o was munched on by a Watcher."
+	DropItem "LifeEssence" 90
+	DropItem "ArmorBonusMax" 90
+	States
+	{
+	Spawn:
+		HED4 A 1
+		Loop
+	See:
+		HED4 A 3
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump(128,"Seeking")
+	Normal:
+		HED4 BC 6
+		HED4 D 2 Bright
+		HED4 D 1 Bright
+		TNT1 A 0
+		HED4 D 1 Bright
+		HED4 CB 4
+		HED4 B 5
+		Goto See
+	Seeking:
+		HED4 BC 6
+		HED4 D 4 Bright
+		HED4 CB 4
+		Goto See
+	}
+}
+
+Actor WatcherWeapon : PossessedWeapon
+{
+	MeleeSound "caco/melee"
+
+	States
+	{
+	Fire:
+		TNT1 AA 6
+		TNT1 A 2
+		TNT1 A 1 A_FireCustomMissile("WatcherBall", 0)
+		TNT1 A 0 A_FireCustomMissile("WatcherBall", 6)
+		TNT1 A 1 A_FireCustomMissile("WatcherBall", -6)
+		TNT1 AA 5
+		Goto Ready
+	AltFire:
+		TNT1 AA 6
+		TNT1 A 4 A_FireCustomMissile("WatcherTracer")
+		TNT1 AA 6
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHelemental : PossessedAbaddon
+{
+	Player.MorphWeapon "HelementalWeapon"
+
+	Obituary "%o was scorched by a Helemental."
+	HitObituary "%o got chomped by a Helemental."
+	Health 800
+	PainChance 80
+	Scale 0.95
+	DamageFactor "HelementalComet", 0.0
+	SeeSound "monster/helsit"
+	PainSound "monster/helpai"
+	DeathSound "monster/heldth"
+	ActiveSound "monster/helact"
+	MeleeSound "caco/melee"
+	DropItem "LifeEssence" 120
+	DropItem "ArmorBonusMax" 120
+	States
+	{
+	Spawn:
+		INFC A 10
+		Loop
+	See:
+		INFC A 3
+		Loop
+	Missile:
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
+	Normal:
+		INFC EF 6
+		INFC G 1 Bright
+		TNT1 A 0 Bright
+		INFC G 1 Bright
+		TNT1 A 0 Bright
+		INFC G 2 Bright
+		INFC FE 4
+		TNT1 A 0
+		Goto See
+	Seeking:
+		INFC EF 6
+		INFC J 0 Bright
+		INFC G 4 Bright
+		INFC FE 4
+		Goto See
+	Comet:
+		INFC EF 6
+		INFC G 5 Bright
+		INFC FE 4
+		Goto See
+	}
+}
+
+Actor HelementalWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_helemental, 0)
+		Goto Ready
+	Normal:
+		TNT1 AA 6
+		TNT1 A 1
+		TNT1 A 0 A_FireCustomMissile("HadesBall", -4)
+		TNT1 A 1 A_FireCustomMissile("HadesBall", 4)
+		TNT1 A 0 A_FireCustomMissile("HadesBall", -8)
+		TNT1 A 2 A_FireCustomMissile("HadesBall", 8)
+		TNT1 AA 4
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Seeking:
+		TNT1 AA 6
+		TNT1 A 0 A_FireCustomMissile("HeleBall", 16)
+		TNT1 A 4 A_FireCustomMissile("HeleBall", -16)
+		TNT1 AA 4
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 AA 6
+		TNT1 A 5 A_FireCustomMissile("HeleComet")
+		TNT1 AA 4
+		TNT1 A 10 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPainElemental : PossessedMonster
+{
+	Game Doom
+	//SpawnID 115
+	Health 400
+	Radius 31
+	Height 56
+	Mass 400
+	Speed 0.35 //8
+	PainChance 128
+	+FLOAT
+	+NOGRAVITY
+	SeeSound "pain/sight"
+	PainSound "pain/pain"
+	DeathSound "pain/death"
+	ActiveSound "pain/active"
+}
+
+Actor PossessedSoulKeeper : PossessedMonster
+{
+	Player.MorphWeapon "SoulKeeperWeapon"
+
+	Health 400
+	Speed 0.35 //8
+	FloatSpeed 0.2625 //6
+	Radius 30
+	Height 56
+	PainChance 120
+	MeleeDamage 6
+	Mass 400
+	Species "EleSouls"
+	DropItem "LifeEssence" 60
+	DropItem "ArmorBonusMax" 60
+	+NOGRAVITY
+	+FLOAT
+	+DROPOFF
+	+DONTFALL
+	+MISSILEMORE
+	+NOBLOOD
+	+NOBLOODDECALS
+	DamageFactor "SoulToxic", 0.0
+	DamageFactor "BombBreath", 0.0
+	SeeSound "Pain/Sight"
+	PainSound "Pain/Pain"
+	DeathSound "Pain/Death"
+	ActiveSound "Pain/Active"
+	MeleeSound "caco/melee"
+	Obituary "%o was mutilated by a Soul Keeper."
+	HitObituary "%o was chewed on by a Soul Keeper."
+	States
+	{
+	Spawn:
+		PLEM A 10
+		Loop
+	See:
+		PLEM AABBCCBB 3
+		Loop
+	Melee:
+		PLEM DE 5
+		PLEM F 4 Bright
+		PLEM ED 3
+		Goto See
+	Missile:
+		PLEM DE 5
+		PLEM F 4
+		PLEM ED 3
+		Goto See
+	}
+}
+
+Actor SoulKeeperWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 5
+		TNT1 A 4 A_FireCustomMissile("SKBall")
+		TNT1 AA 3
+		Goto Ready
+	AltFire:
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(6)
+		TNT1 AA 3
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDefiler : PossessedSoulKeeper
+{
+	Player.MorphWeapon "DefilerWeapon"
+
+	Health 550
+	Scale 1.05
+	PainChance 100
+	SeeSound "Defiler/Sight"
+	DeathSound "Defiler/Death"
+	Obituary "%o was surprised by a Defiler's attack."
+	HitObituary "%o became a tasty snack for a Defiler."
+	DropItem "LifeEssence" 90
+	DropItem "ArmorBonusMax" 90
+	States
+	{
+	Spawn:
+		DEFI A 10
+		Loop
+	See:
+		DEFI AABBCCBB 3
+		Loop
+	Melee:
+		DEFI D 6 Bright
+		DEFI E 4 Bright	
+		DEFI F 0 Bright
+		DEFI F 0 Bright
+		DEFI F 3 Bright
+		DEFI ED 4
+		Goto See
+	Missile:
+		DEFI DE 5
+		DEFI F 4
+		DEFI ED 3
+		Goto See
+	}
+}
+
+Actor DefilerWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 6
+		TNT1 A 4
+		TNT1 A 0 A_PlaySound("Defiler/Attack")
+		TNT1 A 0 A_FireCustomMissile("DefilerBall", -30)
+		TNT1 A 3 A_FireCustommissile("DefilerBall", 30)
+		TNT1 AA 4
+		Goto Ready
+	AltFire:
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(6)
+		TNt1 AA 3
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPoisonElemental : PossessedSoulKeeper
+{
+	Player.MorphWeapon "PoisonElementalWeapon"
+
+	Health 700
+	PainChance 80
+	Scale 1.1
+	SeeSound "monster/pelsit"
+	DeathSound "monster/peldth"
+	PainSound "monster/pelpai"
+	DropItem "LifeEssence" 120
+	DropItem "ArmorBonusMax" 120
+	Obituary "%o was gassed out by a Poison Elemental."
+	HitObituary "%o was ingested by a Poison Elemental."
+	States
+	{
+	Spawn:
+		INFR A 10
+		Loop
+	See:
+		INFR AA 3
+		Loop
+	Missile:
+		INFR BC 4 Bright
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		TNT1 A 0 Bright
+		INFR D 3 Bright 
+		INFR CB 3
+		Goto See
+	Melee:
+		INFR BC 5
+		INFR D 4
+		INFR CB 3
+		Goto See
+	}
+}
+
+Actor PoisonElementalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 AA 4
+		TNT1 A 0 A_PlaySound("monster/psoattack")
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
+		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))
+		TNT1 AA 3
+		Goto Ready
+	Melee:
+		TNT1 AA 5
+		TNT1 A 4 A_CustomPunch(6)
+		TNT1 AA 3
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBombElemental : PossessedSoulKeeper
+{
+	Player.MorphWeapon "BombElementalWeapon"
+
+	Health 850
+	PainChance 60
+	Scale 1.075
+	SeeSound "bomb/sight"
+	DeathSound "Pain/Death"
+	PainSound "bomb/pain"
+	ActiveSound "bomb/lava"
+	DamageType "SoulToxic"
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	Obituary "%o was reduced to ashes by a Bomb Elemental."
+	HitObituary "%o was swallowed by a Bomb Elemental."
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_LoopActiveSound
+		INFP AABBCCDD 3 Bright
+		Loop
+	See:
+		TNT1 A 0 A_LoopActiveSound
+		INFP AABBCCDD 3 Bright
+		Loop
+	Missile:
+		INFP EF 5 Bright
+		INFP G 4 Bright
+		INFP FE 3 Bright
+		Goto See
+	Melee:
+		INFP EF 4 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		TNT1 A 0 Bright
+		INFP G 2 Bright
+		INFP FE 3 Bright
+		Goto See
+	}
+}
+
+Actor BombElementalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 AA 5
+		TNT1 A 4 A_FireCustomMissile("BombBall")
+		TNT1 AA 3
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 AA 4
+		TNT1 A 0 A_PlaySound("magma/firebreath")
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 AA 3
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFatso : PossessedMonster
+{
+	Game Doom
+	//SpawnID 112
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	Speed 0.35 //8
+	PainChance 80
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_FATSO"
+}
+
+Actor PossessedHectebus : PossessedFatso
+{
+	Player.MorphWeapon "HectebusWeapon"
+
+	Health 600
+	Speed 0.2625 //6
+	PainChance 120
+	DropItem "LifeEssence" 80
+	DropItem "ArmorBonusMax" 80
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	BloodColor "30 30 30"
+	Species "Fatsos"
+	+MISSILEMORE
+	ActiveSound "manc/idle"
+	Obituary "%o was cooked by a Hectebus."
+	States
+	{
+	Spawn:
+		TABU C 8
+		TABU C 8
+		TABI C 8
+		TABI C 8
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		TABU AABBCCDD 3
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		TABU EEFF 3
+		Loop
+	Melee:
+		TNT1 A 0 
+		TABU G 15
+		TNT1 A 0
+		TABU H 6 Bright 
+		TABU IG 8
+		TNT1 A 0 
+		TABU H 6 Bright 
+		TABU IG 12
+		TNT1 A 0 
+		TABU H 2 Bright 
+		TNT1 A 0 
+		TABU H 4 Bright 
+		TABU IG 12
+		Goto See
+	Flamethrowers:
+		TNT1 A 0
+		TABU GG 10
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TNT1 A 0
+		TNT1 A 0 
+		TABU H 1 Bright
+		TABU IG 12
+		Goto See
+	}
+}
+
+Actor HectebusWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("fatso/raiseguns")
+		TNT1 A 15
+		TNT1 A 0 A_FireCustomMissile("HectebusBall", 0, 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("HectebusBall", 12, 0, -30)
+		TNT1 AA 8
+		TNT1 A 0 A_FireCustomMissile("HectebusBall", -12, 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("HectebusBall", 0, 0, -30)
+		TNT1 AA 12
+		TNT1 A 0 A_FireCustomMissile("HectebusBall", -6, 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("HectebusBall", 6, 0 -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusBall", -12, 0, 30)
+		TNT1 A 4 Bright A_FireCustomMissile("HectebusBall", 12, 0, -30)
+		TNT1 A 12
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_PlaySound("hectebus/flameready")
+		TNT1 AA 10
+		TNT1 A 0 A_PlaySound("monsters/fatsofire")
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
+		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDaedabus : PossessedFatso
+{
+	Player.MorphWeapon "DaedabusWeapon"
+
+	Health 850
+	PainChance 100
+	Scale 1.05
+	BloodColor "Green"
+	DropItem "LifeEssence" 110
+	DropItem "ArmorBonusMax" 110
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	Species "Fatsos"
+	+MISSILEMORE
+	SeeSound "Daedabus/Sight"
+	PainSound "Daedabus/Pain"
+	DeathSound "Daedabus/Death"
+	ActiveSound "Daedabus/Active"
+	Obituary "%o was overwhelmed by a Daedabus."
+	States
+	{
+	Spawn:
+		HECT C 8
+		HECT C 8
+		HECI C 8
+		HECI C 8
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		HECT AABBCCDD 3
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		HECT EEFF 3
+		Loop
+	Melee:
+		TNT1 A 0
+		HECT G 15
+		TNT1 A 0 Bright 
+		HECT H 2 Bright 
+		TNT1 A 0 Bright 
+		HECT H 4 Bright 
+		HECT IG 10
+		TNT1 A 0 Bright 
+		HECT H 2 Bright 
+		TNT1 A 0 Bright 
+		HECT H 4 Bright 
+		HECT IG 10
+		TNT1 A 0 Bright 
+		HECT H 2 Bright 
+		TNT1 A 0 Bright 
+		HECT H 4 Bright 
+		HECT IG 12
+		Goto See
+	Missile:
+		TNT1 A 0
+		HECT GG 10
+		TNT1 A 0
+		TNT1 A 0
+		HECT HHHHHHH 2 Bright
+		HECT HHHHHHH 2 Bright
+		HECT HHHHHHH 2 Bright
+		HECT IG 12
+		Goto See
+	}
+}
+
+Actor DaedabusWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("Daedabus/Attack")
+		TNT1 A 15
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(0, 6), 0, -26)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusBall", Random(0, -6), 0, 26)
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(-7, -12), 0, 26)
+		TNT1 A 4 Bright A_FireCustomMissile("DaedabusBall", Random(7, 12), 0, -26)
+		TNT1 AA 10
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(0, 6), 0, -26)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusBall", Random(0, -6), 0, 26)
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(-7, -12), 0, 26)
+		TNT1 A 4 Bright A_FireCustomMissile("DaedabusBall", Random(7, 12), 0, -26)
+		TNT1 A 10
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(0, 6), 0, -26)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusBall", Random(0, -6), 0, 26)
+		TNT1 A 0 Bright A_FireCustomMissile("DaedabusBall", Random(-7, -12), 0, 26)
+		TNT1 A 4 Bright A_FireCustomMissile("DaedabusBall", Random(7, 12), 0, -26)
+		TNT1 A 12
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_PlaySound("hectebus/flameready")
+		TNT1 AA 10
+		TNT1 A 0 A_PlaySound("Daedabus/Chem")
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBehemoth : PossessedFatso
+{
+	Player.MorphWeapon "BehemothWeapon"
+
+	Health 1100 PainChance 80
+	Scale 1.1
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	DropItem "LifeEssence" 140
+	DropItem "ArmorBonusMax" 140
+	Species "Fatsos"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	SeeSound "monsters/volsee"
+	PainSound "monsters/volpain"
+	DeathSound "monsters/voldeath"
+	ActiveSound "manc/idle"
+	Obituary "%o was squashed by a Behemoth."
+	States
+	{
+	Spawn:
+		FAT2 C 8
+		FAT2 C 8
+		FATI C 8
+		FATI C 8
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		FAT2 AABBCCDD 3
+		TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
+		FAT2 EEFF 3
+		Loop
+	Melee:
+		TNT1 A 0 
+		FAT2 G 15
+		TNT1 A 0
+		TNT1 A 0 
+		FAT2 H 6 Bright 
+		FAT2 IG 8
+		TNT1 A 0 
+		FAT2 H 6 Bright 
+		FAT2 IG 12
+		TNT1 A 0 
+		FAT2 H 2 Bright 
+		TNT1 A 0 
+		FAT2 H 6 Bright 
+		FAT2 IG 12
+		Goto See
+	Missile:
+		TNT1 A 0
+		FAT2 G 15
+		TNT1 A 0
+		TNT1 A 0
+		FAT2 H 6 Bright
+		FAT2 IG 12
+		Goto See
+	}
+}
+
+Actor BehemothWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("monsters/volattack")
+		TNT1 A 15
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("BehemothComet", Random(6, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BehemothComet", Random(12, -6), 0, -30)
+		TNT1 AA 8
+		TNT1 A 0 A_FireCustomMissile("BehemothComet", Random(6, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BehemothComet", Random(12, -6), 0, -30)
+		TNT1 AA 12
+		TNT1 A 0 A_FireCustomMissile("BehemothComet", Random(0, 6), 0, -30)
+		TNT1 A 2 Bright A_FireCustomMissile("BehemothComet", Random(0, -6), 0, 30)
+		TNT1 A 0 A_FireCustomMissile("BehemothComet", Random(-7, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BehemothComet", Random(7, 12), 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_PlaySound("monsters/volattack")
+		TNT1 A 15
+		TNT1 A 0 A_FireCustomMissile("BehemothSeekingComet", -15, 0, 30)
+		TNT1 A 6 A_FireCustomMissile("BehemothSeekingComet", 15, 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBarbatos : PossessedFatso
+{
+	Player.MorphWeapon "BarbatosWeapon"
+
+	Health 1350 PainChance 60
+	Speed 0.21875 //5
+	Mass 2500 Scale 0.8
+	DamageFactor "BeheComet", 0.0
+	DamageFactor "FatFlamer", 0.0
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	Species "Fatsos"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY
+	-FLOORCLIP
+	SeeSound "monsters/barbsee"
+	PainSound "monsters/barbpain"
+	DeathSound "monsters/barbdeath"
+	ActiveSound "manc/idle"
+	Obituary "%o was overpowered by a Barbatos."
+	BloodColor "Green"
+	States
+	{
+	Spawn:
+		FFAT A 8
+		FFAT A 8
+		FFAI A 8
+		FFAI A 8
+		Loop
+	See:
+		FFAT A 2
+		Loop
+	Melee:
+		TNT1 A 0
+		FFAT G 15
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 6 Bright 
+		FFAT FG 8
+		TNT1 A 0 
+		FFAT H 6 Bright 
+		FFAT FG 12
+		TNT1 A 0 Bright 
+		FFAT H 2 Bright 
+		TNT1 A 0 Bright 
+		FFAT H 6 Bright 
+		FFAT FG 12
+		Goto See
+	Missile:
+		TNT1 A 0 
+		TNT1 A 0 
+		FFAT GG 10
+		TNT1 A 0 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		TNT1 A 0
+		TNT1 A 0 
+		FFAT H 2 Bright 
+		FFAT FG 12
+		Goto See
+	}
+}
+
+Actor BarbatosWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("monsters/barbattack")
+		TNT1 A 15
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("BarbatosComet", Random(6, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BarbatosComet", Random(12, -6), 0, -30)
+		TNT1 AA 8
+		TNT1 A 0 A_FireCustomMissile("BarbatosComet", Random(6, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BarbatosComet", Random(12, -6), 0, -30)
+		TNT1 AA 12
+		TNT1 A 0 Bright A_FireCustomMissile("BarbatosComet", Random(0, 6), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("BarbatosComet", Random(0, -6), 0, -30)
+		TNT1 A 0 Bright A_FireCustomMissile("BarbatosComet", Random(-7, -12), 0, 30)
+		TNT1 A 6 Bright A_FireCustomMissile("BarbatosComet", Random(7, 12), 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_PlaySound("hectebus/flameready")
+		TNT1 AA 10
+		TNT1 A 0 A_PlaySound("Daedabus/Chem")
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
+		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 AA 12
+		Goto Ready
+	}
+}
+
+
+Actor PossessedArachnotron : PossessedMonster
+{
+	Game Doom
+	//SpawnID 6
+	Health 500
+	Radius 64
+	Height 64
+	Mass 600
+	Speed 0.525 //12
+	PainChance 128
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "baby/sight"
+	PainSound "baby/pain"
+	DeathSound "baby/death"
+	ActiveSound "baby/active"
+	Obituary "$OB_BABY"
+}
+
+Actor PossessedDualachnotron : PossessedArachnotron
+{
+	Player.MorphWeapon "DualachnotronWeapon"
+
+	Obituary "%o was vaporized by a Dualachnotron."
+	Health 500
+	PainChance 120
+	Scale 0.75
+	Speed 0.525 //12
+	DropItem "LifeEssence" 110
+	DropItem "ArmorBonusMax" 110
+	SeeSound "monsters/dualachsee"
+	PainSound "monsters/fusionitepain"
+	DeathSound "monsters/dualachdeath"
+	AttackSound ""
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		CSPI B 10
+		Loop
+	See:
+		CSPI A 2 A_PlaySound("monsters/dualachwalk")
+		CSPI AABBB 2
+		CSPI C 2 A_PlaySound("monsters/dualachwalk")
+		CSPI CCDDD 2
+		Loop
+	Missile:
+		TNT1 A 0 
+		TNT1 A 0
+		CSPI E 3 Bright
+		CSPI M 3
+		TNT1 A 0 
+		TNT1 A 0 
+		CSPI E 3 Bright 
+		TNT1 A 0 
+		CSPI M 3
+		TNT1 A 0 
+		TNT1 A 0 
+		CSPI E 3 Bright 
+		CSPI M 3
+		TNT1 A 0 
+		TNT1 A 0 
+		CSPI E 3 Bright 
+		CSPI B 15
+		Goto See
+	}
+}
+
+Actor DualachnotronWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("dualach/plasma")
+		TNT1 A 0 A_FireCustomMissile("DualaPlasma", 0, 0, 30)
+		TNT1 A 3 A_FireCustomMissile("DualaPlasma", 0, 0, -30)
+		TNT1 A 3
+		TNT1 A 0 A_PlaySound("dualach/plasma")
+		TNT1 A 0 A_FireCustomMissile("DualaPlasma", 0, 0, 30)
+		TNT1 A 3 A_FireCustomMissile("DualaPlasma", 0, 0, -30)
+		TNT1 A 3
+		TNT1 A 0 A_PlaySound("dualach/plasma")
+		TNT1 A 0 A_FireCustomMissile("DualaPlasma", 0, 0, 30)
+		TNT1 A 3 A_FireCustomMissile("DualaPlasma", 0, 0, -30)
+		TNT1 A 3
+		TNT1 A 0 A_PlaySound("dualach/plasma")
+		TNT1 A 0 A_FireCustomMissile("DualaPlasma", 0, 0, 30)
+		TNT1 A 3 A_FireCustomMissile("DualaPlasma", 0, 0, -30)
+		TNT1 A 3
+		TNT1 A 15
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFusionite : PossessedArachnotron
+{
+	Player.MorphWeapon "FusioniteWeapon"
+
+	Health 750
+	PainChance 100
+	Speed 0.56875 //13
+	Scale 1.1
+	Obituary "%o was liquefied by a Fusionite."
+	SeeSound "baby/sight"
+	PainSound "monsters/fusionitepain"
+	DeathSound "baby/death"
+	ActiveSound "baby/active"
+	DropItem "LifeEssence" 80
+	DropItem "ArmorBonusMax" 80
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	States
+	{
+	Spawn:
+		FSPI A 10
+		Loop
+	See:
+		FSPI A 2 A_PlaySound("baby/walk")
+		FSPI ABBCC 2
+		FSPI D 2 A_PlaySound("baby/walk")
+		FSPI DEEFF 2
+		Loop
+	Missile:
+		FSPI G 4 Bright
+		FSPI H 4 Bright
+		FSPI H 1 Bright
+		Goto See
+	}
+}
+
+Actor FusioniteWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
+		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBabyDemolisher : PossessedArachnotron
+{
+	Player.MorphWeapon "BabyDemolisherWeapon"
+
+	Health 1000
+	PainChance 80
+	Scale 1.2
+	Speed 0.6125 //14
+	SeeSound "minidemo/sight"
+	ActiveSound "minidemo/active"
+	PainSound "monsters/fusionitepain"
+	DeathSound "minidemo/death"
+	AttackSound ""
+	DropItem "LifeEssence" 140
+	DropItem "ArmorBonusMax" 140
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	Obituary "%o got %p ass beat by a Baby Demolisher."
+	States
+	{
+	Spawn:
+		MSPI A 10
+		Loop
+	See:
+		MSPI A 2 A_PlaySound("baby/walk")
+		MSPI ABBCC 2
+		MSPI D 2 A_PlaySound("baby/walk")
+		MSPI DEEFF 2
+		Loop
+	Missile:
+		MSPI A 15
+		MSPI Q 2 Bright
+		MSPI R 2 Bright
+		Goto See
+	Melee:
+		MSPI G 18 Bright
+		MSPI G 6 Bright
+		MSPI H 4 Bright
+		MSPI G 6 Bright
+		MSPI H 4 Bright
+		MSPI G 6 Bright
+		MSPI H 4 Bright
+		MSPI G 20 Bright
+		Goto See
+	}
+}
+
+Actor BabyDemolisherWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
+		TNT1 A 15
+	Hold:
+		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 A_PlaySoundEx("weapons/minigunfire","Weapon")
+		TNT1 A 0 A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 A_SpawnItemEx("RifleCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 2 A_FireCustomMissile("ProjectileBullet", Random(-1000,1000)/100.00)
+		TNT1 A 0 A_PlaySoundEx("weapons/minigunfire","Weapon")
+		TNT1 A 0 A_SpawnItemEx("RifleCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 2 A_FireCustomMissile("ProjectileBullet", Random(-1000,1000)/100.00)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 18
+		TNT1 A 6
+		TNT1 A 4 A_FireCustomMissile("BabyDemo15K", Random(4,-4))
+		TNT1 A 6
+		TNT1 A 4 A_FireCustomMissile("BabyDemo15K", Random(4,-4))
+		TNT1 A 6
+		TNT1 A 4 A_FireCustomMissile("BabyDemo15K", Random(4,-4))
+		TNT1 A 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBabySentient : PossessedArachnotron
+{
+	Player.MorphWeapon "BabySentientWeapon"
+
+	Health 1250 PainChance 60
+	Scale 1.25
+	Speed 0.6125 //14
+	Mass 2500
+	FloatSpeed 0.35 //8
+	SeeSound "barachnophyte/sight"
+	PainSound "barachnophyte/pain"
+	DeathSound "barachnophyte/death"
+	AttackSound ""
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	DamageFactor "Baby15K", 0.0
+	Species "BabySpiders"
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY
+	-FLOORCLIP
+	Obituary "%o was not intelligent enough to take on a Baby Sentient."
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP B 2 Bright
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP B 2 Bright
+		Loop
+	Missile:
+		MARP A 1
+		TNT1 A 0 A_JumpIfInventory("BabySentientBFG", 1, "BFG10K")
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 1 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP B 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP B 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP B 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 A 0
+	Melee:
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		MARP K 2 Bright
+		MARP K 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 8, -8, 18, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		MARP L 2 Bright
+		MARP L 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		Goto See
+	BFG10K:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		MARP D 2 Bright //A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP D 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0
+		MARP D 2 Bright //A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP D 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0
+		MARP D 2 Bright //A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP D 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP C 2 Bright
+		MARP CCCCCCCCC 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor BabySentientBFG : Inventory { Inventory.MaxAmount 1 }
+
+Actor BabySentientWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
+		TNT1 A 2 Bright
+		TNT1 B 2 Bright
+		TNT1 A 2 Bright
+		TNT1 B 2 Bright
+		TNT1 A 2 Bright
+		TNT1 B 2 Bright
+		TNT1 A 2 Bright
+	Hold:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 A_PlaySound("sentient/fire")
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 K 2 Bright A_FireCustomMissile("BabySentientExplosiveTracer", Random(-1000,1000)/100.00)
+		TNT1 K 2 Bright
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("sentient/fire")
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 8, -8, 18, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 L 2 Bright A_FireCustomMissile("BabySentientExplosiveTracer", Random(-1000,1000)/100.00)
+		TNT1 L 2 Bright
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GiveInventory("BabySentientBFG")
+		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 D 2 Bright A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 
+		TNT1 D 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 D 2 Bright A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 
+		TNT1 D 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+		TNT1 D 2 Bright A_FireCustomMissile("BabySent10K", Random(4,-4 ), 0, 0)
+		TNT1 A 0 
+		TNT1 D 2 Bright
+		TNT1 A 0 
+		TNT1 C 2 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 CCCCCCCCC 2 Bright 
+		TNT1 A 0 A_TakeInventory("BabySentientBFG")
+		Goto Ready
+	}
+}
+
+
+Actor PossessedRevenant : PossessedMonster
+{
+	Game Doom
+	//SpawnID 20
+	Health 300
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 0.4375 //10
+	PainChance 100
+	MeleeThreshold 196
+	+MISSILEMORE
+	+FLOORCLIP
+	SeeSound "skeleton/sight"
+	PainSound "skeleton/pain"
+	DeathSound "skeleton/death"
+	ActiveSound "skeleton/active"
+	MeleeSound "skeleton/melee"
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
+}
+
+Actor PossessedGuardian : PossessedRevenant
+{
+	Player.MorphWeapon "GuardianWeapon"
+
+	Health 300
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 0.4375 //10
+	PainChance 100
+	Scale 0.85
+	DamageFactor "CadaverRocket", 0.0
+	Obituary "%o was splattered by a Guardian's meteor."
+	Hitobituary "%o was bitch slapped by a Guardian."
+	SeeSound "skeletons/sight"
+	PainSound "monsters/guardianpain"
+	DropItem "LifeEssence" 75
+	DropItem "ArmorBonusMax" 75
+	Species "Skeletons"
+	+FLOORCLIP
+	+LONGMELEERANGE
+	+MISSILEMORE
+	+FASTMELEE
+	BloodColor Red
+	Species "Skeletons"
+	States
+	{
+	Spawn:
+		SKEL A 10
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		SKEL AAABBBCCC 2
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		SKEL DDDEEEFFF 2
+		Loop
+	Melee:
+		TNT1 A 0
+		SKEL G 6 //A_PlaySound("skeleton/swing")
+		SKEL H 4
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
+		SKEL I 3 //A_CustomPunch(6 * Random(1, 10), 1)
+		SKEL HG 4
+		Goto See
+	Missile:
+		SKEL J 14 Bright
+		TNT1 A 0 //A_FireCustomMissile("GuardianTracer", 0, 0, -14)
+		SKEL K 10 //A_FireCustomMissile("GuardianTracer", 0, 0, 14)
+		SKEL K 10
+		Goto See
+	}
+}
+
+Actor GuardianWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 J 14 Bright
+		TNT1 A 0 A_FireCustomMissile("GuardianTracer", 0, 0, -14)
+		TNT1 K 10 A_FireCustomMissile("GuardianTracer", 0, 0, 14)
+		TNT1 K 10
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 G 6 A_PlaySound("skeleton/swing")
+		TNT1 H 4
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 I 3 A_CustomPunch(6 * Random(1, 10), 1)
+		TNT1 HG 4
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCadaver : PossessedGuardian
+{
+	Player.MorphWeapon "CadaverWeapon"
+
+	PainChance 90
+	Health 450
+	DropItem "LifeEssence" 105
+	DropItem "ArmorBonusMax" 105
+	SeeSound "heavynant/sight"
+	PainSound "heavynant/pain"
+	DeathSound "heavynant/die"
+	ActiveSound "heavynant/active"
+	HitObituary "%o's face got caved in by a Cadaver."
+	Obituary "%o was blown to a mushy mess by a Cadaver."
+	BloodColor "Black"
+	States
+	{
+	Spawn:
+		RASK A 10
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		RASK AAABBBCCC 2
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		RASK DDDEEEFFF 2
+		Loop
+	Melee:
+		TNT1 A 0
+		RASK G 5 //A_PlaySound("skeleton/swing")
+		RASK H 4
+		TNT1 A 0 //A_PlaySound("skeleton/melee")
+		RASK I 3 //A_CustomPunch(6 * Random(1, 10), 1)
+		RASK HG 4
+		Goto See
+	Missile:
+		RASK J 14 Bright
+		RASK K 6 //A_FireCustomMissile("CadaverRocket", 0, 0, 12)
+		RASK K 10
+		Goto See
+	}
+}
+
+Actor CadaverWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 J 14 Bright
+		TNT1 K 6 A_FireCustomMissile("CadaverRocket", 0, 0, 12)
+		TNT1 K 10
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 G 5 A_PlaySound("skeleton/swing")
+		TNT1 H 4
+		TNT1 A 0 A_PlaySound("skeleton/melee")
+		TNT1 I 3 A_CustomPunch(6 * Random(1, 10), 1)
+		TNT1 HG 4
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHellfireRevenant : PossessedGuardian
+{
+	Player.MorphWeapon "HellfireRevenantWeapon"
+
+	Health 600
+	PainChance 80
+	BloodColor "ff 50 00"
+	DropItem "LifeEssence" 135
+	DropItem "ArmorBonusMax" 135
+	Obituary "%o could not evade a Hellfire Revenant's seeker."
+	HitObituary "%o could not evade a Hellfire Revenant's seeker."
+	-FASTMELEE
+	-LONGMELEERANGE
+	SeeSound "monsters/hfirerevenantsight"
+	DeathSound "monsters/hfirerevenantdeath"
+	ActiveSound "monsters/hfirerevenantactive"
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV A 3 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_SpawnItem("BonyStep",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV B 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("BonyStep",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV D 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV D 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV D 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV E 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV E 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV E 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV F 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV F 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV F 2 Bright
+		Loop
+	Missile:
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner2",0,0,0,0)
+		GREV J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)
+		TNT1 A 0 Bright //A_FireCustomMissile("HellFireRocket", 0, 0, -14)
+		GREV K 2 Bright //A_FireCustomMissile("HellFireRocket", 0, 0, 14)
+		TNT1 A 0 Bright A_SpawnItem("GhostFireSpawner",0,0,0,0)
+		GREV KKKKKKKKK 2 Bright A_SpawnItem("GhostFireSpawner3",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor HellfireRevenantWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 J 2 Bright
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("HellFireRocket", 0, 0, -14)
+		TNT1 K 2 A_FireCustomMissile("HellFireRocket", 0, 0, 14)
+		TNT1 A 0
+		TNT1 KKKKKKKKK 2
+		Goto Ready
+	}
+}
+
+
+Actor PossessedFamine : PossessedGuardian
+{
+	Player.MorphWeapon "FamineWeapon"
+
+	PainChance 70
+	Health 750
+	Speed 0.525 //12
+	SeeSound "famine/sight"
+	PainSound "guardian/pain"
+	DeathSound "famine/death"
+	ActiveSound "famine/active"
+	DropItem "LifeEssence" 0
+	DropItem "ArmorBonusMax" 0
+	HitObituary "%o got knocked the hell out by a Famine."
+	Obituary "%o was devastated by a Famine."
+	BloodColor "30 30 30"
+	MeleeThreshold 60
+	+QUICKTORETALIATE
+	-LONGMELEERANGE
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		NREV A 10
+		Loop
+	See:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		NREV AABBCC 2
+		TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+		NREV DDEEFF 2
+		Loop
+	Melee:
+		NREV J 14 Bright
+		TNT1 A 0 //A_FireCustomMissile("FamineTracer", 0, 0, -14)
+		NREV K 10 //A_FireCustomMissile("FamineTracer", 0, 0, 14)
+		NREV K 10
+		Goto See
+	Missile:
+		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
+		TNT1 A 0
+		TNT1 A 0 //A_Recoil(-40)
+		TNT1 A 0 //A_PlaySound("skeleton/swing")
+		NREV GGGGG 1 //A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
+		TNT1 A 0
+		NREV HHHHH 1 //A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 //A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		NREV III 1 //A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
+		NREV T 2 //A_Stop
+		Goto See
+	DashPunch2:
+		TNT1 A 0
+		TNT1 A 0 //A_Recoil(-40)
+		TNT1 A 0 //A_PlaySound("skeleton/swing")
+		NREV RRRRR 1 //A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
+		TNT1 A 0
+		NREV SSSSS 1 //A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 //A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		NREV TTT 1 //A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
+		NREV T 2 //A_Stop
+		Goto See
+	}
+}
+
+Actor FamineWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 J 14 A_GunFlash
+		TNT1 A 0 A_FireCustomMissile("FamineTracer", 0, 0, -14)
+		TNT1 K 10 A_FireCustomMissile("FamineTracer", 0, 0, 14)
+		TNT1 K 10
+		Goto Ready
+	AltFire:
+		TNT1 A 1
+		TNT1 A 0 A_ReFire
+		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
+		TNT1 A 0
+		TNT1 A 0 A_Recoil(-40)
+		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 GGGGG 1 A_SpawnItemEx("FamineDashGhostA",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)
+		TNT1 HHHHH 1 A_SpawnItemEx("FamineDashGhostA2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		TNT1 III 1 A_SpawnItemEx("FamineDashGhostA3",0,0,0,0,0,0,0,128)
+		TNT1 T 2 A_Stop
+		Goto Ready
+	DashPunch2:
+		TNT1 A 0
+		TNT1 A 0 A_Recoil(-40)
+		TNT1 A 0 A_PlaySound("skeleton/swing")
+		TNT1 RRRRR 1 A_SpawnItemEx("FamineDashGhostB",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)
+		TNT1 SSSSS 1 A_SpawnItemEx("FamineDashGhostB2",0,0,0,0,0,0,0,128)
+		TNT1 A 0 A_FireCustomMissile("FamineDashPunch", 0,CMF_AIMDIRECTION, 0, 0)
+		TNT1 TTT 1 A_SpawnItemEx("FamineDashGhostB3",0,0,0,0,0,0,0,128)
+		TNT1 T 2 A_Stop
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBaronOfHell : PossessedMonster
+{
+	Game Doom
+	//SpawnID 3
+	Health 1000
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 0.35 //8
+	PainChance 50
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BARON"
+	HitObituary "$OB_BARONHIT"
+}
+
+Actor PossessedHellKnight : PossessedBaronOfHell
+{
+	Game Doom
+	//SpawnID 113
+	Health 500
+	-BOSSDEATH
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+}
+
+
+Actor PossessedHellArchon : PossessedHellKnight
+{
+	Player.MorphWeapon "HellArchonWeapon"
+
+	Health 500
+	PainChance 100
+	MeleeDamage 8
+	DropItem "LifeEssence" 90
+	DropItem "ArmorBonusMax" 90
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEMORE
+	+FASTMELEE
+	Obituary "%o was annihilated by a Hell Archon."
+	HitObituary "The last thing %o saw was a Hell Archon's fist."
+	SeeSound "monster/ar2sit"
+	ActiveSound "superbaron/act"
+	PainSound "superbaron/pain"
+	DeathSound "monster/ar2dth"
+	MeleeSound "imp/melee"
+	States
+	{
+	Spawn:
+		LOHS A 7 Bright
+		LOHS A 7 Bright
+		LOHI A 7 Bright
+		LOHI A 7 Bright
+		Loop
+	See:
+		LOHS AABB 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		LOHS CCDD 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		Loop
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
+	Normal:
+		LOHS EF 6 Bright
+		LOHS G 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		LOHS IJ 6 Bright
+		LOHS K 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		Goto See
+	BurstBall:
+		LOHS MN 7 Bright
+		LOHS O 1 Bright //A_FireCustomMissile("HABall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("HABall", 6, 0, 0)
+		LOHS O 6 Bright //A_FireCustomMissile("HABall", -6, 0, 0)
+		Goto See
+	Comet:
+		LOHS MN 8 Bright
+		LOHS O 7 Bright //A_FireCustomMissile("HAComet", 0, 0, 0)
+		Goto See
+	}
+}
+
+Actor HellArchonWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_hellarchon, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 6
+		TNT1 G 5 A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		TNT1 IJ 6
+		TNT1 K 5 A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstBall:
+		TNT1 MN 7
+		TNT1 O 1 A_FireCustomMissile("HABall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("HABall", 6, 0, 0)
+		TNT1 O 6 A_FireCustomMissile("HABall", -6, 0, 0)
+		TNT1 A 15 // +15
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 MN 8
+		TNT1 O 7 A_FireCustomMissile("HAComet", 0, 0, 0)
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedPyroDemon : PossessedHellKnight
+{
+	Player.MorphWeapon "PyroDemonWeapon"
+
+	Health 750
+	PainChance 80
+	Scale 1.05
+	Bloodcolor "ff 5f 00"
+	MeleeDamage 8
+	DropItem "LifeEssence" 120
+	DropItem "ArmorBonusMax" 120
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEMORE
+	+FASTMELEE
+	Obituary "A Pyro Demon turned %o into a steamy mess."
+	HitObituary "A Pyro Demon tore %o apart."
+	SeeSound "monster/ar2sit"
+	ActiveSound "pyro/active"
+	PainSound "superbaron/pain"
+	DeathSound "monster/ar2dth"
+	MeleeSound "imp/melee"
+	States
+	{
+	Spawn:
+		PYRO A 7 Bright
+		PYRO A 7 Bright
+		PYRI A 7 Bright
+		PYRI A 7 Bright
+		Loop
+	See:
+		PYRO AABB 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		PYRO CCDD 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		Loop
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Comet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FloorHugger")
+		Goto See
+	Normal:
+		PYRO EF 7 Bright
+		PYRO G 1 Bright //A_FireCustomMissile("PBall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("PBall", -5, 0, 0)
+		PYRO G 5 Bright //A_FireCustomMissile("PBall", 5, 0, 0)
+		Goto See
+	Comet:
+		PYRO MN 8 Bright
+		PYRO O 7 Bright //A_FireCustomMissile("BruiserComet", 0,0, 0, 0)
+		Goto See
+	FloorHugger:
+		PYRO MN 8 Bright
+		PYRO O 8 Bright //A_FireCustomMissile("PyroFireSpawner", 0,0, 0, 0)
+		Goto See
+	}
+}
+
+Actor PyroDemonWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Comet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_pyrodemon, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 7
+		TNT1 G 1 A_FireCustomMissile("PBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("PBall", -5, 0, 0)
+		TNT1 G 5 A_FireCustomMissile("PBall", 5, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 MN 8
+		TNT1 O 7 A_FireCustomMissile("BruiserComet", 0,0, 0, 0)
+		TNT1 A 10 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 MN 8
+		TNT1 O 8 Bright A_FireCustomMissile("PyroFireSpawner", 0,0, 0, 0)
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCyberNoble : PossessedHellKnight
+{
+	Player.MorphWeapon "CyberNobleWeapon"
+
+	Health 1000 PainChance 60
+	MeleeDamage 8
+	Scale 1.1
+	Obituary "%o was slain by a Cyber Noble."
+	HitObituary "%o got whacked by a Cyber Noble."
+	SeeSound "monster/brusit"
+	PainSound "cbaron/pain"
+	DeathSound "cbaron/death"
+	MeleeSound "baron/melee"
+	ActiveSound "cbaron/active"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 150
+	DropItem "ArmorBonusMax" 150
+	Species "Nobles"
+	BloodColor "Green"
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+FASTMELEE
+	States
+	{
+	Spawn:
+		CBOS A 7
+		CBOS A 7
+		CBOI A 7
+		CBOI A 7
+		Loop
+	See:
+		CBOS AABB 3
+		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
+		CBOS CCDD 3
+		TNT1 A 0 A_PlaySound("monster/bruwlk")
+		Loop
+	Pause:
+		CBOS E 10
+		Goto See
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "LargeBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "Rocket")
+		Goto See
+	Normal:
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 0, 12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AAA 0 //A_FireCustomMissile("ProjectileBullet", Random(-1000,1000)/100.00,0, 0, 0)
+		TNT1 AAAA 0 //A_FireCustomMissile("MonsterTracer2", Random(5,-5))
+		CBOS F 2 Bright //A_PlaySoundEx("AShotgun/Fire","Weapon")
+		CBOS E 10
+		CBOS E 10
+		Goto See
+	BurstBall:
+		CBOS PQ 7
+		CBOS R 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("CyNobleBall", 6, 0, 0)
+		CBOS R 5 Bright //A_FireCustomMissile("CyNobleBall", -6, 0, 0)
+		Goto See
+	LargeBall:
+		CBOS PQ 6
+		CBOS R 4 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		Goto See
+	Rocket:
+		CBOS E 10
+		CBOS F 8 Bright //A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		CBOS E 10
+		CBOS E 5
+		Goto See
+	}
+}
+
+Actor CyberNobleWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "LargeBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "Rocket")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_cybernoble, 0)
+		Goto Ready
+	Normal:
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 0, 12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AAA 0 A_FireCustomMissile("ProjectileBullet", Random(-1000,1000)/100.00,0, 0, 0)
+		TNT1 AAAA 0 A_FireCustomMissile("MonsterTracer2", Random(5,-5))
+		TNT1 F 2 A_PlaySoundEx("AShotgun/Fire","Weapon")
+		TNT1 E 10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstBall:
+		TNT1 PQ 7
+		TNT1 R 1 A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("CyNobleBall", 6, 0, 0)
+		TNT1 R 5 A_FireCustomMissile("CyNobleBall", -6, 0, 0)
+		TNT1 A 15 // +15
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	LargeBall:
+		TNT1 PQ 6
+		TNT1 R 4 A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		TNT1 A 10 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Rocket:
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 A 20 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedHellDuke : PossessedHellKnight
+{
+	Player.MorphWeapon "HellDukeWeapon"
+
+	Health 1250 PainChance 40
+	PainChance "Explosion", 60
+	Scale 1.15
+	BloodColor "Green"
+	MeleeDamage 8
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "DemonAmmoBox" 128 200
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	+MISSILEEVENMORE
+	+FASTMELEE
+	+QUICKTORETALIATE
+	Obituary "A Hell Duke brutalized %o."
+	HitObituary "%o felt a Hell Duke's wrath."
+	SeeSound "duke/see"
+	ActiveSound "duke/idle"
+	PainSound "duke/pain"
+	DeathSound "duke/death"
+	MeleeSound "imp/melee"
+	States
+	{
+	Spawn:
+		HDUK A 7 Bright
+		HDUK A 7 Bright
+		HDUI A 7 Bright
+		HDUI A 7 Bright
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
+		HDUK AA 3 Bright
+		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
+		HDUK BB 3 Bright
+		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
+		HDUK CC 3 Bright
+		TNT1 A 0 A_SpawnItemEx("DukeWalkFire",0,0,0,0,0,0,0,128)
+		HDUK DD 3 Bright
+		Loop
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "BurstComet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto See
+	Normal:
+		HDUK EF 6 Bright
+		HDUK G 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		HDUK G 4 Bright //A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		HDUK IJ 6 Bright
+		HDUK K 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		HDUK K 4 Bright //A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		Goto See
+	GiantBalls:
+		HDUK EF 7 Bright
+		HDUK G 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		HDUK IJ 7 Bright
+		HDUK K 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		Goto See
+	BurstComet:
+		HDUK MN 8 Bright
+		HDUK O 2 Bright //A_FireCustomMissile("HDComet", 0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("HDComet", -10, 0, 0)
+		HDUK O 5 Bright //A_FireCustomMissile("HDComet", 10, 0, 0)
+		Goto See
+	FloorHugger:
+		HDUK ON 8 Bright
+		HDUK M 2 Bright //A_FireCustomMissile("DukeFireSpawner", 0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("DukeFireSpawner", -18, 0, 0)
+		HDUK M 8 Bright //A_FireCustomMissile("DukeFireSpawner", 18, 0, 0)
+		Goto See
+	}
+}
+
+Actor HellDukeWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "BurstComet")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_hellduke, 0)
+		Goto Ready
+	Normal:
+		TNT1 EF 6
+		TNT1 G 1 A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		TNT1 G 4 A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		TNT1 IJ 6
+		TNT1 K 1 A_FireCustomMissile("CyNobleBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("CyNobleBall", -5, 0, 0)
+		TNT1 K 4 A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		TNT1 A 5 // +5
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	GiantBalls:
+		TNT1 EF 7
+		TNT1 G 6 A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		TNT1 IJ 7
+		TNT1 K 6 A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstComet:
+		TNT1 MN 8
+		TNT1 O 2 A_FireCustomMissile("HDComet", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("HDComet", -10, 0, 0)
+		TNT1 O 5 A_FireCustomMissile("HDComet", 10, 0, 0)
+		TNT1 A 25 // +25
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 ON 8
+		TNT1 M 2 A_FireCustomMissile("DukeFireSpawner", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("DukeFireSpawner", -18, 0, 0)
+		TNT1 M 8 A_FireCustomMissile("DukeFireSpawner", 18, 0, 0)
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBruiserDemon : PossessedBaronOfHell
+{
+	Player.MorphWeapon "BruiserDemonWeapon"
+
+	Health 1000 PainChance 100
+	Bloodcolor "ff 5f 00"
+	DamageFactor "AfritComet", 0.0
+	Species "Nobles"
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	MeleeDamage 8
+	+FLOORCLIP
+	+BOSSDEATH
+	+MISSILEMORE
+	+FASTMELEE
+	SeeSound "superbaron/scream"
+	PainSound "superbaron/pain"
+	ActiveSound "superbaron/act"
+	DeathSound "monsters/baronkingdeath"
+	MeleeSound "baron/melee"
+	Obituary "%o got whooped by a Bruiser Demon."
+	HitObituary "%o was dismembered by a Bruiser Demon."
+	States
+	{
+	Spawn:
+		HFRY A 7 Bright
+		HFRY A 7 Bright
+		HFRI A 7 Bright
+		HFRI A 7 Bright
+		Loop
+	See:
+		HFRY AABB 3 Bright
+		HFRY B 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		HFRY CCDD 3 Bright
+		HFRY D 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
+		Loop
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto See
+	Normal:
+		HFRY KL 7 Bright
+		HFRY M 1 Bright //A_FireCustomMissile("BBall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("BBall", 6, 0, 0)
+		HFRY M 1 Bright //A_FireCustomMissile("BBall", -6, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("BBall", 12, 0, 0)
+		HFRY M 5 Bright //A_FireCustomMissile("BBall", -12, 0, 0)
+		Goto See
+	GiantBalls:
+		HFRY EF 7 Bright
+		HFRY G 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
+		HFRY HI 7 Bright
+		HFRY J 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
+		Goto See
+	Comet:
+		HFRY KL 8 Bright
+		HFRY M 7 Bright //A_FireCustomMissile("BruiserComet", 0, 0, 0)
+		Goto See
+	}
+}
+
+Actor BruiserDemonWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "GiantBalls")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comet")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_bruiserdemon, 0)
+		Goto Ready
+	Normal:
+		TNT1 KL 7
+		TNT1 M 1 A_FireCustomMissile("BBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("BBall", 6, 0, 0)
+		TNT1 M 1 A_FireCustomMissile("BBall", -6, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("BBall", 12, 0, 0)
+		TNT1 M 5 A_FireCustomMissile("BBall", -12, 0, 0)
+		TNT1 A 5 // +5
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	GiantBalls:
+		TNT1 EF 7
+		TNT1 G 6 A_FireCustomMissile("BBall2", 0, 0, 0)
+		TNT1 HI 7
+		TNT1 J 6 A_FireCustomMissile("BBall2", 0, 0, 0)
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comet:
+		TNT1 KL 8
+		TNT1 M 7 A_FireCustomMissile("BruiserComet", 0, 0, 0)
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedAfrit : PossessedBaronOfHell
+{
+	Player.MorphWeapon "AfritWeapon"
+	Player.ViewHeight 70
+
+	Health 1250 PainChance 80
+	Bloodcolor "ff 50 00"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 130
+	DropItem "ArmorBonusMax" 130
+	MeleeDamage 8
+	SeeSound "barons/sight"
+	PainSound "monsters/afritpain"
+	DeathSound "barons/death"
+	ActiveSound "superbaron/act"
+	MeleeSound "baron/melee"
+	Species "Nobles"
+	Scale 1.05
+	+MISSILEMORE
+	+BOSSDEATH
+	+DONTHURTSPECIES
+	+FASTMELEE
+	Obituary "%o was deep fried by an Afrit."
+	HitObituary "%o couldnt take an Afrits heat."
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT A 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT B 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT D 4 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT A 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT B 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT C 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT D 3 Bright
+		Loop
+	Melee:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT E 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT F 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT G 4 Bright A_MeleeAttack
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT F 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT E 4 Bright
+		Goto See
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto See
+	Normal:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT E 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT E 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT E 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT F 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT F 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT F 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT G 1 Bright //A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("AfritBall", 4, 0, 0)
+		FRIT G 1 Bright //A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT G 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT G 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT I 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT I 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT I 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT J 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT J 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT K 1 Bright //A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("AfritBall", 4, 0, 0)
+		FRIT K 1 Bright //A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT K 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT K 3 Bright
+		Goto See
+	BurstBall:
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 1 Bright //A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("AfritBall", 6, 0, 0)
+		FRIT O 1 Bright //A_FireCustomMissile("AfritBall", -6, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("AfritBall", 12, 0, 0)
+		FRIT O 1 Bright //A_FireCustomMissile("AfritBall", -12, 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 2 Bright
+		TNT1 A 0 A_Jump(87,"BurstBall","FloorHugger")
+	Comets:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		FRIT O 2 Bright //A_FireCustomMissile("Comet", 0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("Comet", 10, 0, 0)
+		FRIT O 3 Bright //A_FireCustomMissile("Comet", -10, 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 3 Bright
+		Goto See
+	FloorHugger:
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT O 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT N 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_FireCustomMissile("AfritTracer", 0, 0, 50)
+		FRIT M 1 Bright //A_FireCustomMissile("AfritTracer", 0, 0, -50)
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+		FRIT M 3 Bright
+		Goto See
+	}
+}
+
+Actor AfritWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "BurstBall")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "Comets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "FloorHugger")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_afrit, 0)
+		Goto Ready
+	Normal:
+		TNT1 A 0
+		TNT1 E 3
+		TNT1 A 0
+		TNT1 E 2
+		TNT1 A 0
+		TNT1 E 2
+		TNT1 A 0
+		TNT1 F 3
+		TNT1 A 0
+		TNT1 F 2
+		TNT1 A 0
+		TNT1 F 2
+		TNT1 A 0
+		TNT1 G 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 4, 0, 0)
+		TNT1 G 1 A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0
+		TNT1 G 2
+		TNT1 A 0
+		TNT1 G 3
+		TNT1 A 0
+		TNT1 I 3
+		TNT1 A 0
+		TNT1 I 2
+		TNT1 A 0
+		TNT1 I 2
+		TNT1 A 0
+		TNT1 J 3
+		TNT1 A 0
+		TNT1 J 2
+		TNT1 A 0
+		TNT1 J 2
+		TNT1 A 0
+		TNT1 K 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 4, 0, 0)
+		TNT1 K 1 A_FireCustomMissile("AfritBall", -4, 0, 0)
+		TNT1 A 0
+		TNT1 K 2
+		TNT1 A 0
+		TNT1 K 3
+		TNT1 A 10 // +10
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BurstBall:
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 2
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 2
+		TNT1 A 0
+		TNT1 O 1 A_FireCustomMissile("AfritBall", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 6, 0, 0)
+		TNT1 O 1 A_FireCustomMissile("AfritBall", -6, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("AfritBall", 12, 0, 0)
+		TNT1 O 1 A_FireCustomMissile("AfritBall", -12, 0, 0)
+		TNT1 A 0
+		TNT1 O 2
+		TNT1 A 0
+		TNT1 O 2
+		TNT1 A 20 // +15
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Comets:
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 O 2 A_FireCustomMissile("Comet", 0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("Comet", 10, 0, 0)
+		TNT1 O 3 A_FireCustomMissile("Comet", -10, 0, 0)
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 20 // +15
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	FloorHugger:
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 O 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 N 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0
+		TNT1 A 0 A_FireCustomMissile("AfritTracer", 0, 0, 50)
+		TNT1 M 1 A_FireCustomMissile("AfritTracer", 0, 0, -50)
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0
+		TNT1 M 3
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCybruiser : PossessedBaronOfHell
+{
+	Player.MorphWeapon "CybruiserWeapon"
+
+	Health 1500 PainChance 70
+	MeleeDamage 8
+	Scale 1.1
+	Species "Nobles"
+	Obituary "%o was blown away by a Cybruiser."
+	HitObituary "%o was smashed by a Cybruiser."
+	SeeSound "cbaron/sight"
+	PainSound "blooddemon/pain"
+	DeathSound "monster/brudth"
+	MeleeSound "baron/melee"
+	ActiveSound "cbaron/active"
+	DamageFactor "AfritComet", 0.0
+	DropItem "LifeEssence" 160
+	DropItem "ArmorBonusMax" 160
+	+MISSILEMORE
+	+DONTHURTSPECIES
+	+FASTMELEE
+	States
+	{
+	Spawn:
+		BRUS A 7
+		BRUS A 7
+		BRUI A 7
+		BRUI A 7
+		Loop
+	See:
+		BRUS AABB 3
+		TNT1 A 0 A_PlaySound("monster/bruwlk")
+		BRUS CCDD 3
+		TNT1 A 0 A_PlaySound("monster/bruwlk")
+		Loop
+	Missile:
+		Goto See
+	Melee:
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
+	Normal:
+		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
+		BRUS EE 10
+		BRUS E 2
+		TNT1 A 0 //A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 //A_CustomMissile("RailgunImpact",40)
+		TNT1 A 0 //A_CustomMissile("BruiserRailgunSlug",40)
+		BRUR A 5 Bright //A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
+		BRUS E 20
+		Goto See
+	Rockets:
+		BRUS E 10
+		BRUS F 8 Bright //A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		BRUS E 10
+		BRUS F 8 Bright //A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		BRUS E 10
+		Goto See
+	HomingRockets:
+		BRUS E 10
+		BRUS F 8 Bright //A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		BRUS E 10
+		BRUS F 8 Bright //A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		BRUS E 10
+		Goto See
+	BFG15K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		BRUS E 18
+		BRUS E 6
+		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		BRUS E 4
+		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		BRUS E 4
+		BRUS F 4 Bright //A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		BRUS E 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		Goto See
+	}
+}
+
+Actor CybruiserWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
+		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_cybruiser, 0)
+		Goto Ready
+	Normal:
+		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+		TNT1 EE 10
+		TNT1 E 2
+		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 A_FireCustomMissile("RailgunImpact")
+		TNT1 A 0 A_FireCustomMissile("BruiserRailgunSlug")
+		TNT1 A 5 A_RailAttack(-1, 10, 0, "00 85 FF", None, 1, 1)
+		TNT1 E 20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Rockets:
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	HomingRockets:
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 F 8 A_FireCustomMissile("BruiserMissile", 0,0, 0, 0)
+		TNT1 E 10
+		TNT1 A 20 // +15
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	BFG15K:
+		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 E 18
+		TNT1 E 6
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 4
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 4
+		TNT1 F 4 A_FireCustomMissile("Cybruiser15K", Random(4,-4 ), 0, 0)
+		TNT1 E 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 A 20 // +20
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	}
+}
+
+
+Actor PossessedArchvile : PossessedMonster
+{
+	Game Doom
+	//SpawnID 111
+	Health 700
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 0.65625 //15
+	PainChance 10
+	MaxTargetRange 896
+	+QUICKTORETALIATE 
+	+FLOORCLIP 
+	+NOTARGET
+	SeeSound "vile/sight"
+	PainSound "vile/pain"
+	DeathSound "vile/death"
+	ActiveSound "vile/active"
+	MeleeSound "vile/stop"
+	Obituary "$OB_VILE"
+}
+
+
+Actor PossessedExile : PossessedArchVile
+{
+	Player.MorphWeapon "ExileWeapon"
+
+	Species "Viles"
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	Obituary "%o got caught in an Exile's void."
+	DeathSound "avile/death"
+	States
+	{
+	Spawn:
+		VILE A 10
+		Loop
+	See:
+		TNT1 A 0 A_Jump(64,"Rush")
+		VILE A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		VILE AABBCC 2 A_VileChase
+		VILE D 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		VILE DDEEFF 2 A_VileChase
+		Loop
+	Rush:
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("ExileFX",0,0)
+		VILE F 1 A_VileChase
+		TNT1 A 0 A_Jump(182,"See")
+		Loop
+	Missile:
+		TNT1 A 0 Bright
+		VILE G 10 Bright //A_PlaySound("exile/voidstart")
+		VILE H 8 Bright A_VileTarget
+		VILE IJKLMN 8 Bright
+		TNT1 A 0 //A_PlaySound("exile/voidend")
+		VILE O 8 Bright A_VileAttack
+		VILE P 20 Bright
+		Goto See
+	}
+}
+
+Actor ExileWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDiabolist : PossessedArchVile
+{
+	Player.MorphWeapon "DiabolistWeapon"
+
+	Health 850
+	DropItem "LifeEssence" 130
+	DropItem "ArmorBonusMax" 130
+	BloodColor "12 12 12"
+	Species "Viles"
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	Obituary "%o got roasted alive by a Diabolist."
+	+FLOORCLIP
+	+NOTARGET
+	SeeSound "Monster/diasit"
+	ActiveSound "Monster/diaact"
+	DeathSound "avile/death"
+	States
+	{
+	Spawn:
+		DIAB A 10 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_Jump(64,"Rush")
+		DIAB A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
+		DIAB AABBCC 2 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
+		DIAB DDEEFF 2 Bright A_VileChase
+		Loop
+	Rush:
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB A 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB A 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB B 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB B 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB C 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB C 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB D 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB D 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB E 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB E 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB F 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB F 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB A 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB A 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB B 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB B 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB C 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB C 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB D 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB D 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB E 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB E 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB F 1 Bright A_VileChase
+		TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+		DIAB F 1 Bright A_VileChase
+		TNT1 A 0 A_Jump(178,"See")
+		Loop
+	Missile:
+		TNT1 A 0 Bright
+		DIAB G 10 Bright A_VileStart
+		DIAB H 8 Bright A_VileTarget("IFire")
+		DIAB IJKLMN 8 Bright
+		DIAB O 8 Bright A_VileAttack
+		DIAB P 20 Bright
+		Goto See
+	}
+}
+
+Actor DiabolistWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDarkHellion : PossessedArchVile
+{
+	Player.MorphWeapon "DarkHellionWeapon"
+
+	Health 1000
+	DropItem "LifeEssence" 160
+	DropItem "ArmorBonusMax" 160
+	DropItem "HellionRegen" 166 1
+	Obituary "A Dark Hellion cast %o into oblivion."
+	Scale 1.25
+	+FLOORCLIP
+	+NOTARGET
+	Species "Viles"
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	SeeSound "monster/hlnsit"
+	ActiveSound "monster/hlnact"
+	PainSound "monster/hlnpai"
+	DeathSound "monster/hlndeth"
+	BloodColor "Black"
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 4
+		Loop
+	See:
+		TNT1 A 0 A_Jump(64,"Rush")
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		HELN A 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN B 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN B 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN C 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN C 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN D 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN D 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		HELN E 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN E 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN F 2 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN F 2 A_VileChase
+		Loop
+	Rush:
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN A 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN B 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN C 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN D 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN E 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN F 1 A_VileChase
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HellionFX",0,0)
+		HELN F 1 A_VileChase
+		TNT1 A 0 A_Jump(164,"See")
+		Loop
+	Missile:
+		TNT1 A 0
+		TNT1 A 0 //A_PlaySound("hellion/smokestart")
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN G 5
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN G 5
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN H 5 A_VileTarget("HellionSmokeAttack")
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN H 5
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN H 5
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN I 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN I 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN J 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN K 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("exile/voidend")
+		HELN K 4 A_VileAttack
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN L 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN L 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN L 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN L 4
+		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN L 4
+		Goto See
+	}
+}
+
+Actor DarkHellionWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedSpiderMastermind : PossessedMonster
+{
+	Game Doom
+	//SpawnID 7
+	Health 3000
+	Radius 100
+	Height 100
+	Mass 1000
+	Speed 0.525 //12
+	PainChance 40
+	MinMissileChance 160
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	SeeSound "spider/sight"
+	AttackSound "spider/attack"
+	PainSound "spider/pain"
+	DeathSound "spider/death"
+	ActiveSound "spider/active"
+	Obituary "$OB_SPIDER"
+}
+
+Actor PossessedDemolisher : PossessedSpiderMastermind
+{
+	Player.MorphWeapon "DemolisherWeapon"
+
+	Health 3000
+	Speed 0.65625 //15
+	Radius 65
+	PainChance 50
+	PainChance "PDTBFG", 25
+	PainChance "SoulToxic", 20
+	PainChance "FatFlamer", 20
+	PainChance "FiendFire", 20
+	PainChance "Explosion", 80
+	DropItem "BossLifeEssence" 128 25
+	DropItem "ExtraArmor" 128 1
+	Obituary "The Demolisher spider erased %o."
+	PainSound "monsters/darkmasterpain"
+	SeeSound "monsters/darkmastermindsee"
+	DeathSound "monsters/darkmasterminddie"
+	AttackSound ""
+	Species "Masterminds"
+	DamageFactor "DemolisherEx", 0.0
+	DamageFactor "PDTBFG", 0.5
+	DamageFactor "PDTBFGTracer", 0.8
+	States
+	{
+	Spawn:
+		DEMO A 10
+		Loop
+	See:
+		DEMO A 2 A_Metal
+		DEMO ABB 2
+		DEMO C 2 A_Metal
+		DEMO CDD 2
+		DEMO E 2 A_Metal
+		DEMO EFF 2
+		Loop
+	Pause:
+		DEMO A 10
+		Goto See
+	Missile:
+		TNT1 A 0 A_Jump(128,"BFG15K","BFG9K")
+	Normal:
+		TNT1 A 0 A_JumpIfCloser(2000,1)
+		Goto BFG15K
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind")
+		DEMO A 10
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 A_SPosAttackUseAtkSound
+		DEMO G 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 A_SPosAttackUseAtkSound
+		DEMO H 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 A_Jump(6,"Pause","BFG15K","BFG9K")
+		TNT1 A 0 A_SpidRefire
+		Goto Normal+3
+	BFG15K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		DEMO T 18 Bright
+		DEMO T 6 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 4 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 4 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 4 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 4 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 4 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("Spider15K", Random(-4, 4 ), 0, 0)
+		DEMO T 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 A 0 A_Jump(128,"BFG9K")
+		Goto See
+	BFG9K:
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		DEMO T 15 Bright
+		DEMO T 10 Bright
+		DEMO U 8 Bright
+		DEMO U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball", 0,0, 0, 0)
+		DEMO T 15 Bright
+		Goto See
+	}
+}
+
+Actor DemolisherWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+
+
+Actor PossessedDarkDemolisher : PossessedSpiderMastermind
+{
+	Player.MorphWeapon "DarkDemolisherWeapon"
+
+	Health 3500
+	Speed 0.7875 //18
+	PainChance 40
+	PainChance "PDTBFG", 20
+	PainChance "SoulToxic", 15
+	PainChance "FatFlamer", 15
+	PainChance "FiendFire", 15
+	PainChance "Explosion", 70
+	Scale 1.05
+	Radius 65
+	DropItem "BossLifeEssence" 162 25
+	DropItem "BossArmorBonusMax" 162 25
+	DropItem "NewCellPack" 186 300
+	Obituary "%o was destroyed by the Dark Demolisher."
+	PainSound "monsters/darkmasterpain"
+	SeeSound "monsters/darkdemolishersee"
+	DeathSound "monsters/darkmasterminddie"
+	AttackSound ""
+	Species "Masterminds"
+	+MISSILEEVENMORE
+	DamageFactor "DarkDemoEx", 0.0
+	DamageFactor "PDTBFG", 0.35
+	DamageFactor "PDTBFGTracer", 0.7
+	BloodColor "Green"
+	States
+	{
+	Spawn:
+		DEM2 A 10
+		Loop
+	See:
+		TNT1 A 0 A_Jump(62,"Rush")
+		DEM2 A 2 A_Metal
+		DEM2 ABB 2
+		DEM2 C 2 A_Metal
+		DEM2 CDD 2
+		DEM2 E 2 A_Metal
+		DEM2 EFF 2
+		Loop
+	Rush:
+		TNT1 A 0 A_Metal
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostA",0,0,0,0,0,0,0,128)
+		DEM2 A 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostA",0,0,0,0,0,0,0,128)
+		DEM2 A 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostB",0,0,0,0,0,0,0,128)
+		DEM2 B 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostB",0,0,0,0,0,0,0,128)
+		DEM2 B 1
+		TNT1 A 0 A_Metal
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostC",0,0,0,0,0,0,0,128)
+		DEM2 C 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostC",0,0,0,0,0,0,0,128)
+		DEM2 C 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostD",0,0,0,0,0,0,0,128)
+		DEM2 D 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostD",0,0,0,0,0,0,0,128)
+		DEM2 D 1
+		TNT1 A 0 A_Metal
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostE",0,0,0,0,0,0,0,128)
+		DEM2 E 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostE",0,0,0,0,0,0,0,128)
+		DEM2 E 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostF",0,0,0,0,0,0,0,128)
+		DEM2 F 1
+		TNT1 A 0 A_SpawnItemEx("DarkDemoGhostF",0,0,0,0,0,0,0,128)
+		DEM2 F 1
+		TNT1 A 0 A_Jump(84,"See")
+		Loop
+	Pause:
+		DEM2 A 10
+		Goto See
+	Missile:
+		TNT1 A 0 A_Jump(128,"BFG9K","BFG10K")
+	Normal:
+		TNT1 A 0 A_JumpIfCloser(2000,1)
+		Goto BFG9K
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind")
+		DEM2 A 10
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 A_SPosAttackUseAtkSound
+		DEM2 G 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
+		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
+		TNT1 A 0 A_SPosAttackUseAtkSound
+		DEM2 H 4 Bright //A_FireCustomMissile("MonsterTracer3", 0,Random(10,-10),0, 0, 34))
+		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind2")
+		TNT1 A 0 A_Jump(6,"Pause","BFG9K","BFG10K")
+		TNT1 A 0 A_SpidRefire
+		Goto Normal+3
+	BFG9K:
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		DEM2 T 15 Bright
+		DEM2 T 10 Bright
+		DEM2 U 8 Bright
+		DEM2 U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball", 0,0, 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		DEM2 T 15 Bright
+		DEM2 T 10 Bright
+		DEM2 U 8 Bright
+		DEM2 U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball", 0,0, 0, 0)
+		DEM2 T 15 Bright
+		TNT1 A 0 A_Jump(128,"BFG10K")
+		Goto See
+	BFG10K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		DEM2 T 18 Bright
+		DEM2 T 6 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 5 Bright
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		DEM2 U 4 Bright //A_FireCustomMissile("DarkDemo10K", Random(4, -4 ), 0, 0)
+		DEM2 T 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		Goto See
+	}
+}
+
+Actor DarkDemolisherWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCerebralSentient : PossessedSpiderMastermind
+{
+	Player.StartItem "CerebralSentientWeapon"
+
+	Health 4000
+	Speed 0.525 //12
+	FloatSpeed 0.525 //12
+	PainChance 30
+	PainChance "PDTBFG", 15
+	PainChance "SoulToxic", 10
+	PainChance "FatFlamer", 10
+	PainChance "FiendFire", 10
+	PainChance "Explosion", 60
+	Scale 1.1
+	Radius 65
+	DropItem "BossLifeEssence" 204 25
+	DropItem "BossArmorBonusMax" 204 25
+	DropItem "DemonAmmoBox" 128 200
+	DropItem "SkullOfPower" 128
+	Mass 2500
+	+NOTARGET
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY
+	-FLOORCLIP
+	AttackSound ""
+	DamageFactor "CerChainguns", 0.0
+	DamageFactor "CerEnergyBall", 0.0
+	DamageFactor "PDTBFG", 0.2
+	DamageFactor "PDTBFGTracer", 0.6
+	SeeSound "arachnophyte/sight"
+	PainSound "arachnophyte/pain"
+	DeathSound "arachnophyte/death"
+	Species "Masterminds"
+	Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR B 2 Bright
+		Loop
+	See:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR B 2 Bright
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
+	Normal:
+		TNT1 A 0 A_JumpIfCloser(2000,1)
+		Goto BFG10K
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 //A_PlaySound("sentient/fire")
+		SUPR F 4 Bright //A_FireCustomMissile("SentientExplosiveTracer", Random(-1250,1250)/100.00,0, 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 0 //A_PlaySound("sentient/fire")
+		SUPR E 4 Bright //A_FireCustomMissile("SentientExplosiveTracer", Random(-1250,1250)/100.00,0, 0, 0)
+		TNT1 A 0 A_StopSoundEx("Weapon")
+		TNT1 A 0 A_Jump(6,"See","BFG10K","DTBFG10K")
+		TNT1 A 0 A_SpidRefire
+		Goto Normal+7
+	BFG10K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 4 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 4 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 4 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 4 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 4 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
+		SUPR O 3 Bright //A_FireCustomMissile("Sentient10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR N 3 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		SUPR NNNNN 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_Jump(128,"DTBFG10K")
+		Goto See
+	DTBFG10K:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("Cardinal/9k")
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR O 2 Bright //A_FireCustomMissile("SentientDTBFG10KBall", 0, 0, 0)
+		SUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		Goto See
+	Pain:
+		TNT1 A 0 A_Jump(46,"PainResurrect")
+		TNT1 A 0 A_Jump(128,"PainMissile")
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright A_Pain
+		Goto See
+	PainMissile:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright A_Pain
+		Goto Missile
+	PainResurrect:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR A 3 Bright A_Pain
+		SUPR AAAAAAAA 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SetInvulnerable
+		TNT1 A 0 Radius_Quake(10,80,0,24,0)
+		TNT1 A 0 A_GiveInventory("Health",600)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR P 3 Bright //A_PlaySound("sentient/laugh")
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 0,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 30,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 60,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 90,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 120,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 150,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 180,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 210,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 240,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 270,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 300,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 330,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 360,0, 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 15,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 45,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 75,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 105,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 135,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 165,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 195,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 225,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 255,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 285,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 315,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrectionEffect", 345,0, 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 0,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 10,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 20,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 30,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 40,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 50,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 60,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 70,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 80,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 90,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 100,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 110,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 120,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 130,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 140,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 150,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 160,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 170,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 180,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 190,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 200,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 210,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 220,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 230,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 240,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 250,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 260,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 270,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 280,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 290,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 300,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 310,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 320,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 330,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 340,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 350,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 360,0, 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 0,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 10,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 20,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 30,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 40,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 50,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 60,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 70,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 80,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 90,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 100,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 110,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 120,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 130,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 140,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 150,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 160,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 170,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 180,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 190,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 200,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 210,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 220,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 230,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 240,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 250,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 260,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 270,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 280,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 290,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 300,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 310,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 320,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 330,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 340,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 350,0, 0, 0)
+		TNT1 A 0 Bright //A_FireCustomMissile("SentientMassResurrection", 360,0, 0, 0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+		SUPR P 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_UnSetInvulnerable
+		SUPR A 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor CerebralSentientWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedCyberdemon : PossessedMonster
+{
+	Game Doom
+	//SpawnID 114
+	Health 4000
+	Radius 40
+	Height 110
+	Mass 1000
+	Speed 0.7 //16
+	PainChance 20
+	MinMissileChance 160
+	+BOSS 
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$OB_CYBORG"
+}
+
+Actor PossessedCyberLord : PossessedCyberdemon
+{
+	Player.MorphWeapon "CyberLordWeapon"
+
+	Health 4000 PainChance 50
+	PainChance "PDTBFG", 25
+	PainChance "SoulToxic", 20
+	PainChance "FatFlamer", 20
+	PainChance "FiendFire", 20
+	PainChance "Explosion", 80
+	Species "Cybers"
+	DropItem "BossLifeEssence" 128 25
+	DropItem "BossArmorBonusMax" 128 25
+	DropItem "MissileBox" 128 20
+	Obituary "The Annihilator wrecked %o."
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.5
+	DamageFactor "PDTBFGTracer", 0.8
+	SeeSound "monsters/clsee"
+	PainSound "monsters/cyberlordpain"
+	DeathSound "monsters/cldie"
+	States
+	{
+	Spawn:
+		ANNI A 10
+		ANNI A 10
+		ANII A 10
+		ANII A 10
+		Loop
+	See:
+		ANNI A 3 //A_PlaySound("monsters/clhoof")
+		ANNI ABB 3
+		ANNI C 3 //A_PlaySound("monsters/clhoof")
+		ANNI CDD 3
+		Loop
+	Missile:
+		TNT1 A 0 A_JumpIfCloser(400,"Grenadier")
+	Normal:
+		TNT1 A 0 A_Jump(128,"Seekers")
+		ANNI E 12
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
+		ANNI E 8
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
+		ANNI E 8
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
+		ANNI E 12
+		TNT1 A 0 Bright A_Jump(128,"Seekers")
+		Goto See
+	Seekers:
+		ANNI E 12
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
+		ANNI E 8
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
+		ANNI E 8
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
+		ANNI E 12
+		Goto See
+	Grenadier:
+		TNT1 A 0 A_Jump(178,"Normal")
+		ANNI E 10
+		ANNI E 2
+		TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, -26)
+		ANNI EEEE 2
+		TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordGrenade", 0, CMF_AIMDIRECTION, 4.328125, 0, -26)
+		ANNI E 12
+		Goto See
+	}
+}
+
+Actor CyberLordWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDarkCyberdemon : Cyberdemon
+{
+	Health 4500 PainChance 40
+	PainChance "PDTBFG", 20
+	PainChance "SoulToxic", 15
+	PainChance "FatFlamer", 15
+	PainChance "FiendFire", 15
+	PainChance "Explosion", 70
+	Speed 0.7875 //18
+	Scale 1.05
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.35
+	DamageFactor "PDTBFGTracer", 0.7
+	Species "Cybers"
+	DropItem "BossLifeEssence" 162 25
+	DropItem "BossArmorBonusMax" 162 25
+	DropItem "NewCellPack" 186 300
+	Obituary "%o was decimated by the Dark Cyberdemon."
+	+NOTARGET
+	+MISSILEEVENMORE
+	SeeSound "monsters/darkcybersee"
+	PainSound "monster/psopain"
+	DeathSound "monsters/darkcyberdie"
+	BloodColor "Green"
+	States
+	{
+	Spawn:
+		CBEP A 10
+		CBEP A 10
+		CBEI A 10
+		CBEI A 10
+		Loop
+	See:
+		CBEP A 3 A_Hoof
+		CBEP ABBCC 3
+		CBEP D 3 A_Metal
+		CBEP D 3
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
+	Rockets:
+		CBEP E 10
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		CBEP E 10
+		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
+		Goto See
+	HomingRockets:
+		CBEP E 10
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 6
+		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		CBEP E 10
+		TNT1 A 0 A_Jump(128,"FloorStomp","BFG9K","BFG15K")
+		Goto See
+	FloorStomp:
+		CBEP G 10
+		TNT1 A 0 A_SetInvulnerable
+		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright //A_PlaySoundEx("DarkCyber/Laugh","Voice")
+		TNT1 A 0
+		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_UnsetInvulnerable
+		CBEP G 7
+		CBE3 A 5
+		TNT1 A 0 Radius_Quake(10,8,0,24,0)
+		CBE3 B 6 //A_PlaySound("monsters/darkcyberstomp")
+		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", 0,0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 15,0, 0, 0)
+		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -15,0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 30,0, 0, 0)
+		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -30,0, 0, 0)
+		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 45,0, 0, 0)
+		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
+		CBE3 B 20
+		TNT1 A 0 A_Jump(128,"BFG9K","BFG15K")
+		Goto See
+	BFG9K:
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		CBEP EE 10
+		CBEP F 10 Bright
+		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
+		CBEP E 4
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		CBEP EE 10
+		CBEP F 10 Bright
+		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
+		CBEP E 10
+		TNT1 A 0 A_Jump(128,"BFG15K")
+		Goto See
+	BFG15K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		CBEP E 18 Bright
+		CBEP E 6 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 4 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 4 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 4 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 4 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 4 Bright
+		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		CBEP E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		Goto See
+	}
+}
+
+
+Actor PossessedCardinal : PossessedCyberdemon
+{
+	Player.MorphWeapon "CardinalWeapon"
+
+	Health 5000
+	Speed 0.4375 //10
+	FloatSpeed 0.35 //8
+	PainChance 30
+	PainChance "PDTBFG", 15
+	PainChance "SoulToxic", 10
+	PainChance "FatFlamer", 10
+	PainChance "FiendFire", 10
+	PainChance "Explosion", 60
+	Species "Cybers"
+	DamageFactor "Cyber10K", 0.0
+	DamageFactor "PDTBFG", 0.2
+	DamageFactor "PDTBFGTracer", 0.6
+	DropItem "BossLifeEssence" 204 25
+	DropItem "BossArmorBonusMax" 204 25
+	DropItem "DemonAmmoBox" 128 200
+	DropItem "DemonicChalice" 128
+	SeeSound "Cardinal/Sight"
+	PainSound "Cardinal/Pain"
+	DeathSound "Cardinal/Death"
+	ActiveSound "Cardinal/Active"
+	Scale 1.1
+	Mass 2500
+	+NOTARGET
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	+FLOAT
+	+NOGRAVITY
+	-FLOORCLIP
+	Obituary "%o tried to take on the Dark Cardinal but failed miserably and became his bitch instead."
+	States
+	{
+	Spawn:
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD B 2 Bright
+		Loop
+	See:
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD A 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD B 2 Bright
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
+	Normal:
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
+		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
+		Goto See
+	Seekers:
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
+		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
+		Goto See
+	BFG10K:
+		TNT1 A 0 //A_PlaySound("weapons/charge15k")
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
+		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		CARD CCCCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 A_Jump(128,"DTBFG10K")
+		Goto See
+	DTBFG10K:
+		TNT1 A 0 //A_PlaySound("Cardinal/9k")
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 4 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 4 Bright //A_FireCustomMissile("CardinalDTBFG10KBall", 0, 0, 0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD DCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		Goto See
+	Pain:
+		TNT1 A 0 A_Jump(46,"PainRage")
+		TNT1 A 0 A_Jump(128,"PainMissile")
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright A_Pain
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright
+		Goto See
+	PainMissile:
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright A_Pain
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright
+		Goto Missile
+	PainRage:
+		TNT1 A 0 A_JumpIfCloser(1000,1)
+		Goto Pain+1
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD E 3 Bright A_Pain
+		CARD EEEEEEEE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SetInvulnerable
+		TNT1 A 0 Bright Radius_Quake(10,80,0,24,0)
+		TNT1 A 0 Bright A_GiveInventory("Health",600)
+		TNT1 A 0 Bright //A_PlaySound("Cardinal/Laugh")
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+		CARD EE 1 Bright A_SpawnItemEx("RainCometSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 Bright A_UnSetInvulnerable
+		CARD EE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		Goto See
+	}
+}
+
+Actor CardinalWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedModdedExplosiveBarrel : PossessedMonster
+{
+	Player.MorphWeapon "ModdedExplosiveBarrelWeapon"
+	Speed 0.2
+
+	Game Doom
+	//SpawnID 125
+	Health 20
+	Radius 10
+	Height 42
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	+OLDRADIUSDMG
+	DeathSound "world/barrelx"
+	Obituary "$OB_BARREL"
+	
+	States
+	{
+	Spawn:
+		BAR1 AB 6
+		Loop
+	}
+}
+
+Actor ModdedExplosiveBarrelWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 2 Thing_Damage(0, 1000)
+		Stop
+	}
 }

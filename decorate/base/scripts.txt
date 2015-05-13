@@ -1,2 +1,0 @@
-const int mop_possess = 800;
-const int mop_phaseimp = 805;

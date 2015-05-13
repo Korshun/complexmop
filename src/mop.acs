@@ -6,12 +6,39 @@
 #define mop_respawn 802
 #define mop_possessed_hud 803
 #define mop_respawn_puppetmaster 804
-#define mop_phaseimp 805
+#define mop_evade 805
+#define mop_autoconfig 806
+#define mop_phaseimp 807
+#define mop_magmafiend 808
+#define mop_helemental 809
+#define mop_hellarchon 810
+#define mop_pyrodemon 811
+#define mop_cybernoble 812
+#define mop_hellduke 813
+#define mop_bruiserdemon 814
+#define mop_afrit 815
+#define mop_cybruiser 816
+#define mop_wincondition 817
+#define mop_marinewin 818
+#define mop_demonwin 819
+#define mop_init 820
+#define mop_marinedeath 821
+#define mop_status 822
+#define mop_disconnect 823
+#define mop_death_log 824
+#define mop_monsterinfo 825
+#define mop_log_join 826
+#define mop_log_kill 827
+#define mop_findmarines 828
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
 #define TEMPTID 8080
 
+#define HID_MONSTERINFO 1
+
 #include "monsters.acs"
 #include "game.acs"
+#include "attacks.acs"
+#include "evade.acs"
 #include "possess.acs"

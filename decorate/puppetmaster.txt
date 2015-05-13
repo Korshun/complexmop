@@ -10,6 +10,7 @@ Actor PuppetMaster : PlayerPawn
 	Player.DisplayName "PuppetMaster"
 	Player.SoundClass "PuppetMaster"
 	Player.StartItem "mastergun"
+	Player.StartItem "IsPuppetmaster"
 	Player.WeaponSlot 1, mastergun
 	FloatSpeed 0
 
@@ -60,6 +61,9 @@ Actor NoFlash //replaces TeleportFog
 	}
 }
 
+Actor IsPuppetmaster : Inventory {}
+Actor LastFoundMarine : Inventory {}
+
 actor mastergun : Weapon
 {
   Weapon.AmmoUse 0
@@ -69,6 +73,7 @@ actor mastergun : Weapon
   +WEAPON.ALT_AMMO_OPTIONAL
   +WEAPON.CHEATNOTWEAPON
   +INVENTORY.UNDROPPABLE
+  +WEAPON.NOAUTOFIRE
   States
   {
   Ready:
@@ -82,19 +87,15 @@ actor mastergun : Weapon
     Loop
   Fire:
     TNT1 A 0 ACS_ExecuteAlways(mop_possess)
-	TNT1 A 5
 	goto ready
   AltFire:
-    TNT1 A 0 //ACS_ExecuteAlways(mop_findmarines)
-    TNT1 A 5
+    TNT1 A 0 ACS_ExecuteAlways(mop_findmarines)
 	goto ready
   Spawn:
     TNT1 A 1 Thing_Remove (0)
     Stop
   }
 }
-
-
 
 actor MGhost
 {

@@ -1,0 +1,76 @@
+Actor PossessedMonster : PlayerPawn
+{
+	-PICKUP
+	+NOSKIN
+	+NOTARGET
+	-FRIENDLY
+	
+	DamageFactor "Monster", 0
+	DamageFactor "Slime", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieRocket", 0
+	DamageFactor "DTFiendEx", 0
+	DamageFactor "SoulToxic", 0
+	DamageFactor "FiendFire", 0
+	DamageFactor "BombBreath", 0
+	DamageFactor "FatFlamer", 0
+	DamageFactor "Baby15K", 0
+	DamageFactor "CadaverRocket", 0
+	DamageFactor "AfritComet", 0
+	DamageFactor "BeheComet", 0
+	DamageFactor "HelementalComet", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "DarkDemoEx", 0
+	DamageFactor "CerEnergyBall", 0
+	DamageFactor "Cyber10K", 0
+	
+	
+	States
+	{
+	Death:
+		NULL A 1
+		Loop
+	}
+}
+
+Actor PossessedWeapon : Weapon
+{
+	+UNDROPPABLE
+
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Loop
+	Select:
+		TNT1 A 0 A_Raise
+		Loop
+	Deselect:
+		TNT1 A 0 A_Lower
+		Loop
+	Fire:
+		TNT1 A 0
+		Goto Ready
+	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
+
+Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
+
+Actor PossessedSuicide : Inventory
+{
+	Inventory.MaxAmount 2
+}
+
+Actor IsPossessed : Inventory
+{
+	Inventory.MaxAmount 1
+}
+

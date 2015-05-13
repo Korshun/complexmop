@@ -1,29 +1,81 @@
 #define MONSTER_ACTORNAME 0
 #define MONSTER_DIFFICULTY 1
-#define MONSTER_FLAGS 2
-#define MONSTER_SCRIPT 3
-#define NUM_MONSTER_PROPERTIES 4
+#define MONSTER_SCRIPT 2
+#define MONSTER_EVADESPEED 3
+#define MONSTER_FLAGS 4
+#define MONSTER_NAME 5
+#define MONSTER_SPRITE 6
+#define NUM_MONSTER_PROPERTIES 7
 
 #define MONSTF_FLYING 1
+#define MONSTF_NOPOSSESS 2
 
-#define NUM_MONSTER_TYPES 14
+#define NUM_MONSTER_TYPES 63
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
-	{ "PlasmaGunner",			0.1, 0, 0 },
-	{ "RailGunner",				0.1, 0, 0 },
-	{ "DemonTechZombie",		0.2, 0, 0 },
-	{ "RocketZombie",			0.5, 0, 0 },
-	{ "ShotgunZombie",			0.2, 0, 0 },
-	{ "AssaultShotgunZombie",	0.3, 0, 0 },
-	{ "SuperShotgunZombie",		0.5, 0, 0 },
-	{ "QuadShotgunZombie",		1.0, 0, 0 },
-	{ "AssaultRifleZombie",		0.2, 0, 0 },
-	{ "Chaingunner",			0.2, 0, 0 },
-	// Add chaingunners here.
-	{ "DevilImp",				0.2, 0, 0 },
-	{ "VoidImp",				0.2, 0, 0 },
-	{ "SoulHarvester",			0.2, 0, 0 },
-	{ "PhaseImp",				0.2, 0, mop_phaseimp }
+	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
+	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombiewoman", "ZMAYA1" },
+	{ "RailGunner",				0.06, 0, 0, 0, "Railgunner", "RPOSA1" },
+	{ "DemonTechZombie",		0.06, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
+	{ "RocketZombie",			0.06, 0, 0, 0, "Rocket zombie", "MPO2A1" },
+	{ "ShotgunZombie",			0.1, 0, 0, 0, "Shotgunner", "ZSP1A1" },
+	{ "AssaultShotgunZombie",	0.1, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
+	{ "SuperShotgunZombie",		0.1, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
+	{ "QuadShotgunZombie",		0.1, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
+	{ "AssaultRifleZombie",		0.13, 0, 0, 0, "Zombieman", "ARZMA1" },
+	{ "Chaingunner",			0.13, 0, 0, 0, "Chaingunner", "DPOSA1" },
+	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
+	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG9500 Commando", "BFGZA1" },
+	{ "DevilImp",				0.08, 0, 0, 0, "Devil Imp", "SIMPA1C1" },
+	{ "VoidImp",				0.08, 0, 0, 0, "Void Imp", "DRKSA1" },
+	{ "SoulHarvester",			0.08, 0, 0, 0, "Soul Harvester", "SLHVA1" },
+	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
+	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
+	{ "CyberFiend",				0.1, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
+	{ "MagmaFiend",				0.1, 0, 0, 0, "Magma Fiend", "SAR3A1" },
+	{ "DTechFiend",				0.1, 0, 0, 0, "DTech Fiend", "DPNKA1" },
+	{ "Spectre~",				0.12, 0, 0, 0, "Spectre", "SAR6A1" },
+	{ "Lurker",					0.12, 0, 0, 0, "Lurker", "SAR7A1" },
+	{ "Spook",					0.12, 0, 0, 0, "Spook", "SAR4A1" },
+	{ "TerrorSoul",				0.08, 0, 0, MONSTF_FLYING, "Terror Soul", "TERRA1" },
+	{ "ForgottenOne",			0.08, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
+	{ "PoisonSoul",				0.08, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
+	{ "Rictus",					0.08, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
+	{ "Abaddon",				0.14, 0, 14, MONSTF_FLYING, "Abaddon", "CALIA1" },
+	{ "Watcher",				0.14, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
+	{ "Helemental",				0.14, 0, 14, MONSTF_FLYING, "Helemental", "INFCA1" },
+	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
+	{ "Defiler",				0.17, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
+	{ "PoisonElemental",		0.17, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
+	{ "BombElemental",			0.17, 0, 0, MONSTF_FLYING, "Bomb Elemental", "INFPA1" },
+	{ "Dualachnotron",			0.2, 0, 0, 0, "Dualachnotron", "CSPIA1" },
+	{ "Fusionite",				0.2, 0, 0, 0, "Fusionite", "FSPIA1D1" },
+	{ "BabyDemolisher",			0.2, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
+	{ "BabySentient",			0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
+	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
+	{ "Daedabus",				0.2, 0, 0, 0, "Daedabus", "HECTC1" },
+	{ "Behemoth",				0.2, 0, 0, 0, "Behemoth", "FAT2C1" },
+	{ "Barbatos",				0.2, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	{ "Guardian",				0.25, 0, 0, 0, "Guardian", "SKELA1D1" },
+	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
+	{ "HellfireRevenant",		0.25, 0, 0, 0, "Hellfire Revenant", "GREVA1" },
+	{ "Famine",					0.25, 0, 0, 0, "Famine", "NREVA1" },
+	{ "HellArchon",				0.17, 0, 0, 0, "Hell Archon", "LOHSA1C1" },
+	{ "PyroDemon",				0.17, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
+	{ "CyberNoble",				0.17, 0, 0, 0, "Cyber Noble", "CBOSA1" },
+	{ "HellDuke",				0.17, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
+	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "HFRYA1" },
+	{ "Afrit",					0.2, 0, 0, 0, "Afrit", "FRITA1" },
+	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
+	{ "Exile",					0.5, 0, 0, MONSTF_NOPOSSESS, "Exile", "VILEA1D1" },
+	{ "Diabolist",				0.5, 0, 0, MONSTF_NOPOSSESS, "Diabolist", "DIABA1" },
+	{ "DarkHellion",			0.5, 0, 0, MONSTF_NOPOSSESS, "Dark Hellion", "HELNA1" },
+	{ "Demolisher",				3.0, 0, 0, MONSTF_NOPOSSESS, "Demolisher", "DEMOA1" },
+	{ "DarkDemolisher",			3.0, 0, 0, MONSTF_NOPOSSESS, "Dark Demolisher", "DEM2A1" },
+	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cerebral Sentient", "SUPRA1" },
+	{ "CyberLord",				5.0, 0, 0, MONSTF_NOPOSSESS, "Cyber Lord", "ANNIA1C1" },
+	{ "DarkCyberdemon",			5.0, 0, 0, MONSTF_NOPOSSESS, "Dark Cyberdemon", "CBEPA1" },
+	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cardinal", "CARDA1" }
 };
 
 // List of items that monsters can carry.
@@ -33,6 +85,37 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	"SSGZombieToken",
 	"QSGZombieToken"
 };
+
+script mop_phaseimp (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseImp_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseImp_Phased", 1);
+	GiveInventory("PhaseImp_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseImp_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseImp_Phased", 1);
+}
 
 function int IdentifyMonsterType(int tid)
 {
@@ -50,10 +133,4 @@ function int IdentifyPossessedMonsterType(int player)
 			return i;
 
 	return -1;
-}
-
-script mop_phaseimp (void)
-{
-	printbold(s:"Ur ranslucent!");
-	SetActorProperty(0, APROP_ALPHA, 0.5);
 }

@@ -7,14 +7,81 @@ int MarineCount = 0;
 int PuppetMasterCount = 0;
 int PossessedCount = 0;
 
+int Lives = 999;
+
+script mop_log_join(int player, int team) clientside
+{
+	switch(team)
+	{
+	case PLAYER_MARINE: Log(n:player+1, s:" becomes a Doom Guy."); break;
+	case PLAYER_MOP: Log(n:player+1, s:" becomes a Puppet Master."); break;
+	}
+}
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
 	
 	if (PlayerClass(PlayerNumber()) == 1)
+	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+		ACS_ExecuteAlways(mop_monsterinfo, 0);
+	}
 	else
+	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
+		
+		if (GetCVar("mop_pistolstart"))
+		{
+			print(s:"pistol start");
+		
+			ClearInventory();
+			
+			TakeInventory("MOP Melee", 1);
+			TakeInventory("MOP Handgun", 1);
+			TakeInventory("MOP Chainsaw", 1);
+			TakeInventory("MOP Combat Shotgun", 1);
+			TakeInventory("MOP Assault Shotgun", 1);
+			TakeInventory("MOP Double Barrel Shotgun", 1);
+			TakeInventory("MOP Quad Barrel Shotgun", 1);
+			TakeInventory("MOP Assault Rifle", 1);
+			TakeInventory("MOP Minigun", 1);
+			TakeInventory("MOP Rocket Launcher", 1);
+			TakeInventory("MOP Grenade Launcher", 1);
+			TakeInventory("MOP Plasma Rifle", 1);
+			TakeInventory("MOP Railgun", 1);
+			TakeInventory("MOP BFG9500", 1);
+			TakeInventory("MOP BFG10K", 1);
+			TakeInventory("MOP Demon Tech Rifle", 1);
+			TakeInventory("MOP Demon Tech BFG10K", 1);
+			TakeInventory("MOP MP40", 1);
+			
+			GiveInventory("MOP Handgun", 1);
+			GiveInventory("HandGrenadeAmmo", 2);
+			GiveInventory("MineAmmo", 2);
+			GiveInventory("MOP Melee", 1);
+			GiveInventory("BulletMag", 60);
+			GiveInventory("PistolMagazine", 16);
+			GiveInventory("ShotgunMagazine", 9);
+			GiveInventory("SSGShell", 2);
+			GiveInventory("ShotgunDrum", 16);
+			GiveInventory("QuadShell", 4);
+			GiveInventory("ARMagazine", 41);
+			GiveInventory("RocketDrum", 7);
+			GiveInventory("GrenadeDrum", 7);
+			GiveInventory("PlasmaCell", 50);
+			GiveInventory("DemonMagazine", 60);
+			GiveInventory("CellCharge", 50);
+			GiveInventory("MP40Mag", 33);
+			GiveInventory("StartingArmor", 1);
+			GiveInventory("IsMarine", 1);
+			
+			SetActorProperty(0, APROP_HEALTH, 100);
+			SetWeapon("MOP Handgun");
+		}
+	}
+	
+	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
 	
 	MakePuppetMasterFlying();
 	UpdatePlayerCount();
@@ -25,6 +92,15 @@ script mop_respawn RESPAWN
 	Thing_ChangeTid(1000 + PlayerNumber(), 0);
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
 	MakePuppetMasterFlying();
+	
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
+		SetWeapon("MOP Handgun"); // WTF is this bug?
+}
+
+script mop_disconnect (int player) DISCONNECT
+{
+	PlayerClasses[PlayerNumber()] = 0;
+	UpdatePlayerCount();
 }
 
 function void MakePuppetMasterFlying(void)
@@ -60,18 +136,287 @@ function int LivingMonsterCount(void)
 	return TotalMonsterCount() - GetLevelInfo(LEVELINFO_KILLED_MONSTERS);
 }
 
-script 500 OPEN
+int Bossbrain = 0;
+int DamageFactor = 1.0;
+
+script mop_init OPEN
 {
-	SetFont("SMALLFONT");
-	SetHudSize(640, 480, 1);
-	HudMessageBold(s:"Marines: ", d:MarineCount,
-		s:"\nmops: ", d:PuppetMasterCount,
-		s:"\n",
-		s:"\nmonsters: ", d:TotalMonsterCount(),
-		s:"\nalive: ", d:LivingMonsterCount();
-	HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	ConsoleCommand("sv_disallowsuicide 1");
+	
+	if (!GetCVar("mop_pistolstart"))
+	{
+		ConsoleCommand("set mop_pistolstart 0");
+		ConsoleCommand("archivecvar mop_pistolstart");
+	}
+	
+	if (!GetCVar("mop_noautoconfig"))
+	{
+		ConsoleCommand("sv_nocoopinfo 1");
+		ConsoleCommand("sv_noautomapallies 1");
+	}
+	
+	if (GameSkill() > 3)
+	{
+		DamageFactor = 1.5;
+		ConsoleCommand("teamdamage 1.5");
+	}
+	else
+	{
+		DamageFactor = 1.0;
+		ConsoleCommand("teamdamage 1");
+	}
+		
+	Delay(5); // Let monster replacers spawn.
+	
+	int monsterforces = 0.0;
+	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	{
+		monsterforces += MonsterTypes[i][MONSTER_DIFFICULTY] * ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], 0);
+	}
+	
+	Lives = (monsterforces>>16) + 1;
+	
+	if (ThingCountName("BossBrain", 0))
+	{
+		BossBrain = true;
+		Lives += 10;
+	}
+	
+	ACS_ExecuteAlways(mop_wincondition, 0);
+}
+
+script mop_status OPEN
+{
+	int prev_MarineCount = -1;
+	int prev_PuppetmasterCount;
+	int prev_Lives;
+	int prev_LivingMonsterCount;
+	
+	while (true)
+	{
+	
+	if (MarineCount != prev_MarineCount || PuppetMasterCount != prev_PuppetMasterCount || Lives != prev_Lives || LivingMonsterCount() != prev_LivingMonsterCount)
+	{	
+		SetFont("SMALLFONT");
+		SetHudSize(640, 480, 1);
+		HudMessageBold(s:"\cdMarines\c-: ", d:MarineCount,
+			s:"\n\cgMops\c-: ", d:PuppetMasterCount,
+			s:"\n",
+			s:"\nLives: ", d:Lives,
+			s:"\nMonsters: ", d:LivingMonsterCount();
+		HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+		
+		prev_MarineCount = MarineCount;
+		prev_PuppetmasterCount = PuppetmasterCount;
+		prev_Lives = Lives;
+		prev_LivingMonsterCount = LivingMonsterCount();
+	}
+	
+	Delay(1);
+	}
+}
+
+script mop_marinedeath DEATH
+{
+	int victim = PlayerNumber();
+	SetActivatorToTarget(0);
+	int killer = PlayerNumber();
+	if (PlayerClasses[victim] == PLAYER_MARINE && PlayerClasses[killer] != PLAYER_MARINE)
+		Lives--;
+		
+	if (Lives <= 0)
+		ACS_ExecuteAlways(mop_demonwin, 0);
+}
+
+function int TryToGoToMarine(int number)
+{	
+	if (!PlayerInGame(number) || playerClasses[number] != PLAYER_MARINE || GetActorProperty(1000 + number, APROP_HEALTH) <= 0)
+		return false;
+		
+	int x = GetActorX(1000 + number);
+	int y = GetActorY(1000 + number);
+	int z = GetActorZ(1000 + number);
+	int angle = GetActorAngle(1000 + number);
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, angle);
+	
+	TakeInventory("LastFoundMarine", 0x7fffffff);
+	GiveInventory("LastFoundMarine", number);
+	
+	return true;
+}
+
+script mop_findmarines (void)
+{
+	int last = CheckInventory("LastFoundMarine");
+	
+	for (int i = last + 1; i < MAX_PLAYERS; i++)
+	{
+		if (TryToGoToMarine(i))
+			terminate;
+	}
+	
+	for (i = 0; i <= last; i++)
+	{
+		if (TryToGoToMarine(i))
+			terminate;
+	}
+}		
+
+int may_exit;
+
+script mop_wincondition (void)
+{
+	if (!Bossbrain && !may_exit && LivingMonsterCount() < TotalMonsterCount() / 2)
+	{
+		AmbientSound("game/canexit" ,127);
+		SetHudSize(320, 240, 0);
+		SetFont("BIGFONT");
+		hudmessageBOLd(s:"Marines may now exit.";
+			HUDMSG_FADEOUT, 0, CR_GREEN, 160.0,155.0, 2.5);
+
+		may_exit = true;
+	}
+	
+	if (LivingMonsterCount() == 0)
+	{
+		ACS_ExecuteAlways(mop_marinewin, 0);
+	}
 	
 	Delay(1);
 	restart;
 }
 
+int won = false;
+
+// Marines win.
+script mop_marinewin (int secret)
+{
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+	{
+		print(s:"\cgPuppetmasters can't exit.");
+		terminate;
+	}
+	
+	if (LivingMonsterCount() >= TotalMonsterCount() / 2)
+	{
+		print(s:"\cdHalf of monsters must be dead before marines can exit.");
+		terminate;
+	}
+	
+	if (won)
+		terminate;
+	won = true;
+	
+	if (LivingMonsterCount() == 0)
+		printbold(s:"\cdAll monsters are dead.");
+	else
+		printbold(n:1 + PlayerNumber(), s:" \cdhas reached the exit.");
+
+	SetHudSize(320, 240, 0);
+	SetFont("BIGFONT");
+	hudmessageBOLd(s:"Marines Win!";
+		HUDMSG_FADEOUT, 0, CR_GREEN, 160.0,155.0, 3.5);
+
+	// Ripped from MOP-X.
+	AmbientSound("grunt/death1",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death2",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death3",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(random(10,15));
+	AmbientSound("caco/death",127);
+	delay(random(10,15));
+	AmbientSound("baron/death",127);
+	delay(15);
+	AmbientSound("skeleton/death",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(13);
+	AmbientSound("grunt/death1",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death2",127);
+	delay(random(10,15));
+	AmbientSound("grunt/death3",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	delay(random(10,15));
+	AmbientSound("caco/death",127);
+	delay(random(10,15));
+	AmbientSound("baron/death",127);
+	delay(15);
+	AmbientSound("skeleton/death",127);
+	delay(15);
+	AmbientSound("demon/death",127);
+	// End of MOP-X code.
+
+	if (secret)
+		Exit_Secret(0);
+	else
+		Exit_Normal(0);
+}
+
+// Puppetmasters win.
+Script mop_demonwin (void)
+{
+	if (won)
+		terminate;
+	won = true;
+
+	// Ripped from MOP-X.
+	SetHUDSize(320,240,0);
+	setfont("BIGFONT");
+	hudmessageBOLd(s:"Puppet Masters Win!";
+		HUDMSG_FADEOUT, 0, CR_RED, 160.0,155.0, 3.5);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(10);
+	AmbientSound("baron/sight",127);
+	delay(35 * 3);
+	Exit_normal(0);
+	delay(1);
+	terminate;
+	// End of MOP-X code.
+}
+
+script mop_log_kill(int killer, int victim, int type) clientside
+{
+	switch(type)
+	{
+	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
+	case 1: Log(n:killer+1, s:"\cd -> \c-", n:victim+1); break;
+	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
+	}
+}
+
+script mop_death_log DEATH
+{
+	int vplayer = PlayerNumber();
+	SetActivatorToTarget(0);
+	
+	int kplayer = PlayerNumber();
+	// we don't care about monsters
+	if (kplayer == -1)
+		terminate;
+		
+	// we don't care about idiots
+	if (kplayer == vplayer)
+		terminate;
+	
+	if (PlayerClasses[kplayer] == PlayerClasses[vplayer])
+	{
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 2);
+		terminate;
+	}
+	
+	if (PlayerClasses[kplayer] == PLAYER_MOP)
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 0);
+	else if (PlayerClasses[kplayer] == PLAYER_MARINE)
+		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
+}
