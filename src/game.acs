@@ -33,10 +33,8 @@ script mop_enter ENTER
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
 		//SetPlayerProperty(0, false, PROP_ALLMAP);
-		if (GetCVar("mop_pistolstart"))
-		{
-			print(s:"pistol start");
-		
+		if (GetCVar("mop_pistolstart") || GetCVar("mop_shotgunstart"))
+		{		
 			ClearInventory();
 			
 			TakeInventory("MOP Melee", 1);
@@ -79,7 +77,18 @@ script mop_enter ENTER
 			GiveInventory("IsMarine", 1);
 			
 			SetActorProperty(0, APROP_HEALTH, 100);
-			SetWeapon("MOP Handgun");
+			
+			if (GetCVar("mop_pistolstart"))
+			{
+				print(s:"pistol start");
+				SetWeapon("MOP Handgun");
+			}
+			else if (GetCVar("mop_shotgunstart"))
+			{
+				print(s:"shotgun start");
+				GiveInventory("MOP Combat Shotgun", 1);
+				SetWeapon("MOP Combat Shotgun");
+			}
 		}
 	}
 	
@@ -150,6 +159,11 @@ script mop_init OPEN
 	{
 		ConsoleCommand("set mop_pistolstart 0");
 		ConsoleCommand("archivecvar mop_pistolstart");
+	}
+	if (!GetCVar("mop_shotgunstart"))
+	{
+		ConsoleCommand("set mop_shotgunstart 0");
+		ConsoleCommand("archivecvar mop_shotgunstart");
 	}
 	
 	if (!GetCVar("mop_noautoconfig"))
