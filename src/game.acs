@@ -84,26 +84,30 @@ script mop_enter ENTER
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
 	ACS_ExecuteAlways(mop_ally_hud, 0);
 	
-	MakePuppetMasterFlying();
 	UpdatePlayerCount();
+	LaunchPlayerScripts();
 }
 script mop_respawn RESPAWN
 {
 	// Get rid of old tids.
 	Thing_ChangeTid(1000 + PlayerNumber(), 0);
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
-	MakePuppetMasterFlying();
+	LaunchPlayerScripts();
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
 		SetWeapon("MOP Handgun"); // WTF is this bug?
-
-	ACS_Execute(mop_ally_hud);
 }
 
 script mop_disconnect (int player) DISCONNECT
 {
 	PlayerClasses[PlayerNumber()] = 0;
 	UpdatePlayerCount();
+}
+
+function void LaunchPlayerScripts(void)
+{
+	MakePuppetMasterFlying();
+	ACS_ExecuteAlways(mop_ally_hud, 0);
 }
 
 function void MakePuppetMasterFlying(void)
