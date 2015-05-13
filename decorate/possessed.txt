@@ -5,6 +5,8 @@ Actor PossessedMonster : PlayerPawn
 	+NOTARGET
 	-FRIENDLY
 	
+	Player.SoundClass "Possessed"
+	
 	DamageFactor "Monster", 0
 	DamageFactor "Slime", 0
 	DamageFactor "ZombieDemonTech", 0
@@ -24,7 +26,6 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "DarkDemoEx", 0
 	DamageFactor "CerEnergyBall", 0
 	DamageFactor "Cyber10K", 0
-	
 	
 	States
 	{
