@@ -91,8 +91,8 @@ script mop_enter ENTER
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
-	
-	MakePuppetMasterFlying();
+	ACS_ExecuteAlways(mop_ally_hud, 0);
+	LaunchPlayerScripts();
 	UpdatePlayerCount();
 	
 	SetWeapon("MOP Melee");
@@ -112,7 +112,7 @@ script mop_respawn RESPAWN
 	// Get rid of old tids.
 	Thing_ChangeTid(1000 + PlayerNumber(), 0);
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
-	MakePuppetMasterFlying();
+	LaunchPlayerScripts();
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
 		SetWeapon("MOP Handgun"); // WTF is this bug?
@@ -122,6 +122,13 @@ script mop_disconnect (int player) DISCONNECT
 {
 	PlayerClasses[PlayerNumber()] = 0;
 	UpdatePlayerCount();
+	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
+}
+
+function void LaunchPlayerScripts(void)
+{
+	MakePuppetMasterFlying();
+	ACS_ExecuteAlways(mop_ally_hud, 0);
 }
 
 function void MakePuppetMasterFlying(void)
@@ -441,4 +448,49 @@ script mop_death_log DEATH
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 0);
 	else if (PlayerClasses[kplayer] == PLAYER_MARINE)
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
+}
+
+script mop_ally_hud (void)
+{
+	int prev_ally = -1;
+	int prev_hp = -1;
+	
+	while (GetActorProperty(0, APROP_HEALTH) > 0)
+	{		
+		int player = PlayerNumber();
+		SetActivatorToTarget(0);
+		if (PlayerNumber() == -1 || PlayerNumber() == player || PlayerClasses[PlayerNumber()] != PlayerClasses[player])
+		{
+			SetActivator(1000 + player);
+			if (prev_ally != -1)
+			{
+				HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
+				prev_ally = -1;
+				prev_hp = -1;
+			}
+		
+			Delay(1);
+			continue;
+		}
+		
+		int ally = PlayerNumber();		
+		int hp = GetActorProperty(0, APROP_HEALTH);
+		
+		SetActivator(1000 + player);
+		if (prev_hp != hp && prev_ally != ally)
+		{
+			SetHUDSize(640,480,0);
+			SetFont("SMALLFONT");
+			HUDMessage(
+				d:hp,
+				s:" hp\n";
+				HUDMSG_PLAIN, HID_MONSTERINFO, CR_RED, 640.0/2 + 0.4, (480.0/2)+100.0, 0
+			);
+			
+			prev_ally = ally;
+			prev_hp = hp;
+		}
+		
+		Delay(1);
+	}
 }

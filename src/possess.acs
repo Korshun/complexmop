@@ -219,7 +219,7 @@ script mop_monsterinfo (void)
 			HUDMessage(
 				s:MonsterTypes[type][MONSTER_NAME],
 				s:"\n\n",
-				i:hp,
+				d:hp,
 				s:" hp";
 				HUDMSG_PLAIN, HID_MONSTERINFO, CR_RED, 640.0/2 + 0.4, (480.0/2)+100.0, 0
 			);
@@ -230,8 +230,6 @@ script mop_monsterinfo (void)
 		
 		Delay(1);
 	}
-	
-	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
 }
 
 // Puppeter custom hud drawing.
