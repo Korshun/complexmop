@@ -420,3 +420,24 @@ script mop_death_log DEATH
 	else if (PlayerClasses[kplayer] == PLAYER_MARINE)
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
 }
+
+script mop_ally_hud ENTER
+{
+	while(true)
+	{
+		int selfnum = PlayerNumber();
+		int selftid = ActivatorTid();
+		
+		SetActivatorToTarget(0);
+		int targetnum = PlayerNumber();
+		
+		if(targetnum != -1 && PlayerClasses[targetnum] == PlayerClasses[selfnum])
+		{
+			int hp = GetActorProperty(0, APROP_HEALTH);
+			SetActivator(selftid);
+			print(d:hp);
+		}
+		else SetActivator(selftid);
+		delay(1);
+	}
+}

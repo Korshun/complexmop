@@ -30,6 +30,7 @@
 #define mop_log_join 826
 #define mop_log_kill 827
 #define mop_findmarines 828
+#define mop_ally_hud 829
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
