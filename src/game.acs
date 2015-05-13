@@ -143,6 +143,7 @@ script mop_init OPEN
 {
 	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
 	ConsoleCommand("sv_disallowsuicide 1");
+	ConsoleCommand("sv_disallowspying 1");
 	
 	if (!GetCVar("mop_pistolstart"))
 	{
