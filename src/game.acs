@@ -33,7 +33,7 @@ script mop_enter ENTER
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
 		//SetPlayerProperty(0, false, PROP_ALLMAP);
-		if (GetCVar("mop_pistolstart") || GetCVar("mop_shotgunstart"))
+		if (GetCVar("mop_pistolstart"))
 		{		
 			ClearInventory();
 			
@@ -78,16 +78,14 @@ script mop_enter ENTER
 			
 			SetActorProperty(0, APROP_HEALTH, 100);
 			
-			if (GetCVar("mop_pistolstart"))
+			if (GetCVar("mop_pistolstart") == 1)
 			{
 				print(s:"pistol start");
-				SetWeapon("MOP Handgun");
 			}
-			else if (GetCVar("mop_shotgunstart"))
+			else
 			{
 				print(s:"shotgun start");
 				GiveInventory("MOP Combat Shotgun", 1);
-				SetWeapon("MOP Combat Shotgun");
 			}
 		}
 	}
@@ -96,6 +94,18 @@ script mop_enter ENTER
 	
 	MakePuppetMasterFlying();
 	UpdatePlayerCount();
+	
+	SetWeapon("MOP Melee");
+	Delay(1); // Fix desync.
+	
+	if (GetCVar("mop_pistolstart") == 1)
+	{
+		SetWeapon("MOP Handgun");
+	}
+	else if (GetCVar("mop_pistolstart") == 2)
+	{
+		SetWeapon("MOP Combat Shotgun");
+	}
 }
 script mop_respawn RESPAWN
 {
@@ -160,12 +170,7 @@ script mop_init OPEN
 		ConsoleCommand("set mop_pistolstart 0");
 		ConsoleCommand("archivecvar mop_pistolstart");
 	}
-	if (!GetCVar("mop_shotgunstart"))
-	{
-		ConsoleCommand("set mop_shotgunstart 0");
-		ConsoleCommand("archivecvar mop_shotgunstart");
-	}
-	
+
 	if (!GetCVar("mop_noautoconfig"))
 	{
 		ConsoleCommand("sv_nocoopinfo 1");
