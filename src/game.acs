@@ -25,12 +25,13 @@ script mop_enter ENTER
 	if (PlayerClass(PlayerNumber()) == 1)
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+		SetPlayerProperty(0, false, PROP_ALLMAP);
 		ACS_ExecuteAlways(mop_monsterinfo, 0);
 	}
 	else
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
-		
+		SetPlayerProperty(0, true, PROP_ALLMAP);
 		if (GetCVar("mop_pistolstart"))
 		{
 			print(s:"pistol start");

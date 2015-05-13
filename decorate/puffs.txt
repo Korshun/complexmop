@@ -20,5 +20,6 @@ ACTOR PlayerFootPuff : FootPuff
 
 ACTOR PlayerSawScreech : SawScreech
 {
+	SeeSound "weapons/sawhit"
 	DamageType "Player"
 }
