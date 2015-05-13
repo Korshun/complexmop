@@ -102,6 +102,7 @@ actor MGhost
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+NOTELEPORT
+	+CLIENTSIDEONLY
 	RenderStyle add
 	Alpha 0.15
 	scale 0.7
