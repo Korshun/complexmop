@@ -96,6 +96,8 @@ script mop_respawn RESPAWN
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
 		SetWeapon("MOP Handgun"); // WTF is this bug?
+
+	ACS_Execute(mop_ally_hud);
 }
 
 script mop_disconnect (int player) DISCONNECT
