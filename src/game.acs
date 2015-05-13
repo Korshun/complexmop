@@ -102,6 +102,7 @@ script mop_disconnect (int player) DISCONNECT
 {
 	PlayerClasses[PlayerNumber()] = 0;
 	UpdatePlayerCount();
+	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
 }
 
 function void LaunchPlayerScripts(void)
@@ -430,18 +431,43 @@ script mop_death_log DEATH
 
 script mop_ally_hud (void)
 {
+	int prev_ally = -1;
+	int prev_hp = -1;
+	
 	while (GetActorProperty(0, APROP_HEALTH) > 0)
-	{
+	{		
 		int player = PlayerNumber();
-		
 		SetActivatorToTarget(0);
-		int ally = PlayerNumber();
-		SetActivator(1000 + player);
-		
-		if (ally != player && ally != -1 && PlayerClasses[ally] == PlayerClasses[player])
+		if (PlayerNumber() == -1 || PlayerNumber() == player || PlayerClasses[PlayerNumber()] != PlayerClasses[player])
 		{
-			int hp = GetActorProperty(1000 + ally, APROP_HEALTH);
-			print(d:hp);
+			SetActivator(1000 + player);
+			if (prev_ally != -1)
+			{
+				HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
+				prev_ally = -1;
+				prev_hp = -1;
+			}
+		
+			Delay(1);
+			continue;
+		}
+		
+		int ally = PlayerNumber();		
+		int hp = GetActorProperty(0, APROP_HEALTH);
+		
+		SetActivator(1000 + player);
+		if (prev_hp != hp && prev_ally != ally)
+		{
+			SetHUDSize(640,480,0);
+			SetFont("SMALLFONT");
+			HUDMessage(
+				d:hp,
+				s:" hp\n";
+				HUDMSG_PLAIN, HID_MONSTERINFO, CR_RED, 640.0/2 + 0.4, (480.0/2)+100.0, 0
+			);
+			
+			prev_ally = ally;
+			prev_hp = hp;
 		}
 		
 		Delay(1);
