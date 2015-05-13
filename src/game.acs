@@ -206,7 +206,7 @@ script mop_status OPEN
 			s:"\n",
 			s:"\nLives: ", d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
-		HUDMSG_PLAIN, 6, CR_YELLOW, 320.0, 50.0, 0);
+		HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
 		
 		prev_MarineCount = MarineCount;
 		prev_PuppetmasterCount = PuppetmasterCount;

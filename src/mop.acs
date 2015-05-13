@@ -36,6 +36,7 @@
 #define TEMPTID 8080
 
 #define HID_MONSTERINFO 1
+#define HID_GAMESTATUS 2
 
 #include "monsters.acs"
 #include "game.acs"
