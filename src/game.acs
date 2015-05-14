@@ -183,6 +183,7 @@ script mop_init OPEN
 		ConsoleCommand("sv_nocoopinfo 1");
 		ConsoleCommand("sv_noautomapallies 1");
 		ConsoleCommand("sv_disallowspying 1");
+		ConsoleCommand("sv_unblockplayers 0");
 	}
 	
 	if (GameSkill() > 3)

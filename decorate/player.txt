@@ -1,6 +1,8 @@
 ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 {
 	DamageFactor "Player", 0
+	
+	+THRUSPECIES
 
 	Player.StartItem "MOP Handgun"
 	//Player.StartItem "Frag Grenade"
