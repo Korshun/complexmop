@@ -251,8 +251,8 @@ script mop_marinedeath DEATH
 {
 	int victim = PlayerNumber();
 	SetActivatorToTarget(0);
-	int killer = PlayerNumber();
-	if (PlayerClasses[victim] == PLAYER_MARINE && PlayerClasses[killer] != PLAYER_MARINE)
+	int killer = PlayerNumber();	
+	if (PlayerClasses[victim] == PLAYER_MARINE && PlayerClasses[killer] != PLAYER_MARINE || victim == killer)
 		Lives--;
 		
 	if (Lives <= 0)
