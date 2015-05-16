@@ -176,6 +176,7 @@ script mop_init OPEN
 	
 	if (BoomEdition)
 	{
+		ConsoleCommand("alwaysapplydmflags 1");
 		ConsoleCommand("sv_noexit 1");
 	}
 	
@@ -392,6 +393,8 @@ script mop_marinewin (int secret)
 	delay(15);
 	AmbientSound("demon/death",127);
 	// End of MOP-X code.
+	
+	ConsoleCommand("sv_noexit 0");
 
 	if (secret)
 		Exit_Secret(0);
