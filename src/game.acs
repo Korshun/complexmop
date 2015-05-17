@@ -172,7 +172,6 @@ int DamageFactor = 1.0;
 script mop_init OPEN
 {
 	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
-	ConsoleCommand("sv_disallowsuicide 1");
 	
 	if (BoomEdition)
 	{
@@ -188,6 +187,7 @@ script mop_init OPEN
 
 	if (!GetCVar("mop_noautoconfig"))
 	{
+		ConsoleCommand("sv_disallowsuicide 1");
 		ConsoleCommand("sv_nocoopinfo 1");
 		ConsoleCommand("sv_noautomapallies 1");
 		ConsoleCommand("sv_disallowspying 1");
