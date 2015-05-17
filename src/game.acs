@@ -224,6 +224,8 @@ script mop_init OPEN
 	ACS_ExecuteAlways(mop_wincondition, 0);
 }
 
+int won = false;
+
 script mop_status OPEN
 {
 	int prev_MarineCount = -1;
@@ -233,6 +235,13 @@ script mop_status OPEN
 	
 	while (true)
 	{
+	if (won)
+	{
+		SetFont("SMALLFONT");
+		SetHudSize(640, 480, 1);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
+		terminate;
+	}
 	
 	if (MarineCount != prev_MarineCount || PuppetMasterCount != prev_PuppetMasterCount || Lives != prev_Lives || LivingMonsterCount() != prev_LivingMonsterCount)
 	{	
@@ -328,8 +337,6 @@ script mop_wincondition (void)
 	Delay(1);
 	restart;
 }
-
-int won = false;
 
 // Marines win.
 script mop_marinewin (int secret)
@@ -437,7 +444,7 @@ script mop_log_kill(int killer, int victim, int type) clientside
 	switch(type)
 	{
 	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
-	case 1: Log(n:killer+1, s:"\cd -> \c-", n:victim+1); break;
+	case 1: Log(n:victim+1, s:" \cddied."); break;
 	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
 	}
 }
