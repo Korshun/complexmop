@@ -315,7 +315,10 @@ int may_exit;
 
 script mop_wincondition (void)
 {
-	if (!Bossbrain && !may_exit && LivingMonsterCount() < TotalMonsterCount() / 2)
+	if (BossBrain)
+		terminate;
+
+	if (!may_exit && LivingMonsterCount() < TotalMonsterCount() / 2)
 	{
 		AmbientSound("game/canexit" ,127);
 		SetHudSize(320, 240, 0);
@@ -329,7 +332,7 @@ script mop_wincondition (void)
 			ConsoleCommand("sv_noexit 0");
 	}
 	
-	if (LivingMonsterCount() == 0)
+	if (LivingMonsterCount() == 0 && TotalMonsterCount() != 0)
 	{
 		ACS_ExecuteAlways(mop_marinewin, 0);
 	}
