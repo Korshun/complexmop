@@ -349,11 +349,14 @@ script mop_marinewin (int secret)
 	if (won)
 		terminate;
 	won = true;
-	
+		
 	if (LivingMonsterCount() == 0)
 		printbold(s:"\cdAll monsters are dead.");
 	else
 		printbold(n:1 + PlayerNumber(), s:" \cdhas reached the exit.");
+		
+	if (BoomEdition)
+		ConsoleCommand("sv_noexit 0");
 
 	SetHudSize(320, 240, 0);
 	SetFont("BIGFONT");
@@ -393,8 +396,6 @@ script mop_marinewin (int secret)
 	delay(15);
 	AmbientSound("demon/death",127);
 	// End of MOP-X code.
-	
-	ConsoleCommand("sv_noexit 0");
 
 	if (secret)
 		Exit_Secret(0);
@@ -408,6 +409,9 @@ Script mop_demonwin (void)
 	if (won)
 		terminate;
 	won = true;
+	
+	if (BoomEdition)
+		ConsoleCommand("sv_noexit 0");
 
 	// Ripped from MOP-X.
 	SetHUDSize(320,240,0);
