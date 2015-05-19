@@ -75,7 +75,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING, "Cerebral Sentient", "SUPRA1" },
 	{ "CyberLord",				5.0, 0, 0, 0, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			5.0, 0, 0, 0, "Dark Cyberdemon", "CBEPA1" },
-	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cardinal", "CARDA1" }
+	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING, "Cardinal", "CARDA1" }
 };
 
 // List of items that monsters can carry.

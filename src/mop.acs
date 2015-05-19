@@ -35,6 +35,8 @@
 #define mop_darkdemolisher 831
 #define mop_cerebralsentient 832
 #define mop_darkcyberdemon 833
+#define mop_cardinal 834
+
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
