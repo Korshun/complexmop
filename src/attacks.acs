@@ -333,7 +333,7 @@ script mop_cerebralsentient (void)
 	{
 		TakeInventory("Attack1", 1);
 		GiveInventory("Attack2", 1);
-		print(s:"\cdBFG10K");
+		print(s:"\cgBFG10K");
 		terminate;
 	}
 	
@@ -341,7 +341,7 @@ script mop_cerebralsentient (void)
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cdDemon Tech BFG10K");
+		print(s:"\cgDemon Tech BFG10K");
 		terminate;
 	}
 	
@@ -411,7 +411,7 @@ script mop_cardinal (void)
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cdbfg10k");
+		print(s:"\cgbfg10k");
 		terminate;
 	}
 	
@@ -419,7 +419,7 @@ script mop_cardinal (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack4", 1);
-		print(s:"\cddemon tech bfg10k");
+		print(s:"\cgdemon tech bfg10k");
 		terminate;
 	}
 	
