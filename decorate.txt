@@ -5207,7 +5207,7 @@ Actor CybruiserWeapon : PossessedWeapon
 		TNT1 A 0 A_FireCustomMissile("RailgunImpact")
 		TNT1 A 0 A_FireCustomMissile("BruiserRailgunSlug")
 		TNT1 A 5 A_RailAttack(-1, 10, 0, "00 85 FF", None, 1, 1)
-		TNT1 E 20
+		TNT1 E 10
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	Rockets:
