@@ -6414,8 +6414,10 @@ Actor CyberLordWeapon : PossessedWeapon
 }
 
 
-Actor PossessedDarkCyberdemon : Cyberdemon
+Actor PossessedDarkCyberdemon : PossessedCyberdemon
 {
+	Player.MorphWeapon "DarkCyberdemonWeapon"
+
 	Health 4500 PainChance 40
 	PainChance "PDTBFG", 20
 	PainChance "SoulToxic", 15
@@ -6453,7 +6455,14 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP D 3
 		Loop
 	Missile:
-		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
+		Goto Spawn
+	Melee:
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "HomingRockets")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
+		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG15K")
+		Goto Spawn
 	Rockets:
 		CBEP E 10
 		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
@@ -6468,7 +6477,6 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP E 6
 		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
 		CBEP E 10
-		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
 		Goto Spawn
 	HomingRockets:
 		CBEP E 10
@@ -6484,27 +6492,26 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP E 6
 		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
 		CBEP E 10
-		TNT1 A 0 A_Jump(128,"FloorStomp","BFG9K","BFG15K")
 		Goto Spawn
 	FloorStomp:
 		CBEP G 10
-		TNT1 A 0 A_SetInvulnerable
-		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 //A_SetInvulnerable
+		TNT1 A 0 //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		CBE3 G 3 Bright //A_PlaySoundEx("DarkCyber/Laugh","Voice")
 		TNT1 A 0
-		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 A 0
-		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 A 0
-		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 A 0
-		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 A 0
-		CBE3 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
-		TNT1 A 0 A_UnsetInvulnerable
+		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 //A_UnsetInvulnerable
 		CBEP G 7
 		CBE3 A 5
-		TNT1 A 0 Radius_Quake(10,8,0,24,0)
+		TNT1 A 0 //Radius_Quake(10,8,0,24,0)
 		CBE3 B 6 //A_PlaySound("monsters/darkcyberstomp")
 		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", 0,0, 0, 0)
 		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 15,0, 0, 0)
@@ -6514,7 +6521,6 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		TNT1 A 0 //A_FireCustomMissile("DarkCyberFireSpawner", 45,0, 0, 0)
 		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
 		CBE3 B 20
-		TNT1 A 0 A_Jump(128,"BFG9K","BFG15K")
 		Goto Spawn
 	BFG9K:
 		TNT1 A 0 //A_PlaySound("weapons/bfgf")
@@ -6527,7 +6533,6 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP F 10 Bright
 		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
 		CBEP E 10
-		TNT1 A 0 A_Jump(128,"BFG15K")
 		Goto Spawn
 	BFG15K:
 		TNT1 A 0 //A_PlaySound("weapons/charge15k")
@@ -6546,6 +6551,114 @@ Actor PossessedDarkCyberdemon : Cyberdemon
 		CBEP F 4 Bright //A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
 		CBEP E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto Spawn
+	}
+}
+
+Actor DarkCyberdemonWeapon : PossessedWeapon
+{
+	+WEAPON.NOAUTOFIRE
+	
+	States
+	{
+	Fire:
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
+		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "HomingRockets")
+		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
+		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG15K")
+		Goto Ready
+	AltFire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_darkcyberdemon, 0)
+		Goto Ready
+	Rockets:
+		TNT1 E 10
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
+		TNT1 E 10
+		Goto Ready
+	HomingRockets:
+		TNT1 E 10
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 6
+		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
+		TNT1 E 10
+		Goto Ready
+	FloorStomp:
+		TNT1 G 10
+		TNT1 A 0 A_SetInvulnerable
+		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 G 3 Bright A_PlaySoundEx("DarkCyber/Laugh","Voice")
+		TNT1 A 0
+		TNT1 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0
+		TNT1 G 3 Bright A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_UnsetInvulnerable
+		TNT1 G 7
+		TNT1 A 5
+		TNT1 A 0 Radius_Quake(10,8,0,24,0)
+		TNT1 B 6 A_PlaySound("monsters/darkcyberstomp")
+		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", 0,0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("DarkCyberFireSpawner", 15,0, 0, 0)
+		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", -15,0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("DarkCyberFireSpawner", 30,0, 0, 0)
+		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", -30,0, 0, 0)
+		TNT1 A 0 A_FireCustomMissile("DarkCyberFireSpawner", 45,0, 0, 0)
+		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
+		TNT1 B 20
+		Goto Ready
+	BFG9K:
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 EE 10
+		TNT1 F 10 Bright
+		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
+		TNT1 E 4
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 EE 10
+		TNT1 F 10 Bright
+		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
+		TNT1 E 10
+		Goto Ready
+	BFG15K:
+		TNT1 A 0 A_PlaySound("weapons/charge15k")
+		TNT1 E 18 Bright
+		TNT1 E 6 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 4 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 4 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 4 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 4 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 4 Bright
+		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
+		TNT1 E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		Goto Ready
 	}
 }
 

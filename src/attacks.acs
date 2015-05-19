@@ -353,3 +353,46 @@ script mop_cerebralsentient (void)
 		terminate;
 	}
 }
+
+script mop_darkcyberdemon (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"homing rockets");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cdfloor stomp");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cdbfg9k");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
+		GiveInventory("Attack5", 1);
+		print(s:"\cdbfg15k");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack5"))
+	{
+		TakeInventory("Attack5", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"rockets");
+		terminate;
+	}
+}
