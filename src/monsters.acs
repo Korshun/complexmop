@@ -70,7 +70,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Exile",					0.5, 0, 0, MONSTF_NOPOSSESS, "Exile", "VILEA1D1" },
 	{ "Diabolist",				0.5, 0, 0, MONSTF_NOPOSSESS, "Diabolist", "DIABA1" },
 	{ "DarkHellion",			0.5, 0, 0, MONSTF_NOPOSSESS, "Dark Hellion", "HELNA1" },
-	{ "Demolisher",				3.0, 0, 0, MONSTF_NOPOSSESS, "Demolisher", "DEMOA1" },
+	{ "Demolisher",				3.0, 0, 0, 0, "Demolisher", "DEMOA1" },
 	{ "DarkDemolisher",			3.0, 0, 0, MONSTF_NOPOSSESS, "Dark Demolisher", "DEM2A1" },
 	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cerebral Sentient", "SUPRA1" },
 	{ "CyberLord",				5.0, 0, 0, MONSTF_NOPOSSESS, "Cyber Lord", "ANNIA1C1" },

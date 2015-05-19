@@ -10,3 +10,4 @@ const int mop_bruiserdemon = 814;
 const int mop_afrit = 815;
 const int mop_cybruiser = 816;
 const int mop_findmarines = 828;
+const int mop_demolisher = 830;
