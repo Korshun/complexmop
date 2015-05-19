@@ -2139,6 +2139,7 @@ Actor PossessedAbaddon : PossessedMonster
 		TNT1 A 0 Bright
 		CALI D 1 Bright
 		CALI CB 4
+		CALI B 5
 		Goto Spawn
 	Missile:
 		CALI BC 5
@@ -2199,20 +2200,10 @@ Actor PossessedWatcher : PossessedAbaddon
 		HED4 A 3
 		Loop
 	Missile:
-		TNT1 A 0 A_Jump(128,"Seeking")
-	Normal:
-		HED4 BC 6
-		HED4 D 2 Bright
-		HED4 D 1 Bright
-		TNT1 A 0
-		HED4 D 1 Bright
-		HED4 CB 4
-		HED4 B 5
-		Goto Spawn
-	Seeking:
 		HED4 BC 6
 		HED4 D 4 Bright
 		HED4 CB 4
+		HED4 B 5
 		Goto Spawn
 	}
 }
@@ -2266,6 +2257,8 @@ Actor PossessedHelemental : PossessedAbaddon
 		INFC A 3
 		Loop
 	Missile:
+		Goto Spawn
+	Melee:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -2279,17 +2272,20 @@ Actor PossessedHelemental : PossessedAbaddon
 		INFC G 2 Bright
 		INFC FE 4
 		TNT1 A 0
+		INFC E 6
 		Goto Spawn
 	Seeking:
 		INFC EF 6
 		INFC J 0 Bright
 		INFC G 4 Bright
 		INFC FE 4
+		INFC E 6
 		Goto Spawn
 	Comet:
 		INFC EF 6
 		INFC G 5 Bright
 		INFC FE 4
+		INFC E 6
 		Goto Spawn
 	}
 }
@@ -2301,6 +2297,7 @@ Actor HelementalWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -2598,6 +2595,7 @@ Actor PossessedBombElemental : PossessedSoulKeeper
 		INFP EF 5 Bright
 		INFP G 4 Bright
 		INFP FE 3 Bright
+		INFP E 5 Bright
 		Goto Spawn
 	Melee:
 		INFP EF 4 Bright
@@ -2718,8 +2716,9 @@ Actor PossessedHectebus : PossessedFatso
 		TNT1 A 0 
 		TABU H 4 Bright 
 		TABU IG 12
+		TABU G 10
 		Goto Spawn
-	Flamethrowers:
+	Missile:
 		TNT1 A 0
 		TABU GG 10
 		TNT1 A 0
@@ -2793,6 +2792,7 @@ Actor PossessedHectebus : PossessedFatso
 		TNT1 A 0 
 		TABU H 1 Bright
 		TABU IG 12
+		TABU G 10
 		Goto Spawn
 	}
 }
@@ -2924,6 +2924,7 @@ Actor PossessedDaedabus : PossessedFatso
 		TNT1 A 0 Bright 
 		HECT H 4 Bright 
 		HECT IG 12
+		HECT G 10
 		Goto Spawn
 	Missile:
 		TNT1 A 0
@@ -3061,6 +3062,7 @@ Actor PossessedBehemoth : PossessedFatso
 		TNT1 A 0 
 		FAT2 H 6 Bright 
 		FAT2 IG 12
+		FAT2 G 10
 		Goto Spawn
 	Missile:
 		TNT1 A 0
@@ -3156,6 +3158,7 @@ Actor PossessedBarbatos : PossessedFatso
 		TNT1 A 0 Bright 
 		FFAT H 6 Bright 
 		FFAT FG 12
+		FFAT G 10
 		Goto Spawn
 	Missile:
 		TNT1 A 0 
@@ -3226,6 +3229,7 @@ Actor PossessedBarbatos : PossessedFatso
 		TNT1 A 0 
 		FFAT H 2 Bright 
 		FFAT FG 12
+		FFAT G 10
 		Goto Spawn
 	}
 }
@@ -3388,8 +3392,7 @@ Actor PossessedDualachnotron : PossessedArachnotron
 		CSPI M 3
 		TNT1 A 0 
 		TNT1 A 0 
-		CSPI E 3 Bright 
-		CSPI B 15
+		CSPI E 3 Bright
 		Goto Spawn
 	}
 }
@@ -3453,7 +3456,7 @@ Actor PossessedFusionite : PossessedArachnotron
 	Missile:
 		FSPI G 4 Bright
 		FSPI H 4 Bright
-		FSPI H 1 Bright
+		FSPI H 5 Bright
 		Goto Spawn
 	}
 }
@@ -3501,7 +3504,8 @@ Actor PossessedBabyDemolisher : PossessedArachnotron
 		MSPI DEEFF 2
 		Loop
 	Missile:
-		MSPI A 15
+		MSPI Q 2 Bright
+		MSPI R 2 Bright
 		MSPI Q 2 Bright
 		MSPI R 2 Bright
 		Goto Spawn
@@ -3514,6 +3518,7 @@ Actor PossessedBabyDemolisher : PossessedArachnotron
 		MSPI G 6 Bright
 		MSPI H 4 Bright
 		MSPI G 20 Bright
+		MSPI G 10 Bright
 		Goto Spawn
 	}
 }
@@ -3591,10 +3596,6 @@ Actor PossessedBabySentient : PossessedArachnotron
 		MARP B 2 Bright
 		Loop
 	Missile:
-		MARP A 1
-		TNT1 A 0 A_JumpIfInventory("BabySentientBFG", 1, "BFG10K")
-		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-		MARP A 1 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP B 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
@@ -3605,6 +3606,10 @@ Actor PossessedBabySentient : PossessedArachnotron
 		MARP A 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP B 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
+		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		MARP A 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
 		MARP A 2 Bright
 		TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
@@ -3838,11 +3843,13 @@ Actor PossessedGuardian : PossessedRevenant
 		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		SKEL I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		SKEL HG 4
+		SKEL G 6
 		Goto Spawn
 	Missile:
 		SKEL J 14 Bright
 		TNT1 A 0 //A_FireCustomMissile("GuardianTracer", 0, 0, -14)
 		SKEL K 10 //A_FireCustomMissile("GuardianTracer", 0, 0, 14)
+		SKEL K 10
 		SKEL K 10
 		Goto Spawn
 	}
@@ -3912,6 +3919,7 @@ Actor PossessedCadaver : PossessedGuardian
 		TNT1 A 0 //A_PlaySound("skeleton/melee")
 		RASK I 3 //A_CustomPunch(6 * Random(1, 10), 1)
 		RASK HG 4
+		RASK G 6
 		Goto Spawn
 	Missile:
 		RASK J 14 Bright
@@ -4114,6 +4122,7 @@ Actor PossessedFamine : PossessedGuardian
 		TNT1 A 0 //A_FireCustomMissile("FamineTracer", 0, 0, -14)
 		NREV K 10 //A_FireCustomMissile("FamineTracer", 0, 0, 14)
 		NREV K 10
+		NREV K 10
 		Goto Spawn
 	Missile:
 		TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"DashPunch2")
@@ -4261,6 +4270,7 @@ Actor PossessedHellArchon : PossessedHellKnight
 		LOHS G 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
 		LOHS IJ 6 Bright
 		LOHS K 5 Bright //A_FireCustomMissile("ArchonFastBall", 0, 0, 0)
+		LOHS E 6 Bright
 		Goto Spawn
 	BurstBall:
 		LOHS MN 7 Bright
@@ -4363,6 +4373,7 @@ Actor PossessedPyroDemon : PossessedHellKnight
 		PYRO G 1 Bright //A_FireCustomMissile("PBall", 0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("PBall", -5, 0, 0)
 		PYRO G 5 Bright //A_FireCustomMissile("PBall", 5, 0, 0)
+		PYRO E 7 Bright
 		Goto Spawn
 	Comet:
 		PYRO MN 8 Bright
@@ -4597,12 +4608,14 @@ Actor PossessedHellDuke : PossessedHellKnight
 		HDUK K 1 Bright //A_FireCustomMissile("CyNobleBall", 0, 0, 0)
 		TNT1 A 0 //A_FireCustomMissile("CyNobleBall", -5, 0, 0)
 		HDUK K 4 Bright //A_FireCustomMissile("CyNobleBall", 5, 0, 0)
+		HDUK E 6 Bright
 		Goto Spawn
 	GiantBalls:
 		HDUK EF 7 Bright
 		HDUK G 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
 		HDUK IJ 7 Bright
 		HDUK K 6 Bright //A_FireCustomMissile("DukeBall2", 0, 0, 0)
+		HDUK E 7 Bright
 		Goto Spawn
 	BurstComet:
 		HDUK MN 8 Bright
@@ -4730,6 +4743,7 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 		HFRY G 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
 		HFRY HI 7 Bright
 		HFRY J 6 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
+		HFRY E 7 Bright
 		Goto Spawn
 	Comet:
 		HFRY KL 8 Bright
@@ -4910,7 +4924,7 @@ Actor PossessedAfrit : PossessedBaronOfHell
 		FRIT O 2 Bright
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT O 2 Bright
-		TNT1 A 0 A_Jump(87,"BurstBall","FloorHugger")
+		Goto Spawn
 	Comets:
 		TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
 		FRIT M 3 Bright
@@ -5153,6 +5167,7 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 		TNT1 A 0 //A_CustomMissile("BruiserRailgunSlug",40)
 		BRUR A 5 Bright //A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
 		BRUS E 20
+		BRUS E 10
 		Goto Spawn
 	Rockets:
 		BRUS E 10
