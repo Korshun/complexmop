@@ -139,6 +139,9 @@ script mop_respawn_protection (void)
 
 	for(int i = time; i > 0; i--)
 	{
+		if (GetActorProperty(0, APROP_HEALTH) <= 0)
+			break;
+	
 		SetHUDSize(640,480,0);
 		SetFont("SMALLFONT");
 		HUDMessage(
