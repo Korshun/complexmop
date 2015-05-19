@@ -6347,41 +6347,24 @@ Actor PossessedCyberLord : PossessedCyberdemon
 		ANII A 10
 		Loop
 	See:
-		ANNI A 3 //A_PlaySound("monsters/clhoof")
+		ANNI A 3 A_PlaySound("monsters/clhoof")
 		ANNI ABB 3
-		ANNI C 3 //A_PlaySound("monsters/clhoof")
+		ANNI C 3 A_PlaySound("monsters/clhoof")
 		ANNI CDD 3
 		Loop
 	Missile:
-		TNT1 A 0 A_JumpIfCloser(400,"Grenadier")
-	Normal:
-		TNT1 A 0 A_Jump(128,"Seekers")
 		ANNI E 12
 		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
 		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
 		ANNI E 8
+		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
+		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
+		ANNI E 8
 		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
 		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
-		ANNI E 8
-		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
-		ANNI F 8 Bright //A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
-		ANNI E 12
-		TNT1 A 0 Bright A_Jump(128,"Seekers")
-		Goto Spawn
-	Seekers:
-		ANNI E 12
-		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
-		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
-		ANNI E 8
-		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
-		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
-		ANNI E 8
-		TNT1 A 0 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
-		ANNI F 8 Bright //A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
 		ANNI E 12
 		Goto Spawn
-	Grenadier:
-		TNT1 A 0 A_Jump(178,"Normal")
+	Melee:
 		ANNI E 10
 		ANNI E 2
 		TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
@@ -6398,9 +6381,34 @@ Actor PossessedCyberLord : PossessedCyberdemon
 
 Actor CyberLordWeapon : PossessedWeapon
 {
+	+WEAPON.NOAUTOFIRE
+
 	States
 	{
 	Fire:
+		TNT1 E 12
+		TNT1 A 0 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
+		TNT1 F 8 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
+		TNT1 E 8
+		TNT1 A 0 Bright A_FireCustomMissile("CyberLordHomer", 0, 0, 26)
+		TNT1 F 8 Bright A_FireCustomMissile("CyberLordHomer", 0, 0, -26)
+		TNT1 E 8
+		TNT1 A 0 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
+		TNT1 F 8 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
+		TNT1 E 12
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 E 10
+		TNT1 E 2
+		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, 26)
+		TNT1 F 8 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, -26)
+		TNT1 EEEE 2
+		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+		TNT1 A 0 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, 26)
+		TNT1 F 8 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, -26)
+		TNT1 E 12
 		Goto Ready
 	}
 }
