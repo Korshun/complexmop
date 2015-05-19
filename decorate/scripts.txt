@@ -12,3 +12,4 @@ const int mop_cybruiser = 816;
 const int mop_findmarines = 828;
 const int mop_demolisher = 830;
 const int mop_darkdemolisher = 831;
+const int mop_cerebralsentient = 832;

@@ -327,3 +327,29 @@ script mop_darkdemolisher (void)
 	}
 }
 
+script mop_cerebralsentient (void)
+{
+	if (CheckInventory("Attack1"))
+	{
+		TakeInventory("Attack1", 1);
+		GiveInventory("Attack2", 1);
+		print(s:"\cdBFG10K");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack2"))
+	{
+		TakeInventory("Attack2", 1);
+		GiveInventory("Attack3", 1);
+		print(s:"\cdDemon Tech BFG10K");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack3"))
+	{
+		TakeInventory("Attack3", 1);
+		GiveInventory("Attack1", 1);
+		print(s:"normal");
+		terminate;
+	}
+}
