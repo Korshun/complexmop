@@ -29,3 +29,15 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 }
 
 Actor IsMarine : Inventory { Inventory.MaxAmount 1 }
+
+ACTOR ShadowEffect : PowerInvisibility
+{
+  Powerup.Duration 0x7FFFFFFD
+  Powerup.Strength 50
+  Powerup.Mode "Cumulative"
+}
+
+ACTOR InvulEffect : PowerInvulnerable
+{
+  Powerup.Duration 0x7FFFFFFD
+}

@@ -93,7 +93,6 @@ script mop_enter ENTER
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
-	ACS_ExecuteAlways(mop_ally_hud, 0);
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
 	
@@ -127,9 +126,47 @@ script mop_disconnect (int player) DISCONNECT
 	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
 }
 
+script mop_respawn_protection (void)
+{
+	int player = PlayerNumber();
+	if (PlayerClasses[player] == PLAYER_MOP)
+		terminate;
+
+	int time = GetCVar("mop_respawnprotection");
+	
+	if (time<=0)
+		terminate;
+
+	for(int i = time; i > 0; i--)
+	{
+		SetHUDSize(640,480,0);
+		SetFont("SMALLFONT");
+		HUDMessage(
+			s:"Respawn protection: ",
+			d:i,
+			s:"...";
+			HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0
+		);
+		
+		for (int j = 0; j < 35; j++)
+		{
+			GiveInventory("InvulEffect", 1);
+			GiveInventory("ShadowEffect", 1);
+			delay(1);
+			TakeInventory("InvulEffect", 1);
+			TakeInventory("ShadowEffect", 1);
+		}
+	}
+	
+	SetHUDSize(640,480,0);
+	SetFont("SMALLFONT");
+	HUDMessage(s:""; HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0);
+}
+
 function void LaunchPlayerScripts(void)
 {
 	MakePuppetMasterFlying();
+	ACS_ExecuteAlways(mop_respawn_protection, 0);
 	ACS_ExecuteAlways(mop_ally_hud, 0);
 }
 
@@ -192,6 +229,12 @@ script mop_init OPEN
 		ConsoleCommand("sv_noautomapallies 1");
 		ConsoleCommand("sv_disallowspying 1");
 		ConsoleCommand("sv_unblockplayers 0");
+	}
+	
+	if (!GetCVar("mop_respawnprotection"))
+	{
+		ConsoleCommand("set mop_respawnprotection 5");
+		ConsoleCommand("archivecvar mop_respawnprotection");
 	}
 	
 	if (GameSkill() > 3)
