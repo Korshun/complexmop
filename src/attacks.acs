@@ -431,3 +431,94 @@ script mop_cardinal (void)
 		terminate;
 	}
 }
+
+script mop_vileattack (int type)
+{		
+	str fireactor = 0;
+
+	switch (type)
+	{
+	case 0:
+		fireactor = "ExileFireFX";
+		break;
+		
+	case 1:
+		fireactor = "IFire";
+		break;
+		
+	case 2:
+		fireactor = "HellionSmokeAttack";
+		break;
+	}
+		
+	int player = PlayerNumber();
+	
+	SetActivatorToTarget(0);
+	if (PlayerNumber() == player || PlayerClasses[player] != PLAYER_MARINE)
+	{
+		SetActorState(0, "Spawn");
+		terminate;
+	}
+	
+	GiveActorInventory(1000 + player, "VileGotTarget", 1);
+	
+	int firetid = FIRE_TIDS + player;
+	Spawn("ArchvileFire", GetActorX(0), GetActorY(0), GetActorZ(0), firetid);
+	
+	for (int i = 0; i < 66; i++)
+	{	
+		Delay(1);
+		
+		if (GetActorProperty(1000 + player, APROP_HEALTH) <= 0)
+			terminate;
+	
+		int x = GetActorX(0) - GetActorX(1000 + player);
+		int y = GetActorY(0) - GetActorY(1000 + player);
+		int z = GetActorZ(0) - GetActorZ(1000 + player) - 25.0;
+		
+		int ax = abs(x)>>16;
+		int ay = abs(y)>>16;
+		
+		int xy = length(x, y);
+		
+		int a = VectorAngle(x, y);
+		int p = -VectorAngle(xy, z);
+			
+		SetActorAngle(1000 + player, a);
+		SetActorPitch(1000 + player, p);
+		
+		Thing_ChangeTid(0, TEMPTID);
+		SetActivator(1000 + player);
+		SetActivatorToTarget(0);
+		
+		bool move = true;
+		if (ActivatorTid() != TEMPTID)
+			move = false;
+		
+		SetActivator(TEMPTID);
+		Thing_ChangeTid(TEMPTID, 0);
+		
+		if (move)
+		{
+			int pa = GetActorAngle(0); // Player angle.
+			int fx = GetActorX(0) + 10 * cos(pa);
+			int fy = GetActorY(0) + 10 * sin(pa);
+			SetActorPosition(firetid, fx, fy, GetActorZ(0), false);
+		}
+	}
+	
+	int oldtid = ActivatorTid();
+	Thing_ChangeTid(oldtid, TEMPTID);
+	
+	SetActivator(1000 + player);
+	SetActivatorToTarget(0);
+	if (ActivatorTid() == TEMPTID)
+	{
+		SetActivator(1000 + player);
+		ThingSound(TEMPTID, "vile/stop", 127);
+		Thing_Damage2(TEMPTID, 50, "Fire");
+		ThrustThingZ(TEMPTID, 50, 0, 1);
+	}
+	
+	Thing_ChangeTid(TEMPTID, oldtid);
+}
