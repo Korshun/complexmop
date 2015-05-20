@@ -530,7 +530,7 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 	}
 	
 	SetActivator(vile);
-	Spawn("VileExplosion70", GetActorX(firetid), GetActorY(firetid), GetActorZ(firetid), 0, 0);
+	SpawnForced("VileExplosion70", GetActorX(firetid), GetActorY(firetid), GetActorZ(firetid), 0, 0);
 	
 	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	TakeInventory("VileGotTarget", 1);

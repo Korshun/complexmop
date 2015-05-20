@@ -5293,6 +5293,19 @@ Actor VileGotTarget : Inventory
 	Inventory.MaxAmount 1
 }
 
+Actor VileExplosion70
+{
+	DamageType "Monster"
+
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode(70, 70)
+		Stop
+	}
+}
+
 Actor PossessedExile : PossessedArchVile
 {
 	Player.MorphWeapon "ExileWeapon"
