@@ -1,5 +1,6 @@
 #library "mop"
 #include "zcommon.acs"
+#include "math.acs"
 
 #define mop_possess 800
 #define mop_enter 801
@@ -31,11 +32,18 @@
 #define mop_log_kill 827
 #define mop_findmarines 828
 #define mop_ally_hud 829
-#define mop_respawn_protection 830
+#define mop_demolisher 830
+#define mop_darkdemolisher 831
+#define mop_cerebralsentient 832
+#define mop_darkcyberdemon 833
+#define mop_cardinal 834
+#define mop_vileattack 835
+#define mop_respawn_protection 836
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647
 #define TEMPTID 8080
+#define FIRE_TIDS 8090
 
 #define HID_MONSTERINFO 1
 #define HID_GAMESTATUS 2

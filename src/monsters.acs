@@ -67,15 +67,15 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "HFRYA1" },
 	{ "Afrit",					0.2, 0, 0, 0, "Afrit", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
-	{ "Exile",					0.5, 0, 0, MONSTF_NOPOSSESS, "Exile", "VILEA1D1" },
-	{ "Diabolist",				0.5, 0, 0, MONSTF_NOPOSSESS, "Diabolist", "DIABA1" },
-	{ "DarkHellion",			0.5, 0, 0, MONSTF_NOPOSSESS, "Dark Hellion", "HELNA1" },
-	{ "Demolisher",				3.0, 0, 0, MONSTF_NOPOSSESS, "Demolisher", "DEMOA1" },
-	{ "DarkDemolisher",			3.0, 0, 0, MONSTF_NOPOSSESS, "Dark Demolisher", "DEM2A1" },
-	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cerebral Sentient", "SUPRA1" },
-	{ "CyberLord",				5.0, 0, 0, MONSTF_NOPOSSESS, "Cyber Lord", "ANNIA1C1" },
-	{ "DarkCyberdemon",			5.0, 0, 0, MONSTF_NOPOSSESS, "Dark Cyberdemon", "CBEPA1" },
-	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING | MONSTF_NOPOSSESS, "Cardinal", "CARDA1" }
+	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
+	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1" },
+	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1" },
+	{ "Demolisher",				3.0, 0, 0, 0, "Demolisher", "DEMOA1D1" },
+	{ "DarkDemolisher",			3.0, 0, 0, 0, "Dark Demolisher", "DEM2A1D1" },
+	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING, "Cerebral Sentient", "SUPRA1" },
+	{ "CyberLord",				5.0, 0, 0, 0, "Annihilator", "ANNIA1C1" },
+	{ "DarkCyberdemon",			5.0, 0, 0, 0, "Dark Cyberdemon", "CBEPA1" },
+	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING, "Cardinal", "CARDA1" }
 };
 
 // List of items that monsters can carry.
