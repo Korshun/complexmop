@@ -432,14 +432,14 @@ script mop_cardinal (void)
 	}
 }
 
-script mop_vileattack (int type)
+script mop_vileattack (int type, int startdelay, int attackdelay)
 {		
 	str fireactor = 0;
 
 	switch (type)
 	{
 	case 0:
-		fireactor = "ExileFireFX";
+		fireactor = "ArchvileFire";
 		break;
 		
 	case 1:
@@ -453,24 +453,29 @@ script mop_vileattack (int type)
 		
 	int player = PlayerNumber();
 	
-	SetActivatorToTarget(0);
-	if (PlayerNumber() == player || PlayerClasses[player] != PLAYER_MARINE)
-	{
-		SetActorState(0, "Spawn");
-		terminate;
-	}
+	printbold(d:activatortid());
 	
+	SetActivatorToTarget(0);
+	if (PlayerNumber() == player || PlayerNumber() == -1 || PlayerClasses[PlayerNumber()] != PLAYER_MARINE)
+		terminate;
+	
+	SetActorState(1000 + player, "VileAttack");
 	GiveActorInventory(1000 + player, "VileGotTarget", 1);
 	
-	int firetid = FIRE_TIDS + player;
-	Spawn("ArchvileFire", GetActorX(0), GetActorY(0), GetActorZ(0), firetid);
+	Delay(startdelay);
 	
-	for (int i = 0; i < 66; i++)
+	int firetid = FIRE_TIDS + player;
+	SpawnForced(fireactor, GetActorX(0), GetActorY(0), GetActorZ(0), firetid, 0);
+	
+	for (int i = 0; i < attackdelay; i++)
 	{	
 		Delay(1);
 		
 		if (GetActorProperty(1000 + player, APROP_HEALTH) <= 0)
+		{
+			TakeActorInventory(1000 + player, "VileGotTarget", 1);
 			terminate;
+		}
 	
 		int x = GetActorX(0) - GetActorX(1000 + player);
 		int y = GetActorY(0) - GetActorY(1000 + player);
@@ -516,9 +521,12 @@ script mop_vileattack (int type)
 	{
 		SetActivator(1000 + player);
 		ThingSound(TEMPTID, "vile/stop", 127);
-		Thing_Damage2(TEMPTID, 50, "Fire");
-		ThrustThingZ(TEMPTID, 50, 0, 1);
+		Thing_Damage2(TEMPTID, 20, "Fire");
+		ThrustThingZ(TEMPTID, 1000 / GetActorProperty(0, APROP_MASS), 0, 1);
 	}
 	
+	Spawn("VileExplosion70", GetActorX(firetid), GetActorY(firetid), GetActorZ(firetid), 0, 0);
 	Thing_ChangeTid(TEMPTID, oldtid);
+	
+	TakeActorInventory(1000 + player, "VileGotTarget", 1);
 }

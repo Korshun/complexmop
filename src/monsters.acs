@@ -67,7 +67,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "HFRYA1" },
 	{ "Afrit",					0.2, 0, 0, 0, "Afrit", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
-	{ "Exile",					0.5, 0, 0, MONSTF_NOPOSSESS, "Exile", "VILEA1D1" },
+	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
 	{ "Diabolist",				0.5, 0, 0, MONSTF_NOPOSSESS, "Diabolist", "DIABA1" },
 	{ "DarkHellion",			0.5, 0, 0, MONSTF_NOPOSSESS, "Dark Hellion", "HELNA1" },
 	{ "Demolisher",				3.0, 0, 0, 0, "Demolisher", "DEMOA1D1" },

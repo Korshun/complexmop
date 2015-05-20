@@ -15,3 +15,4 @@ const int mop_darkdemolisher = 831;
 const int mop_cerebralsentient = 832;
 const int mop_darkcyberdemon = 833;
 const int mop_cardinal = 834;
+const int mop_vileattack = 835;

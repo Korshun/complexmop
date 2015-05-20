@@ -57,6 +57,9 @@ script mop_possess (void)
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 	PossessedCount++;
 	
+	// Morphing loses player tid.
+	Thing_ChangeTid(0, 1000 + PlayerNumber());
+	
 	// Give flag.
 	GiveInventory("IsPossessed", 1);
 	

@@ -5288,6 +5288,10 @@ Actor PossessedArchvile : PossessedMonster
 	Obituary "$OB_VILE"
 }
 
+Actor VileGotTarget : Inventory
+{
+	Inventory.MaxAmount 1
+}
 
 Actor PossessedExile : PossessedArchVile
 {
@@ -5312,9 +5316,9 @@ Actor PossessedExile : PossessedArchVile
 		VILE D 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		VILE DDEEFF 2
 		Loop
-	Missile:
-		TNT1 A 0 Bright
-		VILE G 10 Bright //A_PlaySound("exile/voidstart")
+	VileAttack:
+		TNT1 A 0
+		VILE G 9 Bright //A_PlaySound("exile/voidstart")
 		VILE H 8 Bright //A_VileTarget
 		VILE IJKLMN 8 Bright
 		TNT1 A 0 //A_PlaySound("exile/voidend")
@@ -5329,6 +5333,17 @@ Actor ExileWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_vileattack, 0, 8, 66)
+		TNT1 A 0 A_JumpIfInventory("VileGotTarget", 1, 1)
+		Goto Ready
+		
+		TNT1 G 9 Bright A_PlaySound("exile/voidstart")
+		TNT1 H 8 SetPlayerProperty(0, true, PROP_FROZEN)
+		TNT1 IJKLMN 8 Bright 
+		TNT1 A 0 A_PlaySound("exile/voidend")
+		TNT1 O 8 Bright //A_VileAttack
+		TNT1 P 20 Bright
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	}
 }
