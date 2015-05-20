@@ -463,15 +463,15 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 	switch (type)
 	{
 	case 0:
-		fireactor = "ArchvileFire";
+		fireactor = "PossessedExileFireFx";
 		break;
 		
 	case 1:
-		fireactor = "IFire";
+		fireactor = "PossessedIFire";
 		break;
 		
 	case 2:
-		fireactor = "HellionSmokeAttack";
+		fireactor = "PossessedHellionSmokeAttack";
 		break;
 	}
 	
@@ -530,7 +530,6 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 	}
 	
 	SetActivator(vile);
-	SpawnForced("VileExplosion70", GetActorX(firetid), GetActorY(firetid), GetActorZ(firetid), 0, 0);
 	
 	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	TakeInventory("VileGotTarget", 1);
