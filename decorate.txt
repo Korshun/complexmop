@@ -5346,7 +5346,7 @@ Actor ExileWeapon : PossessedWeapon
 	States
 	{
 	Fire:
-		TNT1 A 1 ACS_ExecuteAlways(mop_vileattack, 0, 0, 8, 66)
+		TNT1 A 1 ACS_ExecuteAlways(mop_vileattack, 0, 0, 10, 66)
 		TNT1 A 0 A_JumpIfInventory("VileGotTarget", 1, 1)
 		Goto Ready
 		
@@ -5389,7 +5389,7 @@ Actor PossessedDiabolist : PossessedArchVile
 		TNT1 A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
 		DIAB DDEEFF 2 Bright 
 		Loop
-	Missile:
+	VileAttack:
 		TNT1 A 0 Bright
 		DIAB G 10 Bright //A_VileStart
 		DIAB H 8 Bright //A_VileTarget("IFire")
@@ -5405,6 +5405,15 @@ Actor DiabolistWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_vileattack, 0, 1, 10, 66)
+		TNT1 A 0 A_JumpIfInventory("VileGotTarget", 1, 1)
+		Goto Ready
+		
+		TNT1 G 9 Bright //A_VileStart
+		TNT1 H 8 Bright //A_VileTarget("IFire")
+		TNT1 IJKLMN 8 Bright
+		TNT1 O 8 Bright //A_VileAttack
+		TNT1 P 20 Bright
 		Goto Ready
 	}
 }
@@ -5466,7 +5475,7 @@ Actor PossessedDarkHellion : PossessedArchVile
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN F 2 
 		Loop
-	Missile:
+	VileAttack:
 		TNT1 A 0
 		TNT1 A 0 //A_PlaySound("hellion/smokestart")
 		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
@@ -5521,6 +5530,55 @@ Actor DarkHellionWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 1 ACS_ExecuteAlways(mop_vileattack, 0, 1, 10, 50)
+		TNT1 A 0 A_JumpIfInventory("VileGotTarget", 1, 1)
+		Goto Ready
+	
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("hellion/smokestart")
+		TNT1 A 0 
+		TNT1 G 4
+		TNT1 A 0 
+		TNT1 G 5
+		TNT1 A 0 
+		TNT1 H 5 //A_VileTarget("HellionSmokeAttack")
+		TNT1 A 0 
+		TNT1 H 5
+		TNT1 A 0 
+		TNT1 H 5
+		TNT1 A 0 
+		TNT1 I 4
+		TNT1 A 0 
+		TNT1 I 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 J 4
+		TNT1 A 0 
+		TNT1 K 4
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("exile/voidend")
+		TNT1 K 4 //A_VileAttack
+		TNT1 A 0 
+		TNT1 L 4
+		TNT1 A 0 
+		TNT1 L 4
+		TNT1 A 0 
+		TNT1 L 4
+		TNT1 A 0 
+		TNT1 L 4
+		TNT1 A 0 
+		TNT1 L 4
 		Goto Ready
 	}
 }
