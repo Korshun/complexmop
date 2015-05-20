@@ -433,8 +433,32 @@ script mop_cardinal (void)
 }
 
 script mop_vileattack (int type, int startdelay, int attackdelay)
-{		
-	str fireactor = 0;
+{				
+	int vile = 1000 + PlayerNumber();
+	
+	SetActivatorToTarget(0);
+	if (PlayerNumber() == vile || PlayerNumber() == -1 || PlayerClasses[PlayerNumber()] != PLAYER_MARINE)
+		terminate;
+	
+	int target = 1000 + PlayerNumber();
+	
+	SetActivator(vile);
+	SetActorState(vile, "VileAttack");
+	GiveActorInventory(vile, "VileGotTarget", 1);
+	
+	for (int i = 0; i < startdelay; i++)
+	{
+		if (GetActorProperty(0, APROP_HEALTH) <= 0)
+		{
+			TakeInventory("VileGotTarget", 1);
+			terminate;
+		}
+		
+		Delay(1);
+	}
+	
+	int firetid = FIRE_TIDS + vile - 1000;
+	str fireactor;
 
 	switch (type)
 	{
@@ -450,36 +474,24 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 		fireactor = "HellionSmokeAttack";
 		break;
 	}
-		
-	int player = PlayerNumber();
 	
-	printbold(d:activatortid());
+	SpawnForced(fireactor, GetActorX(target), GetActorY(target), GetActorZ(target), firetid, 0);
+	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
 	
-	SetActivatorToTarget(0);
-	if (PlayerNumber() == player || PlayerNumber() == -1 || PlayerClasses[PlayerNumber()] != PLAYER_MARINE)
-		terminate;
-	
-	SetActorState(1000 + player, "VileAttack");
-	GiveActorInventory(1000 + player, "VileGotTarget", 1);
-	
-	Delay(startdelay);
-	
-	int firetid = FIRE_TIDS + player;
-	SpawnForced(fireactor, GetActorX(0), GetActorY(0), GetActorZ(0), firetid, 0);
-	
-	for (int i = 0; i < attackdelay; i++)
+	for (i = 0; i < attackdelay; i++)
 	{	
 		Delay(1);
 		
-		if (GetActorProperty(1000 + player, APROP_HEALTH) <= 0)
+		if (GetActorProperty(0, APROP_HEALTH) <= 0)
 		{
-			TakeActorInventory(1000 + player, "VileGotTarget", 1);
+			SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
+			TakeInventory("VileGotTarget", 1);
 			terminate;
 		}
 	
-		int x = GetActorX(0) - GetActorX(1000 + player);
-		int y = GetActorY(0) - GetActorY(1000 + player);
-		int z = GetActorZ(0) - GetActorZ(1000 + player) - 25.0;
+		int x = GetActorX(target) - GetActorX(vile);
+		int y = GetActorY(target) - GetActorY(vile);
+		int z = GetActorZ(target) - GetActorZ(vile) - 32.0;
 		
 		int ax = abs(x)>>16;
 		int ay = abs(y)>>16;
@@ -489,44 +501,37 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 		int a = VectorAngle(x, y);
 		int p = -VectorAngle(xy, z);
 			
-		SetActorAngle(1000 + player, a);
-		SetActorPitch(1000 + player, p);
-		
-		Thing_ChangeTid(0, TEMPTID);
-		SetActivator(1000 + player);
-		SetActivatorToTarget(0);
+		SetActorAngle(0, a);
+		SetActorPitch(0, p);
 		
 		bool move = true;
-		if (ActivatorTid() != TEMPTID)
+		SetActivatorToTarget(0);
+		if (ActivatorTid() != target)
 			move = false;
 		
-		SetActivator(TEMPTID);
-		Thing_ChangeTid(TEMPTID, 0);
-		
+		SetActivator(vile);
+
 		if (move)
 		{
-			int pa = GetActorAngle(0); // Player angle.
-			int fx = GetActorX(0) + 10 * cos(pa);
-			int fy = GetActorY(0) + 10 * sin(pa);
-			SetActorPosition(firetid, fx, fy, GetActorZ(0), false);
+			int pa = GetActorAngle(target); // Player angle.
+			int fx = GetActorX(target) + 24 * cos(pa);
+			int fy = GetActorY(target) + 24 * sin(pa);
+			SetActorPosition(firetid, fx, fy, GetActorZ(target), false);
 		}
 	}
 	
-	int oldtid = ActivatorTid();
-	Thing_ChangeTid(oldtid, TEMPTID);
-	
-	SetActivator(1000 + player);
 	SetActivatorToTarget(0);
-	if (ActivatorTid() == TEMPTID)
+	if (ActivatorTid() == target)
 	{
-		SetActivator(1000 + player);
-		ThingSound(TEMPTID, "vile/stop", 127);
-		Thing_Damage2(TEMPTID, 20, "Fire");
-		ThrustThingZ(TEMPTID, 1000 / GetActorProperty(0, APROP_MASS), 0, 1);
+		SetActivator(vile);
+		ThingSound(target, "vile/stop", 127);
+		Thing_Damage2(target, 20, "Fire");
+		ThrustThingZ(target, 10, 0, 1);
 	}
 	
+	SetActivator(vile);
 	Spawn("VileExplosion70", GetActorX(firetid), GetActorY(firetid), GetActorZ(firetid), 0, 0);
-	Thing_ChangeTid(TEMPTID, oldtid);
 	
-	TakeActorInventory(1000 + player, "VileGotTarget", 1);
+	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
+	TakeInventory("VileGotTarget", 1);
 }
