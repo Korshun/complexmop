@@ -6499,6 +6499,7 @@ Actor CyberLordWeapon : PossessedWeapon
 	{
 	Fire:
 		TNT1 E 12
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
 		TNT1 F 8 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
 		TNT1 E 8
@@ -6508,9 +6509,11 @@ Actor CyberLordWeapon : PossessedWeapon
 		TNT1 A 0 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, 26)
 		TNT1 F 8 Bright A_FireCustomMissile("CyberLordRocket", 0, 0, -26)
 		TNT1 E 12
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	AltFire:
 		TNT1 A 0 A_GunFlash
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 E 10
 		TNT1 E 2
 		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
@@ -6521,6 +6524,7 @@ Actor CyberLordWeapon : PossessedWeapon
 		TNT1 A 0 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, 26)
 		TNT1 F 8 Bright A_FireCustomMissile("CyberLordGrenade", 0, 0, 4.328125, 0, -26)
 		TNT1 E 12
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	}
 }
@@ -6684,6 +6688,7 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 A 0 ACS_ExecuteAlways(mop_darkcyberdemon, 0)
 		Goto Ready
 	Rockets:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 E 10
 		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
 		TNT1 E 6
@@ -6697,8 +6702,10 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 E 6
 		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
 		TNT1 E 10
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	HomingRockets:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 E 10
 		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
 		TNT1 E 6
@@ -6712,9 +6719,12 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 E 6
 		TNT1 F 6 Bright A_FireCustomMissile("DarkCyberHomer", Random(-8, 8 ), 0, 0)
 		TNT1 E 10
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 10
 		Goto Ready
 	FloorStomp:
 		TNT1 G 10
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 A_SetInvulnerable
 		TNT1 A 0 A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
 		TNT1 G 3 Bright A_PlaySoundEx("DarkCyber/Laugh","Voice")
@@ -6741,9 +6751,11 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 A 0 A_FireCustomMissile("DarkCyberFireSpawner", 45,0, 0, 0)
 		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
 		TNT1 B 20
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	BFG9K:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 EE 10
 		TNT1 F 10 Bright
 		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
@@ -6753,8 +6765,11 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 F 10 Bright
 		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
 		TNT1 E 10
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 100
 		Goto Ready
 	BFG15K:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 E 18 Bright
 		TNT1 E 6 Bright
@@ -6770,6 +6785,8 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 E 4 Bright
 		TNT1 F 4 Bright A_FireCustomMissile("DarkCyber15K", Random(-4, 4 ), 0, 0)
 		TNT1 E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 20
 		Goto Ready
 	}
 }
@@ -7002,6 +7019,7 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 ACS_ExecuteAlways(mop_cardinal, 0)
 		Goto Ready
 	Normal:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 Bright 
 		TNT1 C 2 Bright
 		TNT1 A 0 Bright 
@@ -7041,8 +7059,10 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 Bright 
 		TNT1 D 6 Bright A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
 		TNT1 CCC 2 Bright 
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		Goto Ready
 	Seekers:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 Bright 
 		TNT1 C 2 Bright
 		TNT1 A 0 Bright 
@@ -7082,8 +7102,11 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 Bright 
 		TNT1 D 6 Bright A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
 		TNT1 CCC 2 Bright 
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 10
 		Goto Ready
 	BFG10K:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 A 0 Bright 
 		TNT1 C 4 Bright
@@ -7130,8 +7153,11 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 Bright 
 		TNT1 A 0 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		TNT1 CCCCC 4 Bright 
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 20
 		Goto Ready
 	DTBFG10K:
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 A 0 A_PlaySound("Cardinal/9k")
 		TNT1 A 0 Bright 
 		TNT1 C 4 Bright
@@ -7151,6 +7177,8 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 D 4 Bright A_FireCustomMissile("CardinalDTBFG10KBall", 0, 0, 0)
 		TNT1 A 0 Bright 
 		TNT1 DCC 4 Bright 
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 100
 		Goto Ready
 	}
 }
