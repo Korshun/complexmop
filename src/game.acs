@@ -32,7 +32,7 @@ script mop_enter ENTER
 		ACS_ExecuteAlways(mop_monsterinfo, 0);
 	}
 	else
-	{
+	{	
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
 		//SetPlayerProperty(0, false, PROP_ALLMAP);
 		if (GetCVar("mop_pistolstart"))
@@ -171,6 +171,14 @@ function void LaunchPlayerScripts(void)
 	MakePuppetMasterFlying();
 	ACS_ExecuteAlways(mop_respawn_protection, 0);
 	ACS_ExecuteAlways(mop_ally_hud, 0);
+	
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE && GetCVar("mop_truereinforcements") && Lives == 0)
+	{
+		if (GetCVar("mop_pistolstart") == 0)
+			ConsoleCommand("set mop_pistolstart 2");
+							
+		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:PlayerNumber(), s:" \"Marines don't have any more reinforcements.\""));
+	}
 }
 
 function void MakePuppetMasterFlying(void)
@@ -219,6 +227,12 @@ script mop_init OPEN
 		ConsoleCommand("sv_noexit 1");
 	}
 	
+	if (!GetCVar("mop_truereinforcements"))
+	{
+		ConsoleCommand("set mop_truereinforcements 0");
+		ConsoleCommand("archivecvar mop_truereinforcements");
+	}
+	
 	if (!GetCVar("mop_pistolstart"))
 	{
 		ConsoleCommand("set mop_pistolstart 0");
@@ -232,6 +246,9 @@ script mop_init OPEN
 		ConsoleCommand("sv_noautomapallies 1");
 		ConsoleCommand("sv_disallowspying 1");
 		ConsoleCommand("sv_unblockplayers 0");
+		
+		if (GetCVar("mop_truereinforcements"))
+			ConsoleCommand("sv_forcerespawn 1");
 	}
 	
 	if (!GetCVar("mop_respawnprotection"))
@@ -291,12 +308,16 @@ script mop_status OPEN
 	
 	if (MarineCount != prev_MarineCount || PuppetMasterCount != prev_PuppetMasterCount || Lives != prev_Lives || LivingMonsterCount() != prev_LivingMonsterCount)
 	{	
+		str lives_reinforcements = "\nLives: ";
+		if (GetCVar("mop_truereinforcements"))
+			lives_reinforcements = "\nReinforcements: ";
+	
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
 		HudMessageBold(s:"\cdMarines\c-: ", d:MarineCount,
 			s:"\n\cgMops\c-: ", d:PuppetMasterCount,
 			s:"\n",
-			s:"\nLives: ", d:Lives,
+			s:lives_reinforcements, d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
 		HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
 		
@@ -316,9 +337,15 @@ script mop_marinedeath DEATH
 	SetActivatorToTarget(0);
 	int killer = PlayerNumber();	
 	if (PlayerClasses[victim] == PLAYER_MARINE && (PlayerClasses[killer] != PLAYER_MARINE || victim == killer))
+	{
 		Lives--;
+		if (Lives < 0)
+			Lives = 0;
+	}
 		
-	if (Lives <= 0)
+	
+		
+	if (Lives <= 0 && !GetCVar("mop_truereinforcements"))
 		ACS_ExecuteAlways(mop_demonwin, 0);
 }
 
@@ -381,6 +408,11 @@ script mop_wincondition (void)
 	if (LivingMonsterCount() == 0 && TotalMonsterCount() != 0)
 	{
 		ACS_ExecuteAlways(mop_marinewin, 0);
+	}
+	
+	if (MarineCount == 0 && Lives == 0)
+	{
+		ACS_ExecuteAlways(mop_demonwin, 0);
 	}
 	
 	Delay(1);
