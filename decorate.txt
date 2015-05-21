@@ -5547,84 +5547,84 @@ Actor PossessedDarkHellion : PossessedArchVile
 	States
 	{
 	Spawn:
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN A 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN A 4
 		Loop
 	See:
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		HELN A 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN A 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN B 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN B 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN C 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN C 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN D 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN D 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		HELN E 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN E 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN F 2 
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN F 2 
 		Loop
 	VileAttack:
 		TNT1 A 0
 		TNT1 A 0 //A_PlaySound("hellion/smokestart")
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN G 5
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN G 5
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN H 5 //A_VileTarget("HellionSmokeAttack")
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN H 5
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN H 5
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN I 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN I 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN J 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN K 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 //A_PlaySound("exile/voidend")
 		HELN K 4 //A_VileAttack
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
-		TNT1 A 0 A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
 		HELN L 4
 		Goto Spawn
 	}
