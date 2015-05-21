@@ -70,12 +70,12 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
 	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
 	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1D1" },
-	{ "Demolisher",				3.0, 0, 0, 0, "Demolisher", "DEMOA1D1" },
-	{ "DarkDemolisher",			3.0, 0, 0, 0, "Dark Demolisher", "DEM2A1D1" },
-	{ "CerebralSentient",		3.0, 0, 20, MONSTF_FLYING, "Cerebral Sentient", "SUPRA1" },
-	{ "CyberLord",				5.0, 0, 0, 0, "Annihilator", "ANNIA1C1" },
-	{ "DarkCyberdemon",			5.0, 0, 0, 0, "Dark Cyberdemon", "CBEPA1" },
-	{ "Cardinal",				5.0, 0, 0, MONSTF_FLYING, "Cardinal", "CARDA1" }
+	{ "Demolisher",				6.0, 0, 0, 0, "Demolisher", "DEMOA1D1" },
+	{ "DarkDemolisher",			6.0, 0, 0, 0, "Dark Demolisher", "DEM2A1D1" },
+	{ "CerebralSentient",		6.0, 0, 20, MONSTF_FLYING, "Cerebral Sentient", "SUPRA1" },
+	{ "CyberLord",				8.0, 0, 0, 0, "Annihilator", "ANNIA1C1" },
+	{ "DarkCyberdemon",			8.0, 0, 0, 0, "Dark Cyberdemon", "CBEPA1" },
+	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING, "Cardinal", "CARDA1" }
 };
 
 // List of items that monsters can carry.
