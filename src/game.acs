@@ -259,6 +259,12 @@ script mop_init OPEN
 		ConsoleCommand("archivecvar mop_respawnprotection");
 	}
 	
+	if (!GetCVar("mop_possfrags_bosses"))
+	{
+		ConsoleCommand("set mop_possfrags_bosses 3");
+		ConsoleCommand("archivecvar mop_possfrags_bosses");
+	}
+	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
