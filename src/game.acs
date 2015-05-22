@@ -11,6 +11,8 @@ int Lives = 999;
 
 int BoomEdition = true;
 
+int MopFrags[MAX_PLAYERS];
+
 script mop_log_join(int player, int team) clientside
 {
 	switch(team)
@@ -599,4 +601,26 @@ script mop_ally_hud (void)
 		
 		Delay(1);
 	}
+}
+
+script mop_update_fragcounter death
+{
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+		terminate;
+
+	// go to killer
+	SetActivatorToTarget(0);
+	
+	int killer = PlayerNumber();
+	if (PlayerClasses[killer] == PLAYER_MARINE)
+		terminate;
+
+	int frags = ++MopFrags[killer];
+	
+	SetHUDSize(320,240,0);
+	SetFont("BIGFONT");
+	HUDMessage(d:frags;HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
+	SetHUDSize(320,240,0);
+	SetFont("MFRAG");
+	HUDMessage(s:"A";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 }
