@@ -311,6 +311,10 @@ script mop_status OPEN
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 320.0, 50.0, 0);
 		terminate;
 	}
 	
@@ -328,6 +332,15 @@ script mop_status OPEN
 			s:lives_reinforcements, d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
 		HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
+		
+		SetFont("PLAYI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 270.0, 27.0, 0);
+		SetFont("MASTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 270.0, 37.0, 0);
+		SetFont("LIVESI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 270.0, 57.0, 0);
+		SetFont("MONSTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 270.0, 67.0, 0);
 		
 		prev_MarineCount = MarineCount;
 		prev_PuppetmasterCount = PuppetmasterCount;

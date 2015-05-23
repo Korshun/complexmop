@@ -51,6 +51,10 @@
 #define HID_RESPAWNPROTECTION 3
 #define HID_MOPFRAGS 4
 #define HID_MOPFRAGS_ICON 5
+#define HID_GAMESTATUS_ICON1 6
+#define HID_GAMESTATUS_ICON2 7
+#define HID_GAMESTATUS_ICON3 8
+#define HID_GAMESTATUS_ICON4 9
 
 #include "monsters.acs"
 #include "game.acs"
