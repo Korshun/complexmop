@@ -3862,6 +3862,7 @@ Actor PossessedGuardian : PossessedRevenant
 
 ACTOR PossessedGuardianTracer : GuardianTracer
 {
+	DamageType "Monster"
 	States
 	{
 	Spawn:
@@ -3936,6 +3937,7 @@ Actor PossessedCadaver : PossessedGuardian
 
 Actor PossessedCadaverRocket : CadaverRocket
 {
+	DamageType "Monster"
 	States
 	{
 	Spawn:
@@ -4053,6 +4055,7 @@ Actor PossessedHellfireRevenant : PossessedGuardian
 
 Actor PossessedHellfireRocket : HellfireRocket
 {
+	DamageType "Monster"
 	States
 	{
 	Spawn:
@@ -7214,6 +7217,7 @@ Actor PossessedModdedExplosiveBarrel : PossessedMonster
 
 Actor ModdedExplosiveBarrelWeapon : PossessedWeapon
 {
+	DamageType "Monster"
 	States
 	{
 	Fire:
