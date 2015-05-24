@@ -121,6 +121,21 @@ script mop_respawn RESPAWN
 		SetWeapon("MOP Handgun"); // WTF is this bug?
 }
 
+script mop_prevent_respawns RESPAWN
+{
+	bool forcespec = false;
+	int player = PlayerNumber();
+	
+	if (PlayerClasses[player] == PLAYER_MARINE && CheckInventory("IsPuppetmaster"))
+		forcespec = true;
+	
+	if (PlayerClasses[player] == PLAYER_MOP && CheckInventory("IsMarine"))
+		forcespec = true;
+
+	if (forcespec)
+		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:player, s:" \"You have been automatically force spectated for changing your class.\""));
+}
+
 script mop_disconnect (int player) DISCONNECT
 {
 	PlayerClasses[PlayerNumber()] = 0;

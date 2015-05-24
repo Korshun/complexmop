@@ -28,7 +28,7 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 	Player.StartItem "IsMarine"
 }
 
-Actor IsMarine : Inventory { Inventory.MaxAmount 1 }
+Actor IsMarine : Inventory { +INVENTORY.UNTOSSABLE Inventory.MaxAmount 1 }
 
 ACTOR ShadowEffect : PowerInvisibility
 {
