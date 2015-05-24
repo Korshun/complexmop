@@ -1665,7 +1665,7 @@ Actor DTechFiendWeapon : PossessedWeapon
 
 Actor PossessedSpectre~ : PossessedBullFiend
 {
-	Player.MorphWeapon "SpectreWeapon"
+	Player.MorphWeapon "Spectre~Weapon"
 
 	Renderstyle Translucent
 	Alpha 0.35
