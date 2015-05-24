@@ -556,6 +556,8 @@ script mop_death_log DEATH
 		ACS_ExecuteAlways(mop_log_kill, 0, kplayer, vplayer, 1);
 }
 
+
+
 script mop_ally_hud (void)
 {
 	int prev_ally = -1;
@@ -581,6 +583,9 @@ script mop_ally_hud (void)
 		
 		int ally = PlayerNumber();		
 		int hp = GetActorProperty(0, APROP_HEALTH);
+		
+		if (PlayerClasses[ally] == PLAYER_MOP)
+			hp -= POSSESSED_ADDITIONAL_HP;
 		
 		SetActivator(1000 + player);
 		if (prev_hp != hp && prev_ally != ally)

@@ -49,6 +49,8 @@
 #define HID_GAMESTATUS 2
 #define HID_RESPAWNPROTECTION 3
 
+#define POSSESSED_ADDITIONAL_HP 10000
+
 #include "monsters.acs"
 #include "game.acs"
 #include "attacks.acs"

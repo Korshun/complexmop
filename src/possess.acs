@@ -1,5 +1,4 @@
 int LastDeathPosition[MAX_PLAYERS][4];
-#define POSSESSED_ADDITIONAL_HP 10000
 
 int MonsterItemsTemp[NUM_MONSTER_ITEMS];
 
