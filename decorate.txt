@@ -2888,6 +2888,7 @@ Actor HectebusWeapon : PossessedWeapon
 		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
 		TNT1 A 0 A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, 30)
 		TNT1 A 1 Bright A_FireCustomMissile("HectebusFlamethrower", Random(6, -6), 0, -30)
+		TNT1 A 10
 		TNT1 AA 12
 		Goto Ready
 	}
@@ -3030,6 +3031,7 @@ Actor DaedabusWeapon : PossessedWeapon
 		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
 		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, 30)
 		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(12, -12), 0, -30)
+		TNT1 A 10
 		TNT1 AA 12
 		Goto Ready
 	}
@@ -3343,6 +3345,7 @@ Actor BarbatosWeapon : PossessedWeapon
 		TNT1 A 0
 		TNT1 A 0 A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, 30)
 		TNT1 A 2 Bright A_FireCustomMissile("DaedabusChemSpray", Random(16, -16), 0, -30)
+		TNT1 A 20
 		TNT1 AA 12
 		Goto Ready
 	}
@@ -4327,7 +4330,7 @@ Actor HellArchonWeapon : PossessedWeapon
 	Comet:
 		TNT1 MN 8
 		TNT1 O 7 A_FireCustomMissile("HAComet", 0, 0, 0)
-		TNT1 A 20 // +20
+		TNT1 A 40 // +40
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
@@ -4420,7 +4423,7 @@ Actor PyroDemonWeapon : PossessedWeapon
 	Comet:
 		TNT1 MN 8
 		TNT1 O 7 A_FireCustomMissile("BruiserComet", 0,0, 0, 0)
-		TNT1 A 10 // +10
+		TNT1 A 30 // +30
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	FloorHugger:
@@ -4681,7 +4684,7 @@ Actor HellDukeWeapon : PossessedWeapon
 		TNT1 O 2 A_FireCustomMissile("HDComet", 0, 0, 0)
 		TNT1 A 0 A_FireCustomMissile("HDComet", -10, 0, 0)
 		TNT1 O 5 A_FireCustomMissile("HDComet", 10, 0, 0)
-		TNT1 A 25 // +25
+		TNT1 A 50 // +50
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	FloorHugger:
@@ -4796,7 +4799,7 @@ Actor BruiserDemonWeapon : PossessedWeapon
 	Comet:
 		TNT1 KL 8
 		TNT1 M 7 A_FireCustomMissile("BruiserComet", 0, 0, 0)
-		TNT1 A 20 // +20
+		TNT1 A 40 // +40
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
@@ -5088,7 +5091,7 @@ Actor AfritWeapon : PossessedWeapon
 		TNT1 O 3 A_FireCustomMissile("Comet", -10, 0, 0)
 		TNT1 A 0
 		TNT1 O 3
-		TNT1 A 20 // +15
+		TNT1 A 40 // +40
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	FloorHugger:
