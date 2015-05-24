@@ -56,6 +56,8 @@
 #define HID_GAMESTATUS_ICON3 8
 #define HID_GAMESTATUS_ICON4 9
 
+#define POSSESSED_ADDITIONAL_HP 10000
+
 #include "monsters.acs"
 #include "game.acs"
 #include "attacks.acs"

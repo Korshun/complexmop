@@ -448,7 +448,7 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 	
 	for (int i = 0; i < startdelay; i++)
 	{
-		if (GetActorProperty(0, APROP_HEALTH) <= 0)
+		if ((GetActorProperty(0, APROP_HEALTH) <= 0) || !CheckInventory("IsPossessed"))
 		{
 			TakeInventory("VileGotTarget", 1);
 			terminate;
@@ -482,7 +482,7 @@ script mop_vileattack (int type, int startdelay, int attackdelay)
 	{	
 		Delay(1);
 		
-		if (GetActorProperty(0, APROP_HEALTH) <= 0)
+		if ((GetActorProperty(0, APROP_HEALTH) <= 0) || !CheckInventory("IsPossessed"))
 		{
 			SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 			TakeInventory("VileGotTarget", 1);
