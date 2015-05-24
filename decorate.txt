@@ -148,7 +148,7 @@ Actor RailGunnerWeapon : PossessedWeapon
 Actor PossessedDemonTechZombie : PossessedMonster
 {
 	Player.MorphWeapon "DemonTechZombieWeapon"
-	Player.ViewHeight 30
+	Player.ViewHeight 41
 	Health 60
 	Radius 20
 	Height 56
