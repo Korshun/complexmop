@@ -295,4 +295,6 @@ script mop_respawn_puppetmaster RESPAWN
 	
 	GiveInventory("mastergun", 1);
 	GiveInventory("IsPuppetmaster", 1);
+	
+	SetWeapon("mastergun");
 }
