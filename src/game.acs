@@ -257,6 +257,12 @@ script mop_init OPEN
 		ConsoleCommand("archivecvar mop_respawnprotection");
 	}
 	
+	if (!GetCVar("mop_ignoredeathflags"))
+	{
+		ConsoleCommand("set mop_ignoredeathflags 3");
+		ConsoleCommand("archivecvar mop_ignoredeathflags");
+	}
+	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
@@ -331,19 +337,29 @@ script mop_status OPEN
 	}
 }
 
+#define DEATHF_TEAMKILL 1
+#define DEATHF_LEVEL 2
+
 script mop_marinedeath DEATH
 {
 	int victim = PlayerNumber();
-	SetActivatorToTarget(0);
-	int killer = PlayerNumber();	
-	if (PlayerClasses[victim] == PLAYER_MARINE && (PlayerClasses[killer] != PLAYER_MARINE || victim == killer))
-	{
-		Lives--;
-		if (Lives < 0)
-			Lives = 0;
-	}
-		
 	
+	if (PlayerClasses[victim] != PLAYER_MARINE)
+		terminate;
+	
+	SetActivatorToTarget(0);
+	int killer = PlayerNumber();
+	int flags = GetCVar("mop_ignoredeathflags");
+
+	if (victim == killer && (flags & DEATHF_SUICIDE))
+		terminate;
+
+	if (victim != killer && PlayerClasses[killer] == PLAYER_MARINE && (flags & DEATHF_TEAMKILL))
+		terminate;
+
+	Lives--;
+	if (Lives < 0)
+		Lives = 0;
 		
 	if (Lives <= 0 && !GetCVar("mop_truereinforcements"))
 		ACS_ExecuteAlways(mop_demonwin, 0);
