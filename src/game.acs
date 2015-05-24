@@ -92,6 +92,9 @@ script mop_enter ENTER
 				GiveInventory("MOP Combat Shotgun", 1);
 			}
 		}
+		// don't forget to reset frag counter on joining humans
+		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
+		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
