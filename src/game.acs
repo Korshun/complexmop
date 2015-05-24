@@ -11,6 +11,8 @@ int Lives = 999;
 
 int BoomEdition = true;
 
+int MopFrags[MAX_PLAYERS];
+
 script mop_log_join(int player, int team) clientside
 {
 	switch(team)
@@ -257,6 +259,12 @@ script mop_init OPEN
 		ConsoleCommand("archivecvar mop_respawnprotection");
 	}
 	
+	if (!GetCVar("mop_possfrags_bosses"))
+	{
+		ConsoleCommand("set mop_possfrags_bosses 3");
+		ConsoleCommand("archivecvar mop_possfrags_bosses");
+	}
+
 	if (!GetCVar("mop_ignoredeathflags"))
 	{
 		ConsoleCommand("set mop_ignoredeathflags 3");
@@ -308,7 +316,12 @@ script mop_status OPEN
 	{
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
-		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS1, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 320.0, 50.0, 0);
 		terminate;
 	}
 	
@@ -321,11 +334,20 @@ script mop_status OPEN
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
 		HudMessageBold(s:"\cdMarines\c-: ", d:MarineCount,
-			s:"\n\cgMops\c-: ", d:PuppetMasterCount,
-			s:"\n",
-			s:lives_reinforcements, d:Lives,
+			s:"\n\cgMops\c-: ", d:PuppetMasterCount;
+		HUDMSG_PLAIN, HID_GAMESTATUS1, CR_YELLOW, 270.0, 20.0, 0);
+		HudMessageBold(s:lives_reinforcements, d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
-		HUDMSG_PLAIN, HID_GAMESTATUS, CR_YELLOW, 320.0, 50.0, 0);
+		HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 390.0, 15.0, 0);
+		
+		SetFont("PLAYI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 230.0, 17.0, 0);
+		SetFont("MASTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 230.0, 27.0, 0);
+		SetFont("LIVESI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 340.0, 12.0, 0);
+		SetFont("MONSTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 340.0, 22.0, 0);
 		
 		prev_MarineCount = MarineCount;
 		prev_PuppetmasterCount = PuppetmasterCount;
@@ -338,7 +360,7 @@ script mop_status OPEN
 }
 
 #define DEATHF_TEAMKILL 1
-#define DEATHF_LEVEL 2
+#define DEATHF_SUICIDE 2
 
 script mop_marinedeath DEATH
 {
@@ -620,4 +642,26 @@ script mop_ally_hud (void)
 		
 		Delay(1);
 	}
+}
+
+script mop_update_fragcounter death
+{
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+		terminate;
+
+	// go to killer
+	SetActivatorToTarget(0);
+	
+	int killer = PlayerNumber();
+	if (PlayerClasses[killer] == PLAYER_MARINE)
+		terminate;
+
+	int frags = ++MopFrags[killer];
+	
+	SetHUDSize(320,240,0);
+	SetFont("BIGFONT");
+	HUDMessage(d:frags;HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
+	SetHUDSize(320,240,0);
+	SetFont("MFRAG");
+	HUDMessage(s:"A";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 }
