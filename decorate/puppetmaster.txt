@@ -61,8 +61,8 @@ Actor NoFlash //replaces TeleportFog
 	}
 }
 
-Actor IsPuppetmaster : Inventory { +INVENTORY.UNTOSSABLE }
-Actor LastFoundMarine : Inventory { +INVENTORY.UNTOSSABLE }
+Actor IsPuppetmaster : Inventory {}
+Actor LastFoundMarine : Inventory {}
 
 actor mastergun : Weapon
 {

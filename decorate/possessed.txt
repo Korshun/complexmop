@@ -68,13 +68,11 @@ Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
 
 Actor PossessedSuicide : Inventory
 {
-	+INVENTORY.UNTOSSABLE
 	Inventory.MaxAmount 2
 }
 
 Actor IsPossessed : Inventory
 {
-	+INVENTORY.UNTOSSABLE
 	Inventory.MaxAmount 1
 }
 
