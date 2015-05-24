@@ -1698,7 +1698,7 @@ Actor PossessedSpectre~ : PossessedBullFiend
 	}
 }
 
-Actor SpectreWeapon : PossessedWeapon
+Actor Spectre~Weapon : PossessedWeapon
 {
 	States
 	{
