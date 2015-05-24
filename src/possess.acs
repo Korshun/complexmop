@@ -282,4 +282,9 @@ script mop_respawn_puppetmaster RESPAWN
 
 	SetActorPosition(0, x, y, z, false);
 	SetActorAngle(0, LastDeathPosition[PlayerNumber()][3]);
+	
+	// don't forget to set default inventory
+	ClearInventory();
+	GiveInventory("mastergun", 1);
+	GiveInventory("IsPuppetmaster", 1);
 }
