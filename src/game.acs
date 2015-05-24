@@ -310,6 +310,15 @@ script mop_init OPEN
 	ACS_ExecuteAlways(mop_wincondition, 0);
 }
 
+script mop_init_clientside open clientside
+{
+	if (!GetCVar("mop_showicons"))
+	{
+		ConsoleCommand("set mop_showicons 1");
+		ConsoleCommand("archivecvar mop_showicons");
+	}
+}
+
 int won = false;
 
 script mop_status OPEN
@@ -327,10 +336,7 @@ script mop_status OPEN
 		SetHudSize(640, 480, 1);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS1, CR_YELLOW, 320.0, 50.0, 0);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 320.0, 50.0, 0);
-		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
-		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
-		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 320.0, 50.0, 0);
-		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 320.0, 50.0, 0);
+		ACS_ExecuteAlways(mop_status_clientsideicons, 0, false);
 		terminate;
 	}
 	
@@ -349,14 +355,7 @@ script mop_status OPEN
 			s:"\nMonsters: ", d:LivingMonsterCount();
 		HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 390.0, 15.0, 0);
 		
-		SetFont("PLAYI");
-		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 230.0, 17.0, 0);
-		SetFont("MASTI");
-		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 230.0, 27.0, 0);
-		SetFont("LIVESI");
-		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 340.0, 12.0, 0);
-		SetFont("MONSTI");
-		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 340.0, 22.0, 0);
+		ACS_ExecuteAlways(mop_status_clientsideicons, 0, true);
 		
 		prev_MarineCount = MarineCount;
 		prev_PuppetmasterCount = PuppetmasterCount;
@@ -365,6 +364,39 @@ script mop_status OPEN
 	}
 	
 	Delay(1);
+	}
+}
+
+script mop_status_clientsideicons (int draw) clientside
+{
+	SetHudSize(640, 480, 1);
+	
+	if (!GetCVar("mop_showicons"))
+	{
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 320.0, 50.0, 0);	
+		terminate;
+	}
+	
+	if (draw)
+	{
+		SetFont("PLAYI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 230.0, 17.0, 0);
+		SetFont("MASTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 230.0, 27.0, 0);
+		SetFont("LIVESI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 340.0, 12.0, 0);
+		SetFont("MONSTI");
+		HudMessageBold(s:"A";HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 340.0, 22.0, 0);
+	}
+	else
+	{
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON3, CR_YELLOW, 320.0, 50.0, 0);
+		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON4, CR_YELLOW, 320.0, 50.0, 0);	
 	}
 }
 
