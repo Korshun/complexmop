@@ -7595,7 +7595,6 @@ Actor PossessedHitler : PossessedMonster
 		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
         HTL1 G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
-		HTL1 E 15
         Goto Spawn
     }
 }
