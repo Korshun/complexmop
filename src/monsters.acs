@@ -77,7 +77,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
-	{ "Guard",					0.1, 0, 0, 0, "Nazi Guard", "SSWIA1" },
+	{ "Guard",					0.1, 0, 0, 0, "Nazi Guard", "NGRIA1" },
 	{ "Mutant",					0.1, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
 	{ "Officer",				0.1, 0, 0, 0, "Nazi Officer", "OPOIA1" },
 	{ "NaziDog",				0.1, 0, 0, 0, "Nazi Dog", "NDOGA1" },
