@@ -11,7 +11,7 @@
 #define MONSTF_NOPOSSESS 2
 #define MONSTF_BOSS 4
 
-#define NUM_MONSTER_TYPES 69
+#define NUM_MONSTER_TYPES 70
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
@@ -78,6 +78,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
 	{ "Guard",					0.1, 0, 0, 0, "Nazi Guard", "NGRIA1" },
+	{ "SSNazi",					0.1, 0, 0, 0, "SS Nazi", "SSWIA1" },
 	{ "Mutant",					0.1, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
 	{ "Officer",				0.1, 0, 0, 0, "Nazi Officer", "OPOIA1" },
 	{ "NaziDog",				0.1, 0, 0, 0, "Nazi Dog", "NDOGA1" },
