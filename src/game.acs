@@ -702,3 +702,8 @@ script mop_update_fragcounter death
 	SetFont("MFRAG");
 	HUDMessage(s:"A";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 }
+
+script mop_reset_clientinfo (int player) disconnect
+{
+	MopFrags[player] = 0;
+}
