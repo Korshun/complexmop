@@ -7292,7 +7292,7 @@ Actor PossessedSSNazi : PossessedMonster
 	Health 60
 	Radius 20
 	Height 56
-	Speed 5
+	Speed 0.21875 //5
 	PainChance 100
 	Scale 1.05
 	MONSTER
@@ -7349,7 +7349,7 @@ Actor PossessedMutant : PossessedMonster
 	Health 80
 	Radius 20
 	Height 56
-	Speed 5
+	Speed 0.21875 //5
 	MONSTER
 	+FLOORCLIP
 	+MISSILEMORE
@@ -7398,7 +7398,7 @@ Actor PossessedOfficer : PossessedMonster
 	Health 100
 	Radius 20
 	Height 56
-	Speed 7
+	Speed 0.30625 //7
 	Scale 1.1
 	MONSTER
 	+FLOORCLIP
@@ -7441,7 +7441,7 @@ Actor PossessedNaziDog : PossessedMonster
 	Health 30
 	Radius 14
 	Height 36
-	Speed 11
+	Speed 0,48125 //11
 	Scale 1.1
 	MONSTER
 	+FLOORCLIP
@@ -7494,7 +7494,7 @@ Actor PossessedHitler : PossessedMonster
 	Health 2000
 	Radius 20
 	Height 56
-	Speed 4
+	Speed 0.175 //4
 	Scale 1.2
 	Mass 0x7FFFFFFF
 	MONSTER
@@ -7573,7 +7573,7 @@ Actor PossessedHitlerNoSuit : PossessedMonster
 	Health 1000
 	Radius 20
 	Height 56
-	Speed 5
+	Speed 0.21875 //5
 	Scale 1.2
 	PainChance 20
 	Mass 1000
