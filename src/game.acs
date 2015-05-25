@@ -711,7 +711,7 @@ script mop_update_fragcounter death
 	HUDMessage(s:"A";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 }
 
-script mop_player_disconnect (int player) disconnect
+script mop_puppetmaster_disconnect (int player) disconnect
 {
 	if(PlayerClasses[player] == PLAYER_MARINE)
 		terminate;
@@ -722,7 +722,10 @@ script mop_player_disconnect (int player) disconnect
 		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
 		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 	}
-	MopFrags[player] = 0;
+	else if (!PlayerIsSpectator(player))
+	{
+		MopFrags[player] = 0;
+	}
 	
 	int type = LastPossessedMonster[player][LASTMONSTER_TYPE];
 	int health = LastPossessedMonster[player][LASTMONSTER_HEALTH];
