@@ -3863,7 +3863,7 @@ Actor PossessedGuardian : PossessedRevenant
 	}
 }
 
-ACTOR PossessedGuardianTracer : GuardianTracer
+Actor PossessedGuardianTracer : GuardianTracer
 {
 	DamageType "Monster"
 	States
@@ -5411,7 +5411,7 @@ Actor PossessedDiabolist : PossessedArchVile
 	}
 }
 
-ACTOR PossessedIFire : IFire
+Actor PossessedIFire : IFire
 {
   States
   {
@@ -5636,7 +5636,7 @@ Actor PossessedDarkHellion : PossessedArchVile
 	}
 }
 
-ACTOR PossessedHellionSmokeAttack : HellionSmokeAttack
+Actor PossessedHellionSmokeAttack : HellionSmokeAttack
 {
   States
   {
@@ -7227,4 +7227,385 @@ Actor ModdedExplosiveBarrelWeapon : PossessedWeapon
 		TNT1 A 2 Thing_Damage(0, 1000)
 		Stop
 	}
+}
+
+Actor PossessedGuard : PossessedMonster
+{
+	Player.MorphWeapon "GuardWeapon"
+
+	Health 40
+	Radius 20
+	Height 56
+	Speed 5
+	Scale 1.1
+	MONSTER
+	+FLOORCLIP
+	+MISSILEMORE
+	DropItem "BulletMag" 255 10
+	DropItem "HealthFlask" 50
+	DropItem "ArmorCharge" 50
+	DropItem "AmmoPack" 25
+	DropItem "HandGrenadeAmmo" 50 1
+	DropItem "MineAmmo" 25 1
+	PainChance 120
+	SeeSound "guard/sight"
+	DeathSound "guard/death"
+	PainSound "monsters/nazipain"
+	Obituary "A Nazi guard caught %o right between the eyes."
+	States
+	{
+	Spawn:
+		NGRI A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	NGRD AAAABBBB 1 
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)		
+    	NGRD CCCCDDDD 1 
+	    Loop
+	Missile:
+        NGRD E 10 
+		NGRD F 5 
+		TNT1 A 0 //A_PlaySoundEx("monsters/nazipistol","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 38, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
+        NGRD G 5 Bright //A_FireBullets(7,0,1,7)
+        Goto See
+    }
+}
+
+Actor PossessedSSNazi : PossessedMonster
+{
+	Player.MorphWeapon "SSNaziWeapon"
+
+	Health 60
+	Radius 20
+	Height 56
+	Speed 5
+	PainChance 100
+	Scale 1.05
+	MONSTER
+	+FLOORCLIP
+	+MISSILEMORE
+	DropItem "BulletMag" 255 10
+	DropItem "HealthFlask" 100
+	DropItem "ArmorCharge" 100
+	DropItem "AmmoPack" 50
+	DropItem "HandGrenadeAmmo" 100 1
+	DropItem "MineAmmo" 50 1
+	SeeSound "monsters/sssee"
+	DeathSound "monsters/ssdeath"
+	PainSound "monsters/nazipain"
+	AttackSound "Null"
+	Obituary "%o couldn't handle the might of the Schutzstaffel."
+	States
+	{
+	Spawn:
+        SSWI A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	SSWV AAAABBBB 1 
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	SSWV CCCCDDDD 1 
+	    Loop
+	Missile:
+        SSWV F 15 
+		TNT1 A 0 //A_PlaySoundEx("MP40/Fire","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 26, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+        SSWV G 3 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        SSWV F 2 
+		TNT1 A 0 //A_PlaySoundEx("MP40/Fire","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 26, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+        SSWV G 3 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        SSWV F 2 
+		TNT1 A 0 //A_PlaySoundEx("MP40/Fire","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 26, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+        SSWV G 3 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        SSWV F 2 
+		TNT1 A 0 //A_PlaySoundEx("MP40/Fire","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 26, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+        SSWV G 3 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM) 		
+        SSWV F 3
+        Goto See
+    }
+}
+
+Actor PossessedMutant : PossessedMonster
+{
+	Player.MorphWeapon "MutantWeapon"
+
+	Health 80
+	Radius 20
+	Height 56
+	Speed 5
+	MONSTER
+	+FLOORCLIP
+	+MISSILEMORE
+	DropItem "BulletMag" 255 10
+	DropItem "StimKit" 150
+	DropItem "ArmorBooster" 150
+	DropItem "AmmoPack" 150
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	Scale 1.15
+	PainChance 80
+	BloodColor "cf 00 b0"
+	DeathSound "mutant/death"
+	SeeSound "mutant/sight"
+	PainSound "monsters/nazipain"
+	Obituary "%o was pistol whipped by a Nazi Mutant."
+	States
+	{
+	Spawn:
+		MUTI A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	MUTN AAAABBBB 1 
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	MUTN CCCCDDDD 1 
+	    Loop
+	Missile:
+        MUTN E 15 
+		TNT1 A 0 //A_PlaySoundEx("monsters/nazipistol","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 34, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
+        MUTN F 7 Bright //A_FireBullets(7,0,1,6)   
+		MUTN E 3 
+		TNT1 A 0 //A_PlaySoundEx("monsters/nazipistol","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 34, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
+        MUTN G 7 Bright //A_FireBullets(7,0,1,6)
+        MUTN E 7
+        Goto Missile+1
+    }
+}
+
+Actor PossessedOfficer : PossessedMonster
+{
+	Player.MorphWeapon "OfficerWeapon"
+
+	Health 100
+	Radius 20
+	Height 56
+	Speed 7
+	Scale 1.1
+	MONSTER
+	+FLOORCLIP
+	+MISSILEMORE
+	DropItem "BulletMag" 255 10
+	DropItem "StimKit" 150
+	DropItem "ArmorBooster" 150
+	DropItem "HandGrenadeAmmo" 150 1
+	DropItem "MineAmmo" 75 1
+	DropItem "AmmoPack" 75
+	PainChance 60
+	SeeSound "officer/sight"
+	DeathSound "officer/death"
+	PainSound "monsters/nazipain"
+	Obituary "A Nazi Officer was too quick for %o."
+	States
+	{
+	Spawn:
+		OPOI A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	OPOS AAAABBBB 1 
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)		
+    	OPOS CCCCDDDD 1 
+	    Loop
+	Missile:
+        OPOS EF 5 
+		TNT1 A 0 //A_PlaySoundEx("monsters/nazipistol","Weapon")
+        TNT1 A 0 //A_SpawnItemEx("BulletCasing", 8, 8, 38, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
+        OPOS G 5 Bright //A_FireBullets(7,0,1,7)
+        Goto See
+    }
+}
+
+Actor PossessedNaziDog : PossessedMonster
+{
+	Player.MorphWeapon "NaziDogWeapon"
+
+	Health 30
+	Radius 14
+	Height 36
+	Speed 11
+	Scale 1.1
+	MONSTER
+	+FLOORCLIP
+	+FASTER
+	+FASTMELEE
+	+LONGMELEERANGE
+	-CANUSEWALLS
+	MeleeDamage 6
+	SeeSound "dog/sight"
+	DeathSound "dog/death"
+	MeleeSound "Null"
+	DropItem "LifeEssence" 128
+	DropItem "ArmorBonusMax" 128
+	Obituary "%o was savaged by a Nazi guard dog."
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,"Wander")
+		Goto Sitting
+	Sitting:
+		NDOI A 10 
+        Loop
+	Wander:
+		TNT1 A 0 
+    	NDOG AAAA 2 
+		TNT1 A 0 
+		NDOG BBBB 2 
+		TNT1 A 0 
+		NDOG CCCC 2 
+		TNT1 A 0 
+		NDOG DDDD 2 
+		Loop
+	See:
+    	NDOG AAAABBBBCCCCDDDD 1 
+	    Loop
+	Melee:
+		TNT1 A 0 //A_PlaySound("dog/bite")
+        NDOG EF 4 
+		NDOG G 5 //A_CustomPunch(6)
+		NDOG FEA 5 
+        Goto See
+    	}
+}
+
+Actor PossessedHitler : PossessedMonster
+{
+	Player.MorphWeapon "HitlerWeapon"
+
+	Health 2000
+	Radius 20
+	Height 56
+	Speed 4
+	Scale 1.2
+	Mass 0x7FFFFFFF
+	MONSTER
+	+FLOORCLIP
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	+NOTARGET
+	+NOBLOOD
+	SeeSound "hitler/sight"
+	DeathSound "hitler/scheisse"
+	AttackSound "Null"
+	Obituary "%o could not stand up against Adolf Hitler's mecha suit."
+	States
+	{
+	Spawn:
+        HTL1 A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("HitlerSuitStep",0,0,0,0)
+    	HTL1 AAAAAAABBBBBBB 1 
+    	TNT1 A 0 A_SpawnItem("HitlerSuitStep",0,0,0,0)		
+    	HTL1 CCCCCCCDDDDDDD 1 
+	    Loop
+	Missile:
+        HTL1 E 10 
+		HTL1 E 10 
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        HTL1 F 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
+        HTL1 G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        HTL1 F 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        HTL1 F 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
+        HTL1 G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        HTL1 F 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
+        HTL1 G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 24, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -24, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 AA 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
+        HTL1 G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		HTL1 E 15
+        Goto See
+    }
+}
+
+Actor PossessedHitlerNoSuit : PossessedMonster
+{
+	Player.MorphWeapon "HitlerNoSuitWeapon"
+
+	Health 1000
+	Radius 20
+	Height 56
+	Speed 5
+	Scale 1.2
+	PainChance 20
+	Mass 1000
+	MONSTER
+	+FLOORCLIP
+	+MISSILEEVENMORE
+	+QUICKTORETALIATE
+	+NOTARGET
+	+LOOKALLAROUND
+	DropItem "BulletBox" 256 50
+	DropItem "PortableMedkit" 200
+	DropItem "ArmorPlate" 200
+	DropItem "HandGrenadeAmmo" 200 1
+	DropItem "MineAmmo" 200 1
+	DropItem "AmmoPack" 150
+	DropItem "ExtraArmor" 256 1
+	SeeSound "hitler/hahahaha"
+	DeathSound "hitler/death1"
+	PainSound "monsters/nazipain"
+	AttackSound "Null"
+	Obituary "%o was executed by the Nazi leader, Adolf Hitler."
+	States
+	{
+	Spawn:
+        HTLR A 10 
+        Loop
+	See:
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    	HTLR AAAAAABBBBBB 1 
+    	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)		
+    	HTLR CCCCCCDDDDDD 1 
+	    Loop
+	Missile:
+        HTLR E 15 
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 20, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -20, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 0 Bright ////A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)
+        HTLR F 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+		TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(6,-6),0,0,Random(6,-6))
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, 20, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+		TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 10, -20, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+		TNT1 A 0 Bright //A_FireBullets(22.5, 0, -1, random(1,5)*3, "BulletPuff", FBF_NORANDOM)		
+        HTLR G 3 Bright //A_PlaySoundEx("hitler/fire","Weapon")
+        Goto Missile+1
+    }
 }
