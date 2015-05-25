@@ -716,13 +716,7 @@ script mop_puppetmaster_disconnect (int player) disconnect
 	if(PlayerClasses[player] == PLAYER_MARINE)
 		terminate;
 
-	if(PlayerIsSpectator(player)==1)
-	{
-		// don't forget to reset frag counter
-		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
-		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
-	}
-	else if (!PlayerIsSpectator(player))
+	if (!PlayerIsSpectator(player))
 	{
 		MopFrags[player] = 0;
 	}
@@ -743,4 +737,15 @@ script mop_puppetmaster_disconnect (int player) disconnect
 	}
 	
 	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
+}
+
+script mop_player_clientsidedisconnect (int player) disconnect clientside
+{
+	// don't forget to reset frag counter
+	HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
+	HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
+		
+	// and this too
+	HUDMessage(s:"";HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0);
+	HUDMessage(s:"";HUDMSG_PLAIN, HID_MONSTERINFO, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0);
 }
