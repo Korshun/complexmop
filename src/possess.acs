@@ -148,6 +148,9 @@ script mop_possess (void)
 		LastPossessedMonster[PlayerNumber()][LASTMONSTER_ANGLE] = GetActorAngle(0);
 	}
 	
+	// We are not in monster
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
+	
 	// Unlock puppetmaster if he died before being unlocked.
 	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	
@@ -175,9 +178,6 @@ script mop_possess (void)
 	SetActorProperty(0, APROP_HEALTH, 1);
 	SetPlayerProperty(0, true, PROP_FLY);
 	SetPlayerProperty(0, false, PROP_FROZEN); // In case of unpossess while being frozen.
-	
-	// We are not in monster
-	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
 	
 	// Take away flag.
 	TakeInventory("IsPossessed", 1);
