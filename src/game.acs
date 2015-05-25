@@ -40,6 +40,7 @@ script mop_enter ENTER
 	if (PlayerClass(PlayerNumber()) == 1)
 	{
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
 		//SetPlayerProperty(0, true, PROP_ALLMAP);
 		GiveInventory("AllMap", 1);
 		ACS_ExecuteAlways(mop_monsterinfo, 0);
