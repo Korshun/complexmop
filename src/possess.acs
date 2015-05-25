@@ -78,6 +78,9 @@ script mop_possess (void)
 	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 	PossessedCount++;
 	
+	// Save monster type
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = type;
+	
 	// Morphing loses player tid.
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
 	
@@ -136,6 +139,13 @@ script mop_possess (void)
 		
 		hp1 = hp2;
 		hp2 = GetActorProperty(0, APROP_HEALTH);
+		
+		// Store last monster properties every tick
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_HEALTH] = hp2 - POSSESSED_ADDITIONAL_HP; // real hp
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_X] = GetActorX(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_Y] = GetActorY(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_Z] = GetActorZ(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_ANGLE] = GetActorAngle(0);
 	}
 	
 	// Unlock puppetmaster if he died before being unlocked.
@@ -165,6 +175,9 @@ script mop_possess (void)
 	SetActorProperty(0, APROP_HEALTH, 1);
 	SetPlayerProperty(0, true, PROP_FLY);
 	SetPlayerProperty(0, false, PROP_FROZEN); // In case of unpossess while being frozen.
+	
+	// We are not in monster
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
 	
 	// Take away flag.
 	TakeInventory("IsPossessed", 1);

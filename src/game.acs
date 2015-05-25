@@ -13,6 +13,17 @@ int BoomEdition = true;
 
 int MopFrags[MAX_PLAYERS];
 
+// for saving monster from disconnects
+#define NUM_LASTMONSTER_PROPERTIES 6
+#define LASTMONSTER_TYPE 0
+#define LASTMONSTER_HEALTH 1
+#define LASTMONSTER_X 2
+#define LASTMONSTER_Y 3
+#define LASTMONSTER_Z 4
+#define LASTMONSTER_ANGLE 5
+
+int LastPossessedMonster[MAX_PLAYERS][NUM_LASTMONSTER_PROPERTIES];
+
 script mop_log_join(int player, int team) clientside
 {
 	switch(team)
@@ -92,9 +103,6 @@ script mop_enter ENTER
 				GiveInventory("MOP Combat Shotgun", 1);
 			}
 		}
-		// don't forget to reset frag counter on joining humans
-		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
-		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()]);
@@ -703,7 +711,33 @@ script mop_update_fragcounter death
 	HUDMessage(s:"A";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
 }
 
-script mop_reset_clientinfo (int player) disconnect
+script mop_player_disconnect (int player) disconnect
 {
+	if(PlayerClasses[player] == PLAYER_MARINE)
+		terminate;
+
+	if(PlayerIsSpectator(player)==1)
+	{
+		// don't forget to reset frag counter
+		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS, CR_RED, 260.0, 30.0, 0);
+		HUDMessage(s:"";HUDMSG_PLAIN, HID_MOPFRAGS_ICON, CR_RED, 280.0, 30.0, 0);
+	}
 	MopFrags[player] = 0;
+	
+	int type = LastPossessedMonster[player][LASTMONSTER_TYPE];
+	int health = LastPossessedMonster[player][LASTMONSTER_HEALTH];
+	
+	if (type >= 0 && health > 0)
+	{
+		int x = LastPossessedMonster[player][LASTMONSTER_X];
+		int y = LastPossessedMonster[player][LASTMONSTER_Y];
+		int z = LastPossessedMonster[player][LASTMONSTER_Z];
+		int angle = LastPossessedMonster[player][LASTMONSTER_ANGLE];
+
+		SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+		SetActorProperty(TEMPTID, APROP_HEALTH, health);
+		Thing_ChangeTID(TEMPTID, 0);
+	}
+	
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
 }
