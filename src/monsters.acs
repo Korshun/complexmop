@@ -77,12 +77,12 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
-	{ "Guard",					0.1, 0, 0, 0, "Nazi Guard", "NGRIA1" },
-	{ "SSNazi",					0.1, 0, 0, 0, "SS Nazi", "SSWIA1" },
-	{ "Mutant",					0.1, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
-	{ "Officer",				0.1, 0, 0, 0, "Nazi Officer", "OPOIA1" },
-	{ "NaziDog",				0.1, 0, 0, 0, "Nazi Dog", "NDOGA1" },
-	{ "Hitler",					1.0, 0, 0, 0, "Hitler", "HTL1A1C1" },
+	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
+	{ "SSNazi",					0.06, 0, 0, 0, "SS Nazi", "SSWIA1" },
+	{ "Mutant",					0.06, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
+	{ "Officer",				0.06, 0, 0, 0, "Nazi Officer", "OPOIA1" },
+	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
+	{ "Hitler",					0.5, 0, 0, 0, "Hitler", "HTL1A1C1" },
 	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Hitler", "HTLRA1" }
 };
 
