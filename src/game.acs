@@ -357,6 +357,7 @@ script mop_status OPEN
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS1, CR_YELLOW, 320.0, 50.0, 0);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 320.0, 50.0, 0);
 		ACS_ExecuteAlways(mop_status_clientsideicons, 0, false);
+		ACS_ExecuteAlways(mop_marines_giveextralives, 0, -1);
 		terminate;
 	}
 	
