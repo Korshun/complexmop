@@ -210,7 +210,10 @@ script mop_possess (void)
 	Thing_ChangeTid(TEMPTID, 0);
 	
 	if (lasthp <= 0)
+	{
 		ACS_ExecuteAlways(mop_log_kill, 0, 0, PlayerNumber(), 1);
+		ACS_ExecuteAlways(mop_marines_giveextralives, 0, 0, PlayerNumber(), 1);
+	}
 }
 
 script mop_monsterinfo (void)

@@ -12,6 +12,7 @@ int Lives = 999;
 int BoomEdition = true;
 
 int MopFrags[MAX_PLAYERS];
+int ExtraLivePoints = 0.0;
 
 // for saving monster from disconnects
 #define NUM_LASTMONSTER_PROPERTIES 6
@@ -200,6 +201,7 @@ function void LaunchPlayerScripts(void)
 	MakePuppetMasterFlying();
 	ACS_ExecuteAlways(mop_respawn_protection, 0);
 	ACS_ExecuteAlways(mop_ally_hud, 0);
+	ACS_ExecuteAlways(mop_marines_giveextralives, 0, -1);
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE && GetCVar("mop_truereinforcements") && Lives == 0)
 	{
@@ -291,6 +293,12 @@ script mop_init OPEN
 		ConsoleCommand("set mop_possfrags_bosses 3");
 		ConsoleCommand("archivecvar mop_possfrags_bosses");
 	}
+	
+	if (!GetCVar("mop_extralivepoints"))
+	{
+		ConsoleCommand("set mop_extralivepoints 10");
+		ConsoleCommand("archivecvar mop_extralivepoints");
+	}
 
 	if (GameSkill() > 3)
 	{
@@ -354,9 +362,13 @@ script mop_status OPEN
 	
 	if (MarineCount != prev_MarineCount || PuppetMasterCount != prev_PuppetMasterCount || Lives != prev_Lives || LivingMonsterCount() != prev_LivingMonsterCount)
 	{	
+		int xoffset = 0;
 		str lives_reinforcements = "\nLives: ";
 		if (GetCVar("mop_truereinforcements"))
+		{
 			lives_reinforcements = "\nReinforcements: ";
+			xoffset = 20.0;
+		}
 	
 		SetFont("SMALLFONT");
 		SetHudSize(640, 480, 1);
@@ -365,7 +377,7 @@ script mop_status OPEN
 		HUDMSG_PLAIN, HID_GAMESTATUS1, CR_YELLOW, 270.0, 20.0, 0);
 		HudMessageBold(s:lives_reinforcements, d:Lives,
 			s:"\nMonsters: ", d:LivingMonsterCount();
-		HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 390.0, 15.0, 0);
+		HUDMSG_PLAIN, HID_GAMESTATUS2, CR_YELLOW, 390.0+xoffset, 15.0, 0);
 		
 		ACS_ExecuteAlways(mop_status_clientsideicons, 0, true);
 		
@@ -749,4 +761,54 @@ script mop_player_clientsidedisconnect (int player) disconnect clientside
 	// and this too
 	HUDMessage(s:"";HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0);
 	HUDMessage(s:"";HUDMSG_PLAIN, HID_MONSTERINFO, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0);
+}
+
+#define POINTS_FACTOR 0.01
+
+function void DrawExtraLivesHUD(int current, int maximum)
+{
+	SetHUDSize(640,480,0);
+	SetFont("SMALLFONT");
+	int a = FixedDiv(current, maximum) * 100 / 1.0;
+	
+	int xoffset = 0;
+	
+	if (GetCVar("mop_truereinforcements"))
+		xoffset = 70.0;
+	
+	HUDMessage(s:"(", d:a,s:"%)";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_WHITE, 430.0+xoffset, 15.0, 0);
+}
+
+script mop_marines_giveextralives (int type)
+{
+	int points = GetCVar("mop_extralivepoints") * POINTS_FACTOR;
+	
+	if (points <= 0 || won)
+	{
+		HUDMessage(s:"";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_DARKGREEN, 640.0 / 2, 470.0, 0);
+		terminate;
+	}
+	
+	if (type < 0)
+	{
+		DrawExtraLivesHUD(ExtraLivePoints, points);
+		terminate;
+	}
+	
+	ExtraLivePoints += MonsterTypes[type][MONSTER_DIFFICULTY];
+	DrawExtraLivesHUD(ExtraLivePoints, points);
+
+	if (ExtraLivePoints >= points)
+	{
+		ExtraLivePoints -= points;
+		DrawExtraLivesHUD(ExtraLivePoints, points);
+		
+		Lives++;
+		
+		int xoffset = 0;
+		if (GetCVar("mop_truereinforcements"))
+			xoffset = 70.0;
+		
+		hudmessageBOLd(s:"+1";HUDMSG_FADEOUT, 0, CR_GREEN, 460.0+xoffset, 15.0, 1.5);
+	}
 }
