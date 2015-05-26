@@ -776,7 +776,7 @@ function void DrawExtraLivesHUD(int current, int maximum)
 	if (GetCVar("mop_truereinforcements"))
 		xoffset = 70.0;
 	
-	HUDMessage(s:"(", d:a,s:"%)";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_WHITE, 430.0+xoffset, 15.0, 0);
+	HUDMessageBold(s:"(", d:a,s:"%)";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_WHITE, 430.0+xoffset, 15.0, 0);
 }
 
 script mop_marines_giveextralives (int type)
@@ -785,7 +785,7 @@ script mop_marines_giveextralives (int type)
 	
 	if (points <= 0 || won)
 	{
-		HUDMessage(s:"";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_DARKGREEN, 640.0 / 2, 470.0, 0);
+		HUDMessageBold(s:"";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_DARKGREEN, 640.0 / 2, 470.0, 0);
 		terminate;
 	}
 	
