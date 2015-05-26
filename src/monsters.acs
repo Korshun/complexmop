@@ -55,7 +55,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BabySentient",			0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
 	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
 	{ "Daedabus",				0.2, 0, 0, 0, "Daedabus", "HECTC1" },
-	{ "Behemoth",				0.2, 0, 0, 0, "Behemoth", "FAT2C1" },
+	{ "Behemoth",				0.2, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "Barbatos",				0.2, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
 	{ "Guardian",				0.25, 0, 0, 0, "Guardian", "SKELA1D1" },
 	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
