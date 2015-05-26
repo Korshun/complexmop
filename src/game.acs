@@ -299,7 +299,13 @@ script mop_init OPEN
 		ConsoleCommand("set mop_extralivepoints 100");
 		ConsoleCommand("archivecvar mop_extralivepoints");
 	}
-
+	
+	if(!GetCvar("mop_livescalingpercentage"))
+	{
+		ConsoleCommand("set mop_livescalingpercentage 100");
+		ConsoleCommand("archivecvar mop_livescalingpercentage");
+	}
+	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
@@ -321,6 +327,12 @@ script mop_init OPEN
 	
 	Lives = (monsterforces>>16) + 1;
 	
+	if (GetCvar("mop_livescalingpercentage") <= 0)
+		ConsoleCommand("set mop_livescalingpercentage 100");
+	
+	Lives *= (GetCvar("mop_livescalingpercentage") * 1.0) / 100;
+	Lives = Lives>>16;
+
 	if (ThingCountName("BossBrain", 0))
 	{
 		BossBrain = true;
