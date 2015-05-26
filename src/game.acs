@@ -801,15 +801,22 @@ script mop_marines_giveextralives (int type)
 
 	if (ExtraLivePoints >= points)
 	{
-		ExtraLivePoints -= points;
-		DrawExtraLivesHUD(ExtraLivePoints, points);
+		int addlives;
+		while(ExtraLivePoints >= points)
+		{
+			ExtraLivePoints -= points;
+			DrawExtraLivesHUD(ExtraLivePoints, points);
+			
+			addlives++;
+			delay(1);
+		}
 		
-		Lives++;
+		Lives += addlives;
 		
 		int xoffset = 0;
 		if (GetCVar("mop_truereinforcements"))
 			xoffset = 70.0;
 		
-		hudmessageBOLd(s:"+1";HUDMSG_FADEOUT, 0, CR_GREEN, 460.0+xoffset, 15.0, 1.5);
+		hudmessageBOLd(s:"+", d:addlives;HUDMSG_FADEOUT, 0, CR_GREEN, 460.0+xoffset, 15.0, 1.5);
 	}
 }
