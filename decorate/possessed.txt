@@ -10,7 +10,6 @@ Actor PossessedMonster : PlayerPawn
 	
 	DamageFactor "Monster", 0
 	DamageFactor "Slime", 0
-	DamageFactor "Fire", 0
 	DamageFactor "ZombieDemonTech", 0
 	DamageFactor "ZombieRocket", 0
 	DamageFactor "DTFiendEx", 0
