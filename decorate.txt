@@ -280,6 +280,7 @@ Actor RocketZombieWeapon : PossessedWeapon
 
 Actor NewZombieRocket : NewRocket
 {
+	-THRUSPECIES
 	DamageType "Monster"
 }
 
