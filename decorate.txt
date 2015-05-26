@@ -2571,6 +2571,7 @@ Actor PoisonElementalWeapon : PossessedWeapon
 		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
 		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))		
 		TNT1 A 3 A_FireCustomMissile("PoisonEleBreath", Random(22, -22))
+		TNT1 A 10
 		TNT1 AA 3
 		Goto Ready
 	Melee:
@@ -2667,6 +2668,7 @@ Actor BombElementalWeapon : PossessedWeapon
 		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
 		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
 		TNT1 A 2 A_FireCustomMissile("BombBreath", Random(8,-8))
+		TNT1 A 10
 		TNT1 AA 3
 		Goto Ready
 	}
