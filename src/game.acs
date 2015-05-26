@@ -296,7 +296,7 @@ script mop_init OPEN
 	
 	if (!GetCVar("mop_extralivepoints"))
 	{
-		ConsoleCommand("set mop_extralivepoints 10");
+		ConsoleCommand("set mop_extralivepoints 100");
 		ConsoleCommand("archivecvar mop_extralivepoints");
 	}
 

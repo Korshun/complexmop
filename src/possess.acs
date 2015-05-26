@@ -212,7 +212,7 @@ script mop_possess (void)
 	if (lasthp <= 0)
 	{
 		ACS_ExecuteAlways(mop_log_kill, 0, 0, PlayerNumber(), 1);
-		ACS_ExecuteAlways(mop_marines_giveextralives, 0, 0, PlayerNumber(), 1);
+		ACS_ExecuteAlways(mop_marines_giveextralives, 0, type);
 	}
 }
 
