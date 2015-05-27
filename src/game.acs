@@ -808,6 +808,18 @@ script mop_marines_giveextralives (int type)
 		terminate;
 	}
 	
+	// ignore barrel suicide
+	if (type == 0)
+	{
+		int activator = ActivatorTID();
+		int victim = PlayerNumber();
+		SetActivatorToTarget(0);
+		int killer = PlayerNumber();
+		SetActivator(activator);
+		if (killer == victim)
+			terminate;
+	}
+	
 	ExtraLivePoints += MonsterTypes[type][MONSTER_DIFFICULTY];
 	DrawExtraLivesHUD(ExtraLivePoints, points);
 
