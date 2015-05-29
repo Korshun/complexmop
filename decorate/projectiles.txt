@@ -433,6 +433,18 @@ Actor HACometDeathMOP : HACometDeath replaces HACometDeath
 	DamageType "Monster"
 }
 
+ACTOR PyroFireSpawnerMOP : PyroFireSpawner replaces PyroFireSpawner
+{
+  MissileType PyroFireMOP
+  States
+  {
+  Spawn: 
+    TNT1 AAAA 4 Bright A_CustomMissile("PyroFireMOP")
+	TNT1 A 1 Bright A_MissileAttack
+    Loop
+  }
+}
+
 Actor PyroFireMOP : PyroFire replaces PyroFire 
 {
 	DamageType "Monster"
