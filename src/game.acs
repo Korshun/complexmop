@@ -13,6 +13,7 @@ int BoomEdition = true;
 
 int MopFrags[MAX_PLAYERS];
 int ExtraLivePoints = 0.0;
+int MarinesNoBfgTimer[MAX_PLAYERS];
 
 // for saving monster from disconnects
 #define NUM_LASTMONSTER_PROPERTIES 6
@@ -304,6 +305,12 @@ script mop_init OPEN
 	{
 		ConsoleCommand("set mop_livescalingpercentage 100");
 		ConsoleCommand("archivecvar mop_livescalingpercentage");
+	}
+	
+	if(!GetCvar("mop_marinesnobfgtime"))
+	{
+		ConsoleCommand("set mop_marinesnobfgtime 60");
+		ConsoleCommand("archivecvar mop_marinesnobfgtime");
 	}
 	
 	if (GameSkill() > 3)
@@ -807,7 +814,7 @@ script mop_marines_giveextralives (int type)
 		DrawExtraLivesHUD(ExtraLivePoints, points);
 		terminate;
 	}
-	
+
 	// ignore barrel suicide
 	if (type == 0)
 			terminate;
@@ -835,4 +842,55 @@ script mop_marines_giveextralives (int type)
 		
 		hudmessageBOLd(s:"+", d:addlives;HUDMSG_FADEOUT, 0, CR_GREEN, 460.0+xoffset, 15.0, 1.5);
 	}
+}
+
+script mop_marines_nobfgtimer death
+{
+	int player = PlayerNumber();
+	if(PlayerClasses[player] == PLAYER_MOP)
+		terminate;
+	
+	int time = GetCvar("mop_marinesnobfgtime");
+	if (time <= 0)
+	{
+		MarinesNoBfgTimer[player] = 0;
+		terminate;
+	}
+
+	if (MarinesNoBfgTimer[player] > 0)
+		terminate;
+
+	MarinesNoBfgTimer[player] = time;
+	
+	while(MarinesNoBfgTimer[player] > 0)
+	{
+		if (GetCvar("mop_marinesnobfgtime") <= 0)
+		{
+			MarinesNoBfgTimer[player] = 0;
+			terminate;
+		}
+	
+		MarinesNoBfgTimer[player]--;
+		delay(35);
+	}
+}
+
+script mop_marines_isbfgavailable (void)
+{
+	int time = MarinesNoBfgTimer[PlayerNumber()];
+	bool value;
+	
+	if (time > 0)
+		value = true;
+	else
+		value = false;
+	
+	if (value)
+	{
+		SetFont("Smallfont");
+		SetHUDSize(640,480,0);
+		hudmessage(s:"You cannot use BFG now, you should wait ", d:time, s:" seconds.";HUDMSG_FADEOUT, HID_NOBFG, CR_GREEN, 640.0/2, 480.0/2, 3.5);
+	}
+
+	SetResultValue(value);
 }
