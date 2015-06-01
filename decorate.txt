@@ -6838,15 +6838,15 @@ Actor PossessedCardinal : PossessedCyberdemon
 	States
 	{
 	Spawn:
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD B 2 Bright
 		Loop
 	See:
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD A 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD B 2 Bright
 		Loop
 	Missile:
@@ -6858,155 +6858,155 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 A_JumpIfInventorY("Attack4", 1, "DTBFG10K")
 		Goto Spawn
 	Normal:
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD CCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto Spawn
 	Seekers:
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 2 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD CCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto Spawn
 	BFG10K:
 		TNT1 A 0 //A_PlaySound("weapons/charge15k")
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		TNT1 A 0 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		CARD CCCCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD CCCCC 4 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto Spawn
 	DTBFG10K:
 		TNT1 A 0 //A_PlaySound("Cardinal/9k")
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD C 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 4 Bright
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD D 4 Bright //A_FireCustomMissile("CardinalDTBFG10KBall", 0, 0, 0)
-		TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		CARD DCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD DCC 4 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto Spawn
 	}
 }
