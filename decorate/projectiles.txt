@@ -198,10 +198,7 @@ Actor DarkCyberRocketMOP : DarkCyberRocket replaces DarkCyberRocket
 	DamageType "Monster"
 }
 
-Actor DarkCyber9KMOP : DarkCyber9K replaces DarkCyber9K
-{
-	DamageType "Monster"
-}
+// ...
 
 Actor CardinalRocketMOP : CardinalRocket replaces CardinalRocket
 {
