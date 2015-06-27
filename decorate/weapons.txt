@@ -46,14 +46,14 @@ ACTOR "MOP Melee" : Fist replaces Fist
 	BerserkFist:
 	    PKFS L 1 A_PlaySound("weapons/fistwiff")
 		PKFS BCD 1
-		PKFS E 2 A_CustomPunch(25*Random(1,10),TRUE,0,"FistPuff",64)		 
+		PKFS E 2 A_CustomPunch(25*Random(1,10),TRUE,0,"PlayerFistPuff",64)		 
 		PKFS FGHIJKL 1
 		PKFS A 1 A_ReFire
 		Goto Ready
 	BerserkKick:
 		KICK A 1 A_PlaySound("weapons/berserkkick")
 		KICK BCDEF 1
-		KICK G 5 A_CustomPunch(25*Random(11,20),TRUE,0,"FootPuff",96)		
+		KICK G 5 A_CustomPunch(25*Random(11,20),TRUE,0,"PlayerFootPuff",96)		
 		KICK EDCBA 1
 		PKFS A 1
 		PKFS A 5 A_ReFire
@@ -132,9 +132,9 @@ ACTOR "MOP Chainsaw" : Chainsaw replaces Chainsaw
 	    SAWL AB 1
 	Hold:
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
-		SAWN A 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"SawScreech")
+		SAWN A 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"PlayerSawScreech")
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
-		SAWN B 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"SawScreech")	
+		SAWN B 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"PlayerSawScreech")	
 		TNT1 A 0 A_Refire
 		SAWL BA 1
 		Goto Ready
@@ -194,7 +194,7 @@ ACTOR "MOP Handgun" : Weapon replaces Pistol
 	  TNT1 A 0 A_PlaySound("weapons/tpfire")
 	  TNT1 A 0 A_AlertMonsters
 	  TNT1 A 0 Radius_Quake(1,2,0,1,0)
-	  TNT1 A 0 A_FireBullets(1.6,1.6,-1,Random(5,7),"ModdedBulletPuff")
+	  TNT1 A 0 A_FireBullets(1.6,1.6,-1,Random(5,7),"PlayerModdedBulletPuff")
 	  TNT1 A 0 A_Light1
 	  PKPF A 2 Bright A_GunFlash
 	  TNT1 A 0 A_Light0
@@ -355,7 +355,7 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
     TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_Light1
 	TNT1 AAAA 0 A_FireCustomMissile("SGTracer",Random(6,-6),0,0,Random(6,-6))
-    SHTF A 2 Bright A_FireBullets(4.2,2.4,7,Random(5,7),"ModdedBulletPuff")
+    SHTF A 2 Bright A_FireBullets(4.2,2.4,7,Random(5,7),"PlayerModdedBulletPuff")
     SHTF B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	SHTF CDEF 1
@@ -516,7 +516,7 @@ ACTOR "MOP Assault Shotgun" : Weapon 19345
 	TNT1 A 0 A_Light1
 	TNT1 A 0 A_SpawnItemEx("ShellCasing",30,5,25,Random(2,4),Random(3,6),Random(3,6),0)
 	TNT1 AAAA 0 A_FireCustomMissile("SGTracer",Random(5,-5),0,0,Random(5,-5))
-    SMAF A 2 Bright A_FireBullets(6.0,3.2,7,Random(5,7),"ModdedBulletPuff")
+    SMAF A 2 Bright A_FireBullets(6.0,3.2,7,Random(5,7),"PlayerModdedBulletPuff")
     SMAF B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
     SMAG BCDE 1
@@ -693,7 +693,7 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	TNT1 A 0 Radius_Quake(6,3,0,1,0)
 	TNT1 A 0 A_TakeInventory("SSGShell",2)
 	TNT1 AAAAAAAA 0 Bright A_FireCustomMissile("SGTracer",Random(8,-8),0,0,Random(8,-8))
-    SH2F A 2 Bright A_FireBullets(11.2,7.1,20,5,"ModdedBulletPuff")
+    SH2F A 2 Bright A_FireBullets(11.2,7.1,20,5,"PlayerModdedBulletPuff")
     SH2F B 2 Bright A_Light2
 	SH2E A 1 A_Light0
     SHT2 B 1
@@ -716,7 +716,7 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
     TNT1 A 0 Radius_Quake(3,3,0,1,0)
 	TNT1 A 0 A_TakeInventory("SSGShell",1)
 	TNT1 AAAA 0 A_FireCustomMissile("SGTracer",Random(6,-6),0,0,Random(6,-6))
-    S2SF C 2 Bright A_FireBullets(5.0,2.8,7,Random(5,7),"ModdedBulletPuff")
+    S2SF C 2 Bright A_FireBullets(5.0,2.8,7,Random(5,7),"PlayerModdedBulletPuff")
 	S2SF D 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	SH2R EFGH 1
@@ -730,7 +730,7 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
     TNT1 A 0 Radius_Quake(3,3,0,1,0)
 	TNT1 A 0 A_TakeInventory("SSGShell",1)
 	TNT1 AAAA 0 A_FireCustomMissile("SGTracer",Random(6,-6),0,0,Random(6,-6))
-    S2SF A 2 Bright A_FireBullets(5.0,2.8,7,Random(5,7),"ModdedBulletPuff")
+    S2SF A 2 Bright A_FireBullets(5.0,2.8,7,Random(5,7),"PlayerModdedBulletPuff")
 	S2SF B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	SH2R ABCD 1
@@ -888,7 +888,7 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
     TNT1 A 0 Radius_Quake(10,5,0,1,0)
 	TNT1 A 0 A_TakeInventory("QuadShell",4)	
 	TNT1 AAAAAAAAAAAA 0 A_FireCustomMissile("SGTracer",Random(8,-8),0,0,Random(10,-10))
-    QS4F A 2 Bright A_FireBullets(11.8,7.3,52,5,"ModdedBulletPuff")
+    QS4F A 2 Bright A_FireBullets(11.8,7.3,52,5,"PlayerModdedBulletPuff")
     QS4F B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	QSGN CFG 1
@@ -913,7 +913,7 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
     TNT1 A 0 Radius_Quake(3,3,0,1,0)
 	TNT1 A 0 A_TakeInventory("QuadShell",2)
 	TNT1 AAAAAAAA 0 A_FireCustomMissile("SGTracer",Random(8,-8),0,0,Random(8,-8))
-    QSGF C 2 Bright A_FireBullets(11.2,7.1,20,5,"ModdedBulletPuff")
+    QSGF C 2 Bright A_FireBullets(11.2,7.1,20,5,"PlayerModdedBulletPuff")
 	QSGF D 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	QREC ABCDE 1
@@ -927,7 +927,7 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
     TNT1 A 0 Radius_Quake(3,3,0,1,0)
 	TNT1 A 0 A_TakeInventory("QuadShell",2)
 	TNT1 AAAAAAAA 0 A_FireCustomMissile("SGTracer",Random(8,-8),0,0,Random(8,-8))
-    QSGF A 2 Bright A_FireBullets(11.2,7.1,20,5,"ModdedBulletPuff")
+    QSGF A 2 Bright A_FireBullets(11.2,7.1,20,5,"PlayerModdedBulletPuff")
 	QSGF B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	QREC ABCDE 1
@@ -1086,7 +1086,7 @@ ACTOR "MOP Assault Rifle" : Weapon replaces Chaingun
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
 	    TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
 		TNT1 A 0 A_Light1
-		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"ModdedBulletPuff")
+		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"PlayerModdedBulletPuff")
 		TNT1 A 0 A_Light0
 		CHGF BC 1
 	    TNT1 A 0 A_JumpIfInventory("ARMagazine",1,1)
@@ -1097,7 +1097,7 @@ ACTOR "MOP Assault Rifle" : Weapon replaces Chaingun
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
 	    TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
 		TNT1 A 0 A_Light2
-		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"ModdedBulletPuff")
+		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"PlayerModdedBulletPuff")
 		TNT1 A 0 A_Light0
 		CHGF BC 1
 		TNT1 A 0 A_ReFire
@@ -1245,7 +1245,7 @@ Fire:
 	TNT1 A 0 Radius_Quake(2,2,0,1,0)
 	TNT1 A 0 A_SpawnItemEx("RifleCasing",25,-8,25,Random(2,4),Random(-3,-6),Random(3,6),0)
 	TNT1 A 0 A_FireCustomMissile("Tracer",Random(4,-4),0,0,Random(4,-4))
-	CHAF A 1 Bright A_FireBullets(4.3,2.6,-1,Random(7,10),"ModdedBulletPuff")
+	CHAF A 1 Bright A_FireBullets(4.3,2.6,-1,Random(7,10),"PlayerModdedBulletPuff")
 	TNT1 A 0 A_JumpIfNoAmmo("EmptySpinDown")
 	CHAF BC 1 A_Light0
 	TNT1 A 0 A_PlaySound("weapons/minigunfire",CHAN_WEAPON)
@@ -1254,7 +1254,7 @@ Fire:
 	TNT1 A 0 Radius_Quake(2,2,0,1,0)
 	TNT1 A 0 A_SpawnItemEx("RifleCasing",25,-8,25,Random(2,4),Random(-3,-6),Random(3,6),0)
 	TNT1 A 0 A_FireCustomMissile("Tracer",Random(4,-4),0,0,Random(4,-4))
-	CHAF D 1 Bright A_FireBullets(4.3,2.6,-1,Random(7,10),"ModdedBulletPuff")
+	CHAF D 1 Bright A_FireBullets(4.3,2.6,-1,Random(7,10),"PlayerModdedBulletPuff")
 	TNT1 A 0 A_JumpIfNoAmmo("EmptySpinDown")	
 	CHAF EF 1 A_Light0
 	TNT1 A 0 A_PlaySound("weapons/minigunfire",CHAN_WEAPON)
@@ -1263,7 +1263,7 @@ Fire:
 	TNT1 A 0 Radius_Quake(2,2,0,1,0)
 	TNT1 A 0 A_SpawnItemEx("RifleCasing",25,-8,25,Random(2,4),Random(-3,-6),Random(3,6),0)
 	TNT1 A 0 A_FireCustomMissile("Tracer",Random(4,-4),0,0,Random(4,-4))
-	CHAF G 1 Bright A_FireBullets(4.8,2.4,-1,Random(7,10),"ModdedBulletPuff")
+	CHAF G 1 Bright A_FireBullets(4.8,2.4,-1,Random(7,10),"PlayerModdedBulletPuff")
 	TNT1 A 0 A_JumpIfNoAmmo("EmptySpinDown")	
 	CHAF H 1 A_Light0
 	TNT1 A 0 A_ReFire
