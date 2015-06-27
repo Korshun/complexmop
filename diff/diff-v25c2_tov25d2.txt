@@ -1,0 +1,4417 @@
+diff -u old/CHANGELOG.txt new/CHANGELOG.txt
+--- old/CHANGELOG.txt	2015-06-27 15:55:21.960079229 +0200
++++ new/CHANGELOG.txt	2015-06-27 15:54:40.792080021 +0200
+@@ -1437,4 +1437,90 @@
+ (+) Slightly increased Chainsaw damage.
+ 
+ This is mostly a hotfix for the Pinkys, they were dealing far too much damage
+-especially when in groups in an enclosed area with their lunge attacks.
+\ В конце файла нет новой строки
++especially when in groups in an enclosed area with their lunge attacks.
++
++//===================
++// Changes from V25d
++//===================
++
++(+) Toned down the Annihilator homing rocket turn angle.
++(+) Fixed (hopefully anyway) the armor orb bug, if a player picked up the +25 orb
++    it would sometimes update the hud with a wrong reading of 250 armor until the
++	player took damage or used an armor item then it would revert back to the
++	true amount.
++(+) Slightly toned down Dark Cyber and Cardinals rocket attack rate of fire.
++(+) Lost Souls now have their vanilla sized "hitbox" instead of the smaller one I
++    gave them a while back.
++(+) Increased the starting, green and red armor durability.
++(+) Toned down the Chainsaw screech sound.
++(+) Slightly increased player Rocket/Grenade Launcher damage.
++(+) Reduced Arachnotron type movement speed.
++(+) Slightly increased all Mastermind and Cyber variant pain chances.
++(+) Sentient and Cardinal are now limited on how many pain rage attacks they can do,
++    they can rage a max of 3 times.
++(+) Reduced the collision boxes of some monster projectiles like the Watcher
++    seeker, it was too big for the size of the sprite.
++(+) Increased the translucency on the Exile attack, had a few complaints that it
++    was too blinding especially when targeted by more than one.
++(+) Reduced how many times the Famine can fake death from 2 to 1.
++(+) Added a rare Health Bonus, gives +4 health on pickup and breaks the 200 limit
++    to 250.
++(+) Added a rare Armor Bonus, like the new rare Health Bonus it gives +4 armor
++	on pickup and breaks the 200 limit to 250.
++(+) Slightly nerfed monster 10/15K damage.
++(+) Slightly increased monster DTBFG rail damage.
++(+) Improved some sprites.
++(+) Improved & fixed some decals.
++(+) Increased some rare tier spawn chances.
++(+) Updated some credits.
++(+) Nerfed the Soul Harvester damage slightly.
++(+) Buffed the Phase Imp projectile a bit, it was overly nerfed.
++(+) Altered the Revenant, HellKnight and Baron type melee attacks, removed the
++    reverse melee frames (that is the frames that make it look like they are
++	raising their arms to actually swing) as they looked too goofy on them.
++(+) Nerfed the speed and damage of the DTech Rifle zombie and Pinky projectiles.
++(+) Altered the weapon switch animations on a couple of weapons.
++(+) Zombie railgun attacks no longer pierce.
++(+) Cybruiser railgun attacks are now actual railgun attacks instead of the fake
++    rail with a fast projectile that did the damage.
++(+) Increased railgun drop chance.
++(+) Fusionite has its railgun attack back.
++(+) Reduced how long gas lingers on all monsters that use it.
++(+) Toned down how much the Diabolist fire and Hellion smoke blinds the player.
++(+) Diabolist and Hellion attacks now force radial damage.
++(+) Nerfed the Rage resistance time from 30 seconds to 20.
++(+) Dark Cyberdemon has his sprint boost state back.
++(+) Gave all monsters extra resistance to gas and flamethrower attack pain chance,
++    hopefully now monsters dont get instantly raped from painlocking (excluding
++	zombies).
++(+) Other monsters will now infight with the Dark Cyberdemon, Sentient and Cardinal.
++(+) Dark Cyberdemon now has a railgun attack instead of its two shot BFG9K, this
++    means I could remove the NOTARGET flag from him as the other two Cybers wont
++	turn on him if they got caught in his tracers.
++(+) Phase Imp no longer becomes 100% invisible when phasing.
++(+) Nerfed Barbatos movement speed.
++(+) Increased the chances that the Dark Cyberdemon and Cardinal rockets will seek.
++
++Did a bunch of other tweaks to random actors that werent really worth mentioning.
++
++//====================
++// Changes from V25d2
++//====================
++
++(+) Reverted the bigger boss pain chance back to what it was.
++(+) Sentient now has two 9K attacks, this is to keep in with the Mastermind type
++	monsters having BFGs.
++(+) Cardinal now has a Railgun.
++(+) Reduced the damage and explosion range of player and monster DTBFG projectiles.
++(+) Reduced the chances that the Sentient and Cardinal will pain rage as they should
++	really only rarely do these states especially with them gaining health each
++	time they do it (still limited to three times though).
++(+) Fixed even more decals.
++(+) Slightly buffed the Sentient chainguns rate of fire.
++(+) Increased the strong health and armor bonus spawn chances.
++
++Fixed a couple things I broke in last release like monster flamethrower and gas
++attacks stopping on the first actor they hit instead of going through and the 
++Famine not having the resurrection effect making it hard to tell if he revived
++especially with him being randomly bugged online (ie comes back as a corpse until
++pained or he attacks).
+\ В конце файла нет новой строки
+diff -u old/CREDITS.txt new/CREDITS.txt
+--- old/CREDITS.txt	2015-06-27 15:55:21.960079229 +0200
++++ new/CREDITS.txt	2015-06-27 15:54:40.792080021 +0200
+@@ -11,7 +11,7 @@
+ 
+ ===============
+ Xaser & Quasar: Arachnophyte (Cerebral Sentient) sprites, I modified these by adding
+-				the twin chainguns and BFG cannon.
++				the dual chainguns and BFG cannon.
+ ===============
+ 
+ ==========
+@@ -127,12 +127,11 @@
+ =======
+ 	    Assault Rifle V2 base sprites, I added a few extra frames that were missing
+ Mike12: from his sprite sheet and doomified the muzzzle flash. The Demon Tech rifle
+-        sprites. The Beretta reloading frames.
++        sprites.
+ =======
+ 
+ ========
+-XWeapon: Shell box sprites, the Shotgun sprites, rocket ammo box sprites, Assault
+-         Shotgun sprites (changed muzzle flash).
++XWeapon: Shell box sprites, the Shotgun sprites, rocket ammo box sprites.
+ ========
+ 
+ =====
+@@ -179,7 +178,7 @@
+ ============
+ 
+ ========
+-Agaures: (Demonic) Armor Bonus sprites.
++Agaures: Strong Health & Armor Bonus sprites.
+ ========
+ 
+ =================
+@@ -199,22 +198,16 @@
+ ==========
+ 
+ =====
+-Nash: The giblet sprites.
++Nash: The giblet sprites & BFG scorch sprites.
+ =====
+ 
+ ======
+ Bravo: The bloody marine (AR zombie) sprites.
+ ======
+ 
+-==============
+-TerminusEst13: For a rather fun little ACS script from a certain thread on the
+-ijon		   Zandronum forums.                
+-==============
+-
+ =======
+-		Green, blue and red armor sprites that he sent me, I modified the red 
+-[Zheg]: armor and made them all compatable with the Doom palette. Fist and Pistol
+-		marine skin edits.
++[Zheg]: Green, blue and red armor sprites that he sent me, I modified the red 
++	    armor and made them all compatable with the Doom palette.
+ =======
+ 
+ =======
+@@ -225,13 +218,27 @@
+ ReDCroW & Haso3Doom: The HD titlepic.
+ ====================
+ 
+-=====================================
+-Authors of the marine weapon sprites.
+-=====================================
+-
+-============================================================
+-Author of the base Railgun sprites which were modified by me.
+-============================================================
++=========
++Skyrilla: The female marine double handed pistol player skin which Zheg modified
++		  onto the male version.
++=========
++
++==============
++osjclatchford: For the base Railgun sprites which were modified by me.
++==============
++
++=======================
++Mike12 & osjclatchford: The pistol base sprites which were modified by me.
++=======================
++
++=================
++Ghastly_dragon 
++Xim
++Boingo_The_Clown: For their spritework on the player weapon selection skins.
++Captain Toenail
++Anthony Cole
++Toke
++=================
+ 
+ =============================================================================
+ The King of Hate himself, Darksyde Phil for his mugshot and comical rageisms.
+diff -u old/DECALDEF.txt new/DECALDEF.txt
+--- old/DECALDEF.txt	2015-06-27 15:55:21.960079229 +0200
++++ new/DECALDEF.txt	2015-06-27 15:54:40.792080021 +0200
+@@ -2,162 +2,207 @@
+ // Blood Decals
+ //==============
+ 
+-DECAL BloodSplat001
++STRETCHER BloodStretcher
+ {
+-Pic BSPLAT001
++StretchTime	10
++GoalY 2
++}
++
++SLIDER BloodSlider
++{
++SlideTime 10
++DistY -132
++}
++
++COMBINER BloodSmearer
++{
++BloodStretcher
++BloodSlider
++}
++
++DECAL BloodSplat01
++{
++Pic BSPLAT01
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.26
++Y-Scale 0.26
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat002
++DECAL BloodSplat02
+ {
+-Pic BSPLAT002
++Pic BSPLAT02
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.28
++Y-Scale 0.28
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat003
++DECAL BloodSplat03
+ {
+-Pic BSPLAT003
++Pic BSPLAT03
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.26
++Y-Scale 0.26
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat004
++DECAL BloodSplat04
+ {
+-Pic BSPLAT004
++Pic BSPLAT04
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.28
++Y-Scale 0.28
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat005
++DECAL BloodSplat05
+ {
+-Pic BSPLAT005
++Pic BSPLAT05
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.26
++Y-Scale 0.26
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat006
++DECAL BloodSplat06
+ {
+-Pic BSPLAT006
++Pic BSPLAT06
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.5
++X-Scale 0.3
++Y-Scale 0.6
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat007
++DECAL BloodSplat07
+ {
+-Pic BSPLAT007
++Pic BSPLAT07
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.28
++Y-Scale 0.28
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat008
++DECAL BloodSplat08
+ {
+-Pic BSPLAT008
++Pic BSPLAT08
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.26
++Y-Scale 0.26
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat009
++DECAL BloodSplat09
+ {
+-Pic BSPLAT009
++Pic BSPLAT09
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.28
++Y-Scale 0.28
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat010
++DECAL BloodSplat10
+ {
+-Pic BSPLAT010
++Pic BSPLAT10
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.26
++Y-Scale 0.26
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat011
++DECAL BloodSplat11
+ {
+-Pic BSPLAT011
++Pic BSPLAT11
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.64
++Y-Scale 0.64
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat012
++DECAL BloodSplat12
+ {
+-Pic BSPLAT012
++Pic BSPLAT12
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.68
++Y-Scale 0.68
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat013
++DECAL BloodSplat13
+ {
+-Pic BSPLAT013
++Pic BSPLAT13
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.68
++Y-Scale 0.68
+ RandomFlipX
+ RandomFlipY
+ }
+ 
+-DECAL BloodSplat014
++DECAL BloodSplat14
+ {
+-Pic BSPLAT014
++Pic BSPLAT14
+ Shade "50 00 00"
+-X-Scale 0.25
+-Y-Scale 0.25
++X-Scale 0.64
++Y-Scale 0.64
+ RandomFlipX
+ RandomFlipY
+ }
+-
+ DECALGROUP BloodSplat
+ {
+-BloodSplat001 1
+-BloodSplat002 1
+-BloodSplat003 1
+-BloodSplat004 1
+-BloodSplat005 1
+-BloodSplat006 1
+-BloodSplat007 1
+-BloodSplat008 1
+-BloodSplat009 1
+-BloodSplat010 1
+-BloodSplat011 1
+-BloodSplat012 1
+-BloodSplat013 1
+-BloodSplat014 1
++BloodSplat01 6
++BloodSplat02 6
++BloodSplat03 6
++BloodSplat04 6
++BloodSplat05 6
++BloodSplat06 6
++BloodSplat07 6
++BloodSplat08 6
++BloodSplat09 6
++BloodSplat10 6
++BloodSplat11 6
++BloodSplat12 6
++BloodSplat13 6
++BloodSplat14 6
++}
++
++DECAL BloodSmear1
++{
++Pic BSMEAR1
++X-Scale 0.46
++Y-Scale 0.46
++Shade "50 00 00"
++RandomFlipX
++RandomFlipY
++Animator BloodSmearer
++}
++
++DECAL BloodSmear2
++{
++Pic BSMEAR2
++X-Scale 0.44
++Y-Scale 0.44
++Shade "50 00 00"
++RandomFlipX
++RandomFlipY
++Animator BloodSmearer
++}
++
++DECALGROUP BloodSmear
++{
++BloodSmear1 6
++BloodSmear2 6
+ }
+ 
+ //=================
+@@ -215,22 +260,20 @@
+ GENERATOR "Quad Barrel Shotgun" BulletChip
+ GENERATOR "Minigun " BulletChip
+ 
+-//====================
+-// Projectile Weapons
+-//====================
++//=================
+ // Rocket Launcher
+ //=================
+ 
+ DECAL RocketScorch
+ {
+-Pic MISLB0
++Pic RKDEA0
+ Add 1.0
++X-scale 0.12
++Y-scale 0.12
+ FullBright
+-Animator GoAway
+-X-scale 0.24
+-Y-scale 0.28
+ RandomFlipx
+ RandomFlipy
++Animator GoAway
+ LowerDecal Scorch
+ }
+ 
+@@ -238,45 +281,70 @@
+ // Plasma Rifle
+ //==============
+ 
+-DECAL HeatScorch
++DECAL PlasmaLightning1
+ {
+-Pic PLSTA0
+-X-scale 0.22
+-Y-scale 0.22
++Pic PLSDA0
++Add 1.0
++X-Scale 0.08
++Y-Scale 0.08
++FullBright
+ RandomFlipx
+ RandomFlipy
+ Animator GoAway
+ LowerDecal DoomImpScorch
+ }
+ 
+-//=========
+-// BFG9500
+-//=========
+-
+-DECAL BFG9500Lightning1
++DECAL PlasmaLightning2
+ {
+-Pic BFGLITE1
+-Shade "00 ff 00"
++Pic PLSDB0
++Add 1.0
++X-Scale 0.08
++Y-Scale 0.08
+ FullBright
+ RandomFlipx
+-Animator GoAway2
+-LowerDecal BFGScorch
++RandomFlipy
++Animator GoAway
++LowerDecal DoomImpScorch
+ }
+ 
+-DECAL BFG9500Lightning2
++DECALGROUP HeatScorch
+ {
+-Pic BFGLITE2
+-Shade "00 ff 00"
++PlasmaLightning1 1
++PlasmaLightning2 1
++}
++
++//==================
++// Demon Tech Rifle
++//==================
++
++DECAL DTRScorch
++{
++Pic DTDEA0
++Add 1.0
++X-Scale 0.06
++Y-Scale 0.06
+ FullBright
++RandomFlipx
+ RandomFlipy
+-Animator GoAway2
+-LowerDecal BFGScorch
++Animator GoAway
++LowerDecal DoomImpScorch
+ }
+ 
+-DECALGROUP BFG9500Lightning
++//=========
++// BFG9500
++//=========
++
++DECAL BFG9500Lightning
+ {
+-BFG9500Lightning1	1
+-BFG9500Lightning2	1
++Pic BFDEA0
++Add 1.0
++X-Scale 0.25
++Y-Scale 0.25
++FullBright
++RandomFlipx
++RandomFlipy
++Animator GoAway2
++LowerDecal BFGScorch
+ }
+ 
+ //========
+@@ -313,14 +381,22 @@
+ BFG15KLightning2	1
+ }
+ 
+-GENERATOR NewRocket RocketScorch
+-GENERATOR NewPlasmaBall HeatScorch
+-GENERATOR BFG9500Ball BFG9500Lightning
+-GENERATOR 10KProjectile BFG15KLightning
++//===============
++// Monster Stuff
++//===============
+ 
+-//==========
+-// Monsters
+-//==========
++DECAL GreenRocketScorch
++{
++Pic RKDGA0
++Add 1.0
++X-scale 0.12
++Y-scale 0.12
++FullBright
++RandomFlipx
++RandomFlipy
++Animator GoAway
++LowerDecal Scorch
++}
+ 
+ DECAL Heat2Scorch1
+ {
+@@ -330,6 +406,7 @@
+ Y-scale 0.3
+ RandomFlipx
+ RandomFlipy
++FullBright
+ Animator GoAway
+ LowerDecal DoomImpScorch
+ }
+@@ -342,6 +419,7 @@
+ Y-scale 0.3
+ RandomFlipx
+ RandomFlipy
++FullBright
+ Animator GoAway
+ LowerDecal DoomImpScorch
+ }
+@@ -382,32 +460,19 @@
+ Heat3Scorch2	1
+ }
+ 
+-DECAL BFG9500EnergyLightning1
++DECAL BFG9500LightningRed
+ {
+-Pic BFGLITE1
+-Shade "ff 25 00"
++Pic BRDEA0
++Add 1.0
++X-Scale 0.25
++Y-Scale 0.25
+ FullBright
+ RandomFlipx
+-Animator GoAway2
+-LowerDecal BFGScorch
+-}
+-
+-DECAL BFG9500EnergyLightning2
+-{
+-Pic BFGLITE2
+-Shade "ff 25 00"
+-FullBright
+ RandomFlipy
+ Animator GoAway2
+ LowerDecal BFGScorch
+ }
+ 
+-DECALGROUP BFG9500EnergyLightning
+-{
+-BFG9500EnergyLightning1	1
+-BFG9500EnergyLightning2	1
+-}
+-
+ DECAL BFG10KLightning1
+ {
+ Pic BFGLITE1
+@@ -464,6 +529,11 @@
+ Cardinal15KLightning2	1
+ }
+ 
++GENERATOR NewRocket RocketScorch
++GENERATOR NewPlasmaBall HeatScorch
++GENERATOR BFG9500Ball BFG9500Lightning
++GENERATOR 10KProjectile BFG15KLightning
++
+ GENERATOR ZombiePlasmaBall HeatScorch
+ GENERATOR RailGunner BulletChip
+ GENERATOR ZombieRocket RocketScorch
+@@ -486,10 +556,11 @@
+ GENERATOR BehemothSeekingComet Scorch
+ GENERATOR DualaPlasma HeatScorch
+ GENERATOR FusionShot DoomImpScorch
++GENERATOR FusioniteRailPuff RailScorch
+ GENERATOR BabyDemo15K BFG15KLightning
+ GENERATOR BabySent10K BFG10KLightning
+ GENERATOR GuardianTracer RevenantScorch
+-GENERATOR CadaverRocket RocketScorch
++GENERATOR CadaverRocket GreenRocketScorch
+ GENERATOR HellfireRocket RocketScorch
+ GENERATOR HABall BaronScorch
+ GENERATOR HAComet Scorch
+@@ -503,23 +574,24 @@
+ GENERATOR AfritTracer Scorch
+ GENERATOR Comet Scorch
+ GENERATOR BruiserMissile RocketScorch
++GENERATOR BruiserRailPuff RailScorch
+ GENERATOR Cybruiser15K Cardinal15KLightning
+ GENERATOR Demolisher BulletChip
+ GENERATOR SpiderBFG9500Ball BFG9500Lightning
+ GENERATOR Spider15K BFG15KLightning
+ GENERATOR DarkDemo10K BFG15KLightning
+-GENERATOR SentientDTBFG10KBall BFG9500EnergyLightning
++GENERATOR SentientBFG9500Ball BFG9500LightningRed
+ GENERATOR Sentient10K BFG10KLightning
++GENERATOR SentientDTBFG10KBall BFG9500LightningRed
+ GENERATOR CyberLordRocket RocketScorch
+ GENERATOR CyberLordHomer RocketScorch
+-GENERATOR DarkCyberRocket Scorch
+-GENERATOR DarkCyberHomer Scorch
++GENERATOR DarkCyberRocket GreenRocketScorch
++GENERATOR DarkCyberHomer GreenRocketScorch
+ GENERATOR DarkCyberFireSpawner Scorch
+-GENERATOR DarkCyber9K BFG9500Lightning
+ GENERATOR DarkCyber15K BFG15KLightning
+ GENERATOR CardinalRocket RocketScorch
+ GENERATOR CardinalHomingRocket RocketScorch
+-GENERATOR CardinalDTBFG10KBall BFG9500EnergyLightning
+ GENERATOR Cardinal10K BFG10KLightning
++GENERATOR CardinalDTBFG10KBall BFG9500LightningRed
+ GENERATOR SSNazi BulletChip
+ GENERATOR Mutant BulletChip
+\ В конце файла нет новой строки
+diff -u old/ExWeapons.dec new/ExWeapons.dec
+--- old/ExWeapons.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/ExWeapons.dec	2015-06-27 15:54:40.792080021 +0200
+@@ -258,6 +258,7 @@
+    Weapon.KickBack 60
+    Weapon.AmmoUse 1
+    Weapon.AmmoGive 60
++   Weapon.AmmoGive2 30
+    Scale 0.95
+    Weapon.AmmoType "DemonMagazine"   
+    Weapon.AmmoType2 "DemonAmmo"
+@@ -460,7 +461,7 @@
+    +FORCERADIUSDMG
+    Species "Player"
+    DeathSound "weapons/demontechex"
+-   Decal DoomImpScorch
++   Decal DTRScorch
+    States
+    {
+    Spawn:
+@@ -712,7 +713,7 @@
+ 	TNT1 A 0 Bright A_CustomMissile("DTBFG10KTracer",0,0,350,CMF_TRACKOWNER)
+ 	TNT1 A 0 A_SpawnItemEx("DTBFGLightningGreenSpawner", 0, 0, 15, 0, 0, 0, 0, 128)	
+ 	CGS1 ABCD 6 Bright A_SpawnItemEx("DTech10KShockwave3", 0, 0, 15, 0, 0, 0, 0, 128)
+-	TNT1 A 0 A_Explode(800,300)
++	TNT1 A 0 A_Explode(520,280)
+ 	TNT1 A 0 A_StopSoundEx("Voice")
+ 	TNT1 A 0 Radius_Quake(15,20,0,20,0)
+ 	TNT1 A 0 A_PlaySound("weapons/dtech10kexplode")
+@@ -762,7 +763,7 @@
+     TNT1 A 0
+ 	TNT1 A 0 A_FaceTarget
+ 	TNT1 A 0 A_MissileAttack
+-	TNT1 A 1 A_CustomRailgun(-1,0,NONE,"Green",1,1,1)
++	TNT1 A 1 A_CustomRailgun(-1,0,NONE,"Green",1,1,2)
+ 	Goto Death	
+ Death:
+ 	TNT1 A 1
+diff -u old/ItemLights.gl new/ItemLights.gl
+--- old/ItemLights.gl	2015-06-27 15:55:21.956079229 +0200
++++ new/ItemLights.gl	2015-06-27 15:54:40.792080021 +0200
+@@ -19,6 +19,23 @@
+ Frame SMBSD { Light HealthBonusLight1 }
+ }
+ 
++PULSELIGHT MaxHealthBonusLight1
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 8
++SecondarySize 10
++Interval 1
++}
++
++OBJECT NewMaxHealthBonus
++{
++Frame MHBSA { Light MaxHealthBonusLight1 }
++Frame MHBSB { Light MaxHealthBonusLight1 }
++Frame MHBSC { Light MaxHealthBonusLight1 }
++Frame MHBSD { Light MaxHealthBonusLight1 }
++}
++
+ PULSELIGHT LifeEssence1
+ {
+ Color 0.8 0 0
+@@ -79,10 +96,21 @@
+ 
+ OBJECT NewArmorBonus
+ {
+-Frame ARSDA { Light ArmorBonusLight1 }
+ Frame ARSDB { Light ArmorBonusLight1 }
+-Frame ARSDC { Light ArmorBonusLight1 }
+-Frame ARSDD { Light ArmorBonusLight1 }
++}
++
++PULSELIGHT MArmorBonusLight1
++{
++Color 0 0 0.8
++OffSet 0 0 0
++Size 6
++SecondarySize 8
++Interval 1
++}
++
++OBJECT NewMaxArmorBonus
++{
++Frame MABOB { Light MArmorBonusLight1 }
+ }
+ 
+ PULSELIGHT ArmorBonusMaxLight1
+@@ -96,10 +124,17 @@
+ 
+ OBJECT ArmorBonusMax
+ {
+-Frame MABOA { Light ArmorBonusMaxLight1 }
+-Frame MABOB { Light ArmorBonusMaxLight1 }
+-Frame MABOC { Light ArmorBonusMaxLight1 }
+-Frame MABOD { Light ArmorBonusMaxLight1 }
++Frame LFSSA { Light ArmorBonusMaxLight1 }
++Frame LFSSB { Light ArmorBonusMaxLight1 }
++Frame LFSSC { Light ArmorBonusMaxLight1 }
++Frame LFSSD { Light ArmorBonusMaxLight1 }
++Frame LFSSE { Light ArmorBonusMaxLight1 }
++Frame LFSSF { Light ArmorBonusMaxLight1 }
++Frame LFSSG { Light ArmorBonusMaxLight1 }
++Frame LFSSH { Light ArmorBonusMaxLight1 }
++Frame LFSSI { Light ArmorBonusMaxLight1 }
++Frame LFSSJ { Light ArmorBonusMaxLight1 }
++Frame LFSSK { Light ArmorBonusMaxLight1 }
+ }
+ 
+ PULSELIGHT BossArmorBonusMax1
+diff -u old/MonsterLights.gl new/MonsterLights.gl
+--- old/MonsterLights.gl	2015-06-27 15:55:21.956079229 +0200
++++ new/MonsterLights.gl	2015-06-27 15:54:40.792080021 +0200
+@@ -515,8 +515,16 @@
+ 
+ OBJECT Diabolist
+ {
+-Frame DIAB { Light InfernoVileFire1 }
+-Frame DIA2 { Light InfernoVileFire1 }
++Frame DIABG { Light InfernoVileFire1 }
++Frame DIABH { Light InfernoVileFire1 }
++Frame DIABI { Light InfernoVileFire1 }
++Frame DIABJ { Light InfernoVileFire1 }
++Frame DIABK { Light InfernoVileFire1 }
++Frame DIABL { Light InfernoVileFire1 }
++Frame DIABM { Light InfernoVileFire1 }
++Frame DIABN { Light InfernoVileFire1 }
++Frame DIABO { Light InfernoVileFire1 }
++Frame DIABP { Light InfernoVileFire1 }
+ }
+ 
+ FLICKERLIGHT HellionReviveLight1
+diff -u old/MonsterProjectileLights.gl new/MonsterProjectileLights.gl
+--- old/MonsterProjectileLights.gl	2015-06-27 15:55:21.956079229 +0200
++++ new/MonsterProjectileLights.gl	2015-06-27 15:54:40.792080021 +0200
+@@ -20,9 +20,9 @@
+ Chance 0.2
+ }
+ 
+-OBJECT RailgunImpactRed
++OBJECT RailImpactFlareRed
+ {
+-Frame TNT1B { Light RailFlareRed1 }
++Frame LENRA { Light RailFlareRed1 }
+ }
+ 
+ OBJECT ZombieRocket
+@@ -652,7 +652,7 @@
+ 
+ OBJECT DualaPlasma
+ {
+-Frame APLS { Light PBall1 }
++Frame DPLS { Light PBall1 }
+ Frame PLD2A { Light PBallExplode1 }
+ Frame PLD2B { Light PBallExplode2 }
+ Frame PLD2C { Light PBallExplode3 }
+@@ -706,9 +706,9 @@
+ Chance 0.2
+ }
+ 
+-OBJECT RailgunImpactPurple
++OBJECT RailImpactFlarePurple
+ {
+-Frame TNT1B { Light RailFlarePurple1 }
++Frame LENPA { Light RailFlarePurple1 }
+ }
+ 
+ OBJECT BabyDemo15K
+@@ -1338,6 +1338,110 @@
+ Frame MISLD { Light DevilBallExplode3 }
+ }
+ 
++FLICKERLIGHT RBFG9500Ball1
++{
++Color 0.8 0 0
++Size 46
++SecondarySize 62
++Chance 0.2
++}
++
++POINTLIGHT RBFG9500BallExplode1
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 72
++}
++
++POINTLIGHT RBFG9500BallExplode2
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 80
++}
++
++POINTLIGHT RBFG9500BallExplode3
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 90
++}
++
++POINTLIGHT RBFG9500BallExplode4
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 70
++}
++
++POINTLIGHT RBFG9500BallExplode5
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 54
++}
++
++POINTLIGHT RBFG9500BallExplode6
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 32
++}
++
++OBJECT SentientBFG9500Ball
++{
++Frame BFR3 { Light RBFG9500Ball1 }
++Frame BRE3A { Light RBFG9500BallExplode1 }
++Frame BRE3B { Light RBFG9500BallExplode2 }
++Frame BRE3C { Light RBFG9500BallExplode3 }
++Frame BRE3D { Light RBFG9500BallExplode4 }
++Frame BRE3E { Light RBFG9500BallExplode5 }
++Frame BRE3F { Light RBFG9500BallExplode6 }
++}
++
++POINTLIGHT BFRBallExplode1
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 32
++}
++
++POINTLIGHT BFRBallExplode2
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 34
++}
++
++POINTLIGHT BFRBallExplode3
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 36
++}
++
++POINTLIGHT BFRBallExplode4
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 32
++}
++
++POINTLIGHT BFRBallExplode5
++{
++Color 0.8 0 0
++OffSet 0 0 0
++Size 26
++}
++
++OBJECT CustomSprayRed
++{
++Frame BRE2A { Light BFRBallExplode1 }
++Frame BRE2B { Light BFRBallExplode2 }
++Frame BRE2C { Light BFRBallExplode3 }
++Frame BRE2D { Light BFRBallExplode4 }
++}
++
+ FLICKERLIGHT BFG9500EnergyBall1
+ {
+ Color 1 0.7 0
+@@ -1450,15 +1554,17 @@
+ Frame FTRD { Light DarkCyberHellFire1 }
+ }
+ 
+-OBJECT DarkCyber9K
++FLICKERLIGHT RailFlareGreen1
+ {
+-Frame BFS1 { Light BFG9500Ball1 }
+-Frame BFE1A { Light BFG9500BallExplode1 }
+-Frame BFE1B { Light BFG9500BallExplode2 }
+-Frame BFE1C { Light BFG9500BallExplode3 }
+-Frame BFE1D { Light BFG9500BallExplode4 }
+-Frame BFE1E { Light BFG9500BallExplode5 }
+-Frame BFE1F { Light BFG9500BallExplode6 }
++Color 0 0.8 0
++Size 40
++SecondarySize 48
++Chance 0.2
++}
++
++OBJECT RailImpactFlareGreen
++{
++Frame LENGA { Light RailFlareGreen1 }
+ }
+ 
+ OBJECT DarkCyber15K
+diff -u old/Monsters.dec new/Monsters.dec
+--- old/Monsters.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/Monsters.dec	2015-06-27 15:54:40.772080021 +0200
+@@ -128,8 +128,8 @@
+ Missile: 
+         RPOS E 15 A_FaceTarget
+ 		TNT1 A 0 Bright A_PlaySound("railgunner/chargedshot")
+-		TNT1 A 0 Bright A_CustomMissile("RailgunImpactRed",30,0,0,0)
+-        RPOS F 5 Bright A_CustomRailgun(Random(15,25), 0, "Red", None,1 ,1 ,1)
++		TNT1 A 0 Bright A_CustomMissile("RailgunImpactRed",30,0,0,CMF_AIMOFFSET)
++        RPOS F 5 Bright A_CustomRailgun(Random(15, 25), 0, "Red", None, RGF_NOPIERCING, 1)
+         RPOS E 40
+ 		Goto See
+ Pain: 
+@@ -248,14 +248,14 @@
+ {
+    Height 4
+    Radius 4
+-   Speed 50
++   Speed 40
+    Damage 4
+    Scale 0.06
+    PROJECTILE
+    +FORCERADIUSDMG
+    DamageType "ZombieDemonTech"
+    DeathSound "weapons/demontechex"
+-   Decal DoomImpScorch
++   Decal DTRScorch
+    States
+    {
+    Spawn:
+@@ -286,7 +286,7 @@
+ 	  TNT1 A 0 Bright A_SpawnItemEx("GreenParticleSpawnerDT", 0, 0, 0, 0, 0, 0, 0, 128)
+ 	  TNT1 A 0 Bright A_SpawnItemEx("ZDemonTechEx",0,0,0,0,0,0,0,128,0)
+ 	  TNT1 AAAA 0 A_CustomMissile("SmokeFX4", 0, 0, random(0,360), 2, random(0,360))
+-	  TNT1 A 1 Bright A_Explode(8,48)
++	  TNT1 A 1 Bright A_Explode(6,48)
+       Stop
+ 	  }
+ }
+@@ -405,8 +405,9 @@
+ 
+ ACTOR ZombieRocket : NewRocket
+ {
+--THRUSPECIES
++Damage 20
+ DamageType "ZombieRocket"
++-THRUSPECIES
+ }
+ 
+ ACTOR ShotgunZombie 20103
+@@ -1101,6 +1102,9 @@
+ Speed 8
+ MeleeDamage 3
+ PainChance 140
++PainChance "SoulToxic", 60
++PainChance "FatFlamer", 60
++PainChance "FiendFire", 60
+ DamageFactor "ImpComet", 0.0
+ SeeSound "imp/sight"
+ PainSound "imps/pain"
+@@ -1204,7 +1208,7 @@
+ {
+     Health 70
+     PainChance 120
+-    Obituary "%o was cursed by a Void Imp."
++    Obituary "%o was smoldered by a Void Imp."
+     HitObituary "%o was torn up by a Void Imp."
+ 	BloodColor "Green"
+ 	SeeSound "superimp/sight"
+@@ -1338,8 +1342,8 @@
+         SLHV FE 5 A_FaceTarget		
+         Goto See
+     Missile:
+-        SLHV EF 6 A_FaceTarget
+-        SLHV G 5 Bright A_CustomMissile("SoulHarvesterBall", 32, 0, 0)
++        SLHV EF 7 A_FaceTarget
++        SLHV G 6 Bright A_CustomMissile("SoulHarvesterBall", 32, 0, 0)
+ 		SLHV FE 4
+         Goto See
+     Pain:
+@@ -1374,9 +1378,9 @@
+     Radius 8
+     Height 6
+     Scale 0.55
+-    Speed 14
+-	FastSpeed 18
+-    Damage 6
++    Speed 12
++	FastSpeed 16
++    Damage 5
+     +SEEKERMISSILE
+     PROJECTILE
+     Renderstyle Translucent
+@@ -1438,14 +1442,14 @@
+ 		DIMI A 10 A_Look
+         Loop
+     See:
+-		TNT1 A 0 A_Jump(38,"Evade")
++		TNT1 A 0 A_Jump(46,"Evade")
+ 		DIMP AABB 3 A_Chase
+ 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+ 		DIMP CCDD 3 A_Chase
+ 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+ 		TNT1 A 0 A_Jump(46,"Phase")		
+         Loop
+-Evade:
++    Evade:
+ 		TNT1 A 0 A_Jump(128,7)
+ 		TNT1 A 0 ThrustThing(Angle*256/360+64,16,0,0)
+ 		DIMP AAAA 3 A_Chase
+@@ -1461,14 +1465,12 @@
+ 		TNT1 A 0 A_Jump(24,"UnPhase")
+         Goto Phased+32
+     Melee:
+-	    TNT1 A 0 A_UnHideThing
+         TNT1 A 0 A_SetTranslucent(1)
+         DIMP EF 5 A_FaceTarget
+         DIMP G 5 A_MeleeAttack
+         DIMP FE 5 A_FaceTarget		
+         Goto See
+     Missile:
+-	    TNT1 A 0 A_UnHideThing
+         TNT1 A 0 A_SetTranslucent(1)
+         DIMP EF 6 A_FaceTarget
+ 		TNT1 A 0 Bright A_PlaySound("imp/attack")
+@@ -1479,26 +1481,24 @@
+         TNT1 A 0 A_PlaySound("phaseimp/teleport")
+         DIMP E 2 A_FaceTarget
+         DIMP E 1 A_SetTranslucent(0.75)
+-        DIMP E 1 A_SetTranslucent(0.5)
+-        DIMP E 1 A_SetTranslucent(0.25)
+-        TNT1 A 0 A_HideThing
++        DIMP E 1 A_SetTranslucent(0.55)
++        DIMP E 1 A_SetTranslucent(0.35)
++		DIMP E 1 A_SetTranslucent(0.15)
+         Goto Phased
+ 	UnPhase:
+         TNT1 A 0 A_PlaySound("phaseimp/teleport")
+-        DIMP E 1 A_SetTranslucent(0.25)
+-        DIMP E 1 A_SetTranslucent(0.5)
++		DIMP E 1 A_SetTranslucent(0.15)
++        DIMP E 1 A_SetTranslucent(0.35)
++        DIMP E 1 A_SetTranslucent(0.55)
+         DIMP E 1 A_SetTranslucent(0.75)
+-        TNT1 A 0 A_UnHideThing
+ 		TNT1 A 0 A_SetTranslucent(1)
+         DIMP E 2 A_FaceTarget		
+         Goto See
+     Pain:
+-		TNT1 A 0 A_UnHideThing
+         DIMP H 2 A_SetTranslucent(1)
+         DIMP H 2 A_Pain
+         Goto See
+     Death:
+-		TNT1 A 0 A_UnHideThing
+         DIMP I 8 A_SetTranslucent(1)
+         DIMP J 8 A_Scream
+         DIMP K 6
+@@ -1506,7 +1506,6 @@
+         DIMP M -1
+         Stop
+     XDeath:
+-		TNT1 A 0 A_UnHideThing
+ 		TNT1 A 0 A_SetTranslucent(1)
+ 		PIKI N 3 A_SpawnItemEx("MutantGibbedGenerator",0,0,0,0,0,0,0,128,0)
+ 		PIKI O 3 A_XScream
+@@ -1525,11 +1524,11 @@
+ 
+ ACTOR PhaseImpBall
+ {
+-    Radius 6
+-    Height 6
+-    Speed 14
+-	FastSpeed 18
+-    Damage (Random(2,5))
++    Radius 8
++    Height 8
++    Speed 15
++	FastSpeed 19
++    Damage (Random(3,4))
+     PROJECTILE
+     +SEEKERMISSILE
+ 	+RIPPER
+@@ -1579,6 +1578,9 @@
+ Radius 24
+ Mass 600
+ PainChance 120
++PainChance "SoulToxic", 50
++PainChance "FatFlamer", 50
++PainChance "FiendFire", 50
+ MeleeDamage 4
+ Species "Fiends"
+ DamageFactor "FiendFire", 0.0
+@@ -1654,7 +1656,7 @@
+ {
+    Height 16
+    Radius 20
+-   Speed 28
++   Speed 27
+    Damage (5*Random(4,8))
+    Species "Fiends"
+    SeeSound ""  
+@@ -1933,36 +1935,21 @@
+        Loop
+     Missile:
+ 	   TNT1 A 0 A_Jump(168,"DTech")
++	   TNT1 A 0 A_JumpIfCloser(250,"Lunge")
++	   Goto See
++	Melee:	   
+ 	Lunge:
+-	   TNT1 A 0 A_JumpIfCloser(350,1)
+-	   Goto DTech
+-	   DPNK AA 5 A_FaceTarget
++	   TNT1 A 0 A_PlaySound("cyberfiend/melee")
++	   DPNK AA 7 A_FaceTarget
+ 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,1)
+-	   TNT1 A 0 ThrustThingZ(0,40,0,1)
+-	   DPNK A 2 A_SkullAttack(20)
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK A 2 A_SpawnItemEx("DTFiendGhostA",0,0,0,0,0,0,0,128)	   
+-	   DPNK B 2 A_SpawnItemEx("DTFiendGhostB",0,0,0,0,0,0,0,128)
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK C 2 A_SpawnItemEx("DTFiendGhostC",0,0,0,0,0,0,0,128)   
+-	   DPNK D 2 A_SpawnItemEx("DTFiendGhostD",0,0,0,0,0,0,0,128)	
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK A 2 A_SpawnItemEx("DTFiendGhostA",0,0,0,0,0,0,0,128)	   
+-	   DPNK B 2 A_SpawnItemEx("DTFiendGhostB",0,0,0,0,0,0,0,128)
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK C 2 A_SpawnItemEx("DTFiendGhostC",0,0,0,0,0,0,0,128)   
+-	   DPNK D 2 A_SpawnItemEx("DTFiendGhostD",0,0,0,0,0,0,0,128)
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK A 2 A_SpawnItemEx("DTFiendGhostA",0,0,0,0,0,0,0,128)	   
+-	   DPNK B 2 A_SpawnItemEx("DTFiendGhostB",0,0,0,0,0,0,0,128)
+-       TNT1 A 0 A_PlaySound("blooddemon/walk")
+-	   DPNK C 2 A_SpawnItemEx("DTFiendGhostC",0,0,0,0,0,0,0,128)   
+-	   DPNK D 2 A_SpawnItemEx("DTFiendGhostD",0,0,0,0,0,0,0,128)	   
+-	   DPNK A 8 A_ScaleVelocity(0.15)
++	   TNT1 A 0 ThrustThingZ(0,20,0,1)
++	   DPNK B 2 A_Recoil(-28)
++	   DPNK B 3 A_CustomMissile("PinkyLunge",18,0,0,CMF_AIMDIRECTION)
++	   DPNK B 6
++	   DPNK B 2 A_ScaleVelocity(0.2)
+ 	   TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,0)
+-	   TNT1 A 0 A_ScaleVelocity(0)	   
++	   DPNK B 1 A_ScaleVelocity(0)
+ 	   Goto See
+-	Melee:
+ 	DTech:
+ 	   DPNK E 10 A_FaceTarget
+ 	   DPNK E 4 A_FaceTarget
+@@ -2264,15 +2251,17 @@
+ ACTOR TerrorSoul 21031
+ {
+ Health 70
+-Radius 14
+-Height 48
+-Mass 50
+ Speed 5
++Radius 16
++Height 56
++Mass 50
+ FloatSpeed 5
+ Damage 3
+ Species "EleSouls"
+ Species "Souls"
+ PainChance 140
++PainChance "FatFlamer", 50
++PainChance "FiendFire", 50
+ DropItem "LifeEssence" 50
+ DropItem "ArmorBonusMax" 50
+ DamageFactor "SoulToxic", 0.0
+@@ -2301,7 +2290,7 @@
+ 	TERR A 2 Bright A_Chase
+ 	Loop
+ Missile:
+-	TNT1 A 0 A_Jump(174,"Charge")
++	TNT1 A 0 A_Jump(188,"Charge")
+ Projectile:
+ 	TNT1 A 0 Bright A_SpawnItem("SoulFireSpawner",0,0,0,0)
+ 	TERR A 2 Bright A_FaceTarget
+@@ -2640,11 +2629,11 @@
+     Radius 2
+     Height 2
+     RenderStyle Add
+-	Scale 0.6
++	Scale 0.5
+ 	DamageType "SoulToxic"
+ 	+FORCERADIUSDMG
+ 	+BLOODLESSIMPACT
+-    +RIPPER
++	+RIPPER
+ 	+THRUACTORS
+ 	+DONTSPLASH
+     +NOGRAVITY
+@@ -2655,7 +2644,7 @@
+     States 
+     { 
+     Spawn: 
+-        TRPS ABCDEFGDEF 4 A_Explode(2,54)
++        TRPS ABCDEFGDEF 3 A_Explode(2,38)
+ 	Death:
+ 		TRPS CCBBAA 1 A_FadeOut(0.15)
+         Stop  
+@@ -2665,8 +2654,8 @@
+ ACTOR PSoulDeathCloud : PoisonSoulCloud
+ {
+ +MISSILE
+++LOWGRAVITY
+ -NOGRAVITY
+-Gravity 0.25
+ }
+ 
+ ACTOR MagmaBreath : PoisonSoulCloud
+@@ -2685,7 +2674,7 @@
+     States 
+     { 
+     Spawn: 
+-        FIR1 LKJIHGFEDCB 3 Bright A_Explode(3,68) 
++        FIR1 LKJIHGFEDCB 2 Bright A_Explode(3,68) 
+ 	Death:
+ 		FIR1 AA 2 Bright A_FadeOut(0.25)
+ 	    Stop
+@@ -2875,6 +2864,9 @@
+ Radius 30
+ Height 56
+ PainChance 120
++PainChance "SoulToxic", 40
++PainChance "FatFlamer", 40
++PainChance "FiendFire", 40
+ Mass 500
+ MeleeDamage 6
+ DamageFactor "HelementalComet", 0.0
+@@ -3113,8 +3105,8 @@
+ Speed 16
+ Speed 20
+ Scale 1.2
+-Radius 16
+-Height 14
++Radius 10
++Height 8
+ Damage 8
+ Scale 0.85
+ Renderstyle Add
+@@ -3332,6 +3324,8 @@
+ Radius 30
+ Height 56
+ PainChance 120
++PainChance "FatFlamer", 40
++PainChance "FiendFire", 40
+ MeleeDamage 6
+ Mass 400
+ Species "EleSouls"
+@@ -3497,8 +3491,8 @@
+ 
+ ACTOR DefilerBall
+ {
+-    Radius 8
+-    Height 8
++    Radius 12
++    Height 10
+     Scale 0.6
+     Speed 16
+ 	FastSpeed 20
+@@ -3558,25 +3552,25 @@
+ 		Goto Missile+1
+ 		INFR BC 4 Bright A_FaceTarget 
+ 		TNT1 A 0 Bright A_PlaySound("monster/psoattack")
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		TNT1 A 0 Bright A_FaceTarget
+-		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(22,-22))
++		INFR D 3 Bright A_CustomMissile("PoisonEleBreath", 10, 0, Random(18,-18))
+ 		INFR CB 3
+ 		Goto See
+ 	Melee:
+@@ -3608,20 +3602,18 @@
+ 
+ ACTOR PoisonEleBreath : PoisonSoulCloud
+ { 
+-	Scale 0.95
+-	Speed 14
++	Scale 0.85
++	Speed 12
+ 	Species "EleSouls"
+ 	+MISSILE
+ 	+THRUSPECIES
+ 	+HEXENBOUNCE
+-	+LOWGRAVITY
+ 	-NOGRAVITY
+-	BounceFactor 0.65
+-	WallBounceFactor 0.8
++	Gravity 0.06
+     States 
+     { 
+     Spawn: 
+-        TRPS AABBCDEFGDFEGDEFG 5 A_Explode(3,82)
++        TRPS AABBCDEFGDFEG 3 A_Explode(2,68)
+     Death: 
+ 		TRPS CCBBAA 1 A_FadeOut(0.15)
+         Stop 
+@@ -3639,7 +3631,7 @@
+ 	ActiveSound "bomb/lava"
+ 	DamageType "SoulToxic"
+     DropItem "BossLifeEssence" 128 25
+-	DropItem "BossArmorBonusMax" 128 25
++	DropItem "BossArmorBonusMax" 128 1
+     DropItem "DemonAmmoBox" 128 200
+ 	Obituary "%o was reduced to ashes by a Bomb Elemental."
+ 	HitObituary "%o was swallowed by a Bomb Elemental."
+@@ -3707,7 +3699,7 @@
+ 		INFP K 9 Bright A_Pain
+ 		Goto See
+ 	PainSuicide:
+-		TNT1 A 0 A_JumpIfCloser(1000,1)
++		TNT1 A 0 A_JumpIfCloser(1250,1)
+ 		Goto Pain+2
+ 		TNT1 A 0 A_Jump(18,"See")
+ 		TNT1 A 0 A_StopSound
+@@ -3819,8 +3811,8 @@
+     States 
+     { 
+     Spawn: 
+-        FIR1 LKJIHGFEDCBA 3 Bright A_Explode(4,92) 
+-		FIR1 AA 2 Bright A_FadeOut(0.15)
++        FIR1 LKJIHGFEDCBA 3 Bright A_Explode(3,92) 
++		FIR1 AAAA 1 Bright A_FadeOut(0.15)
+ 	    Stop
+ 		} 
+ }
+@@ -3898,6 +3890,8 @@
+ Health 600
+ Speed 6
+ PainChance 120
++PainChance "SoulToxic", 30
++PainChance "FiendFire", 30
+ DropItem "LifeEssence" 80
+ DropItem "ArmorBonusMax" 80
+ DamageFactor "BeheComet", 0.0
+@@ -4083,7 +4077,7 @@
+     States 
+     { 
+     Spawn: 
+-        FIR1 LKJIHGFEDCB 5 Bright A_Explode(2,76)
++        FIR1 LKJIHGFEDCB 3 Bright A_Explode(Random(1,2),76)
+ 		FIR1 AA 2 Bright A_FadeOut(0.15)
+ 		Stop
+ 		} 
+@@ -4269,14 +4263,14 @@
+ 
+ ACTOR DaedabusChemSpray : PoisonEleBreath
+ { 
+-	Scale 0.65
+-	Speed 18
++	Scale 0.6
++	Speed 14
+ 	Species "Fatsos"
+ 	DamageType "FatFlamer"
+ 	States 
+     { 
+     Spawn:
+-        TRPS ABCDEFGDFEGDEFG 5 A_Explode(3,68)
++        TRPS ABCDEFGDFEG 3 A_Explode(2,68)
+     Death: 
+ 		TRPS CCBBAA 1 A_FadeOut(0.15)
+         Stop 
+@@ -4369,13 +4363,13 @@
+ {
+ Health 1350
+ PainChance 60
+-Speed 5
++Speed 4
+ Mass 2500
+ Scale 0.8
+ DamageFactor "BeheComet", 0.0
+ DamageFactor "FatFlamer", 0.0
+ DropItem "BossLifeEssence" 128 25
+-DropItem "BossArmorBonusMax" 128 25
++DropItem "BossArmorBonusMax" 128 1
+ DropItem "DemonAmmoBox" 128 200
+ Species "Fatsos"
+ +MISSILEMORE
+@@ -4520,16 +4514,15 @@
+ ACTOR BarbatosPoison : PoisonEleBreath
+ { 
+ 	Scale 0.7
+-	Speed 12
++	Speed 10
+ 	Species "Fatsos"
+ 	DamageType "FatFlamer"
+     States 
+     { 
+     Spawn: 
+-		TRPS ABC 3
+-        TRPS DEFGDEFGDEFGDEFG 5 A_Explode(4,82)
++        TRPS ABCDEFGDFEGDF 3 A_Explode(2,68)
+     Death: 
+-		TRPS CCBBAA 2 A_FadeOut(0.15)
++		TRPS CCBBAA 1 A_FadeOut(0.15)
+         Stop 
+ 		}
+ }
+@@ -4539,8 +4532,12 @@
+   Obituary "%o was vaporized by a Dualachnotron."
+   Health 500
+   PainChance 120
++  PainChance "SoulToxic", 30
++  PainChance "FatFlamer", 30
++  PainChance "FiendFire", 30
+   Scale 0.75
+   Speed 12
++  Radius 52
+   DropItem "LifeEssence" 110
+   DropItem "ArmorBonusMax" 110
+   SeeSound "monsters/dualachsee"
+@@ -4617,11 +4614,11 @@
+ Spawn:
+     TNT1 A 0
+     TNT1 A 0 A_Jump(128,"PlasmaSFX")
+-    APLS AB 3 Bright
++    DPLS AB 3 Bright
+     Loop
+ PlasmaSFX:
+-    APLS AAA 1 Bright A_SpawnItemEx("PlasmaLightning",Random(1,-1),Random(1,-1),Random(1,-1),0,0,0,0,128)
+-	APLS BBB 1 Bright A_SpawnItemEx("PlasmaLightning2",Random(1,-1),Random(1,-1),Random(1,-1),0,0,0,0,128)
++	DPLS AAA 1 Bright A_SpawnItemEx("PlasmaLightning",Random(1,-1),Random(1,-1),Random(1,-1),0,0,0,0,128)
++	DPLS BBB 1 Bright A_SpawnItemEx("PlasmaLightning2",Random(1,-1),Random(1,-1),Random(1,-1),0,0,0,0,128)
+     Goto Spawn
+ 	}
+ }
+@@ -4630,7 +4627,8 @@
+ {
+ Health 750
+ PainChance 100
+-Speed 13
++Speed 12
++Radius 52
+ Scale 1.1
+ Obituary "%o was liquefied by a Fusionite."
+ SeeSound "baby/sight"
+@@ -4654,11 +4652,23 @@
+     FSPI DEEFF 2 A_Chase
+     Loop
+ Missile:
++	TNT1 A 0 A_Jump(62,"Railgun")
++Plasma:
+     FSPI A 15 A_FaceTarget
+-    FSPI G 4 Bright A_CustomMissile("FusionShot",30,0,Random(-850,850)/100.00,0)
+-    FSPI H 4 Bright A_CustomMissile("FusionShot",30,0,Random(-850,850)/100.00,0)
++    FSPI G 4 Bright A_CustomMissile("FusionShot",30,0,Random(-1000,1000)/100.00,0)
++    FSPI H 4 Bright A_CustomMissile("FusionShot",30,0,Random(-1000,1000)/100.00,0)
++	TNT1 A 0 A_Jump(12,"Railgun")
+     TNT1 A 0 A_SpidRefire
+-    Goto Missile+1
++    Goto Plasma+1
++Railgun:
++	TNT1 A 0 A_PlaySound("weapons/rgcharge")
++    FSPI GG 10 Bright A_FaceTarget
++	FSPI G 3 Bright A_FaceTarget
++    TNT1 A 0 A_PlaySound("railgunner/chargedshot")
++	TNT1 A 0 A_CustomMissile("RailgunImpactPurple",30,0,0,CMF_AIMOFFSET)
++    FSPI H 5 Bright A_CustomRailgun(Random(20, 30), 0, "Purple", None, 1, 1, 0, "FusioniteRailPuff")
++    FSPI G 35 Bright
++	Goto See
+ Pain:
+     TNT1 A 0 A_Jump(61,"PainMissile")
+     FSPI I 12 A_Pain
+@@ -4726,12 +4736,24 @@
+     }
+ }
+ 
++ACTOR FusioniteRailPuff : BulletPuff
++{
++DamageType "Baby15K"
++States
++{
++Spawn:
++	TNT1 A 0
++	Stop
++	}
++}
++
+ ACTOR BabyDemolisher : Arachnotron 23332
+ {
+   Health 1000
+   PainChance 80
+   Scale 1.2
+-  Speed 14
++  Speed 12
++  Radius 52
+   SeeSound "minidemo/sight"
+   ActiveSound "minidemo/active"
+   PainSound "monsters/fusionitepain"
+@@ -4854,7 +4876,8 @@
+   Health 1250
+   PainChance 60
+   Scale 1.25
+-  Speed 14
++  Speed 12
++  Radius 52
+   Mass 2500
+   FloatSpeed 8
+   SeeSound "barachnophyte/sight"
+@@ -4862,7 +4885,7 @@
+   DeathSound "barachnophyte/death"
+   AttackSound ""
+   DropItem "BossLifeEssence" 128 25
+-  DropItem "BossArmorBonusMax" 128 25
++  DropItem "BossArmorBonusMax" 128 1
+   DropItem "DemonAmmoBox" 128 200
+   DamageFactor "Baby15K", 0.0
+   Species "BabySpiders"
+@@ -5074,6 +5097,9 @@
+ Mass 500
+ Speed 10
+ PainChance 100
++PainChance "SoulToxic", 25
++PainChance "FatFlamer", 25
++PainChance "FiendFire", 25
+ Scale 0.85
+ DamageFactor "CadaverRocket", 0.0
+ Obituary "%o was splattered by a Guardian's meteor."
+@@ -5104,9 +5130,8 @@
+ Melee:
+     TNT1 A 0 A_FaceTarget
+     SKEL G 6 A_SkelWhoosh
+-    SKEL H 4 A_FaceTarget
+-    SKEL I 3 A_SkelFist
+-	SKEL HG 4
++    SKEL H 6 A_FaceTarget
++    SKEL I 6 A_SkelFist
+     Goto See
+ Missile:
+     SKEL J 14 Bright A_FaceTarget
+@@ -5205,10 +5230,9 @@
+     Loop
+   Melee:
+     TNT1 A 0 A_FaceTarget
+-    RASK G 5 A_SkelWhoosh
+-    RASK H 4 A_FaceTarget
+-    RASK I 3 A_SkelFist
+-	RASK HG 4
++    RASK G 6 A_SkelWhoosh
++    RASK H 5 A_FaceTarget
++    RASK I 5 A_SkelFist
+     Goto See
+   Missile:
+     RASK J 14 Bright A_FaceTarget
+@@ -5469,7 +5493,6 @@
+     NREV A 10 A_Look
+     Loop
+   See:
+-    TNT1 A 0
+     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+     NREV AABBCC 2 A_Chase
+     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
+@@ -5478,17 +5501,17 @@
+   Melee:
+     TNT1 A 0 A_JumpIfInventory("FamineMeleeToken",1,"Melee2")
+     TNT1 A 0 A_FaceTarget
+-    NREV G 4 A_SkelWhoosh
+-    NREV H 4 A_FaceTarget
++    NREV G 5 A_SkelWhoosh
++    NREV H 5 A_FaceTarget
+ 	TNT1 A 0 A_GiveInventory("FamineMeleeToken",1)	
+-    NREV I 4 A_SkelFist
++    NREV I 5 A_SkelFist
+     Goto See
+   Melee2:
+     TNT1 A 0 A_FaceTarget
+-    NREV R 4 A_SkelWhoosh
+-    NREV S 4 A_FaceTarget
++    NREV R 5 A_SkelWhoosh
++    NREV S 5 A_FaceTarget
+ 	TNT1 A 0 A_TakeInventory("FamineMeleeToken",1)	
+-    NREV T 4 A_SkelFist
++    NREV T 5 A_SkelFist
+     Goto See
+   Missile:
+     TNT1 A 0 A_JumpIfCloser(275,"DashPunch")
+@@ -5551,7 +5574,7 @@
+     Goto Missile
+   Death:
+     TNT1 A 0 A_ChangeFlag(NOPAIN,0)
+-	TNT1 A 0 A_JumpIfInventory("FamineDeathToken",2,"TrueDeath")
++	TNT1 A 0 A_JumpIfInventory("FamineDeathToken",1,"TrueDeath")
+ 	TNT1 A 0 A_Die
+ 	TNT1 A 0 A_NoBlocking
+ 	TNT1 A 0 A_Jump(84,"FakeDeath")
+@@ -5568,7 +5591,7 @@
+ 	TNT1 AAAA 0 A_CustomMissile("SmokeFX", Random(30,60), 0, random(0,360), 2, random(0,360))
+ 	NREX EFGH 4 Bright
+ 	NREX I 4 A_SpawnItem("BodyCrash",0,0,0,0)
+-	NREX J 4 A_TakeInventory("FamineDeathToken",2)
++	NREX J 4 A_TakeInventory("FamineDeathToken",1)
+     NREX K -1
+     Stop
+   FakeDeath:
+@@ -5577,14 +5600,15 @@
+     NREV P 7 A_SpawnItem("BodyCrash",0,0,0,0)
+     TNT1 A 0 A_Jump(128,2,3,4,5)
+     NREV QQQQQ 100
+-	NREV Q -1 A_CustomMissile("FamineResurrection",0,0,0)
++	TNT1 A 0 A_CustomMissile("FamineResurrection",0,0,0)
++	NREV Q -1
+ 	Stop
+   Raise:
+  	TNT1 A 0
+     TNT1 A 0 A_SpawnItemEx("VileHealEffect",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+     NREV PONML 5
+     Goto See
+-  }
++    }
+ }
+ 
+ ACTOR FamineMeleeToken : Inventory
+@@ -5596,7 +5620,7 @@
+ ACTOR FamineDeathToken : Inventory
+ {
+ Inventory.Amount 1
+-Inventory.MaxAmount 2
++Inventory.MaxAmount 1
+ }
+ 
+ ACTOR FamineResurrection
+@@ -5630,7 +5654,7 @@
+ States
+ {
+ Spawn:
+-    NREV G 2 A_FadeOut(0.15)
++    NREV G 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5640,7 +5664,7 @@
+ States
+ {
+ Spawn:
+-    NREV H 2 A_FadeOut(0.15)
++    NREV H 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5650,7 +5674,7 @@
+ States
+ {
+ Spawn:
+-    NREV I 2 A_FadeOut(0.15)
++    NREV I 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5661,7 +5685,7 @@
+ States
+ {
+ Spawn:
+-    NREV R 2 A_FadeOut(0.15)
++    NREV R 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5671,7 +5695,7 @@
+ States
+ {
+ Spawn:
+-    NREV S 2 A_FadeOut(0.15)
++    NREV S 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5681,7 +5705,7 @@
+ States
+ {
+ Spawn:
+-    NREV T 2 A_FadeOut(0.15)
++    NREV T 2 A_FadeOut(0.18)
+     Loop
+     }
+ }
+@@ -5691,7 +5715,7 @@
+ States
+ {
+ Spawn:
+-    NREV A 2 A_FadeOut(0.05)
++    NREV A 2 A_FadeOut(0.12)
+     Loop
+     }
+ }
+@@ -5817,6 +5841,9 @@
+ { 
+ Health 500
+ PainChance 100
++PainChance "SoulToxic", 20
++PainChance "FatFlamer", 20
++PainChance "FiendFire", 20
+ MeleeDamage 8
+ DropItem "LifeEssence" 90
+ DropItem "ArmorBonusMax" 90
+@@ -5866,9 +5893,8 @@
+         LOHS O 7 Bright A_Custommissile("HAComet", 32, 0, 0)		
+ 		Goto See
+ Melee:
+-        LOHS EF 4 Bright A_FaceTarget 
+-        LOHS G 4 Bright A_MeleeAttack 
+-        LOHS FE 4 Bright A_FaceTarget 		
++        LOHS EF 8 Bright A_FaceTarget 
++        LOHS G 8 Bright A_MeleeAttack	
+         Goto See
+ Pain: 
+         LOHS Q 10 Bright A_Pain 
+@@ -6038,9 +6064,8 @@
+         PYRO O 8 Bright A_Custommissile("PyroFireSpawner",16,0,0,0)	
+ 		Goto See
+ Melee:
+-        PYRO EF 4 Bright A_FaceTarget 
+-        PYRO G 5 Bright A_MeleeAttack 
+-        PYRO FE 4 Bright A_FaceTarget 		
++        PYRO EF 8 Bright A_FaceTarget 
++        PYRO G 7 Bright A_MeleeAttack 		
+         Goto See
+ Pain: 
+ 		TNT1 A 0 A_Jump(61,"PainMissile")
+@@ -6234,9 +6259,8 @@
+     CBOS E 10
+     Goto See
+   Melee:
+-    CBOS PQ 4 A_FaceTarget
+-    CBOS R 4 A_MeleeAttack
+-	CBOS QP 4 A_FaceTarget
++    CBOS PQ 7 A_FaceTarget
++    CBOS R 7 A_MeleeAttack
+     Goto See
+   Pain: 
+     TNT1 A 0 A_Jump(87,"PainMissile")
+@@ -6304,8 +6328,9 @@
+ ACTOR CyNobleRocket : NewRocket
+ {
+ Speed 20
+--THRUSPECIES
++Damage 20
+ DamageType "AfritComet"
++-THRUSPECIES
+ }
+ 
+ ACTOR HellDuke : HellKnight 28524
+@@ -6317,7 +6342,7 @@
+ BloodColor "Green"
+ MeleeDamage 8
+ DropItem "BossLifeEssence" 128 25
+-DropItem "BossArmorBonusMax" 128 25
++DropItem "BossArmorBonusMax" 128 1
+ DropItem "DemonAmmoBox" 128 200
+ DamageFactor "AfritComet", 0.0
+ Species "Nobles"
+@@ -6385,9 +6410,8 @@
+         HDUK M 8 Bright A_Custommissile("DukeFireSpawner",16,0,18)	
+ 		Goto See
+ Melee:
+-        HDUK EF 4 Bright A_FaceTarget 
+-        HDUK G 5 Bright A_MeleeAttack 
+-        HDUK FE 4 Bright A_FaceTarget 		
++        HDUK EF 7 Bright A_FaceTarget 
++        HDUK G 6 Bright A_MeleeAttack 	
+         Goto See
+ Pain:
+ 		TNT1 A 0 A_Jump(28,"PainHeal")
+@@ -6418,7 +6442,7 @@
+ 		Goto See
+ 		TNT1 A 0 Bright A_PlaySound("brain/spit")
+ 		HDUK ON 5 Bright
+-		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION,0)
++		HDUK MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 1 Bright A_SpawnItemEx("DukeSpike",Random(400,-400),Random(400,-400),0,0,0,0,SXF_NOCHECKPOSITION)
+ 		HDUK N 5 Bright
+         Goto See 
+ Death: 
+@@ -6529,13 +6553,11 @@
+ 
+ ACTOR DukeSpike : DukeFire
+ {
+-  -NOGRAVITY
+-  Gravity 100
+   States
+   {
+   Spawn:
+-    TNT1 A 5
+-    TNT1 A 0 Bright A_PlaySound("monsters/hellionflame")
++    TNT1 A 0
++    TNT1 A 0 A_PlaySound("monsters/hellionflame")
+ 	FTRD AB 2 Bright
+     FTRD C 10 Bright A_Explode(38,92,0)
+ 	FTRD DEFGHIJ 1 Bright 
+@@ -6579,6 +6601,9 @@
+ {
+ Health 1000
+ PainChance 100
++PainChance "SoulToxic", 20
++PainChance "FatFlamer", 20
++PainChance "FiendFire", 20
+ Bloodcolor "ff 5f 00"
+ DamageFactor "AfritComet", 0.0
+ Species "Nobles"
+@@ -6634,9 +6659,8 @@
+ 	HFRY M 7 Bright A_CustomMissile("BruiserComet", 32, 0, 0)
+     Goto See
+ Melee:
+-	HFRY EF 4 Bright A_FaceTarget
+-	HFRY G 5 Bright A_MeleeAttack
+-	HFRY FE 4 Bright A_FaceTarget
++	HFRY EF 8 Bright A_FaceTarget
++	HFRY G 8 Bright A_MeleeAttack
+ 	Goto See
+ Pain:
+ 	HFRY N 10 Bright A_Pain
+@@ -6818,14 +6842,15 @@
+ Melee:
+       TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+       FRIT E 4 Bright A_FaceTarget
++      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
++      FRIT E 4 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+-      FRIT F 4 Bright A_FaceTarget 
+-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+-      FRIT G 4 Bright A_MeleeAttack
++      FRIT F 4 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+       FRIT F 4 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+-      FRIT E 4 Bright A_FaceTarget 	  
++      FRIT G 4 Bright A_MeleeAttack	  
++      FRIT G 3 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
+       Goto See
+ Missile:
+ 	  TNT1 A 0 A_Jump(128,"BurstBall","Comets","FloorHugger")
+@@ -7297,7 +7322,7 @@
+ TNT1 AAA 0 A_CustomMissile("Kaboom13", 0, 0, random(0,360), random(2,3), random(0,360))
+ BRTB C 3 Bright A_Explode
+ BRTB D 3 Bright A_SetTranslucent(0.75,1)
+-TNT1 AAAAAA 0 A_SpawnItemEx("BarbatosPoison",0,0,10,Random(4,-4),Random(4,-4),Random(4,-2))
++TNT1 AAAAA 0 A_SpawnItemEx("BarbatosPoison",0,0,10,Random(4,-4),Random(4,-4),Random(4,-2))
+ BRTB EFG 3 Bright
+ Stop
+ }
+@@ -7493,11 +7518,10 @@
+   Normal:
+ 	TNT1 A 0 A_PlaySound("weapons/rgcharge")
+     BRUS EE 10 A_FaceTarget
+-	BRUS E 2 A_FaceTarget
++	BRUS E 3 A_FaceTarget
+ 	TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+-	TNT1 A 0 A_CustomMissile("RailgunImpact",40)
+-	TNT1 A 0 A_CustomMissile("BruiserRailgunSlug",40)
+-    BRUR A 5 Bright A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
++	TNT1 A 0 A_CustomMissile("RailgunImpact",30,0,0,CMF_AIMOFFSET)
++    BRUR A 5 Bright A_CustomRailgun(Random(40, 60), 0, "00 85 FF", None, 1, 1, 0, "BruiserRailPuff")
+     BRUS E 20
+ 	TNT1 A 0 A_Jump(87,"Rockets","HomingRockets","BFG15K")
+ 	Goto See
+@@ -7529,9 +7553,8 @@
+ 	BRUS E 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
+ 	Goto See
+   Melee:
+-    BRUS GH 4 A_FaceTarget
+-    BRUS I 4 A_MeleeAttack
+-	BRUS HG 4 A_FaceTarget
++    BRUS GH 7 A_FaceTarget
++    BRUS I 7 A_MeleeAttack
+     Goto See
+   Pain: 
+     TNT1 A 0 A_Jump(87,"MissilePain")
+@@ -7542,7 +7565,7 @@
+     Goto Missile	
+   Death: 
+     TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(298) == 1, "AlwaysDrop")
+-	TNT1 A 0 A_Jump(88,2)
++	TNT1 A 0 A_Jump(54,2)
+ 	TNT1 A 0 A_SpawnItem("Railgun ",0,12)
+     BRUD K 20 A_Scream
+ 	TNT1 AA 0 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
+@@ -7573,6 +7596,17 @@
+     } 
+ }
+ 
++ACTOR BruiserRailPuff : BulletPuff
++{
++DamageType "AfritComet"
++States
++{
++Spawn:
++	TNT1 A 0
++	Stop
++	}
++}
++
+ ACTOR BruiserMissile : CadaverRocket
+ {
+ Radius 11
+@@ -7655,6 +7689,9 @@
+ DropItem "ArmorBonusMax" 100
+ DamageFactor "VileFires", 0.0
+ PainChance "Mine", 128
++PainChance "SoulToxic", 5
++PainChance "FatFlamer", 5
++PainChance "FiendFire", 5
+ Obituary "%o got caught in an Exile's void."
+ DeathSound "avile/death"
+ States
+@@ -7761,15 +7798,15 @@
+ {
+ Spawn:
+ 	TNT1 A 1
+-    VILE ABCDEF 2 A_FadeOut(0.16)
++    VILE ABCDEF 2 A_FadeOut(0.18)
+     Goto Spawn+1
+ 	}
+ }
+ 
+ ACTOR ExileFireFX : ArchVileFire replaces ArchVileFire
+ {
+-  RenderStyle Translucent
+-  Scale 1.25
++  RenderStyle Add
++  Scale 1.35
+   Alpha 0.5
+   +DONTSPLASH
+   States
+@@ -7824,7 +7861,7 @@
+   {
+   Spawn:
+ 	TNT1 A 0
+-    TNT1 AAAAAAAAAA 2 A_SpawnItemEx("VileResFlame",random(14,-14),random(14,-14),0,0,0,random(3,6),0,128,0)
++    TNT1 AAAAAAAA 2 A_SpawnItemEx("VileResFlame",random(12,-12),random(12,-12),0,0,0,random(2,4),0,128,0)
+     Stop
+   }
+ }
+@@ -7848,68 +7885,68 @@
+   States 
+   { 
+   Spawn: 
+-    DIAB A 10 Bright A_Look 	
++    DIAB A 10 A_Look 	
+     Loop 
+ See:
+-	TNT1 A 0 Bright A_Jump(64,"Rush")
+-    DIAB A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
+-    DIAB AABBCC 2 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
+-    DIAB DDEEFF 2 Bright A_VileChase
++	TNT1 A 0 A_Jump(64,"Rush")
++    DIAB A 0 A_SpawnItem("HumanishStep",0,0,0,0)
++    DIAB AABBCC 2 A_VileChase
++    TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
++    DIAB DDEEFF 2 A_VileChase
+     Loop
+ Rush:
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB A 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB A 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB B 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB B 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB C 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB C 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB D 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB D 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB E 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB E 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB F 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB F 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB A 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB A 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB B 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB B 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB C 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB C 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB D 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB D 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB E 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB E 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB F 1 Bright A_VileChase
+-    TNT1 A 0 Bright A_SpawnItem("InfernoFX",0,0)
+-    DIAB F 1 Bright A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB A 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB A 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB B 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB B 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB C 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB C 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB D 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB D 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB E 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB E 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB F 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB F 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB A 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB A 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB B 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB B 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB C 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB C 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB D 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB D 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB E 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB E 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB F 1 A_VileChase
++    TNT1 A 0 A_SpawnItem("InfernoFX",0,0)
++    DIAB F 1 A_VileChase
+     TNT1 A 0 A_Jump(178,"See")
+     Loop
+   Missile:
+-    TNT1 A 0 Bright A_FaceTarget
++    TNT1 A 0 A_FaceTarget
+     DIAB G 10 Bright A_VileStart
+     DIAB H 8 Bright A_VileTarget("IFire")
+     DIAB IJKLMN 8 Bright A_FaceTarget
+@@ -7917,19 +7954,19 @@
+     DIAB P 20 Bright
+     Goto See
+   Pain: 
+-    DIAB Q 10 Bright A_Pain 
++    DIAB Q 10 A_Pain 
+ 	Goto See	
+   Heal:
+-    DIA2 ABC 8 Bright
++    DIA2 ABC 8
+     Goto See	
+   Death:
+-    DIAD R 6 Bright A_Scream
+-    DIAD S 6 Bright A_Fall
++    DIAD R 6 A_Scream
++    DIAD S 6 A_Fall
+ 	TNT1 A 0 A_SpawnItemEx("BlackGibbedGenerator",0,0,0,0,0,0,0,128,0)
+-    DIAD TUVW 6 Bright
+-	TNT1 A 0 Bright A_SpawnItem("BodyCrash",0,0,0,0)
+-    DIAD XY 4 Bright
+-    DIAD Z -1 Bright
++    DIAD TUVW 6
++	TNT1 A 0 A_SpawnItem("BodyCrash",0,0,0,0)
++    DIAD XY 4
++    DIAD Z -1
+     Stop   
+     }
+ }
+@@ -7940,7 +7977,7 @@
+ {
+ Spawn: 
+     TNT1 A 1
+-	DIAB ABCDEF 2 Bright A_FadeOut(0.16)
++	DIAB ABCDEF 2 A_FadeOut(0.18)
+     Goto Spawn+1
+     }
+ }
+@@ -7954,6 +7991,7 @@
+   +SEEKERMISSILE
+   +NOTARGET
+   +NODAMAGETHRUST
++  +FORCERADIUSDMG
+   Obituary "%o got roasted alive by a Diabolist."
+   DamageType "VileFires"
+   States
+@@ -7961,92 +7999,78 @@
+   Spawn:
+     DFIR A 2 Bright A_StartFire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR B 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR A 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR B 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR C 2 Bright A_FireCrackle
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR B 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR C 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR B 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR C 2 Bright A_Fire 
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR D 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR C 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR D 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR C 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR D 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR E 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR D 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR E 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR D 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR E 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR F 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR E 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR F 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+ 	TNT1 A 0 Bright A_FireCrackle
+     DFIR E 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR F 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR G 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR H 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR G 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR H 2 Bright A_Fire
+-	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR G 2 Bright A_Fire
+ 	TNT1 A 0 A_SpawnItem("DiabFireSpawner",0,0,0,0)
+-    TNT1 A 0 Bright A_Explode(Random(1,2),46)
++    TNT1 A 0 Bright A_Explode(Random(1,2),54)
+     DFIR H 2 Bright A_Fire
+     Stop
+   }
+@@ -8316,16 +8340,16 @@
+ {
+ Spawn:
+ 	TNT1 A 1
+-    HELN ABCDEF 2 A_FadeOut(0.16)
++    HELN ABCDEF 2 A_FadeOut(0.18)
+     Goto Spawn+1
+     }
+ }
+ 
+ ACTOR HellionSmokeAttack : IFire
+ {
+-  Scale 1.25
++  Scale 1.15
+   RenderStyle Translucent
+-  Alpha 0.85
++  Alpha 0.75
+   DamageType "VileFires"
+   Obituary "A Dark Hellion cast %o into oblivion."
+   States
+@@ -8452,7 +8476,7 @@
+ 
+ ACTOR HellionSmoke : AfritFire
+ {
+-Scale 0.45
++Scale 0.44
+ RenderStyle Normal
+ States
+ {
+@@ -8464,7 +8488,7 @@
+ 
+ ACTOR HellionSmoke2 : HellionSmoke
+ {
+-Scale 0.55
++Scale 0.4
+ }
+ 
+ ACTOR SoulSmoke : HellionSmoke
+@@ -8506,9 +8530,9 @@
+ Radius 65
+ PainChance 50
+ PainChance "PDTBFG", 25
+-PainChance "SoulToxic", 20
+-PainChance "FatFlamer", 20
+-PainChance "FiendFire", 20
++PainChance "SoulToxic", 15
++PainChance "FatFlamer", 15
++PainChance "FiendFire", 15
+ PainChance "Explosion", 80
+ DropItem "BossLifeEssence" 128 25
+ DropItem "ExtraArmor" 128 1
+@@ -8645,14 +8669,14 @@
+ Speed 18
+ PainChance 40
+ PainChance "PDTBFG", 20
+-PainChance "SoulToxic", 15
+-PainChance "FatFlamer", 15
+-PainChance "FiendFire", 15
++PainChance "SoulToxic", 10
++PainChance "FatFlamer", 10
++PainChance "FiendFire", 10
+ PainChance "Explosion", 70
+ Scale 1.05
+ Radius 65
+ DropItem "BossLifeEssence" 162 25
+-DropItem "BossArmorBonusMax" 162 25
++DropItem "BossArmorBonusMax" 162 1
+ DropItem "NewCellPack" 186 300
+ Obituary "%o was destroyed by the Dark Demolisher."
+ PainSound "monsters/darkmasterpain"
+@@ -8661,6 +8685,7 @@
+ AttackSound ""
+ Species "Masterminds"
+ +MISSILEEVENMORE
++DamageFactor "DemolisherEx", 1.0
+ DamageFactor "DarkDemoEx", 0.0
+ DamageFactor "PDTBFG", 0.35
+ DamageFactor "PDTBFGTracer", 0.7
+@@ -8722,7 +8747,7 @@
+ 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+ 		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+ 		TNT1 A 0 A_SPosAttackUseAtkSound
+-	    DEM2 G 4 Bright A_CustomMissile("MonsterTracer3",Random(24,34),0,Random(10,-10),0)
++	    DEM2 G 3 Bright A_CustomMissile("MonsterTracer3",Random(24,34),0,Random(10,-10),0)
+     	TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+ 		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
+ 		TNT1 A 0 A_SPosAttackUseAtkSound
+@@ -8737,7 +8762,7 @@
+ 	    DEM2 T 10 Bright A_FaceTarget
+ 	    DEM2 U 8 Bright A_FaceTarget
+     	DEM2 U 4 Bright A_CustomMissile("SpiderBFG9500Ball",40,0,0,0)
+-		DEM2 T 5 Bright A_FaceTarget
++		DEM2 T 6 Bright A_FaceTarget
+ 	    TNT1 A 0 A_PlaySound("weapons/bfgf")
+         DEM2 T 15 Bright A_FaceTarget
+ 	    DEM2 T 10 Bright A_FaceTarget
+@@ -8831,9 +8856,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 A 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8842,9 +8866,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 B 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8853,9 +8876,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 C 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8864,9 +8886,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 D 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8875,9 +8896,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 E 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8886,9 +8906,8 @@
+ States
+ {
+ Spawn:
+-    TNT1 A 1
+     DEM2 F 2 A_FadeOut(0.18)
+-    Goto Spawn+1
++    Loop
+     }
+ }
+ 
+@@ -8919,24 +8938,25 @@
+ 	FloatSpeed 12
+     PainChance 30
+ 	PainChance "PDTBFG", 15
+-	PainChance "SoulToxic", 10
+-	PainChance "FatFlamer", 10
+-	PainChance "FiendFire", 10
++	PainChance "SoulToxic", 5
++	PainChance "FatFlamer", 5
++	PainChance "FiendFire", 5
+ 	PainChance "Explosion", 60
+ 	Scale 1.1
+ 	Radius 65
+ 	DropItem "BossLifeEssence" 204 25
+-	DropItem "BossArmorBonusMax" 204 25
++	DropItem "BossArmorBonusMax" 204 1
+ 	DropItem "DemonAmmoBox" 128 200
+ 	DropItem "SkullOfPower" 128
+ 	Mass 2500
+-	+NOTARGET
+ 	+MISSILEEVENMORE
+ 	+QUICKTORETALIATE
+ 	+FLOAT
+ 	+NOGRAVITY	
+ 	-FLOORCLIP
+ 	AttackSound ""
++	DamageFactor "DemolisherEx", 1.0
++    DamageFactor "DarkDemoEx", 1.0
+ 	DamageFactor "CerChainguns", 0.0	
+ 	DamageFactor "CerEnergyBall", 0.0
+ 	DamageFactor "PDTBFG", 0.2
+@@ -9002,10 +9022,10 @@
+ 	TNT1 A 0 A_Stop
+ 	Goto See
+ Missile:
+-	TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
++	TNT1 A 0 A_Jump(128,"BFG9K","BFG10K","DTBFG10K")
+ Normal:
+-    TNT1 A 0 A_JumpIfCloser(2000,1)
+-	Goto BFG10K
++    TNT1 A 0 A_JumpIfCloser(1500,1)
++	Goto BFG9K
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+ 	SUPR A 2 Bright A_FaceTarget
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+@@ -9015,15 +9035,58 @@
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+ 	TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
+ 	TNT1 A 0 A_PlaySound("sentient/fire")
+-	SUPR F 4 Bright A_CustomMissile("SentientExplosiveTracer",36,0,Random(-1250,1250)/100.00,0)
++	SUPR F 3 Bright A_CustomMissile("SentientExplosiveTracer",36,0,Random(-1000,1000)/100.00,0)
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
+     TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+ 	TNT1 A 0 A_PlaySound("sentient/fire")
+-	SUPR E 4 Bright A_CustomMissile("SentientExplosiveTracer",36,0,Random(-1250,1250)/100.00,0)
++	SUPR E 4 Bright A_CustomMissile("SentientExplosiveTracer",36,0,Random(-1000,1000)/100.00,0)
+ 	TNT1 A 0 A_StopSoundEx("Weapon")	
+-	TNT1 A 0 A_Jump(6,"See","BFG10K","DTBFG10K")
++	TNT1 A 0 A_Jump(4,"See","BFG9K","BFG10K","DTBFG10K")
+     TNT1 A 0 A_SpidRefire
+ 	Goto Normal+7
++BFG9K:
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_PlaySound("weapons/bfgf")
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget	
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget	
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR OO 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR OO 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR O 2 Bright A_CustomMissile("SentientBFG9500Ball", 34, 0, 0)
++	SUPR NNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_PlaySound("weapons/bfgf")
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget	
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget	
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR NN 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR OO 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR OO 2 Bright A_FaceTarget
++	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	SUPR O 2 Bright A_CustomMissile("SentientBFG9500Ball", 34, 0, 0)
++	SUPR NNNNNNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
++	Goto See	
+ BFG10K:
+ 	TNT1 A 0 A_PlaySound("weapons/charge15k")
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+@@ -9096,7 +9159,7 @@
+ 	SUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+ 	Goto See	
+ Pain:
+-	TNT1 A 0 A_Jump(46,"PainResurrect")
++	TNT1 A 0 A_Jump(16,"PainResurrect")
+ 	TNT1 A 0 A_Jump(128,"PainMissile")
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+ 	SUPR A 3 Bright
+@@ -9114,10 +9177,12 @@
+ 	SUPR A 3 Bright
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+ 	SUPR A 3 Bright A_Pain
+-	SUPR AAAAAAAA 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_JumpIfInventory("SentientToken",3,"See")	
++	SUPR AAAA 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
++	TNT1 A 0 A_GiveInventory("SentientToken",1)
+ 	TNT1 A 0 A_SetInvulnerable
+ 	TNT1 A 0 Radius_Quake(10,80,0,24,0)
+-	TNT1 A 0 A_GiveInventory("Health",600)
++	TNT1 A 0 A_GiveInventory("Health",750)
+ 	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
+ 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+     SUPR P 3 Bright A_PlaySound("sentient/laugh")
+@@ -9305,9 +9370,15 @@
+     }
+ }
+ 
++ACTOR SentientToken : Inventory
++{
++Inventory.Amount 1
++Inventory.MaxAmount 3
++}
++
+ ACTOR SentientFire : AfritFire
+ {
+-Scale 0.58
++Scale 0.6
+ }
+ 
+ ACTOR SentientFireSpawner : RedParticleSpawner
+@@ -9346,7 +9417,7 @@
+ 
+ ACTOR BabySentientFire : SentientFire
+ {
+-Scale 0.28
++Scale 0.3
+ States
+ {
+ Spawn:
+@@ -9363,10 +9434,10 @@
+     TNT1 A 0
+ 	TNT1 A 0 A_PlaySound("monster/ambientfire2")
+ 	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
+-    TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(28,38),46,0,0,random(-4,-6),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(-28,-38),46,0,0,random(-4,-6),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(-28,-38),46,0,0,random(-4,-6),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(28,38),46,0,0,random(-4,-6),0,128,0)
++    TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(28,38),48,0,0,random(-4,-6),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(-28,-38),48,0,0,random(-4,-6),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(-28,-38),48,0,0,random(-4,-6),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(28,38),48,0,0,random(-4,-6),0,128,0)
+     TNT1 A 1
+     Stop
+   }
+@@ -9380,10 +9451,10 @@
+     TNT1 A 0
+ 	TNT1 A 0 A_PlaySound("monster/ambientfire2")
+ 	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
+-    TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(28,38),46,0,0,random(-6,-8),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(-28,-38),46,0,0,random(-6,-8),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(-28,-38),46,0,0,random(-6,-8),0,128,0)
+-	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(28,38),46,0,0,random(-6,-8),0,128,0)
++    TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(28,38),48,0,0,random(-6,-8),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(-28,-38),48,0,0,random(-6,-8),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(28,38),random(-28,-38),48,0,0,random(-6,-8),0,128,0)
++	TNT1 AA 0 A_SpawnItemEx("BabySentientFire",random(-28,-38),random(28,38),48,0,0,random(-6,-8),0,128,0)
+     TNT1 A 1
+     Stop
+   }
+@@ -9414,8 +9485,8 @@
+ Radius 6
+ Damage 0
+ RenderStyle Add
+-Alpha 0.6
+-Scale 0.6
++Alpha 0.5
++Scale 0.5
+ PROJECTILE
+ +FLOORHUGGER
+ +NOCLIP
+@@ -9564,6 +9635,39 @@
+ 	}
+ }
+ 
++ACTOR SentientBFG9500Ball : BFG9500Ball
++{
++-THRUSPECIES
++Species "Masterminds"
++Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
++States
++{
++Spawn:
++    BFR3 AAABBB 1 Bright A_SpawnItemEx("ProjectileTrailParticleOrange2",Random(-12,12),Random(-12,12),Random(-12,12),Random(-2,2),Random(-2,2),Random(-2,2),Random(-20,20),128)
++    Loop
++Death:
++	TNT1 A 0
++	TNT1 A 0 A_SpawnItemEx("BFGShockwaveRed2", 0, 0, 0, 0, 0, 0, 0, 128)
++    TNT1 AAAAAA 0 A_CustomMissile("Kaboom18", 0, 0, random(0,360), 2, random(0,360))
++    BRE3 AB 8 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++    BRE3 C 8 Bright A_BFGSpray("CustomSprayRed")
++    BRE3 DEF 8 Bright
++    Stop    
++    }
++}
++
++ACTOR CustomSprayRed : CustomSpray
++{
++States
++{
++Spawn:
++   TNT1 A 0
++   BRE2 A 6 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++   BRE2 BCD 6 Bright 
++   Stop
++   }
++}
++
+ ACTOR Sentient10K : Red10KProjectile
+ {
+ Obituary "Unfortunatley %o was too stupid to out-smart the Cerebral Sentient."
+@@ -9665,7 +9769,7 @@
+ 	TNT1 A 0 A_CustomMissile("DTBFG10KTracerMind",0,0,350,CMF_TRACKOWNER)	
+ 	TNT1 A 0 A_SpawnItemEx("DTBFGLightningRedSpawner", 0, 0, 15, 0, 0, 0, 0, 128)	
+ 	CRS1 ABCD 6 Bright A_SpawnItemEx("DTech10KShockwave", 0, 0, 15, 0, 0, 0, 0, 128)
+-	TNT1 A 0 A_Explode(800,300)
++	TNT1 A 0 A_Explode(520,280)
+ 	TNT1 A 0 A_StopSoundEx("Voice")
+ 	TNT1 A 0 Radius_Quake(15,20,0,20,0)
+ 	TNT1 A 0 A_PlaySound("weapons/dtech10kexplode")
+@@ -9714,7 +9818,7 @@
+     TNT1 A 0
+ 	TNT1 A 0 A_FaceTarget
+ 	TNT1 A 0 A_MissileAttack
+-	TNT1 A 1 A_CustomRailgun(-1,0,NONE,"Red",1,1,1)
++	TNT1 A 1 A_CustomRailgun(-1,0,NONE,"Red",1,1,2)
+ 	Goto Death	
+ Death:
+ 	TNT1 A 1
+@@ -9727,13 +9831,13 @@
+ Health 4000
+ PainChance 50
+ PainChance "PDTBFG", 25
+-PainChance "SoulToxic", 20
+-PainChance "FatFlamer", 20
+-PainChance "FiendFire", 20
++PainChance "SoulToxic", 15
++PainChance "FatFlamer", 15
++PainChance "FiendFire", 15
+ PainChance "Explosion", 80
+ Species "Cybers"
+ DropItem "BossLifeEssence" 128 25
+-DropItem "BossArmorBonusMax" 128 25
++DropItem "BossArmorBonusMax" 128 1
+ DropItem "MissileBox" 128 20
+ Obituary "The Annihilator wrecked %o."
+ DamageFactor "Cyber10K", 0.0
+@@ -9762,39 +9866,38 @@
+         TNT1 A 0 A_Jump(128,"Seekers")
+         ANNI E 12 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordRocket", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
+-        ANNI E 8 A_FaceTarget
++        ANNI F 10 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
++        ANNI E 10 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordRocket", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
+-        ANNI E 8 A_FaceTarget
++        ANNI F 10 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
++        ANNI E 10 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordRocket", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
++        ANNI F 10 Bright A_CustomMissile("CyberLordRocket", 40, -26, 0)
+ 		ANNI E 12
+ 		TNT1 A 0 Bright A_Jump(128,"Seekers")
+         Goto See
+ Seekers:
+ 		ANNI E 12 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordHomer", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
+-        ANNI E 8 A_FaceTarget
++        ANNI F 10 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
++        ANNI E 10 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordHomer", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
+-        ANNI E 8 A_FaceTarget
++        ANNI F 10 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
++        ANNI E 10 A_FaceTarget
+         TNT1 A 0 Bright A_CustomMissile("CyberLordHomer", 40, 26, 0)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
++        ANNI F 10 Bright A_CustomMissile("CyberLordHomer", 40, -26, 0)
+ 		ANNI E 12
+ 		Goto See
+ Grenadier:
+ 		TNT1 A 0 A_Jump(178,"Normal")
+-        ANNI E 10 A_FaceTarget
+-		ANNI E 2 A_FaceTarget
++        ANNI E 12 A_FaceTarget
+ 		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+         TNT1 A 0 Bright A_CustomMissile("CyberLordGrenade", 40, 26, 0, CMF_AIMDIRECTION, 4.328125)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
+-		ANNI EEEE 2 A_FaceTarget
++        ANNI F 10 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
++		ANNI E 10 A_FaceTarget
+ 		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
+         TNT1 A 0 Bright A_CustomMissile("CyberLordGrenade", 40, 26, 0, CMF_AIMDIRECTION, 4.328125)
+-        ANNI F 8 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
++        ANNI F 10 Bright A_CustomMissile("CyberLordGrenade", 40, -26, 0, CMF_AIMDIRECTION, 4.328125)
+ 		ANNI E 12
+ 		Goto See
+ Pain:
+@@ -9843,6 +9946,7 @@
+ ACTOR CyberLordRocket : NewRocket
+ {
+ Speed 20
++Damage 20
+ FastSpeed 24
+ -THRUSPECIES
+ }
+@@ -9862,22 +9966,22 @@
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+-	HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
++	HMIS A 3 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+ 	TNT1 A 0 Bright A_Tracer2
+ 	TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+-	HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
++	HMIS A 3 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+ 	TNT1 A 0 Bright A_Tracer2
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+-	HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
++	HMIS A 3 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+ 	TNT1 A 0 Bright A_Tracer2
+ 	TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+-	HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))	
++	HMIS A 3 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))	
+ 	TNT1 A 0 Bright A_PlaySound("monster/homingrockbeep")
+     Loop
+ Death:
+@@ -9895,6 +9999,7 @@
+ ACTOR CyberLordGrenade : RifleGrenade
+ {
+ FastSpeed 24
++Damage 20
+ -THRUSPECIES
+ }
+ 
+@@ -9903,9 +10008,9 @@
+ Health 4500
+ PainChance 40
+ PainChance "PDTBFG", 20
+-PainChance "SoulToxic", 15
+-PainChance "FatFlamer", 15
+-PainChance "FiendFire", 15
++PainChance "SoulToxic", 10
++PainChance "FatFlamer", 10
++PainChance "FiendFire", 10
+ PainChance "Explosion", 70
+ Speed 18
+ Scale 1.05
+@@ -9914,10 +10019,9 @@
+ DamageFactor "PDTBFGTracer", 0.7
+ Species "Cybers"
+ DropItem "BossLifeEssence" 162 25
+-DropItem "BossArmorBonusMax" 162 25
++DropItem "BossArmorBonusMax" 162 1
+ DropItem "NewCellPack" 186 300
+ Obituary "%o was decimated by the Dark Cyberdemon."
+-+NOTARGET
+ +MISSILEEVENMORE
+ SeeSound "monsters/darkcybersee"
+ PainSound "monster/psopain"
+@@ -9931,48 +10035,67 @@
+ 		CBEI A 10 A_Look
+ 		CBEI A 10 A_Look
+         Loop 
+-See:
++See: 	
++		TNT1 A 0 A_Jump(87,"Rush")
+ 		CBEP A 3 A_Hoof
+ 		CBEP ABBCC 3 A_Chase
+ 		CBEP D 3 A_Metal
+ 		CBEP D 3 A_Chase
+-		Loop				
+-Pause:
+-		CBEP E 20 A_PlaySound("weapons/demontechsteam")
+-		Goto See		
++		Loop		
++Rush:
++		TNT1 A 0 A_Hoof
++		CBEP A 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostA",0,0,0,0,0,0,0,128)
++		CBEP A 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostA",0,0,0,0,0,0,0,128)
++		CBEP A 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostB",0,0,0,0,0,0,0,128)
++		CBEP B 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostB",0,0,0,0,0,0,0,128)
++		CBEP C 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostC",0,0,0,0,0,0,0,128)
++		CBEP C 2 A_Chase
++		TNT1 A 0 A_Metal
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostC",0,0,0,0,0,0,0,128)
++		CBEP D 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostD",0,0,0,0,0,0,0,128)
++		CBEP D 2 A_Chase
++		TNT1 A 0 A_SpawnItemEx("DarkCyberGhostD",0,0,0,0,0,0,0,128)
++		TNT1 A 0 A_Jump(87,"See")		
++		Loop	
+ Missile:
+-        TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
++        TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","Railgun","BFG15K")
+ Rockets:
+ 		CBEP E 10 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+-		CBEP E 6 A_FaceTarget
++		CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberRocket", 40, 0, Random(-6, 6))
+ 		CBEP E 10
+-		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","BFG9K","BFG15K")
++		TNT1 A 0 A_Jump(128,"HomingRockets","FloorStomp","Railgun","BFG15K")
+ 		Goto See
+ HomingRockets:
+ 		CBEP E 10 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+-		CBEP E 6 A_FaceTarget
++		CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+-        CBEP E 6 A_FaceTarget
++        CBEP E 8 A_FaceTarget
+         CBEP F 6 Bright A_CustomMissile("DarkCyberHomer", 40, 0, Random(-8, 8))
+ 		CBEP E 10
+-		TNT1 A 0 A_Jump(128,"FloorStomp","BFG9K","BFG15K")
++		TNT1 A 0 A_Jump(128,"FloorStomp","Railgun","BFG15K")
+ 		Goto See		
+ FloorStomp:
+         CBEP G 10 A_FaceTarget
+@@ -10002,19 +10125,16 @@
+ 		TNT1 A 0 A_CustomMissile("DarkCyberFireSpawner",0,0,45,0)
+ 		CBE3 B 2 A_CustomMissile("DarkCyberFireSpawner",0,0,-45,0)	
+ 		CBE3 B 20
+-		TNT1 A 0 A_Jump(128,"BFG9K","BFG15K")
++		TNT1 A 0 A_Jump(128,"Railgun","BFG15K")
+         Goto See			
+-BFG9K:
+-		TNT1 A 0 A_PlaySound("weapons/bfgf")
+-        CBEP EE 10 A_FaceTarget
+-		CBEP F 10 Bright A_FaceTarget
+-		CBEP F 10 Bright A_CustomMissile("DarkCyber9K", 40, 0, 0)
+-		CBEP E 4 A_FaceTarget
+-		TNT1 A 0 A_PlaySound("weapons/bfgf")
++Railgun:
++		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+         CBEP EE 10 A_FaceTarget
+-		CBEP F 10 Bright A_FaceTarget
+-		CBEP F 10 Bright A_CustomMissile("DarkCyber9K", 40, 0, 0)		
+-		CBEP E 10
++		CBEP E 2
++		TNT1 A 0 A_PlaySound("monsters/darkcyberrail",CHAN_AUTO)
++	    TNT1 A 0 A_CustomMissile("RailgunImpactGreen",30,0,0,CMF_AIMOFFSET)
++        CBEP F 10 Bright A_CustomRailgun(Random(60, 80), 0, "00 FF 00", None, 1, 1, 0, "DarkCyberRailPuff")
++		CBEP E 15
+ 		TNT1 A 0 A_Jump(128,"BFG15K")
+ 		Goto See
+ BFG15K:
+@@ -10077,15 +10197,63 @@
+         }
+ }
+ 
++ACTOR DarkCyberGhostA
++{
++Scale 1.05
++RENDERSTYLE Translucent
++Alpha 0.75
+++NOGRAVITY
+++CLIENTSIDEONLY
+++DONTSPLASH
+++NOINTERACTION
+++NOCLIP
++States
++{
++Spawn:
++    CBEP A 2 A_FadeOut(0.18)
++    Loop
++    }
++}
++
++ACTOR DarkCyberGhostB : DarkCyberGhostA
++{   
++States
++{
++Spawn:
++    CBEP B 2 A_FadeOut(0.18)
++    Loop
++    }
++}
++
++ACTOR DarkCyberGhostC : DarkCyberGhostA
++{   
++States
++{
++Spawn:
++    CBEP C 2 A_FadeOut(0.18)
++    Loop
++    }
++}
++
++ACTOR DarkCyberGhostD : DarkCyberGhostA
++{   
++States
++{
++Spawn:
++    CBEP D 2 A_FadeOut(0.18)
++    Loop
++    }
++}
++
+ ACTOR DarkCyberRocket : NewRocket
+ {
+ Speed 22
++Damage 20
+ FastSpeed 26
+ Scale 0.8
+--ROCKETTRAIL
+--THRUSPECIES
+ SeeSound "weapons/clrocketlaunch"
+ DeathSound "weapons/clrocketexplode"
++-THRUSPECIES
+ States
+ {
+ Spawn:
+@@ -10120,7 +10288,7 @@
+ {
+ Spawn:
+     TNT1 A 0
+-    TNT1 A 0 A_Jump(128,"Homing")
++    TNT1 A 0 A_Jump(144,"Homing")
+ Normal:
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIG A 2 Bright A_CustomMissile("ProjectileTrailParticleGreen2",Random(0,2),Random(-2,2))
+@@ -10248,10 +10416,15 @@
+   Obituary "%o was decimated by the Dark Cyberdemon." 
+ }
+ 
+-ACTOR DarkCyber9K : BFG9500Ball
++ACTOR DarkCyberRailPuff : BulletPuff
+ {
+-FastSpeed 30
+--THRUSPECIES
++DamageType "Cyber10K"
++States
++{
++Spawn:
++	TNT1 A 0
++	Stop
++	}
+ }
+ 
+ ACTOR DarkCyber15K : BFG15KBall
+@@ -10268,16 +10441,16 @@
+    FloatSpeed 8
+    PainChance 30
+    PainChance "PDTBFG", 15
+-   PainChance "SoulToxic", 10
+-   PainChance "FatFlamer", 10
+-   PainChance "FiendFire", 10
++   PainChance "SoulToxic", 5
++   PainChance "FatFlamer", 5
++   PainChance "FiendFire", 5
+    PainChance "Explosion", 60
+    Species "Cybers"
+    DamageFactor "Cyber10K", 0.0
+    DamageFactor "PDTBFG", 0.2
+    DamageFactor "PDTBFGTracer", 0.6
+    DropItem "BossLifeEssence" 204 25
+-   DropItem "BossArmorBonusMax" 204 25
++   DropItem "BossArmorBonusMax" 204 1
+    DropItem "DemonAmmoBox" 128 200
+    DropItem "DemonicChalice" 128
+    SeeSound "Cardinal/Sight"
+@@ -10286,7 +10459,6 @@
+    ActiveSound "Cardinal/Active"
+    Scale 1.1
+    Mass 2500
+-   +NOTARGET
+    +MISSILEEVENMORE
+    +QUICKTORETALIATE
+    +FLOAT
+@@ -10308,7 +10480,7 @@
+       CARD B 2 Bright A_Chase  
+       Loop	  
+    Missile:
+-      TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
++      TNT1 A 0 A_Jump(128,"Seekers","Railgun","BFG10K","DTBFG10K")
+    Normal:
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget   
+@@ -10318,38 +10490,44 @@
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalRocket", 40, 0, Random(-6, 6))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+-	  TNT1 A 0 A_Jump(128,"Seekers","BFG10K","DTBFG10K")
++	  TNT1 A 0 A_Jump(128,"Seekers","Railgun","BFG10K","DTBFG10K")
+       Goto See
+    Seekers:
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+@@ -10360,39 +10538,103 @@
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD C 2 Bright A_FaceTarget	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD D 6 Bright A_CustomMissile("CardinalHomingRocket", 40, 0, Random(-8, 8))
++	  CARD D 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD CCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)	  
+-	  TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
++	  TNT1 A 0 A_Jump(128,"Railgun","BFG10K","DTBFG10K")
+       Goto See
++   Railgun:
++	  TNT1 A 0 A_PlaySound("weapons/rgcharge")
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD C 2 Bright A_FaceTarget
++	  CARD C 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++	  TNT1 A 0 A_PlaySound("monsters/darkcyberrail",CHAN_AUTO)
++	  TNT1 A 0 A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++	  TNT1 A 0 A_CustomMissile("RailgunImpactRed2",30,0,0,CMF_AIMOFFSET)
++      CARD D 2 Bright A_CustomRailgun(Random(80, 100), 0, "FF 00 00", None, 1, 1, 0, "CardinalRailPuff")
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD D 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD D 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD D 2 Bright A_FaceTarget
++	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++      CARD D 2 Bright A_FaceTarget
++      CARD CCCCCCC 2 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++	  TNT1 A 0 A_Jump(128,"BFG10K","DTBFG10K")
++	  Goto See	  
+    BFG10K:
+ 	  TNT1 A 0 A_PlaySound("weapons/charge15k")
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+@@ -10464,7 +10706,7 @@
+ 	  CARD DCC 4 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0) 
+       Goto See
+    Pain:
+-	  TNT1 A 0 A_Jump(46,"PainRage")
++	  TNT1 A 0 A_Jump(16,"PainRage")
+ 	  TNT1 A 0 A_Jump(128,"PainMissile")
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD E 3 Bright A_Pain
+@@ -10486,10 +10728,12 @@
+ 	  Goto Pain+1
+    	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+       CARD E 3 Bright A_Pain
+-      CARD EEEEEEEE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++	  TNT1 A 0 A_JumpIfInventory("CardinalToken",3,"See")	
++      CARD EEEE 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
++	  TNT1 A 0 A_GiveInventory("CardinalToken",1)
+ 	  TNT1 A 0 Bright A_SetInvulnerable
+ 	  TNT1 A 0 Bright Radius_Quake(10,80,0,24,0)
+-	  TNT1 A 0 Bright A_GiveInventory("Health",600)
++	  TNT1 A 0 Bright A_GiveInventory("Health",750)
+       TNT1 A 0 Bright A_PlaySound("Cardinal/Laugh")	  
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+ 	  TNT1 A 0 Bright A_SpawnItem("CardinalRageFlameSpawner",0,0,0,0)
+@@ -10617,6 +10861,12 @@
+       } 
+ }
+ 
++ACTOR CardinalToken : Inventory
++{
++Inventory.Amount 1
++Inventory.MaxAmount 3
++}
++
+ ACTOR CardinalFire
+ {
+ +MISSILE
+@@ -10753,8 +11003,9 @@
+ ACTOR CardinalRocket : NewRocket
+ {
+ 	Speed 24
++	Damage 20
+ 	FastSpeed 28
+-	Scale 0.8
++	Scale 0.75
+ 	-THRUSPECIES
+ 	States
+ 	{
+@@ -10791,7 +11042,7 @@
+ {
+ Spawn:
+     TNT1 A 0
+-    TNT1 A 0 A_Jump(128,"Homing")
++    TNT1 A 0 A_Jump(168,"Homing")
+ Normal:
+     TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(0,2),Random(-2,2))
+     HMIS A 2 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(0,2),Random(-2,2))
+@@ -10849,6 +11100,17 @@
+     }
+ }
+ 
++ACTOR CardinalRailPuff : BulletPuff
++{
++DamageType "Cyber10K"
++States
++{
++Spawn:
++	TNT1 A 0
++	Stop
++	}
++}
++
+ ACTOR CardinalDTBFG10KBall : SentientDTBFG10KBall
+ {
+ DamageType "Cyber10K"
+@@ -10921,7 +11183,7 @@
+ 	TNT1 A 0 A_CustomMissile("DTBFG10KTracerCyber",0,0,350,CMF_TRACKOWNER)
+ 	TNT1 A 0 A_SpawnItemEx("DTBFGLightningRedSpawner", 0, 0, 15, 0, 0, 0, 0, 128)	
+ 	CRS1 ABCD 6 Bright A_SpawnItemEx("DTech10KShockwave", 0, 0, 15, 0, 0, 0, 0, 128)
+-	TNT1 A 0 A_Explode(800,300)
++	TNT1 A 0 A_Explode(520,280)
+ 	TNT1 A 0 A_StopSoundEx("Voice")
+ 	TNT1 A 0 Radius_Quake(20,12,0,12,0)
+ 	TNT1 A 0 A_PlaySound("weapons/dtech10kexplode")
+@@ -11343,7 +11605,7 @@
+ +NOBLOOD
+ SeeSound "hitler/sight"
+ DeathSound "hitler/scheisse"
+-AttackSound "Null"
++AttackSound ""
+ Obituary "%o could not stand up against Adolf Hitler's mecha suit."
+ States
+ {
+@@ -11421,6 +11683,9 @@
+ Speed 5
+ Scale 1.2
+ PainChance 20
++PainChance "SoulToxic", 5
++PainChance "FatFlamer", 5
++PainChance "FiendFire", 5
+ Mass 1000
+ MONSTER
+ +FLOORCLIP
+@@ -11438,7 +11703,7 @@
+ SeeSound "hitler/hahahaha"
+ DeathSound "hitler/death1"
+ PainSound "monsters/nazipain"
+-AttackSound "Null"
++AttackSound ""
+ Obituary "%o was executed by the Nazi leader, Adolf Hitler."
+ States
+ {
+diff -u old/Pickups.dec new/Pickups.dec
+--- old/Pickups.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/Pickups.dec	2015-06-27 15:54:40.776080021 +0200
+@@ -443,11 +443,11 @@
+ // Health Pickup Edits / Life Essence / Pure Rage
+ //================================================
+ 
+-ACTOR NewHealthBonus : HealthBonus replaces HealthBonus
++ACTOR NewHealthBonus : HealthBonus
+ {
+-Scale 0.5
++Scale 0.6
+ Inventory.Amount 2
+-Inventory.PickupMessage "Health Booster"
++Inventory.PickupMessage "Health Bonus"
+ Inventory.PickupSound "pickups/healthbonus"
+ -INVENTORY.ALWAYSPICKUP
+ -COUNTITEM
+@@ -459,6 +459,21 @@
+     }
+ }
+ 
++ACTOR NewMaxHealthBonus : NewHealthBonus
++{
++Scale 0.24
++Inventory.Amount 4
++Inventory.MaxAmount 250
++Inventory.PickupMessage "Strong Health Bonus"
++Inventory.PickupSound "pickups/stronghealthbonus"
++States
++{
++Spawn:
++    MHBS ABCDCB 5
++    Loop
++    }
++}
++
+ ACTOR LifeEssence : NewHealthBonus 32409
+ {
+ Scale 0.45
+@@ -479,7 +494,7 @@
+ {
+ Scale 0.65
+ Inventory.Amount 25
+-Inventory.PickupMessage "Large Life Essence"
++Inventory.PickupMessage "Life Orb"
+ Inventory.PickupSound "pickups/largelifeessence"
+ States
+ {
+@@ -561,7 +576,7 @@
+ 	 +INVENTORY.ALWAYSPICKUP
+ 	 Inventory.MaxAmount 0
+ 	 Powerup.Type HalfDamage
+-	 Powerup.Duration -30
++	 Powerup.Duration -20
+ 	 Powerup.Color RedMap
+ }
+ 
+@@ -574,9 +589,8 @@
+ // Armor Pickup Edits
+ //====================
+ 
+-ACTOR NewArmorBonus : ArmorBonus replaces ArmorBonus
++ACTOR NewArmorBonus : ArmorBonus
+ {
+-Scale 0.75
+ Armor.SaveAmount 2
+ Armor.SavePercent 40
+ Inventory.Pickupmessage "Armor Shard"
+@@ -586,32 +600,51 @@
+ States
+ {
+ Spawn:
+-	ARSD ABCDCB 5
++	ARSD A 6
++	ARSD B 12
++	Loop
++	}
++}
++
++ACTOR NewMaxArmorBonus : NewArmorBonus
++{
++Scale 0.18
++Armor.SaveAmount 4
++Armor.MaxSaveAmount 250
++Inventory.PickupMessage "Strong Armor Shard"
++Inventory.PickupSound "pickups/maxarmorbonus"
++States
++{
++Spawn:
++	MABO A 6
++	MABO B 12
+ 	Loop
+ 	}
+ }
+ 
+ ACTOR ArmorBonusMax : NewArmorBonus 32634
+ {
+-Scale 0.16
++Scale 0.45
+ Armor.MaxSaveAmount 250
+-Inventory.Pickupmessage "Demonic Armor Bonus"
++Inventory.Pickupmessage "Armor Essence"
+ Inventory.PickupSound "pickups/armorbonusmax"
+ +FLOATBOB
+ States
+ {
+ Spawn:
+-MABO ABCDCB 5
+-Loop
+-}
++	LFSS ABCDEFGHIJKJIHGFEDCB 2 Bright
++	Loop
++	}
+ }
+ 
+-ACTOR BossArmorBonusMax : ArmorBonusMax 32216
++ACTOR BossArmorBonusMax : NewArmorBonus 32216
+ {
+ Scale 0.65
+ Armor.SaveAmount 25
+-Inventory.PickupMessage "Large Demonic Armor Bonus"
++Armor.MaxSaveAmount 250
++Inventory.PickupMessage "Armor Orb"
+ Inventory.PickupSound "pickups/largearmorbonusmax"
+++FLOATBOB
+ States
+ {
+ Spawn:
+@@ -622,7 +655,7 @@
+ 
+ ACTOR StartingArmor : BasicArmorPickup
+ {
+-Armor.SavePercent 32
++Armor.SavePercent 35
+ Armor.SaveAmount 50
+ Inventory.Icon "SARMA0"
+ }
+@@ -630,14 +663,14 @@
+ ACTOR ModdedGreenArmor : GreenArmor
+ {
+ Scale 0.8
+-Armor.SavePercent 38
++Armor.SavePercent 40
+ Inventory.PickupSound "pickups/greenarmor"
+ Inventory.Pickupmessage "Light Armor"
+ Inventory.Icon "ARM1B0"
+ States
+ {
+ Spawn:
+-    ARM1 AAAA 1 A_SpawnItemEx("GreenPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++    ARM1 AAAAAA 1 A_SpawnItemEx("GreenPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     ARM1 BBBBBBBBBBBB 1 Bright A_SpawnItemEx("GreenPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     Loop
+     }
+@@ -653,7 +686,7 @@
+ States
+ {
+ Spawn:
+-    ARM2 AAAA 1 A_SpawnItemEx("BluePowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++    ARM2 AAAAAA 1 A_SpawnItemEx("BluePowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     ARM2 BBBBBBBBBBBB 1 Bright A_SpawnItemEx("BluePowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     Loop
+     }
+@@ -665,13 +698,13 @@
+ Inventory.PickupSound "pickups/redarmor"
+ Inventory.Pickupmessage "Demonic Armor"
+ Inventory.Icon "ARM3B0"
+-Armor.SavePercent 70
++Armor.SavePercent 68
+ Armor.SaveAmount 250
+ DamageFactor "Explosion", 0.5
+ States
+ {
+ Spawn:
+-    ARM3 AAAA 1 A_SpawnItemEx("RedPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++    ARM3 AAAAAA 1 A_SpawnItemEx("RedPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     ARM3 BBBBBBBBBBBB 1 Bright A_SpawnItemEx("RedPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     Loop
+     }
+@@ -685,7 +718,7 @@
+ States
+ {
+ Spawn:
+-    ARME AAAA 1 A_SpawnItemEx("GrayPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++    ARME AAAAAA 1 A_SpawnItemEx("GrayPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     ARME BBBBBBBBBBBB 1 Bright A_SpawnItemEx("GrayPowerLineSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+     Loop
+ Pickup:
+diff -u old/PlayerLights.gl new/PlayerLights.gl
+--- old/PlayerLights.gl	2015-06-27 15:55:21.956079229 +0200
++++ new/PlayerLights.gl	2015-06-27 15:54:40.792080021 +0200
+@@ -117,9 +117,9 @@
+ Chance 0.2
+ }
+ 
+-OBJECT RailgunImpact
++OBJECT RailImpactFlare
+ {
+-Frame TNT1B { Light RailFlare1 }
++Frame LENBA { Light RailFlare1 }
+ }
+ 
+ FLICKERLIGHT BFG9500Ball1
+diff -u old/README.txt new/README.txt
+--- old/README.txt	2015-06-27 15:55:21.960079229 +0200
++++ new/README.txt	2015-06-27 15:54:40.792080021 +0200
+@@ -10,13 +10,14 @@
+ 
+ (+) There are new weapons, most are from Skulltag but modified, they basically
+     behave the same except from the Railgun and the 10K. The Railgun behaves like
+-	the Quake 2 rail and the 10K is no longer 100% accurate.
++	the Quake 2 rail and the 10K is no longer 100% accurate or hitscan.
+ 	
+ >	The Assault Shotgun fires shells off at a high rate of fire, the damage is
+ 	the same as the normal Shotgun though it is less accurate.
+ 	
+->	The Quad Shotgun can be fired two barrels with primary fire or all four at once
+-	with altfire (which also reloads after firing once with primary).
++>	The Quad Shotgun can either be fired all four at once with primary fire or
++    double barrel shots with altfire. Altfire also reloads after firing the first
++	two barrels.
+ 	
+ >	There are Hand Grenades which can be used with almost any weapon equipped,
+ 	cannot be used with heavy type weapons such as the Rocket Launcher.
+@@ -27,7 +28,7 @@
+ 	
+ >	The Demon Tech Rifle fires explosive projectiles (that force radius damage, so
+ 	it will hurt the Cyber type enemies even more) at a very high rate of fire.
+-	This weapon uses the new Demon Ammo, which can be dropped from the rarer spawns,
++	This weapon uses the new Demon Ammo which can be dropped from the rarer spawns,
+ 	gained from ammo satchels or farmed from backpacks.
+ 	
+ >	The Demon Tech BFG10K is a stronger BFG, the projectile fired acts like that
+@@ -46,15 +47,15 @@
+ (+) Every monster type has alternate spawns, meaning a different, more tougher monster
+     has a slight chance to spawn where the original does. I have made these pretty
+ 	tough in my opinion, not stupid op though, some may be but they are a rare
+-	sight and the player has more options, so it evens it out. Also, these do not
++	sight and the player has more options so it evens it out. Also, these do not
+ 	have the same health as their original spawn, I added a little more on them.
+ 
+ (+) New powerup spheres have a chance to spawn where the originals are, most of
+-    them act like their counterparts, but have an extra addition, like the Mega
++    them act like their counterparts but have an extra addition like the Mega
+ 	Spheres alt is an Ultra Sphere, it gives you 250 health and armor and also
+ 	gives you full ammo.
+ 	
+->	Also a Red (Demonic) Armor has a chance to drop on the Green and Blue Armor, 
++>	Also a Red (Demonic) Armor has a chance to spawn on the Green and Blue Armor, 
+ 	the latter having more chance to spawn it. It gives you 250 and absorbs even 
+ 	more damage than the Blue Armor and is resistant to rocket type damage.
+ 	
+diff -u old/SFX.dec new/SFX.dec
+--- old/SFX.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/SFX.dec	2015-06-27 15:54:40.792080021 +0200
+@@ -47,16 +47,6 @@
+ 	  }
+ }
+ 
+-ACTOR BruiserRailgunSlug : PlayerDTBFGRailgunSlug
+-{
+-Species "Nobles"
+-Damage (Random(25,50))
+-DamageType ""
+-+PIERCEARMOR
+--RIPPER
+--NODAMAGETHRUST
+-}
+-
+ ACTOR SentientDTBFGRailgunSlug : PlayerDTBFGRailgunSlug
+ {
+ -RIPPER
+@@ -215,6 +205,7 @@
+ 
+ ACTOR RailgunImpactRed : RailgunImpact
+ {
++-THRUACTORS
+ States
+ {
+ Death:
+@@ -224,6 +215,11 @@
+ 	}
+ }
+ 
++ACTOR RailgunImpactRed2 : RailgunImpactRed
++{
+++THRUACTORS
++}
++
+ ACTOR RailgunImpactPurple : RailgunImpact
+ {
+ States
+@@ -235,6 +231,17 @@
+ 	}
+ }
+ 
++ACTOR RailgunImpactGreen : RailgunImpact
++{
++States
++{
++Death:
++	TNT1 A 0
++	TNT1 A 1 A_SpawnItem("RailgunImpactEffectGreen")
++	Stop
++	}
++}
++
+ ACTOR RailgunImpactEffect
+ {
+ +CLIENTSIDEONLY
+@@ -246,7 +253,7 @@
+     TNT1 A 0
+     TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
+ 	TNT1 AAA 0 A_SpawnItemEx("BlueParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+-	TNT1 BBBBB 1 A_SpawnItem("RailImpactFlare",0)
++	TNT1 AAAAAA 1 A_SpawnItem("RailImpactFlare",0)
+ 	Stop
+ Toaster:
+     TNT1 A 0
+@@ -262,7 +269,7 @@
+     TNT1 A 0
+     TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
+ 	TNT1 AAA 0 A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+-	TNT1 BBBBB 1 A_SpawnItem("RailImpactFlareRed",0)
++	TNT1 AAAAAA 1 A_SpawnItem("RailImpactFlareRed",0)
+ 	Stop
+ 	}
+ }
+@@ -275,7 +282,20 @@
+     TNT1 A 0
+     TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
+ 	TNT1 AAA 0 A_SpawnItemEx("PurpleParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+-	TNT1 BBBBB 1 A_SpawnItem("RailImpactFlarePurple",0)
++	TNT1 AAAAAA 1 A_SpawnItem("RailImpactFlarePurple",0)
++	Stop
++	}
++}
++
++ACTOR RailgunImpactEffectGreen : RailgunImpactEffect
++{
++States
++{
++Spawn:
++    TNT1 A 0
++    TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
++	TNT1 AAA 0 A_SpawnItemEx("GreenParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
++	TNT1 AAAAAA 1 A_SpawnItem("RailImpactFlareGreen",0)
+ 	Stop
+ 	}
+ }
+@@ -390,12 +410,12 @@
+ {
+ Height 15
+ Radius 15
+-Speed 50
+-Damage 22
++Speed 45
++Damage 20
+ Scale 0.5
+ +FORCERADIUSDMG
+-ExplosionDamage 142
+-ExplosionRadius 158
++ExplosionDamage 128
++ExplosionRadius 162
+ SeeSound "weapons/bfg15kfire"
+ DeathSound "weapons/bfg95explode"
+ States
+@@ -558,7 +578,7 @@
+ 
+ ACTOR RailImpactFlare : BlueSphereFlare
+ {
+-Scale 0.4
++Scale 0.6
+ }
+ 
+ ACTOR WhiteSphereFlare : BlueSphereFlare
+@@ -604,7 +624,7 @@
+ 
+ ACTOR RailImpactFlarePurple : PurpleSphereFlare
+ {
+-Scale 0.3
++Scale 0.5
+ }
+ 
+ ACTOR GreenSphereFlare : BlueSphereFlare
+@@ -619,6 +639,11 @@
+ 	}
+ }
+ 
++ACTOR RailImpactFlareGreen : GreenSphereFlare
++{
++Scale 0.5
++}
++
+ ACTOR RedSphereFlare : BlueSphereFlare
+ {
+ States
+@@ -633,7 +658,7 @@
+ 
+ ACTOR RailImpactFlareRed : RedSphereFlare
+ {
+-Scale 0.3
++Scale 0.5
+ }
+ 
+ ACTOR YellowFlareSmall : BaseFlare
+@@ -2160,6 +2185,7 @@
+   FBLM AAABBBCCCDDD 1 A_SpawnItem("NewFlyingBloodTrail2",0,0,0,1)
+   Loop
+ Crash:
++Death:
+   TNT1 A 0 A_PlaySound("Gibs")
+   TNT1 A 1 A_SpawnItem("NewBloodSpot2",0,0,0,1)
+   Stop
+@@ -2176,6 +2202,7 @@
+   FBLB AAABBBCCCDDD 1 A_SpawnItem("NewFlyingBloodTrail3",0,0,0,1)
+   Loop
+ Crash:
++Death:
+   TNT1 A 0 A_PlaySound("Gibs")
+   TNT1 A 1 A_SpawnItem("NewBloodSpot3",0,0,0,1)
+   Stop
+@@ -2192,6 +2219,7 @@
+   FBLK AAABBBCCCDDD 1 A_SpawnItem("NewFlyingBloodTrail4",0,0,0,1)
+   Loop
+ Crash:
++Death:
+   TNT1 A 0 A_PlaySound("Gibs")
+   TNT1 A 1 A_SpawnItem("NewBloodSpot4",0,0,0,1)
+   Stop
+@@ -3144,7 +3172,7 @@
+ States
+ {
+ Spawn:
+-    DPAA ABCDEFGH 3 A_SpawnItemEx("NewFlyingBlood4", 0, 0, 0, Random(-1,1), Random(-1,1), Random(-1,1), 0, 128)
++    DPAA ABCDEFGH 3 A_SpawnItemEx("NewFlyingBlood4", 0, 0, 0, Random(-4,4), Random(-4,4), Random(-4,4), 0, 128)
+     Loop
+ Death:
+ Crash:
+@@ -3405,6 +3433,20 @@
+ }
+ }
+ 
++ACTOR Kaboom18 : Kaboom
++{
++Speed 2
++Scale 1
++States
++{
++Spawn:
++TNT1 A 0
++TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
++FXPR AABBCDEFGHIJKLM 2 Bright A_FadeOut(0.05)
++Stop
++}
++}
++
+ ACTOR CardinalFireEx : Kaboom3
+ {
+ Speed 0
+@@ -3584,6 +3626,19 @@
+ Stop
+ }
+ }
++
++ACTOR BFGShockwaveRed2 : BFGShockwaveRed
++{
++Scale 1.1
++States
++{
++Spawn:
++TNT1 A 0
++TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
++SHOK ABCDEFGHIJKLMNOPQR 2 Bright A_FadeOut(0.04)
++Stop
++}
++}
+ 
+ //================
+ // Flame Spawners
+diff -u old/SNDINFO.txt new/SNDINFO.txt
+--- old/SNDINFO.txt	2015-06-27 15:55:21.960079229 +0200
++++ new/SNDINFO.txt	2015-06-27 15:54:40.792080021 +0200
+@@ -14,6 +14,7 @@
+ //=====================================
+ //Chainsaw
+ weapons/pickupsaw		dsgetsaw
++$volume Weapons/SawScreech 0.6
+ $random Weapons/SawScreech { chainsaw/hitwall1 chainsaw/hitwall2 chainsaw/hitwall3 chainsaw/hitwall4 }
+ chainsaw/hitwall1	DSSAWAL1
+ chainsaw/hitwall2	DSSAWAL2
+@@ -133,6 +134,7 @@
+ //=====================================
+ //Railgun
+ weapons/pickuprg		dsrgpku
++$rolloff weapons/rgcharge 300 1800
+ weapons/rgcharge		dsrgchar
+ weapons/cellreload		dscerl
+ weapons/railgunhum		dsrahum
+@@ -551,6 +553,8 @@
+ monsters/darkcyberdie			 DSDRCD
+ monsters/darkcyberstomp			 DSDCYST
+ $RollOff monsters/darkcyberstomp 600 2600
++monsters/darkcyberrail			DSDR2A
++$rolloff monsters/darkcyberrail	600 3500
+ //=====================================
+ //Cardinal
+ $rolloff Cardinal/Laugh	 	800 3500
+@@ -818,6 +822,7 @@
+ pickups/health			dsshpu
+ pickups/largehealth     dshpup
+ pickups/healthbonus		dshbup
++pickups/stronghealthbonus DSSHBU
+ $random pickups/lifeessence { pickups/essence1 pickups/essence2 pickups/essence3 }
+ pickups/essence1	    dsle1up
+ pickups/essence2	    dsle2up
+@@ -830,6 +835,7 @@
+ pickups/bluearmor		dsbarmu
+ pickups/redarmor		dsrarmu
+ pickups/armorbonus		dsabup
++pickups/maxarmorbonus	DSAMXB
+ $random pickups/armorbonusmax { pickups/darmorb1 pickups/darmorb2 pickups/darmorb3 }
+ pickups/darmorb1		dsdab1
+ pickups/darmorb2		dsdab2
+@@ -913,12 +919,6 @@
+ menu/choose			dstpfir
+ menu/dismiss		dselec3
+ //=====================================
+-//Fuck Yourself
+-$random fuck/yourself  { fuck/1 fuck/2 fuck/3 }
+-fuck/1			FUCK1
+-fuck/2			FUCK2
+-fuck/3			FUCK3
+-//=====================================
+ //Player Sounds
+ //Male
+ $random cpm/death { mplayer/death1 mplayer/death2 mplayer/death3 }
+diff -u old/Spawners.dec new/Spawners.dec
+--- old/Spawners.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/Spawners.dec	2015-06-27 15:54:40.772080021 +0200
+@@ -166,9 +166,9 @@
+ 
+ ACTOR MinorSpawner : RandomSpawner Replaces HellKnight
+ {
+-DropItem "HellArchon", 256, 85
+-DropItem "PyroDemon", 256, 8
+-DropItem "CyberNoble", 256, 4
++DropItem "HellArchon", 256, 82
++DropItem "PyroDemon", 256, 10
++DropItem "CyberNoble", 256, 5
+ DropItem "HellDuke" 256, 3
+ }
+ 
+@@ -190,8 +190,8 @@
+ {
+ Spawn:
+     TNT1 A 1
+-    TNT1 A 0 A_Jump(24,"FreetSpawn")
+-	TNT1 A 0 A_Jump(14,"CybruisSpawn")	
++    TNT1 A 0 A_Jump(26,"FreetSpawn")
++	TNT1 A 0 A_Jump(16,"CybruisSpawn")	
+ NormalSpawn:
+     TNT1 A 0 A_SpawnItemEx("BruiserDemon",0,0,0,0,0,0,0,272)
+     Goto Nothing
+@@ -303,9 +303,21 @@
+ DropItem "Hitler", 256, 2
+ }
+ 
+-//===============================================
+-// Red Armor / Pure Rage / Mixed Sphere Spawners
+-//===============================================
++//======================================================================
++// Health & Armor Bonus / Red Armor / Pure Rage / Mixed Sphere Spawners
++//======================================================================
++
++ACTOR HealthBonusSpawner : RandomSpawner Replaces HealthBonus
++{
++DropItem "NewHealthBonus", 256, 75
++DropItem "NewMaxHealthBonus", 256, 25
++}
++
++ACTOR ArmorBonusSpawner : RandomSpawner Replaces ArmorBonus
++{
++DropItem "NewArmorBonus", 256, 75
++DropItem "NewMaxArmorBonus", 256, 25
++}
+ 
+ ACTOR GreenArmorSpawner : RandomSpawner Replaces GreenArmor
+ {
+diff -u old/Weapons.dec new/Weapons.dec
+--- old/Weapons.dec	2015-06-27 15:55:21.956079229 +0200
++++ new/Weapons.dec	2015-06-27 15:54:40.772080021 +0200
+@@ -330,7 +330,11 @@
+   {
+   Ready:
+     TNT1 A 0 A_PlayWeaponSound("weapons/12gsgcock")
+-    SGUN ABCDEF 1
++    SG1R ABCDE 1
++	SG1R F 2
++	SG1R G 3
++	SG1R FE 2
++	SG1R H 1
+ 	TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",1,"Ready2")
+ 	Goto Ready3
+   Ready2:
+@@ -377,14 +381,14 @@
+     Goto Ready3
+ 	SHTG A 2
+ 	TNT1 A 0 A_ReFire
+-    Goto Ready+7
++    Goto Ready+11
+   Empty:
+     SHTD A 10 A_PlayWeaponSound("weapons/click")	
+   AltFire:
+     TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",9,2)
+     TNT1 A 0 A_JumpIfInventory("NewShell",1,2)
+ 	TNT1 A 0
+-	Goto Ready+7
++	Goto Ready+11
+ 	SHTG BCD 1
+ 	SHTG EFG 2
+ 	TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",1,"Reload")
+@@ -418,11 +422,11 @@
+   Full:
+     SHTG GFEDCB 1
+ 	SHTG A 3
+-	Goto Ready+7
++	Goto Ready+11
+   GrenadeCheck:
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+-	Goto Ready+7
++	Goto Ready+11
+   GrenadeCheckReloading:
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+@@ -446,11 +450,12 @@
+     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+ 	TNT1 A 0
+-	Goto Ready+1
++	SGUN ABCDEF 1
++	Goto Ready+11
+   MineCheck:
+ 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+-	Goto Ready+7
++	Goto Ready+11
+   MineCheckReloading:
+ 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+@@ -470,7 +475,8 @@
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+ 	TNT1 A 0
+ 	TNT1 A 5
+-	Goto Ready+1
++	SGUN ABCDEF 1
++	Goto Ready+11
+   Spawn:
+     SHOT A -1
+     Stop
+@@ -670,23 +676,24 @@
+   {
+   Ready:
+     TNT1 A 0 A_PlayWeaponSound("weapons/pickupssg")
+-	S2GN ABCDEF 1
++	SHRS ABCDEF 1
++	SHRS GH 2
+ 	TNT1 A 0 A_JumpIfInventory("SSGShell",2,"Ready2")
+ 	TNT1 A 0 A_JumpIfInventory("SSGShell",1,"Ready3")
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
+ 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
+     SHTE A 1 A_WeaponReady
+-    Goto Ready+7
++    Goto Ready+9
+   Ready2:
+   	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
+ 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
+     SHT2 A 1 A_WeaponReady
+-    Goto Ready+7	
++    Goto Ready+9	
+   Ready3:
+   	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
+ 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
+     SST2 A 1 A_WeaponReady
+-    Goto Ready+7
++    Goto Ready+9
+   Deselect: 
+     TNT1 A 0 A_PlayWeaponSound("weapons/weapondown")
+ 	TNT1 A 0 A_JumpIfInventory("SSGShell",2,"Deselect2")
+@@ -725,7 +732,7 @@
+   SSGReloadCheck:
+   	TNT1 A 0 A_JumpIfInventory("NewShell",2,2)
+ 	SH2E A 2
+-	Goto Ready+7
++	Goto Ready+9
+ 	TNT1 A 0
+ 	Goto ReloadBoth+4
+   AltFire:
+@@ -744,7 +751,7 @@
+ 	TNT1 A 0 A_Light0
+ 	SH2R EFGH 1
+ 	SHTE A 2
+-    Goto Ready+7
++    Goto Ready+9
+   FireRight:
+     TNT1 A 0 A_PlaySound("weapons/ssgsingleshot")
+     TNT1 A 0 A_AlertMonsters
+@@ -758,17 +765,17 @@
+ 	TNT1 A 0 A_Light0
+ 	SH2R ABCD 1
+ 	SST2 A 2
+-    Goto Ready+7
++    Goto Ready+9
+   Empty:
+     SHTE A 10 A_PlaySound("weapons/click")
+-	Goto Ready+7
++	Goto Ready+9
+   Reload:
+ 	TNT1 A 0 A_JumpIfInventory("SSGShell",1,"ReloadRight")	
+ 	TNT1 A 0 A_JumpIfInventory("NewShell",2,"ReloadBoth")
+ 	Goto Empty		
+   ReloadBoth:
+     TNT1 A 0 A_JumpIfInventory("NewShell",2,1)
+-	Goto Ready+7
++	Goto Ready+9
+ 	SHT2 RQ 2
+ 	SH2E B 2
+ 	SHT2 GH 2
+@@ -789,10 +796,10 @@
+ 	SH2E C 1
+ 	SH2E B 2
+ 	SHT2 QR 2	
+-    Goto Ready+7	
++    Goto Ready+9	
+   ReloadRight:
+     TNT1 A 0 A_JumpIfInventory("NewShell",1,1)
+-	Goto Ready+7
++	Goto Ready+9
+ 	SHT2 RQ 2
+ 	SH2E B 2
+ 	SH2E C 1
+@@ -811,11 +818,11 @@
+ 	SH2E C 1
+ 	SH2E B 2
+ 	SHT2 QR 2
+-	Goto Ready+7
++	Goto Ready+9
+   GrenadeCheck:
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+-	Goto Ready+7
++	Goto Ready+9
+   GrenadeToss:
+   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+ 	S2GN FEDCBA 1
+@@ -835,11 +842,12 @@
+     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+ 	TNT1 A 0
+-	Goto Ready+1
++	S2GN ABCDEF 1
++	Goto Ready+9
+   MineCheck:
+ 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+-	Goto Ready+7
++	Goto Ready+9
+   MineToss:
+   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+ 	S2GN FEDCBA 1
+@@ -855,7 +863,8 @@
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+ 	TNT1 A 0
+ 	TNT1 A 5
+-	Goto Ready+1
++	S2GN ABCDEF 1
++	Goto Ready+9
+   Spawn:
+     SGN2 A -1
+     Stop
+@@ -893,11 +902,12 @@
+   {
+   Ready:
+     TNT1 A 0 A_PlayWeaponSound("weapons/pickupqsg")
+-	QSHT ABCDE 1
++	QSRS ABCDEF 1
++	QSRS GH 2
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
+ 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
+     QSGN A 1 A_WeaponReady
+-    Goto Ready+6
++    Goto Ready+9
+   Deselect: 
+     TNT1 A 0 A_PlayWeaponSound("weapons/weapondown")
+     QSGN A 1 A_Lower
+@@ -929,7 +939,7 @@
+   QuadReloadCheck:
+   	TNT1 A 0 A_JumpIfInventory("NewShell",4,2)
+ 	QSGN S 2
+-	Goto Ready+6
++	Goto Ready+9
+ 	TNT1 A 0
+ 	Goto ReloadFourShells+3
+   AltFire:
+@@ -948,7 +958,7 @@
+ 	TNT1 A 0 A_Light0
+ 	QREC ABCDE 1
+ 	QSGN A 1
+-    Goto Ready+6
++    Goto Ready+9
+   FireUpper:
+     TNT1 A 0 A_PlaySound("weapons/qsgdoublefire")	
+     TNT1 A 0 A_AlertMonsters
+@@ -962,11 +972,11 @@
+ 	TNT1 A 0 A_Light0
+ 	QREC ABCDE 1
+ 	QSGN A 1
+-    Goto Ready+6	
++    Goto Ready+9	
+   Empty:
+     QSGN A 10 A_PlayWeaponSound("weapons/click")
+ 	TNT1 A 0 A_JumpIfInventory("NewShell",4,"ReloadFourShells")
+-	Goto Ready+6
++	Goto Ready+9
+   Reload:
+ 	TNT1 A 0 A_JumpIfInventory("QuadShell",2,"ReloadTwoShells")
+ 	TNT1 A 0 A_JumpIfInventory("NewShell",4,"ReloadFourShells")
+@@ -999,10 +1009,10 @@
+ 	QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
+ 	QSGN QRS 2
+ 	QSGN A 2
+-    Goto Ready+6
++    Goto Ready+9
+   ReloadTwoShells:
+     TNT1 A 0 A_JumpIfInventory("NewShell",2,1)
+-	Goto Ready+6
++	Goto Ready+9
+ 	QSGN SRQ 2
+ 	QSGN P 1
+ 	QSEX A 1
+@@ -1022,11 +1032,11 @@
+ 	QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
+ 	QSGN QRS 2
+ 	QSGN A 2
+-	Goto Ready+6
++	Goto Ready+9
+   GrenadeCheck:
+ 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+-	Goto Ready+6
++	Goto Ready+9
+   GrenadeToss:
+   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+ 	QSHT EDCBA 1
+@@ -1046,11 +1056,12 @@
+     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
+ 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+ 	TNT1 A 0
+-	Goto Ready+1
++	QSHT ABCDE 1
++	Goto Ready+9
+   MineCheck:
+ 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+-	Goto Ready+6
++	Goto Ready+9
+   MineToss:
+   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+ 	QSHT EDCBA 1
+@@ -1066,7 +1077,8 @@
+ 	TNT1 A 0 A_TakeInventory("MineAction",1)
+ 	TNT1 A 0
+ 	TNT1 A 5
+-	Goto Ready+1
++	QSHT ABCDE 1
++	Goto Ready+9
+   Spawn:
+     QSGP A -1
+     Stop
+@@ -1445,6 +1457,7 @@
+ ACTOR NewRocket : Rocket
+ {
+ Speed 26
++Damage 24
+ Species "Player"
+ Obituary "%o ate %k's Rocket."
+ SeeSound "rocket/fire"
+@@ -1627,7 +1640,7 @@
+   Radius 6
+   Height 6
+   Speed 30
+-  Damage 20
++  Damage 24
+   Species "Player"
+   Scale 0.75
+   Projectile
+@@ -1715,9 +1728,8 @@
+ 	TNT1 A 0 A_ReFire
+ Recoil:
+ 	PKPL DEF 1
+-	PKPL G 7
+-	PKPL FED 2	
+-	PKPL CBA 1
++	PKPL G 10
++	PKPL FEDCBA 1
+ 	Goto Ready+7
+ Flash:
+ 	TNT1 A 2 Bright A_Light1
+@@ -2243,8 +2255,8 @@
+ 	TNT1 A 0 Radius_Quake(12,4,0,1,0)
+     TNT1 A 0 A_GunFlash
+ 	TNT1 A 0 A_Light1
+-	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0,0,0)
+-    RAIF A 2 Bright A_RailAttack(250,0,1,"00 85 FF",None,0) 
++	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0)
++    RAIF A 2 Bright A_RailAttack(250,0,1,"00 85 FF",None,0,0,"PlayerRailPuff")
+ 	RAIF B 2 Bright A_Light2
+ 	TNT1 A 0 A_Light0
+ 	TNT1 A 0 A_JumpIfInventory("CellCharge",10,"ChargedRecoil")
+@@ -2262,8 +2274,8 @@
+ 	TNT1 A 0 Radius_Quake(12,4,0,1,0)
+     TNT1 A 0 A_GunFlash
+ 	TNT1 A 0 A_Light2
+-	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0,0,0)
+-	RSCP A 4 Bright A_RailAttack(250,0,1,"00 85 FF",None,0)
++	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0)
++	RSCP A 4 Bright A_RailAttack(250,0,1,"00 85 FF",None,0,0,"PlayerRailPuff")
+ 	TNT1 A 0 A_JumpIfInventory("CellCharge",10,4)
+ 	TNT1 A 0 A_TakeInventory("RailgunZoomed",1)
+ 	TNT1 A 0 A_ZoomFactor(1)	
+@@ -2460,6 +2472,17 @@
+ +IGNORESKILL
+ }
+ 
++ACTOR PlayerRailPuff : BulletPuff
++{
++States
++{
++Spawn:
++	TNT1 A 0
++	TNT1 A 1 A_SpawnItem("RailgunImpactEffect")
++	Stop
++	}
++}
++
+ ACTOR RailgunAction : Inventory
+ {
+     Inventory.Amount 1
+@@ -2693,7 +2716,6 @@
+   +NOGRAVITY
+   +NOTELEPORT 
+   +FORCERADIUSDMG
+-  +BLOODLESSIMPACT
+   Renderstyle Add
+   Alpha 0.75
+   Scale 0.85
