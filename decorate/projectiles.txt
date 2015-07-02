@@ -436,7 +436,7 @@ ACTOR PyroFireSpawnerMOP : PyroFireSpawner replaces PyroFireSpawner
   States
   {
   Spawn: 
-    TNT1 AAAA 4 Bright A_CustomMissile("PyroFireMOP")
+    TNT1 AAAA 6 Bright A_CustomMissile("PyroFireMOP")
 	TNT1 A 1 Bright A_MissileAttack
     Loop
   }
