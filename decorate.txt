@@ -3494,8 +3494,17 @@ Actor FusioniteWeapon : PossessedWeapon
 	States
 	{
 	Fire:
-		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
-		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-850,850)/100.00)
+		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-1000,1000)/100.00)
+		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-1000,1000)/100.00)
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+		TNT1 GG 10 Bright
+		TNT1 G 3 Bright 
+		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
+		TNT1 A 0 A_FireCustomMissile("RailgunImpactPurple")
+		TNT1 H 5 Bright A_RailAttack(Random(20, 30), 0, 0, "Purple", None, 0, 0, "FusioniteRailPuff")
+		TNT1 G 35 Bright
 		Goto Ready
 	}
 }
@@ -5169,21 +5178,10 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 	Missile:
 		Goto Spawn
 	Melee:
-		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		//TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
-	Normal:
-		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
-		BRUS EE 10
-		BRUS E 2
-		TNT1 A 0 //A_PlaySound("railgunner/chargedshot")
-		TNT1 A 0 //A_CustomMissile("RailgunImpact",40)
-		TNT1 A 0 //A_CustomMissile("BruiserRailgunSlug",40)
-		BRUR A 5 Bright //A_CustomRailgun(-1,10,"00 85 FF",None,1,1,1)
-		BRUS E 20
-		BRUS E 10
-		Goto Spawn
 	Rockets:
 		BRUS E 10
 		BRUS F 8 Bright //A_FireCustomMissile("CyNobleRocket", 0,0, 0, 0)
@@ -5220,24 +5218,13 @@ Actor CybruiserWeapon : PossessedWeapon
 	{
 	Fire:
 		TNT1 A 0 A_GunFlash
-		TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
+		//TNT1 A 0 Bright A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack2", 1, "Rockets")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack3", 1, "HomingRockets")
 		TNT1 A 0 Bright A_JumpIfInventory("Attack4", 1, "BFG15K")
 		Goto Ready
 	AltFire:
 		TNT1 A 0 ACS_ExecuteAlways(mop_cybruiser, 0)
-		Goto Ready
-	Normal:
-		TNT1 A 0 A_PlaySound("weapons/rgcharge")
-		TNT1 EE 10
-		TNT1 E 2
-		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
-		TNT1 A 0 A_FireCustomMissile("RailgunImpact")
-		TNT1 A 0 A_FireCustomMissile("BruiserRailgunSlug")
-		TNT1 A 5 A_RailAttack(-1, 10, 0, "00 85 FF", None, 1, 1)
-		TNT1 E 10
-		TNT1 A 0 A_ReFire
 		Goto Ready
 	Rockets:
 		TNT1 E 10
@@ -6219,6 +6206,7 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG10K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "DTBFG10K")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
 		Goto Spawn
 	Normal:
 		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -6303,6 +6291,48 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 		SUPR O 2 Bright //A_FireCustomMissile("SentientDTBFG10KBall", 0, 0, 0)
 		SUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 		Goto Spawn
+	BFG9K:
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright	
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR O 2 Bright 
+		SUPR NNN 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		TNT1 A 0 
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright 
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright	
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR NN 2 Bright 
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright 
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR OO 2 Bright
+		TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
+		SUPR O 2 Bright 
+		SUPR NNNNNNN 2 Bright 
+		Goto Spawn
 	}
 }
 
@@ -6317,6 +6347,7 @@ Actor CerebralSentientWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG10K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "DTBFG10K")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
 		Goto Ready
 	AltFire:
 		TNT1 A 0 ACS_ExecuteAlways(mop_cerebralsentient, 0)
@@ -6408,6 +6439,51 @@ Actor CerebralSentientWeapon : PossessedWeapon
 		TNT1 NNNNNNNNNNNN 2 Bright
 		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		TNT1 A 100
+		Goto Ready
+	BFG9K:
+		TNT1 A 0 
+		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright	
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 OO 2 Bright
+		TNT1 A 0 
+		TNT1 OO 2 Bright
+		TNT1 A 0 
+		TNT1 O 2 Bright A_FireCustomMissile("SentientBFG9500Ball")
+		TNT1 NNN 2 Bright 
+		TNT1 A 0 
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright 
+		TNT1 A 0 
+		TNT1 NN 2 Bright	
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright
+		TNT1 A 0 
+		TNT1 NN 2 Bright 
+		TNT1 A 0 
+		TNT1 OO 2 Bright 
+		TNT1 A 0 
+		TNT1 OO 2 Bright
+		TNT1 A 0 
+		TNT1 O 2 Bright A_FireCustomMissile("SentientBFG9500Ball")
+		TNT1 NNNNNNN 2 Bright
+		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+		TNT1 A 20
 		Goto Ready
 	}
 }
@@ -6585,9 +6661,18 @@ Actor PossessedDarkCyberdemon : PossessedCyberdemon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "HomingRockets")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG15K")
 		Goto Spawn
+	Railgun:
+		TNT1 A 0 
+        CBEP EE 10 
+		CBEP E 2
+		TNT1 A 0 
+	    TNT1 A 0 
+        CBEP F 10 Bright
+		CBEP E 15
+ 		Goto Spawn
 	Rockets:
 		CBEP E 10
 		CBEP F 6 Bright //A_FireCustomMissile("DarkCyberRocket", Random(-6, 6 ), 0, 0)
@@ -6647,18 +6732,6 @@ Actor PossessedDarkCyberdemon : PossessedCyberdemon
 		CBE3 B 2 //A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
 		CBE3 B 20
 		Goto Spawn
-	BFG9K:
-		TNT1 A 0 //A_PlaySound("weapons/bfgf")
-		CBEP EE 10
-		CBEP F 10 Bright
-		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
-		CBEP E 4
-		TNT1 A 0 //A_PlaySound("weapons/bfgf")
-		CBEP EE 10
-		CBEP F 10 Bright
-		CBEP F 10 Bright //A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
-		CBEP E 10
-		Goto Spawn
 	BFG15K:
 		TNT1 A 0 //A_PlaySound("weapons/charge15k")
 		CBEP E 18 Bright
@@ -6690,12 +6763,21 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "HomingRockets")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG9K")
+		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG15K")
 		Goto Ready
 	AltFire:
 		TNT1 A 0 ACS_ExecuteAlways(mop_darkcyberdemon, 0)
 		Goto Ready
+	Railgun:
+		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+        TNT1 EE 10 A_FaceTarget
+		TNT1 E 2
+		TNT1 A 0 A_PlaySound("monsters/darkcyberrail",CHAN_AUTO)
+	    TNT1 A 0 A_FireCustomMissile("RailgunImpactGreen")
+        TNT1 F 10 Bright A_RailAttack(Random(60, 80), 0, 0, "00 FF 00", None, 0, 0, "DarkCyberRailPuff")
+		TNT1 E 15
+ 		Goto Ready
 	Rockets:
 		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
 		TNT1 E 10
@@ -6761,21 +6843,6 @@ Actor DarkCyberdemonWeapon : PossessedWeapon
 		TNT1 B 2 A_FireCustomMissile("DarkCyberFireSpawner", -45,0, 0, 0)
 		TNT1 B 20
 		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
-		Goto Ready
-	BFG9K:
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
-		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
-		TNT1 EE 10
-		TNT1 F 10 Bright
-		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
-		TNT1 E 4
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
-		TNT1 EE 10
-		TNT1 F 10 Bright
-		TNT1 F 10 Bright A_FireCustomMissile("DarkCyber9K", 0, 0, 0)
-		TNT1 E 10
-		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
-		TNT1 A 100
 		Goto Ready
 	BFG15K:
 		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
@@ -6856,6 +6923,7 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
 		TNT1 A 0 A_JumpIfInventorY("Attack4", 1, "DTBFG10K")
+		TNT1 A 0 A_JumpIfInventorY("Attack5", 1, "Railgun")
 		Goto Spawn
 	Normal:
 		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
@@ -7008,6 +7076,62 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		CARD DCC 4 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 		Goto Spawn
+	Railgun:
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD C 2 Bright 
+		CARD C 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 
+		TNT1 A 0 //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 
+		CARD D 2 Bright
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright 
+		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright 
+		CARD CCCCCCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		Goto Spawn 
 	}
 }
 
@@ -7023,6 +7147,7 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
 		TNT1 A 0 A_JumpIfInventorY("Attack4", 1, "DTBFG10K")
+		TNT1 A 0 A_JumpIfInventorY("Attack5", 1, "Railgun")
 		Goto Ready
 	AltFire:
 		TNT1 A 0 ACS_ExecuteAlways(mop_cardinal, 0)
@@ -7189,6 +7314,63 @@ Actor CardinalWeapon : PossessedWeapon
 		TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 		TNT1 A 100
 		Goto Ready
+	Railgun:
+		TNT1 A 0 A_PlaySound("weapons/rgcharge")
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 C 2 Bright 
+		TNT1 C 2 Bright 
+		TNT1 A 0 A_PlaySound("monsters/darkcyberrail",CHAN_AUTO)
+		TNT1 A 0 
+		TNT1 A 0 A_FireCustomMissile("RailgunImpactRed2")
+		TNT1 D 2 Bright A_RailAttack(Random(80, 100), 0, 0, "FF 00 00", None, 0, 0, "CardinalRailPuff")
+		TNT1 A 0 Bright 
+		TNT1 D 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 D 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 D 2 Bright 
+		TNT1 A 0 Bright 
+		TNT1 D 2 Bright 
+		TNT1 CCCCCCC 2 Bright
+	  Goto Ready
 	}
 }
 
