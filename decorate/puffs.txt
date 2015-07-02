@@ -23,3 +23,9 @@ ACTOR PlayerSawScreech : SawScreech
 	SeeSound "weapons/sawhit"
 	DamageType "Player"
 }
+
+// don't forget this
+ACTOR PlayerRailPuff2 : PlayerRailPuff
+{
+	DamageType "Player"
+}
