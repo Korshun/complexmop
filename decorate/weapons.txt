@@ -27,7 +27,7 @@ ACTOR "MOP Melee" : Fist replaces Melee
 		Goto Ready
 	NormalFist:
 		PKFS LBCD 1
-		PKFS E 2 A_CustomPunch(2*Random(1,10),TRUE,0,"FistPuff",64)
+		PKFS E 2 A_CustomPunch(2*Random(1,10),TRUE,0,"PlayerFistPuff",64)
 		PKFS FGHI 2
 		PKFS JKL 1
 		PKFS A 1 A_ReFire
@@ -35,7 +35,7 @@ ACTOR "MOP Melee" : Fist replaces Melee
 	NormalKick:
 		KICK A 1 A_PlaySound("weapons/kick")
 		KICK BCDEF 1
-		KICK G 5 A_CustomPunch(2*Random(11,20),TRUE,0,"FootPuff",96)	
+		KICK G 5 A_CustomPunch(2*Random(11,20),TRUE,0,"PlayerFootPuff",96)	
 		KICK EDCBA 2
 		PKFS A 1
 		PKFS A 5 A_ReFire
