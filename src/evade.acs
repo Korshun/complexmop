@@ -65,7 +65,7 @@ script mop_evade (int speed)
 		
 		//print(s:"cooldown");
 		
-		Delay(70);
+		Delay(17);
 	}
 	else if (buttons & BT_MOVERIGHT)
 	{
@@ -108,7 +108,7 @@ script mop_evade (int speed)
 		
 		//print(s:"cooldown");
 		
-		Delay(70);
+		Delay(17);
 	}
 	
 	Delay(1);
