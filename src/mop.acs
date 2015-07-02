@@ -2,6 +2,8 @@
 #include "zcommon.acs"
 #include "math.acs"
 
+int BoomEdition = true;
+
 #define mop_possess 800
 #define mop_enter 801
 #define mop_respawn 802

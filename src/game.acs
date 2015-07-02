@@ -9,8 +9,6 @@ int PossessedCount = 0;
 
 int Lives = 999;
 
-int BoomEdition = true;
-
 int MopFrags[MAX_PLAYERS];
 int ExtraLivePoints = 0.0;
 int MarinesNoBfgTimer[MAX_PLAYERS];
