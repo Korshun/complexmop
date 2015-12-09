@@ -1028,6 +1028,17 @@ OBJECT DarkCyberFireMOP
 Frame FTRD { Light DarkCyberHellFire1 }
 }
 
+OBJECT DarkCyber9KMOP
+{
+Frame BFS1 { Light BFG9500Ball1 }
+Frame BFE1A { Light BFG9500BallExplode1 }
+Frame BFE1B { Light BFG9500BallExplode2 }
+Frame BFE1C { Light BFG9500BallExplode3 }
+Frame BFE1D { Light BFG9500BallExplode4 }
+Frame BFE1E { Light BFG9500BallExplode5 }
+Frame BFE1F { Light BFG9500BallExplode6 }
+}
+
 OBJECT DarkCyber15KMOP
 {
 Frame BFS1 { Light BFG15KBall1 }

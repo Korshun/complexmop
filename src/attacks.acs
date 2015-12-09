@@ -348,14 +348,6 @@ script mop_cerebralsentient (void)
 	if (CheckInventory("Attack3"))
 	{
 		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cgBFG9K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
 		GiveInventory("Attack1", 1);
 		print(s:"normal");
 		terminate;
@@ -384,7 +376,7 @@ script mop_darkcyberdemon (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack4", 1);
-		print(s:"railgun");
+		print(s:"\cdbfg9k");
 		terminate;
 	}
 	
@@ -434,14 +426,6 @@ script mop_cardinal (void)
 	if (CheckInventory("Attack4"))
 	{
 		TakeInventory("Attack4", 1);
-		GiveInventory("Attack5", 1);
-		print(s:"railgun");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack5"))
-	{
-		TakeInventory("Attack5", 1);
 		GiveInventory("Attack1", 1);
 		print(s:"rockets");
 		terminate;
