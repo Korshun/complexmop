@@ -103,7 +103,7 @@ ACTOR "MOP Melee" : Fist replaces Fist
 	    }
 }		
 
-ACTOR "MOP Chainsaw" : Chainsaw replaces Chainsaw
+ACTOR "MOP Chainsaw" : Chainsaw replaces "Chainsaw "
 {
 	Scale 0.65
     Inventory.PickupMessage "Chainsaw"
@@ -132,16 +132,18 @@ ACTOR "MOP Chainsaw" : Chainsaw replaces Chainsaw
 	    SAWL AB 1
 	Hold:
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
-		SAWN A 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"PlayerSawScreech")
+		TNT1 A 0 A_PlaySound("weapons/sawfull", CHAN_WEAPON)
+		SAWN A 2 A_CustomPunch(Random(2,4) * Random(1, 10), 1, CPF_PULLIN, "PlayerSawScreech", 65)
 		TNT1 A 0 Radius_Quake(1,2,0,1,0)
-		SAWN B 2 A_Saw("weapons/sawfull","weapons/sawhit",Random(2,4),"PlayerSawScreech")	
+		TNT1 A 0 A_PlaySound("weapons/sawfull", CHAN_WEAPON)
+		SAWN B 2 A_CustomPunch(Random(2,4) * Random(1, 10), 1, CPF_PULLIN, "PlayerSawScreech", 65)
 		TNT1 A 0 A_Refire
 		SAWL BA 1
 		Goto Ready
 	    }
 }
 
-ACTOR "MOP Handgun" : Weapon replaces Pistol
+ACTOR "MOP Handgun" : Weapon replaces Handgun
 {
    Scale 0.38
    Weapon.PreferredSkin "Handgun-Marine"
@@ -300,7 +302,7 @@ ACTOR "MOP Handgun" : Weapon replaces Pistol
 	  }
 }
 
-ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
+ACTOR "MOP Combat Shotgun" : Weapon replaces "Combat Shotgun"
 {
   Scale 0.85
   Weapon.PreferredSkin "CombatSG-Marine"
@@ -320,11 +322,7 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
   {
   Ready:
     TNT1 A 0 A_PlayWeaponSound("weapons/12gsgcock")
-    SG1R ABCDE 1
-	SG1R F 2
-	SG1R G 3
-	SG1R FE 2
-	SG1R H 1
+    SGUN ABCDEF 1
 	TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",1,"Ready2")
 	Goto Ready3
   Ready2:
@@ -371,14 +369,14 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
     Goto Ready3
 	SHTG A 2
 	TNT1 A 0 A_ReFire
-    Goto Ready+11
+    Goto Ready+7
   Empty:
     SHTD A 10 A_PlayWeaponSound("weapons/click")	
   AltFire:
     TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",9,2)
     TNT1 A 0 A_JumpIfInventory("NewShell",1,2)
 	TNT1 A 0
-	Goto Ready+11
+	Goto Ready+7
 	SHTG BCD 1
 	SHTG EFG 2
 	TNT1 A 0 A_JumpIfInventory("ShotgunMagazine",1,"Reload")
@@ -412,11 +410,11 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
   Full:
     SHTG GFEDCB 1
 	SHTG A 3
-	Goto Ready+11
+	Goto Ready+7
   GrenadeCheck:
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
-	Goto Ready+11
+	Goto Ready+7
   GrenadeCheckReloading:
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
@@ -440,12 +438,11 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
 	TNT1 A 0
-	SGUN ABCDEF 1
-	Goto Ready+11
+	Goto Ready+1
   MineCheck:
 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
 	TNT1 A 0 A_TakeInventory("MineAction",1)
-	Goto Ready+11
+	Goto Ready+7
   MineCheckReloading:
 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
 	TNT1 A 0 A_TakeInventory("MineAction",1)
@@ -465,15 +462,14 @@ ACTOR "MOP Combat Shotgun" : Weapon replaces Shotgun
 	TNT1 A 0 A_TakeInventory("MineAction",1)
 	TNT1 A 0
 	TNT1 A 5
-	SGUN ABCDEF 1
-	Goto Ready+11
+	Goto Ready+1
   Spawn:
     SHOT A -1
     Stop
     }
 }
 
-ACTOR "MOP Assault Shotgun" : Weapon 19345
+ACTOR "MOP Assault Shotgun" : Weapon replaces "Assault Shotgun"
 {
   Scale 0.85
   Weapon.PreferredSkin "AssaultSG-Marine"
@@ -625,7 +621,7 @@ ACTOR "MOP Assault Shotgun" : Weapon 19345
   }
 }
 
-ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
+ACTOR "MOP Double Barrel Shotgun" : Weapon replaces "Double Barrel Shotgun"
 {
   Scale 0.85
   Weapon.PreferredSkin "DoubleBarrelSG-Marine"
@@ -646,24 +642,23 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
   {
   Ready:
     TNT1 A 0 A_PlayWeaponSound("weapons/pickupssg")
-	SHRS ABCDEF 1
-	SHRS GH 2
+	S2GN ABCDEF 1
 	TNT1 A 0 A_JumpIfInventory("SSGShell",2,"Ready2")
 	TNT1 A 0 A_JumpIfInventory("SSGShell",1,"Ready3")
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
     SHTE A 1 A_WeaponReady
-    Goto Ready+9
+    Goto Ready+7
   Ready2:
   	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
     SHT2 A 1 A_WeaponReady
-    Goto Ready+9	
+    Goto Ready+7	
   Ready3:
   	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
     SST2 A 1 A_WeaponReady
-    Goto Ready+9
+    Goto Ready+7
   Deselect: 
     TNT1 A 0 A_PlayWeaponSound("weapons/weapondown")
 	TNT1 A 0 A_JumpIfInventory("SSGShell",2,"Deselect2")
@@ -702,7 +697,7 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
   SSGReloadCheck:
   	TNT1 A 0 A_JumpIfInventory("NewShell",2,2)
 	SH2E A 2
-	Goto Ready+9
+	Goto Ready+7
 	TNT1 A 0
 	Goto ReloadBoth+4
   AltFire:
@@ -721,7 +716,7 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	TNT1 A 0 A_Light0
 	SH2R EFGH 1
 	SHTE A 2
-    Goto Ready+9
+    Goto Ready+7
   FireRight:
     TNT1 A 0 A_PlaySound("weapons/ssgsingleshot")
     TNT1 A 0 A_AlertMonsters
@@ -735,17 +730,17 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	TNT1 A 0 A_Light0
 	SH2R ABCD 1
 	SST2 A 2
-    Goto Ready+9
+    Goto Ready+7
   Empty:
     SHTE A 10 A_PlaySound("weapons/click")
-	Goto Ready+9
+	Goto Ready+7
   Reload:
 	TNT1 A 0 A_JumpIfInventory("SSGShell",1,"ReloadRight")	
 	TNT1 A 0 A_JumpIfInventory("NewShell",2,"ReloadBoth")
 	Goto Empty		
   ReloadBoth:
     TNT1 A 0 A_JumpIfInventory("NewShell",2,1)
-	Goto Ready+9
+	Goto Ready+7
 	SHT2 RQ 2
 	SH2E B 2
 	SHT2 GH 2
@@ -766,10 +761,10 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	SH2E C 1
 	SH2E B 2
 	SHT2 QR 2	
-    Goto Ready+9	
+    Goto Ready+7	
   ReloadRight:
     TNT1 A 0 A_JumpIfInventory("NewShell",1,1)
-	Goto Ready+9
+	Goto Ready+7
 	SHT2 RQ 2
 	SH2E B 2
 	SH2E C 1
@@ -788,11 +783,11 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	SH2E C 1
 	SH2E B 2
 	SHT2 QR 2
-	Goto Ready+9
+	Goto Ready+7
   GrenadeCheck:
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
-	Goto Ready+9
+	Goto Ready+7
   GrenadeToss:
   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
 	S2GN FEDCBA 1
@@ -812,12 +807,11 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
 	TNT1 A 0
-	S2GN ABCDEF 1
-	Goto Ready+9
+	Goto Ready+1
   MineCheck:
 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
 	TNT1 A 0 A_TakeInventory("MineAction",1)
-	Goto Ready+9
+	Goto Ready+7
   MineToss:
   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
 	S2GN FEDCBA 1
@@ -833,15 +827,14 @@ ACTOR "MOP Double Barrel Shotgun" : Weapon replaces SuperShotgun
 	TNT1 A 0 A_TakeInventory("MineAction",1)
 	TNT1 A 0
 	TNT1 A 5
-	S2GN ABCDEF 1
-	Goto Ready+9
+	Goto Ready+1
   Spawn:
     SGN2 A -1
     Stop
     }
 }
 
-ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
+ACTOR "MOP Quad Barrel Shotgun" : Weapon replaces "Quad Barrel Shotgun"
 {
   Scale 0.9
   Weapon.PreferredSkin "QuadBarrelSG-Marine"
@@ -862,12 +855,11 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
   {
   Ready:
     TNT1 A 0 A_PlayWeaponSound("weapons/pickupqsg")
-	QSRS ABCDEF 1
-	QSRS GH 2
+	QSHT ABCDE 1
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
 	TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
     QSGN A 1 A_WeaponReady
-    Goto Ready+9
+    Goto Ready+6
   Deselect: 
     TNT1 A 0 A_PlayWeaponSound("weapons/weapondown")
     QSGN A 1 A_Lower
@@ -899,7 +891,7 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
   QuadReloadCheck:
   	TNT1 A 0 A_JumpIfInventory("NewShell",4,2)
 	QSGN S 2
-	Goto Ready+9
+	Goto Ready+6
 	TNT1 A 0
 	Goto ReloadFourShells+3
   AltFire:
@@ -918,7 +910,7 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
 	TNT1 A 0 A_Light0
 	QREC ABCDE 1
 	QSGN A 1
-    Goto Ready+9
+    Goto Ready+6
   FireUpper:
     TNT1 A 0 A_PlaySound("weapons/qsgdoublefire")	
     TNT1 A 0 A_AlertMonsters
@@ -932,11 +924,11 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
 	TNT1 A 0 A_Light0
 	QREC ABCDE 1
 	QSGN A 1
-    Goto Ready+9	
+    Goto Ready+6	
   Empty:
     QSGN A 10 A_PlayWeaponSound("weapons/click")
 	TNT1 A 0 A_JumpIfInventory("NewShell",4,"ReloadFourShells")
-	Goto Ready+9
+	Goto Ready+6
   Reload:
 	TNT1 A 0 A_JumpIfInventory("QuadShell",2,"ReloadTwoShells")
 	TNT1 A 0 A_JumpIfInventory("NewShell",4,"ReloadFourShells")
@@ -969,10 +961,10 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
 	QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
 	QSGN QRS 2
 	QSGN A 2
-    Goto Ready+9
+    Goto Ready+6
   ReloadTwoShells:
     TNT1 A 0 A_JumpIfInventory("NewShell",2,1)
-	Goto Ready+9
+	Goto Ready+6
 	QSGN SRQ 2
 	QSGN P 1
 	QSEX A 1
@@ -992,11 +984,11 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
 	QSGN P 1 A_PlayWeaponSound("weapons/qsgclose")
 	QSGN QRS 2
 	QSGN A 2
-	Goto Ready+9
+	Goto Ready+6
   GrenadeCheck:
 	TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
-	Goto Ready+9
+	Goto Ready+6
   GrenadeToss:
   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
 	QSHT EDCBA 1
@@ -1016,12 +1008,11 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
 	TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
 	TNT1 A 0
-	QSHT ABCDE 1
-	Goto Ready+9
+	Goto Ready+1
   MineCheck:
 	TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
 	TNT1 A 0 A_TakeInventory("MineAction",1)
-	Goto Ready+9
+	Goto Ready+6
   MineToss:
   	TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
 	QSHT EDCBA 1
@@ -1037,15 +1028,14 @@ ACTOR "MOP Quad Barrel Shotgun" : Weapon 19346
 	TNT1 A 0 A_TakeInventory("MineAction",1)
 	TNT1 A 0
 	TNT1 A 5
-	QSHT ABCDE 1
-	Goto Ready+9
+	Goto Ready+1
   Spawn:
     QSGP A -1
     Stop
     }
 }
 
-ACTOR "MOP Assault Rifle" : Weapon replaces Chaingun
+ACTOR "MOP Assault Rifle" : Weapon replaces "Assault Rifle"
 {
 	Weapon.PreferredSkin "AssaultRifle-Marine"
 	Weapon.AmmoType "ARMagazine"
@@ -1204,7 +1194,7 @@ ACTOR "MOP Assault Rifle" : Weapon replaces Chaingun
 		}
 }
 
-ACTOR "MOP Minigun" : Weapon 19347
+ACTOR "MOP Minigun" : Weapon replaces "Minigun "
 {
 Scale 0.75
 Weapon.Selectionorder 690
@@ -1279,7 +1269,7 @@ EmptySpinDown:
 	}
 }
 
-ACTOR "MOP Rocket Launcher" : Weapon replaces Rocketlauncher
+ACTOR "MOP Rocket Launcher" : Weapon replaces "Rocket Launcher"
 {
 Radius 20 
 Height 16
@@ -1384,7 +1374,7 @@ Spawn:
     }
 }
 
-ACTOR "MOP Grenade Launcher" : Weapon 19348
+ACTOR "MOP Grenade Launcher" : Weapon replaces "Grenade Launcher"
 {
   Weapon.PreferredSkin "GrenadeLauncher-Marine"
   Weapon.AmmoType "GrenadeDrum"
@@ -1486,7 +1476,7 @@ ACTOR "MOP Grenade Launcher" : Weapon 19348
 	}
 }
 
-ACTOR "MOP Plasma Rifle" : Weapon replaces PlasmaRifle
+ACTOR "MOP Plasma Rifle" : Weapon replaces "Plasma Rifle"
 {
 Scale 0.85
 Weapon.PreferredSkin "PlasmaRifle-Marine"
@@ -1530,8 +1520,9 @@ Fire:
 	TNT1 A 0 A_ReFire
 Recoil:
 	PKPL DEF 1
-	PKPL G 10
-	PKPL FEDCBA 1
+	PKPL G 7
+	PKPL FED 2	
+	PKPL CBA 1
 	Goto Ready+7
 Flash:
 	TNT1 A 2 Bright A_Light1
@@ -1615,7 +1606,7 @@ Spawn:
     }
 }
 
-ACTOR "MOP Railgun" : Weapon 19349
+ACTOR "MOP Railgun" : Weapon replaces "Railgun "
 {
   Scale 0.8
   Weapon.PreferredSkin "Railgun-Marine"
@@ -1992,8 +1983,8 @@ ACTOR "MOP Railgun" : Weapon 19349
 	TNT1 A 0 Radius_Quake(12,4,0,1,0)
     TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_Light1
-	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0)
-    RAIF A 2 Bright A_RailAttack(250,0,1,"00 85 FF",None,0,0,"PlayerRailPuff")
+	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0,0,0)
+    RAIF A 2 Bright A_RailAttack(250,0,1,"00 85 FF",None,0) 
 	RAIF B 2 Bright A_Light2
 	TNT1 A 0 A_Light0
 	TNT1 A 0 A_JumpIfInventory("CellCharge",10,"ChargedRecoil")
@@ -2011,8 +2002,8 @@ ACTOR "MOP Railgun" : Weapon 19349
 	TNT1 A 0 Radius_Quake(12,4,0,1,0)
     TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_Light2
-	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0)
-	RSCP A 4 Bright A_RailAttack(250,0,1,"00 85 FF",None,0,0,"PlayerRailPuff")
+	TNT1 A 0 A_FireCustomMissile("RailgunImpact",0,0,0,0)
+	RSCP A 4 Bright A_RailAttack(250,0,1,"00 85 FF",None,0)
 	TNT1 A 0 A_JumpIfInventory("CellCharge",10,4)
 	TNT1 A 0 A_TakeInventory("RailgunZoomed",1)
 	TNT1 A 0 A_ZoomFactor(1)	
@@ -2199,7 +2190,7 @@ ACTOR "MOP Railgun" : Weapon 19349
     }
 }
 
-ACTOR "MOP BFG9500" : BFG9000 replaces BFG9000
+ACTOR "MOP BFG9500" : BFG9000 replaces BFG9500
 {
 Scale 0.85
 Weapon.PreferredSkin "BFG9500-Marine"
@@ -2248,7 +2239,7 @@ Flash:
     }
 }	
 
-ACTOR "MOP BFG10K" : Weapon 19350
+ACTOR "MOP BFG10K" : Weapon replaces "BFG10K "
 {
   Scale 0.85
   Height 20
@@ -2325,7 +2316,11 @@ ACTOR "MOP BFG10K" : Weapon 19350
   }
 }
 
-ACTOR "MOP Demon Tech Rifle" : Weapon 19355
+//==================
+// Demon Tech Rifle
+//==================
+
+ACTOR "MOP Demon Tech Rifle" : Weapon replaces "Demon Tech Rifle"
 {
    Height 14
    Weapon.PreferredSkin "DemonTechRifle-Marine"
@@ -2333,7 +2328,6 @@ ACTOR "MOP Demon Tech Rifle" : Weapon 19355
    Weapon.KickBack 60
    Weapon.AmmoUse 1
    Weapon.AmmoGive 60
-   Weapon.AmmoGive2 30
    Scale 0.95
    Weapon.AmmoType "DemonMagazine"   
    Weapon.AmmoType2 "DemonAmmo"
@@ -2514,7 +2508,11 @@ ACTOR "MOP Demon Tech Rifle" : Weapon 19355
      }
 }
 
-ACTOR "MOP Demon Tech BFG10K" : Weapon 19356
+//==================
+// Demon Tech BFG10K
+//==================
+
+ACTOR "MOP Demon Tech BFG10K" : Weapon replaces "Demon Tech BFG10K"
 {
 Height 20
 Weapon.SelectionOrder 2780
@@ -2590,4 +2588,154 @@ Spawn:
     BFUG A -1
     Stop   
     }
+}
+
+//======
+// MP40
+//======
+
+ACTOR "MOP MP40" : Weapon replaces MP40
+{
+   Weapon.PreferredSkin "MP40-Marine"
+   Weapon.SelectionOrder 7990
+   Weapon.KickBack 50
+   Weapon.AmmoUse 1
+   Weapon.AmmoGive2 20
+   Weapon.AmmoType "MP40Mag"   
+   Weapon.AmmoType2 "BulletMag"
+   Inventory.PickupMessage "MP40"
+   Inventory.PickupSound "MP40/MagIn"
+   Obituary "%o was perforated by %k's MP40."
+   AttackSound "MP40/Fire"
+   Decal BulletChip
+   Scale 0.45
+   +WEAPON.AMMO_OPTIONAL
+   +WEAPON.NOALERT
+   +INVENTORY.UNDROPPABLE
+   States
+   {
+   Ready:
+     TNT1 A 0 A_PlayWeaponSound("MP40/MagIn")
+	 MPRS ABCDE 1
+	 TNT1 A 0 A_JumpIfInventory("HandGrenadeAction",1,"GrenadeCheck")
+	 TNT1 A 0 A_JumpIfInventory("MineAction",1,"MineCheck")
+     MP40 A 1 A_WeaponReady
+     Goto Ready+6
+   Deselect:
+     TNT1 A 0 A_PlayWeaponSound("weapons/weapondown")
+     MP40 A 1 A_Lower
+     Goto Deselect+1
+   Select:
+	 TNT1 A 0 A_Raise
+	 Wait
+   Fire:
+     TNT1 A 0 A_JumpIfNoAmmo("Empty")
+	 TNT1 A 0 A_AlertMonsters
+     TNT1 A 0 A_GunFlash
+	 TNT1 A 0 Radius_Quake(1,2,0,1,0)
+     TNT1 A 0 A_Light1
+	 TNT1 A 0 A_SpawnItemEx("BulletCasing",30,0,30,Random(2,4),Random(3,6),Random(3,6),0)
+     MP40 B 2 Bright A_FireBullets(3.6,2.3,-1,Random(8,10),"PlayerModdedBulletPuff")
+	 MP40 C 1 A_Light0
+     MP40 D 1
+     TNT1 A 0 A_ReFire
+     Goto Ready+6
+  Empty:
+     MP40 A 10 A_PlayWeaponSound("weapons/click")	 
+  AltFire:
+  	 TNT1 A 0 A_JumpIfInventory("MP40Mag",33,2)
+     TNT1 A 0 A_JumpIfInventory("BulletMag",1,2)
+	 TNT1 A 0
+	 Goto Ready+6
+	 TNT1 A 0 A_JumpIfInventory("MP40Mag",1,"MaxReload")
+     MP4R NM 1
+	 MP4R LAB 1
+	 MP4R C 1 A_PlayWeaponSound("MP40/MagOut")
+	 MP4R DE 1
+	 MP4R F 15 A_FireCustomMissile("MP40EmptyMagSpawner", 0, 0, 0, 1)
+	 MP4R EDC 2
+	 MP4R B 3 A_PlayWeaponSound("MP40/MagIn")
+	 MP4R A 3
+	 MP4R G 2
+     MP4R H 3 A_PlayWeaponSound("MP40/Cock")
+     MP4R I 3	
+	 MP4R JKL 2
+     MP4R MN 1
+     MP40 A 2
+	 TNT1 A 0 A_JumpIfInventory("BulletMag",1,"Reload")	 
+	 Goto Ready+6
+   Reload:
+	 TNT1 A 0 A_TakeInventory("BulletMag",1)
+	 TNT1 A 0 A_GiveInventory("MP40Mag",1)
+	 TNT1 A 0 A_JumpIfInventory("MP40Mag",32,2)
+	 TNT1 A 0 A_JumpIfInventory("BulletMag",1,"Reload")
+	 TNT1 A 0 
+	 Goto Ready+6
+   MaxReload:
+     MP4R NM 1
+	 MP4R LAB 1
+	 MP4R C 1 A_PlayWeaponSound("MP40/MagOut")
+	 MP4R DE 1
+	 MP4R F 15 A_FireCustomMissile("MP40EmptyMagSpawner", 0, 0, 0, 1)
+	 MP4R ED 2
+	 MP4R C 2 A_PlayWeaponSound("MP40/MagIn")
+	 MP4R BA 2
+	 TNT1 A 0 A_JumpIfInventory("BulletMag",1,"Reload2")	
+   Reload2:
+	 TNT1 A 0 A_TakeInventory("BulletMag",1)
+	 TNT1 A 0 A_GiveInventory("MP40Mag",1)
+	 TNT1 A 0 A_JumpIfInventory("MP40Mag",33,2)
+	 TNT1 A 0 A_JumpIfInventory("BulletMag",1,"Reload2")	 
+   Full:
+	 MP4R L 2
+     MP4R MN 1
+	 Goto Ready+6
+   GrenadeCheck:
+	 TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,"GrenadeToss")
+	 TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+	 Goto Ready+6
+   GrenadeToss:
+  	 TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+	 MPRS EDCBA 1
+	 TNT1 A 4
+	 HGRN ABC 1
+	 HGRN D 3
+	 HGRN EFGHI 2
+	 TNT1 A 15 A_PlayWeaponSound("weapons/hgrenadepin")
+	 TNT1 A 0 A_PlayWeaponSound("weapons/hgrenadethrow")
+	 TNT1 A 0 A_TakeInventory("HandGrenadeAmmo",1)
+	 HGNE A 1 A_FireCustomMissile("ThrownGrenade",0,0,0,0)
+	 HGRN J 1
+	 HGRN KLM 2
+	 HGRN NO 1
+	 TNT1 A 6
+	 TNT1 A 0 A_JumpIfInventory("HandGrenadeAmmo",1,2)
+     TNT1 A 0 A_TakeInventory("Hand Grenade",1)
+	 TNT1 A 0 A_TakeInventory("HandGrenadeAction",1)
+	 TNT1 A 0
+	 Goto Ready+1
+   MineCheck:
+	 TNT1 A 0 A_JumpIfInventory("MineAmmo",1,"MineToss")
+	 TNT1 A 0 A_TakeInventory("MineAction",1)
+	 Goto Ready+6
+   MineToss:
+  	 TNT1 A 0 A_PlayWeaponSound("weapons/weapondown") 
+	 MPRS EDCBA 1
+	 TNT1 A 8
+	 TNT1 A 0 A_PlayWeaponSound("weapons/hgrenadethrow")
+	 MINE ABCDEF 1		
+	 TNT1 A 0 A_TakeInventory("MineAmmo",1)	  
+	 MINE G 1 A_FireCustomMissile("ThrownMine",0,0,0,0)
+	 MINE HI 1
+	 MINE JK 2
+	 TNT1 A 0 A_JumpIfInventory("MineAmmo",1,2)
+     TNT1 A 0 A_TakeInventory("Land Mine",1)
+	 TNT1 A 0 A_TakeInventory("MineAction",1)
+	 TNT1 A 0
+	 TNT1 A 5
+	 Goto Ready+1	 
+   Spawn:
+     MP4P A -1
+     Stop
+   }
 }
