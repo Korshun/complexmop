@@ -2128,7 +2128,8 @@ ACTOR "MOP Railgun" : Weapon replaces "Railgun "
 	TNT1 A 6
 	HGRN ABC 1
 	HGRN D 3
-	HGRN EFGHI 2
+	HGRN EFG 1
+	HGRN HI 2
 	TNT1 A 15 A_PlayWeaponSound("weapons/hgrenadepin")
 	TNT1 A 0 A_PlayWeaponSound("weapons/hgrenadethrow")
 	TNT1 A 0 A_TakeInventory("HandGrenadeAmmo",1)
@@ -2328,6 +2329,7 @@ ACTOR "MOP Demon Tech Rifle" : Weapon replaces "Demon Tech Rifle"
    Weapon.KickBack 60
    Weapon.AmmoUse 1
    Weapon.AmmoGive 60
+   Weapon.AmmoGive2 30
    Scale 0.95
    Weapon.AmmoType "DemonMagazine"   
    Weapon.AmmoType2 "DemonAmmo"
@@ -2436,16 +2438,17 @@ ACTOR "MOP Demon Tech Rifle" : Weapon replaces "Demon Tech Rifle"
      DTKR AB 2
 	 DTKR C 3
 	 DTKR D 4 A_PlayWeaponSound("weapons/demontecheject")
-	 TNT1 A 0 Radius_Quake(2,2,0,1,0)
-	 DTKR E 2 A_PlayWeaponSound("weapons/demontechsteam")
-	 DTKR F 2 Radius_Quake(2,2,0,1,0)
-	 DTKR GHI 2 Radius_Quake(2,2,0,1,0)
-	 DTKR J 3 A_FireCustomMissile("DemonTechEmptyMagSpawner", 0, 0, 0, 1)
+	 TNT1 A 0 A_PlayWeaponSound("weapons/demontechsteam")
+	 DTKR EFG 1 Radius_Quake(2,2,0,1,0)
+	 DTKR H 2 Radius_Quake(2,2,0,1,0)
+	 DTKR I 3 Radius_Quake(2,2,0,1,0)
+	 DTKR J 4 A_FireCustomMissile("DemonTechEmptyMagSpawner", 0, 0, 0, 1)
 	 DTKR K 15 
-	 DTKR LMN 2
+	 DTKR LM 2
+	 DTKR N 2 A_PlayWeaponSound("weapons/demontechload")
 	 TNT1 A 0 A_JumpIfInventory("DemonAmmo",1,"Reload")	 
-	 DTKR O 6 A_PlayWeaponSound("weapons/demontechload")
-	 DTKR O 4 A_PlayWeaponSound("weapons/demontechclick")
+	 DTKR O 8
+	 DTKR O 2 A_PlayWeaponSound("weapons/demontechclick")
      DTKR CB 3
 	 DTKR A 2
 	 Goto ReadyLoop
@@ -2467,8 +2470,9 @@ ACTOR "MOP Demon Tech Rifle" : Weapon replaces "Demon Tech Rifle"
 	 DTRS EDCBA 1
 	 TNT1 A 4
 	 HGRN ABC 1
-	 HGRN D 3
-	 HGRN EFGHI 2
+	 HGRN D 2
+	 HGRN EFG 1
+	 HGRN HI 2
 	 TNT1 A 15 A_PlayWeaponSound("weapons/hgrenadepin")
 	 TNT1 A 0 A_PlayWeaponSound("weapons/hgrenadethrow")
 	 TNT1 A 0 A_TakeInventory("HandGrenadeAmmo",1)
@@ -2508,9 +2512,9 @@ ACTOR "MOP Demon Tech Rifle" : Weapon replaces "Demon Tech Rifle"
      }
 }
 
-//==================
+//===================
 // Demon Tech BFG10K
-//==================
+//===================
 
 ACTOR "MOP Demon Tech BFG10K" : Weapon replaces "Demon Tech BFG10K"
 {
@@ -2699,8 +2703,9 @@ ACTOR "MOP MP40" : Weapon replaces MP40
 	 MPRS EDCBA 1
 	 TNT1 A 4
 	 HGRN ABC 1
-	 HGRN D 3
-	 HGRN EFGHI 2
+	 HGRN D 2
+	 HGRN EFG 1
+	 HGRN HI 2
 	 TNT1 A 15 A_PlayWeaponSound("weapons/hgrenadepin")
 	 TNT1 A 0 A_PlayWeaponSound("weapons/hgrenadethrow")
 	 TNT1 A 0 A_TakeInventory("HandGrenadeAmmo",1)

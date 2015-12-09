@@ -63,12 +63,6 @@ Frame BFGZE { Light ZombieBFG1 }
 Frame BFGZF { Light ZombieBFG2 }
 }
 
-OBJECT PossessedMagmaFiend
-{
-Frame SAR3 { Light InfernoVileFire1 }
-Frame SAI3 { Light InfernoVileFire1 }
-}
-
 OBJECT PossessedDTechFiend
 {
 Frame DPNKF { Light ZombieDemonTech1 }
@@ -202,19 +196,6 @@ Frame NREXG { Light HellArchonExplosion1 }
 Frame NREXH { Light HellArchonExplosion1 }
 }
 
-OBJECT PossessedHellArchon
-{
-Frame LOHSR { Light HellArchonExplosion1 }
-Frame LOHSS { Light HellArchonExplosion1 }
-Frame LOHST { Light HellArchonExplosion1 }
-Frame LOHSU { Light HellArchonExplosion1 }
-Frame LOHSV { Light HellArchonExplosion1 }
-Frame LOHSW { Light HellArchonExplosion1 }
-Frame LOHSX { Light HellArchonExplosion1 }
-Frame LOHSY { Light HellArchonExplosion1 }
-Frame LOHSZ { Light HellArchonExplosion1 }
-}
-
 OBJECT PossessedPyroDemon
 {
 Frame PYROR { Light PyroDemonExplosion1 }
@@ -255,11 +236,6 @@ Frame HFRDP { Light PyroDemonExplosion1 }
 Frame HFRDQ { Light PyroDemonExplosion1 }
 }
 
-OBJECT PossessedAfrit
-{
-Frame FRIT { Light AfritFire1 }
-}
-
 OBJECT PossessedCybruiser
 {
 Frame BRURA { Light CybruisRail1 }
@@ -286,8 +262,16 @@ Frame VILE] { Light HellArchonExplosion1 }
 
 OBJECT PossessedDiabolist
 {
-Frame DIAB { Light InfernoVileFire1 }
-Frame DIA2 { Light InfernoVileFire1 }
+Frame DIABG { Light InfernoVileFire1 }
+Frame DIABH { Light InfernoVileFire1 }
+Frame DIABI { Light InfernoVileFire1 }
+Frame DIABJ { Light InfernoVileFire1 }
+Frame DIABK { Light InfernoVileFire1 }
+Frame DIABL { Light InfernoVileFire1 }
+Frame DIABM { Light InfernoVileFire1 }
+Frame DIABN { Light InfernoVileFire1 }
+Frame DIABO { Light InfernoVileFire1 }
+Frame DIABP { Light InfernoVileFire1 }
 }
 
 OBJECT PossessedDarkHellion
