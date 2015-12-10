@@ -1,3 +1,4 @@
+// TODO: add missing projectiles
 Actor ZombiePlasmaBallMOP : ZombiePlasmaBall replaces ZombiePlasmaBall
 {
  	DamageType "Monster"
@@ -13,7 +14,7 @@ Actor NightBallMOP : NightBall replaces NightBall
 	DamageType "Monster"
 }
 
-Actor SoulHarvesterBallMOP : SoulHarvesterBall replaces SoulHarvesterBall
+Actor DevilBallMOP : DevilBall replaces DevilBall
 {
 	DamageType "Monster"
 }
@@ -103,11 +104,6 @@ Actor FusionShotMOP : FusionShot replaces FusionShot
 	DamageType "Monster"
 }
 
-Actor BabyDemoBallMOP : BabyDemoBall replaces BabyDemoBall
-{
-	DamageType "Monster"
-}
-
 Actor BabySent10KMOP : BabySent10K replaces BabySent10K
 {
 	DamageType "Monster"
@@ -128,12 +124,7 @@ Actor FamineTracerMOP : FamineTracer replaces FamineTracer
 	DamageType "Monster"
 }
 
-Actor ArchonFastBallMOP : ArchonFastBall replaces ArchonFastBall
-{
-	DamageType "Monster"
-}
-
-Actor HABallMOP : HABall replaces HABall
+Actor KnightFastBallMOP : KnightFastBall replaces KnightFastBall
 {
 	DamageType "Monster"
 }
@@ -159,11 +150,6 @@ Actor BBall2MOP : BBall2 replaces BBall2
 }
 
 Actor DukeBall2MOP : DukeBall2 replaces DukeBall2
-{
-	DamageType "Monster"
-}
-
-Actor AfritBallMOP : AfritBall replaces AfritBall
 {
 	DamageType "Monster"
 }
@@ -198,27 +184,12 @@ Actor DarkCyberRocketMOP : DarkCyberRocket replaces DarkCyberRocket
 	DamageType "Monster"
 }
 
-Actor DarkCyber9KMOP : DarkCyber9K replaces DarkCyber9K
-{
-	DamageType "Monster"
-}
-
 Actor CardinalRocketMOP : CardinalRocket replaces CardinalRocket
 {
 	DamageType "Monster"
 }
 
 Actor CometDeathMOP : CometDeath replaces CometDeath 
-{
-	DamageType "Monster"
-}
-
-Actor AfritTracerMOP : AfritTracer replaces AfritTracer 
-{
-	DamageType "Monster"
-}
-
-Actor ATracerPuffMOP : ATracerPuff replaces ATracerPuff 
 {
 	DamageType "Monster"
 }
@@ -348,11 +319,6 @@ Actor RictusSuicideMOP : RictusSuicide replaces RictusSuicide
 	DamageType "Monster"
 }
 
-Actor HeleCometMOP : HeleComet replaces HeleComet 
-{
-	DamageType "Monster"
-}
-
 Actor BombBallExMOP : BombBallEx replaces BombBallEx 
 {
 	DamageType "Monster"
@@ -423,16 +389,6 @@ Actor FamineTracerExMOP : FamineTracerEx replaces FamineTracerEx
 	DamageType "Monster"
 }
 
-Actor HACometMOP : HAComet replaces HAComet 
-{
-	DamageType "Monster"
-}
-
-Actor HACometDeathMOP : HACometDeath replaces HACometDeath 
-{
-	DamageType "Monster"
-}
-
 ACTOR PyroFireSpawnerMOP : PyroFireSpawner replaces PyroFireSpawner
 {
   MissileType PyroFireMOP
@@ -476,16 +432,6 @@ Actor DukeFireMOP : DukeFire replaces DukeFire
 }
 
 Actor DukeSpikeMOP : DukeSpike replaces DukeSpike 
-{
-	DamageType "Monster"
-}
-
-Actor BruiserCometMOP : BruiserComet replaces BruiserComet 
-{
-	DamageType "Monster"
-}
-
-Actor BruiserCometDeathMOP : BruiserCometDeath replaces BruiserCometDeath 
 {
 	DamageType "Monster"
 }
