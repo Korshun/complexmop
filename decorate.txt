@@ -4802,7 +4802,7 @@ Actor BaronOfHell~Weapon : PossessedWeapon
 }
 
 
-Actor PossessedBruiserDemon : PossessedBaronOfHell 21041
+Actor PossessedBruiserDemon : PossessedBaronOfHell
 { 
 	Player.MorphWeapon "BruiserDemonWeapon"
 
