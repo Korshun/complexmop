@@ -257,12 +257,12 @@ StatusBar Normal
 	{
 	DrawImage "STTMINUS", 22, 172;
 	}
-    IsSelected "MOP Hand Grenade"
+    IsSelected "Hand Grenade"
 	{
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Land Mine"
+    IsSelected "Land Mine"
 	{
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
@@ -337,7 +337,7 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Railgun "
+    IsSelected "MOP Railgun"
 	{
 	DrawImage "SEWBA0", 118, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
