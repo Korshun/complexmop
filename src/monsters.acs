@@ -87,14 +87,16 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 };
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 5
+#define NUM_MONSTER_ITEMS 7
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
 	"QSGZombieToken",
 	"DukeToken",
 	"FamineMeleeToken",
-	"FamineDeathToken"
+	"FamineDeathToken",
+	"SentientToken",
+	"CardinalToken"
 };
 
 script mop_phaseimp (void)
