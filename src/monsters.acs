@@ -42,9 +42,9 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "ForgottenOne",			0.1, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
 	{ "PoisonSoul",				0.1, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
 	{ "Rictus",					0.1, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
-	{ "Abaddon",				0.14, 0, 14, MONSTF_FLYING, "Abaddon", "CALIA1" },
+	{ "Cacodemon~",				0.14, 0, 14, MONSTF_FLYING, "Cacodemon", "CALIA1" },
 	{ "Watcher",				0.14, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
-	{ "Helemental",				0.14, 0, 14, MONSTF_FLYING, "Helemental", "INFCA1" },
+	{ "Cacomental",				0.14, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
 	{ "Defiler",				0.17, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
 	{ "PoisonElemental",		0.17, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
@@ -61,11 +61,11 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
 	{ "HellfireRevenant",		0.25, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
 	{ "Famine",					0.25, 0, 0, 0, "Famine", "NREVA1D1" },
-	{ "HellArchon",				0.17, 0, 0, 0, "Hell Archon", "LOHSA1C1" },
+	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1C1" },
 	{ "PyroDemon",				0.17, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
 	{ "CyberNoble",				0.17, 0, 0, 0, "Cyber Noble", "CBOSA1" },
 	{ "HellDuke",				0.17, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
-	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "HFRYA1" },
+	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
 	{ "Afrit",					0.2, 0, 0, 0, "Afrit", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
 	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
@@ -87,11 +87,14 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 };
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 2
+#define NUM_MONSTER_ITEMS 5
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
-	"QSGZombieToken"
+	"QSGZombieToken",
+	"DukeToken",
+	"FamineMeleeToken",
+	"FamineDeathToken"
 };
 
 script mop_phaseimp (void)
