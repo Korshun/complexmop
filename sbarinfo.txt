@@ -207,3 +207,195 @@ StatusBar InventoryFullscreen, FullScreenOffsets
 {
    DrawInventoryBar Doom, NoArrows, Translucent, 6, INDEXFONT, -96 + Center, 0, -68 + Center, 2, White;
 }
+
+//=============
+// StatBar HUD
+//=============
+
+StatusBar Normal
+{
+    DrawImage "CSTBAR", 0, 168;
+
+    GameMode Cooperative, Deathmatch, Teamgame
+    {
+    DrawImage Translatable "STFBANY", 143, 169;
+    }
+	
+	DrawImage "STTPRCNT", 90, 172;
+    DrawImage "STTPRCNT", 221, 172;
+	
+	InInventory IsMarine
+	{
+	// THIS LINE CAUSES A CRASH IN MorphActor IN MULTIPLAYER IF USED ON PUPPETMASTERS
+	DrawMugshot 5, AnimatedGodMode, XDeathFace, 144, 168;
+	}
+	
+	InInventory Not PowerStrength
+	{
+	DrawImage "STHELT", 55, 191; 
+	}	
+	InInventory PowerStrength
+	{
+	DrawImage "STHELT", 50, 191;
+	DrawImage "HBERZK", 93, 189; 
+	}
+	
+	DrawImage "STARMR", 195, 191;
+	
+	DrawSwitchableImage ArmorType StartingArmor, "", "HARMSV", 183, 189;
+	DrawSwitchableImage ArmorType ModdedGreenArmor, "", "HARMGR", 183, 189;
+	DrawSwitchableImage ArmorType ModdedBlueArmor, "", "HARMBL", 183, 189;
+	DrawSwitchableImage ArmorType RedArmor, "", "HARMRE", 183, 189;	
+	
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Health, 90, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Health, WhenNotZero, 90, 172, 0, Red, 25, Green, 51;
+	
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Armor, 221, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Green, Armor, WhenNotZero, 221, 172, 0, Red, 50, Blue, 151;
+
+    IsSelected "MOP Melee"
+	{
+	DrawImage "STTMINUS", 22, 172;
+	}
+    IsSelected "MOP Hand Grenade"
+	{
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
+	}
+    IsSelected "MOP Land Mine"
+	{
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
+	}
+    IsSelected "MOP Chainsaw"
+	{
+	DrawImage "STTMINUS", 22, 172;
+	}	
+    IsSelected "MOP Handgun"
+	{
+	DrawImage "SEWBA0", 106, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 4, Green, 9;
+	}
+    IsSelected "MOP Combat Shotgun"
+	{
+	DrawImage "SEWBA0", 118, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 6;
+	}
+    IsSelected "MOP Assault Shotgun"
+	{
+	DrawImage "SEWBA0", 118, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 6;
+	}
+    IsSelected "MOP Double Barrel Shotgun"
+	{
+	DrawImage "SEWBA0", 118, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 1, Green, 2;
+	}
+    IsSelected "MOP Quad Barrel Shotgun"
+	{
+	DrawImage "SEWBA0", 118, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 4;
+	}
+    IsSelected "MOP Assault Rifle"
+	{
+	DrawImage "SEWBA0", 130, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
+	}
+    IsSelected "MOP Minigun"
+	{
+	DrawImage "SEWBA0", 130, 169;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 25, Green, 51;
+	}	
+    IsSelected "MOP Rocket Launcher"
+	{
+	DrawImage "SEWBA0", 106, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
+	}
+    IsSelected "MOP Grenade Launcher"
+	{
+	DrawImage "SEWBA0", 106, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
+	}
+    IsSelected "MOP Plasma Rifle"
+	{
+	DrawImage "SEWBA0", 118, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
+	}
+    IsSelected "MOP Demon Tech Rifle"
+	{
+	DrawImage "SEWBA0", 118, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
+	}
+    IsSelected "MOP Railgun "
+	{
+	DrawImage "SEWBA0", 118, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
+	}
+    IsSelected "MOP BFG9500"
+	{
+	DrawImage "SEWBA0", 130, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 40, Green, 81;
+	}
+    IsSelected "MOP BFG10K"
+	{
+	DrawImage "SEWBA0", 130, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 30, Green, 61;
+	}
+    IsSelected "MOP Demon Tech BFG10K"
+	{
+	DrawImage "SEWBA0", 130, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 100, Green, 201;
+	}
+    IsSelected "MOP MP40"
+	{
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
+	}
+	
+    DrawNumber 3, INDEXFONT, Gold, Ammo BulletMag, 318, 170;
+    DrawNumber 3, INDEXFONT, Gold, Ammo NewShell, 318, 176;
+    DrawNumber 3, INDEXFONT, Gold, Ammo Missile, 318, 182;
+    DrawNumber 3, INDEXFONT, Gold, Ammo NewCell, 318, 188;
+	DrawNumber 3, INDEXFONT, Gold, Ammo DemonAmmo, 318, 194;
+	
+	DrawNumber 1, INDEXFONT, Gold, HandGrenadeAmmo, 285, 194;
+	DrawNumber 1, INDEXFONT, Gold, MineAmmo, 267, 194;	
+	
+    DrawSwitchableImage WeaponSlot 2, "STGNUM2", "STYSNUM2", 111, 172; 
+    DrawSwitchableImage WeaponSlot 3, "STGNUM3", "STYSNUM3", 123, 172;
+    DrawSwitchableImage WeaponSlot 4, "STGNUM4", "STYSNUM4", 135, 172;
+    DrawSwitchableImage WeaponSlot 5, "STGNUM5", "STYSNUM5", 111, 182;
+    DrawSwitchableImage WeaponSlot 6, "STGNUM6", "STYSNUM6", 123, 182;
+    DrawSwitchableImage WeaponSlot 7, "STGNUM7", "STYSNUM7", 135, 182;
+	
+    DrawSwitchableImage BlueCard && BlueSkull, "", "STKEYS0", "STKEYS3", "STKEYS6", 236, 169;
+    DrawSwitchableImage YellowCard && YellowSkull, "", "STKEYS1", "STKEYS4", "STKEYS7", 236, 179;
+    DrawSwitchableImage RedCard && RedSkull, "", "STKEYS2", "STKEYS5", "STKEYS8", 236, 189;
+	
+	DrawSelectedInventory INDEXFONT, 253, 165, 281, 172, Gold;
+}
+
+StatusBar Inventory, FullScreenOffsets
+{
+	InInventory IsMarine
+	{
+	
+   DrawInventoryBar Doom, NoArrows, Translucent, 6, INDEXFONT, -96 + Center, 0, -68 + Center, 2, White;
+   
+	}
+}
