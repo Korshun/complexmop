@@ -254,3 +254,34 @@ ACTOR "MOP Quad Barrel Shotgun" : "Quad Barrel Shotgun" replaces "Quad Barrel Sh
     Goto Ready+9	
   }
 }
+
+ACTOR "MOP Assault Rifle" : "Assault Rifle" replaces "Assault Rifle"
+{
+	States
+	{
+	Fire:
+	    TNT1 A 0 A_JumpIfNoAmmo("Empty")	
+	    TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+	    TNT1 A 0 A_AlertMonsters	
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+	    TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light1
+		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"PlayerModdedBulletPuff")
+		TNT1 A 0 A_Light0
+		CHGF BC 1
+	    TNT1 A 0 A_JumpIfInventory("ARMagazine",1,1)
+		Goto Ready+7
+	    TNT1 A 0 A_PlaySound("weapons/assaultrifle")
+	    TNT1 A 0 A_AlertMonsters	
+		TNT1 A 0 A_GunFlash
+		TNT1 A 0 Radius_Quake(1,2,0,1,0)
+	    TNT1 A 0 A_SpawnItemEx("RifleCasing",30,3,25,Random(2,4),Random(3,6),Random(3,6),0)
+		TNT1 A 0 A_Light2
+		CHGF A 2 Bright A_FireBullets(4.0,2.4,1,Random(5,7),"PlayerModdedBulletPuff")
+		TNT1 A 0 A_Light0
+		CHGF BC 1
+		TNT1 A 0 A_ReFire
+		Goto Ready+7
+	}
+}
