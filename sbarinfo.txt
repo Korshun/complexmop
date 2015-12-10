@@ -2,15 +2,18 @@
 // Fullscreen HUD
 //================
 
-MugShot "GodAnimated"
+Height 32;
+MonoSpaceFonts True, "0";
+
+MugShot "GodAnimated", Health2
 {
-	{GOD0, GOD1, GOD2} 17;
+	{GOD00, GOD01, GOD02} 17;
 }
 
 MugShot "XDeath"
 {
-	XDTH0 2;
-	XDTH1 2;
+	XDTH0 3;
+	XDTH1 1;
 	XDTH2 2;
 	XDTH3 2;
 	XDTH4 -1;
@@ -37,7 +40,7 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, Gold, Health, WhenNotZero, DrawShadow, 84, -22, 0, Red, 25, Green, 51;
 	
     DrawImage ArmorIcon, 22, -27, CenterBottom;
-    DrawNumber 3, HUDFONT_DOOM, Green, Armor, WhenNotZero, DrawShadow, 84, -41, 0, Red, 25, Blue, 101;
+    DrawNumber 3, HUDFONT_DOOM, Green, Armor, WhenNotZero, DrawShadow, 84, -41, 0, Red, 50, Blue, 151;
 	
 	DrawImage AmmoIcon2, -16, -25, CenterBottom;
     DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo2, DrawShadow, -27, -41, 0;
@@ -74,7 +77,7 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawImage "SEWPA0", -56, -53;
 	DrawImage AmmoIcon1, -32, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
-	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 4, Green, 10;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
 	}
     IsSelected "MOP Double Barrel Shotgun"
 	{
