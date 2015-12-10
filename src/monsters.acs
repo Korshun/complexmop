@@ -33,7 +33,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
 	{ "CyberFiend",				0.1, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
-	{ "MagmaFiend",				0.1, 0, 0, 0, "Magma Fiend", "SAR3A1" },
+	{ "MagmaFiend",				0.1, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
 	{ "DTechFiend",				0.1, 0, 0, 0, "DTech Fiend", "DPNKA1" },
 	{ "Spectre~",				0.12, 0, 0, 0, "Spectre", "SAR6A1" },
 	{ "Lurker",					0.12, 0, 0, 0, "Lurker", "SAR7A1" },
