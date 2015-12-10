@@ -329,23 +329,10 @@ Fire:
 
 ACTOR "MOP Rocket Launcher" : "Rocket Launcher" replaces "Rocket Launcher"
 {
-States
-{
-Fire:
-    TNT1 A 0 A_JumpIfNoAmmo("Empty")
-	TNT1 A 0 A_AlertMonsters
-    TNT1 A 0 A_GunFlash
-    TNT1 A 0 A_Light1 
-	TNT1 A 0 Radius_Quake(4,3,0,1,0)
-    MISF AB 1 Bright
-	MISF C 1 Bright A_Light2
-    MISF D 1 Bright A_FireCustomMissile("NewRocket")
-	MISF E 2 A_Light0
-	MISF FGHI 1
-	MISF J 3 A_PlaySound("rocket/drumspin")
-	MISF K 3
-	MISG A 4
-	TNT1 A 0 A_ReFire
-    Goto Ready+6
+	// TODO: fix rocket teamkills
 }
+
+ACTOR "MOP Grenade Launcher" : "Grenade Launcher" replaces "Grenade Launcher"
+{
+	// TODO: fix grenade teamkills
 }
