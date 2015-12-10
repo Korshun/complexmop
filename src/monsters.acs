@@ -15,7 +15,7 @@
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
-	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombiewoman", "ZMAYA1" },
+	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
 	{ "RailGunner",				0.06, 0, 0, 0, "Railgunner", "RPOSA1" },
 	{ "DemonTechZombie",		0.06, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
 	{ "RocketZombie",			0.06, 0, 0, 0, "Rocket zombie", "MPO2A1" },
