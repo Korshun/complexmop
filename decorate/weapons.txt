@@ -4,6 +4,7 @@
 
 ACTOR "MOP Melee" : Melee replaces Melee
 {
+	Tag "Melee"
 	States
 	{
 	Fire:
@@ -48,6 +49,7 @@ ACTOR "MOP Melee" : Melee replaces Melee
 
 ACTOR "MOP Chainsaw" : "Chainsaw " replaces "Chainsaw "
 {
+	Tag "Chainsaw"
 	States
 	{
 	Fire:
@@ -65,6 +67,7 @@ ACTOR "MOP Chainsaw" : "Chainsaw " replaces "Chainsaw "
 
 ACTOR "MOP Handgun" : "Handgun" replaces "Handgun"
 {
+   Tag "Handgun"
    States 
    { 
    Fire:
@@ -88,6 +91,7 @@ ACTOR "MOP Handgun" : "Handgun" replaces "Handgun"
 
 ACTOR "MOP Combat Shotgun" : "Combat Shotgun" replaces "Combat Shotgun"
 {
+  Tag "Combat Shotgun"
   States
   {
   Fire:
@@ -120,6 +124,7 @@ ACTOR "MOP Combat Shotgun" : "Combat Shotgun" replaces "Combat Shotgun"
 
 ACTOR "MOP Assault Shotgun" : "Assault Shotgun" replaces "Assault Shotgun"
 {
+  Tag "Assault Shotgun"
   States
   {
   Fire:
@@ -142,6 +147,7 @@ ACTOR "MOP Assault Shotgun" : "Assault Shotgun" replaces "Assault Shotgun"
 
 ACTOR "MOP Double Barrel Shotgun" : "Double Barrel Shotgun" replaces "Double Barrel Shotgun"
 {
+  Tag "Double Barrel Shotgun"
   States
   {
   Fire:
@@ -198,6 +204,7 @@ ACTOR "MOP Double Barrel Shotgun" : "Double Barrel Shotgun" replaces "Double Bar
 
 ACTOR "MOP Quad Barrel Shotgun" : "Quad Barrel Shotgun" replaces "Quad Barrel Shotgun"
 {
+  Tag "Quad Barrel Shotgun"
   States
   {
   Fire:
@@ -257,6 +264,7 @@ ACTOR "MOP Quad Barrel Shotgun" : "Quad Barrel Shotgun" replaces "Quad Barrel Sh
 
 ACTOR "MOP Assault Rifle" : "Assault Rifle" replaces "Assault Rifle"
 {
+	Tag "Assault Rifle"
 	States
 	{
 	Fire:
@@ -288,6 +296,7 @@ ACTOR "MOP Assault Rifle" : "Assault Rifle" replaces "Assault Rifle"
 
 ACTOR "MOP Minigun" : "Minigun " replaces "Minigun "
 {
+Tag "Minigun"
 States
 {
 Fire:
@@ -329,21 +338,25 @@ Fire:
 
 ACTOR "MOP Rocket Launcher" : "Rocket Launcher" replaces "Rocket Launcher"
 {
+	Tag "Rocket Launcher"
 	// TODO: fix rocket teamkills
 }
 
 ACTOR "MOP Grenade Launcher" : "Grenade Launcher" replaces "Grenade Launcher"
 {
+	Tag "Grenade Launcher"
 	// TODO: fix grenade teamkills
 }
 
 ACTOR "MOP Plasma Rifle" : "Plasma Rifle" replaces "Plasma Rifle"
 {
+	Tag "Plasma Rifle"
 	// No changes needed
 }
 
 ACTOR "MOP Railgun" : "Railgun " replaces "Railgun "
 {
+  Tag "Railgun"
   States
   {
   Fire:
@@ -367,26 +380,31 @@ ACTOR "MOP Railgun" : "Railgun " replaces "Railgun "
 
 ACTOR "MOP BFG9500" : BFG9500 replaces BFG9500
 {
+	Tag "BFG9500"
 	// No changes needed
 }
 
 ACTOR "MOP BFG10K" : "BFG10K " replaces "BFG10K "
 {
+	Tag "BFG10K"
 	// No changes needed
 }
 
 ACTOR "MOP Demon Tech Rifle" : "Demon Tech Rifle" replaces "Demon Tech Rifle"
 {
+	Tag "Demon Tech Rifle"
 	// No changes needed
 }
 
 ACTOR "MOP Demon Tech BFG10K" : "Demon Tech BFG10K" replaces "Demon Tech BFG10K"
 {
+	Tag "Demon Tech BFG10K"
 	// No changes needed
 }
 
 ACTOR "MOP MP40" : MP40 replaces MP40
 {
+   Tag "MP40"
    States
    {
    Fire:
