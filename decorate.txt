@@ -2445,6 +2445,11 @@ Actor SoulKeeperWeapon : PossessedWeapon
 	}
 }
 
+Actor SKBallMOP : SKBall replaces SKBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedDefiler : PossessedSoulKeeper
 {

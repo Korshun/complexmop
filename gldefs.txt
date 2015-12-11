@@ -528,3 +528,14 @@ Frame HEFXF { Light HeadBallExplode4 }
 Frame HEFXG { Light HeadBallExplode5 }
 Frame HEFXH { Light HeadBallExplode6 }
 }
+
+OBJECT SKBallMOP
+{
+Frame SKBLA { Light ArchonBall1 }
+Frame SKBLB { Light ArchonBall1 }
+Frame SKBLC { Light ArchonBallExplode1 }
+Frame SKBLD { Light ArchonBallExplode1 }
+Frame SKBLE { Light ArchonBallExplode2 }
+Frame SKBLF { Light ArchonBallExplode3 }
+Frame SKBLG { Light ArchonBallExplode3 }
+}
