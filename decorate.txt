@@ -2177,6 +2177,11 @@ Actor Cacodemon~Weapon : PossessedWeapon
 	}
 }
 
+Actor ABBallMOP : ABBall replaces ABBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedWatcher : PossessedCacodemon~
 {

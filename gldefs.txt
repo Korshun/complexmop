@@ -473,7 +473,13 @@ OBJECT RictusBallMOP
 Frame RCST { Light DevilBall1 }
 }
 
-OBJECT RictusBall
+OBJECT ABBallMOP
 {
-Frame RCST { Light DevilBall1 }
+Frame CBALA { Light DevilBall1 }
+Frame CBALB { Light DevilBall1 }
+Frame CBALC { Light DevilBallExplode1 }
+Frame CBALD { Light DevilBallExplode2 }
+Frame CBALE { Light DevilBallExplode3 }
+Frame CBALF { Light ABBallExplode1 }
+Frame CBALG { Light ABBallExplode2 }
 }
