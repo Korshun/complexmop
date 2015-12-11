@@ -1,31 +1,31 @@
-Actor MonsterBulletPuff : ModdedBulletPuff replaces ModdedBulletPuff
+Actor MonsterModdedBulletPuff : ModdedBulletPuff
 {
 	DamageType "Monster"
 }
 
-ACTOR PlayerModdedBulletPuff : ModdedBulletPuff
+ACTOR PlayerModdedBulletPuff : ModdedBulletPuff replaces ModdedBulletPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerFistPuff : ModdedBulletPuff
+ACTOR PlayerFistPuff : ModdedBulletPuff replaces FistPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerFootPuff : FootPuff
+ACTOR PlayerFootPuff : FootPuff replaces FootPuff
 {
 	DamageType "Player"
 }
 
-ACTOR PlayerSawScreech : SawScreech
+ACTOR PlayerSawScreech : SawScreech replaces SawScreech
 {
 	SeeSound "weapons/sawhit"
 	DamageType "Player"
 }
 
 // don't forget this
-ACTOR PlayerRailPuff2 : PlayerRailPuff
+ACTOR PlayerRailPuff2 : PlayerRailPuff replaces PlayerRailPuff
 {
 	DamageType "Player"
 }

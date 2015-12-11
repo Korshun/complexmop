@@ -58,112 +58,112 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Handgun"
+    IsSelected "Handgun"
 	{
 	DrawImage "SEWPA0", -64, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 4, Green, 9;
 	}
-    IsSelected "MOP Combat Shotgun"
+    IsSelected "Combat Shotgun"
 	{
 	DrawImage "SEWPA0", -56, -53;
 	DrawImage AmmoIcon1, -34, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
 	}
-    IsSelected "MOP Assault Shotgun"
+    IsSelected "Assault Shotgun"
 	{
 	DrawImage "SEWPA0", -56, -53;
 	DrawImage AmmoIcon1, -32, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
 	}
-    IsSelected "MOP Double Barrel Shotgun"
+    IsSelected "Double Barrel Shotgun"
 	{
 	DrawImage "SEWPA0", -56, -53;
 	DrawImage AmmoIcon1, -31, -5, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 1, Green, 2;
 	}
-    IsSelected "MOP Quad Barrel Shotgun"
+    IsSelected "Quad Barrel Shotgun"
 	{
 	DrawImage "SEWPA0", -56, -53;
 	DrawImage AmmoIcon1, -31, -5, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 4;
 	}
-    IsSelected "MOP Assault Rifle"
+    IsSelected "Assault Rifle"
 	{
 	DrawImage "SEWPA0", -48, -53;
 	DrawImage AmmoIcon1, -30, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Minigun"
+    IsSelected "Minigun "
 	{
 	DrawImage "SEWPA0", -48, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 25, Green, 51;
 	}	
-    IsSelected "MOP Rocket Launcher"
+    IsSelected "Rocket Launcher"
 	{
 	DrawImage "SEWPA0", -40, -53;
 	DrawImage AmmoIcon1, -29, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Grenade Launcher"
+    IsSelected "Grenade Launcher"
 	{
 	DrawImage "SEWPA0", -40, -53;
 	DrawImage AmmoIcon1, -25, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Plasma Rifle"
+    IsSelected "Plasma Rifle"
 	{
 	DrawImage "SEWPA0", -32, -53;
 	DrawImage AmmoIcon1, -28, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Demon Tech Rifle"
+    IsSelected "Demon Tech Rifle"
 	{
 	DrawImage "SEWPA0", -32, -53;
 	DrawImage AmmoIcon1, -32, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Railgun"
+    IsSelected "Railgun "
 	{
 	DrawImage "SEWPA0", -32, -53;
 	DrawImage AmmoIcon1, -27, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP BFG9500"
+    IsSelected "BFG9500"
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 40, Green, 81;
 	}
-    IsSelected "MOP BFG10K"
+    IsSelected "BFG10K "
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 30, Green, 61;
 	}
-    IsSelected "MOP Demon Tech BFG10K"
+    IsSelected "Demon Tech BFG10K"
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 100, Green, 201;
 	}
-    IsSelected "MOP MP40"
+    IsSelected "MP40"
 	{
 	DrawImage "SEWPA0", -16, -53;
 	DrawImage AmmoIcon1, -24, -6, CenterBottom;
@@ -253,7 +253,7 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Armor, 221, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Green, Armor, WhenNotZero, 221, 172, 0, Red, 50, Blue, 151;
 
-    IsSelected "MOP Melee"
+    IsSelected "Melee"
 	{
 	DrawImage "STTMINUS", 22, 172;
 	}
@@ -267,101 +267,101 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Chainsaw"
+    IsSelected "Chainsaw "
 	{
 	DrawImage "STTMINUS", 22, 172;
 	}	
-    IsSelected "MOP Handgun"
+    IsSelected "Handgun"
 	{
 	DrawImage "SEWBA0", 106, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 4, Green, 9;
 	}
-    IsSelected "MOP Combat Shotgun"
+    IsSelected "Combat Shotgun"
 	{
 	DrawImage "SEWBA0", 118, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 6;
 	}
-    IsSelected "MOP Assault Shotgun"
+    IsSelected "Assault Shotgun"
 	{
 	DrawImage "SEWBA0", 118, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 6;
 	}
-    IsSelected "MOP Double Barrel Shotgun"
+    IsSelected "Double Barrel Shotgun"
 	{
 	DrawImage "SEWBA0", 118, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 1, Green, 2;
 	}
-    IsSelected "MOP Quad Barrel Shotgun"
+    IsSelected "Quad Barrel Shotgun"
 	{
 	DrawImage "SEWBA0", 118, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 4;
 	}
-    IsSelected "MOP Assault Rifle"
+    IsSelected "Assault Rifle"
 	{
 	DrawImage "SEWBA0", 130, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Minigun"
+    IsSelected "Minigun "
 	{
 	DrawImage "SEWBA0", 130, 169;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 25, Green, 51;
 	}	
-    IsSelected "MOP Rocket Launcher"
+    IsSelected "Rocket Launcher"
 	{
 	DrawImage "SEWBA0", 106, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Grenade Launcher"
+    IsSelected "Grenade Launcher"
 	{
 	DrawImage "SEWBA0", 106, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 5;
 	}
-    IsSelected "MOP Plasma Rifle"
+    IsSelected "Plasma Rifle"
 	{
 	DrawImage "SEWBA0", 118, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Demon Tech Rifle"
+    IsSelected "Demon Tech Rifle"
 	{
 	DrawImage "SEWBA0", 118, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP Railgun"
+    IsSelected "Railgun "
 	{
 	DrawImage "SEWBA0", 118, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "MOP BFG9500"
+    IsSelected "BFG9500"
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 40, Green, 81;
 	}
-    IsSelected "MOP BFG10K"
+    IsSelected "BFG10K "
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 30, Green, 61;
 	}
-    IsSelected "MOP Demon Tech BFG10K"
+    IsSelected "Demon Tech BFG10K"
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 100, Green, 201;
 	}
-    IsSelected "MOP MP40"
+    IsSelected "MP40"
 	{
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;

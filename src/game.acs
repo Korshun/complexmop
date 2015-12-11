@@ -53,29 +53,29 @@ script mop_enter ENTER
 		{		
 			ClearInventory();
 			
-			TakeInventory("MOP Melee", 1);
-			TakeInventory("MOP Handgun", 1);
-			TakeInventory("MOP Chainsaw", 1);
-			TakeInventory("MOP Combat Shotgun", 1);
-			TakeInventory("MOP Assault Shotgun", 1);
-			TakeInventory("MOP Double Barrel Shotgun", 1);
-			TakeInventory("MOP Quad Barrel Shotgun", 1);
-			TakeInventory("MOP Assault Rifle", 1);
-			TakeInventory("MOP Minigun", 1);
-			TakeInventory("MOP Rocket Launcher", 1);
-			TakeInventory("MOP Grenade Launcher", 1);
-			TakeInventory("MOP Plasma Rifle", 1);
-			TakeInventory("MOP Railgun", 1);
-			TakeInventory("MOP BFG9500", 1);
-			TakeInventory("MOP BFG10K", 1);
-			TakeInventory("MOP Demon Tech Rifle", 1);
-			TakeInventory("MOP Demon Tech BFG10K", 1);
-			TakeInventory("MOP MP40", 1);
+			TakeInventory("Melee", 1);
+			TakeInventory("Handgun", 1);
+			TakeInventory("Chainsaw", 1);
+			TakeInventory("Combat Shotgun", 1);
+			TakeInventory("Assault Shotgun", 1);
+			TakeInventory("Double Barrel Shotgun", 1);
+			TakeInventory("Quad Barrel Shotgun", 1);
+			TakeInventory("Assault Rifle", 1);
+			TakeInventory("Minigun", 1);
+			TakeInventory("Rocket Launcher", 1);
+			TakeInventory("Grenade Launcher", 1);
+			TakeInventory("Plasma Rifle", 1);
+			TakeInventory("Railgun", 1);
+			TakeInventory("BFG9500", 1);
+			TakeInventory("BFG10K", 1);
+			TakeInventory("Demon Tech Rifle", 1);
+			TakeInventory("Demon Tech BFG10K", 1);
+			TakeInventory("MP40", 1);
 			
-			GiveInventory("MOP Handgun", 1);
+			GiveInventory("Handgun", 1);
 			GiveInventory("HandGrenadeAmmo", 2);
 			GiveInventory("MineAmmo", 2);
-			GiveInventory("MOP Melee", 1);
+			GiveInventory("Melee", 1);
 			GiveInventory("BulletMag", 60);
 			GiveInventory("PistolMagazine", 16);
 			GiveInventory("ShotgunMagazine", 9);
@@ -101,7 +101,7 @@ script mop_enter ENTER
 			else
 			{
 				print(s:"shotgun start");
-				GiveInventory("MOP Combat Shotgun", 1);
+				GiveInventory("Combat Shotgun", 1);
 			}
 		}
 	}
@@ -110,16 +110,16 @@ script mop_enter ENTER
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
 	
-	SetWeapon("MOP Melee");
+	SetWeapon("Melee");
 	Delay(1); // Fix desync.
 	
 	if (GetCVar("mop_pistolstart") == 1)
 	{
-		SetWeapon("MOP Handgun");
+		SetWeapon("Handgun");
 	}
 	else if (GetCVar("mop_pistolstart") == 2)
 	{
-		SetWeapon("MOP Combat Shotgun");
+		SetWeapon("Combat Shotgun");
 	}
 }
 script mop_respawn RESPAWN
@@ -130,7 +130,7 @@ script mop_respawn RESPAWN
 	LaunchPlayerScripts();
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
-		SetWeapon("MOP Handgun"); // WTF is this bug?
+		SetWeapon("Handgun"); // WTF is this bug?
 }
 
 script mop_prevent_respawns RESPAWN
