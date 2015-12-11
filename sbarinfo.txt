@@ -142,21 +142,21 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
-    IsSelected "BFG9500"
+    IsSelected "MOP BFG9500"
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 40, Green, 81;
 	}
-    IsSelected "BFG10K "
+    IsSelected "MOP BFG10K"
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 30, Green, 61;
 	}
-    IsSelected "Demon Tech BFG10K"
+    IsSelected "MOP Demon Tech BFG10K"
 	{
 	DrawImage "SEWPA0", -24, -53;
 	DrawImage AmmoIcon1, -16, -6, CenterBottom;
@@ -343,19 +343,19 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 10, Green, 21;
 	}
-    IsSelected "BFG9500"
+    IsSelected "MOP BFG9500"
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 40, Green, 81;
 	}
-    IsSelected "BFG10K "
+    IsSelected "MOP BFG10K"
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 30, Green, 61;
 	}
-    IsSelected "Demon Tech BFG10K"
+    IsSelected "MOP Demon Tech BFG10K"
 	{
 	DrawImage "SEWBA0", 130, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;

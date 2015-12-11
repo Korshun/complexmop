@@ -1,0 +1,38 @@
+Actor "MOP BFG9500" : BFG9500 replaces BFG9500
+{
+	Tag "BFG9500"
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_marines_isbfgavailable) > 0, "Ready")
+		Goto Super::Fire
+	}
+}
+
+Actor "MOP BFG10K" : "BFG10K " replaces "BFG10K "
+{
+	Tag "BFG10K"
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_marines_isbfgavailable) > 0, "Ready")
+		BG2G E 25 A_PlayWeaponSound("weapons/charge15k")
+		BG2G F 4
+		BG2G GHIJ 1
+		Goto Hold
+	Hold:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_marines_isbfgavailable) > 0, "Ready")
+		Goto Super::Hold
+	}
+}
+
+Actor "MOP Demon Tech BFG10K" : "Demon Tech BFG10K" replaces "Demon Tech BFG10K"
+{
+	Tag "Demon Tech BFG10K"
+	States
+	{
+	Fire:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_marines_isbfgavailable) > 0, "Ready")
+		Goto Super::Fire
+	}
+}
