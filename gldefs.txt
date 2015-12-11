@@ -656,4 +656,26 @@ OBJECT CyberLordHomerMOP
 Frame HMISA { Light Missile1 }
 }
 
+OBJECT DarkCyberRocketMOP
+{
+Frame MIS3A { Light DCMissile1 }
+Frame MIS3B { Light DCMissileExplode1 }
+Frame MIS3C { Light DCMissileExplode2 }
+Frame MIS3D { Light DCMissileExplode3 }
+Frame MIS3E { Light DCMissileExplode4 }
+}
+
+OBJECT DarkCyberHomerMOP
+{
+Frame HMIGA { Light DCMissile1 }
+Frame MIS3B { Light DCMissileExplode1 }
+Frame MIS3C { Light DCMissileExplode2 }
+Frame MIS3D { Light DCMissileExplode3 }
+Frame MIS3E { Light DCMissileExplode4 }
+}
+
+OBJECT DarkCyberRailMOP
+{
+Frame DCRP { Light BFG9500Ball1 }
+}
 

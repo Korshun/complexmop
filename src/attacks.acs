@@ -411,7 +411,7 @@ script mop_darkcyberdemon (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack4", 1);
-		print(s:"\cdbfg9k");
+		print(s:"\cdrailgun");
 		terminate;
 	}
 	
