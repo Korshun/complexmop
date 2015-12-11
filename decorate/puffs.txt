@@ -39,3 +39,8 @@ Actor MonsterNoPuff : ModdedBulletPuff
 		Stop
 	}
 }
+
+Actor MonsterMeleePuff : MonsterNoPuff replaces BulletPuff // Replaces A_CustomPunch's default puff
+{
+	DamageType "Monster"
+}
