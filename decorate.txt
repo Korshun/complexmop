@@ -2508,6 +2508,11 @@ Actor DefilerWeapon : PossessedWeapon
 	}
 }
 
+Actor DefilerBallMOP : DefilerBall replaces DefilerBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedPoisonElemental : PossessedSoulKeeper
 {
@@ -2679,6 +2684,11 @@ Actor BombElementalWeapon : PossessedWeapon
 		TNT1 AA 3
 		Goto Ready
 	}
+}
+
+Actor BombBallMOP : BombBall replaces BombBall
+{
+	DamageType "Monster"
 }
 
 

@@ -539,3 +539,14 @@ Frame SKBLE { Light ArchonBallExplode2 }
 Frame SKBLF { Light ArchonBallExplode3 }
 Frame SKBLG { Light ArchonBallExplode3 }
 }
+
+OBJECT DefilerBallMOP
+{
+Frame RVBA { Light SoulFire1 }
+}
+
+OBJECT BombBallMOP
+{
+Frame PBMBA { Light ArchonBall1 }
+Frame PBMBB { Light ArchonBall1 }
+}
