@@ -453,3 +453,8 @@ Frame DIMBC { Light PhaseBallExplode1 }
 Frame DIMBD { Light PhaseBallExplode2 }
 Frame DIMBE { Light PhaseBallExplode3 }
 }
+
+OBJECT MagmaBallMOP
+{
+Frame RCST { Light BruiserBall2 }
+}

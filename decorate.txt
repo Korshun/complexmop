@@ -1648,6 +1648,10 @@ Actor MagmaFiendWeapon : PossessedWeapon
 	}
 }
 
+Actor MagmaBallMOP : MagmaBall replaces MagmaBall
+{
+	DamageType "Monster"
+}
 
 Actor PossessedDTechFiend : PossessedBullFiend
 {
