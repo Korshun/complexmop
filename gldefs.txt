@@ -638,3 +638,11 @@ OBJECT BBall2MOP
 {
 Frame BRBA { Light BruiserBall2 }
 }
+
+OBJECT SentientExplosiveTracerMOP
+{
+Frame MISLB { Light DevilBallExplode1 }
+Frame MISLC { Light DevilBallExplode2 }
+Frame MISLD { Light DevilBallExplode3 }
+}
+

@@ -360,21 +360,29 @@ script mop_cerebralsentient (void)
 	{
 		TakeInventory("Attack1", 1);
 		GiveInventory("Attack2", 1);
-		print(s:"\cgBFG10K");
+		print(s:"\cgBFG9K");
 		terminate;
 	}
-	
+
 	if (CheckInventory("Attack2"))
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cgDemon Tech BFG10K");
+		print(s:"\cgBFG10K");
 		terminate;
 	}
 	
 	if (CheckInventory("Attack3"))
 	{
 		TakeInventory("Attack3", 1);
+		GiveInventory("Attack4", 1);
+		print(s:"\cgDemon Tech BFG10K");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack4"))
+	{
+		TakeInventory("Attack4", 1);
 		GiveInventory("Attack1", 1);
 		print(s:"normal");
 		terminate;
