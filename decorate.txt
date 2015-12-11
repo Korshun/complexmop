@@ -2239,6 +2239,16 @@ Actor WatcherWeapon : PossessedWeapon
 	}
 }
 
+Actor WatcherBallMOP : WatcherBall replaces WatcherBall
+{
+	DamageType "Monster"
+}
+
+Actor WatcherTracerMOP : WatcherTracer replaces WatcherTracer
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedCacomental : PossessedCacodemon~
 {

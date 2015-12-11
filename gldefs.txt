@@ -481,3 +481,26 @@ Frame ABBEA { Light HeadBallExplode2 }
 Frame ABBEB { Light HeadBallExplode3 }
 Frame ABBEC { Light HeadBallExplode4 }
 }
+
+OBJECT WatcherBallMOP
+{
+Frame GBALA { Light WatcherBall1 }
+Frame GBALB { Light WatcherBall1 }
+Frame GBALC { Light WatcherBallExplode1 }
+Frame GBALD { Light WatcherBallExplode2 }
+Frame GBALE { Light WatcherBallExplode3 }
+Frame GBALF { Light WatcherBallExplode4 }
+Frame GBALG { Light WatcherBallExplode5 }
+}
+
+OBJECT WatcherTracerMOP
+{
+Frame HEFXA { Light WatcherBall1 }
+Frame HEFXB { Light WatcherBall1 }
+Frame HEFXC { Light WatcherTracerExplode1 }
+Frame HEFXD { Light WatcherTracerExplode2 }
+Frame HEFXE { Light WatcherTracerExplode3 }
+Frame HEFXF { Light WatcherTracerExplode4 }
+Frame HEFXG { Light WatcherTracerExplode5 }
+Frame HEFXH { Light WatcherTracerExplode6 }
+}
