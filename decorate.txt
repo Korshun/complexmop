@@ -5221,9 +5221,9 @@ Actor PossessedDemolisher : PossessedSpiderMastermind
 	Radius 65
 	PainChance 50
 	PainChance "PDTBFG", 25
-	PainChance "SoulToxic", 20
-	PainChance "FatFlamer", 20
-	PainChance "FiendFire", 20
+	PainChance "SoulToxic", 15
+	PainChance "FatFlamer", 15
+	PainChance "FiendFire", 15
 	PainChance "Explosion", 80
 	DropItem "BossLifeEssence" 128 25
 	DropItem "ExtraArmor" 128 1
