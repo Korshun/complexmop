@@ -29,7 +29,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	{ "Imp",					0.08, 0, 0, 0, "Imp", "SIMPA1" },
 	{ "VoidImp",				0.08, 0, 0, 0, "Void Imp", "DRKSA1" },
-	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1" },
+	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1C1" },
 	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
 	{ "CyberFiend",				0.1, 0, 0, 0, "Cyber Fiend", "CYFNA1" },

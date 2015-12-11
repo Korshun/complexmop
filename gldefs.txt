@@ -428,3 +428,19 @@ Frame DKB1C { Light VoidBallExplode1 }
 Frame DKB1D { Light VoidBallExplode2 }
 Frame DKB1E { Light VoidBallExplode3 }
 }
+
+Object DevilBall
+{
+Frame SHBAA { Light SoulHarvesterBall1 }
+Frame SHBAB { Light SoulHarvesterBall1 }
+Frame SHBAC { Light SoulHarvesterBall2 }
+Frame SHBAD { Light SoulHarvesterBall3 }
+Frame SHBAE { Light SoulHarvesterBall2 }
+Frame SHBAF { Light SoulHarvesterBall1 }
+Frame SHBAG { Light SoulHarvesterBall4 }
+Frame SHBAH { Light SoulHarvesterBall5 }
+Frame SHBAI { Light SoulHarvesterBall6 }
+Frame SHBAJ { Light SoulHarvesterBall7 }
+Frame SHBAK { Light SoulHarvesterBall8 }
+Frame SHBAL { Light SoulHarvesterBall9 }
+}

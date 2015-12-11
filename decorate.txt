@@ -1284,6 +1284,11 @@ Actor DevilWeapon : PossessedWeapon
 	}
 }
 
+Actor DevilBallMOP : DevilBall replaces DevilBall
+{
+	DamageType "Monster"
+}
+
 Actor PossessedPhaseImp : PossessedImp
 {
 	Player.MorphWeapon "PhaseImpWeapon"
