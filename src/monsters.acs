@@ -61,7 +61,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
 	{ "HellfireRevenant",		0.25, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
 	{ "Famine",					0.25, 0, 0, 0, "Famine", "NREVA1D1" },
-	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1C1" },
+	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1" },
 	{ "PyroDemon",				0.17, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
 	{ "CyberNoble",				0.17, 0, 0, 0, "Cyber Noble", "CBOSA1" },
 	{ "HellDuke",				0.17, 0, 0, 0, "Hell Duke", "HDUKA1C1" },

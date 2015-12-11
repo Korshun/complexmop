@@ -593,3 +593,23 @@ Frame NREBA { Light ArchonBall1 }
 Frame NREBB { Light ArchonBall1 }
 }
 
+OBJECT KnightFastBallMOP
+{
+Frame HATCA { Light KnightFBall1 }
+Frame HATCB { Light KnightFBall1 }
+Frame HATCC { Light KnightFBall1 }
+Frame HATCD { Light KnightFBallExplode1 }
+Frame HATCE { Light KnightFBallExplode2 }
+Frame HATCF { Light KnightFBallExplode3 }
+Frame HATCG { Light KnightFBallExplode4 }
+}
+
+OBJECT CyNobleBallMOP
+{
+Frame BAL7A { Light CyNobleBall1 }
+Frame BAL7B { Light CyNobleBall1 }
+Frame BAL7C { Light CyNobleBallExplode1 }
+Frame BAL7D { Light CyNobleBallExplode2 }
+Frame BAL7E { Light CyNobleBallExplode3 }
+}
+

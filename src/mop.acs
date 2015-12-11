@@ -14,7 +14,7 @@ int BoomEdition = true;
 #define mop_phaseimp 807
 #define mop_magmafiend 808
 #define mop_helemental 809
-#define mop_hellarchon 810
+#define mop_hellknight 810
 #define mop_pyrodemon 811
 #define mop_cybernoble 812
 #define mop_hellduke 813
