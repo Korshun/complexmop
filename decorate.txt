@@ -6018,6 +6018,21 @@ Actor CyberLordWeapon : PossessedWeapon
 	}
 }
 
+Actor CyberLordRocketMOP : CyberLordRocket replaces CyberLordRocket
+{
+	DamageType "Monster"
+}
+
+Actor CyberLordHomerMOP : CyberLordHomer replaces CyberLordHomer
+{
+	DamageType "Monster"
+}
+
+Actor CyberLordGrenadeMOP : CyberLordGrenade replaces CyberLordGrenade
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedDarkCyberdemon : PossessedCyberdemon
 {

@@ -646,3 +646,14 @@ Frame MISLC { Light DevilBallExplode2 }
 Frame MISLD { Light DevilBallExplode3 }
 }
 
+OBJECT CyberLordRocketMOP
+{
+Frame MIS3A { Light Missile1 }
+}
+
+OBJECT CyberLordHomerMOP
+{
+Frame HMISA { Light Missile1 }
+}
+
+
