@@ -4263,6 +4263,16 @@ Actor FamineWeapon : PossessedWeapon
 	}
 }
 
+Actor FamineTracerMOP : FamineTracer replaces FamineTracer
+{
+	DamageType "Monster"
+}
+
+Actor FamineDashPunchMOP : FamineDashPunch replaces FamineDashPunch
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedBaronOfHell : PossessedMonster
 {

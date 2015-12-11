@@ -586,3 +586,10 @@ Frame FS03H { Light FBallExplode1 }
 Frame FS03I { Light FBallExplode2 }
 Frame FS03J { Light FBallExplode3 }
 }
+
+OBJECT FamineTracerMOP
+{
+Frame NREBA { Light ArchonBall1 }
+Frame NREBB { Light ArchonBall1 }
+}
+
