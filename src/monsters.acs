@@ -82,8 +82,8 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Mutant",					0.06, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
 	{ "Officer",				0.06, 0, 0, 0, "Nazi Officer", "OPOIA1" },
 	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
-	{ "Hitler",					0.5, 0, 0, 0, "Hitler", "HTL1A1C1" },
-	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Hitler", "HTLRA1" }
+	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
+	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" }
 };
 
 // List of items that monsters can carry.
