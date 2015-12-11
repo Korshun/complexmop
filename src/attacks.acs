@@ -182,7 +182,7 @@ script mop_baronofhell (void)
 	{
 		TakeInventory("Attack1", 1);
 		GiveInventory("Attack2", 1);
-		print(s:"\cigiant balls");
+		print(s:"\cdgiant balls");
 		terminate;
 	}
 	
@@ -190,7 +190,7 @@ script mop_baronofhell (void)
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cicomet");
+		print(s:"\cdcomet");
 		terminate;
 	}
 	
@@ -198,7 +198,7 @@ script mop_baronofhell (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack1", 1);
-		print(s:"\cinormal");
+		print(s:"\cdnormal");
 		terminate;
 	}
 }
