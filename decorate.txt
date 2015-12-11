@@ -1167,6 +1167,11 @@ Actor ImpWeapon : PossessedWeapon
 	}
 }
 
+Actor NewImpBallMOP : NewImpBall replaces NewImpBall
+{
+	DamageType "Monster"
+}
+
 Actor PossessedVoidImp : PossessedImp
 {
 	Player.MorphWeapon "VoidImpWeapon"

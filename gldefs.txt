@@ -410,3 +410,12 @@ Frame PLD2C { Light PBallExplode3 }
 Frame PLD2D { Light PBallExplode4 }
 Frame PLD2E { Light PBallExplode5 }
 }
+
+OBJECT NewImpBallMOP
+{
+Frame BAL1A { Light DevilBall1 }
+Frame BAL1B { Light DevilBall1 }
+Frame BAL1C { Light DevilBallExplode1 }
+Frame BAL1D { Light DevilBallExplode2 }
+Frame BAL1E { Light DevilBallExplode3 }
+}
