@@ -626,3 +626,13 @@ OBJECT DukeBall2MOP
 {
 Frame BRB2 { Light DBall2 }
 }
+
+OBJECT BBallMOP
+{
+Frame HLK1 { Light BruiserBall1 }
+}
+
+OBJECT BBall2MOP
+{
+Frame BRBA { Light BruiserBall2 }
+}

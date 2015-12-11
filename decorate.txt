@@ -4965,6 +4965,8 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 		FRIT G 1 Bright //A_FireCustomMissile("BBall", 0, 0, 0)
 		TNT1 A 0 Bright //A_FireCustomMissile("BBall", -5, 0, 0)
 		FRIT G 5 Bright //A_FireCustomMissile("BBall", 5, 0, 0)
+		FRIT E 5 Bright
+		FRIT E 5 Bright
  	Goto See
 		Goto Spawn
 	GiantBalls:
@@ -4973,6 +4975,7 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 		FRIT HI 6 Bright //A_FaceTarget
 		FRIT J 5 Bright //A_FireCustomMissile("BBall2", 0, 0, 0)
 		FRIT E 7 Bright
+		FRIT E 5 Bright
 		Goto Spawn
 	Comet:
 		FRIT KL 7 Bright //A_FaceTarget	
@@ -5027,6 +5030,16 @@ Actor BruiserDemonWeapon : PossessedWeapon
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
+}
+
+Actor BBallMOP : BBall replaces BBall
+{
+	DamageType "Monster"
+}
+
+Actor BBall2MOP : BBall2 replaces BBall2
+{
+	DamageType "Monster"
 }
 
 
