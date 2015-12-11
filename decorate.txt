@@ -2342,12 +2342,22 @@ Actor HelementalWeapon : PossessedWeapon
 		Goto Ready
 	Comet:
 		TNT1 AA 6
-		TNT1 A 5 A_FireCustomMissile("HeleComet")
+		TNT1 A 5 A_FireCustomMissile("CacoMComet")
 		TNT1 AA 4
 		TNT1 A 10 // +10
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	}
+}
+
+Actor HadesBallMOP : HadesBall replaces HadesBall
+{
+	DamageType "Monster"
+}
+
+Actor HeleBallMOP : HeleBall replaces HeleBall
+{
+	DamageType "Monster"
 }
 
 

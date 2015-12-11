@@ -504,3 +504,27 @@ Frame HEFXF { Light WatcherTracerExplode4 }
 Frame HEFXG { Light WatcherTracerExplode5 }
 Frame HEFXH { Light WatcherTracerExplode6 }
 }
+
+OBJECT HadesBallMOP
+{
+Frame HEFXA { Light HeadBall1 }
+Frame HEFXB { Light HeadBall1 }
+Frame HEFXC { Light HeadBallExplode1 }
+Frame HEFXD { Light HeadBallExplode2 }
+Frame HEFXE { Light HeadBallExplode3 }
+Frame HEFXF { Light HeadBallExplode4 }
+Frame HEFXG { Light HeadBallExplode5 }
+Frame HEFXH { Light HeadBallExplode6 }
+}
+
+OBJECT HeleBallMOP
+{
+Frame HEFXA { Light HeadBall1 }
+Frame HEFXB { Light HeadBall1 }
+Frame HEFXC { Light HeadBallExplode1 }
+Frame HEFXD { Light HeadBallExplode2 }
+Frame HEFXE { Light HeadBallExplode3 }
+Frame HEFXF { Light HeadBallExplode4 }
+Frame HEFXG { Light HeadBallExplode5 }
+Frame HEFXH { Light HeadBallExplode6 }
+}
