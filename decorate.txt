@@ -134,7 +134,7 @@ Actor RailGunnerWeapon : PossessedWeapon
 		TNT1 A 0 A_Light1
 		TNT1 A 0 A_PlaySound("railgunner/chargedshot")
 		TNT1 A 0 A_FireCustomMissile("RailgunImpactRed")
-		RAMF A 2 Bright A_RailAttack(Random(15,25), 0, 1, "Red", None, RGF_SILENT | RGF_NOPIERCING, 1)
+		RAMF A 2 Bright A_RailAttack(Random(15,25), 0, 1, "Red", None, RGF_SILENT | RGF_NOPIERCING, 1, "MonsterNoPuff")
 		RAMF B 3 Bright A_Light2
 		TNT1 A 0 A_Light0
 		RAMF CDEF 2

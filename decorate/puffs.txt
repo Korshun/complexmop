@@ -29,3 +29,13 @@ ACTOR PlayerRailPuff2 : PlayerRailPuff replaces PlayerRailPuff
 {
 	DamageType "Player"
 }
+
+Actor MonsterNoPuff : ModdedBulletPuff
+{
+	DamageType "Monster"
+	States
+	{
+		NULL A 0
+		Stop
+	}
+}
