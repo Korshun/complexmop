@@ -679,3 +679,16 @@ OBJECT DarkCyberRailMOP
 Frame DCRP { Light BFG9500Ball1 }
 }
 
+OBJECT CardinalRocketMOP
+{
+Frame CROCA { Light Missile1 }
+Frame CROCB { Light Missile1 }
+Frame CROCC { Light MissileExplode1 }
+Frame CROCD { Light MissileExplode2 }
+Frame CROCE { Light MissileExplode3 }
+}
+
+OBJECT CardinalHomingRocketMOP
+{
+Frame CBRKA { Light Missile1 }
+}

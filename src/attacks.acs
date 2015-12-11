@@ -446,7 +446,7 @@ script mop_cardinal (void)
 	{
 		TakeInventory("Attack2", 1);
 		GiveInventory("Attack3", 1);
-		print(s:"\cgbfg10k");
+		print(s:"\cgrailgun");
 		terminate;
 	}
 	
@@ -454,13 +454,21 @@ script mop_cardinal (void)
 	{
 		TakeInventory("Attack3", 1);
 		GiveInventory("Attack4", 1);
-		print(s:"\cgdemon tech bfg10k");
+		print(s:"\cgbfg10k");
 		terminate;
 	}
 	
 	if (CheckInventory("Attack4"))
 	{
 		TakeInventory("Attack4", 1);
+		GiveInventory("Attack5", 1);
+		print(s:"\cgdemon tech bfg10k");
+		terminate;
+	}
+	
+	if (CheckInventory("Attack5"))
+	{
+		TakeInventory("Attack5", 1);
 		GiveInventory("Attack1", 1);
 		print(s:"rockets");
 		terminate;
