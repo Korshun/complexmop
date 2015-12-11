@@ -26,7 +26,7 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "AssaultRifleZombie",		0.13, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
 	{ "Chaingunner",			0.13, 0, 0, 0, "Chaingunner", "DPOSA1" },
 	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
-	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG9500 Commando", "BFGZA1" },
+	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	{ "Imp",					0.08, 0, 0, 0, "Imp", "SIMPA1" },
 	{ "VoidImp",				0.08, 0, 0, 0, "Void Imp", "DRKSA1" },
 	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1" },
