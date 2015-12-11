@@ -1229,6 +1229,11 @@ Actor VoidImpWeapon : PossessedWeapon
 	}
 }
 
+Actor NightBallMOP : NightBall replaces NightBall
+{
+	DamageType "Monster"
+}
+
 Actor PossessedDevil : PossessedImp
 {
 	Player.MorphWeapon "DevilWeapon"

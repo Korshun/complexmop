@@ -419,3 +419,12 @@ Frame BAL1C { Light DevilBallExplode1 }
 Frame BAL1D { Light DevilBallExplode2 }
 Frame BAL1E { Light DevilBallExplode3 }
 }
+
+OBJECT NightBallMOP
+{
+Frame DKB1A { Light VoidBall1 }
+Frame DKB1B { Light VoidBall1 }
+Frame DKB1C { Light VoidBallExplode1 }
+Frame DKB1D { Light VoidBallExplode2 }
+Frame DKB1E { Light VoidBallExplode3 }
+}
