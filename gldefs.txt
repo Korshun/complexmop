@@ -475,11 +475,9 @@ Frame RCST { Light DevilBall1 }
 
 OBJECT ABBallMOP
 {
-Frame CBALA { Light DevilBall1 }
-Frame CBALB { Light DevilBall1 }
-Frame CBALC { Light DevilBallExplode1 }
-Frame CBALD { Light DevilBallExplode2 }
-Frame CBALE { Light DevilBallExplode3 }
-Frame CBALF { Light ABBallExplode1 }
-Frame CBALG { Light ABBallExplode2 }
+Frame ABDBA { Light HeadBall1 }
+Frame ABDBB { Light HeadBall1 }
+Frame ABBEA { Light HeadBallExplode2 }
+Frame ABBEB { Light HeadBallExplode3 }
+Frame ABBEC { Light HeadBallExplode4 }
 }
