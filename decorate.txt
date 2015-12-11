@@ -4521,6 +4521,11 @@ Actor PyroDemonWeapon : PossessedWeapon
 	}
 }
 
+Actor PBallMOP : PBall replaces PBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedCyberNoble : PossessedHellKnight
 {

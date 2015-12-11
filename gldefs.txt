@@ -613,3 +613,11 @@ Frame BAL7D { Light CyNobleBallExplode2 }
 Frame BAL7E { Light CyNobleBallExplode3 }
 }
 
+OBJECT PBallMOP
+{
+Frame BAL9A { Light DevilBall1 }
+Frame BAL9B { Light DevilBall1 }
+Frame BAL9C { Light DevilBallExplode1 }
+Frame BAL9D { Light DevilBallExplode2 }
+Frame BAL9E { Light DevilBallExplode3 }
+}
