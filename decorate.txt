@@ -4649,6 +4649,21 @@ Actor CyberNobleWeapon : PossessedWeapon
 	}
 }
 
+Actor CyNoblePuffMOP : CyNoblePuff replaces CyNoblePuff
+{
+	DamageType "Monster"
+}
+
+Actor DukeBall2MOP : DukeBall2 replaces DukeBall2
+{
+	DamageType "Monster"
+}
+
+Actor ProjectileBulletMOP : ProjectileBullet replaces ProjectileBullet
+{
+	DamageType "Monster"
+}
+ 
 
 Actor PossessedHellDuke : PossessedHellKnight
 {

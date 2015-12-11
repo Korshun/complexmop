@@ -621,3 +621,8 @@ Frame BAL9C { Light DevilBallExplode1 }
 Frame BAL9D { Light DevilBallExplode2 }
 Frame BAL9E { Light DevilBallExplode3 }
 }
+
+OBJECT DukeBall2MOP
+{
+Frame BRB2 { Light DBall2 }
+}
