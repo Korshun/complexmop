@@ -3543,6 +3543,7 @@ Actor FusioniteWeapon : PossessedWeapon
 		TNT1 A 4 A_FireCustomMissile("FusionShot", Random(-1000,1000)/100.00)
 		Goto Ready
 	AltFire:
+		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_PlaySound("weapons/rgcharge")
 		TNT1 AA 10 Bright //A_FaceTarget
 		TNT1 A 3 Bright //A_FaceTarget
@@ -3550,9 +3551,13 @@ Actor FusioniteWeapon : PossessedWeapon
 		TNT1 A 0 A_FireCustomMissile("RailgunImpactPurple")
 		TNT1 A 5 Bright A_RailAttack(Random(20, 30), 0, 1, "Purple", None, 1, 0, "FusioniteRailPuff")
 		TNT1 A 35 Bright
-		Goto See
-		
+		Goto Ready
 	}
+}
+
+Actor FusionShotMOP : FusionShot replaces FusionShot
+{
+	DamageType "Monster"
 }
 
 

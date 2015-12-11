@@ -577,3 +577,12 @@ Frame PLD2C { Light PBallExplode3 }
 Frame PLD2D { Light PBallExplode4 }
 Frame PLD2E { Light PBallExplode5 }
 }
+
+OBJECT FusionShotMOP
+{
+Frame FS03A { Light FBall1 }
+Frame FS03B { Light FBall1 }
+Frame FS03H { Light FBallExplode1 }
+Frame FS03I { Light FBallExplode2 }
+Frame FS03J { Light FBallExplode3 }
+}
