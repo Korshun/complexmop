@@ -887,7 +887,7 @@ script mop_marines_isbfgavailable (void)
 	{
 		SetFont("Smallfont");
 		SetHUDSize(640,480,0);
-		hudmessage(s:"You cannot use BFG now, you should wait ", d:time, s:" seconds.";HUDMSG_FADEOUT, HID_NOBFG, CR_GREEN, 640.0/2, 480.0/2, 3.5);
+		hudmessage(s:"You cannot use BFG now, you must wait for ", d:time, s:" seconds.";HUDMSG_FADEOUT, HID_NOBFG, CR_GREEN, 640.0/2, 480.0/2, 3.5);
 	}
 
 	SetResultValue(value);
