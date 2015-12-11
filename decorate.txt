@@ -776,6 +776,7 @@ Actor PossessedAssaultRifleZombie : PossessedMonster
 		ARZM F 2 Bright
 		ARZM E 2
 		ARZM E 10
+		ARZM E 5
 		Goto Spawn
 	}
 }
