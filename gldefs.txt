@@ -567,3 +567,13 @@ Frame MECFC { Light DaedabusBallExplode1 }
 Frame MECFD { Light DaedabusBallExplode2 }
 Frame MECFE { Light DaedabusBallExplode3 }
 }
+
+OBJECT DualaPlasmaMOP
+{
+Frame DPLS { Light PBall1 }
+Frame PLD2A { Light PBallExplode1 }
+Frame PLD2B { Light PBallExplode2 }
+Frame PLD2C { Light PBallExplode3 }
+Frame PLD2D { Light PBallExplode4 }
+Frame PLD2E { Light PBallExplode5 }
+}
