@@ -2835,6 +2835,7 @@ Actor PossessedHectebus : PossessedFatso
 		TABU H 1 Bright
 		TABU IG 12
 		TABU G 10
+		TABU G 5
 		Goto Spawn
 	}
 }
@@ -2915,6 +2916,11 @@ Actor HectebusWeapon : PossessedWeapon
 	}
 }
 
+Actor HectebusBallMOP : HectebusBall replaces HectebusBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedDaedabus : PossessedFatso
 {
@@ -2968,6 +2974,7 @@ Actor PossessedDaedabus : PossessedFatso
 		HECT H 4 Bright 
 		HECT IG 12
 		HECT G 10
+		HECT G 5
 		Goto Spawn
 	Missile:
 		TNT1 A 0
@@ -3058,6 +3065,11 @@ Actor DaedabusWeapon : PossessedWeapon
 	}
 }
 
+Actor DaedabusBallMOP : DaedabusBall replaces DaedabusBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedBehemoth : PossessedFatso
 {
@@ -3115,6 +3127,7 @@ Actor PossessedBehemoth : PossessedFatso
 		TNT1 A 0
 		FAT2 H 6 Bright
 		FAT2 IG 12
+		FAT2 G 5
 		Goto Spawn
 	}
 }

@@ -550,3 +550,20 @@ OBJECT BombBallMOP
 Frame PBMBA { Light ArchonBall1 }
 Frame PBMBB { Light ArchonBall1 }
 }
+
+OBJECT HectebusBallMOP
+{
+Frame TABF { Light HectebusBall1 }
+Frame TABEC { Light HectebusBallExplode1 }
+Frame TABED { Light HectebusBallExplode2 }
+Frame TABEE { Light HectebusBallExplode3 }
+}
+
+OBJECT DaedabusBallMOP
+{
+Frame MECFA { Light DaedabusBall1 }
+Frame MECFB { Light DaedabusBall1 }
+Frame MECFC { Light DaedabusBallExplode1 }
+Frame MECFD { Light DaedabusBallExplode2 }
+Frame MECFE { Light DaedabusBallExplode3 }
+}
