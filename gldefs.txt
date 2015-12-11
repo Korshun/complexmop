@@ -467,3 +467,13 @@ Frame BALXC { Light SoulBallExplode1 }
 Frame BALXD { Light SoulBallExplode2 }
 Frame BALXE { Light SoulBallExplode3 }
 }
+
+OBJECT RictusBallMOP
+{
+Frame RCST { Light DevilBall1 }
+}
+
+OBJECT RictusBall
+{
+Frame RCST { Light DevilBall1 }
+}

@@ -2091,6 +2091,11 @@ Actor RictusWeapon : PossessedWeapon
 	}
 }
 
+Actor RictusBallMOP : RictusBall replaces RictusBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedCacodemon~ : PossessedMonster
 {
