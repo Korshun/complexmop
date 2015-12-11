@@ -162,7 +162,7 @@ Actor PossessedDemonTechZombie : PossessedMonster
 	DropItem "HandGrenadeAmmo" 150 1
 	DropItem "MineAmmo" 75 1
 	DropItem "DemonAmmo" 162 80
-	DamageFactor "ZombieDemonTech", 0.25
+	//DamageFactor "ZombieDemonTech", 0.25
 	+FLOORCLIP
 	+MISSILEMORE
 	SeeSound "grunt/sight"
@@ -225,7 +225,7 @@ Actor PossessedRocketZombie : PossessedMonster
 	DropItem "Missile" 256 5
 	DropItem "HandGrenadeAmmo" 200 1
 	DropItem "MineAmmo" 100 1
-	DamageFactor "ZombieRocket", 0.25
+	//DamageFactor "ZombieRocket", 0.25
 	+FLOORCLIP
 	+MISSILEMORE
 	SeeSound "grunt/sight"
@@ -1101,7 +1101,7 @@ Actor PossessedImp : PossessedMonster
 	PainChance "SoulToxic", 60
 	PainChance "FatFlamer", 60
 	PainChance "FiendFire", 60
-	DamageFactor "ImpComet", 0.0
+	//DamageFactor "ImpComet", 0.0
 	SeeSound "imp/sight"
 	PainSound "imps/pain"
 	DeathSound "imp/death"
@@ -1369,8 +1369,8 @@ Actor PossessedBullFiend : PossessedMonster
 	PainChance "FiendFire", 50
 	MeleeDamage 4
 	Species "Fiends"
-	DamageFactor "FiendFire", 0.0
-	DamageFactor "DTFiendEx", 0.0
+	//DamageFactor "FiendFire", 0.0
+	//DamageFactor "DTFiendEx", 0.0
 	DropItem "LifeEssence" 60
 	DropItem "ArmorBonusMax" 60
 	+FLOORCLIP
@@ -1855,8 +1855,8 @@ Actor PossessedTerrorSoul : PossessedMonster
 	PainChance "FiendFire", 50
 	DropItem "LifeEssence" 50
 	DropItem "ArmorBonusMax" 50
-	DamageFactor "SoulToxic", 0.0
-	DamageFactor "BombBreath", 0.0
+	//DamageFactor "SoulToxic", 0.0
+	//DamageFactor "BombBreath", 0.0
 	Scale 0.6
 	+FLOAT
 	+NOGRAVITY
@@ -1911,7 +1911,7 @@ Actor PossessedForgottenOne : PossessedTerrorSoul
 	Health 80
 	PainChance 120
 	Scale 0.5
-	DamageFactor "SoulToxic", 0.0
+	//DamageFactor "SoulToxic", 0.0
 	DropItem "LifeEssence" 75
 	DropItem "ArmorBonusMax" 75
 	SeeSound "forgotten/sight"
@@ -1972,7 +1972,7 @@ Actor PossessedPoisonSoul : PossessedTerrorSoul
 	Speed 0.21875 //5
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
-	DamageFactor "SoulToxic", 0.0
+	//DamageFactor "SoulToxic", 0.0
 	+DONTHURTSPECIES
 	AttackSound "monster/psoattack"
 	PainSound "monster/psopain"
@@ -2039,7 +2039,7 @@ Actor PossessedRictus : PossessedTerrorSoul
 	PainChance 100
 	DropItem "LifeEssence" 125
 	DropItem "ArmorBonusMax" 125
-	DamageFactor "SoulToxic", 0.0
+	//DamageFactor "SoulToxic", 0.0
 	SeeSound "rictus/sight"
 	AttackSound "rictus/attack"
 	PainSound "rictus/pain"
@@ -2109,7 +2109,7 @@ Actor PossessedCacodemon~ : PossessedMonster
 	PainChance "FiendFire", 40
 	Mass 500
 	MeleeDamage 5
-	DamageFactor "CacoComet", 0.0
+	//DamageFactor "CacoComet", 0.0
 	SeeSound "caco/sight"
 	PainSound "monsters/cacopain"
 	ActiveSound "caco/active"
@@ -2179,7 +2179,7 @@ Actor PossessedWatcher : PossessedCacodemon~
 
 	Health 600
 	PainChance 100
-	DamageFactor "CacoComet", 0.0
+	//DamageFactor "CacoComet", 0.0
 	BloodColor "Green"
 	SeeSound "monsters/watchersight"
 	PainSound "monsters/watcherpain"
@@ -2238,7 +2238,7 @@ Actor PossessedCacomental : PossessedCacodemon~
 	HitObituary "%o got chomped on by a Cacomental."
 	Health 800
 	PainChance 80
-	DamageFactor "CacoComet", 0.0
+	//DamageFactor "CacoComet", 0.0
 	SeeSound "monsters/cacomsit"
 	PainSound "monsters/cacompai"
 	DeathSound "monsters/cacomdet"
@@ -2367,8 +2367,8 @@ Actor PossessedSoulKeeper : PossessedPainElemental
 	+DROPOFF
 	+DONTFALL
 	+MISSILEMORE
-	DamageFactor "SoulToxic", 0.0
-	DamageFactor "BombBreath", 0.0
+	//DamageFactor "SoulToxic", 0.0
+	//DamageFactor "BombBreath", 0.0
 	SeeSound "Pain/Sight"
 	PainSound "Pain/Pain"
 	DeathSound "Pain/Death"
@@ -2678,8 +2678,8 @@ Actor PossessedHectebus : PossessedFatso
 	PainChance "FiendFire", 30
 	DropItem "LifeEssence" 80
 	DropItem "ArmorBonusMax" 80
-	DamageFactor "BeheComet", 0.0
-	DamageFactor "FatFlamer", 0.0
+	//DamageFactor "BeheComet", 0.0
+	//DamageFactor "FatFlamer", 0.0
 	BloodColor "30 30 30"
 	Species "Fatsos"
 	+MISSILEMORE
@@ -2881,8 +2881,8 @@ Actor PossessedDaedabus : PossessedFatso
 	BloodColor "Green"
 	DropItem "LifeEssence" 110
 	DropItem "ArmorBonusMax" 110
-	DamageFactor "BeheComet", 0.0
-	DamageFactor "FatFlamer", 0.0
+	//DamageFactor "BeheComet", 0.0
+	//DamageFactor "FatFlamer", 0.0
 	Species "Fatsos"
 	+MISSILEMORE
 	SeeSound "Daedabus/Sight"
@@ -3020,8 +3020,8 @@ Actor PossessedBehemoth : PossessedFatso
 
 	Health 1100 PainChance 80
 	Scale 1.1
-	DamageFactor "BeheComet", 0.0
-	DamageFactor "FatFlamer", 0.0
+	//DamageFactor "BeheComet", 0.0
+	//DamageFactor "FatFlamer", 0.0
 	DropItem "LifeEssence" 140
 	DropItem "ArmorBonusMax" 140
 	Species "Fatsos"
@@ -3113,8 +3113,8 @@ Actor PossessedBarbatos : PossessedFatso
 	Health 1350 PainChance 60
 	Speed 0.175 //4
 	Mass 2500 Scale 0.8
-	DamageFactor "BeheComet", 0.0
-	DamageFactor "FatFlamer", 0.0
+	//DamageFactor "BeheComet", 0.0
+	//DamageFactor "FatFlamer", 0.0
 	DropItem "BossLifeEssence" 128 25
 	DropItem "BossArmorBonusMax" 128 1
 	DropItem "DemonAmmoBox" 128 200
@@ -3361,7 +3361,7 @@ Actor PossessedDualachnotron : PossessedArachnotron
 	PainSound "monsters/fusionitepain"
 	DeathSound "monsters/dualachdeath"
 	AttackSound ""
-	DamageFactor "Baby15K", 0.0
+	//DamageFactor "Baby15K", 0.0
 	Species "BabySpiders"
 	+MISSILEMORE
 	States
@@ -3439,7 +3439,7 @@ Actor PossessedFusionite : PossessedArachnotron
 	ActiveSound "baby/active"
 	DropItem "LifeEssence" 80
 	DropItem "ArmorBonusMax" 80
-	DamageFactor "Baby15K", 0.0
+	//DamageFactor "Baby15K", 0.0
 	Species "BabySpiders"
 	+MISSILEMORE
 	States
@@ -3509,7 +3509,7 @@ Actor PossessedBabyDemolisher : PossessedArachnotron
 	AttackSound ""
 	DropItem "LifeEssence" 140
 	DropItem "ArmorBonusMax" 140
-	DamageFactor "Baby15K", 0.0
+	//DamageFactor "Baby15K", 0.0
 	Species "BabySpiders"
 	+MISSILEMORE
 	Obituary "%o got %p ass beat by a Baby Demolisher."
@@ -3594,7 +3594,7 @@ Actor PossessedBabySentient : PossessedArachnotron
 	DropItem "BossLifeEssence" 128 25
 	DropItem "BossArmorBonusMax" 128 1
 	DropItem "DemonAmmoBox" 128 200
-	DamageFactor "Baby15K", 0.0
+	//DamageFactor "Baby15K", 0.0
 	Species "BabySpiders"
 	+MISSILEMORE
 	+QUICKTORETALIATE
@@ -3819,7 +3819,7 @@ Actor PossessedGuardian : PossessedRevenant
 	PainChance "FatFlamer", 25
 	PainChance "FiendFire", 25
 	Scale 0.85
-	DamageFactor "CadaverRocket", 0.0
+	//DamageFactor "CadaverRocket", 0.0
 	Obituary "%o was splattered by a Guardian's meteor."
 	Hitobituary "%o was bitch slapped by a Guardian."
 	SeeSound "skeletons/sight"
@@ -4245,7 +4245,7 @@ Actor PossessedHellKnight~ : PossessedHellKnight
 	MeleeDamage 8
 	DropItem "LifeEssence" 90
 	DropItem "ArmorBonusMax" 90
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	Species "Nobles"
 	Obituary "%o was splayed by a Hell Knight." 
 	HitObituary "The last thing %o saw was a Hell Knight's fist."
@@ -4346,7 +4346,7 @@ Actor PossessedPyroDemon : PossessedHellKnight
 	MeleeDamage 8
 	DropItem "LifeEssence" 120
 	DropItem "ArmorBonusMax" 120
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	Species "Nobles"
 	+MISSILEMORE
 	+FASTMELEE
@@ -4448,7 +4448,7 @@ Actor PossessedCyberNoble : PossessedHellKnight
 	DeathSound "cbaron/death"
 	MeleeSound "baron/melee"
 	ActiveSound "cbaron/active"
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	DropItem "LifeEssence" 150
 	DropItem "ArmorBonusMax" 150
 	Species "Nobles"
@@ -4569,7 +4569,7 @@ Actor PossessedHellDuke : PossessedHellKnight
 	DropItem "BossLifeEssence" 128 25
 	DropItem "BossArmorBonusMax" 128 1
 	DropItem "DemonAmmoBox" 128 200
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	Species "Nobles"
 	+MISSILEEVENMORE
 	+FASTMELEE
@@ -4708,7 +4708,7 @@ Actor PossessedBaronOfHell~ : PossessedBaronOfHell
 	PainChance "FatFlamer", 20
 	PainChance "FiendFire", 20
 	BloodColor "Green"
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	Species "Nobles"
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
@@ -4812,7 +4812,7 @@ Actor PossessedBruiserDemon : PossessedBaronOfHell
 	Health 1250
 	PainChance 80
 	BloodColor "ff 5f 00"
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	DropItem "LifeEssence" 130
 	DropItem "ArmorBonusMax" 130
 	MeleeDamage 8
@@ -4937,7 +4937,7 @@ Actor PossessedCybruiser : PossessedBaronOfHell
 	DeathSound "monster/brudth"
 	MeleeSound "baron/melee"
 	ActiveSound "cbaron/active"
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	DropItem "LifeEssence" 160
 	DropItem "ArmorBonusMax" 160
 	+MISSILEMORE
@@ -5100,7 +5100,7 @@ Actor PossessedExile : PossessedArchVile
 	Species "Viles"
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
-	DamageFactor "VileFires", 0.0
+	//DamageFactor "VileFires", 0.0
 	PainChance "Mine", 128
 	Obituary "%o got caught in an Exile's void."
 	DeathSound "avile/death"
@@ -5175,7 +5175,7 @@ Actor PossessedDiabolist : PossessedArchVile
 	DropItem "ArmorBonusMax" 130
 	BloodColor "12 12 12"
 	Species "Viles"
-	DamageFactor "VileFires", 0.0
+	//DamageFactor "VileFires", 0.0
 	PainChance "Mine", 128
 	Obituary "%o got roasted alive by a Diabolist."
 	+FLOORCLIP
@@ -5337,7 +5337,7 @@ Actor PossessedDarkHellion : PossessedArchVile
 	+FLOORCLIP
 	+NOTARGET
 	Species "Viles"
-	DamageFactor "VileFires", 0.0
+	//DamageFactor "VileFires", 0.0
 	PainChance "Mine", 128
 	SeeSound "monster/hlnsit"
 	ActiveSound "monster/hlnact"
@@ -5637,9 +5637,9 @@ Actor PossessedDemolisher : PossessedSpiderMastermind
 	DeathSound "monsters/darkmasterminddie"
 	AttackSound ""
 	Species "Masterminds"
-	DamageFactor "DemolisherEx", 0.0
-	DamageFactor "PDTBFG", 0.5
-	DamageFactor "PDTBFGTracer", 0.8
+	//DamageFactor "DemolisherEx", 0.0
+	//DamageFactor "PDTBFG", 0.5
+	//DamageFactor "PDTBFGTracer", 0.8
 	States
 	{
 	Spawn:
@@ -5795,9 +5795,9 @@ Actor PossessedDarkDemolisher : PossessedSpiderMastermind
 	AttackSound ""
 	Species "Masterminds"
 	+MISSILEEVENMORE
-	DamageFactor "DarkDemoEx", 0.0
-	DamageFactor "PDTBFG", 0.35
-	DamageFactor "PDTBFGTracer", 0.7
+	//DamageFactor "DarkDemoEx", 0.0
+	//DamageFactor "PDTBFG", 0.35
+	//DamageFactor "PDTBFGTracer", 0.7
 	BloodColor "Green"
 	States
 	{
@@ -5981,10 +5981,10 @@ Actor PossessedCerebralSentient : PossessedSpiderMastermind
 	+NOGRAVITY
 	-FLOORCLIP
 	AttackSound ""
-	DamageFactor "CerChainguns", 0.0
-	DamageFactor "CerEnergyBall", 0.0
-	DamageFactor "PDTBFG", 0.2
-	DamageFactor "PDTBFGTracer", 0.6
+	//DamageFactor "CerChainguns", 0.0
+	//DamageFactor "CerEnergyBall", 0.0
+	//DamageFactor "PDTBFG", 0.2
+	//DamageFactor "PDTBFGTracer", 0.6
 	SeeSound "arachnophyte/sight"
 	PainSound "arachnophyte/pain"
 	DeathSound "arachnophyte/death"
@@ -6244,9 +6244,9 @@ Actor PossessedCyberLord : PossessedCyberdemon
 	DropItem "BossArmorBonusMax" 128 25
 	DropItem "MissileBox" 128 20
 	Obituary "The Annihilator wrecked %o."
-	DamageFactor "Cyber10K", 0.0
-	DamageFactor "PDTBFG", 0.5
-	DamageFactor "PDTBFGTracer", 0.8
+	//DamageFactor "Cyber10K", 0.0
+	//DamageFactor "PDTBFG", 0.5
+	//DamageFactor "PDTBFGTracer", 0.8
 	SeeSound "monsters/clsee"
 	PainSound "monsters/cyberlordpain"
 	DeathSound "monsters/cldie"
@@ -6342,9 +6342,9 @@ Actor PossessedDarkCyberdemon : PossessedCyberdemon
 	PainChance "Explosion", 70
 	Speed 0.7875 //18
 	Scale 1.05
-	DamageFactor "Cyber10K", 0.0
-	DamageFactor "PDTBFG", 0.35
-	DamageFactor "PDTBFGTracer", 0.7
+	//DamageFactor "Cyber10K", 0.0
+	//DamageFactor "PDTBFG", 0.35
+	//DamageFactor "PDTBFGTracer", 0.7
 	Species "Cybers"
 	DropItem "BossLifeEssence" 162 25
 	DropItem "BossArmorBonusMax" 162 25
@@ -6606,9 +6606,9 @@ Actor PossessedCardinal : PossessedCyberdemon
 	PainChance "FiendFire", 10
 	PainChance "Explosion", 60
 	Species "Cybers"
-	DamageFactor "Cyber10K", 0.0
-	DamageFactor "PDTBFG", 0.2
-	DamageFactor "PDTBFGTracer", 0.6
+	//DamageFactor "Cyber10K", 0.0
+	//DamageFactor "PDTBFG", 0.2
+	//DamageFactor "PDTBFGTracer", 0.6
 	DropItem "BossLifeEssence" 204 25
 	DropItem "BossArmorBonusMax" 204 25
 	DropItem "DemonAmmoBox" 128 200
@@ -7518,28 +7518,4 @@ Actor HitlerNoSuitWeapon : PossessedWeapon
         TNT1 G 3 Bright A_PlaySoundEx("hitler/fire","Weapon")
 		Goto Ready
 	}
-}
-
-// takes no damage from puppetmasters
-Actor NewBossBrain : BossBrain replaces BossBrain
-{
-	DamageFactor "Monster", 0
-	DamageFactor "Slime", 0
-	DamageFactor "ZombieDemonTech", 0
-	DamageFactor "ZombieRocket", 0
-	DamageFactor "DTFiendEx", 0
-	DamageFactor "SoulToxic", 0
-	DamageFactor "FiendFire", 0
-	DamageFactor "BombBreath", 0
-	DamageFactor "FatFlamer", 0
-	DamageFactor "Baby15K", 0
-	DamageFactor "CadaverRocket", 0
-	DamageFactor "AfritComet", 0
-	DamageFactor "BeheComet", 0
-	DamageFactor "HelementalComet", 0
-	DamageFactor "VileFires", 0
-	DamageFactor "DemolisherEx", 0
-	DamageFactor "DarkDemoEx", 0
-	DamageFactor "CerEnergyBall", 0
-	DamageFactor "Cyber10K", 0
 }
