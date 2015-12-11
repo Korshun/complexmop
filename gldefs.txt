@@ -429,7 +429,7 @@ Frame DKB1D { Light VoidBallExplode2 }
 Frame DKB1E { Light VoidBallExplode3 }
 }
 
-Object DevilBall
+Object DevilBallMOP
 {
 Frame SHBAA { Light SoulHarvesterBall1 }
 Frame SHBAB { Light SoulHarvesterBall1 }
@@ -443,4 +443,13 @@ Frame SHBAI { Light SoulHarvesterBall6 }
 Frame SHBAJ { Light SoulHarvesterBall7 }
 Frame SHBAK { Light SoulHarvesterBall8 }
 Frame SHBAL { Light SoulHarvesterBall9 }
+}
+
+OBJECT PhaseImpBallMOP
+{
+Frame DIMBA { Light PhaseBall1 }
+Frame DIMBB { Light PhaseBall1 }
+Frame DIMBC { Light PhaseBallExplode1 }
+Frame DIMBD { Light PhaseBallExplode2 }
+Frame DIMBE { Light PhaseBallExplode3 }
 }

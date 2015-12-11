@@ -1349,6 +1349,11 @@ Actor PhaseImpWeapon : PossessedWeapon
 	}
 }
 
+Actor PhaseImpBallMOP : PhaseImpBall replaces PhaseImpBall
+{
+	DamageType "Monster"
+}
+
 Actor PhaseImp_Phased : Inventory { Inventory.MaxAmount 1 }
 
 Actor PhaseImp_Phase : CustomInventory
