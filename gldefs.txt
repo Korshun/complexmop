@@ -458,3 +458,12 @@ OBJECT MagmaBallMOP
 {
 Frame RCST { Light BruiserBall2 }
 }
+
+OBJECT SoulBallMOP
+{
+Frame BALXA { Light SoulBall1 }
+Frame BALXB { Light SoulBall1 }
+Frame BALXC { Light SoulBallExplode1 }
+Frame BALXD { Light SoulBallExplode2 }
+Frame BALXE { Light SoulBallExplode3 }
+}

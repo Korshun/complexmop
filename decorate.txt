@@ -1896,6 +1896,11 @@ Actor TerrorSoulWeapon : PossessedWeapon
 	}
 }
 
+Actor SoulBallMOP : SoulBall replaces SoulBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedForgottenOne : PossessedTerrorSoul
 {
