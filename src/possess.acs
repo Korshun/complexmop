@@ -43,6 +43,13 @@ script mop_possess (void)
 		Thing_ChangeTid(TEMPTID, 0);
 		terminate;
 	}
+	else if (flags & MONSTF_ISVILE)
+	{
+		SetActivator(player);
+		print(s:"\cgViles are not playable because we couldn't find a way to make them attack reliably while not crashing the server.\n\nZDoom sux.");
+		Thing_ChangeTid(TEMPTID, 0);
+		terminate;
+	}
 	
 	int frags = MopFrags[player-1000];
 	int required = GetCVar("mop_possfrags_bosses");

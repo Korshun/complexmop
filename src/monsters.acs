@@ -10,6 +10,7 @@
 #define MONSTF_FLYING 1
 #define MONSTF_NOPOSSESS 2
 #define MONSTF_BOSS 4
+#define MONSTF_ISVILE 8
 
 #define NUM_MONSTER_TYPES 70
 int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
@@ -68,9 +69,9 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
 	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
-	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
-	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
-	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1D1" },
+	{ "Exile",					0.5, 0, 0, MONSTF_ISVILE, "Exile", "VILEA1D1" },
+	{ "Diabolist",				0.5, 0, 0, MONSTF_ISVILE, "Diabolist", "DIABA1D1" },
+	{ "DarkHellion",			0.5, 0, 0, MONSTF_ISVILE, "Dark Hellion", "HELNA1D1" },
 	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
 	{ "DarkDemolisher",			6.0, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
 	{ "CerebralSentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },

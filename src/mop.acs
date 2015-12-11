@@ -39,7 +39,7 @@ int BoomEdition = true;
 #define mop_cerebralsentient 832
 #define mop_darkcyberdemon 833
 #define mop_cardinal 834
-#define mop_vileattack 835
+// FREE SLOT 835
 #define mop_respawn_protection 836
 #define mop_update_fragcounter 837
 #define mop_prevent_respawns 838

@@ -252,6 +252,7 @@ Frame BRUSF { Light ZOMBIEATK }
 Frame BRUD { Light HellArchonExplosion1 }
 }
 
+/*
 OBJECT PossessedExile
 {
 Frame VILEG { Light HellArchonExplosion1 }
@@ -293,6 +294,7 @@ Frame HELNK { Light HellionAttackLight1 }
 Frame HELHA { Light HellionAttackLight1 }
 Frame HELHB { Light HellionAttackLight1 }
 }
+*/
 
 OBJECT PossessedDemolisher
 {
