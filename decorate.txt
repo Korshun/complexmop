@@ -3,7 +3,6 @@
 #include "decorate/possessed.txt"
 #include "decorate/puffs.txt"
 #include "decorate/player.txt"
-#include "decorate/projectiles.txt"
 
 const int PROP_FROZEN = 0;
 
@@ -78,6 +77,12 @@ Actor PlasmaGunnerWeapon : PossessedWeapon
 		Stop
 	}
 }
+
+Actor ZombiePlasmaBallMOP : ZombiePlasmaBall replaces ZombiePlasmaBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedRailGunner : PossessedMonster
 {
