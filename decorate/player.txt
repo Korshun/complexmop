@@ -4,12 +4,12 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 	
 	+THRUSPECIES
 
-	Player.StartItem "MOP Handgun"
+	Player.StartItem "Handgun"
 	//Player.StartItem "Frag Grenade"
 	Player.StartItem "HandGrenadeAmmo" 2
 	//Player.StartItem "Land Mine"
 	Player.StartItem "MineAmmo" 2
-	Player.StartItem "MOP Melee"
+	Player.StartItem "Melee"
 	Player.StartItem "BulletMag" 60
 	Player.StartItem "PistolMagazine" 16
 	Player.StartItem "ShotgunMagazine" 9

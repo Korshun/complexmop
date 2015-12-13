@@ -110,9 +110,6 @@ script mop_enter ENTER
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
 	
-	SetWeapon("Melee");
-	Delay(1); // Fix desync.
-	
 	if (GetCVar("mop_pistolstart") == 1)
 	{
 		SetWeapon("Handgun");
