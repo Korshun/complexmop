@@ -33,6 +33,13 @@ script mop_log_join(int player, int team) clientside
 	}
 }
 
+function void InitPuppetmasterInventory(void)
+{
+	ClearInventory();
+	GiveInventory("MasterGun", 1);
+	GiveInventory("AllMap", 1);
+}
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
@@ -42,7 +49,7 @@ script mop_enter ENTER
 		PlayerClasses[PlayerNumber()] = PLAYER_MOP;
 		LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
 		//SetPlayerProperty(0, true, PROP_ALLMAP);
-		GiveInventory("AllMap", 1);
+		InitPuppetmasterInventory();
 		ACS_ExecuteAlways(mop_monsterinfo, 0);
 	}
 	else
@@ -128,6 +135,8 @@ script mop_respawn RESPAWN
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
 		SetWeapon("Handgun"); // WTF is this bug?
+	else
+		InitPuppetmasterInventory();
 }
 
 script mop_prevent_respawns RESPAWN

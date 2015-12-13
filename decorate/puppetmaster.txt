@@ -9,7 +9,6 @@ Actor PuppetMaster : PlayerPawn
 	Player.ViewHeight 25
 	Player.DisplayName "PuppetMaster"
 	Player.SoundClass "PuppetMaster"
-	Player.StartItem "mastergun"
 	Player.StartItem "IsPuppetmaster"
 	Player.WeaponSlot 1, mastergun
 	FloatSpeed 0
