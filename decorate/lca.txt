@@ -47,9 +47,9 @@ States
 {
 Spawn:
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LPOS A 10 Bright A_Look
+    LPOS A 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LPOS Q 10 Bright A_Look
+	LPOS Q 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Loop
 See:
@@ -178,7 +178,7 @@ ACTOR BFGCacodemon 5014
 	States
 	{
 	Spawn:
-		BFCD A 10 A_Look
+		BFCD A 10 //A_Look
 		Loop
 	See:
 		TNT1 A 0 A_Jump(20,"FastChase")
@@ -265,7 +265,7 @@ ACTOR EraserZombie 5012
   states
   {
   Spawn:
-    PYRZ AX 10 A_Look
+    PYRZ AX 10 //A_Look
     loop
   See:
     PYRZ AABB 3 A_Chase
@@ -380,13 +380,13 @@ ACTOR LegendaryCyberdemon : Cyberdemon 5011
   {
   Spawn:
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	CYBR A 10 Bright A_Look
+	CYBR A 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	CYBR A 10 Bright A_Look
+	CYBR A 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	CYBR Z 10 Bright A_Look
+	CYBR Z 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	CYBR Z 10 Bright A_Look
+	CYBR Z 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	Loop
   See:
@@ -1052,7 +1052,7 @@ DropItem "NewCellPack" 250
 States
 {
 Spawn:
-        FRZR AZ 10 A_Look
+        FRZR AZ 10 //A_Look
         Loop
 See:
         FRZR AABB 3 A_Chase
@@ -1197,9 +1197,9 @@ ACTOR NewBabySentient : Arachnotron Replaces BabySentient
   {
   Spawn:
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP A 2 Bright A_Look
+	MARP A 2 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP B 2 Bright A_Look
+	MARP B 2 Bright //A_Look
     Loop
   See:
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
@@ -1402,10 +1402,10 @@ Obituary "%o was squashed by a Behemoth."
 States
 {
 Spawn:
-       FAT2 C 8 A_Look
-	   FAT2 C 8 A_Look
-	   FATI C 8 A_Look
-	   FATI C 8 A_Look
+       FAT2 C 8 //A_Look
+	   FAT2 C 8 //A_Look
+	   FATI C 8 //A_Look
+	   FATI C 8 //A_Look
        Loop
 See:
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)     
@@ -1505,9 +1505,9 @@ ACTOR NewCerebralSentient : SpiderMastermind Replaces CerebralSentient
     {
 Spawn:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR A 2 Bright A_Look
+	SUPR A 2 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR B 2 Bright A_Look
+	SUPR B 2 Bright //A_Look
 	Loop
 See:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -1938,10 +1938,10 @@ MeleeSound "imp/melee"
 States 
 { 
 Spawn: 
-        SOHS A 7 Bright A_Look
-		SOHS A 7 Bright A_Look
-		SOHI A 7 Bright A_Look
-		SOHI A 7 Bright A_Look
+        SOHS A 7 Bright //A_Look
+		SOHS A 7 Bright //A_Look
+		SOHI A 7 Bright //A_Look
+		SOHI A 7 Bright //A_Look
         Loop 
 See: 
         SOHS AA 3 Bright A_Chase
@@ -2063,9 +2063,9 @@ ACTOR LegendaryHellKnight 5009
   {
   Spawn:
     TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LNBL A 14 Bright A_Look
+    LNBL A 14 Bright //A_Look
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LNBL Z 14 Bright A_Look
+	LNBL Z 14 Bright //A_Look
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Loop
   See:
@@ -2320,7 +2320,7 @@ Obituary "%o was deranked by a former BFG10K General."
 States
 {
 Spawn:
-	BF10 AZ 10 A_Look
+	BF10 AZ 10 //A_Look
 	TNT1 A 0 A_PlayWeaponSound("weapons/bfg15kidle")
     Loop
 See:
@@ -2419,9 +2419,9 @@ States
    { 
    Spawn: 
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-       BOS3 A 14 Bright A_Look 
+       BOS3 A 14 Bright //A_Look 
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-	   BOS3 X 14 Bright A_Look 
+	   BOS3 X 14 Bright //A_Look 
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Loop 
    See:
@@ -2651,9 +2651,9 @@ ACTOR LegendaryImp 5007
   {
   Spawn:
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LEGN A 10 Bright A_Look
+    LEGN A 10 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LEGN Q 10 Bright A_Look
+	LEGN Q 10 Bright //A_Look
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	Loop
   See:
@@ -2863,9 +2863,9 @@ ACTOR LegendarySentient : SpiderMastermind 5006
 Spawn:
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR A 2 Bright A_Look
+	LUPR A 2 Bright //A_Look
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR B 2 Bright A_Look
+	LUPR B 2 Bright //A_Look
 	Loop
 See:
     TNT1 A 0 ACS_ExecuteAlways(5432,0,8)
@@ -4011,13 +4011,13 @@ States
 {    
 Spawn: 
         TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-        LANI A 10 Bright A_Look
+        LANI A 10 Bright //A_Look
 		TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-		LANI A 10 Bright A_Look
+		LANI A 10 Bright //A_Look
 		TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-		LNII A 10 Bright A_Look
+		LNII A 10 Bright //A_Look
 		TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-		LNII A 10 Bright A_Look
+		LNII A 10 Bright //A_Look
 		TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
         Loop 
 See: 
@@ -5170,9 +5170,9 @@ States
    { 
    Spawn: 
        TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-       ARCR A 14 A_Look 
+       ARCR A 14 //A_Look 
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR Z 14 A_Look 
+	   ARCR Z 14 //A_Look 
        Loop 
    See:
        TNT1 A 0 ACS_ExecuteAlways(5432,0,6)
@@ -5872,7 +5872,7 @@ Actor LegendaryRevenant 5004
   {
   Spawn:
   	LREV AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LREV A 10 Bright A_Look
+    LREV A 10 Bright //A_Look
     Loop
   See:
     TNT1 A 0 ACS_ExecuteAlways(5432,0,7)
@@ -6178,7 +6178,7 @@ ACTOR DTDevastatorZombie 5031
   states
   {
   Spawn:
-    DEVZ AQ 10 A_Look
+    DEVZ AQ 10 //A_Look
     loop
   See:
     DEVZ AABB 3 A_Chase
@@ -6335,7 +6335,7 @@ ACTOR CerebralCardinal 6065
   {
   Spawn:
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Look
+  ARCY A 2 Bright //A_Look
   Loop
   See:
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -7310,13 +7310,13 @@ States
 {
 Spawn:
        TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-       FRBH C 8 Bright A_Look
+       FRBH C 8 Bright //A_Look
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   FRBH C 8 Bright A_Look
+	   FRBH C 8 Bright //A_Look
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   QATI C 8 Bright A_Look
+	   QATI C 8 Bright //A_Look
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   QATI C 8 Bright A_Look
+	   QATI C 8 Bright //A_Look
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
        Loop
 See:
