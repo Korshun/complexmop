@@ -2,4 +2,4 @@ ClearPlayerClasses
 AddPlayerClass ComplexMOPPlayer
 AddPlayerClass PuppetMaster
 
-SETSLOT 7 "MOP BFG9500" "MOP BFG10K" "MOP Demon Tech BFG10K"
+SETSLOT 7 "MOP BFG9500" "MOP BFG10K" "MOP Demon Tech BFG10K" "MOP Demon Tech Devastator" "MOP Legendary BFG"
