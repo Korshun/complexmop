@@ -1,4 +1,4 @@
-ACTOR LegZombie 5015
+Actor PossessedLegZombie : PossessedMonster
 { 
 Health 999
 Radius 20
@@ -148,7 +148,7 @@ XDeath:
 }
 
 
-ACTOR BFGCacodemon 5014
+Actor PossessedBFGCacodemon : PossessedMonster
 {
 	//DamageFactor "WeakenerBall" , 0.0
 	Health 700
@@ -238,7 +238,7 @@ ACTOR BFGCacodemon 5014
 }
 
 
-ACTOR EraserZombie 5012
+Actor PossessedEraserZombie : PossessedMonster
 {
   obituary "%o was thoroughly rekt by an Eraser Zombie."
   health 210
@@ -321,7 +321,7 @@ ACTOR EraserZombie 5012
 }
 
 
-ACTOR LegendaryCyberdemon : Cyberdemon 5011
+Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 {
   Health 6999
   Radius 45
@@ -1022,7 +1022,7 @@ ACTOR Legendary10KProjectileMOP : Legendary10KProjectile replaces Legendary10KPr
 }
 
 
-ACTOR FreezerZombie : ChaingunGuy 6064
+Actor PossessedFreezerZombie : PossessedChaingunGuy
 {
 Health 215
 Radius 20
@@ -1168,7 +1168,7 @@ Raise:
 }
 
 
-ACTOR NewBabySentient : Arachnotron Replaces BabySentient
+Actor PossessedNewBabySentient : PossessedArachnotron
 {
   Health 1250
   PainChance 60
@@ -1381,7 +1381,7 @@ ACTOR NewBabySentient : Arachnotron Replaces BabySentient
 }
 
 
-ACTOR NewBehemoth : Fatso Replaces Behemoth
+Actor PossessedNewBehemoth : PossessedFatso
 {
 Health 1100
 PainChance 80
@@ -1465,7 +1465,7 @@ Raise:
 }
 
 
-ACTOR NewCerebralSentient : SpiderMastermind Replaces CerebralSentient
+Actor PossessedNewCerebralSentient : PossessedSpiderMastermind
 {
     Health 4000
     Speed 12
@@ -1906,7 +1906,7 @@ AlwaysDrop:
 }
 
 
-ACTOR SandSpirit : HellKnight 5016
+Actor PossessedSandSpirit : PossessedHellKnight
 { 
 Health 1500
 PainChance 50
@@ -2008,7 +2008,7 @@ Death:
 }
 
 
-ACTOR LegendaryHellKnight 5009
+Actor PossessedLegendaryHellKnight : PossessedMonster
 {
   Health 1700
   Radius 24
@@ -2289,7 +2289,7 @@ ACTOR LegendaryHellKnight 5009
 }
 
 
-ACTOR BFG10KGeneral 5008
+Actor PossessedBFG10KGeneral : PossessedMonster
 { 
 Health 230
 Radius 20
@@ -2385,7 +2385,7 @@ Raise:
 }
 
 
-ACTOR PhaseOverlord 6063
+Actor PossessedPhaseOverlord : PossessedMonster
 { 
 Health 1650 
 Radius 24 
@@ -2603,7 +2603,7 @@ States
 }
 
 
-ACTOR LegendaryImp 5007
+Actor PossessedLegendaryImp : PossessedMonster
 {
   Health 999
   Radius 20
@@ -2806,7 +2806,7 @@ ACTOR LegendaryImp 5007
 }
 
 
-ACTOR LegendarySentient : SpiderMastermind 5006
+Actor PossessedLegendarySentient : PossessedSpiderMastermind
 {
     Health 5999
     Speed 15
@@ -3951,7 +3951,7 @@ ACTOR LegendarySentient10KProjectileMOP : LegendarySentient10KProjectile replace
 }
 
 
-ACTOR LegendaryAnnihilator : Cyberdemon 5005
+Actor PossessedLegendaryAnnihiliator : PossessedCyberdemon
 {
 Health 9999
 Scale 1.2
@@ -5107,7 +5107,7 @@ Death:
 }
 
 
-ACTOR Arcradimus 11026
+Actor PossessedArcradimus : PossessedMonster
 { 
 //$Category Monsters
 //$Sprite ARCRA1C1
@@ -5815,7 +5815,7 @@ States
 }
 
 
-Actor LegendaryRevenant 5004
+Actor PossessedLegendaryRevenant : PossessedMonster
 {
   Health 1350
   Radius 20
@@ -6150,7 +6150,7 @@ Actor LegendaryRevenant 5004
 }
 
 
-ACTOR DTDevastatorZombie 5031
+Actor PossessedDTDevastatorZombie : PossessedMonster
 {
   obituary "%o was pulverized by a zombie's Demon Tech Devastator."
   health 250
@@ -6275,7 +6275,7 @@ ACTOR DTDevastatorZombie 5031
 }
 
 
-ACTOR CerebralCardinal 6065
+Actor PossessedCerebralCardinal : PossessedMonster
   {
   Speed 10
   Height 100
@@ -7277,7 +7277,7 @@ Death:
 }
 
 
-ACTOR FreezerBehemoth : Fatso 5000
+Actor PossessedFreezerBehemoth : PossessedFatso
 {
 Health 1550
 PainChance 55
