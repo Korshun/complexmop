@@ -1,6 +1,7 @@
 ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 {
 	DamageFactor "Player", 0
+	DamageFactor "Players", 0 // Used in LCA
 	
 	+THRUSPECIES
 

@@ -692,3 +692,13 @@ OBJECT CardinalHomingRocketMOP
 {
 Frame CBRKA { Light Missile1 }
 }
+
+OBJECT Legendary10KProjectileMOP 
+{
+Frame LRAC { Light BFG9500EnergyBall1 }
+}
+
+OBJECT LegendarySentient10KProjectileMOP
+{
+Frame LRAC { Light BFG9500EnergyBall1 }
+}

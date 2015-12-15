@@ -30,6 +30,19 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "CerEnergyBall", 0
 	DamageFactor "Cyber10K", 0
 	
+	DamageFactor "Legendary", 0
+	DamageFactor "WeakenerBall", 0
+	DamageFactor "SoapOpera", 0
+	DamageFactor "GeneralTracer", 0
+	DamageFactor "AfritComet", 0
+	DamageFactor "CacoLich", 0
+	DamageFactor "Legendary1", 0
+	DamageFactor "CerChainguns", 0
+	DamageFactor "LegMind", 0
+	DamageFactor "Hell", 0
+	DamageFactor "Plasma", 0
+	DamageFactor "ZombieDev", 0
+	
 	States
 	{
 	Death:
@@ -62,6 +75,20 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "DarkDemoEx", 0
 	DamageFactor "CerEnergyBall", 0
 	DamageFactor "Cyber10K", 0
+	
+	DamageFactor "Legendary", 0
+	DamageFactor "WeakenerBall", 0
+	DamageFactor "SoapOpera", 0
+	DamageFactor "GeneralTracer", 0
+	DamageFactor "AfritComet", 0
+	DamageFactor "CacoLich", 0
+	DamageFactor "Legendary1", 0
+	DamageFactor "CerChainguns", 0
+	DamageFactor "LegMind", 0
+	DamageFactor "Hell", 0
+	DamageFactor "Plasma", 0
+	DamageFactor "ZombieDev", 0
+	
 }
 
 Actor PossessedWeapon : Weapon
