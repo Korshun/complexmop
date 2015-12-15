@@ -54,13 +54,13 @@ Spawn:
     Loop
 See:
     LPOS A 0 A_JumpIfTargetInLOS("Strafing")
-    LPOS AABB 3 Bright A_Chase
+    LPOS AABB 3 Bright //A_Chase
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,1)
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LPOS A 0 A_JumpIfTargetInLOS("Strafing")
-	LPOS CCDD 3 Bright A_Chase
+	LPOS CCDD 3 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LPOS A 0 A_Jump(80,"Rush")
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
@@ -72,23 +72,23 @@ Rush:
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("LegZombieGhostA",0,0,0,0,0,0,0,128)
-	LPOS A 1 Bright A_Chase
+	LPOS A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegZombieGhostA",0,0,0,0,0,0,0,128)
-	LPOS A 1 Bright A_Chase
+	LPOS A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryZombieGhostB",0,0,0,0,0,0,0,128)
-	LPOS B 1 Bright A_Chase
+	LPOS B 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryZombieGhostB",0,0,0,0,0,0,0,128)
-	LPOS B 1 Bright A_Chase
+	LPOS B 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("LegZombieGhostC",0,0,0,0,0,0,0,128)
-	LPOS C 1 Bright A_Chase
+	LPOS C 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegZombieGhostC",0,0,0,0,0,0,0,128)
-	LPOS C 1 Bright A_Chase
+	LPOS C 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryZombieGhostD",0,0,0,0,0,0,0,128)
-	LPOS D 1 Bright A_Chase
+	LPOS D 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryZombieGhostD",0,0,0,0,0,0,0,128)
-	LPOS D 1 Bright A_Chase
+	LPOS D 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_Jump(84,"See")
@@ -96,15 +96,15 @@ Rush:
 	Loop
 Strafing:
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
+	TNT1 A 0 //A_Chase("","Missile",CHF_DONTMOVE)
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,1)
 	LPOS AA 3 Bright A_GiveInventory("LegZombieStrafing",1)
-	TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
+	TNT1 A 0 //A_Chase("","Missile",CHF_DONTMOVE)
 	LPOS BB 3 Bright A_GiveInventory("LegZombieStrafing",1)
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
+	TNT1 A 0 //A_Chase("","Missile",CHF_DONTMOVE)
     LPOS CC 3 Bright A_GiveInventory("LegZombieStrafing",1)	
-	TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
+	TNT1 A 0 //A_Chase("","Missile",CHF_DONTMOVE)
 	LPOS DD 3 Bright A_GiveInventory("LegZombieStrafing",1)
 	Goto See
 Pause:
@@ -182,26 +182,26 @@ ACTOR BFGCacodemon 5014
 		Loop
 	See:
 		TNT1 A 0 A_Jump(20,"FastChase")
-		BFCD A 3 A_Chase
+		BFCD A 3 //A_Chase
 		TNT1 A 0 A_Jump(62,"Rush")
 		Loop
 	Rush:
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_SpawnItemEx("BFGCacodemonGhostA")	
-	   BFCD A 1 A_Chase
+	   BFCD A 1 //A_Chase
 	   TNT1 A 0 A_Jump(87,"See")
 	   Loop
 	FastChase:
@@ -268,9 +268,9 @@ ACTOR EraserZombie 5012
     PYRZ AX 10 //A_Look
     loop
   See:
-    PYRZ AABB 3 A_Chase
+    PYRZ AABB 3 //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	PYRZ CCDD 3 A_Chase
+	PYRZ CCDD 3 //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     loop
   Missile:
@@ -393,29 +393,29 @@ ACTOR LegendaryCyberdemon : Cyberdemon 5011
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,2)
 	TNT1 A 0 A_Jump(100,"Rush")
 	CYBR A 3 Bright A_Hoof
-    CYBR ABBCC 3 Bright A_Chase
+    CYBR ABBCC 3 Bright //A_Chase
     CYBR D 3 Bright A_Metal
-    CYBR D 3 Bright A_Chase
+    CYBR D 3 Bright //A_Chase
     TNT1 A 0 A_Jump(35,"Teleport")
 	Loop
   Rush:
     TNT1 A 0 A_Hoof
-	CYBR A 2 Bright A_Chase
+	CYBR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR A 2 Bright A_Chase
+	CYBR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR A 2 Bright A_Chase
+	CYBR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR B 2 Bright A_Chase
+	CYBR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR C 2 Bright A_Chase
+	CYBR C 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR C 2 Bright A_Chase
+	CYBR C 2 Bright //A_Chase
 	TNT1 A 0 A_Metal
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR D 2 Bright A_Chase
+	CYBR D 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
-	CYBR D 2 Bright A_Chase
+	CYBR D 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryCyberGhostA",0,0,0,0,0,0,0,128)
 	TNT1 A 0 A_Jump(25,"Teleport")
 	TNT1 A 0 A_Jump(75,"See")		
@@ -1055,9 +1055,9 @@ Spawn:
         FRZR AZ 10 //A_Look
         Loop
 See:
-        FRZR AABB 3 A_Chase
+        FRZR AABB 3 //A_Chase
 		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-		FRZR CCDD 3 A_Chase
+		FRZR CCDD 3 //A_Chase
 		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
         Loop
 Pause:
@@ -1203,49 +1203,49 @@ ACTOR NewBabySentient : Arachnotron Replaces BabySentient
     Loop
   See:
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_Jump(12,"Evade")
     Loop
   Evade:
 	TNT1 A 0 A_Jump(128,19)
 	TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 	TNT1 A 0 ThrustThing(Angle*256/360+192,20,0,0)
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP A 2 Bright A_Chase
+	MARP A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("BabySentientFireSpawner2",0,0,0,0)
-	MARP B 2 Bright A_Chase
+	MARP B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
   Pause:
@@ -1409,9 +1409,9 @@ Spawn:
        Loop
 See:
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)     
-       FAT2 AABBCCDD 3 A_Chase
+       FAT2 AABBCCDD 3 //A_Chase
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
-       FAT2 EEFF 3 A_Chase
+       FAT2 EEFF 3 //A_Chase
        Loop
 Missile:
 	   TNT1 A 0 A_Jump(82,"Seekers")
@@ -1511,49 +1511,49 @@ Spawn:
 	Loop
 See:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Jump(26,"Evade")	
 	Loop
 Evade:
 	TNT1 A 0 A_Jump(128,19)
 	TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 	TNT1 A 0 ThrustThing(Angle*256/360+192,20,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR A 2 Bright A_Chase
+	SUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	SUPR B 2 Bright A_Chase
+	SUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 Missile:
@@ -1944,16 +1944,16 @@ Spawn:
 		SOHI A 7 Bright //A_Look
         Loop 
 See: 
-        SOHS AA 3 Bright A_Chase
+        SOHS AA 3 Bright //A_Chase
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
         TNT1 A 0 A_SpawnItemEx("SandWalkFire",0,0,0,0,0,0,0,128)
-		SOHS BB 3 Bright A_Chase
+		SOHS BB 3 Bright //A_Chase
         TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
         TNT1 A 0 A_SpawnItemEx("SandWalkFire",0,0,0,0,0,0,0,128)
-		SOHS CC 3 Bright A_Chase
+		SOHS CC 3 Bright //A_Chase
 		TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
         TNT1 A 0 A_SpawnItemEx("SandWalkFire",0,0,0,0,0,0,0,128)
-		SOHS DD 3 Bright A_Chase
+		SOHS DD 3 Bright //A_Chase
         TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
         TNT1 A 0 A_SpawnItemEx("SandWalkFire",0,0,0,0,0,0,0,128)
 		Loop
@@ -2070,20 +2070,20 @@ ACTOR LegendaryHellKnight 5009
     Loop
   See:
     TNT1 A 0 A_Jump(100,"Rush")
-	LNBL AA 3 Bright A_Chase
+	LNBL AA 3 Bright //A_Chase
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,4)
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LNBL BB 3 Bright A_Chase
+	LNBL BB 3 Bright //A_Chase
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LNBL CC 3 Bright A_Chase
+	LNBL CC 3 Bright //A_Chase
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LNBL DD 3 Bright A_Chase
+	LNBL DD 3 Bright //A_Chase
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
@@ -2091,30 +2091,30 @@ ACTOR LegendaryHellKnight 5009
     Loop
   Rush:
     LNBL A 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL A 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase  
+	LNBL AAAA 0 Bright //A_Chase  
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL B 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL B 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL C 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL C 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase  
+	LNBL AAAA 0 Bright //A_Chase  
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL D 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     LNBL D 2 Bright A_SpawnItemEx("LNGhost",0,0,0,0,0,0,0,128)
-	LNBL AAAA 0 Bright A_Chase
+	LNBL AAAA 0 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
@@ -2325,9 +2325,9 @@ Spawn:
     Loop
 See:
     TNT1 A 0 A_PlayWeaponSound("weapons/bfg15kidle")
-	BF10 AABB 3 A_Chase
+	BF10 AABB 3 //A_Chase
     TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    BF10 CCDD 3 A_Chase
+    BF10 CCDD 3 //A_Chase
     TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     Loop
 Missile:
@@ -2425,16 +2425,16 @@ States
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Loop 
    See:
-       BOS3 AA 3 A_Chase
+       BOS3 AA 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
-	   BOS3 BB 3 A_Chase
+	   BOS3 BB 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
-	   BOS3 CC 3 A_Chase
+	   BOS3 CC 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
-	   BOS3 DD 3 A_Chase
+	   BOS3 DD 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
@@ -2446,30 +2446,30 @@ States
         TNT1 A 0 A_SetTranslucent(1)
 		TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlordGhostA",0,0,0,0,0,0,0,128)		
-		BOS3 A 1 A_Chase
+		BOS3 A 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlordGhostA",0,0,0,0,0,0,0,128)		
-		BOS3 A 1 A_Chase
+		BOS3 A 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlorddGhostB",0,0,0,0,0,0,0,128)
-		BOS3 B 1 A_Chase
+		BOS3 B 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlorddGhostB",0,0,0,0,0,0,0,128)
-		BOS3 B 1 A_Chase
+		BOS3 B 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlordGhostC",0,0,0,0,0,0,0,128)
-		BOS3 C 1 A_Chase
+		BOS3 C 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlordGhostC",0,0,0,0,0,0,0,128)
-		BOS3 C 1 A_Chase
+		BOS3 C 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlorddGhostD",0,0,0,0,0,0,0,128)
-		BOS3 D 1 A_Chase
+		BOS3 D 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItemEx("OverlorddGhostD",0,0,0,0,0,0,0,128)
-		BOS3 D 1 A_Chase
+		BOS3 D 1 //A_Chase
 		TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-		BOS3 F 1 A_Chase	
+		BOS3 F 1 //A_Chase	
 		TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 		TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 		TNT1 A 0 A_Jump(84,"See")		
@@ -2658,13 +2658,13 @@ ACTOR LegendaryImp 5007
 	Loop
   See:
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LEGN AA 3 Bright A_Chase
+    LEGN AA 3 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LEGN BB 3 Bright A_Chase
+	LEGN BB 3 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LEGN CC 3 Bright A_Chase
+	LEGN CC 3 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LEGN DD 3 Bright A_Chase
+	LEGN DD 3 Bright //A_Chase
     TNT1 A 0 ACS_ExecuteAlways(5432,0,3)
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_Jump(62,"Rush")
@@ -2769,21 +2769,21 @@ ACTOR LegendaryImp 5007
 	Goto See
   Rush:
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_SpawnItemEx("LegendaryImpGhost")	
-	LEGN A 1 Bright A_Chase
+	LEGN A 1 Bright //A_Chase
 	TNT1 A 0 A_Jump(84,"See")
 	Loop
   Pain:
@@ -2870,9 +2870,9 @@ Spawn:
 See:
     TNT1 A 0 ACS_ExecuteAlways(5432,0,8)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Jump(30,"Evade")
 	TNT1 A 0 A_Jump(15,"Teleport")
 	Loop
@@ -2880,40 +2880,40 @@ Evade:
 	TNT1 A 0 A_Jump(128,19)
 	TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 	TNT1 A 0 ThrustThing(Angle*256/360+192,20,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR A 2 Bright A_Chase
+	LUPR A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner2",0,0,0,0)
-	LUPR B 2 Bright A_Chase
+	LUPR B 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 Teleport:
@@ -4025,28 +4025,28 @@ See:
 		TNT1 A 0 A_Jump(90,"Rush")
 		TNT1 A 0 A_Jump(40,"Teleport")
 		LANI A 3 Bright A_Playsound("monsters/clhoof")
-        LANI ABB 3 Bright A_Chase		
+        LANI ABB 3 Bright //A_Chase		
         LANI C 3 A_Playsound("monsters/clhoof") 
-        LANI CDD 3 Bright A_Chase 		 
+        LANI CDD 3 Bright //A_Chase 		 
         Loop
 Rush:
         TNT1 A 0 A_Hoof
-	    LANI A 2 Bright A_Chase
+	    LANI A 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI A 2 Bright A_Chase
+	    LANI A 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI A 2 Bright A_Chase
+	    LANI A 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI B 2 Bright A_Chase
+	    LANI B 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI C 2 Bright A_Chase
+	    LANI C 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI C 2 Bright A_Chase
+	    LANI C 2 Bright //A_Chase
     	TNT1 A 0 A_Metal
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI D 2 Bright A_Chase
+	    LANI D 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
-	    LANI D 2 Bright A_Chase
+	    LANI D 2 Bright //A_Chase
 	    TNT1 A 0 A_SpawnItemEx("LegendaryAnnihiGhostA",0,0,0,0,0,0,0,128)
 	    TNT1 A 0 A_Jump(30,"Teleport")
 	    TNT1 A 0 A_Jump(80,"See")		
@@ -5177,22 +5177,22 @@ States
    See:
        TNT1 A 0 ACS_ExecuteAlways(5432,0,6)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-       ARCR A 3 A_Chase
+       ARCR A 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR A 3 A_Chase
+	   ARCR A 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR B 3 A_Chase
+	   ARCR B 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR B 3 A_Chase
+	   ARCR B 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	   ARCR C 3 A_Chase
+	   ARCR C 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR C 3 A_Chase
+	   ARCR C 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR D 3 A_Chase
+	   ARCR D 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR D 3 A_Chase 
+	   ARCR D 3 //A_Chase 
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_Jump(100,"Rush")
@@ -5201,29 +5201,29 @@ States
    Rush:
        ARCR A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR A 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR A 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR B 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR B 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)	   
 	   ARCR A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR C 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR C 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR D 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("ArcradimusFlameSpawner",0,0,0,0)
-	   ARCR AAA 0 A_Chase
+	   ARCR AAA 0 //A_Chase
        ARCR D 2 A_SpawnItemEx("ArcradimusGhost",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_Jump(25,"Teleport")
 	   TNT1 A 0 A_Jump(75,"See")	
@@ -5880,18 +5880,18 @@ Actor LegendaryRevenant 5004
     TNT1 A 0 A_Jump(100,"Rush")
 	TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LREV AAA 2 Bright A_Chase
+    LREV AAA 2 Bright //A_Chase
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV BBB 2 Bright A_Chase
+	LREV BBB 2 Bright //A_Chase
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV CCC 2 Bright A_Chase	
+	LREV CCC 2 Bright //A_Chase	
     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LREV DDD 2 Bright A_Chase
+    LREV DDD 2 Bright //A_Chase
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LREV EEE 2 Bright A_Chase
+    LREV EEE 2 Bright //A_Chase
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LREV FFF 2 Bright A_Chase	
+    LREV FFF 2 Bright //A_Chase	
 	TNT1 A 0 A_Jump(28,"Dodge")
 	TNT1 A 0 A_Jump(16,"Teleport")
     Loop
@@ -5899,23 +5899,23 @@ Actor LegendaryRevenant 5004
   	TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
     LREV A 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase
+  	LREV AAAA 0 Bright //A_Chase
     LREV B 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase	
+  	LREV AAAA 0 Bright //A_Chase	
     LREV C 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase	
+  	LREV AAAA 0 Bright //A_Chase	
     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
     LREV D 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase
+  	LREV AAAA 0 Bright //A_Chase
     LREV E 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase	
+  	LREV AAAA 0 Bright //A_Chase	
     LREV F 2 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-  	LREV AAAA 0 Bright A_Chase	
+  	LREV AAAA 0 Bright //A_Chase	
 	TNT1 A 0 A_Jump(28,"Dodge")
 	TNT1 A 0 A_Jump(12,"Teleport")
 	TNT1 A 0 A_Jump(75,"See")
@@ -6181,9 +6181,9 @@ ACTOR DTDevastatorZombie 5031
     DEVZ AQ 10 //A_Look
     loop
   See:
-    DEVZ AABB 3 A_Chase
+    DEVZ AABB 3 //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	DEVZ CCDD 3 A_Chase
+	DEVZ CCDD 3 //A_Chase
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     loop
   Missile:
@@ -6339,47 +6339,47 @@ ACTOR CerebralCardinal 6065
   Loop
   See:
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Chase
+  ARCY A 2 Bright //A_Chase
   TNT1 A 0 A_Jump(32,"Evade")	
   Loop
 Evade:
 	TNT1 A 0 A_Jump(128,19)
 	TNT1 A 0 ThrustThing(Angle*256/360+64,20,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 	TNT1 A 0 ThrustThing(Angle*256/360+192,20,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	ARCY A 2 Bright A_Chase
+	ARCY A 2 Bright //A_Chase
 	TNT1 A 0 A_Stop
 	Goto See
 Missile:
@@ -7322,18 +7322,18 @@ Spawn:
 See:
        TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)     
-       FRBH AA 3 Bright A_Chase
+       FRBH AA 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   FRBH BB 3 Bright A_Chase
+	   FRBH BB 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   FRBH CC 3 Bright A_Chase
+	   FRBH CC 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   FRBH DD 3 Bright A_Chase
+	   FRBH DD 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
        TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
-       FRBH EE 3 Bright A_Chase
+       FRBH EE 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
-	   FRBH FF 3 Bright A_Chase
+	   FRBH FF 3 Bright //A_Chase
 	   TNT1 A 0 A_SpawnItem("FRZRFlameSpawner",0,0,0,0)
        Loop
 Missile:
