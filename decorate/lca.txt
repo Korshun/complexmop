@@ -28,7 +28,7 @@ DamageFactor "PlayerDTBFGRailgunSlug", 0.125
 DamageFactor "PlayerDevTracer", 0.125
 DamageFactor 0.75
 DamageFactor "Legendary", 0.0
-MONSTER 
+//MONSTER 
 +NOTIMEFREEZE
 +FLOORCLIP
 +MISSILEMORE
@@ -158,7 +158,7 @@ ACTOR BFGCacodemon 5014
 	Meleedamage 8
 	Speed 10
 	PainChance 128
-	Monster
+	//Monster
 	+FLOAT
 	+NOGRAVITY
 	+MISSILEEVENMORE
@@ -259,7 +259,7 @@ ACTOR EraserZombie 5012
   painsound "chainguy/pain"
   deathsound "chainguy/death"
   activesound "chainguy/active"
-  MONSTER
+  //MONSTER
   +FLOORCLIP
   +QUICKTORETALIATE
   states
@@ -346,7 +346,7 @@ ACTOR LegendaryCyberdemon : Cyberdemon 5011
   Speed 19
   PainChance 1
   BloodColor "Blue"
-  Monster
+  //Monster
   MinMissileChance 160
   DropItem "LegendaryUltraSphere" 215
   DropItem "LegendaryRune" 200 1
@@ -1030,7 +1030,7 @@ Height 56
 Speed 8
 Mass 100
 PainChance 105
-MONSTER 
+//MONSTER 
 +FLOORCLIP
 +MISSILEMORE
 +MISSILEEVENMORE
@@ -2016,7 +2016,7 @@ ACTOR LegendaryHellKnight 5009
   Mass 1000
   Speed 8
   PainChance 45 
-  Monster
+  //Monster
   +NORADIUSDMG
   +BOSS
   +BOSSDEATH
@@ -2307,7 +2307,7 @@ DropItem "HandGrenadeAmmo" 200 1
 DropItem "MineAmmo" 123 1
 DamageFactor "GeneralTracer", 0.0
 Species "ZombieDeud"
-MONSTER 
+//MONSTER 
 +FLOORCLIP
 +MISSILEMORE
 +MISSILEEVENMORE
@@ -2398,7 +2398,7 @@ DropItem "UltraSphere" 40
 DropItem "ExtraArmor" 65 
 DropItem "BossLifeEssence" 210 
 DropItem "BossArmorBonusMax" 210 
-MONSTER
+//MONSTER
 MeleeDamage 12
 Obituary "%o's aorta was punctured by a Phase Overlord."
 HitObituary "%o's penis was split in two by a Phase Overlord."
@@ -2611,7 +2611,7 @@ ACTOR LegendaryImp 5007
   Mass 100
   Speed 8
   PainChance 50
-  Monster
+  //Monster
   MeleeDamage 15
   DamageFactor "Legendary1", 0.0
   DamageFactor 0.75
@@ -5119,7 +5119,7 @@ ACTOR Arcradimus 11026
   Speed 15 
   Scale 3
   PainChance 0
-  MONSTER
+  //MONSTER
   MeleeDamage 50
   MeleeRange 100
   MeleeSound "baron/melee" 
@@ -5823,7 +5823,7 @@ Actor LegendaryRevenant 5004
   Mass 1000
   Speed 12
   PainChance 55
-  Monster
+  //Monster
   MeleeThreshold 196
   +NORADIUSDMG
   +FLOORCLIP
@@ -6172,7 +6172,7 @@ ACTOR DTDevastatorZombie 5031
   deathsound "chainguy/death"
   activesound "chainguy/active"
   missiletype "ZombieDevastatorBall"
-  MONSTER
+  //MONSTER
   +FLOORCLIP
   +QUICKTORETALIATE
   states
@@ -6293,7 +6293,7 @@ ACTOR CerebralCardinal 6065
   painsound "CerebralCardinal/pain"
   Minmissilechance 1
   Scale 1.0
-  Monster
+  //Monster
   +FLOAT
   +NOGRAVITY
   +FLOORCLIP
