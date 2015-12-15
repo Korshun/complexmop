@@ -331,7 +331,7 @@ script mop_respawn_puppetmaster RESPAWN
 	// don't forget to set default inventory
 	ClearInventory();
 	
-	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	for (int i = 0; i < NumMonsterTypes; i++)
 	{
 		str name = MonsterTypes[i][MONSTER_ACTORNAME];
 		str weaponname = StrParam(s:name, s:"Weapon");

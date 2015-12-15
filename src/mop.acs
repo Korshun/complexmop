@@ -39,7 +39,7 @@ int BoomEdition = true;
 #define mop_cerebralsentient 832
 #define mop_darkcyberdemon 833
 #define mop_cardinal 834
-// FREE SLOT 835
+#define mop_count_monstertypes_sv 835
 #define mop_respawn_protection 836
 #define mop_update_fragcounter 837
 #define mop_prevent_respawns 838
@@ -51,6 +51,7 @@ int BoomEdition = true;
 #define mop_marines_nobfgtimer 844
 #define mop_marines_isbfgavailable 845
 #define mop_baronofhell 846
+#define mop_count_monstertypes_cl 847
 
 #define MAX_PLAYERS 64
 #define INT_MAX 2147483647

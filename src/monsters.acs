@@ -12,8 +12,9 @@
 #define MONSTF_BOSS 4
 #define MONSTF_ISVILE 8
 
-#define NUM_MONSTER_TYPES 70
-int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
+int NumMonsterTypes = 0;
+#define MAX_MONSTER_TYPES 100
+int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
 	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
 	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
@@ -84,8 +85,23 @@ int MonsterTypes[NUM_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Officer",				0.06, 0, 0, 0, "Nazi Officer", "OPOIA1" },
 	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
 	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
-	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" }
+	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
+	{ "MONSTERTYPES" }
 };
+
+function void CountMonsterTypes(void)
+{
+	while (StrCmp(MonsterTypes[NumMonsterTypes][0], "MONSTERTYPES"))
+		NumMonsterTypes++;
+}
+script mop_count_monstertypes_sv OPEN
+{
+	CountMonsterTypes();
+}
+script mop_count_monstertypes_cl OPEN CLIENTSIDE
+{
+	CountMonsterTypes();
+}
 
 // List of items that monsters can carry.
 #define NUM_MONSTER_ITEMS 7
@@ -133,7 +149,7 @@ script mop_phaseimp (void)
 
 function int IdentifyMonsterType(int tid)
 {
-	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	for (int i = 0; i < NumMonsterTypes; i++)
 		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
 			return i;
 			
@@ -142,7 +158,7 @@ function int IdentifyMonsterType(int tid)
 
 function int IdentifyPossessedMonsterType(int player)
 {
-	for (int i = 0; i < NUM_MONSTER_TYPES; i++)
+	for (int i = 0; i < NumMonsterTypes; i++)
 		if (ThingCountName(StrParam(s:"Possessed", s:MonsterTypes[i][MONSTER_ACTORNAME]), 1000 + player))
 			return i;
 
