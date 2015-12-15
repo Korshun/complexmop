@@ -4,6 +4,7 @@
 #include "decorate/puffs.txt"
 #include "decorate/player.txt"
 #include "decorate/weapons.txt"
+#include "decorate/doom2.txt"
 #include "decorate/lca.txt"
 
 const int PROP_FROZEN = 0;
@@ -905,24 +906,6 @@ Actor ChaingunnerWeapon : PossessedWeapon
 	}
 }
 
-
-Actor PossessedChaingunGuy : PossessedMonster
-{
-  Health 70
-  Radius 20
-  Height 56
-  Mass 100
-  Speed 8
-  PainChance 170
-  +FLOORCLIP
-  SeeSound "chainguy/sight"
-  PainSound "chainguy/pain"
-  DeathSound "chainguy/death"
-  ActiveSound "chainguy/active"
-  AttackSound "chainguy/attack"
-  Obituary "$OB_CHAINGUY"
-  Dropitem "Chaingun"
-}
 
 Actor PossessedMinigunner : PossessedChaingunGuy
 {
@@ -2362,25 +2345,6 @@ Actor HeleBallMOP : HeleBall replaces HeleBall
 }
 
 
-Actor PossessedPainElemental : PossessedMonster
-{
-	Game Doom
-	//SpawnID 115
-	Player.ViewHeight 40
-	Health 400
-	Radius 31
-	Height 56
-	Mass 400
-	Speed 0.35 //8
-	PainChance 128
-	+FLOAT
-	+NOGRAVITY
-	SeeSound "pain/sight"
-	PainSound "pain/pain"
-	DeathSound "pain/death"
-	ActiveSound "pain/active"
-}
-
 Actor PossessedSoulKeeper : PossessedPainElemental
 {
 	Player.MorphWeapon "SoulKeeperWeapon"
@@ -2692,26 +2656,6 @@ Actor BombBallMOP : BombBall replaces BombBall
 	DamageType "Monster"
 }
 
-
-Actor PossessedFatso : PossessedMonster
-{
-	Game Doom
-	//SpawnID 112
-	Player.ViewHeight 48
-	Health 600
-	Radius 48
-	Height 64
-	Mass 1000
-	Speed 0.35 //8
-	PainChance 80
-	+FLOORCLIP
-	+BOSSDEATH
-	SeeSound "fatso/sight"
-	PainSound "fatso/pain"
-	DeathSound "fatso/death"
-	ActiveSound "fatso/active"
-	Obituary "$OB_FATSO"
-}
 
 Actor PossessedHectebus : PossessedFatso
 {
@@ -3381,26 +3325,6 @@ Actor BarbatosWeapon : PossessedWeapon
 }
 
 
-Actor PossessedArachnotron : PossessedMonster
-{
-	Game Doom
-	//SpawnID 6
-	Player.ViewHeight 48
-	Health 500
-	Radius 64
-	Height 64
-	Mass 600
-	Speed 0.525 //12
-	PainChance 128
-	+FLOORCLIP
-	+BOSSDEATH
-	SeeSound "baby/sight"
-	PainSound "baby/pain"
-	DeathSound "baby/death"
-	ActiveSound "baby/active"
-	Obituary "$OB_BABY"
-}
-
 Actor PossessedDualachnotron : PossessedArachnotron
 {
 	Player.MorphWeapon "DualachnotronWeapon"
@@ -3850,29 +3774,6 @@ Actor BabySentientWeapon : PossessedWeapon
 }
 
 
-Actor PossessedRevenant : PossessedMonster
-{
-	Game Doom
-	//SpawnID 20
-	Player.ViewHeight 58
-	Health 300
-	Radius 20
-	Height 56
-	Mass 500
-	Speed 0.4375 //10
-	PainChance 100
-	MeleeThreshold 196
-	+MISSILEMORE
-	+FLOORCLIP
-	SeeSound "skeleton/sight"
-	PainSound "skeleton/pain"
-	DeathSound "skeleton/death"
-	ActiveSound "skeleton/active"
-	MeleeSound "skeleton/melee"
-	HitObituary "$OB_UNDEADHIT"
-	Obituary "$OB_UNDEAD"
-}
-
 Actor PossessedGuardian : PossessedRevenant
 {
 	Player.MorphWeapon "GuardianWeapon"
@@ -4272,42 +4173,6 @@ Actor FamineTracerMOP : FamineTracer replaces FamineTracer
 Actor FamineDashPunchMOP : FamineDashPunch replaces FamineDashPunch
 {
 	DamageType "Monster"
-}
-
-
-Actor PossessedBaronOfHell : PossessedMonster
-{
-	Game Doom
-	//SpawnID 3
-	Health 1000
-	Radius 24
-	Height 64
-	Player.ViewHeight 54
-	Mass 1000
-	Speed 0.35 //8
-	PainChance 50
-	+FLOORCLIP
-	+BOSSDEATH
-	SeeSound "baron/sight"
-	PainSound "baron/pain"
-	DeathSound "baron/death"
-	ActiveSound "baron/active"
-	Obituary "$OB_BARON"
-	HitObituary "$OB_BARONHIT"
-}
-
-Actor PossessedHellKnight : PossessedBaronOfHell
-{
-	Game Doom
-	//SpawnID 113
-	Health 500
-	-BOSSDEATH
-	SeeSound "knight/sight"
-	ActiveSound "knight/active"
-	PainSound "knight/pain"
-	DeathSound "knight/death"
-	HitObituary "$OB_KNIGHTHIT"
-	Obituary "$OB_KNIGHT"
 }
 
 
@@ -5187,32 +5052,6 @@ Actor CybruiserWeapon : PossessedWeapon
 }
 
 
-Actor PossessedSpiderMastermind : PossessedMonster
-{
-	Game Doom
-	//SpawnID 7
-	Player.ViewHeight 70
-	Health 3000
-	Radius 100
-	Height 100
-	Mass 1000
-	Speed 0.525 //12
-	PainChance 40
-	MinMissileChance 160
-	+BOSS
-	+MISSILEMORE
-	+FLOORCLIP
-	+NORADIUSDMG
-	+DONTMORPH
-	+BOSSDEATH
-	SeeSound "spider/sight"
-	AttackSound "spider/attack"
-	PainSound "spider/pain"
-	DeathSound "spider/death"
-	ActiveSound "spider/active"
-	Obituary "$OB_SPIDER"
-}
-
 Actor PossessedDemolisher : PossessedSpiderMastermind
 {
 	Player.MorphWeapon "DemolisherWeapon"
@@ -5893,31 +5732,6 @@ Actor SentientExplosiveTracerMOP : SentientExplosiveTracer replaces SentientExpl
 	DamageType "Monster"
 }
 
-
-Actor PossessedCyberdemon : PossessedMonster
-{
-	Game Doom
-	//SpawnID 114
-	Health 4000
-	Radius 40
-	Height 110
-	Mass 1000
-	Speed 0.7 //16
-	PainChance 20
-	Player.ViewHeight 90
-	MinMissileChance 160
-	+BOSS 
-	+MISSILEMORE
-	+FLOORCLIP
-	+NORADIUSDMG
-	+DONTMORPH
-	+BOSSDEATH
-	SeeSound "cyber/sight"
-	PainSound "cyber/pain"
-	DeathSound "cyber/death"
-	ActiveSound "cyber/active"
-	Obituary "$OB_CYBORG"
-}
 
 Actor PossessedCyberLord : PossessedCyberdemon
 {

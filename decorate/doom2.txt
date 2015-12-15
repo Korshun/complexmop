@@ -1,0 +1,402 @@
+// These classed are used as base classes for possessed monsters for
+// when a custom monster is based on one of the original Doom 2 monsters.
+Actor PossessedArachnotron : PossessedMonster
+{
+	Player.ViewHeight 48
+
+	Game Doom
+	//SpawnID 6
+	Health 500
+	Radius 64
+	Height 64
+	Mass 600
+	Speed 0.525 //12
+	PainChance 128
+	//Monster
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "baby/sight"
+	PainSound "baby/pain"
+	DeathSound "baby/death"
+	ActiveSound "baby/active"
+	Obituary "$OB_BABY"
+}
+
+Actor PossessedArchvile : PossessedMonster
+{
+	Game Doom
+	//SpawnID 111
+	Health 700
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 0.65625 //15
+	PainChance 10
+	//Monster
+	MaxTargetRange 896
+	+QUICKTORETALIATE 
+	+FLOORCLIP 
+	+NOTARGET
+	SeeSound "vile/sight"
+	PainSound "vile/pain"
+	DeathSound "vile/death"
+	ActiveSound "vile/active"
+	MeleeSound "vile/stop"
+	Obituary "$OB_VILE"
+}
+
+Actor PossessedBaronOfHell : PossessedMonster
+{
+	Player.ViewHeight 54
+
+	Game Doom
+	//SpawnID 3
+	Health 1000
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 0.35 //8
+	PainChance 50
+	//Monster
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "baron/sight"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	ActiveSound "baron/active"
+	Obituary "$OB_BARON"
+	HitObituary "$OB_BARONHIT"
+}
+
+Actor PossessedHellKnight : PossessedBaronOfHell
+{
+	Game Doom
+	//SpawnID 113
+	Health 500
+	-BOSSDEATH
+	SeeSound "knight/sight"
+	ActiveSound "knight/active"
+	PainSound "knight/pain"
+	DeathSound "knight/death"
+	HitObituary "$OB_KNIGHTHIT"
+	Obituary "$OB_KNIGHT"
+}
+
+Actor PossessedCacodemon : PossessedMonster
+{
+	Game Doom
+	//SpawnID 19
+	Health 400
+	Radius 31
+	Height 56
+	Mass 400
+	Speed 0.35 //8
+	PainChance 128
+	//Monster
+	+FLOAT +NOGRAVITY
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	Obituary "$OB_CACO"
+	HitObituary "$OB_CACOHIT"
+}
+
+Actor PossessedCyberdemon : PossessedMonster
+{
+	Player.ViewHeight 90
+
+	Game Doom
+	//SpawnID 114
+	Health 4000
+	Radius 40
+	Height 110
+	Mass 1000
+	Speed 0.7 //16
+	PainChance 20
+	//Monster
+	MinMissileChance 160
+	+BOSS 
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$OB_CYBORG"
+}
+
+Actor PossessedDemon : PossessedMonster
+{
+	Game Doom
+	//SpawnID 8
+	Health 150
+	PainChance 180
+	Speed 0.4375 //10
+	Radius 30
+	Height 56
+	Mass 400
+	//Monster
+	+FLOORCLIP
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "$OB_DEMONHIT"
+}
+
+Actor PossessedSpectre : PossessedDemon
+{
+	Game Doom
+	//SpawnID 9
+	+SHADOW
+	RenderStyle OptFuzzy
+	Alpha 0.5
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+	HitObituary "$OB_SPECTREHIT"
+}
+
+Actor PossessedDoomImp
+{
+	Game Doom
+	//SpawnID 5
+	Health 60
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 0.35 //8
+	PainChance 200
+	//Monster
+	+FLOORCLIP
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	HitObituary "$OB_IMPHIT"
+	Obituary "$OB_IMP"
+}
+
+Actor PossessedExplosiveBarrel : PossessedMonster
+{
+	Game Doom
+	//SpawnID 125
+	Health 20
+	Radius 10
+	Height 42
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	+OLDRADIUSDMG
+	DeathSound "world/barrelx"
+	Obituary "$OB_BARREL"
+}
+
+Actor PossessedFatso : PossessedMonster
+{
+	Player.ViewHeight 48
+
+	Game Doom
+	//SpawnID 112
+	Health 600
+	Radius 48
+	Height 64
+	Mass 1000
+	Speed 0.35 //8
+	PainChance 80
+	//Monster
+	+FLOORCLIP
+	+BOSSDEATH
+	SeeSound "fatso/sight"
+	PainSound "fatso/pain"
+	DeathSound "fatso/death"
+	ActiveSound "fatso/active"
+	Obituary "$OB_FATSO"
+}
+
+Actor PossessedLostSoul : PossessedMonster
+{
+	Game Doom
+	//SpawnID 110
+	Health 100
+	Radius 16
+	Height 56
+	Mass 50
+	Speed 0.35 //8
+	Damage 3
+	PainChance 256
+	//Monster
+	+FLOAT +NOGRAVITY +MISSILEMORE +DONTFALL +NOICEDEATH
+	AttackSound "skull/melee"
+	PainSound "skull/pain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	RenderStyle SoulTrans
+	Obituary "$OB_SKULL"
+}
+
+Actor PossessedPainElemental : PossessedMonster
+{
+	Player.ViewHeight 40
+
+	Game Doom
+	//SpawnID 115
+	Health 400
+	Radius 31
+	Height 56
+	Mass 400
+	Speed 0.35 //8
+	PainChance 128
+	//Monster
+	+FLOAT 
+	+NOGRAVITY
+	SeeSound "pain/sight"
+	PainSound "pain/pain"
+	DeathSound "pain/death"
+	ActiveSound "pain/active"
+}
+
+Actor PossessedZombieman : PossessedMonster
+{
+	Game Doom
+	//SpawnID 4
+	Health 20
+	Radius 20
+	Height 56
+	Speed 0.35 //8
+	PainChance 200
+	//Monster
+	+FLOORCLIP
+	SeeSound "grunt/sight"
+	AttackSound "grunt/attack"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "$OB_ZOMBIE"
+	DropItem "Clip"
+}
+
+Actor PossessedShotgunGuy : PossessedMonster
+{
+	Game Doom
+	//SpawnID 1
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 0.35 //8
+	PainChance 170
+	//Monster
+	+FLOORCLIP
+	SeeSound "shotguy/sight"
+	AttackSound "shotguy/attack"
+	PainSound "shotguy/pain"
+	DeathSound "shotguy/death"
+	ActiveSound "shotguy/active"
+	Obituary "$OB_SHOTGUY"
+	DropItem "Shotgun"
+}
+
+Actor PossessedChaingunGuy : PossessedMonster
+{
+	Game Doom
+	//SpawnID 2
+	Health 70
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 0.35 //8
+	PainChance 170
+	//Monster
+	+FLOORCLIP
+	SeeSound "chainguy/sight"
+	PainSound "chainguy/pain"
+	DeathSound "chainguy/death"
+	ActiveSound "chainguy/active"
+	AttackSound "chainguy/attack"
+	Obituary "$OB_CHAINGUY"
+	Dropitem "Chaingun"
+}
+
+Actor PossessedWolfensteinSS : PossessedMonster
+{
+	Game Doom
+	//SpawnID 116
+	Health 50
+	Radius 20
+	Height 56
+	Speed 0.35 //8
+	PainChance 170
+	//Monster
+	+FLOORCLIP
+	SeeSound "wolfss/sight"
+	PainSound "wolfss/pain"
+	DeathSound "wolfss/death"
+	ActiveSound "wolfss/active"
+	AttackSound "wolfss/attack"
+	Obituary "$OB_WOLFSS"
+	Dropitem "Clip"
+}
+
+Actor PossessedRevenant : PossessedMonster
+{
+	Player.ViewHeight 54
+	
+	Game Doom
+	//SpawnID 20
+	Health 300
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 0.4375 //10
+	PainChance 100
+	//Monster
+	MeleeThreshold 196
+	+MISSILEMORE 
+	+FLOORCLIP
+	SeeSound "skeleton/sight"
+	PainSound "skeleton/pain"
+	DeathSound "skeleton/death"
+	ActiveSound "skeleton/active"
+	MeleeSound "skeleton/melee"
+	HitObituary "$OB_UNDEADHIT"
+	Obituary "$OB_UNDEAD"
+}
+
+Actor PossessedSpiderMastermind : PossessedMonster
+{
+	Player.ViewHeight 70
+
+	Game Doom
+	//SpawnID 7
+	Health 3000
+	Radius 100
+	Height 100
+	Mass 1000
+	Speed 12
+	PainChance 40
+	//Monster
+	MinMissileChance 160
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	SeeSound "spider/sight"
+	AttackSound "spider/attack"
+	PainSound "spider/pain"
+	DeathSound "spider/death"
+	ActiveSound "spider/active"
+	Obituary "$OB_SPIDER"
+}
