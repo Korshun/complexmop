@@ -31,20 +31,20 @@ Actor PuppetMaster : PlayerPawn
 	States
 	{
 	Spawn:
-		NULL A 1
+		TNT1 A 1
 		goto Ready
 	Ready:
-		NULL A 1
+		TNT1 A 1
 		loop
 	See:
-		NULL AAAAAAAAAA 2 A_SpawnItemEx ("MGhost",-20,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 AAAAAAAAAA 2 A_SpawnItemEx ("MGhost",-20,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
 		Loop
 	Missile:
-		NULL A 1
+		TNT1 A 1
 		goto Ready
 	Death:
-		NULL A 1 A_hidething
-		NULL A -1 
+		TNT1 A 1 A_hidething
+		TNT1 A -1 
 		stop
 	}
 }
