@@ -9,13 +9,14 @@ ACTOR ComplexMoPPlayer : ComplexDoomPlayer
 	Player.StartItem "HandGrenadeAmmo" 2
 	//Player.StartItem "Land Mine"
 	Player.StartItem "MineAmmo" 2
-	Player.StartItem "Melee"
+	Player.StartItem "NewMelee"
 	Player.StartItem "BulletMag" 60
 	Player.StartItem "PistolMagazine" 16
 	Player.StartItem "ShotgunMagazine" 9
 	Player.StartItem "SSGShell" 2
 	Player.StartItem "ShotgunDrum" 16
 	Player.StartItem "QuadShell" 4
+	Player.StartItem "HexaShell" 6
 	Player.StartItem "ARMagazine" 41
 	Player.StartItem "RocketDrum" 7
 	Player.StartItem "GrenadeDrum" 7

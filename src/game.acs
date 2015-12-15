@@ -60,7 +60,7 @@ script mop_enter ENTER
 		{		
 			ClearInventory();
 			
-			TakeInventory("Melee", 1);
+			TakeInventory("NewMelee", 1);
 			TakeInventory("Handgun", 1);
 			TakeInventory("Chainsaw", 1);
 			TakeInventory("Combat Shotgun", 1);
@@ -79,16 +79,28 @@ script mop_enter ENTER
 			TakeInventory("Demon Tech BFG10K", 1);
 			TakeInventory("MP40", 1);
 			
+			TakeInventory("Legendary Plasmatic Rifle", 1);
+			TakeInventory("Advanced Necronomicon", 1);
+			TakeInventory("Legendary BFG", 1);
+			TakeInventory("LegendaryPistols", 1);
+			TakeInventory("Assault Shotgun ", 1);
+			TakeInventory("Hexa-Shotgun", 1);
+			TakeInventory("Freezer Rifle", 1);
+			TakeInventory("BehemothCannon", 1);
+			TakeInventory("Explosive Minigun", 1);
+			TakeInventory("Demon Tech Devastator", 1);	
+			
 			GiveInventory("Handgun", 1);
 			GiveInventory("HandGrenadeAmmo", 2);
 			GiveInventory("MineAmmo", 2);
-			GiveInventory("Melee", 1);
+			GiveInventory("NewMelee", 1);
 			GiveInventory("BulletMag", 60);
 			GiveInventory("PistolMagazine", 16);
 			GiveInventory("ShotgunMagazine", 9);
 			GiveInventory("SSGShell", 2);
 			GiveInventory("ShotgunDrum", 16);
 			GiveInventory("QuadShell", 4);
+			GiveInventory("HexaShell", 6);
 			GiveInventory("ARMagazine", 41);
 			GiveInventory("RocketDrum", 7);
 			GiveInventory("GrenadeDrum", 7);
