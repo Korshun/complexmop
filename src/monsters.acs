@@ -8,9 +8,8 @@
 #define NUM_MONSTER_PROPERTIES 7
 
 #define MONSTF_FLYING 1
-#define MONSTF_NOPOSSESS 2
-#define MONSTF_BOSS 4
-#define MONSTF_ISVILE 8
+#define MONSTF_BOSS 2
+#define MONSTF_ISVILE 4
 
 int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
@@ -86,6 +85,9 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
 	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
 	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
+	
+	{ "LegZombie",				0.06, 0, 0, 0, "Legendary Zombie", "LPOSA1" },
+	
 	{ "MONSTERTYPES" }
 };
 

@@ -36,14 +36,7 @@ script mop_possess (void)
 	int flags = MonsterTypes[type][MONSTER_FLAGS];
 	
 	// Is it implemented yet?
-	if (flags & MONSTF_NOPOSSESS)
-	{
-		SetActivator(player);
-		print(s:"\cgThis monster is not playable yet.");
-		Thing_ChangeTid(TEMPTID, 0);
-		terminate;
-	}
-	else if (flags & MONSTF_ISVILE)
+	if (flags & MONSTF_ISVILE)
 	{
 		SetActivator(player);
 		print(s:"\cgViles are not playable because we couldn't find a way to make them attack reliably while not crashing the server.\n\nZDoom sux.");
