@@ -163,7 +163,7 @@ Actor PossessedBFGCacodemon : PossessedMonster
 		Goto See
 	Melee:
          BFCD BC 5 A_FaceTarget
-		 BFCD D 5 A_MeleeAttack
+		 BFCD D 5 //A_CustomPunch(8)
 		 BFCD CB 5 A_FaceTarget
 		 Goto See
 	}
@@ -1920,7 +1920,7 @@ See:
 		Goto See
 Melee:
         SOHS EF 8 Bright A_FaceTarget 
-        SOHS G 8 Bright A_MeleeAttack	
+        SOHS G 8 Bright //A_CustomPunch(15)	
         Goto See
 Pain: 
         SOHS Q 10 Bright A_Pain 
@@ -2193,9 +2193,9 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	Goto See	
  Melee:
     LNBL EF 6 Bright A_FaceTarget 
-    LNBL G 6 Bright A_MeleeAttack	
+    LNBL G 6 Bright //A_CustomPunch(16)	
 	LNBL ST 6 Bright A_FaceTarget 
-    LNBL U 6 Bright A_MeleeAttack	
+    LNBL U 6 Bright //A_CustomPunch(16)
     Goto See 	
   Pain:
     TNT1 A 0 A_Jump(8,"Rage")	
@@ -2436,7 +2436,7 @@ States
 	   Goto See
     Melee:
        BOS3 EF 8 A_FaceTarget 
-       BOS3 G 8 A_MeleeAttack	
+       BOS3 G 8 //A_CustomPunch(12)	
        Goto See 
 	PhazoLaser:
 	   BOS3 EF 2 A_FaceTarget
@@ -2486,23 +2486,23 @@ States
        TNT1 A 0 A_SetTranslucent(1)
 	   BOS3 EF 8 A_FaceTarget 
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-       BOS3 G 6 A_MeleeAttack
+       BOS3 G 6 //A_CustomPunch(12)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        BOS3 G 0 A_Jump (128,1)
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Goto See
        BOS3 ST 8 A_FaceTarget
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-       BOS3 U 6 A_MeleeAttack
+       BOS3 U 6 //A_CustomPunch(12)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        BOS3 G 0 A_Jump (64,1)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        Goto See
        BOS3 HI 8 A_FaceTarget
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-       BOS3 J 0 A_MeleeAttack
+       BOS3 J 0 //A_CustomPunch(12)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-       BOS3 J 6 A_MeleeAttack
+       BOS3 J 6 //A_CustomPunch(12)
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Goto See
    Pain: 
@@ -2633,7 +2633,7 @@ Actor PossessedLegendaryImp : PossessedMonster
 	 GoTo See
   Melee:
     LEGN EF 6 Bright A_FaceTarget
-    LEGN F 5 Bright A_MeleeAttack
+    LEGN F 5 Bright //A_CustomPunch(15)
 	Goto See
   Missile:
     TNT1 A 0 A_Jump(32,"Super")
@@ -5718,16 +5718,16 @@ States
 	   Goto See
    Melee:
        ARCR EF 8 A_FaceTarget 
-       ARCR G 6 A_MeleeAttack
+       ARCR G 6 //A_CustomPunch(50)
        ARCR G 0 A_Jump (128,1)
        Goto See
        ARCR ST 8 A_FaceTarget 
-       ARCR U 6 A_MeleeAttack
+       ARCR U 6 //A_CustomPunch(50)
        ARCR G 0 A_Jump (64,1)
        Goto See
        ARCR HI 8 A_FaceTarget
-       ARCR J 0 A_MeleeAttack
-       ARCR J 6 A_MeleeAttack
+       ARCR J 0 //A_CustomPunch(50)
+       ARCR J 6 //A_CustomPunch(50)
        Goto See
    Pain: 
        ARCR K 2 
