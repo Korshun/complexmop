@@ -8,9 +8,8 @@
 #define NUM_MONSTER_PROPERTIES 7
 
 #define MONSTF_FLYING 1
-#define MONSTF_NOPOSSESS 2
-#define MONSTF_BOSS 4
-#define MONSTF_ISVILE 8
+#define MONSTF_BOSS 2
+#define MONSTF_ISVILE 4
 
 int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
