@@ -2,9 +2,17 @@
 // Player Lights
 //===============
 
-OBJECT ComplexDooMPlayer
+OBJECT ComplexMoPPlayer
 {
 Frame PLAYF { Light ZOMBIEATK }
+}
+
+OBJECT PlayerCustomSpray
+{
+Frame BFE2A { Light BFBallExplode1 }
+Frame BFE2B { Light BFBallExplode2 }
+Frame BFE2C { Light BFBallExplode3 }
+Frame BFE2D { Light BFBallExplode4 }
 }
 
 //================
