@@ -87,12 +87,12 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
 	
 	// This monster simply does no damage.
-	{ "FreezerZombie",			0.01, 0, 0, 0, "Freezer Zombie", "" },
+	//{ "FreezerZombie",			0.01, 0, 0, 0, "Freezer Zombie", "" },
 	
+	// New LCA monsters.
 	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
 	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
-	
-	{ "LegZombie",				0.06, 0, 0, 0, "Legendary Zombie", "LPOSA1" },
+	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	{ "MONSTERTYPES" }
 };
