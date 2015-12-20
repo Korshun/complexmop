@@ -3481,13 +3481,13 @@ Actor PossessedBabyDemolisher : PossessedArachnotron
 		MSPI D 2 A_PlaySound("baby/walk")
 		MSPI DEEFF 2
 		Loop
-	Missile:
+	Melee:
 		MSPI Q 2 Bright
 		MSPI R 2 Bright
 		MSPI Q 2 Bright
 		MSPI R 2 Bright
 		Goto Spawn
-	Melee:
+	Missile:
 		MSPI G 18 Bright
 		MSPI G 6 Bright
 		MSPI H 4 Bright
@@ -3506,6 +3506,7 @@ Actor BabyDemolisherWeapon : PossessedWeapon
 	States
 	{
 	Fire:
+		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind")
 		TNT1 A 15
 	Hold:
@@ -3520,7 +3521,6 @@ Actor BabyDemolisherWeapon : PossessedWeapon
 		TNT1 A 0 A_ReFire
 		Goto Ready
 	AltFire:
-		TNT1 A 0 A_GunFlash
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
 		TNT1 A 18
 		TNT1 A 6
