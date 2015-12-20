@@ -100,7 +100,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
 	
 	// Archviles.
-	{ "Exile",					0.5, 0, 0, MONSTF_ISVILE, "Exile", "VILEA1D1" },
+	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
 	{ "Diabolist",				0.5, 0, 0, MONSTF_ISVILE, "Diabolist", "DIABA1D1" },
 	{ "DarkHellion",			0.5, 0, 0, MONSTF_ISVILE, "Dark Hellion", "HELNA1D1" },
 	

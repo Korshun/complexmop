@@ -4995,6 +4995,74 @@ Actor CybruiserWeapon : PossessedWeapon
 }
 
 
+Actor PossessedExile : PossessedArchvile 21043
+{
+	Player.MorphWeapon "ExileWeapon"
+
+	GibHealth 90
+	Species "Viles"
+	DropItem "LifeEssence" 100
+	DropItem "ArmorBonusMax" 100
+	DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	PainChance "SoulToxic", 1
+	PainChance "FatFlamer", 1
+	PainChance "FiendFire", 1
+	Obituary "%o got caught in an Exile's void."
+	DeathSound "avile/death"
+	Scale 0.9
+	States
+	{
+	Spawn:
+		VILE A 10
+		Loop
+	See:
+		VILE A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		VILE AABBCC 2
+		VILE D 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		VILE DDEEFF 2
+		Loop
+	Missile:
+		TNT1 A 0 Bright
+		VILE G 10 Bright A_PlaySound("exile/voidstart")
+		VILE H 8 Bright //A_VileTarget
+		VILE IJKLMN 8 Bright
+		TNT1 A 0 A_PlaySound("exile/voidend")
+		VILE O 8 Bright //A_VileAttack
+		VILE P 20 Bright
+		Goto Spawn
+	Melee:
+		VILE "[\]" 10 Bright
+		Goto Spawn
+    }
+}
+
+Actor ExileWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 SetPlayerProperty (0, 1, 4)
+		TNT1 A 10 Bright
+		TNT1 A 0 A_ClearTarget
+		TNT1 A 0 A_Look
+		TNT1 A 0 A_VileStart
+		TNT1 A 0 A_SetBlend ("YELLOW",0.4,56)	
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 //A_FireCustomMissile ("MVileFireP",0,1,5,10)
+		TNT1 H 8 Bright
+		TNT1 IJKLMN 8 Bright A_FaceTarget
+		TNT1 A 0 A_SetBlend ("YELLOW",0.7,20)
+		TNT1 A 8 A_VileAttack
+		TNT1 A 0 A_ClearTarget
+		TNT1 O 0 Bright
+		TNT1 P 20 Bright
+		TNT1 A 0 SetPlayerProperty (0, 0, 4)
+		Goto Ready
+	}
+}
+
+
 Actor PossessedDemolisher : PossessedSpiderMastermind
 {
 	Player.MorphWeapon "DemolisherWeapon"
