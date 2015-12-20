@@ -1,7 +1,6 @@
 #define MAX_MONSTERATTACKS 30
 int MonsterAttacks[MAX_MONSTERATTACKS][8] = 
 {
-	{ "MagmaFiend", "\cgMagma Ball", "Lunge", "\ciFire Breath", "X" },
 	{ "Cacomental", "\cgNormal", "\cgSeeking", "\cgComet", "X" },
 	{ "HellKnight~", "\cdNormal", "\cdBurst Ball", "\cdComet", "X" },
 	{ "PyroDemon", "\ciNormal", "\ciComet", "\ciFloor Hugger", "X" },
