@@ -112,6 +112,11 @@ script mop_possess (void)
 	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED] - 2146435072;
 	if (evadespeed != 0)
 		ACS_ExecuteAlways(mop_evade, 0, evadespeed);
+		
+	// Run attack switching script.
+	int attacklist = FindMonsterAttackList(MonsterTypes[type][MONSTER_ACTORNAME]);
+	if (attacklist != -1)
+		ACS_ExecuteAlways(mop_attackswitching, 0, attacklist);
 	
 	// Lock weapons to prevent firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);

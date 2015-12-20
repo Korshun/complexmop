@@ -1,55 +1,46 @@
-script mop_magmafiend (void)
+#define MAX_MONSTERATTACKS 30
+int MonsterAttacks[MAX_MONSTERATTACKS][8] = 
 {
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cflunge");
-		terminate;
-	}
+	{ "MagmaFiend", "\cgMagma Ball", "Lunge", "\ciFire Breath", "X" },
+	{ "Helemental", "\cgNormal", "\cgSeeking", "\cgComet" },
 	
-	if (CheckInventory("Attack2"))
+	{ "MONSTERATTACKS" }
+};
+
+function int FindMonsterAttackList(str actorname)
+{
+	int i = 0;
+	while (StrCmp(MonsterAttacks[i][0], "MONSTERATTACKS"))
 	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cifire breath");
-		terminate;
+		printbold(s:MonsterAttacks[i][0], s:" MONSTERATTACKS");
+		if (!StrCmp(MonsterAttacks[i][0], actorname))
+			return i;
+		i++;
 	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cimagma ball");
-		terminate;
-	}
+	return -1;
 }
 
-script mop_helemental (void)
+script mop_attackswitching (int attacklist)
 {
-	if (CheckInventory("Attack1"))
+	int attack = 1;
+	GiveInventory("Attack1", 1);
+	int prevbuttonstate = !!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK);
+	while (GetActorProperty(0, APROP_HEALTH) > 0 && CheckInventory("IsPossessed"))
 	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cgseeking");
-		terminate;
+		int buttonstate = !!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK);
+		if (prevbuttonstate == 0 && buttonstate == 1)
+		{
+			TakeInventory(StrParam(s:"Attack", d:attack), 1);
+			attack++;
+			if (!StrCmp(MonsterAttacks[attacklist][attack], "X"))
+				attack = 1;
+			GiveInventory(StrParam(s:"Attack", d:attack), 1);
+			print(s:MonsterAttacks[attacklist][attack]);
+		}
+		prevbuttonstate = buttonstate;
+		Delay(1);
 	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cgcomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cgnormal");
-		terminate;
-	}
+	TakeInventory(StrParam(d:"Attack", s:attack), 1);
 }
 
 script mop_hellknight (void)

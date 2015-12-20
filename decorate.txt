@@ -1599,9 +1599,6 @@ Actor MagmaFiendWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Lunge")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FireBreath")
 		Goto Ready
-	AltFire:
-		TNT1 A 0 ACS_ExecuteAlways(mop_magmafiend, 0)
-		Goto Ready
 	Fireball:
 		TNT1 A 7
 		TNT1 A 6 Bright A_FireCustomMissile("MagmaBall")

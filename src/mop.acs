@@ -12,7 +12,7 @@ int BoomEdition = true;
 #define mop_evade 805
 #define mop_autoconfig 806
 #define mop_phaseimp 807
-#define mop_magmafiend 808
+#define mop_attackswitching 808
 #define mop_helemental 809
 #define mop_hellknight 810
 #define mop_pyrodemon 811
