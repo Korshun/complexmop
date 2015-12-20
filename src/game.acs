@@ -318,6 +318,12 @@ script mop_init OPEN
 		ConsoleCommand("archivecvar mop_marinesnobfgtime");
 	}
 	
+	if (!GetCVar("mop_maxlives"))
+	{
+		ConsoleCommand("set mop_maxlives 0");
+		ConsoleCommand("archivecvar mop_maxlives");
+	}
+	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
@@ -344,6 +350,10 @@ script mop_init OPEN
 	
 	Lives *= (GetCvar("mop_livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
+	
+	if (GetCVar("mop_maxlives") > 0 && Lives > GetCVar("mop_maxlives"))
+		Lives = GetCVar("mop_maxlives");
+		
 
 	if (ThingCountName("BossBrain", 0))
 	{
