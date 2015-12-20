@@ -205,7 +205,6 @@ script mop_phaseimp (void)
 	TakeInventory("PhaseImp_Phased", 1);
 }
 
-<<<<<<< HEAD
 script mop_phaseoverlord (void)
 {
 	//printbold(s:"start");
@@ -235,11 +234,11 @@ script mop_phaseoverlord (void)
 	//printbold(s:"cooldown");
 	
 	TakeInventory("PhaseOverlord_Phased", 1);
-=======
+}
+
 script mop_stopvile (void)
 {
 	SetActorVelocity(0, 0, 0, GetActorVelZ(0), false, true);
->>>>>>> master
 }
 
 function int IdentifyMonsterType(int tid)
