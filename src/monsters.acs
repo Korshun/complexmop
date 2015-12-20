@@ -101,7 +101,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	
 	// Archviles.
 	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
-	{ "Diabolist",				0.5, 0, 0, MONSTF_ISVILE, "Diabolist", "DIABA1D1" },
+	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
 	{ "DarkHellion",			0.5, 0, 0, MONSTF_ISVILE, "Dark Hellion", "HELNA1D1" },
 	
 	// Spider masterminds.
