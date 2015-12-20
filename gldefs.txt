@@ -2,9 +2,70 @@
 // Player Lights
 //===============
 
-OBJECT ComplexDooMPlayer
+OBJECT ComplexMoPPlayer
 {
 Frame PLAYF { Light ZOMBIEATK }
+}
+
+//===============
+// Replaced BFGs
+//===============
+
+OBJECT PlayerCustomSpray
+{
+Frame BFE2A { Light BFBallExplode1 }
+Frame BFE2B { Light BFBallExplode2 }
+Frame BFE2C { Light BFBallExplode3 }
+Frame BFE2D { Light BFBallExplode4 }
+}
+
+OBJECT MonsterCustomSpray
+{
+Frame BFE2A { Light BFBallExplode1 }
+Frame BFE2B { Light BFBallExplode2 }
+Frame BFE2C { Light BFBallExplode3 }
+Frame BFE2D { Light BFBallExplode4 }
+}
+
+OBJECT MonsterCustomSprayRed
+{
+Frame BRE2A { Light BFRBallExplode1 }
+Frame BRE2B { Light BFRBallExplode2 }
+Frame BRE2C { Light BFRBallExplode3 }
+Frame BRE2D { Light BFRBallExplode4 }
+}
+
+OBJECT BFG9500BallMOP
+{
+Frame BFS3 { Light BFG9500Ball1 }
+Frame BFE3A { Light BFG9500BallExplode1 }
+Frame BFE3B { Light BFG9500BallExplode2 }
+Frame BFE3C { Light BFG9500BallExplode3 }
+Frame BFE3D { Light BFG9500BallExplode4 }
+Frame BFE3E { Light BFG9500BallExplode5 }
+Frame BFE3F { Light BFG9500BallExplode6 }
+}
+
+OBJECT SpiderBFG9500BallMOP
+{
+Frame BFS1 { Light BFG9500Ball1 }
+Frame BFE1A { Light BFG9500BallExplode1 }
+Frame BFE1B { Light BFG9500BallExplode2 }
+Frame BFE1C { Light BFG9500BallExplode3 }
+Frame BFE1D { Light BFG9500BallExplode4 }
+Frame BFE1E { Light BFG9500BallExplode5 }
+Frame BFE1F { Light BFG9500BallExplode6 }
+}
+
+OBJECT SentientBFG9500BallMOP
+{
+Frame BFR3 { Light RBFG9500Ball1 }
+Frame BRE3A { Light RBFG9500BallExplode1 }
+Frame BRE3B { Light RBFG9500BallExplode2 }
+Frame BRE3C { Light RBFG9500BallExplode3 }
+Frame BRE3D { Light RBFG9500BallExplode4 }
+Frame BRE3E { Light RBFG9500BallExplode5 }
+Frame BRE3F { Light RBFG9500BallExplode6 }
 }
 
 //================

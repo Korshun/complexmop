@@ -330,6 +330,12 @@ script mop_init OPEN
 		ConsoleCommand("archivecvar mop_marinesnobfgtime");
 	}
 	
+	if (!GetCVar("mop_maxlives"))
+	{
+		ConsoleCommand("set mop_maxlives 0");
+		ConsoleCommand("archivecvar mop_maxlives");
+	}
+	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
@@ -356,6 +362,10 @@ script mop_init OPEN
 	
 	Lives *= (GetCvar("mop_livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
+	
+	if (GetCVar("mop_maxlives") > 0 && Lives > GetCVar("mop_maxlives"))
+		Lives = GetCVar("mop_maxlives");
+		
 
 	if (ThingCountName("BossBrain", 0))
 	{
@@ -368,10 +378,10 @@ script mop_init OPEN
 
 script mop_init_clientside open clientside
 {
-	if (!GetCVar("mop_showicons"))
+	if (!GetCVar("mop_noicons"))
 	{
-		ConsoleCommand("set mop_showicons 1");
-		ConsoleCommand("archivecvar mop_showicons");
+		ConsoleCommand("set mop_noicons 0");
+		ConsoleCommand("archivecvar mop_noicons");
 	}
 }
 
@@ -432,7 +442,7 @@ script mop_status_clientsideicons (int draw) clientside
 {
 	SetHudSize(640, 480, 1);
 	
-	if (!GetCVar("mop_showicons"))
+	if (GetCVar("mop_noicons"))
 	{
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);

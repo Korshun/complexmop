@@ -1,476 +1,54 @@
-script mop_magmafiend (void)
+#define MAX_MONSTERATTACKS 30
+int MonsterAttacks[MAX_MONSTERATTACKS][8] = 
 {
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cflunge");
-		terminate;
-	}
+	{ "Cacomental", "\cgNormal", "\cgSeeking", "\cgComet", "X" },
+	{ "HellKnight~", "\cdNormal", "\cdBurst Ball", "\cdComet", "X" },
+	{ "PyroDemon", "\ciNormal", "\ciComet", "\ciFloor Hugger", "X" },
+	{ "CyberNoble", "Shotgun", "\cdBurst Ball", "\cdLarge Ball", "Rocket", "X" },
+	{ "HellDuke", "\cdNormal", "\cdGiant Ball", "\cdBurst Comet", "\cdFloor Hugger", "X" },
+	{ "BaronOfHell~", "\cdNormal", "\cdGiant Balls", "\cdComet", "X" },
+	{ "BruiserDemon", "\ciNormal", "\ciGiant Balls", "\ciComet", "X" },
+	{ "Cybruiser", "\chRailgun", "Rockets", "Homing Rockets", "\cgBFG15K", "X" },
+	{ "Demolisher", "Normal", "\cdBFG15K", "\cdBFG9K", "X" },
+	{ "DarkDemolisher", "Normal", "\cdBFG9K", "\cdBFG10K", "X" },
+	{ "CerebralSentient", "Normal", "\cgBFG9K", "\cgBFG10K", "\cgDemon Tech BFG10K", "X" },
+	{ "DarkCyberdemon", "Rockets", "Homing Rockets", "\cdFloor Stomp", "\cdRailgun", "\cdBFG15K", "X" },
+	{ "Cardinal", "Rockets", "Homing Rockets", "\cgRailgun", "\cgBFG10K", "\cgDemon Tech BFG10K", "X" },
 	
-	if (CheckInventory("Attack2"))
+	{ "MONSTERATTACKS" }
+};
+
+function int FindMonsterAttackList(str actorname)
+{
+	int i = 0;
+	while (StrCmp(MonsterAttacks[i][0], "MONSTERATTACKS"))
 	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cifire breath");
-		terminate;
+		if (!StrCmp(MonsterAttacks[i][0], actorname))
+			return i;
+		i++;
 	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cimagma ball");
-		terminate;
-	}
+	return -1;
 }
 
-script mop_helemental (void)
+script mop_attackswitching (int attacklist)
 {
-	if (CheckInventory("Attack1"))
+	int attack = 1;
+	GiveInventory("Attack1", 1);
+	int prevbuttonstate = !!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK);
+	while (GetActorProperty(0, APROP_HEALTH) > 0 && CheckInventory("IsPossessed"))
 	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cgseeking");
-		terminate;
+		int buttonstate = !!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_ALTATTACK);
+		if (prevbuttonstate == 0 && buttonstate == 1)
+		{
+			TakeInventory(StrParam(s:"Attack", d:attack), 1);
+			attack++;
+			if (!StrCmp(MonsterAttacks[attacklist][attack], "X"))
+				attack = 1;
+			GiveInventory(StrParam(s:"Attack", d:attack), 1);
+			print(s:MonsterAttacks[attacklist][attack]);
+		}
+		prevbuttonstate = buttonstate;
+		Delay(1);
 	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cgcomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cgnormal");
-		terminate;
-	}
-}
-
-script mop_hellknight (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdburst ball");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdcomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cdnormal");
-		terminate;
-	}
-}
-
-script mop_pyrodemon (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cicomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cifloor hugger");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cinormal");
-		terminate;
-	}
-}
-
-script mop_cybernoble (void)
-{
-		if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdburst ball");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdlarge ball");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"rocket");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"shotgun");
-		terminate;
-	}
-}
-
-script mop_hellduke (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdgiant ball");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdburst comet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cdfloor hugger");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cdnormal");
-		terminate;
-	}
-}
-
-script mop_baronofhell (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdgiant balls");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdcomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cdnormal");
-		terminate;
-	}
-}
-
-script mop_bruiserdemon (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cigiant balls");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cicomet");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cinormal");
-		terminate;
-	}
-}
-
-script mop_afrit (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\ciburst ball");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cicomets");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cifloor hugger");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\cinormal");
-		terminate;
-	}
-}
-
-script mop_cybruiser (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"rockets");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"homing rockets");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cgBFG15K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"\chrailgun");
-		terminate;
-	}
-}
-
-script mop_demolisher (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdBFG15K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdBFG9K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"normal");
-		terminate;
-	}
-}
-
-script mop_darkdemolisher (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cdBFG9K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdBFG10K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"normal");
-		terminate;
-	}
-}
-
-script mop_cerebralsentient (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"\cgBFG9K");
-		terminate;
-	}
-
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cgBFG10K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cgDemon Tech BFG10K");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"normal");
-		terminate;
-	}
-}
-
-script mop_darkcyberdemon (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"homing rockets");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cdfloor stomp");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cdrailgun");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack5", 1);
-		print(s:"\cdbfg15k");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack5"))
-	{
-		TakeInventory("Attack5", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"rockets");
-		terminate;
-	}
-}
-
-script mop_cardinal (void)
-{
-	if (CheckInventory("Attack1"))
-	{
-		TakeInventory("Attack1", 1);
-		GiveInventory("Attack2", 1);
-		print(s:"homing rockets");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack2"))
-	{
-		TakeInventory("Attack2", 1);
-		GiveInventory("Attack3", 1);
-		print(s:"\cgrailgun");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack3"))
-	{
-		TakeInventory("Attack3", 1);
-		GiveInventory("Attack4", 1);
-		print(s:"\cgbfg10k");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack4"))
-	{
-		TakeInventory("Attack4", 1);
-		GiveInventory("Attack5", 1);
-		print(s:"\cgdemon tech bfg10k");
-		terminate;
-	}
-	
-	if (CheckInventory("Attack5"))
-	{
-		TakeInventory("Attack5", 1);
-		GiveInventory("Attack1", 1);
-		print(s:"rockets");
-		terminate;
-	}
+	TakeInventory(StrParam(d:"Attack", s:attack), 1);
 }

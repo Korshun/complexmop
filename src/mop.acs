@@ -12,15 +12,15 @@ int BoomEdition = true;
 #define mop_evade 805
 #define mop_autoconfig 806
 #define mop_phaseimp 807
-#define mop_magmafiend 808
-#define mop_helemental 809
-#define mop_hellknight 810
-#define mop_pyrodemon 811
-#define mop_cybernoble 812
-#define mop_hellduke 813
-#define mop_bruiserdemon 814
-#define mop_afrit 815
-#define mop_cybruiser 816
+#define mop_attackswitching 808
+// FREE SLOT 809
+// FREE SLOT 810
+// FREE SLOT 811
+// FREE SLOT 812
+// FREE SLOT 813
+// FREE SLOT 814
+// FREE SLOT 815
+// FREE SLOT 816
 #define mop_wincondition 817
 #define mop_marinewin 818
 #define mop_demonwin 819
@@ -34,11 +34,11 @@ int BoomEdition = true;
 #define mop_log_kill 827
 #define mop_findmarines 828
 #define mop_ally_hud 829
-#define mop_demolisher 830
-#define mop_darkdemolisher 831
-#define mop_cerebralsentient 832
-#define mop_darkcyberdemon 833
-#define mop_cardinal 834
+// FREE SLOT 830
+// FREE SLOT 831
+// FREE SLOT 832
+// FREE SLOT 833
+// FREE SLOT 834
 #define mop_count_monstertypes_sv 835
 #define mop_respawn_protection 836
 #define mop_update_fragcounter 837
@@ -50,7 +50,7 @@ int BoomEdition = true;
 #define mop_marines_giveextralives 843
 #define mop_marines_nobfgtimer 844
 #define mop_marines_isbfgavailable 845
-#define mop_baronofhell 846
+// FREE SLOT 846
 #define mop_count_monstertypes_cl 847
 
 #define MAX_PLAYERS 64

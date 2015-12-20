@@ -1,0 +1,96 @@
+Actor PlayerCustomSpray : CustomSpray replaces CustomSpray
+{
+	DamageType "Player"
+	+NODAMAGETHRUST
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		BFE2 A 6 Bright A_SpawnItemEx("GreenParticleSpawnerDT", 0, 0, 0, 0, 0, 0, 0, 128)
+		BFE2 BCD 6 Bright 
+		Stop
+	}
+}
+
+Actor MonsterCustomSpray : CustomSpray
+{
+	DamageType "Monster"
+	+NODAMAGETHRUST
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		BFE2 A 6 Bright A_SpawnItemEx("GreenParticleSpawnerDT", 0, 0, 0, 0, 0, 0, 0, 128)
+		BFE2 BCD 6 Bright 
+		Stop
+	}
+}
+
+Actor MonsterCustomSprayRed : CustomSprayRed
+{
+	DamageType "Monster"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		BRE2 A 6 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		BRE2 BCD 6 Bright 
+		Stop
+	}
+}
+
+ACTOR BFG9500BallMOP : BFG9500Ball replaces BFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwave2", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("Kaboom11", 0, 0, random(0,360), 2, random(0,360))
+		BFE3 AB 8 Bright A_SpawnItemEx("GreenParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		BFE3 C 8 Bright A_BFGSpray("PlayerCustomSpray", 40, 1)
+		BFE3 DEF 8 Bright
+		Stop    
+	}
+}
+
+Actor SpiderBFG9500BallMOP : SpiderBFG9500Ball replaces SpiderBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwave2", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("Kaboom11", 0, 0, random(0,360), 2, random(0,360))
+		BFE3 AB 8 Bright A_SpawnItemEx("GreenParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		BFE3 C 8 Bright A_BFGSpray("MonsterCustomSpray", 40, 1)
+		BFE3 DEF 8 Bright
+		Stop
+	}
+}
+
+Actor SentientBFG9500BallMOP : SentientBFG9500Ball replaces SentientBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwaveRed2", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("Kaboom18", 0, 0, random(0,360), 2, random(0,360))
+		BRE3 AB 8 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		BRE3 C 8 Bright A_BFGSpray("MonsterCustomSprayRed", 40, 1)
+		BRE3 DEF 8 Bright
+		Stop    
+    }
+}
+
+
