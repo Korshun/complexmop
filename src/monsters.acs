@@ -9,78 +9,114 @@
 
 #define MONSTF_FLYING 1
 #define MONSTF_BOSS 2
-#define MONSTF_ISVILE 4
 
 int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
 int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 {
+	// Barrels.
 	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
+	
+	// Zombiemen.
 	{ "PlasmaGunner",			0.06, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
 	{ "RailGunner",				0.06, 0, 0, 0, "Railgunner", "RPOSA1" },
 	{ "DemonTechZombie",		0.06, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
 	{ "RocketZombie",			0.06, 0, 0, 0, "Rocket zombie", "MPO2A1" },
+	
+	// Shotgunners.
 	{ "ShotgunZombie",			0.1, 0, 0, 0, "Shotgunner", "ZSP1A1" },
 	{ "AssaultShotgunZombie",	0.1, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
 	{ "SuperShotgunZombie",		0.1, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
 	{ "QuadShotgunZombie",		0.1, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
+	
+	// Chaingunners.
 	{ "AssaultRifleZombie",		0.13, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
 	{ "Chaingunner",			0.13, 0, 0, 0, "Chaingunner", "DPOSA1" },
 	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
 	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
+	
+	// Imps.
 	{ "Imp",					0.08, 0, 0, 0, "Imp", "SIMPA1" },
 	{ "VoidImp",				0.08, 0, 0, 0, "Void Imp", "DRKSA1" },
 	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1C1" },
 	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
+	
+	// Demons.
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
 	{ "CyberFiend",				0.1, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
 	{ "MagmaFiend",				0.1, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
 	{ "DTechFiend",				0.1, 0, 0, 0, "DTech Fiend", "DPNKA1" },
+	
+	// Spectres.
 	{ "Spectre~",				0.12, 0, 0, 0, "Spectre", "SAR2A1" },
 	{ "Lurker",					0.12, 0, 0, 0, "Lurker", "CYFNA1" },
 	{ "Spook",					0.12, 0, 0, 0, "Spook", "SAR4A1" },
+	
+	// Lost souls.
 	{ "TerrorSoul",				0.1, 0, 0, MONSTF_FLYING, "Terror Soul", "TERRA1" },
 	{ "ForgottenOne",			0.1, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
 	{ "PoisonSoul",				0.1, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
 	{ "Rictus",					0.1, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
+	
+	// Cacodemons.
 	{ "Cacodemon~",				0.14, 0, 14, MONSTF_FLYING, "Cacodemon", "CALIA1" },
 	{ "Watcher",				0.14, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
 	{ "Cacomental",				0.14, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
+	
+	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
 	{ "Defiler",				0.17, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
 	{ "PoisonElemental",		0.17, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
 	{ "BombElemental",			0.17, 0, 0, MONSTF_FLYING, "Bomb Elemental", "INFPA1" },
+	
+	// Arachnotrons.
 	{ "Dualachnotron",			0.2, 0, 0, 0, "Dualachnotron", "CSPIA1" },
 	{ "Fusionite",				0.2, 0, 0, 0, "Fusionite", "FSPIA1D1" },
 	{ "BabyDemolisher",			0.2, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
 	{ "BabySentient",			0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
 	{ "NewBabySentient",		0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
+	
+	// Mancubi.
 	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
 	{ "Daedabus",				0.2, 0, 0, 0, "Daedabus", "HECTC1" },
 	{ "Behemoth",				0.2, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "NewBehemoth",			0.2, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "Barbatos",				0.2, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	
+	// Revenants.
 	{ "Guardian",				0.25, 0, 0, 0, "Guardian", "SKELA1D1" },
 	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
 	{ "HellfireRevenant",		0.25, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
 	{ "Famine",					0.25, 0, 0, 0, "Famine", "NREVA1D1" },
+	
+	// Hell knights.
 	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1" },
 	{ "PyroDemon",				0.17, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
 	{ "CyberNoble",				0.17, 0, 0, 0, "Cyber Noble", "CBOSA1" },
 	{ "HellDuke",				0.17, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
+	
+	// Barons of hell.
 	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
 	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
-	{ "Exile",					0.5, 0, 0, MONSTF_ISVILE, "Exile", "VILEA1D1" },
-	{ "Diabolist",				0.5, 0, 0, MONSTF_ISVILE, "Diabolist", "DIABA1D1" },
-	{ "DarkHellion",			0.5, 0, 0, MONSTF_ISVILE, "Dark Hellion", "HELNA1D1" },
+	
+	// Archviles.
+	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
+	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
+	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1D1" },
+	
+	// Spider masterminds.
 	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
 	{ "DarkDemolisher",			6.0, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
 	{ "CerebralSentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
 	{ "NewCerebralSentient",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
+	
+	// Cyberdemons.
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
+	
+	// Nazis.
 	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
 	{ "SSNazi",					0.06, 0, 0, 0, "SS Nazi", "SSWIA1" },
 	{ "Mutant",					0.06, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
@@ -169,6 +205,7 @@ script mop_phaseimp (void)
 	TakeInventory("PhaseImp_Phased", 1);
 }
 
+<<<<<<< HEAD
 script mop_phaseoverlord (void)
 {
 	//printbold(s:"start");
@@ -198,6 +235,11 @@ script mop_phaseoverlord (void)
 	//printbold(s:"cooldown");
 	
 	TakeInventory("PhaseOverlord_Phased", 1);
+=======
+script mop_stopvile (void)
+{
+	SetActorVelocity(0, 0, 0, GetActorVelZ(0), false, true);
+>>>>>>> master
 }
 
 function int IdentifyMonsterType(int tid)
