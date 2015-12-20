@@ -101,6 +101,8 @@ Actor EraserZombieWeapon : PossessedWeapon
 
 Actor PossessedDTDevastatorZombie : PossessedMonster
 {
+	Player.MorphWeapon "DTDevastatorZombieWeapon"
+
   obituary "%o was pulverized by a zombie's Demon Tech Devastator."
   health 250
   radius 20
@@ -197,30 +199,16 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
     DEVZ F 10 Bright A_MissileAttack
     DEVZ E 50
     goto See
-  Pain:
-    DEVZ G 3
-    DEVZ G 3 A_Pain
-    goto See
-  Death:
-    DEVZ H 5
-    DEVZ I 5 A_Scream
-    DEVZ J 5 A_NoBlocking
-    DEVZ KLM 5
-	DEVZ N 0 A_SpawnItem("BodyCrash",0,0,0,0)
-    DEVZ N -1
-    stop
-  XDeath:
-    DEVZ O 5
-	DEVZ O 3 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-    DEVZ P 5 A_XScream
-    DEVZ Q 5 A_NoBlocking
-    DEVZ RS 5
-    DEVZ T -1
-    stop
-  Raise:
-    DEVZ NMLKJIH 5
-    goto See
   }
+}
+
+Actor DTDevastatorZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
@@ -466,44 +454,46 @@ Actor BFGCacodemonWeapon : PossessedWeapon
 
 Actor PossessedPhaseOverlord : PossessedMonster
 { 
-Health 1650 
-Radius 24 
-Height 64 
-Mass 1000 
-Speed 8 
-Species "Nobles"
-PainChance 20 
-DropItem "UltraSphere" 40 
-DropItem "ExtraArmor" 65 
-DropItem "BossLifeEssence" 210 
-DropItem "BossArmorBonusMax" 210 
-//MONSTER
-MeleeDamage 12
-Obituary "%o's aorta was punctured by a Phase Overlord."
-HitObituary "%o's penis was split in two by a Phase Overlord."
-BloodColor "cf 00 b0"
-+NOTARGET
-+QUICKTORETALIATE
-+FLOORCLIP 
-+MISSILEMORE
-+MISSILEEVENMORE
-+NORADIUSDMG
-+DONTHURTSPECIES
-SeeSound "monster/arcsit" 
-PainSound "baron/pain" 
-DeathSound "monster/arcdth"
-MeleeSound "baron/melee"
-SpawnID 174
-States 
-   { 
-   Spawn: 
+	Player.MorphWeapon "PhaseOverlordWeapon"
+	
+	Health 1650 
+	Radius 24 
+	Height 64 
+	Mass 1000 
+	Speed 8 
+	Species "Nobles"
+	PainChance 20 
+	DropItem "UltraSphere" 40 
+	DropItem "ExtraArmor" 65 
+	DropItem "BossLifeEssence" 210 
+	DropItem "BossArmorBonusMax" 210 
+	//MONSTER
+	MeleeDamage 12
+	Obituary "%o's aorta was punctured by a Phase Overlord."
+	HitObituary "%o's penis was split in two by a Phase Overlord."
+	BloodColor "cf 00 b0"
+	+NOTARGET
+	+QUICKTORETALIATE
+	+FLOORCLIP 
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+NORADIUSDMG
+	+DONTHURTSPECIES
+	SeeSound "monster/arcsit" 
+	PainSound "baron/pain" 
+	DeathSound "monster/arcdth"
+	MeleeSound "baron/melee"
+	SpawnID 174
+	States 
+	{ 
+	Spawn: 
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        BOS3 A 14 Bright //A_Look 
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   BOS3 X 14 Bright //A_Look 
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Loop 
-   See:
+	See:
        BOS3 AA 3 //A_Chase
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
@@ -520,7 +510,7 @@ States
 	   TNT1 A 0 A_Jump(62,"Rush")
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Loop
-   Rush:
+	Rush:
 		TNT1 A 0 A_UnHideThing
         TNT1 A 0 A_SetTranslucent(1)
 		TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
@@ -628,7 +618,7 @@ States
 	   BOS3 J 0 Bright A_Custommissile("PArchonComet",32,0,-5)
 	   BOS3 J 7 Bright A_Custommissile("PArchonComet",32,0,10)
        Goto See
-   Melee:
+	Melee:
        TNT1 A 0 A_UnHideThing
        TNT1 A 0 A_SetTranslucent(1)
 	   BOS3 EF 8 //A_FaceTarget 
@@ -652,33 +642,16 @@ States
        BOS3 J 6 //A_CustomPunch(12)
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Goto See
-   Pain: 
-       TNT1 A 0 A_UnHideThing
-       TNT1 A 0 A_SetTranslucent(1)
-	   BOS3 K 2 
-       BOS3 K 2 A_Pain 
-       Goto See 
-   Death: 
-       TNT1 A 0 A_UnHideThing
-       TNT1 A 0 A_SetTranslucent(1)
-	   BOS3 L 8 
-       BOS3 M 8 A_Scream 
-       BOS3 N 8 
-       BOS3 O 8 A_NoBlocking 
-       BOS3 PQ 8 
-       BOS3 R -1 A_Fall 
-       Stop
-   XDeath:
-       TNT1 A 0 A_UnHideThing
-       TNT1 A 0 A_SetTranslucent(1)
-	   XARC A 5
-       XARC B 0 A_SpawnItemEx("MutantGibbedGenerator",0,0,0,0,0,0,0,128,0)
-	   XARC B 5 A_XScream
-       XARC C 5 A_NoBlocking
-       XARC DEFGH 5
-       XARC I -1
-       stop
    } 
+}
+
+Actor PhaseOverlordWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
@@ -686,6 +659,8 @@ States
 
 Actor PossessedCerebralCardinal : PossessedMonster
   {
+  Player.MorphWeapon "CerebralCardinalWeapon"
+  
   Speed 10
   Height 100
   Radius 80
@@ -1351,183 +1326,7 @@ BFG10K:
 	TNT1 A 0 A_Jump(52,"SentientCardinalDTCombo")
 	TNT1 A 0 A_Jump(26,"DTDevastator")
     Goto See  
-Pain:
-  ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Jump(35,"PainResurrect","Meteors")
-  ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_pain
-  Goto See
-PainResurrect:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY A 3 Bright
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY A 3 Bright A_Pain
-	TNT1 A 0 A_JumpIfInventory("SentientToken",3,"See")	
-	ARCY AAAA 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_GiveInventory("SentientToken",1)
-	TNT1 A 0 A_SetInvulnerable
-	TNT1 A 0 Radius_Quake(10,80,0,24,0)
-	TNT1 A 0 A_GiveInventory("Health",750)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-    ARCY F 3 Bright A_PlaySound("CerebralCardinal/Laugh")
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,0,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,30,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,60,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,90,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,120,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,150,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,180,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,210,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,240,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,270,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,300,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,330,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,360,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,15,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,45,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,75,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,105,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,135,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,165,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,195,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,225,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,255,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,285,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,315,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrectionEffect",10,0,345,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,0,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,10,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,20,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,30,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,40,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,50,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,60,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,70,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,80,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,90,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,100,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,110,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,120,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,130,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,140,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,150,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,160,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,170,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,180,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,190,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,200,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,210,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,220,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,230,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,240,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,250,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,260,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,270,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,280,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,290,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,300,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,310,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,320,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,330,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,340,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,350,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,360,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,0,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,10,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,20,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,30,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,40,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,50,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,60,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,70,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,80,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,90,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,100,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,110,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,120,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,130,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,140,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,150,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,160,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,170,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,180,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,190,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,200,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,210,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,220,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,230,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,240,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,250,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,260,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,270,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,280,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,290,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,300,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,310,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,320,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,330,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,340,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,350,0)
-	TNT1 A 0 Bright A_CustomMissile("SentientMassResurrection",10,0,360,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	ARCY F 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_UnSetInvulnerable
-	ARCY A 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto See
    Meteors:
-	  TNT1 A 0 A_JumpIfCloser(1000,1)
-	  Goto Pain+1
    	  TNT1 A 0 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
       DACY A 3 Bright A_Pain
 	  TNT1 A 0 A_JumpIfInventory("CardinalToken",3,"See")	
@@ -1660,27 +1459,15 @@ PainResurrect:
 	  TNT1 A 0 Bright A_UnSetInvulnerable
       DACY AA 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 	  Goto See
-Death:
-    TNT1 A 0
-	TNT1 A 0 Bright A_Scream
-	DACY A 20 Bright A_Fall
-    TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-	DACY BBBBBBBBBB 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))	
-    DACY CCCCCCCCCC 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-    DACY DDDDDDDDDD 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)	
-	TNT1 AAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-    DACY DDDDDDDDDD 2 Bright A_CustomMissile("Kaboom", random(10,60), random(30,-30), random(0,360), 2, random(0,360))
-    TNT1 AAAAAAAA 0 A_SpawnItemEx("GibbedGenerator",Random(10,-10),Random(10,-10),Random(20,60),0,0,0,0,128,0)
-	TNT1 AAAAAAAAAAAA 0 A_CustomMissile("BigRedBloodCloud", random(10,80), 0, random(0,360), 2, random(0,360))
-	TNT1 AAAAAAAAAAAAAAAA 0 A_CustomMissile("SmokeFX3", random(10,60), random(30,-30), random(0,360), 2, random(0,360))	
-	DACY DE 5
-	TNT1 A -1 A_KillMaster
-	Stop
   }
 }
+
+Actor PhaseOverlordWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+

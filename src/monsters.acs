@@ -89,13 +89,24 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
 	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
 	
-	// This monster simply does no damage.
-	//{ "FreezerZombie",			0.01, 0, 0, 0, "Freezer Zombie", "" },
-	
 	// New LCA monsters.
-	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
+	
+	// Shotgunners.
 	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
+	{ "DTDevastatorZombie",		0.13, 0, 0, 0, "Demon Tech Devastator", "DEVZA1" },
+	
+	// Chaingunners.
 	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
+	
+	// Cacodemons.
+	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
+	
+	// Barons of Hell.
+	{ "PhaseOverlord",			0.2, 0, 0, "Phase Overlord", "BOS3A1C1" },
+	
+	// Cyberdemons.
+	{ "CerebralCardinal",		8.0, 0, 0, "Cerebral Cardinal", "ARCYA1" },
+	
 	
 	{ "MONSTERTYPES" }
 };
