@@ -86,6 +86,9 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
 	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
 	
+	// This monster simply does no damage.
+	{ "FreezerZombie",			0.01, 0, 0, 0, "Freezer Zombie", "" },
+	
 	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
 	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
 	

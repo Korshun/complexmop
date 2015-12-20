@@ -6,7 +6,9 @@
 #include "decorate/weapons.txt"
 #include "decorate/doom2.txt"
 #include "decorate/bfgattacks.txt"
-#include "decorate/lca.txt"
+#include "decorate/lca-normal.txt"
+#include "decorate/lca-replaced.txt"
+#include "decorate/lca-legendary.txt"
 
 const int PROP_FROZEN = 0;
 
