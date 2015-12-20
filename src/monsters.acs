@@ -93,7 +93,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	
 	// Shotgunners.
 	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
-	{ "DTDevastatorZombie",		0.13, 0, 0, 0, "Demon Tech Devastator", "DEVZA1" },
+	{ "DTDevastatorZombie",		0.13, 0, 0, 0, "Demon Tech Devastator Zombie", "DEVZA1" },
 	
 	// Chaingunners.
 	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
