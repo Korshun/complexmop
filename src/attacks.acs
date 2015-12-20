@@ -24,7 +24,6 @@ function int FindMonsterAttackList(str actorname)
 	int i = 0;
 	while (StrCmp(MonsterAttacks[i][0], "MONSTERATTACKS"))
 	{
-		printbold(s:MonsterAttacks[i][0], s:" MONSTERATTACKS");
 		if (!StrCmp(MonsterAttacks[i][0], actorname))
 			return i;
 		i++;
