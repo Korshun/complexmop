@@ -7,7 +7,7 @@
 #include "decorate/doom2.txt"
 #include "decorate/bfgattacks.txt"
 #include "decorate/lca-normal.txt"
-#include "decorate/lca-legendary.txt"
+//#include "decorate/lca-legendary.txt"
 
 const int PROP_FROZEN = 0;
 
