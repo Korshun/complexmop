@@ -5,6 +5,7 @@
 #include "decorate/player.txt"
 #include "decorate/weapons.txt"
 #include "decorate/doom2.txt"
+#include "decorate/bfgattacks.txt"
 
 const int PROP_FROZEN = 0;
 
