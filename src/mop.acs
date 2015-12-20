@@ -13,7 +13,7 @@ int BoomEdition = true;
 #define mop_autoconfig 806
 #define mop_phaseimp 807
 #define mop_attackswitching 808
-// FREE SLOT 809
+#define mop_stopvile 809
 // FREE SLOT 810
 // FREE SLOT 811
 // FREE SLOT 812
