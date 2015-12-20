@@ -5096,6 +5096,127 @@ Actor DiabolistWeapon : PossessedWeapon
 }
 
 
+Actor PossessedDarkHellion : PossessedArchvile
+{
+	Player.MorphWeapon "DarkHellionWeapon"
+	
+	Health 1000
+	GibHealth 90
+	DropItem "LifeEssence" 160
+	DropItem "ArmorBonusMax" 160
+	DropItem "HellionRegen" 166 1
+	Obituary "A Dark Hellion cast %o into oblivion."
+	Scale 1.1
+	Species "Viles"
+	//DamageFactor "VileFires", 0.0
+	PainChance "Mine", 128
+	PainChance "SoulToxic", 1
+	PainChance "FatFlamer", 1
+	PainChance "FiendFire", 1  
+	SeeSound "monster/hlnsit" 
+	ActiveSound "monster/hlnact" 
+	PainSound "monster/hlnpai"
+	DeathSound "monster/hlndeth"
+	BloodColor "Black"
+	States 
+	{ 
+	Spawn: 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 4 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 4
+		Loop 
+	See:
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		HELN A 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN A 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN B 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN B 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN C 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN C 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN D 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN D 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
+		HELN E 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN E 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN F 2 
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELN F 2 
+		Goto Spawn
+	Missile:
+		TNT1 A 0 A_PlaySound("brain/spit")
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,0,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,20,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,40,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,60,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,80,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,100,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,120,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,140,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,160,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,180,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,200,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,220,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,240,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,260,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,280,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,300,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,320,0)
+		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,340,0)
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH B 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH B 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH B 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH B 4 Bright	
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright
+		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		HELH A 4 Bright		
+		Goto Spawn
+    }
+}
+
+Actor DarkHellionWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 ACS_ExecuteAlways(mop_stopvile, 0)
+		TNT1 A 0 SetPlayerProperty (0, 1, 4)
+		TNT1 A 0 A_SetBlend ("RED",0.3,20)
+		TNT1 A 48 bright A_FireCustomMissile ("MVileRevive",0,0,0,0,0,0)
+		TNT1 A 0 SetPlayerProperty (0, 0, 4)
+		TNT1 A 5
+		Goto Ready
+	}
+}
+
 // From MoP.
 ACTOR MVileRevive
 {
