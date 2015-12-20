@@ -28,12 +28,15 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "AssaultShotgunZombie",	0.1, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
 	{ "SuperShotgunZombie",		0.1, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
 	{ "QuadShotgunZombie",		0.1, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
+	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
+	{ "DTDevastatorZombie",		0.13, 0, 0, 0, "Demon Tech Devastator Zombie", "DEVZA1" },
 	
 	// Chaingunners.
 	{ "AssaultRifleZombie",		0.13, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
 	{ "Chaingunner",			0.13, 0, 0, 0, "Chaingunner", "DPOSA1" },
 	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
 	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
+	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	// Imps.
 	{ "Imp",					0.08, 0, 0, 0, "Imp", "SIMPA1" },
@@ -62,6 +65,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cacodemon~",				0.14, 0, 14, MONSTF_FLYING, "Cacodemon", "CALIA1" },
 	{ "Watcher",				0.14, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
 	{ "Cacomental",				0.14, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
+	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
 	
 	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
@@ -99,6 +103,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
 	{ "BruiserDemon",			0.2, 0, 0, 0, "Bruiser Demon", "FRITA1" },
 	{ "Cybruiser",				0.2, 0, 0, 0, "Cybruiser", "BRUSA1" },
+	{ "PhaseOverlord",			0.2, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
 	
 	// Archviles.
 	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
@@ -115,6 +120,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
+	{ "CerebralCardinal",		8.0, 0, 0, "Cerebral Cardinal", "ARCYA1" },
 	
 	// Nazis.
 	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
@@ -123,26 +129,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Officer",				0.06, 0, 0, 0, "Nazi Officer", "OPOIA1" },
 	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
 	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
-	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
-	
-	// New LCA monsters.
-	
-	// Shotgunners.
-	{ "EraserZombie",			0.13, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
-	{ "DTDevastatorZombie",		0.13, 0, 0, 0, "Demon Tech Devastator Zombie", "DEVZA1" },
-	
-	// Chaingunners.
-	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
-	
-	// Cacodemons.
-	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
-	
-	// Barons of Hell.
-	{ "PhaseOverlord",			0.2, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
-	
-	// Cyberdemons.
-	{ "CerebralCardinal",		8.0, 0, 0, "Cerebral Cardinal", "ARCYA1" },
-	
+	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },	
 	
 	{ "MONSTERTYPES" }
 };
