@@ -120,7 +120,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
-	{ "CerebralCardinal",		8.0, 0, 0, "Cerebral Cardinal", "ARCYA1" },
+	{ "CerebralCardinal",		8.0, 0, 20, 0, "Cerebral Cardinal", "ARCYA1" },
 	
 	// Nazis.
 	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
