@@ -54,6 +54,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Fusionite",				0.2, 0, 0, 0, "Fusionite", "FSPIA1D1" },
 	{ "BabyDemolisher",			0.2, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
 	{ "BabySentient",			0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
+	{ "NewBabySentient",		0.2, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
 	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
 	{ "Daedabus",				0.2, 0, 0, 0, "Daedabus", "HECTC1" },
 	{ "Behemoth",				0.2, 0, 0, 0, "Behemoth", "FAT2A1D1" },
