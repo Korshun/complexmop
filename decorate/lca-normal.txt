@@ -1,77 +1,4 @@
-Actor PossessedBFGCacodemon : PossessedMonster
-{
-	Player.MorphWeapon "BFGCacodemonWeapon"
-
-	//DamageFactor "WeakenerBall" , 0.0
-	Health 700
-	Radius 24
-	Height 44
-	Mass 400
-	Meleedamage 8
-	Speed 0.4375 //10
-	PainChance 128
-	//Monster
-	+FLOAT
-	+NOGRAVITY
-	+MISSILEEVENMORE
-	+MISSILEMORE
-	+QUICKTORETALIATE
-	SeeSound "caco/sight"
-	PainSound "caco/pain"
-	DeathSound "caco/death"
-	ActiveSound "caco/active"
-	MeleeSound "caco/melee"
-	Obituary "%o was eradicated by a BFG Cacodemon."
-	DropItem "BFG9500" 190 1
-	DropItem "BossLifeEssence"150
-    DropItem "BossArmorBonusMax" 150
-	DropItem "NewCellPack" 255 
-	bloodcolor "Purple"
-	States
-	{
-	Spawn:
-		BFCD A 10 //A_Look
-		Loop
-	See:
-		BFCD A 3 //A_Chase
-		Loop
-	Missile:
-		TNT1 A 0 //A_PlaySound("weapons/bfgf")
-		BFCD B 15 //A_FaceTarget
-		BFCD C 10 Bright //A_FaceTarget
-		BFCD D 10 Bright //A_FireCustomMissile("CacoBFG9500Ball")
-		BFCD CB 15 //A_FaceTarget
-		BFCD B 5 
-		Goto Spawn
-	Melee:
-		BFCD BC 5 //A_FaceTarget
-		BFCD D 5 //A_CustomPunch(8)
-		BFCD CB 5 //A_FaceTarget
-		BFCD B 5
-		Goto Spawn
-	}
-}
-
-Actor BFGCacodemonWeapon : PossessedWeapon
-{
-	States
-	{
-	Fire:
-		TNT1 A 0 A_PlaySound("weapons/bfgf")
-		TNT1 B 15 //A_FaceTarget
-		TNT1 C 10 Bright //A_FaceTarget
-		TNT1 D 10 Bright A_FireCustomMissile("CacoBFG9500Ball")
-		TNT1 CB 15 //A_FaceTarget
-		Goto Ready
-	AltFire:
-		TNT1 A 0 A_GunFlash
-		TNT1 BC 5 //A_FaceTarget
-		TNT1 D 5 A_CustomPunch(8)
-		TNT1 CB 5 //A_FaceTarget
-		Goto Ready
-	}
-}
-
+// Shotgunners ===============================================
 
 Actor PossessedEraserZombie : PossessedMonster
 {
@@ -136,6 +63,7 @@ Actor PossessedEraserZombie : PossessedMonster
 	}
 }
 
+
 Actor EraserZombieWeapon : PossessedWeapon
 {
 	States
@@ -170,6 +98,133 @@ Actor EraserZombieWeapon : PossessedWeapon
 	}
 }
 
+
+Actor PossessedDTDevastatorZombie : PossessedMonster
+{
+  obituary "%o was pulverized by a zombie's Demon Tech Devastator."
+  health 250
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 55
+  DropItem "Armorplate" 186 2
+  DropItem "Portablemedkit" 159 2
+  DropItem "Backpack" 190 1
+  DropItem "Demon Tech Devastator" 70 1
+  DropItem "HandGrenadeAmmo" 210 3
+  DropItem "MineAmmo" 210 3
+  DropItem "DemonAmmoBox" 255 
+  //DamageFactor "ZombieDev", 0.0
+  seesound "chainguy/sight"
+  painsound "chainguy/pain"
+  deathsound "chainguy/death"
+  activesound "chainguy/active"
+  missiletype "ZombieDevastatorBall"
+  //MONSTER
+  +FLOORCLIP
+  +QUICKTORETALIATE
+  states
+  {
+  Spawn:
+    DEVZ AQ 10 //A_Look
+    loop
+  See:
+    DEVZ AABB 3 //A_Chase
+	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+	DEVZ CCDD 3 //A_Chase
+	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
+    loop
+  Missile:
+    DEVZ E 0 Bright //A_FaceTarget
+    DEVZ E 0 Bright A_PlaySound ("devastator/charge")
+    DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+	DEVZ E 2 Bright //A_FaceTarget
+    DEVZ F 2 Bright
+	DEVZ F 2 Bright
+	DEVZ F 2 Bright
+	DEVZ F 2 Bright
+	DEVZ F 2 Bright
+    DEVZ F 0 A_PlaySound ("devastator/fire")
+    DEVZ F 10 Bright A_MissileAttack
+    DEVZ E 50
+    goto See
+  Pain:
+    DEVZ G 3
+    DEVZ G 3 A_Pain
+    goto See
+  Death:
+    DEVZ H 5
+    DEVZ I 5 A_Scream
+    DEVZ J 5 A_NoBlocking
+    DEVZ KLM 5
+	DEVZ N 0 A_SpawnItem("BodyCrash",0,0,0,0)
+    DEVZ N -1
+    stop
+  XDeath:
+    DEVZ O 5
+	DEVZ O 3 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
+    DEVZ P 5 A_XScream
+    DEVZ Q 5 A_NoBlocking
+    DEVZ RS 5
+    DEVZ T -1
+    stop
+  Raise:
+    DEVZ NMLKJIH 5
+    goto See
+  }
+}
+
+
+// Chaingunners ===============================================
 
 Actor PossessedBFG10KGeneral : PossessedMonster
 { 
@@ -329,6 +384,85 @@ Actor BFG10KGeneralWeapon : PossessedWeapon
 	}
 }
 
+
+// Cacodemons ======================================================
+
+Actor PossessedBFGCacodemon : PossessedMonster
+{
+	Player.MorphWeapon "BFGCacodemonWeapon"
+
+	//DamageFactor "WeakenerBall" , 0.0
+	Health 700
+	Radius 24
+	Height 44
+	Mass 400
+	Meleedamage 8
+	Speed 0.4375 //10
+	PainChance 128
+	//Monster
+	+FLOAT
+	+NOGRAVITY
+	+MISSILEEVENMORE
+	+MISSILEMORE
+	+QUICKTORETALIATE
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	MeleeSound "caco/melee"
+	Obituary "%o was eradicated by a BFG Cacodemon."
+	DropItem "BFG9500" 190 1
+	DropItem "BossLifeEssence"150
+    DropItem "BossArmorBonusMax" 150
+	DropItem "NewCellPack" 255 
+	bloodcolor "Purple"
+	States
+	{
+	Spawn:
+		BFCD A 10 //A_Look
+		Loop
+	See:
+		BFCD A 3 //A_Chase
+		Loop
+	Missile:
+		TNT1 A 0 //A_PlaySound("weapons/bfgf")
+		BFCD B 15 //A_FaceTarget
+		BFCD C 10 Bright //A_FaceTarget
+		BFCD D 10 Bright //A_FireCustomMissile("CacoBFG9500Ball")
+		BFCD CB 15 //A_FaceTarget
+		BFCD B 5 
+		Goto Spawn
+	Melee:
+		BFCD BC 5 //A_FaceTarget
+		BFCD D 5 //A_CustomPunch(8)
+		BFCD CB 5 //A_FaceTarget
+		BFCD B 5
+		Goto Spawn
+	}
+}
+
+Actor BFGCacodemonWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		TNT1 A 0 A_PlaySound("weapons/bfgf")
+		TNT1 B 15 //A_FaceTarget
+		TNT1 C 10 Bright //A_FaceTarget
+		TNT1 D 10 Bright A_FireCustomMissile("CacoBFG9500Ball")
+		TNT1 CB 15 //A_FaceTarget
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GunFlash
+		TNT1 BC 5 //A_FaceTarget
+		TNT1 D 5 A_CustomPunch(8)
+		TNT1 CB 5 //A_FaceTarget
+		Goto Ready
+	}
+}
+
+
+// Barons of Hell ===============================================
 
 Actor PossessedPhaseOverlord : PossessedMonster
 { 
@@ -548,130 +682,7 @@ States
 }
 
 
-Actor PossessedDTDevastatorZombie : PossessedMonster
-{
-  obituary "%o was pulverized by a zombie's Demon Tech Devastator."
-  health 250
-  radius 20
-  height 56
-  mass 100
-  speed 8
-  painchance 55
-  DropItem "Armorplate" 186 2
-  DropItem "Portablemedkit" 159 2
-  DropItem "Backpack" 190 1
-  DropItem "Demon Tech Devastator" 70 1
-  DropItem "HandGrenadeAmmo" 210 3
-  DropItem "MineAmmo" 210 3
-  DropItem "DemonAmmoBox" 255 
-  //DamageFactor "ZombieDev", 0.0
-  seesound "chainguy/sight"
-  painsound "chainguy/pain"
-  deathsound "chainguy/death"
-  activesound "chainguy/active"
-  missiletype "ZombieDevastatorBall"
-  //MONSTER
-  +FLOORCLIP
-  +QUICKTORETALIATE
-  states
-  {
-  Spawn:
-    DEVZ AQ 10 //A_Look
-    loop
-  See:
-    DEVZ AABB 3 //A_Chase
-	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	DEVZ CCDD 3 //A_Chase
-	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    loop
-  Missile:
-    DEVZ E 0 Bright //A_FaceTarget
-    DEVZ E 0 Bright A_PlaySound ("devastator/charge")
-    DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-	DEVZ E 2 Bright //A_FaceTarget
-    DEVZ F 2 Bright
-	DEVZ F 2 Bright
-	DEVZ F 2 Bright
-	DEVZ F 2 Bright
-	DEVZ F 2 Bright
-    DEVZ F 0 A_PlaySound ("devastator/fire")
-    DEVZ F 10 Bright A_MissileAttack
-    DEVZ E 50
-    goto See
-  Pain:
-    DEVZ G 3
-    DEVZ G 3 A_Pain
-    goto See
-  Death:
-    DEVZ H 5
-    DEVZ I 5 A_Scream
-    DEVZ J 5 A_NoBlocking
-    DEVZ KLM 5
-	DEVZ N 0 A_SpawnItem("BodyCrash",0,0,0,0)
-    DEVZ N -1
-    stop
-  XDeath:
-    DEVZ O 5
-	DEVZ O 3 A_SpawnItemEx("GibbedGenerator",0,0,0,0,0,0,0,128,0)
-    DEVZ P 5 A_XScream
-    DEVZ Q 5 A_NoBlocking
-    DEVZ RS 5
-    DEVZ T -1
-    stop
-  Raise:
-    DEVZ NMLKJIH 5
-    goto See
-  }
-}
-
+// Cyberdemons ===============================================
 
 Actor PossessedCerebralCardinal : PossessedMonster
   {
