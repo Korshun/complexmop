@@ -3451,6 +3451,7 @@ See:
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Floor")
 	TNT1 A 0 A_JumpIfInventory("Attack4", 1, "SuperFloor")
 	TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Ghost")
+	TNT1 A 0 A_JumpIfInventory("Attack6", 1, "Heal")
 	Goto Ready
   Normal:
 	TNT1 A 0 Bright 
