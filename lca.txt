@@ -1001,8 +1001,10 @@ Reload:
 }
 
 
-ACTOR LegendaryCyberdemon : Cyberdemon 5011
+Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 {
+	Player.MorphWeapon "LegendaryCyberdemonWeapon"
+
   Health 6999
   Radius 45
   Height 100
@@ -1638,6 +1640,15 @@ ACTOR LegendaryCyberdemon : Cyberdemon 5011
   }
 }
 
+Actor LegendaryCyberdemonWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
 
 ACTOR LegendaryHellKnight 5009
 {
@@ -2238,8 +2249,10 @@ Actor LegendaryRevenant 5004
 }
 
 
-Actor LegendarySentient : SpiderMastermind 5006
+Actor PossessedLegendarySentient : PossessedSpiderMastermind
 {
+	Player.MorphWeapon "LegendarySentientWeapon"
+
     Health 5999
     Speed 15
 	FloatSpeed 15
@@ -3111,10 +3124,13 @@ LegendaryStorm:
     }
 }
 
-ACTOR LegSentientToken : Inventory
+Actor LegendarySentientWeapon : PossessedWeapon
 {
-Inventory.Amount 1
-Inventory.MaxAmount 3
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
@@ -3320,8 +3336,10 @@ States
 }
 
 
-ACTOR Velocirator : Archvile 5013
+Actor PossessedVelocirator : PossessedArchvile
 {
+	Player.MorphWeapon "VelociratorWeapon"
+
   Health 1450
   Speed 16
   DropItem "InvulnerabilitySphere" 55
@@ -3484,4 +3502,13 @@ See:
     HIA2 AAAABBBBCCCC 4 Bright A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)		
     Goto See	  
     }
+}
+
+Actor VelociratorWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
