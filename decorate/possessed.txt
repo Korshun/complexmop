@@ -10,37 +10,48 @@ Actor PossessedMonster : PlayerPawn
 	
 	DamageFactor "Monster", 0
 	DamageFactor "Slime", 0
-	DamageFactor "ZombieDemonTech", 0
-	DamageFactor "ZombieRocket", 0
-	DamageFactor "DTFiendEx", 0
-	DamageFactor "SoulToxic", 0
-	DamageFactor "FiendFire", 0
-	DamageFactor "BombBreath", 0
-	DamageFactor "FatFlamer", 0
-	DamageFactor "Baby15K", 0
-	DamageFactor "CadaverRocket", 0
+	
 	DamageFactor "AfritComet", 0 // Unused?
-	DamageFactor "NobleComet", 0
-	DamageFactor "CacoComet", 0
+	DamageFactor "Baby15K", 0
 	DamageFactor "BeheComet", 0
-	DamageFactor "HelementalComet", 0
-	DamageFactor "VileFires", 0
-	DamageFactor "DemolisherEx", 0
-	DamageFactor "DarkDemoEx", 0
+	DamageFactor "BombBreath", 0
+	DamageFactor "CacoComet", 0
+	DamageFactor "CadaverRocket", 0
 	DamageFactor "CerEnergyBall", 0
 	DamageFactor "Cyber10K", 0
+	DamageFactor "DTFiendEx", 0
+	DamageFactor "DarkDemoEx", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "FatFlamer", 0
+	DamageFactor "FiendFire", 0
+	DamageFactor "HelementalComet", 0
+	DamageFactor "Monster", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "SoulToxic", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieRocket", 0
 	
-	DamageFactor "Legendary", 0
-	DamageFactor "WeakenerBall", 0
-	DamageFactor "SoapOpera", 0
-	DamageFactor "GeneralTracer", 0
+	// LCA.
 	DamageFactor "AfritComet", 0
 	DamageFactor "CacoLich", 0
-	DamageFactor "Legendary1", 0
+	DamageFactor "CadaverRocket", 0
 	DamageFactor "CerChainguns", 0
-	DamageFactor "LegMind", 0
+	DamageFactor "Cyber10k", 0
+	DamageFactor "GeneralTracer", 0
 	DamageFactor "Hell", 0
+	DamageFactor "Ice", 0
+	DamageFactor "LegMind", 0
+	DamageFactor "Legendary", 0
+	DamageFactor "Legendary1", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "Nobles", 0
 	DamageFactor "Plasma", 0
+	DamageFactor "Players", 0
+	DamageFactor "SoapOpera", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "WeakenerBall", 0
+	DamageFactor "ZombieDemonTech", 0
 	DamageFactor "ZombieDev", 0
 	
 	States
@@ -56,39 +67,49 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 {
 	DamageFactor "Monster", 0
 	DamageFactor "Slime", 0
-	DamageFactor "ZombieDemonTech", 0
-	DamageFactor "ZombieRocket", 0
-	DamageFactor "DTFiendEx", 0
-	DamageFactor "SoulToxic", 0
-	DamageFactor "FiendFire", 0
-	DamageFactor "BombBreath", 0
-	DamageFactor "FatFlamer", 0
-	DamageFactor "Baby15K", 0
-	DamageFactor "CadaverRocket", 0
+
 	DamageFactor "AfritComet", 0 // Unused?
-	DamageFactor "NobleComet", 0
-	DamageFactor "CacoComet", 0
+	DamageFactor "Baby15K", 0
 	DamageFactor "BeheComet", 0
-	DamageFactor "HelementalComet", 0
-	DamageFactor "VileFires", 0
-	DamageFactor "DemolisherEx", 0
-	DamageFactor "DarkDemoEx", 0
+	DamageFactor "BombBreath", 0
+	DamageFactor "CacoComet", 0
+	DamageFactor "CadaverRocket", 0
 	DamageFactor "CerEnergyBall", 0
 	DamageFactor "Cyber10K", 0
+	DamageFactor "DTFiendEx", 0
+	DamageFactor "DarkDemoEx", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "FatFlamer", 0
+	DamageFactor "FiendFire", 0
+	DamageFactor "HelementalComet", 0
+	DamageFactor "Monster", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "SoulToxic", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieRocket", 0
 	
-	DamageFactor "Legendary", 0
-	DamageFactor "WeakenerBall", 0
-	DamageFactor "SoapOpera", 0
-	DamageFactor "GeneralTracer", 0
+	// LCA.
 	DamageFactor "AfritComet", 0
 	DamageFactor "CacoLich", 0
-	DamageFactor "Legendary1", 0
+	DamageFactor "CadaverRocket", 0
 	DamageFactor "CerChainguns", 0
-	DamageFactor "LegMind", 0
+	DamageFactor "Cyber10k", 0
+	DamageFactor "GeneralTracer", 0
 	DamageFactor "Hell", 0
+	DamageFactor "Ice", 0
+	DamageFactor "LegMind", 0
+	DamageFactor "Legendary", 0
+	DamageFactor "Legendary1", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "Nobles", 0
 	DamageFactor "Plasma", 0
+	DamageFactor "Players", 0
+	DamageFactor "SoapOpera", 0
+	DamageFactor "VileFires", 0
+	DamageFactor "WeakenerBall", 0
+	DamageFactor "ZombieDemonTech", 0
 	DamageFactor "ZombieDev", 0
-	
 }
 
 Actor PossessedWeapon : Weapon
@@ -119,6 +140,7 @@ Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack6 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack7 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack8 : Inventory { Inventory.MaxAmount 1 }
