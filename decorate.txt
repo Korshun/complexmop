@@ -6,8 +6,6 @@
 #include "decorate/weapons.txt"
 #include "decorate/doom2.txt"
 #include "decorate/bfgattacks.txt"
-#include "decorate/lca-normal.txt"
-//#include "decorate/lca-legendary.txt"
 
 const int PROP_FROZEN = 0;
 
@@ -7351,3 +7349,5 @@ Actor HitlerNoSuitWeapon : PossessedWeapon
 		Goto Ready
 	}
 }
+
+#include "lca.txt"
