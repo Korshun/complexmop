@@ -96,6 +96,7 @@ Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack6 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack7 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack8 : Inventory { Inventory.MaxAmount 1 }
