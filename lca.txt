@@ -43,28 +43,28 @@ See:
     Loop
 Missile:
 	TNT1 A 0 A_PlayWeaponSound("weapons/charge15k")
-	BF10 E 25 A_FaceTarget
+	BF10 E 25 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-    BF10 E 6 A_FaceTarget
+    BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-    BF10 E 6 A_FaceTarget
+    BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-    BF10 E 6 A_FaceTarget
+    BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-    BF10 E 6 A_FaceTarget
+    BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-    BF10 E 6 A_FaceTarget
+    BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-	BF10 E 6 A_FaceTarget
+	BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
-	BF10 E 6 A_FaceTarget
+	BF10 E 6 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	BF10 F 3 Bright A_CustomMissile("General10KProjectile", 30,0,0, Random(-4, 4))
 	BF10 E 35 A_PlaySound("weapons/bfg15kcooldown")     
@@ -121,15 +121,15 @@ Actor PossessedBFGCacodemon : PossessedMonster
 		Loop
 	Missile:
 		TNT1 A 0 A_PlaySound("weapons/bfgf")
-		BFCD B 15 A_FaceTarget
-		BFCD C 10 Bright A_FaceTarget
+		BFCD B 15 
+		BFCD C 10 Bright 
 		BFCD D 10 Bright A_CustomMissile("CacoBFG9500Ball", 15)
-		BFCD CB 15 A_FaceTarget
+		BFCD CB 15 
 		Goto See
 	Melee:
-         BFCD BC 5 A_FaceTarget
+         BFCD BC 5 
 		 BFCD D 5 A_MeleeAttack
-		 BFCD CB 5 A_FaceTarget
+		 BFCD CB 5 
 		 Goto See
 	}
 }
@@ -228,11 +228,11 @@ Normal:
   TNT1 A 0 A_JumpIfCloser(1500,1)
   Goto CyberRockets
   TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_FaceTarget
+  ARCY A 2 Bright 
   TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_FaceTarget
+  ARCY A 2 Bright 
   TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_FaceTarget
+  ARCY A 2 Bright 
   TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
   TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
   TNT1 A 0 A_PlaySound("sentient/fire")
@@ -248,114 +248,114 @@ Normal:
   Goto Normal+7
 CyberRockets:
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Facetarget
+  ARCY A 2 Bright 
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Facetarget
+  ARCY A 2 Bright 
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY A 2 Bright A_Facetarget
+  ARCY A 2 Bright 
   ARCY AAA 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY F 2 Bright A_Facetarget
+  ARCY F 2 Bright 
   ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-  ARCY G 2 Bright A_Facetarget
+  ARCY G 2 Bright 
   TNT1 A 0 A_Jump(128,"CyberHomingRockets","BFG95K","BFG10K","Railgun")
   TNT1 A 0 A_Jump(64,"SentientCardinalDTCombo")
   TNT1 A 0 A_Jump(32,"DTDevastator")
   Goto See
 CyberHomingRockets:
     ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY A 2 Bright A_Facetarget
+	ARCY A 2 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY A 2 Bright A_Facetarget
+	ARCY A 2 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY A 2 Bright A_Facetarget
+	ARCY A 2 Bright 
 	ARCY AAA 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
     ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY FFF 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 2 Bright A_Facetarget
+	ARCY G 2 Bright 
 	TNT1 A 0 A_Jump(128,"BFG95K","BFG10K","Railgun")
 	TNT1 A 0 A_Jump(52,"SentientCardinalDTCombo")
 	TNT1 A 0 A_Jump(26,"DTDevastator")
@@ -363,86 +363,86 @@ CyberHomingRockets:
 Railgun:
 	  TNT1 A 0 A_PlaySound("weapons/rgcharge")
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY F 2 Bright A_FaceTarget
+      ARCY F 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
       ARCY G 2 Bright A_CustomMissile("CardinalRail",55,-24)
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY G 2 Bright A_FaceTarget
+      ARCY G 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY G 2 Bright A_FaceTarget
+      ARCY G 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY G 2 Bright A_FaceTarget
+      ARCY G 2 Bright 
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-      ARCY G 2 Bright A_FaceTarget
+      ARCY G 2 Bright 
       ARCY FFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	  TNT1 A 0 A_Jump(128,"BFG10K","BFG95K")
 	  Goto See	  
 BFG95K:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget	
+	ARCY DD 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget	
+	ARCY DD 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY EE 2 Bright A_FaceTarget
+	ARCY EE 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY EE 2 Bright A_FaceTarget
+	ARCY EE 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY E 2 Bright A_CustomMissile("SentientBFG9500Ball", 34, 0, 0)
 	ARCY DDD 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget	
+	ARCY DD 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget	
+	ARCY DD 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY D 2 Bright A_CustomMissile("SentientBFG9500Ball", 34, 0, 0)
 	ARCY EEEEEE 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -454,37 +454,37 @@ BFG95K:
 SentientCardinalDTCombo:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget	
+	ARCY DD 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY DD 2 Bright A_FaceTarget
+	ARCY DD 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY EE 2 Bright A_FaceTarget
+	ARCY EE 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY EE 2 Bright A_FaceTarget
+	ARCY EE 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY E 2 Bright A_CustomMissile("SentientDTBFG10KBall", 34, 0, 0)
 	ARCY DDDDDDDDDDDD 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY GG 2 Bright A_FaceTarget
+	ARCY GG 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY GG 2 Bright A_FaceTarget
+	ARCY GG 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 2 Bright A_CustomMissile("SentientDTBFG10KBall", 55, -24, 0)
 	ARCY FFFFFFFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -493,61 +493,61 @@ SentientCardinalDTCombo:
 DTDevastator:
     TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("devastator/charge")
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 A_PlaySound ("devastator/fire")
 	ARCY G 2 Bright A_CustomMissile("FusionDevastatorBall", 55, -24, 0)
@@ -559,217 +559,217 @@ FusionNuke:
 	Goto See
     TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/nuclearmissilecharge")
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget
+	ARCY FF 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY FF 2 Bright A_FaceTarget	
+	ARCY FF 2 Bright 	
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 6 Bright A_CustomMissile("FusionNuke", 55, -24, 0)
 	TNT1 A 1 A_TakeInventory("FusionNuke",1)
 	ARCY FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	Goto See
 BFG10K:
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_Facetarget
+	ARCY E 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	ARCY H 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY D 4 Bright A_Facetarget
+	ARCY D 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_FaceTarget
+	ARCY E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	ARCY H 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY D 4 Bright A_Facetarget
+	ARCY D 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_FaceTarget
+	ARCY E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	ARCY H 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY D 4 Bright A_Facetarget
+	ARCY D 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_FaceTarget
+	ARCY E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	ARCY H 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY D 4 Bright A_Facetarget
+	ARCY D 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_FaceTarget
+	ARCY E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	ARCY H 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY D 4 Bright A_Facetarget
+	ARCY D 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY E 4 Bright A_FaceTarget
+	ARCY E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY H 0 Bright A_CustomMissile("Sentient10K",34,0,Random(-4, 4))
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
 	ARCY D 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	ARCY DDDDD 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-		ARCY F 2 Bright A_Facetarget
+		ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 2 Bright A_Facetarget
+	ARCY F 2 Bright 
 	ARCY F 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_Facetarget
+	ARCY G 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 4 Bright A_Facetarget
+	ARCY F 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_FaceTarget
+	ARCY G 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 4 Bright A_Facetarget
+	ARCY F 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_FaceTarget
+	ARCY G 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 4 Bright A_Facetarget
+	ARCY F 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_FaceTarget
+	ARCY G 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 4 Bright A_Facetarget
+	ARCY F 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_FaceTarget
+	ARCY G 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
 	ARCY G 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY F 4 Bright A_Facetarget
+	ARCY F 4 Bright 
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	ARCY G 4 Bright A_FaceTarget
+	ARCY G 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 0 Bright A_CustomMissile("Sentient10K",55,-24,Random(-4, 4))
@@ -831,58 +831,58 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
     loop
   Missile:
-    DEVZ E 0 Bright A_FaceTarget
+    DEVZ E 0 Bright 
     DEVZ E 0 Bright A_PlaySound ("devastator/charge")
-    DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
-	DEVZ E 2 Bright A_FaceTarget
+    DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
+	DEVZ E 2 Bright 
     DEVZ F 2 Bright
 	DEVZ F 2 Bright
 	DEVZ F 2 Bright
@@ -944,25 +944,25 @@ Actor PossessedEraserZombie : PossessedMonster
     loop
   Missile:
     PYRZ F 0 Bright A_PlaySound ("Cardinal/9k")
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-	PYRZ E 2 Bright A_FaceTarget
-    PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
-	PYRZ F 2 Bright A_FaceTarget
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+	PYRZ E 2 Bright 
+    PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
+	PYRZ F 2 Bright 
 	PYRZ F 2 Bright A_CustomMissile("ZombieDTBFG10KBall")
 	PYRZ EE 35
     goto See
@@ -1025,26 +1025,26 @@ Missile:
 	TNT1 A 0 A_JumpIfInventory("Hexa-ZombieToken",3,"Reload")
 	TNT1 A 0 A_JumpIfCloser(325,"Hexa")
 Normal:
-    HSZM E 15 A_FaceTarget
+    HSZM E 15 
 	TNT1 A 0 A_PlaySound("weapons/qsgdoublefire")
 	TNT1 A 0 A_GiveInventory("Hexa-ZombieToken",1)
 	TNT1 AAAAAA 0 Bright A_CustomMissile("MonsterTracer2",Random(28,34),0,Random(6,-6),0)
     HSZM F 5 Bright A_CustomBulletAttack(13.8,9.6,10,Random(1,4)*3) 
-    HSZM E 15 A_FaceTarget
+    HSZM E 15 
 	TNT1 A 0 A_JumpIfInventory("Hexa-ZombieToken",3,"Reload")
 	Goto See
 Hexa:
 	TNT1 A 0 A_JumpIfInventory("Hexa-ZombieToken",1,"Normal")
-    HSZM E 15 A_FaceTarget
+    HSZM E 15 
 	TNT1 A 0 A_PlaySound("weapons/hsgfire")
 	TNT1 A 0 A_GiveInventory("Hexa-ZombieToken",3)
 	TNT1 AAAAAAAAAAAA 0 Bright A_CustomMissile("MonsterTracer2",Random(28,34),0,Random(6,-6),0)
     HSZM F 5 Bright A_CustomBulletAttack(15.4,10.6,78,Random(1,4)*3)
-    HSZM E 25 A_FaceTarget	
+    HSZM E 25 	
 Reload:
 	TNT1 A 0 A_TakeInventory("Hexa-ZombieToken",3)
 	TNT1 A 0 A_PlaySound("weapons/qsgopen")	
-    HSZM E 15 A_FaceTarget
+    HSZM E 15 
     HSZM EEEEEE 0 A_SpawnItemEx("SSGShellCasing",25,-2,25,Random(2,4),Random(-3,-6),Random(3,6),0)
     HSZM E 12 A_PlaySound("weapons/qsgshellslide")	
     HSZM E 8
@@ -1159,30 +1159,30 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_JumpIfInventory("Attack12", 1, "LegendaryDevastator")
 	Goto Spawn
   Normal:
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
     TNT1 A 0 A_Jump(130,"Finder","LegBFG95K","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegendaryStomp","LegendaryBFG15K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
  LegendaryASG:
-    CYBR EEE 2 Bright A_FaceTarget
+    CYBR EEE 2 Bright 
 	TNT1 A 0 A_SpawnItemEx("YellowShellCasing",26,26,58, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
 	TNT1 AAA 0 Bright A_CustomMissile("ProjectileBullet",58,-26,0,Random(-1000,1000)/100.00,0)
 	TNT1 A 0 A_CustomBulletAttack(22.5, 18.3, 4, Random(1,5)*3, "ModdedBulletPuff")
@@ -1192,16 +1192,16 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegBFG95K","LegendaryBFG15K","LegendaryStomp","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryStomp:
-    CYBR G 10 Bright A_FaceTarget
+    CYBR G 10 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner2",0,0,0,0)
 	LBE3 G 3 Bright A_PlaySoundEx("Legcyber/laugh4","LAUGH3")
 	LBE3 GGGGGGGGGGGGGGGGGGGGGGGGGGGGG 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
+	TNT1 A 0 
 	TNT1 A 0 A_UnsetInvulnerable
-	CYBR G 7 Bright A_FaceTarget
-	LBE3 A 5 Bright A_FaceTarget
+	CYBR G 7 Bright 
+	LBE3 A 5 Bright 
 	TNT1 A 0 Radius_Quake(10,8,0,24,0)	
 	LBE3 B 6 Bright A_PlaySound("monsters/darkcyberstomp")
     LBE3 B 2 Bright A_CustomMissile("LegendaryCyberFireSpawner",0,0,0,0)
@@ -1240,39 +1240,39 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
     Goto See	
   LegBFG95K:
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-    CYBR E 10 Bright A_FaceTarget
-    CYBR E 10 Bright A_FaceTarget
-	CYBR F 10 Bright A_FaceTarget
+    CYBR E 10 Bright 
+    CYBR E 10 Bright 
+	CYBR F 10 Bright 
 	CYBR F 10 Bright A_CustomMissile("LegCyberBFG9500Ball", 58, -26, 0)
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-    CYBR E 10 Bright A_FaceTarget
-	CYBR E 10 Bright A_FaceTarget
-	CYBR F 10 Bright A_FaceTarget
+    CYBR E 10 Bright 
+	CYBR E 10 Bright 
+	CYBR F 10 Bright 
 	CYBR F 10 Bright A_CustomMissile("LegCyberBFG9500Ball", 58, -26, 0)		
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-    CYBR E 10 Bright A_FaceTarget
-	CYBR E 10 Bright A_FaceTarget
-	CYBR F 10 Bright A_FaceTarget
+    CYBR E 10 Bright 
+	CYBR E 10 Bright 
+	CYBR F 10 Bright 
 	CYBR F 10 Bright A_CustomMissile("LegCyberBFG9500Ball", 58, -26, 0)		
 	CYBR E 10 Bright
 	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegendaryBFG15K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryRailgun:
     TNT1 A 0 A_PlaySound("weapons/rgcharge")
-    CYBR EE 10 Bright A_FaceTarget
-	CYBR E 10 Bright A_FaceTarget
+    CYBR EE 10 Bright 
+	CYBR E 10 Bright 
     CYBR F 10 Bright A_CustomMissile("LegendaryCyberRail",58, -26)
-	CYBR EE 5 A_FaceTarget
-	CYBR E 10 Bright A_FaceTarget
+	CYBR EE 5 
+	CYBR E 10 Bright 
     CYBR F 10 Bright A_CustomMissile("LegendaryCyberRail",58, -26)
 	CYBR EEEEEEEEEEEEE 0 Bright A_SpawnItemEx("LegendaryCyberFlameSpawner2")
 	CYBR EEEEEEEEEEE 1 A_FadeOut(0.1,0)
 	CYBR EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 A_Wander
     CYBR E 20
     CYBR E 1 A_PlayWeaponSound("boss/teleport")
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	CYBR EEEEEEEEEEEEE 0 A_SpawnItemEx("LegendaryCyberFlameSpawner2")
 	CYBR EEEEEEEEEEE 1 A_FadeIn(0.1)	
 	TNT1 A 0 Bright A_SetShootable
@@ -1282,35 +1282,35 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	Goto See
   LegendaryBFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
-	CYBR E 18 Bright A_FaceTarget
-	CYBR E 6 Bright A_FaceTarget
+	CYBR E 18 Bright 
+	CYBR E 6 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))	
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))	
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
 	CYBR E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
@@ -1318,188 +1318,188 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	Goto See
   LegendaryBFG15K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
-	CYBR E 18 Bright A_FaceTarget
-	CYBR E 6 Bright A_FaceTarget
+	CYBR E 18 Bright 
+	CYBR E 6 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))	
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))	
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
-	CYBR E 4 Bright A_FaceTarget
+	CYBR E 4 Bright 
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
 	CYBR E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
 	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryRailgun","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   Finder:
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-	CYBR E 5  Bright A_FaceTarget
+	CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-    CYBR E 5  Bright A_FaceTarget
+    CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
     TNT1 A 0 A_Jump(130,"LegendaryTech","LegendaryBFG","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryTech:
-    CYBR G 30 Bright A_FaceTarget
+    CYBR G 30 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
     CYBR G 3 Bright A_PlaySoundEx("Legcyber/laugh2","LAUGH2")
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
 	TNT1 A 0 A_UnsetInvulnerable
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-    CYBR E 3 Bright A_FaceTarget
+    CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-    CYBR E 3 Bright A_FaceTarget
+    CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-    CYBR E 3 Bright A_FaceTarget
+    CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-    CYBR E 3 Bright A_FaceTarget
+    CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-    CYBR E 3 Bright A_FaceTarget
+    CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
-	CYBR E 3 Bright A_FaceTarget
+	CYBR E 3 Bright 
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     CYBR E 30 Bright A_PlaySoundEx("Legcyber/amhalt","DECHST")
@@ -1507,186 +1507,186 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	Goto See
  LegendaryDTBFG:
     CYBR F 0 Bright A_PlaySound ("Cardinal/9k")
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
 	CYBR F 0 Bright A_CustomMissile("LegAnniDTBFGBall", 58, -26, 0)
 	CYBR F 0 Bright A_PlaySound ("Cardinal/9k")
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
 	CYBR F 0 Bright A_CustomMissile("LegAnniDTBFGBall", 58, -26, 0)
 	CYBR E 30 Bright
 	TNT1 A 0 A_Jump(95,"LegendaryBFG","LegendaryDevastator")
 	Goto See
  LegendaryDevastator:
     TNT1 A 0 A_PlaySound("devastator/charge")
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR E 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
-	CYBR F 2 Bright A_FaceTarget
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR E 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
+	CYBR F 2 Bright 
 	CYBR F 0 A_PlaySound ("devastator/fire")
 	CYBR F 0 Bright A_CustomMissile("LegCybDevastatorBall", 58, -26, 0)
 	CYBR E 50 Bright
 	TNT1 A 0 A_Jump(95,"LegendaryBFG")
 	Goto See
  LegendaryBFG:
-    CYBR E 30 Bright A_FaceTarget
+    CYBR E 30 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	CYBR E 3 Bright A_PlaySoundEx("monster/laugh","TBBCSPT1")
 	CYBR E 3 Bright A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
     CYBR E 3 Bright A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
 	CYBR E 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_UnsetInvulnerable
 	CYBR EEEEEEEEEEEEE 0 Bright A_SpawnItemEx("LegendaryCyberFlameSpawner2")
@@ -1694,14 +1694,14 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 A_Wander
     CYBR E 20
     CYBR E 1 A_PlayWeaponSound("boss/teleport")
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	CYBR EEEEEEEEEEEEE 0 A_SpawnItemEx("LegendaryCyberFlameSpawner2")
 	CYBR EEEEEEEEEEE 1 A_FadeIn(0.1)	
 	TNT1 A 0 A_SetShootable
 	TNT1 A 0 A_PlayWeaponSound("Weapons/GuruFire")
   	TNT1 A 0 A_PlayWeaponSound("Weapons/GuruAddFire")
 	CYBR F 5 A_CustomMissile("CyberGuruball", 58, -26, 0, 0)
-    CYBR E 60 Bright A_faceTarget
+    CYBR E 60 Bright 
 	Goto See
   }
 }
@@ -1809,12 +1809,12 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_JumpIfInventory("Attack9", 1, "BlueComet")
 	Goto Spawn
   Normal:
-    LNBL EF 5 Bright A_FaceTarget
+    LNBL EF 5 Bright 
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,-8)
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,-4)
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,4)
 	LNBL G 5 Bright A_CustomMissile("LegNobleBall",32,0,0)
-    LNBL ST 5 Bright A_FaceTarget
+    LNBL ST 5 Bright 
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,8)
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,4)
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,-4)
@@ -1822,7 +1822,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_Jump(127,"Spread")
 	Goto See
   Spread:
-    LNBL PQ 9 Bright A_FaceTarget
+    LNBL PQ 9 Bright 
     LNBL R 0 A_CustomMissile("LegNobleBall2",32,0,18)	
 	LNBL R 0 A_CustomMissile("LegNobleBall2",32,0,-18)
     LNBL R 0 A_CustomMissile("LegNobleBall2",32,0,15)	
@@ -1839,7 +1839,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_Jump(127,"Hugger")
     Goto See
   Hugger:
-    LNBL RQ 9 Bright A_FaceTarget
+    LNBL RQ 9 Bright 
 	LNBL PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL P 0 A_CustomMissile("LegNobleBall3",32,20,0)
     LNBL P 0 Bright A_CustomMissile("LegNobleBall3",32,-20,0)
@@ -1847,18 +1847,18 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_Jump(80,"BlueComet")
     Goto See	
   BlueComet:
-    LNBL EF 7 Bright A_FaceTarget
+    LNBL EF 7 Bright 
 	LNBL G 2 Bright A_CustomMissile("LegNobleComet", 32, 0, 0)
 	LNBL G 0 A_CustomMissile("LegNobleComet", 32, 0, 6)
 	LNBL G 4 Bright A_CustomMissile("LegNobleComet", 32, 0, -6)
-    LNBL ST 7 Bright A_FaceTarget
+    LNBL ST 7 Bright 
 	LNBL U 2 Bright A_CustomMissile("LegNobleComet", 32, 0, 0)
 	LNBL G 0 A_CustomMissile("LegNobleComet", 32, 0, 6)
 	LNBL U 4 Bright A_CustomMissile("LegNobleComet", 32, 0, -6)
 	TNT1 A 0 A_Jump(80,"4Comets")
     Goto See
   4Comets:
-    LNBL PQ 8 Bright A_FaceTarget
+    LNBL PQ 8 Bright 
 	LNBL R 0 A_CustomMissile("BigBlueComet", 32, 0, 0)
 	LNBL R 0 A_CustomMissile("BigBlueComet", 32, 0, -5)
 	LNBL R 0 A_CustomMissile("BigBlueComet", 32, 0, 5)
@@ -1867,7 +1867,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	Goto See
   Rage:	
     LNBL Q 1 Bright A_PlaySound("lnoble/see")
-	LNBL Q 1 Bright A_FaceTarget
+	LNBL Q 1 Bright 
 	LNBL Q 1 Bright A_SetUserVar("user_missile",0)
     LNBL RRRR 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL QQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
@@ -1879,39 +1879,39 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
     Loop
   BestAttack:
     LNBL Q 1 Bright A_PlaySound("lnoble/see")
-    LNBL P 2 Bright A_FaceTarget
+    LNBL P 2 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	LNBL PPPPPPPPPPPPPPPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LNBL Q 2 Bright A_FaceTarget
+	LNBL Q 2 Bright 
 	LNBL QQQQQQQQQQQQQQQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LNBL R 2 Bright A_FaceTarget
+	LNBL R 2 Bright 
 	TNT1 A 0 A_UnSetInvulnerable
     LNBL R 8 Bright A_CustomMissile("LegNobleBall4",32,0,0)
     Goto See
   Rain:
-    LNBL P 2 Bright A_FaceTarget
+    LNBL P 2 Bright 
     LNBL PPPPPPP 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL Q 0 A_CustomMissile("BlueRainCometNull",32,0,200)
     LNBL Q 0 A_CustomMissile("BlueRainCometNull",32,0,90)
     LNBL Q 0 A_CustomMissile("BlueRainCometNull",32,0,-90)	
     LNBL Q 8 Bright A_CustomMissile("BlueRainCometNull",32,0,0)
     TNT1 A 0 A_SetInvulnerable
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-    LNBL Q 2 Bright A_FaceTarget
+    LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
-	LNBL Q 2 Bright A_FaceTarget
+	LNBL Q 2 Bright 
     LNBL QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_UnSetInvulnerable
     Goto See
@@ -1931,9 +1931,9 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_ChangeFlag(Reflective,0)
 	Goto See	
  Melee:
-    LNBL EF 6 Bright A_FaceTarget 
+    LNBL EF 6 Bright  
     LNBL G 6 Bright A_MeleeAttack	
-	LNBL ST 6 Bright A_FaceTarget 
+	LNBL ST 6 Bright  
     LNBL U 6 Bright A_MeleeAttack	
     Goto See 	
   }
@@ -2025,8 +2025,8 @@ Actor PossessedLegendaryImp : PossessedMonster
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Super")
 	Goto Spawn
   Normal:
-    LEGN EF 8 Bright A_FaceTarget
-	LEGM F 1 Bright A_FaceTarget
+    LEGN EF 8 Bright 
+	LEGM F 1 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	TNT1 A 0 Bright A_CustomMissile("LegendaryBall", 28, 0, 0)
 	TNT1 A 0 Bright A_CustomMissile("LegendaryBall", 28, 0, -5)
@@ -2035,47 +2035,47 @@ Actor PossessedLegendaryImp : PossessedMonster
 	TNT1 A 0 Bright A_CustomMissile("LegendaryBall", 28, 0, 10)
 	Goto See
   Seeker:
-	LEGN EF 10 Bright A_FaceTarget
+	LEGN EF 10 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
-    LEGM F 2 Bright A_FaceTarget
+    LEGM F 2 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
-    LEGM F 2 Bright A_FaceTarget
+    LEGM F 2 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
-	LEGM F 2 Bright A_FaceTarget
+	LEGM F 2 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
-    LEGM F 2 Bright A_FaceTarget
+    LEGM F 2 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
-    LEGM F 2 Bright A_FaceTarget
+    LEGM F 2 Bright 
 	TNT1 A 0 Bright A_PlaySound("imp/attack")
 	LEGM F 6 Bright A_CustomMissile("LegImpSeekBall",32,20,0)
 	Goto See
   Super:
 	TNT1 A 0 Bright A_PlaySound ("legimp/chargingsound")
 	TNT1 A 0 A_SetInvulnerable
-	LEGN E 0 Bright A_FaceTarget
+	LEGN E 0 Bright 
 	LEGN EEEEE 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN E 0 Bright A_FaceTarget
+	LEGN E 0 Bright 
 	LEGN EEEEE 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN E 0 Bright A_FaceTarget
+	LEGN E 0 Bright 
 	LEGN EEEEE 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN E 0 Bright A_FaceTarget
+	LEGN E 0 Bright 
 	LEGN EEEEE 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN E 0 Bright A_FaceTarget
+	LEGN E 0 Bright 
 	LEGN EEEEE 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN F 0 Bright A_FaceTarget
+	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN F 0 Bright A_FaceTarget
+	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN F 0 Bright A_FaceTarget
+	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN F 0 Bright A_FaceTarget
+	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-	LEGN F 0 Bright A_FaceTarget
+	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGM F 6 Bright A_CustomMissile ("LegendaryImpBlueBall",28,0,0)
@@ -2185,140 +2185,140 @@ Actor PossessedLegendaryRevenant : PossessedMonster
 	TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Rocket")
 	TNT1 A 0 A_JumpIfInventory("Attack5", 1, "DashPunch")
   Normal:		
-    LREV J 10 Bright A_FaceTarget
+    LREV J 10 Bright 
     LREV K 0 A_CustomMissile("LegRevBall",65,-13,0)	
     LREV K 10 Bright A_CustomMissile("LegRevBall",65,13,0)
-    LREV K 10 Bright A_FaceTarget
+    LREV K 10 Bright 
     Goto See
   Rocket:		
-    LREV J 3 Bright A_FaceTarget
+    LREV J 3 Bright 
     LREV K 0 A_CustomMissile("LegRevRocket",65,-13,0)	
     LREV K 6 Bright A_CustomMissile("LegRevRocket",65,13,0)
-    LREV K 6 Bright A_FaceTarget
-	LREV J 3 Bright A_FaceTarget
+    LREV K 6 Bright 
+	LREV J 3 Bright 
     LREV K 0 A_CustomMissile("LegRevRocket",65,-13,0)	
     LREV K 6 Bright A_CustomMissile("LegRevRocket",65,13,0)
-    LREV K 6 Bright A_FaceTarget
+    LREV K 6 Bright 
     Goto See
   Rage:
     LREV J 1 Bright A_PlaySound("skeleton/sight")
 	LREV J 0 A_SetInvulnerable
-	LREV J 1 Bright A_FaceTarget
+	LREV J 1 Bright 
 	LREV J 1 Bright A_SetUserVar("user_missile",0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)		
 	LREV J 0 A_ChangeFlag("NOPAIN",1)
     LREV J 0 A_UnSetInvulnerable
   Raging:
     LREV K 0 A_JumpIf(user_missile >= 28,"See")	 
     LREV K 0 A_SetUserVar("user_missile",user_missile+1)
-	LREV K 0 A_FaceTarget	
+	LREV K 0 	
     LREV K 0 A_CustomMissile("LegRevBall2",70,-13,0)	
     LREV K 3 Bright A_CustomMissile("LegRevBall2",70,13,0)
     Loop	
   BestAttack:		
-    LREV J 1 Bright A_FaceTarget
+    LREV J 1 Bright 
 	LREV J 0 A_SetInvulnerable
-	LREV JJJJJJJJJJ 2 Bright A_FaceTarget
+	LREV JJJJJJJJJJ 2 Bright 
 	LREV J 2 Bright A_PlayWeaponSound("lrball3/charge")
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)	
-	LREV J 0 A_FaceTarget
+	LREV J 0 
     LREV J 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)		
     LREV J 0 A_UnSetInvulnerable	
-	LREV J 10 Bright A_FaceTarget
+	LREV J 10 Bright 
 	LREV K 0 A_PlayWeaponSound("lrball3/shot")
     LREV K 0 A_CustomMissile("LegRevBall3",65,-13,0)	
     LREV K 10 A_CustomMissile("LegRevBall3",65,13,0)
-    LREV K 10 A_FaceTarget
+    LREV K 10 
   DashPunch:
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
     TNT1 A 0 A_Recoil(-65)
     TNT1 A 0 A_SkelWhoosh	
 	LREV GGGGG 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
@@ -2326,7 +2326,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
 	TNT1 A 0 A_CustomMissile("LRDashPunch",32,0,0,CMF_AIMDIRECTION)
 	LREV III 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	LREV A 1 Bright A_Stop	
-	LREV A 1 Bright A_FaceTarget
+	LREV A 1 Bright 
     TNT1 A 0 A_Recoil(-65)
     TNT1 A 0 A_SkelWhoosh	
 	LREV RRRRR 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
@@ -2433,11 +2433,11 @@ Normal:
     TNT1 A 0 A_JumpIfCloser(1500,1)
 	Goto Cannon
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR A 2 Bright A_FaceTarget
+	LUPR A 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR A 2 Bright A_FaceTarget
+	LUPR A 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR A 2 Bright A_FaceTarget
+	LUPR A 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("YellowShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
 	TNT1 A 0 A_PlaySound("sentient/fire")
@@ -2452,131 +2452,131 @@ Normal:
 	Goto Normal+7
 LegendaryTech:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
     TNT1 A 0 A_SetInvulnerable
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_PlaySound("legsentient/laugh",5)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
     TNT1 A 0 A_UnsetInvulnerable
@@ -2584,191 +2584,191 @@ LegendaryTech:
     LUPR O 3 Bright A_CustomMissile("CyberLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 3 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 3 Bright A_FaceTarget
+    LUPR N 3 Bright 
     TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 4 Bright A_CustomMissile("SentientLegendaryProjectile",45,0,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_Jump(128,"LegBFG9K","LegBFG10K","LegDTBFG10K")
 	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
     Goto See
 LegBFG9K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR O 2 Bright A_CustomMissile("LegSentientBFG9500Ball", 42, 0, 0)
-	LUPR NNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_PlaySound("weapons/bfgf")
-	LUPR NN 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientBFG9500Ball", 42, 0, 0)
 	LUPR NNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR OO 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR O 2 Bright A_CustomMissile("LegSentientBFG9500Ball", 42, 0, 0)
+	LUPR NNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	TNT1 A 0 A_PlaySound("weapons/bfgf")
+	LUPR NN 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR NN 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR NN 2 Bright 	
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR NN 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR NN 2 Bright 	
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR NN 2 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientBFG9500Ball", 42, 0, 0)
 	LUPR NNNNNNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -2779,46 +2779,46 @@ LegBFG9K:
 LegBFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 3 Bright A_CustomMissile("Legendary10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
+	LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
+	LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
+	LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
@@ -2826,15 +2826,15 @@ LegBFG10K:
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 3 Bright A_CustomMissile("LegendarySentient10KProjectile", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)	
@@ -2847,46 +2847,46 @@ LegBFG10K:
 LegBFG15K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 3 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
-	LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
+	LUPR N 3 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
-    LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget
+	LUPR N 4 Bright 
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+    LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR N 4 Bright 	
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
+	LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
+	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
+	LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
@@ -2894,11 +2894,11 @@ LegBFG15K:
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     LUPR O 4 Bright A_CustomMissile("LegendarySentientBFG15KBall", 42, 0, Random(4, -4))
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR N 4 Bright A_FaceTarget	
+	LUPR N 4 Bright 	
 	LUPR N 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	LUPR NNNNN 3 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)	
 	TNT1 A 0 A_Jump(128,"LegDTBFG10K")
@@ -2908,35 +2908,35 @@ LegBFG15K:
 LegDTBFG10K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientDTBFGBall", 34, 0, 0)
 	LUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget	
+	LUPR NN 2 Bright 	
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR NN 2 Bright A_FaceTarget
+	LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	LUPR OO 2 Bright A_FaceTarget
+	LUPR OO 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientDTBFGBall", 34, 0, 0)
 	LUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -2957,143 +2957,143 @@ Cannon:
 	Goto See	
 LegendaryBFG:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_FaceTarget
+    LUPR NN 2 Bright 
     TNT1 A 0 A_SetInvulnerable
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_PlaySound("legsentient/laugh",5)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_PlaySound("Legcyber/BFG",6)    
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_PlaySound("Legcyber/BFG",6)    
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 Bright A_FaceTarget
+    TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
     TNT1 A 0 A_UnsetInvulnerable
@@ -3122,7 +3122,7 @@ LegendaryBFG:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR N 2
     LUPR N 1 A_PlayWeaponSound("boss/teleport")
-    TNT1 A 0 A_FaceTarget
+    TNT1 A 0 
     LUPR NNNNNNNNNNNNN 0 A_SpawnItemEx("LegendaryCyberFlameSpawner2")
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR NNN 1 A_FadeIn(0.1)    
@@ -3139,35 +3139,35 @@ LegendaryBFG:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR O 4
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR NN 2 Bright A_faceTarget
+    LUPR NN 2 Bright 
     Goto See
 LegendaryStorm:
     LUPR NNNN 4 Bright A_GiveInventory("LegSentientStrafe",1)
@@ -3177,25 +3177,25 @@ LegendaryStorm:
 	TNT1 A 0 A_Stop
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
     TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
 	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-    LUPR N 4 Bright A_FaceTarget
+    LUPR N 4 Bright 
 	LUPR NNNNNNN 4 Bright A_GiveInventory("LegSentientStrafe3",1)
 	TNT1 AAAAA 0 A_SpawnItemEx("LegSentientStormBoltSpawner",Random(1250,-1250),Random(1250,-1250),0,0,0,0,SXF_NOCHECKPOSITION,64)
 	LUPR N 4 Bright A_GiveInventory("LegSentientStrafe3",1)
@@ -3389,12 +3389,12 @@ States
 	Goto Ready
 	Normal:
 	
-	   BOS3 EF 8 A_FaceTarget 
+	   BOS3 EF 8  
 	   TNT1 A 0 A_PlaySound("imp/attack")
 	   BOS3 G 0 A_CustomMissile("PhaseImpBall",28,0,-13)
        BOS3 G 0 A_CustomMissile("PhaseImpBall",28,0,0)
        BOS3 G 6 A_CustomMissile("PhaseImpBall",28,0,13)
-	   BOS3 ST 8 A_FaceTarget
+	   BOS3 ST 8 
 	   TNT1 A 0 A_PlaySound("imp/attack")
 	   BOS3 U 0 A_CustomMissile("PhaseImpBall",28,0,-13)
        BOS3 U 0 A_CustomMissile("PhaseImpBall",28,0,0)
@@ -3402,32 +3402,32 @@ States
 	   TNT1 A 0 A_Jump(88,"PhazoLaser")  
 	   Goto See
 	PhazoLaser:
-	   BOS3 EF 2 A_FaceTarget
+	   BOS3 EF 2 
        BOS3 G 2 A_CustomMissile("PhazoLaser",28,0,0)	
-	   BOS3 ST 2 A_FaceTarget
+	   BOS3 ST 2 
        BOS3 U 2 A_CustomMissile("PhazoLaser",28,0,0)
-	   BOS3 EF 2 A_FaceTarget
+	   BOS3 EF 2 
        BOS3 G 2 A_CustomMissile("PhazoLaser",28,0,0)	
-	   BOS3 ST 2 A_FaceTarget
+	   BOS3 ST 2 
        BOS3 U 2 A_CustomMissile("PhazoLaser",28,0,0)
-	   BOS3 EF 2 A_FaceTarget
+	   BOS3 EF 2 
        BOS3 G 2 A_CustomMissile("PhazoLaser",28,0,0)	
-	   BOS3 ST 2 A_FaceTarget
+	   BOS3 ST 2 
        BOS3 U 2 A_CustomMissile("PhazoLaser",28,0,0)
-	   BOS3 EF 2 A_FaceTarget
+	   BOS3 EF 2 
        BOS3 G 2 A_CustomMissile("PhazoLaser",28,0,0)	
-	   BOS3 ST 2 A_FaceTarget
+	   BOS3 ST 2 
        BOS3 U 2 A_CustomMissile("PhazoLaser",28,0,0)	
 	   TNT1 A 0 A_Jump(88,"Spread")
 	   Goto See
 	Spread:
-	   BOS3 HI 6 A_FaceTarget 
+	   BOS3 HI 6  
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,4)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,-4)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,2)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,-2)
        BOS3 J 4 A_CustomMissile("PhazoFastShot",28,0,0)
-	   BOS3 HI 6 A_FaceTarget 
+	   BOS3 HI 6  
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,4)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,-4)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,2)
@@ -3436,7 +3436,7 @@ States
 	   TNT1 A 0 A_Jump(88,"Comet")
        Goto See	   
 	Comet:
-       BOS3 HI 8 A_FaceTarget
+       BOS3 HI 8 
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
        BOS3 J 0 Bright A_Custommissile("PArchonComet",32,0,0)
@@ -3513,43 +3513,43 @@ See:
 	TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Ghost")
 	Goto Ready
   Normal:
-	TNT1 A 0 Bright A_FaceTarget
+	TNT1 A 0 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB G 10 Bright A_VileStart
     HIAB H 8 Bright A_VileTarget("VeloMagicAttack")
-    HIAB IJKLMN 8 Bright A_FaceTarget
+    HIAB IJKLMN 8 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 8 Bright A_VileAttack
     HIAB P 20 A_Jump(140,"Floor")
     Goto See
   Floor:
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-    HIA2 AAAA 4 Bright A_FaceTarget
+    HIA2 AAAA 4 Bright 
 	TNT1 A 0 A_PlaySound("brain/spit")
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIA2 B 0 A_CustomMissile("VeloFloorTracer",0,32,0)
     HIA2 B 6 Bright A_CustomMissile("VeloFloorTracer",0,-32,0)
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-    HIA2 CC 4 Bright A_FaceTarget	
+    HIA2 CC 4 Bright 	
 	TNT1 A 0 A_Jump(140,"Ghost")
     Goto See
   SuperFloor:
-    HIA2 AAAA 4 Bright A_FaceTarget
+    HIA2 AAAA 4 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	TNT1 A 0 A_PlaySound("monster/velsit")
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_FaceTarget
+	TNT1 A 0 
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
-	HIA2 A 4  Bright A_FaceTarget
+	HIA2 A 4  Bright 
 	TNT1 A 0 A_PlaySound("brain/spit")
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIA2 BBBBB 0 Bright A_CustomMissile("VeloFireSpawner",0,32,random(0,359))
@@ -3559,11 +3559,11 @@ See:
     HIA2 B 6 Bright A_CustomMissile("VeloFireSpawner",0,-32,0)
 	TNT1 A 0 A_UnSetInvulnerable
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-    HIA2 CC 4 Bright A_FaceTarget		
+    HIA2 CC 4 Bright 		
     Goto See
   Summon:
     TNT1 A 0 A_JumpIf(user_amount > 1,"Missile")
-    HIAB GGGGGGG 2 Bright A_FaceTarget
+    HIAB GGGGGGG 2 Bright 
 	TNT1 A 0 A_SetInvulnerable
 	TNT1 A 0 A_PlaySound("monster/velsit")
 	HIAB HIHIHIHIHIHIHIHI 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
@@ -3575,28 +3575,28 @@ See:
 	TNT1 A 0 A_UnSetInvulnerable
     Goto See
   Ghost:
-	HIAB GHIJKLM 5  Bright A_FaceTarget
+	HIAB GHIJKLM 5  Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 A_CustomMissile("VeloGhost",38,0,0)
-    HIAB P 3 Bright A_FaceTarget
+    HIAB P 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB P 5 A_CustomMissile("VeloGhost",38,0,random(-4,4))
-    HIAB N 3 Bright A_FaceTarget
+    HIAB N 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB N 5 A_CustomMissile("VeloGhost",38,0,random(-4,4))
-    HIAB O 3 Bright A_FaceTarget
+    HIAB O 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 A_CustomMissile("VeloGhost",38,0,random(-4,4))
-    HIAB P 3 Bright A_FaceTarget
+    HIAB P 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB N 5 A_CustomMissile("VeloGhost",38,0,random(-4,4))
-    HIAB O 3 Bright A_FaceTarget
+    HIAB O 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 A_CustomMissile("VeloGhost",38,0,random(-4,4))
-    HIAB P 3 Bright A_FaceTarget
+    HIAB P 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB P 5 A_CustomMissile("VeloGhost")
-    HIAB N 3 Bright A_FaceTarget
+    HIAB N 3 Bright 
 	HIAB P 5 Bright
     Goto See
   Heal:
