@@ -211,7 +211,6 @@ Actor PossessedCerebralCardinal : PossessedMonster
   See:
   ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY A 2 Bright 
-  TNT1 A 0 A_Jump(32,"Evade")	
   Loop
 Missile:
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
@@ -242,8 +241,6 @@ Normal:
   TNT1 A 0 A_PlaySound("sentient/fire")
   ARCY C 4 Bright A_CustomMissile("SentientExplosiveTracer",36,0,Random(-800,800)/100.00,0)
   TNT1 A 0 A_StopSoundEx("Weapon")	
-  TNT1 A 0 A_Jump(3,"See","BFG95K","BFG10K","Railgun","SentientCardinalDTCombo","DTDevastator")
-  TNT1 A 0 A_Jump(15,"CyberRockets","CyberHomingRockets")
   TNT1 A 0 A_SpidRefire
   Goto Normal+7
 CyberRockets:
@@ -299,9 +296,6 @@ CyberRockets:
   ARCY G 6 Bright A_Custommissile("CardinalRocket", 55, -24, Random(-6, 6))
   ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
   ARCY G 2 Bright 
-  TNT1 A 0 A_Jump(128,"CyberHomingRockets","BFG95K","BFG10K","Railgun")
-  TNT1 A 0 A_Jump(64,"SentientCardinalDTCombo")
-  TNT1 A 0 A_Jump(32,"DTDevastator")
   Goto See
 CyberHomingRockets:
     ARCY A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -356,9 +350,6 @@ CyberHomingRockets:
 	ARCY G 6 Bright A_Custommissile("CardinalHomingRocket", 55, -24, Random(-6, 6))
 	ARCY GG 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 2 Bright 
-	TNT1 A 0 A_Jump(128,"BFG95K","BFG10K","Railgun")
-	TNT1 A 0 A_Jump(52,"SentientCardinalDTCombo")
-	TNT1 A 0 A_Jump(26,"DTDevastator")
     Goto See
 Railgun:
 	  TNT1 A 0 A_PlaySound("weapons/rgcharge")
@@ -403,7 +394,6 @@ Railgun:
 	  TNT1 A 0 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
       ARCY G 2 Bright 
       ARCY FFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	  TNT1 A 0 A_Jump(128,"BFG10K","BFG95K")
 	  Goto See	  
 BFG95K:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -447,9 +437,6 @@ BFG95K:
 	ARCY D 2 Bright A_CustomMissile("SentientBFG9500Ball", 34, 0, 0)
 	ARCY EEEEEE 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-    TNT1 A 0 A_Jump(120,"BFG10K")
-	TNT1 A 0 A_Jump(50,"SentientCardinalDTCombo")
-	TNT1 A 0 A_Jump(25,"DTDevastator")
     Goto See
 SentientCardinalDTCombo:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -488,7 +475,6 @@ SentientCardinalDTCombo:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	ARCY G 2 Bright A_CustomMissile("SentientDTBFG10KBall", 55, -24, 0)
 	ARCY FFFFFFFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(100,"DTDevastator")
 	Goto See
 DTDevastator:
     TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
@@ -552,7 +538,6 @@ DTDevastator:
 	ARCY G 0 A_PlaySound ("devastator/fire")
 	ARCY G 2 Bright A_CustomMissile("FusionDevastatorBall", 55, -24, 0)
 	ARCY FFFFFFFFFFFF 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump (1,"FusionNuke")
 	Goto See
 FusionNuke:
     TNT1 A 0 A_JumpIfInventory("FusionNuke",1,2)
@@ -776,8 +761,6 @@ BFG10K:
 	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
 	ARCY F 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	ARCY FFFFF 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(52,"SentientCardinalDTCombo")
-	TNT1 A 0 A_Jump(26,"DTDevastator")
     Goto See  
   }
 }
@@ -1179,7 +1162,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
 	CYBR E 5  Bright 
     CYBR F 5 Bright A_CustomMissile("LegendaryRocket", 58, -26, Random(-6, 6))
-    TNT1 A 0 A_Jump(130,"Finder","LegBFG95K","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegendaryStomp","LegendaryBFG15K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
  LegendaryASG:
     CYBR EEE 2 Bright 
@@ -1189,7 +1171,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 3 Bright A_PlaySoundEx("Weapons/LegAutoShotgun","Weapon")
     TNT1 A 0 A_SpidRefire
 	TNT1 A 0 A_JumpIfCloser(450,"LegendaryASG")
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegBFG95K","LegendaryBFG15K","LegendaryStomp","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryStomp:
     CYBR G 10 Bright 
@@ -1236,7 +1217,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
     TNT1 A 0 A_CustomMissile("LegendaryCyberFireSpawner",0,0,90,0)
     LBE3 B 2 Bright A_CustomMissile("LegendaryCyberFireSpawner",0,0,-90,0)
 	LBE3 B 20 Bright
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegBFG95K","LegendaryBFG15K","LegendaryDTBFG")
     Goto See	
   LegBFG95K:
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
@@ -1257,7 +1237,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 10 Bright 
 	CYBR F 10 Bright A_CustomMissile("LegCyberBFG9500Ball", 58, -26, 0)		
 	CYBR E 10 Bright
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG","LegendaryRailgun","LegendaryBFG10K","LegendaryBFG15K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryRailgun:
     TNT1 A 0 A_PlaySound("weapons/rgcharge")
@@ -1278,7 +1257,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	TNT1 A 0 Bright A_SetShootable
     CYBR F 10 Bright A_CustomMissile("LegendaryCyberRail",58, -26)
 	CYBR E 15 Bright
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryBFG10K","LegendaryBFG15K")
 	Goto See
   LegendaryBFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -1314,7 +1292,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 3 Bright A_CustomMissile("Legendary10KProjectile",58,-26,Random(-4, 4))
 	CYBR E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryBFG15K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryBFG15K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -1344,7 +1321,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	CYBR F 4 Bright A_CustomMissile("LegendaryCyberBFG15KBall",58,-26,Random(-4, 4))
 	CYBR E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
-	TNT1 A 0 A_Jump(130,"Finder","LegendaryTech","LegendaryRailgun","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   Finder:
     CYBR E 5  Bright 
@@ -1363,7 +1339,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
     CYBR E 5  Bright 
 	CYBR F 5 Bright A_CustomMissile("LegendaryHomingRocket", 58, -26, Random(-8, 8))
-    TNT1 A 0 A_Jump(130,"LegendaryTech","LegendaryBFG","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
   LegendaryTech:
     CYBR G 30 Bright 
@@ -1503,7 +1478,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 3 Bright A_CustomMissile("CyberLegendaryProjectile",58,-26,Random(100,-100)/100.00,0)
     TNT1 A 0 Bright A_PlayWeaponSound("BlueDTRFire")
     CYBR E 30 Bright A_PlaySoundEx("Legcyber/amhalt","DECHST")
-	TNT1 A 0 A_Jump(130,"LegendaryBFG","LegendaryStomp","Finder","LegendaryRailgun","LegendaryBFG10K","LegendaryDTBFG","LegendaryDevastator")
 	Goto See
  LegendaryDTBFG:
     CYBR F 0 Bright A_PlaySound ("Cardinal/9k")
@@ -1547,7 +1521,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 2 Bright 
 	CYBR F 0 Bright A_CustomMissile("LegAnniDTBFGBall", 58, -26, 0)
 	CYBR E 30 Bright
-	TNT1 A 0 A_Jump(95,"LegendaryBFG","LegendaryDevastator")
 	Goto See
  LegendaryDevastator:
     TNT1 A 0 A_PlaySound("devastator/charge")
@@ -1602,7 +1575,6 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 0 A_PlaySound ("devastator/fire")
 	CYBR F 0 Bright A_CustomMissile("LegCybDevastatorBall", 58, -26, 0)
 	CYBR E 50 Bright
-	TNT1 A 0 A_Jump(95,"LegendaryBFG")
 	Goto See
  LegendaryBFG:
     CYBR E 30 Bright 
@@ -1819,7 +1791,6 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,4)
 	LNBL G 0 A_CustomMissile("LegNobleBall",32,0,-4)
 	LNBL U 5 Bright A_CustomMissile("LegNobleBall",32,0,0)	
-	TNT1 A 0 A_Jump(127,"Spread")
 	Goto See
   Spread:
     LNBL PQ 9 Bright 
@@ -1836,7 +1807,6 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
     LNBL R 0 A_CustomMissile("LegNobleBall2",32,0,3)	
 	LNBL R 0 A_CustomMissile("LegNobleBall2",32,0,-3)
     LNBL R 8 Bright A_CustomMissile("LegNobleBall2",32,0,0)
-	TNT1 A 0 A_Jump(127,"Hugger")
     Goto See
   Hugger:
     LNBL RQ 9 Bright 
@@ -1844,7 +1814,6 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	LNBL P 0 A_CustomMissile("LegNobleBall3",32,20,0)
     LNBL P 0 Bright A_CustomMissile("LegNobleBall3",32,-20,0)
 	LNBL PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(80,"BlueComet")
     Goto See	
   BlueComet:
     LNBL EF 7 Bright 
@@ -1855,7 +1824,6 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	LNBL U 2 Bright A_CustomMissile("LegNobleComet", 32, 0, 0)
 	LNBL G 0 A_CustomMissile("LegNobleComet", 32, 0, 6)
 	LNBL U 4 Bright A_CustomMissile("LegNobleComet", 32, 0, -6)
-	TNT1 A 0 A_Jump(80,"4Comets")
     Goto See
   4Comets:
     LNBL PQ 8 Bright 
@@ -1863,7 +1831,6 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	LNBL R 0 A_CustomMissile("BigBlueComet", 32, 0, -5)
 	LNBL R 0 A_CustomMissile("BigBlueComet", 32, 0, 5)
 	LNBL R 7 Bright A_CustomMissile("BigBlueComet", 32, 0, 10)
-	TNT1 A 0 A_Jump(127,"Rage")
 	Goto See
   Rage:	
     LNBL Q 1 Bright A_PlaySound("lnoble/see")
@@ -2015,8 +1982,6 @@ Actor PossessedLegendaryImp : PossessedMonster
 	LEGN DD 3 Bright 
     TNT1 A 0 ACS_ExecuteAlways(5432,0,3)
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(62,"Rush")
-	TNT1 A 0 A_Jump(50,"AirDodge")
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	Loop
   Missile:
@@ -2160,7 +2125,6 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   See:
     TNT1 A 0 ACS_ExecuteAlways(5432,0,7)
 	TNT1 A 0 A_ChangeFlag("NOPAIN",0)
-    TNT1 A 0 A_Jump(100,"Rush")
 	TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV AAA 2 Bright 
@@ -2175,8 +2139,6 @@ Actor PossessedLegendaryRevenant : PossessedMonster
     LREV EEE 2 Bright 
 	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV FFF 2 Bright 	
-	TNT1 A 0 A_Jump(28,"Dodge")
-	TNT1 A 0 A_Jump(16,"Teleport")
     Loop
   Missile:
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
@@ -2447,7 +2409,6 @@ Normal:
 	TNT1 A 0 A_PlaySound("sentient/fire")
 	LUPR E 4 Bright A_CustomMissile("LegSentientExplosiveTracer",31,0,Random(-800,800)/100.00,0)
 	TNT1 A 0 A_StopSoundEx("Weapon")	
-	TNT1 A 0 A_Jump(3,"See","LegendaryTech","LegBFG9K","LegBFG10K","LegDTBFG10K","LegendaryBFG")
     TNT1 A 0 A_SpidRefire
 	Goto Normal+7
 LegendaryTech:
@@ -2708,8 +2669,6 @@ LegendaryTech:
     LUPR NN 2 Bright 
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
     LUPR NN 2 Bright 
-	TNT1 A 0 A_Jump(128,"LegBFG9K","LegBFG10K","LegDTBFG10K")
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
     Goto See
 LegBFG9K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -2772,9 +2731,6 @@ LegBFG9K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientBFG9500Ball", 42, 0, 0)
 	LUPR NNNNNNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(128,"LegBFG10K","LegDTBFG10K")
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
-	TNT1 A 0 A_Jump(42,"LegendaryTech","Cannon")
 	Goto See	
 LegBFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -2840,9 +2796,6 @@ LegBFG10K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)	
 	LUPR N 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	LUPR NNNNN 3 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)	
-	TNT1 A 0 A_Jump(128,"LegDTBFG10K","LegBFG15K")
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
-	TNT1 A 0 A_Jump(42,"LegendaryTech","Cannon")
 	Goto See
 LegBFG15K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -2901,9 +2854,6 @@ LegBFG15K:
 	LUPR N 4 Bright 	
 	LUPR N 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	LUPR NNNNN 3 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)	
-	TNT1 A 0 A_Jump(128,"LegDTBFG10K")
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
-	TNT1 A 0 A_Jump(42,"LegendaryTech","Cannon")
 	Goto See
 LegDTBFG10K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -2940,8 +2890,6 @@ LegDTBFG10K:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	LUPR O 2 Bright A_CustomMissile("LegSentientDTBFGBall", 34, 0, 0)
 	LUPR NNNNNNNNNNNN 2 Bright A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
-	TNT1 A 0 A_Jump(42,"LegendaryTech","Cannon")
 	Goto See
 Cannon:
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
@@ -2952,8 +2900,6 @@ Cannon:
 	LUPR NNNNNNOO 4 Bright A_GiveInventory("LegSentientStrafe",1)
 	TNT1 A 0 A_CustomMissile("LegSentientCannonBall", 42, 0, 0)
 	LUPR O 4 Bright A_GiveInventory("LegSentientStrafe",1)
-	TNT1 A 0 A_Jump(32,"LegendaryBFG","LegendaryStorm")
-	TNT1 A 0 A_Jump(42,"LegendaryTech")	
 	Goto See	
 LegendaryBFG:
 	TNT1 A 0 A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -3378,7 +3324,6 @@ States
 	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	   TNT1 A 0 A_SpawnItemEx("PurpleWalkFire",0,0,0,0,0,0,0,128)
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-	   TNT1 A 0 A_Jump(62,"Rush")
 	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
 	   Loop
 	Missile:
@@ -3399,7 +3344,6 @@ States
 	   BOS3 U 0 A_CustomMissile("PhaseImpBall",28,0,-13)
        BOS3 U 0 A_CustomMissile("PhaseImpBall",28,0,0)
        BOS3 U 6 A_CustomMissile("PhaseImpBall",28,0,13)
-	   TNT1 A 0 A_Jump(88,"PhazoLaser")  
 	   Goto See
 	PhazoLaser:
 	   BOS3 EF 2 
@@ -3418,7 +3362,6 @@ States
        BOS3 G 2 A_CustomMissile("PhazoLaser",28,0,0)	
 	   BOS3 ST 2 
        BOS3 U 2 A_CustomMissile("PhazoLaser",28,0,0)	
-	   TNT1 A 0 A_Jump(88,"Spread")
 	   Goto See
 	Spread:
 	   BOS3 HI 6  
@@ -3433,7 +3376,6 @@ States
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,2)
 	   BOS3 J 0 A_CustomMissile("PhazoFastShot",28,0,-2)
        BOS3 J 4 A_CustomMissile("PhazoFastShot",28,0,0)
-	   TNT1 A 0 A_Jump(88,"Comet")
        Goto See	   
 	Comet:
        BOS3 HI 8 
@@ -3494,7 +3436,6 @@ Actor PossessedVelocirator : PossessedArchvile
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	Loop 
 See:
-	TNT1 A 0 A_Jump(82,"Rush")
     HIAB A 0 A_SpawnItem("HumanishStep",0,0,0,0)
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB AABBCC 2 Bright A_VileChase
@@ -3503,7 +3444,6 @@ See:
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB DDEEFF 2 Bright A_VileChase
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-	TNT1 A 0 A_Jump(16,"Teleport")
 	Loop
   Missile:
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
@@ -3520,7 +3460,6 @@ See:
     HIAB IJKLMN 8 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 8 Bright A_VileAttack
-    HIAB P 20 A_Jump(140,"Floor")
     Goto See
   Floor:
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
@@ -3531,7 +3470,6 @@ See:
     HIA2 B 6 Bright A_CustomMissile("VeloFloorTracer",0,-32,0)
 	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
     HIA2 CC 4 Bright 	
-	TNT1 A 0 A_Jump(140,"Ghost")
     Goto See
   SuperFloor:
     HIA2 AAAA 4 Bright 
