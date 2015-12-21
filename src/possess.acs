@@ -203,7 +203,7 @@ script mop_possess (void)
 	if (deathhp > -50)
 		Thing_Damage(TEMPTID, 999999, MOD_HIT);
 	else
-		Thing_Damage(TEMPTID, 999999, MOD_TELEFRAG);
+		Thing_Damage(TEMPTID, 999999, MOD_CRUSH);
 	
 	// Save monster health
 	int lasthp = GetActorProperty(TEMPTID, APROP_HEALTH);
