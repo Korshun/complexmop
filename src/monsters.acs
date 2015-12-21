@@ -169,7 +169,7 @@ script mop_count_monstertypes_cl OPEN CLIENTSIDE
 }
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 9
+#define NUM_MONSTER_ITEMS 10
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
@@ -182,7 +182,8 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	
 	// lca
 	"Hexa-ZombieToken",
-	"LegSentientToken"
+	"LegSentientToken",
+	"FusionNuke"
 };
 
 script mop_phaseimp (void)
