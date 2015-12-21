@@ -4311,6 +4311,22 @@ Actor PossessedPyroDemon : PossessedHellKnight
 	}
 }
 
+//
+// ZDOOMSUX & PYRODEMONFIX
+//
+
+ACTOR PyroFireSpawnerMOP : PyroFireSpawner replaces PyroFireSpawner
+{
+  MissileType PyroFire
+  States
+  {
+	Spawn: 
+		TNT1 AAAA 6 Bright A_CustomMissile("PyroFire", 0)
+		TNT1 A 1 Bright A_MissileAttack
+		Loop
+  }
+}
+
 Actor PyroDemonWeapon : PossessedWeapon
 {
 	+WEAPON.NOAUTOFIRE
