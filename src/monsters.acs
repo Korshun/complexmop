@@ -42,7 +42,6 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
 	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	// lca
-	{ "FreezerZombie",			0.13, 0, 0, 0, "Freezer Zombie", "FRZRA1" },
 	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	// Imps.
@@ -140,6 +139,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
+	// lca
 	{ "LegendaryCyberdemon",	8.0, 0, 0, MONSTF_LEGENDARY | MONSTF_BOSS, "Legendary Cyberdemon", "CYBRZ1" },
 	
 	// Nazis.
@@ -169,7 +169,7 @@ script mop_count_monstertypes_cl OPEN CLIENTSIDE
 }
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 7
+#define NUM_MONSTER_ITEMS 9
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
@@ -178,7 +178,11 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	"FamineMeleeToken",
 	"FamineDeathToken",
 	"SentientToken",
-	"CardinalToken"
+	"CardinalToken",
+	
+	// lca
+	"Hexa-ZombieToken",
+	"LegSentientToken"
 };
 
 script mop_phaseimp (void)
