@@ -147,7 +147,10 @@ ACTOR General10KEx : Player10KEx
     BFE1 BCDEF 4 Bright
     Stop
   }
-}ACTOR BFGCacodemon 5014
+}
+
+
+Actor BFGCacodemon 5014
 {
 	DamageFactor "WeakenerBall" , 0.0
 	Health 700
@@ -267,7 +270,10 @@ FastSpeed 30
 -THRUSPECIES
 DamageType "WeakenerBall"
 Decal BFG9500Lightning
-}ACTOR CerebralCardinal 6065
+}
+
+
+Actor CerebralCardinal 6065
   {
   Speed 10
   Height 100
@@ -2139,7 +2145,10 @@ ACTOR DTBFG10KTracerZombie : DTBFG10KTracer
       TNT1 A 1 A_SpawnItem("CustomSpray2")
       Stop
 	  }
-}Actor Nuke
+}
+
+
+Actor Nuke
 {
  Radius 8
  Height 10
@@ -4658,7 +4667,10 @@ ARCM D 3 Bright A_SpawnItemEx("ArcradimusCometDeathGlow",0,0,0,0,0,0,0,128,0)
 ARCM E 3 Bright A_SpawnItemEx("ArcradimusCometDeath2",0,0,0,0,0,0,0,128,0)
 Stop
 }
-}ACTOR DTDevastatorZombie 5031
+}
+
+
+Actor DTDevastatorZombie 5031
 {
   obituary "%o was pulverized by a zombie's Demon Tech Devastator."
   health 250
@@ -4780,7 +4792,10 @@ Stop
     DEVZ NMLKJIH 5
     goto See
   }
-}ACTOR NewBabySentient : Arachnotron Replaces BabySentient
+}
+
+
+Actor NewBabySentient : Arachnotron Replaces BabySentient
 {
   Health 1250
   PainChance 60
@@ -5513,7 +5528,10 @@ AlwaysDrop:
 	TNT1 A 0 A_SpawnItem("Demon Tech BFG10K",0,12)
 	Goto Death+3		
     }
-}ACTOR EraserZombie 5012
+}
+
+
+Actor EraserZombie 5012
 {
   obituary "%o was thoroughly rekt by an Eraser Zombie."
   health 210
@@ -5681,7 +5699,10 @@ ACTOR ZombieDTBFGProjectileAttack : SentientDTBFGProjectileAttack
 {
 MissileType "CardinalDTBFGRailgunSlug"
 Obituary "%o was thoroughly rekt by an Eraser Zombie." 
-}ACTOR FreezerBehemoth : Fatso 5000
+}
+
+
+Actor FreezerBehemoth : Fatso 5000
 {
 Health 1550
 PainChance 55
@@ -6035,7 +6056,10 @@ Spawn:
 PLSS JKLMNOPQRSTUVWX 2 A_FadeOut(0.02)
 stop
 }
-}ACTOR FreezerZombie : ChaingunGuy 6064
+}
+
+
+Actor FreezerZombie : ChaingunGuy 6064
 {
 Health 215
 Radius 20
@@ -6224,7 +6248,10 @@ Toaster:
 TNT1 A 0
 Stop
 }
-}ACTOR Hexa-ShotgunZombie 5003
+}
+
+
+Actor Hexa-ShotgunZombie 5003
 { 
 Health 203
 Radius 20
@@ -6327,7 +6354,10 @@ ACTOR Hexa-ZombieToken : Inventory
 {
 Inventory.Amount 1
 Inventory.MaxAmount 3
-}ACTOR LegendaryAnnihilator : Cyberdemon 5005
+}
+
+
+Actor LegendaryAnnihilator : Cyberdemon 5005
 {
 Health 9999
 Scale 1.2
@@ -7840,7 +7870,10 @@ Goto Death
 	TNT1 AAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEx("GuruChunkSpark",random(126,-126),random(126,-126),random(66,-66),0,0,0,0,0,0)
 	Stop
   }
-}ACTOR CyberGuruSphereSmoke : GuruSphereSmoke
+}
+
+
+Actor CyberGuruSphereSmoke : GuruSphereSmoke
 {
 	Scale 1.8
 	Alpha 0.45
@@ -10584,7 +10617,10 @@ TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(304) == 1, "Toaster")
 BXPO AABBCDEFGHIJKLM 1 Bright A_FadeOut(0.05)
 Stop
 }
-}ACTOR LegendaryImp 5007
+}
+
+
+Actor LegendaryImp 5007
 {
   Health 999
   Radius 20
@@ -11014,7 +11050,10 @@ Spawn:
 	TNT1 A 1 A_SpawnItemEx("BluePowerLine",random(32,-32),random(32,-32),random(8,48),0,0,random(1,4),0,128,0) 
     Stop  
     }
-}Actor LegendaryRevenant 5004
+}
+
+
+Actor LegendaryRevenant 5004
 {
   Health 1350
   Radius 20
@@ -11681,7 +11720,10 @@ Spawn:
     LREV A 2 A_FadeOut(0.09)
     Loop
     }
-}ACTOR LegendarySentient : SpiderMastermind 5006
+}
+
+
+Actor LegendarySentient : SpiderMastermind 5006
 {
     Health 5999
     Speed 15
@@ -13904,7 +13946,10 @@ Actor LegSentientStrafe3 : LegSentientStrafe
   }
 }
 
-ACTOR LegStrafeSens : Inventory{Inventory.MaxAmount 1}ACTOR LegZombie 5015
+ACTOR LegStrafeSens : Inventory{Inventory.MaxAmount 1}
+
+
+Actor LegZombie 5015
 { 
 Health 999
 Radius 20
@@ -14276,7 +14321,10 @@ Actor LegZombieJumping : LegZombieStrafing
   }
 }
 
-ACTOR LegStrafeSens : Inventory{Inventory.MaxAmount 1}ACTOR PhaseOverlord 6063
+ACTOR LegStrafeSens : Inventory{Inventory.MaxAmount 1}
+
+
+Actor PhaseOverlord 6063
 { 
 Health 1650 
 Radius 24 
@@ -14817,7 +14865,10 @@ ACTOR PurpleWalkFire
     TNT1 A 0
 	Stop
     }
-}ACTOR SandSpirit : HellKnight 5016
+}
+
+
+Actor SandSpirit : HellKnight 5016
 { 
 Health 1500
 PainChance 50
