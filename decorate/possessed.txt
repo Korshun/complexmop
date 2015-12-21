@@ -119,7 +119,20 @@ Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
 Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
-Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack6 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack7 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack8 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack9 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack10 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack11 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack12 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack13 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack14 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack15 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack16 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack17 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack18 : Inventory { Inventory.MaxAmount 1 }
+
 
 Actor PossessedSuicide : Inventory
 {
