@@ -24,7 +24,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "DemonTechZombie",		0.06, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
 	{ "RocketZombie",			0.06, 0, 0, 0, "Rocket zombie", "MPO2A1" },
 	// lca
-	{ "LegZombie",				0.06, 0, 0, MONSTF_LEGENDARY, "Legendary Zombie", "" },
+	{ "LegZombie",				0.06, 0, 0, MONSTF_LEGENDARY, "Legendary Zombie", "LPOSA1" },
 	
 	// Shotgunners.
 	{ "ShotgunZombie",			0.1, 0, 0, 0, "Shotgunner", "ZSP1A1" },
@@ -32,7 +32,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "SuperShotgunZombie",		0.1, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
 	{ "QuadShotgunZombie",		0.1, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
 	// lca
-	{ "Hexa-ShotgunZombie",		0.1, 0, 0, 0, "Hexa-Shotgun Zombie", "" },
+	{ "Hexa-ShotgunZombie",		0.1, 0, 0, 0, "Hexa-Shotgun Zombie", "HSZIA1" },
 	{ "EraserZombie",			0.1, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
 	{ "DTDevastatorZombie",		0.1, 0, 0, 0, "Demon Tech Devastator Zombie", "DEVZA1" },
 	
@@ -42,7 +42,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Minigunner",				0.13, 0, 0, 0, "Minigunner", "CPS2A1" },
 	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	// lca
-	{ "FreezerZombie",			0.13, 0, 0, 0, "Freezer Zombie", "" },
+	{ "FreezerZombie",			0.13, 0, 0, 0, "Freezer Zombie", "FRZRA1" },
 	{ "BFG10KGeneral",			0.13, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	// Imps.
@@ -51,7 +51,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1C1" },
 	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	// lca
-	{ "LegendaryImp",			0.08, 0, 0, 0, "Legendary Imp", "" },
+	{ "LegendaryImp",			0.08, 0, 0, 0, "Legendary Imp", "LEGNA1" },
 	
 	// Demons.
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
@@ -103,7 +103,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "HellfireRevenant",		0.25, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
 	{ "Famine",					0.25, 0, 0, 0, "Famine", "NREVA1D1" },
 	// lca
-	{ "LegendaryRevenant",		0.25, 0, 0, 0, "Legendary Revenant", "" },
+	{ "LegendaryRevenant",		0.25, 0, 0, 0, "Legendary Revenant", "LREVA1D1" },
 	
 	// Hell knights.
 	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1" },
@@ -111,7 +111,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberNoble",				0.17, 0, 0, 0, "Cyber Noble", "CBOSA1" },
 	{ "HellDuke",				0.17, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
 	// lca
-	{ "LegendaryHellKnight",	0.17, 0, 0, MONSTF_LEGENDARY, "Legendary Hell Knight", "" },
+	{ "LegendaryHellKnight",	0.17, 0, 0, MONSTF_LEGENDARY, "Legendary Hell Knight", "LNBLA1" },
 	
 	// Barons of hell.
 	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
@@ -125,7 +125,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
 	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1D1" },
 	// lca
-	{ "Velocirator",			0.5, 0, 0, 0, "Velocirator Vile", "" },
+	{ "Velocirator",			0.5, 0, 0, 0, "Velocirator Vile", "HIABA1D1" },
 	
 	// Spider masterminds.
 	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
@@ -133,14 +133,14 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CerebralSentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
 	// lca
 	{ "NewCerebralSentient",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
-	{ "CerebralCardinal",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Cardinal", "" },
-	{ "LegendarySentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Legendary Sentient", "" },
+	{ "CerebralCardinal",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Cardinal", "ARCYA1" },
+	{ "LegendarySentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Legendary Sentient", "LUPRA1" },
 	
 	// Cyberdemons.
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
 	{ "DarkCyberdemon",			8.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
 	{ "Cardinal",				8.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
-	{ "LegendaryCyberdemon",	8.0, 0, 0, MONSTF_LEGENDARY | MONSTF_BOSS, "Legendary Cyberdemon", "" },
+	{ "LegendaryCyberdemon",	8.0, 0, 0, MONSTF_LEGENDARY | MONSTF_BOSS, "Legendary Cyberdemon", "CYBRZ1" },
 	
 	// Nazis.
 	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
