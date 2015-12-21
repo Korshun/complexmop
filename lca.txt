@@ -979,8 +979,10 @@ Actor EraserZombieWeapon : PossessedWeapon
 }
 
 
-Actor Hexa-ShotgunZombie 5003
+Actor PossessedHexa-ShotgunZombie : PossessedMonster
 { 
+	Player.MorphWeapon "Hexa-ShotgunZombieWeapon"
+
 Health 203
 Radius 20
 Height 56
@@ -1053,6 +1055,15 @@ Reload:
     HSZM E 10 A_PlaySound("weapons/qsgclose")	
     Goto See
     }
+}
+
+Actor Hexa-ShotgunZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
