@@ -198,12 +198,7 @@ script mop_possess (void)
 	
 	// Transfer health.
 	SetActorProperty(TEMPTID, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);
-	int deathhp = hp2 - POSSESSED_ADDITIONAL_HP;
-	
-	if (deathhp > -50)
-		Thing_Damage(TEMPTID, 999999, MOD_HIT);
-	else
-		Thing_Damage(TEMPTID, 999999, MOD_CRUSH);
+	Thing_Damage(TEMPTID, hp1 - hp2, 0);
 	
 	// Save monster health
 	int lasthp = GetActorProperty(TEMPTID, APROP_HEALTH);
