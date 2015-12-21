@@ -50,7 +50,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Devil",					0.08, 0, 0, 0, "Devil", "SLHVA1C1" },
 	{ "PhaseImp",				0.08, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	// lca
-	{ "LegendaryImp",			0.08, 0, 0, 0, "Legendary Imp", "LEGNA1" },
+	{ "LegendaryImp",			0.08, 0, 30, MONSTF_LEGENDARY, "Legendary Imp", "LEGNA1" },
 	
 	// Demons.
 	{ "BullFiend",				0.1, 0, 0, 0, "Bull Fiend", "SAR2A1" },
