@@ -1,5 +1,7 @@
-ACTOR BFG10KGeneral 5008
-{ 
+Actor PossessedBFG10KGeneral : PossessedMonster
+{
+	Player.MorphWeapon "BFG10KGeneralWeapon"
+ 
 Health 230
 Radius 20
 Height 56
@@ -70,9 +72,20 @@ Missile:
     }
 }
 
-
-Actor BFGCacodemon 5014
+Actor BFG10KGeneralWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedBFGCacodemon : PossessedMonster
+{
+	Player.MorphWeapon "BFGCacodemonWeapon"
+
 	DamageFactor "WeakenerBall" , 0.0
 	Health 700
 	Radius 24
@@ -121,9 +134,20 @@ Actor BFGCacodemon 5014
 	}
 }
 
+Actor BFGCacodemonWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
 
-Actor CerebralCardinal 6065
-  {
+
+Actor PossessedCerebralCardinal : PossessedMonster
+{
+	Player.MorphWeapon "CerebralCardinalWeapon"
+
   Speed 10
   Height 100
   Radius 80
@@ -758,9 +782,20 @@ BFG10K:
   }
 }
 
-
-Actor DTDevastatorZombie 5031
+Actor CerebralCardinalWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedDTDevastatorZombie : PossessedMonster
+{
+	Player.MorphWeapon "DTDevastatorZombieWeapon"
+
   obituary "%o was pulverized by a zombie's Demon Tech Devastator."
   health 250
   radius 20
@@ -860,9 +895,20 @@ Actor DTDevastatorZombie 5031
   }
 }
 
-
-Actor EraserZombie 5012
+Actor DTDevastatorZombieWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedEraserZombie : PossessedMonster
+{
+	Player.MorphWeapon "EraserZombieWeapon"
+
   obituary "%o was thoroughly rekt by an Eraser Zombie."
   health 210
   radius 20
@@ -921,6 +967,15 @@ Actor EraserZombie 5012
 	PYRZ EE 35
     goto See
   }
+}
+
+Actor EraserZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
@@ -1650,8 +1705,10 @@ Actor LegendaryCyberdemonWeapon : PossessedWeapon
 }
 
 
-ACTOR LegendaryHellKnight 5009
+Actor PossessedLegendaryHellKnight : PossessedMonster
 {
+	Player.MorphWeapon "LegendaryHellKnightWeapon"
+
   Health 1700
   Radius 24
   Height 78
@@ -1871,9 +1928,20 @@ ACTOR LegendaryHellKnight 5009
   }
 }
 
-
-Actor LegendaryImp 5007
+Actor LegendaryHellKnightWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedLegendaryImp : PossessedMonster
+{
+	Player.MorphWeapon "LegendaryImpWeapon"
+
   Health 999
   Radius 20
   Height 56
@@ -2007,9 +2075,20 @@ Actor LegendaryImp 5007
   }
 }
 
-
-Actor LegendaryRevenant 5004
+Actor LegendaryImpWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+
+Actor PossessedLegendaryRevenant : PossessedMonster
+{
+	Player.MorphWeapon "LegendaryRevenantWeapon"
+
   Health 1350
   Radius 20
   Height 84
@@ -2246,6 +2325,15 @@ Actor LegendaryRevenant 5004
 	LREV A 1 Bright A_Stop			
     Goto See
   }
+}
+
+Actor LegendaryRevenantWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
@@ -3134,8 +3222,10 @@ Actor LegendarySentientWeapon : PossessedWeapon
 }
 
 
-Actor LegZombie 5015
-{ 
+Actor PossessedLegZombie : PossessedMonster
+{
+	Player.MorphWeapon "LegZombieWeapon"
+ 
 Health 999
 Radius 20
 Height 56
@@ -3212,9 +3302,20 @@ Missile:
     }
 }
 
+Actor LegZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
 
-Actor PhaseOverlord 6063
-{ 
+
+Actor PossessedPhaseOverlord : PossessedMonster
+{
+	Player.MorphWeapon "PhaseOverlordWeapon"
+ 
 Health 1650 
 Radius 24 
 Height 64 
@@ -3333,6 +3434,15 @@ States
 	   BOS3 J 7 Bright A_Custommissile("PArchonComet",32,0,10)
        Goto See
    } 
+}
+
+Actor PhaseOverlordWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
 
 
