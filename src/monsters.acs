@@ -75,7 +75,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Watcher",				0.14, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
 	{ "Cacomental",				0.14, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
 	// lca
-	{ "BFGCacodemon",			0.14, 0, 0, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
+	{ "BFGCacodemon",			0.14, 0, 20, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
 	
 	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
@@ -131,8 +131,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
 	{ "DarkDemolisher",			6.0, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
 	{ "CerebralSentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
-	{ "NewCerebralSentient",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
 	// lca
+	{ "NewCerebralSentient",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
 	{ "CerebralCardinal",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Cardinal", "" },
 	{ "LegendarySentient",		6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Legendary Sentient", "" },
 	
