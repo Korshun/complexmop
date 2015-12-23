@@ -103,6 +103,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Daedabus",				0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Daedabus", "HECTC1" },
 	{ "Behemoth",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "Barbatos",				0.2 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	// lca
+	{ "NewBehemoth",			0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	
 	// Revenants.
 	{ "Guardian",				0.2, 0, 0, 0, "Guardian", "SKELA1D1" },

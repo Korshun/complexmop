@@ -15,6 +15,10 @@ int MonsterAttacks[MAX_MONSTERATTACKS][8] =
 	{ "DarkCyberdemon", "Rockets", "Homing Rockets", "\cdFloor Stomp", "\cdRailgun", "\cdBFG15K", "X" },
 	{ "Cardinal", "Rockets", "Homing Rockets", "\cgRailgun", "\cgBFG10K", "\cgDemon Tech BFG10K", "X" },
 	
+	// lca duplicates
+	{ "NewCerebralSentient", "Normal", "\cgBFG9K", "\cgBFG10K", "\cgDemon Tech BFG10K", "X" },
+	
+	// lca
 	{ "PhaseOverlord", "\ctNormal", "\ctPhazoLaser", "\ctSpread", "\ctComet", "X" },
 	
 	{ "MONSTERATTACKS" }
