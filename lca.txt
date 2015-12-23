@@ -3139,6 +3139,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 
 Actor LegendaryHellKnightWeapon : PossessedWeapon
 {
+	var int user_missile;
 	States
 	{
 Missile:
@@ -3727,6 +3728,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
 
 Actor LegendaryRevenantWeapon : PossessedWeapon
 {
+	var int user_missile;
 	States
 	{
 Missile:
@@ -5993,6 +5995,7 @@ See:
 
 Actor VelociratorWeapon : PossessedWeapon
 {
+	var int user_amount;
 	States
 	{
 Missile:
