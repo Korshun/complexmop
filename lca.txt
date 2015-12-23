@@ -16,7 +16,7 @@ DropItem "BackPack" 150
 DropItem "NewCellPack" 256
 DropItem "HandGrenadeAmmo" 200 1
 DropItem "MineAmmo" 123 1
-DamageFactor "GeneralTracer", 0.0
+//DamageFactor "GeneralTracer", 0.0
 Species "ZombieDeud"
 MONSTER 
 +FLOORCLIP
@@ -86,7 +86,7 @@ Actor PossessedBFGCacodemon : PossessedMonster
 {
 	Player.MorphWeapon "BFGCacodemonWeapon"
 
-	DamageFactor "WeakenerBall" , 0.0
+	//DamageFactor "WeakenerBall" , 0.0
 	Health 700
 	Radius 24
 	Height 44
@@ -178,14 +178,14 @@ Actor PossessedCerebralCardinal : PossessedMonster
   +DONTHURTSPECIES
   +BOSSDEATH
   DamageFactor 0.55
-  DamageFactor "DemolisherEx", 0.5
-  DamageFactor "DarkDemoEx", 0.5
-  DamageFactor "CerChainguns", 0.0	
-  DamageFactor "CerEnergyBall", 0.0
+  //DamageFactor "DemolisherEx", 0.5
+  //DamageFactor "DarkDemoEx", 0.5
+  //DamageFactor "CerChainguns", 0.0	
+  //DamageFactor "CerEnergyBall", 0.0
   DamageFactor "PDTBFG", 0.1
   DamageFactor "PDTBFGTracer", 0.3
-  DamageFactor "Cyber10K", 0.0
-  DamageFactor "Legendary", 0.5
+  //DamageFactor "Cyber10k", 0.0
+  //DamageFactor "Legendary", 0.5
   DamageFactor "PlayerDevBall", 0.05
   DamageFactor "PlayerDevBall2", 0.05
   DamageFactor "PlayerDTBFGRailgunSlug", 0.05
@@ -792,7 +792,7 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
   DropItem "HandGrenadeAmmo" 210 3
   DropItem "MineAmmo" 210 3
   DropItem "DemonAmmoBox" 255 
-  DamageFactor "ZombieDev", 0.0
+  //DamageFactor "ZombieDev", 0.0
   seesound "chainguy/sight"
   painsound "chainguy/pain"
   deathsound "chainguy/death"
@@ -898,7 +898,7 @@ Actor PossessedEraserZombie : PossessedMonster
   mass 100
   speed 8
   painchance 170
-  DamageFactor "SoapOpera", 0.0 
+  //DamageFactor "SoapOpera", 0.0 
   DropItem "Armorplate" 215 1
   DropItem "Portablemedkit" 230 1
   DropItem "Backpack" 190 1
@@ -1059,18 +1059,18 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   Mass 0x7FFFFFFF
   DamageFactor "PDTBFG", 0.05
   DamageFactor "PDTBFGTracer", 0.05
-  DamageFactor "Cyber10K", 0.0
-  DamageFactor "Legendary", 0.0
+  //DamageFactor "Cyber10k", 0.0
+  //DamageFactor "Legendary", 0.0
   DamageFactor "BFGSplash", 0.25
   DamageFactor "BFGSpray", 0.25
   DamageFactor "PlayerDevBall", 0.025
   DamageFactor "PlayerDevBall2", 0.025
   DamageFactor "PlayerDTBFGRailgunSlug", 0.025
   DamageFactor "PlayerDevTracer", 0.025
-  DamageFactor "DemolisherEx", 0.0
-  DamageFactor "DarkDemoEx", 0.0
-  DamageFactor "CerChainguns", 0.0
-  DamageFactor "CerEnergyBall", 0.0
+  //DamageFactor "DemolisherEx", 0.0
+  //DamageFactor "DarkDemoEx", 0.0
+  //DamageFactor "CerChainguns", 0.0
+  //DamageFactor "CerEnergyBall", 0.0
   DamageFactor 0.5
   Speed 19
   PainChance 1
@@ -1718,9 +1718,9 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
   MeleeDamage 16
   BloodColor "Blue"
   DamageFactor 0.65
-  DamageFactor "Legendary1", 0.0
-  DamageFactor "Legendary", 0.0
-  DamageFactor "NobleComet", 0.0
+  //DamageFactor "Legendary1", 0.0
+  //DamageFactor "Legendary", 0.0
+  //DamageFactor "NobleComet", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
   DamageFactor "PlayerDevBall", 0.125
@@ -1925,9 +1925,9 @@ Actor PossessedLegendaryImp : PossessedMonster
   PainChance 50
   Monster
   MeleeDamage 15
-  DamageFactor "Legendary1", 0.0
+  //DamageFactor "Legendary1", 0.0
   DamageFactor 0.75
-  DamageFactor "Legendary", 0.0
+  //DamageFactor "Legendary", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
   DamageFactor "PlayerDevBall", 0.125
@@ -2092,15 +2092,15 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   BloodColor "Blue"
   MeleeDamage 7
   DamageFactor 0.65
-  DamageFactor "Legendary1", 0.0
-  DamageFactor "Legendary", 0.0
+  //DamageFactor "Legendary1", 0.0
+  //DamageFactor "Legendary", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
   DamageFactor "PlayerDevBall", 0.125
   DamageFactor "PlayerDevBall2", 0.125
   DamageFactor "PlayerDTBFGRailgunSlug", 0.125
   DamageFactor "PlayerDevTracer", 0.125
-  DamageFactor "CadaverRocket", 0.0
+  //DamageFactor "CadaverRocket", 0.0
   Species "Skeletons"
   DropItem "LegendaryArmor" 127 1
   DropItem "LegendaryRune" 100 1
@@ -2343,14 +2343,14 @@ Actor PossessedLegendarySentient : PossessedSpiderMastermind
 	-FLOORCLIP
 	+BRIGHT
 	AttackSound ""
-	DamageFactor "DemolisherEx", 0.05
-    DamageFactor "DarkDemoEx", 0.05
-	DamageFactor "CerChainguns", 0.0	
-	DamageFactor "CerEnergyBall", 0.0
-	DamageFactor "Legendary", 0.0
+	//DamageFactor "DemolisherEx", 0.05
+    //DamageFactor "DarkDemoEx", 0.05
+	//DamageFactor "CerChainguns", 0.0	
+	//DamageFactor "CerEnergyBall", 0.0
+	//DamageFactor "Legendary", 0.0
 	DamageFactor "PDTBFG", 0.1
 	DamageFactor "PDTBFGTracer", 0.1
-	DamageFactor "LegMind", 0.0
+	//DamageFactor "LegMind", 0.0
 	DamageFactor "PlayerDevBall", 0.05
 	DamageFactor "PlayerDevBall2", 0.05
     DamageFactor "PlayerDTBFGRailgunSlug", 0.05
@@ -3206,7 +3206,7 @@ DamageFactor "PlayerDevBall2", 0.125
 DamageFactor "PlayerDTBFGRailgunSlug", 0.125
 DamageFactor "PlayerDevTracer", 0.125
 DamageFactor 0.75
-DamageFactor "Legendary", 0.0
+//DamageFactor "Legendary", 0.0
 MONSTER 
 +NOTIMEFREEZE
 +FLOORCLIP
@@ -3409,7 +3409,7 @@ Actor PossessedVelocirator : PossessedArchvile
   DropItem "Advanced Necronomicon" 180 1
   BloodColor "green"
   Species "Viles"
-  DamageFactor "VileFires", 0.0
+  //DamageFactor "VileFires", 0.0
   DamageFactor "PoP15K", 0.0
   Obituary "%o was atomized by a Velocirator Vile."
   Monster
@@ -3568,3 +3568,4 @@ Actor VelociratorWeapon : PossessedWeapon
 		Goto Ready
 	}
 }
+
