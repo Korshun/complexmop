@@ -2213,8 +2213,8 @@ Actor PossessedLegendarySentient : PossessedSpiderMastermind
 	Player.MorphWeapon "LegendarySentientWeapon"
 
     Health 5999
-    	Speed 0.04375 //15
-	Float	Speed 0.04375 //15
+    Speed 0.04375 //15
+	FloatSpeed 15
     PainChance 2
 	Scale 1.1
 	Radius 65
