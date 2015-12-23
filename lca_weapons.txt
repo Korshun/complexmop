@@ -2484,9 +2484,9 @@ Actor LegZombieWeapon : PossessedWeapon
 	States
 	{
 Missile:
-	LPOS EEEE 3 Bright A_GiveInventory("LegZombieStrafing",1)
-	LPOS E 3 Bright A_GiveInventory("LegZombieStrafing",1)
-	TNT1 A 0 A_GiveInventory("LegZombieStrafing",1)
+	LPOS EEEE 3 Bright //A_GiveInventory("LegZombieStrafing",1)
+	LPOS E 3 Bright //A_GiveInventory("LegZombieStrafing",1)
+	TNT1 A 0 //A_GiveInventory("LegZombieStrafing",1)
 	TNT1 A 0 //A_FireCustomMissile("LegendaryProjectile",Random(100,-100)/100.00,0,0,0)
 	LPOS F 3 Bright //A_PlaySoundEx("weapons/DemonTechRifle","Weapon")
 	TNT1 A 0 //A_Refire

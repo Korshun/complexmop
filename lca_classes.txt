@@ -5,7 +5,7 @@ Actor PossessedBFG10KGeneral : PossessedMonster
 Health 230
 Radius 20
 Height 56
-	Speed 0.35 //8
+Speed 0.35 //8
 Mass 100
 PainChance 95
 PainChance "GeneralTracer", 0
@@ -83,7 +83,7 @@ Actor PossessedBFGCacodemon : PossessedMonster
 	Height 44
 	Mass 400
 	Meleedamage 8
-		Speed 0.04375 //10
+	Speed 0.4375 //10
 	PainChance 128
 	Monster
 	+FLOAT
@@ -130,7 +130,7 @@ Actor PossessedCerebralCardinal : PossessedMonster
 {
 	Player.MorphWeapon "CerebralCardinalWeapon"
 
-  	Speed 0.04375 //10
+  Speed 0.4375 //10
   Height 100
   Radius 80
   Mass 90000
@@ -756,7 +756,7 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
   radius 20
   height 56
   mass 100
-  speed 8
+  Speed 0.35 //8
   painchance 55
   DropItem "Armorplate" 186 2
   DropItem "Portablemedkit" 159 2
@@ -860,7 +860,7 @@ Actor PossessedEraserZombie : PossessedMonster
   radius 20
   height 56
   mass 100
-  speed 8
+  Speed 0.35 //8
   painchance 170
   //DamageFactor "SoapOpera", 0.0 
   DropItem "Armorplate" 215 1
@@ -923,7 +923,7 @@ Actor PossessedHexa-ShotgunZombie : PossessedMonster
 Health 203
 Radius 20
 Height 56
-	Speed 0.04375 //10
+Speed 0.4375 //10
 Mass 100
 PainChance 50
 DropItem "PortableMedkit" 166
@@ -1018,7 +1018,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   //DamageFactor "CerChainguns", 0.0
   //DamageFactor "CerEnergyBall", 0.0
   DamageFactor 0.5
-  	Speed 0.04375 //19
+  Speed 0.83125 //19
   PainChance 1
   BloodColor "Blue"
   Monster
@@ -1630,7 +1630,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
   Radius 24
   Height 78
   Mass 1000
-  	Speed 0.35 //8
+  Speed 0.35 //8
   PainChance 45 
   Monster
   +NORADIUSDMG
@@ -1842,7 +1842,7 @@ Actor PossessedLegendaryImp : PossessedMonster
   Radius 20
   Height 56
   Mass 100
-  	Speed 0.35 //8
+  Speed 0.35 //8
   PainChance 50
   Monster
   MeleeDamage 15
@@ -1977,7 +1977,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   Radius 20
   Height 84
   Mass 1000
-  	Speed 0.04375 //12
+  Speed 0.525 //12
   PainChance 55
   Monster
   MeleeThreshold 196
@@ -2213,7 +2213,7 @@ Actor PossessedLegendarySentient : PossessedSpiderMastermind
 	Player.MorphWeapon "LegendarySentientWeapon"
 
     Health 5999
-    Speed 0.04375 //15
+    Speed 0.65625 //15
 	FloatSpeed 15
     PainChance 2
 	Scale 1.1
@@ -3073,7 +3073,7 @@ Actor PossessedLegZombie : PossessedMonster
 Health 999
 Radius 20
 Height 56
-	Speed 0.04375 //10
+Speed 0.4375 //10
 Mass 100
 PainChance 50
 PainChance "ZombieDemonTech", 0
@@ -3135,9 +3135,9 @@ See:
 	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn	
 Missile:
-	LPOS EEEE 3 Bright A_GiveInventory("LegZombieStrafing",1)
-	LPOS E 3 Bright A_GiveInventory("LegZombieStrafing",1)
-	TNT1 A 0 A_GiveInventory("LegZombieStrafing",1)
+	LPOS EEEE 3 Bright //A_GiveInventory("LegZombieStrafing",1)
+	LPOS E 3 Bright //A_GiveInventory("LegZombieStrafing",1)
+	TNT1 A 0 //A_GiveInventory("LegZombieStrafing",1)
 	TNT1 A 0 //A_FireCustomMissile("LegendaryProjectile",Random(100,-100)/100.00,0,0,0)
 	LPOS F 3 Bright //A_PlaySoundEx("weapons/DemonTechRifle","Weapon")
 	TNT1 A 0 //A_Refire
@@ -3155,7 +3155,7 @@ Health 1650
 Radius 24 
 Height 64 
 Mass 1000 
-	Speed 0.35 //8 
+Speed 0.35 //8 
 Species "Nobles"
 PainChance 20 
 DropItem "UltraSphere" 40 
@@ -3272,7 +3272,7 @@ Actor PossessedVelocirator : PossessedArchvile
 	Player.MorphWeapon "VelociratorWeapon"
 
   Health 1450
-  	Speed 0.04375 //16
+  Speed 0.7 //16
   DropItem "InvulnerabilitySphere" 55
   DropItem "BossLifeEssence" 210
   DropItem "BossArmorBonusMax" 210
