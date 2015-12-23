@@ -128,7 +128,7 @@ Actor PossessedBFGCacodemon : PossessedMonster
 		Goto Spawn
 	Melee:
          BFCD BC 5 
-		 BFCD D 5 A_MeleeAttack
+		 BFCD D 5 //A_CustomPunch(8)
 		 BFCD CB 5 
 		 Goto Spawn
 	}
@@ -1896,9 +1896,9 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	Goto Spawn	
  Melee:
     LNBL EF 6 Bright  
-    LNBL G 6 Bright A_MeleeAttack	
+    LNBL G 6 Bright //A_CustomPunch(16)	
 	LNBL ST 6 Bright  
-    LNBL U 6 Bright A_MeleeAttack	
+    LNBL U 6 Bright //A_CustomPunch(16)	
     Goto Spawn 	
   }
 }
