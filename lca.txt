@@ -2279,7 +2279,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   DashPunch:
 	TNT1 A 0 
     TNT1 A 0 A_Recoil(-65)
-    TNT1 A 0 A_SkelWhoosh	
+    TNT1 A 0 //A_PlaySound("skeleton/swing")	
 	LREV GGGGG 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	LREV HHHHH 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 A 0 //A_FireCustomMissile("LRDashPunch",0,CMF_AIMDIRECTION,0,0)
@@ -2287,7 +2287,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
 	LREV A 1 Bright A_Stop	
 	LREV A 1 Bright 
     TNT1 A 0 A_Recoil(-65)
-    TNT1 A 0 A_SkelWhoosh	
+    TNT1 A 0 //A_PlaySound("skeleton/swing")	
 	LREV RRRRR 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	LREV SSSSS 1 Bright A_SpawnItemEx("LRGhost",0,0,0,0,0,0,0,128)
 	TNT1 A 0 //A_FireCustomMissile("LRDashPunch",0,CMF_AIMDIRECTION,0,0)
