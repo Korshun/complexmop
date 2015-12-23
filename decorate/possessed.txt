@@ -47,7 +47,7 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "NobleComet", 0
 	DamageFactor "Nobles", 0
 	DamageFactor "Plasma", 0
-	DamageFactor "Players", 0
+	//DamageFactor "Players", 0
 	DamageFactor "SoapOpera", 0
 	DamageFactor "VileFires", 0
 	DamageFactor "WeakenerBall", 0
@@ -104,7 +104,7 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "NobleComet", 0
 	DamageFactor "Nobles", 0
 	DamageFactor "Plasma", 0
-	DamageFactor "Players", 0
+	//DamageFactor "Players", 0
 	DamageFactor "SoapOpera", 0
 	DamageFactor "VileFires", 0
 	DamageFactor "WeakenerBall", 0
