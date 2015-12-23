@@ -945,7 +945,7 @@ Actor PossessedEraserZombie : PossessedMonster
 	PYRZ F 2 Bright 
 	PYRZ F 2 Bright 
 	PYRZ F 2 Bright 
-	PYRZ F 2 Bright A_CustomMissile("ZombieDTBFG10KBall")
+	PYRZ F 2 Bright //A_FireCustomMissile("ZombieDTBFG10KBall",0,0)
 	PYRZ EE 35
     Goto Spawn
   }
@@ -3530,7 +3530,7 @@ See:
 	HIAB O 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB P 3 Bright 
     TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-	HIAB P 5 A_CustomMissile("VeloGhost")
+	HIAB P 5 //A_FireCustomMissile("VeloGhost",0,0)
     HIAB N 3 Bright 
 	HIAB P 5 Bright
     Goto Spawn
