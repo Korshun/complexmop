@@ -920,7 +920,7 @@ Actor PossessedEraserZombie : PossessedMonster
 	PYRZ F 2 Bright 
 	PYRZ F 2 Bright 
 	PYRZ F 2 Bright //A_FireCustomMissile("ZombieDTBFG10KBall",0,0)
-	PYRZ EE 35
+	PYRZ E 20
     Goto Spawn
   }
 }
