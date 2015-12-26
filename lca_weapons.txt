@@ -2532,7 +2532,7 @@ Actor LegZombieWeapon : PossessedWeapon
 	Fire:
 		TNT1 A 0 Bright Radius_Quake(4,2,0,1,0)
 		TNT1 A 0 Bright A_Light1
-		BTKF A 2 Bright A_FireCustomMissile("PlayerLegendaryProjectile",Random(100,-100)/100.00)
+		BTKF A 2 Bright A_FireCustomMissile("LegendaryProjectile",Random(100,-100)/100.00)
 		BTKF B 1 Bright A_Light2
 		BTKF B 1 Bright A_PlayWeaponSound("BlueDTRFire")
 		BTKF C 2 Bright A_Light0
