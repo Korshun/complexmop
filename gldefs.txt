@@ -752,12 +752,24 @@ OBJECT CardinalHomingRocketMOP
 Frame CBRKA { Light Missile1 }
 }
 
-OBJECT Legendary10KProjectileMOP 
+//=========================
+// Monster Projectiles LCA
+//=========================
+
+OBJECT LegendaryBallMOP
 {
-Frame LRAC { Light BFG9500EnergyBall1 }
+Frame LKB1A { Light LVoidBall1 }
+Frame LKB1B { Light LVoidBall1 }
+Frame LKB1C { Light LVoidBallExplode1 }
+Frame LKB1D { Light LVoidBallExplode2 }
+Frame LKB1E { Light LVoidBallExplode3 }
 }
 
-OBJECT LegendarySentient10KProjectileMOP
+OBJECT LegImpSeekBallMOP
 {
-Frame LRAC { Light BFG9500EnergyBall1 }
+Frame LIM1A { Light LegImpSeekBall1 }
+Frame LIM1B { Light LegImpSeekBall1 }
+Frame LIM1C { Light LegImpSeekBallExplode1 }
+Frame LIM1D { Light LegImpSeekBallExplode2 }
+Frame LIM1E { Light LegImpSeekBallExplode3 }
 }

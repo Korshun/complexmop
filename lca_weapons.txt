@@ -1645,6 +1645,15 @@ Actor LegendaryImpWeapon : PossessedWeapon
 	}
 }
 
+Actor LegendaryBallMOP : LegendaryBall replaces LegendaryBall
+{
+	DamageType "Monster"
+}
+
+Actor LegImpSeekBallMOP : LegImpSeekBall replaces LegImpSeekBall
+{
+	DamageType "Monster"
+}
 
 Actor LegendaryRevenantWeapon : PossessedWeapon
 {

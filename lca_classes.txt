@@ -1877,7 +1877,7 @@ Actor PossessedLegendaryImp : PossessedMonster
 	TNT1 A 0 Bright //A_FireCustomMissile("LegendaryBall", 5,0, 0)
 	TNT1 A 0 Bright //A_FireCustomMissile("LegendaryBall", -10,0, 0)
 	TNT1 A 0 Bright //A_FireCustomMissile("LegendaryBall", 10,0, 0)
-	LEGM E 5 Bright
+	LEGN E 5 Bright
 	Goto Spawn
   Seeker:
 	LEGN EF 10 Bright 
