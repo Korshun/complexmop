@@ -855,7 +855,7 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
 	DEVZ F 2 Bright
     DEVZ F 0 //A_PlaySound ("devastator/fire")
     DEVZ F 10 Bright A_MissileAttack
-    DEVZ E 50
+    DEVZ E 20
     Goto Spawn
   }
 }
