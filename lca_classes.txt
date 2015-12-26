@@ -1688,28 +1688,28 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
   States
   {
   Spawn:
-    TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LNBL A 14 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL Z 14 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn
   See:
 	LNBL AA 3 Bright 
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,4)
-	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
 	LNBL BB 3 Bright 
-	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
     TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
 	LNBL CC 3 Bright 
-	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
 	LNBL DD 3 Bright 
-	TNT1 AAA 0 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
 	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
     Goto Spawn
@@ -1754,10 +1754,10 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
     Goto Spawn
   Hugger:
     LNBL RQ 9 Bright 
-	LNBL PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	LNBL PPPP 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL P 0 //A_FireCustomMissile("LegNobleBall3",0,0,20)
     LNBL P 0 Bright //A_FireCustomMissile("LegNobleBall3",0,0,-20)
-	LNBL PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	LNBL PPPP 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn	
   BlueComet:
     LNBL EF 7 Bright 
@@ -1780,21 +1780,21 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
     LNBL Q 1 Bright //A_PlaySound("lnoble/see")
 	LNBL Q 1 Bright 
 	LNBL Q 1 Bright A_SetUserVar("user_missile",0)
-    LNBL RRRR 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LNBL QQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LNBL RRRR 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	LNBL QQQQ 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
   Raging:
     LNBL Q 0 A_JumpIf(user_missile >= 28,"See")	 
     LNBL Q 0 A_SetUserVar("user_missile",user_missile+1)
     LNBL QQ 0 Bright //A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0)	
-    LNBL Q 4 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LNBL Q 4 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn
   BestAttack:
     LNBL Q 1 Bright //A_PlaySound("lnoble/see")
     LNBL P 2 Bright 
 	TNT1 A 0 //A_SetInvulnerable
-	LNBL PPPPPPPPPPPPPPPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	LNBL PPPPPPPPPPPPPPPPP 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL Q 2 Bright 
-	LNBL QQQQQQQQQQQQQQQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	LNBL QQQQQQQQQQQQQQQQQ 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LNBL R 2 Bright 
 	TNT1 A 0 //A_UnSetInvulnerable
     LNBL R 8 Bright //A_FireCustomMissile("LegNobleBall4",0,0,0)
@@ -1837,7 +1837,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 	TNT1 A 0 A_SpawnItemEx("HellKnightSummoner",0,0,20,30,0,0,225,0)
 	TNT1 A 0 A_SpawnItemEx("HellKnightSummoner",0,0,20,30,0,0,305,0)
 	LNBL P 25 Bright
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_ChangeFlag(Invulnerable,0)
 	TNT1 A 0 A_ChangeFlag(Reflective,0)
 	Goto Spawn	
@@ -1893,24 +1893,24 @@ Actor PossessedLegendaryImp : PossessedMonster
   States
   {
   Spawn:
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LEGN A 10 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGN Q 10 Bright 
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	Goto Spawn
   See:
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LEGN AA 3 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGN BB 3 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGN CC 3 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGN DD 3 Bright 
     TNT1 A 0 ACS_ExecuteAlways(5432,0,3)
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	Goto Spawn
   Missile:
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
@@ -1970,11 +1970,11 @@ Actor PossessedLegendaryImp : PossessedMonster
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
 	LEGN F 0 Bright 
 	LEGN FFFFF 2 Bright A_SpawnItem("LegImpLineSpawner",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LEGM F 6 Bright //A_FireCustomMissile("LegendaryImpBlueBall",0,0,0,0)
 	TNT1 A 0 Bright //A_PlaySound ("legimp/fiyabetch")
 	TNT1 A 0 //A_UnSetInvulnerable
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	Goto Spawn
   }
 }
@@ -2037,25 +2037,25 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   States
   {
   Spawn:
-  	LREV AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+  	LREV AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV A 10 Bright 
     Goto Spawn
   See:
     TNT1 A 0 ACS_ExecuteAlways(5432,0,7)
 	TNT1 A 0 A_ChangeFlag("NOPAIN",0)
 	TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV AAA 2 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV BBB 2 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV CCC 2 Bright 	
     TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV DDD 2 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV EEE 2 Bright 
-	TNT1 AAA 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LREV FFF 2 Bright 	
     Goto Spawn
   Missile:
@@ -2086,37 +2086,37 @@ Actor PossessedLegendaryRevenant : PossessedMonster
 	LREV J 1 Bright 
 	LREV J 1 Bright A_SetUserVar("user_missile",0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)	
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LREV J 0 
-    LREV J 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)		
+    LREV J 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)		
 	LREV J 0 A_ChangeFlag("NOPAIN",1)
     LREV J 0 //A_UnSetInvulnerable
   Raging:
@@ -3126,23 +3126,23 @@ Obituary "%o was obliterated by a Legendary Zombie."
 States
 {
 Spawn:
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     LPOS A 10 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LPOS Q 10 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn
 See:
     LPOS AABB 3 Bright 
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,1)
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LPOS CCDD 3 Bright 
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn	
 Missile:
 	LPOS EEEE 3 Bright //A_GiveInventory("LegZombieStrafing",1)
