@@ -7364,3 +7364,4 @@ Actor HitlerNoSuitWeapon : PossessedWeapon
 
 #include "lca_classes.txt"
 #include "lca_weapons.txt"
+#include "lca_projectiles.txt"

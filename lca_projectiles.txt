@@ -1,0 +1,30 @@
+Actor LegendaryBallMOP : LegendaryBall replaces LegendaryBall
+{
+	DamageType "Monster"
+}
+
+Actor LegImpSeekBallMOP : LegImpSeekBall replaces LegImpSeekBall
+{
+	DamageType "Monster"
+}
+
+Actor LegRevBall2MOP : LegRevBall2 replaces LegRevBall2
+{
+	DamageType "Monster"
+}
+	
+
+Actor LegRevBall3MOP : LegRevBall3 replaces LegRevBall3
+{
+	DamageType "Monster"
+}
+
+Actor LegRevSmallBall3MOP : LegRevSmallBall3 replaces LegRevSmallBall3
+{
+	DamageType "Monster"
+}
+
+Actor LRDashPunchMOP : LRDashPunch replaces LRDashPunch
+{
+	DamageType "Monster"
+}
