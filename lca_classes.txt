@@ -2281,16 +2281,6 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   }
 }
 
-Actor LegRevBall3MOP : LegRevBall3 replaces LegRevBall3
-{
-	DamageType "Monster"
-}
-
-Actor LegRevSmallBall3MOP : LegRevSmallBall3 replaces LegRevSmallBall3
-{
-	DamageType "Monster"
-}
-
 Actor PossessedLegendarySentient : PossessedSpiderMastermind
 {
 	Player.MorphWeapon "LegendarySentientWeapon"

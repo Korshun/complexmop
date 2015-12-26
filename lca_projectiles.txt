@@ -13,7 +13,6 @@ Actor LegRevBall2MOP : LegRevBall2 replaces LegRevBall2
 	DamageType "Monster"
 }
 	
-
 Actor LegRevBall3MOP : LegRevBall3 replaces LegRevBall3
 {
 	DamageType "Monster"
