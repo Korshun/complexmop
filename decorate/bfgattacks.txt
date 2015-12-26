@@ -93,4 +93,23 @@ Actor SentientBFG9500BallMOP : SentientBFG9500Ball replaces SentientBFG9500Ball
     }
 }
 
+ACTOR CacoBFG9500BallMOP : CacoBFG9500Ball replaces CacoBFG9500Ball
+{
+	FastSpeed 30
+	-THRUSPECIES
+	DamageType "WeakenerBall"
+	Decal BFG9500Lightning
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwave2", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("Kaboom11", 0, 0, random(0,360), 2, random(0,360))
+		BFE3 AB 8 Bright A_SpawnItemEx("GreenParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		BFE3 C 8 Bright A_BFGSpray("MonsterCustomSpray", 40, 1)
+		BFE3 DEF 8 Bright
+		Stop
+	}
+}
+
 

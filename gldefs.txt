@@ -773,3 +773,14 @@ Frame LIM1C { Light LegImpSeekBallExplode1 }
 Frame LIM1D { Light LegImpSeekBallExplode2 }
 Frame LIM1E { Light LegImpSeekBallExplode3 }
 }
+
+OBJECT CacoBFG9500Ball
+{
+Frame BFS3 { Light BFG9500Ball1 }
+Frame BFE3A { Light BFG9500BallExplode1 }
+Frame BFE3B { Light BFG9500BallExplode2 }
+Frame BFE3C { Light BFG9500BallExplode3 }
+Frame BFE3D { Light BFG9500BallExplode4 }
+Frame BFE3E { Light BFG9500BallExplode5 }
+Frame BFE3F { Light BFG9500BallExplode6 }
+}
