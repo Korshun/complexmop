@@ -57,6 +57,7 @@ Actor CerebralCardinalWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "CyberRockets")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "CyberHomingRockets")
@@ -754,6 +755,7 @@ Actor LegendaryCyberdemonWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "LegendaryASG")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Finder")
@@ -1310,6 +1312,7 @@ Actor LegendaryHellKnightWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Spread")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Hugger")
@@ -1447,6 +1450,7 @@ Actor LegendaryImpWeapon : PossessedWeapon
 	States
 	{
  Fire:
+  	TNT1 A 0 A_GunFlash
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeker")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Super")
@@ -1520,6 +1524,7 @@ Actor LegendaryRevenantWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
   	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BestAttack")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Rage")
@@ -1685,6 +1690,7 @@ Actor LegendarySentientWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "LegBFG9K")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "LegBFG10K")
@@ -2495,6 +2501,7 @@ Actor PhaseOverlordWeapon : PossessedWeapon
 	States
 	{
 Fire:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "PhazoLaser")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Spread")
@@ -2564,6 +2571,7 @@ Actor VelociratorWeapon : PossessedWeapon
 	States
 	{
 Fire:
+  	TNT1 A 0 A_GunFlash
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Summon")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Floor")
