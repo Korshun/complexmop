@@ -1936,7 +1936,6 @@ Fire:
 	TNT1 A 0 A_JumpIfInventory("Attack9", 1, "LegendaryStorm")
 	Goto Ready
 Normal:
-	Goto Cannon
 	TNT1 A 0 //A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
 	TNT1 A 2 Bright 
 	TNT1 A 0 //A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
