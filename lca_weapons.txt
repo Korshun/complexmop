@@ -2435,13 +2435,13 @@ LegDTBFG10K:
 	Goto Ready
 Cannon:
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	TNT1 NNNNNNOO 4 Bright A_GiveInventory("LegSentientStrafe",1)
+	TNT1 NNNNNNOO 4 Bright 
 	TNT1 A 0 A_FireCustomMissile("LegSentientCannonBall", 0,0, 0)
-	TNT1 O 4 Bright A_GiveInventory("LegSentientStrafe",1)
+	TNT1 O 4 Bright 
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
-	TNT1 NNNNNNOO 4 Bright A_GiveInventory("LegSentientStrafe",1)
+	TNT1 NNNNNNOO 4 Bright 
 	TNT1 A 0 A_FireCustomMissile("LegSentientCannonBall", 0,0, 0)
-	TNT1 O 4 Bright A_GiveInventory("LegSentientStrafe",1)
+	TNT1 O 4 Bright 
 	Goto Ready	
 LegendaryBFG:
 	TNT1 A 0 //A_SpawnItem("LegSentientFireSpawner",0,0,0,0)
@@ -2658,7 +2658,7 @@ LegendaryBFG:
     TNT1 NN 2 Bright 
     Goto Ready
 LegendaryStorm:
-    TNT1 NNNN 4 Bright A_GiveInventory("LegSentientStrafe",1)
+    TNT1 NNNN 4 Bright 
     TNT1 A 0 
     TNT1 A 0 A_PlaySound("sentient/laugh",5)  
 	TNT1 NN 4 Bright A_GiveInventory("LegSentientStrafe3",1)
