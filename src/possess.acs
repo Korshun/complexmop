@@ -37,6 +37,16 @@ script mop_possess (void)
 	
 	int flags = MonsterTypes[type][MONSTER_FLAGS] - MAGIC;
 	
+	// Bydlofix for flags.
+	if (flags == -78)
+		flags = MONSTF_FLYING | MONSTF_BOSS;
+	else if (flags == 3)
+		flags = MONSTF_LEGENDARY;
+	else if (flags == 4)
+		flags = MONSTF_FLYING | MONSTF_LEGENDARY;
+	else if (flags == -77)
+		flags = MONSTF_LEGENDARY | MONSTF_BOSS;
+	
 	int frags = MopFrags[player-1000];
 	int required = GetCVar("mop_possfrags_bosses");
 	if (flags & MONSTF_BOSS)
