@@ -130,6 +130,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "KSBehemoth",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "KSBehemoth2",			0.2 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_FLYING, "Flying Behemoth", "KSFAA1" },
 	{ "NewBarbatos",			0.2 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	{ "Demobus",				0.2, 0, 0, 0, "Demobus", "BFATA1" },
 	
 	// Revenants.
 	{ "Guardian",				0.2, 0, 0, 0, "Guardian", "SKELA1D1" },
