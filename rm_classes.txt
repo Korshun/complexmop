@@ -1,7 +1,7 @@
 ACTOR Abaddon 
 {
 Health 650
-Speed 8
+Speed 0.35 //8
 FloatSpeed 5
 Radius 30
 Height 56
@@ -55,7 +55,7 @@ Melee:
 Actor PossessedAfrit : PossessedBaronOfHell
 { 
 Health 1200
-Speed 8
+Speed 0.35 //8
 PainChance 30
 PainChance "SoulToxic", 20
 PainChance "FatFlamer", 20
@@ -172,7 +172,7 @@ Actor PossessedAgaures : PossessedImp
   Radius 20
   Height 56
   Mass 500
-  Speed 10
+  Speed 0.4375 //10
   PainChance 80
   MeleeDamage 4
   DropItem "LifeEssence" 100
@@ -224,7 +224,7 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
   Health 1200
   PainChance 70
   Scale 1.2
-  Speed 13
+  Speed 0.56875 //13
   Radius 52
   SeeSound "minidemo/sight"
   ActiveSound "minidemo/active"
@@ -339,7 +339,7 @@ Actor PossessedBFGMastermind : PossessedSpidermastermind
       Mass 2000
 	  Scale 1.05
 	  Radius 65
-      Speed 18
+      Speed 0.7875 //18
       PainChance 30
       Monster
       +BOSS
@@ -507,7 +507,7 @@ DTBFG:
 Actor PossessedCacoLich : PossessedCacoDemon~
 {
 	Health 700
-	Speed 12
+	Speed 0.525 //12
 	Radius 31
 	Height 56
 	PainChance 96
@@ -591,8 +591,8 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 Actor PossessedCerebralSlayer : PossessedSpiderMastermind
 {
     Health 5700
-    Speed 15
-	FloatSpeed 15
+    Speed 0.65625 //15
+	FloatSpeed 0.65625 //15
     PainChance 17
 	PainChance "PDTBFG", 10
 	PainChance "SoulToxic", 5
@@ -998,7 +998,7 @@ Mass 2500
 Species "Cybers"
 +QUICKTORETALIATE
 +MISSILEEVENMORE
-Speed 18
+Speed 0.7875 //18
 DropItem "BossLifeEssence" 128 25
 DropItem "BossArmorBonusMax" 128 1
 DropItem "MissileBox" 128 20
@@ -1181,7 +1181,7 @@ FloorHugger:
 Actor PossessedDemolisherMkII : PossessedSpiderMastermind
 {
 Health 3500
-Speed 15
+Speed 0.65625 //15
 Radius 65
 PainChance 30
 Mass 2500
@@ -1269,9 +1269,9 @@ Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
   Health 4000 
   Radius 65
   Mass 2500 
-  Speed 12
+  Speed 0.525 //12
   Scale 1.1
-  FloatSpeed 12
+  FloatSpeed 0.525 //12
   PainChance 30
   MONSTER 
   +MISSILEEVENMORE
@@ -1426,7 +1426,7 @@ ACTOR DTShotgunZombie
 Health 199
 Radius 20
 Height 56
-Speed 8
+Speed 0.35 //8
 Mass 100
 PainChance 50
 DropItem "PortableMedkit" 166
@@ -1500,7 +1500,7 @@ Actor PossessedDTechSpider : PossessedArachnotron
   radius 26
   height 64
   mass 600
-  speed 12
+  Speed 0.525 //12
   Scale 1.2
   painchance 80
   BloodColor "DarkGreen"
@@ -1543,7 +1543,7 @@ ACTOR DemonTechTrooper 28913
 Health 180
 Radius 20
 Height 56
-Speed 8
+Speed 0.35 //8
 Mass 100
 PainChance 70
 Alpha 0.26
@@ -1592,7 +1592,7 @@ ACTOR EMinigunner
 Health 140
 Radius 20 
 Height 56 
-Speed 6
+Speed 0.2625 //6
 Mass 150
 PainChance 60
 MONSTER 
@@ -1645,7 +1645,7 @@ Actor FreezerSpider
   Radius 26
   Height 64
   Mass 600
-  Speed 12
+  Speed 0.525 //12
   Scale 1.2
   PainChance 30   
   BloodColor "cyan" 
@@ -1694,7 +1694,7 @@ Melee:
 Actor PossessedHellArchon : PossessedHellKnight
 { 
 Health 650
-Speed 8 
+Speed 0.35 //8 
 PainChance 50
 Mass 1000
 Bloodcolor Red
@@ -1915,7 +1915,7 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
   Mass 0x7FFFFFFF
   Radius 45
   Height 100
-  Speed 21
+  Speed 0.91875 //21
   Obituary "The HellFire Cyberdemon converted the Head of %o in one more of their trophies, now is a decoration in his home."
   PainChance 6
   PainChance "PDTBFG", 5
@@ -3215,7 +3215,7 @@ ACTOR HomingRocketZombie
    Radius 20
    Height 56
    Mass 100
-   Speed 8
+   Speed 0.35 //8
    PainChance 90
    Monster
    +FLOORCLIP
@@ -3260,7 +3260,7 @@ actor SuicideBomber
   radius 20
   height 56
   mass 150
-  speed 15
+  Speed 0.65625 //15
   painchance 20
   DropItem "PortableMedkit" 120
   DropItem "ArmorPlate" 120
@@ -3321,7 +3321,7 @@ ACTOR KSBehemoth2
 Health 1100
 PainChance 80
 Radius 26
-Speed 6
+Speed 0.2625 //6
 Height 64
 Mass 2000
 Monster
@@ -3384,7 +3384,7 @@ ACTOR Paladin
 	Radius 24
 	Height 64
 	Mass 1000
-	Speed 8
+	Speed 0.35 //8
 	PainChance 8
 	Monster
 	+FloorClip
@@ -3555,7 +3555,7 @@ Health 100
 Radius 16
 Height 56
 Mass 50
-Speed 8
+Speed 0.35 //8
 Damage 5
 PainChance 100
 Species "EleSouls"
@@ -3619,7 +3619,7 @@ Missile:
 Actor PossessedPhaseWarlord : PossessedHellKnight // phase imp carrier
 { 
 Health 1650
-Speed 10 
+Speed 0.4375 //10 
 PainChance 30
 Mass 1000
 BloodColor "cf 00 b0" 
@@ -3824,7 +3824,7 @@ Health 7100
 Radius 28 
 Height 86 
 Mass 0x7FFFFFFF
-Speed 13 
+Speed 0.56875 //13 
 PainChance 1
 Scale 1.4
 Monster
@@ -4265,7 +4265,7 @@ Nuke:
 Actor PossessedToxicImp : PossessedImp
 {
 	Health 200
-	Speed 9
+	Speed 0.39375 //9
 	PainChance 70
 	DropItem "LifeEssence" 100
 	DropItem "ArmorBonusMax" 100
@@ -4387,7 +4387,7 @@ BurstComet:
 Actor PossessedWidowMaker : PossessedGuardian 
 {
 	health 750
-	speed 10
+	Speed 0.4375 //10
 	painchance 60
 	+DONTHARMCLASS
     +DONTHARMSPECIES
