@@ -374,11 +374,11 @@ Actor PossessedBFGMastermind : PossessedSpidermastermind
         BFGD A 10 
         Goto Spawn
       See:
-        BFGD A 2 A_Metal
+        BFGD A 2 A_PlaySound("spider/walk")
         BFGD ABB 2 
-        BFGD C 2 A_Metal
+        BFGD C 2 A_PlaySound("spider/walk")
         BFGD CDD 2 
-        BFGD E 2 A_Metal
+        BFGD E 2 A_PlaySound("spider/walk")
         BFGD EFF 2 
         Goto Spawn
 Missile:
@@ -1209,11 +1209,11 @@ Spawn:
     	DEMO A 10 
     	Goto Spawn
 See:
-    	DEMO A 2 A_Metal 
+    	DEMO A 2 A_PlaySound("spider/walk") 
     	DEMO ABB 2  
-    	DEMO C 2 A_Metal 
+    	DEMO C 2 A_PlaySound("spider/walk") 
     	DEMO CDD 2  
-    	DEMO E 2 A_Metal 
+    	DEMO E 2 A_PlaySound("spider/walk") 
     	DEMO EFF 2  
     	Goto Spawn
 Missile:
@@ -1979,7 +1979,7 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
     HFCY ABBCC 3 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY D 3 Bright A_Metal
+    HFCY D 3 Bright A_PlaySound("spider/walk")
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
     HFCY D 3 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
@@ -2004,7 +2004,7 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostC",0,0,0,0,0,0,0,128)
 	HFCY C 2 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_Metal
+	TNT1 A 0 A_PlaySound("spider/walk")
 	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostC",0,0,0,0,0,0,0,128)
 	HFCY D 2 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
