@@ -3544,7 +3544,7 @@ ACTOR Paladin
        Loop 
 	See:
        TNT1 A 0 A_UnSetInvulnerable
-	   TNT1 A 0 A_ChangeFlag("FRIGHTENED",0)
+	   TNT1 A 0 
 	   TNT1 A 0 A_JumpIfCloser(128,"SeePanic")
        HPAL AABB 3 A_Chase
 	   TNT1 A 0 A_PlaySound("monster/bruwlk")
@@ -3559,23 +3559,23 @@ ACTOR Paladin
 	   TNT1 A 0 A_Jump (96,"See")
 	   Goto SeeShield
 	SeePanic:
-		TNT1 A 0 A_ChangeFlag("FRIGHTENED",1)
+		TNT1 A 0 
 		HPAL AABB 3 A_Chase
 		TNT1 A 0 A_PlaySound("monster/bruwlk")
 		HPAL CCDD 3 A_Chase
 		TNT1 A 0 A_PlaySound("monster/bruwlk")
 		TNT1 A 0 A_JumpIfCloser(128,"SeePanic")
-		TNT1 A 0 A_ChangeFlag("FRIGHTENED",0)
+		TNT1 A 0 
 		Goto See
 	Melee:
 		TNT1 A 0 A_UnSetInvulnerable
-		TNT1 A 0 A_ChangeFlag("FRIGHTENED",0)
+		TNT1 A 0 
 		HPAL MN 6 A_FaceTarget
 		HPAL O 6 A_CustomMeleeAttack(random(1,10)*4,"Paladin/Melee","Paladin/Swing")
 		Goto See
 	Missile:
 		TNT1 A 0 A_UnSetInvulnerable
-		TNT1 A 0 A_ChangeFlag("FRIGHTENED",0)
+		TNT1 A 0 
 		HPAL A 1 A_JumpIfCloser(300,"Grenadier")
 		TNT1 A 0 A_Jump(128,"Rocket","Railgun","BFG10K")
 	Normal:
