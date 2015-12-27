@@ -246,9 +246,9 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
     DMSP A 10 
     Goto Spawn
   See:
-    DMSP A 2 A_BabyMetal
+    DMSP A 2 A_PlaySound("baby/walk")
     DMSP ABBCC 2 
-    DMSP D 2 A_BabyMetal
+    DMSP D 2 A_PlaySound("baby/walk")
     DMSP DEEFF 2 
    Goto Spawn
   Missile:
@@ -1524,9 +1524,9 @@ Actor PossessedDTechSpider : PossessedArachnotron
     DTSD A 10 
     Goto Spawn
   See:
-    DTSD A 2 A_BabyMetal
+    DTSD A 2 A_PlaySound("baby/walk")
     DTSD ABBCC 2 
-    DTSD D 2 A_BabyMetal
+    DTSD D 2 A_PlaySound("baby/walk")
     DTSD DEEFF 2 
    Goto Spawn
   Missile:
@@ -1670,9 +1670,9 @@ Actor FreezerSpider
     ISPI A 10 
     Goto Spawn
   See:
-    ISPI A 2 A_BabyMetal
+    ISPI A 2 A_PlaySound("baby/walk")
     ISPI ABBCC 2 
-    ISPI D 2 A_BabyMetal
+    ISPI D 2 A_PlaySound("baby/walk")
     ISPI DEEFF 2 
     Goto Spawn
 Missile:
