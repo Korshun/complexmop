@@ -15,13 +15,13 @@ Actor AbaddonWeapon : PossessedWeapon
          TNT1 A 0 Bright A_FireCustomMissile("ABDBall",6,0,0,0,0,0)
          TNT1 D 1 Bright A_FireCustomMissile("ABDBall",-6,0,0,0,0,0)
          TNT1 CB 4 
-         Goto Spawn
+         Goto Ready
 Melee:
 	TNT1 A 0 A_GunFlash
          TNT1 BC 6 
 	     TNT1 D 4 Bright A_FireCustomMissile("HeleBall",0,0,0,0,0,0)
          TNT1 CB 4	
-	    Goto Spawn
+	    Goto Ready
          }
 }
 
@@ -34,7 +34,7 @@ Actor AfritWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Tracer")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		Goto Spawn
+		Goto Ready
 Normal:
 	  TNT1 A 0 Bright
       TNT1 S 6 Bright 
@@ -61,7 +61,7 @@ Normal:
 	  TNT1 A 0 Bright
 	  TNT1 U 1 Bright A_FireCustomMissile("AfritBall",0,0, 0, -3) 
 	  TNT1 A 0 Bright
-	  Goto Spawn
+	  Goto Ready
 Comet:
 	  TNT1 A 0 Bright
       TNT1 E 8 Bright 
@@ -73,7 +73,7 @@ Comet:
       TNT1 G 4 Bright A_FireCustomMissile("Comet",0,0, 0, -6)
 	  TNT1 A 0 Bright
       TNT1 G 6 Bright 
-	  Goto Spawn
+	  Goto Ready
 Tracer:
 	  TNT1 A 0 Bright
       TNT1 G 8 Bright 
@@ -88,7 +88,7 @@ Tracer:
       TNT1 E 1 Bright A_FireCustomMissile("AfritTracer",0,0,-40,0)
 	  TNT1 A 0 Bright
       TNT1 E 4 Bright 	
-      Goto Spawn
+      Goto Ready
 	}
 }
 
@@ -102,7 +102,7 @@ Actor AgauresWeapon : PossessedWeapon
     TNT1 G 0 A_FireCustomMissile("AgauresBall", 7,0, 0,0, 0, 0)
     TNT1 G 0 A_FireCustomMissile("AgauresBall", -7,0, 0,0, 0, 0)
     TNT1 G 3 BRIGHT A_FireCustomMissile("AgauresBall", 0,0, 0,0, 0, 0)
-    Goto Spawn
+    Goto Ready
   Melee:
 	TNT1 A 0 A_GunFlash
     TNT1 EF 5 
@@ -114,7 +114,7 @@ Actor AgauresWeapon : PossessedWeapon
 	TNT1 G 0 A_FireCustomMissile("SpeedyAgauresBall", 0,0, 0,0, 0, 0)
     TNT1 G 3 BRIGHT A_FireCustomMissile("SpeedyAgauresBall",10,0,0,0,0,0)
 	TNT1 EF 5 
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -133,7 +133,7 @@ Actor BabyDDemolisherWeapon : PossessedWeapon
     TNT1 A 0 Bright A_SpawnItemEx("RifleCasing", 8, -8, 18, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
     TNT1 R 2 Bright A_FireBullets(20.0, 0, 1, Random(1,5)*3, "BabyPuff")
     TNT1 A 0 
-    Goto Spawn
+    Goto Ready
   Melee:
 	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -148,7 +148,7 @@ Actor BabyDDemolisherWeapon : PossessedWeapon
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
     TNT1 H 4 Bright A_FireCustomMissile("BabyDemo10K",0,0,0,Random(4,-4)) 	
     TNT1 G 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -175,7 +175,7 @@ Actor DemobusWeapon : PossessedWeapon
        TNT1 A 0 Bright A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(0, 6))
        TNT1 H 8 Bright A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(7, 13))  
        TNT1 I 8
-       Goto Spawn
+       Goto Ready
 	}
 }
 
@@ -191,14 +191,14 @@ Actor BFGMastermindWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack6", 1, "DTBFG")
-		Goto Spawn
+		Goto Ready
 Normal:
      TNT1 H 2 Bright A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
 	 TNT1 H 0 Bright A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
 	 TNT1 H 0 Bright A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
      TNT1 G 2 Bright A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
      TNT1 A 0 
-     Goto Spawn
+     Goto Ready
 BFG9K:
 	    TNT1 A 0 A_PlaySound("weapons/bfgf")
         TNT1 G 15 Bright 
@@ -212,7 +212,7 @@ BFG9K:
 	    TNT1 H 8 Bright 
     	TNT1 H 4 Bright A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
 		TNT1 G 15 Bright
-    	Goto Spawn
+    	Goto Ready
 	 BFG15k:
 	    TNT1 A 0 A_PlaySound("weapons/charge15k")
 	    TNT1 G 18 Bright 
@@ -229,7 +229,7 @@ BFG9K:
 		TNT1 G 4 Bright 
 		TNT1 H 4 Bright A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
 		TNT1 G 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto Spawn
+		Goto Ready
 BFG10K:
 	    TNT1 A 0 A_PlaySound("weapons/charge15k")
 	    TNT1 G 18 Bright 
@@ -252,20 +252,20 @@ BFG10K:
 		TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 		TNT1 H 4 Bright A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))	
 		TNT1 G 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-        Goto Spawn
+        Goto Ready
 Railgun:
 	TNT1 A 0 A_PlaySound("weapons/rgcharge")
 	TNT1 GG 10 Bright 
 	TNT1 G 10 Bright 
 	TNT1 H 10 Bright A_FireCustomMissile("SpiderRail",0,0, 0, 0)
 	TNT1 G 15
-	Goto Spawn
+	Goto Ready
 DTBFG:
 	   TNT1 A 0 A_PlaySound("Cardinal/9k")
        TNT1 GGGGGGGGGGGGHH 3 Bright 
        TNT1 H 4 Bright A_FireCustomMissile("BFGSpiderDTBFGBall",0,0,0,0)
        TNT1 GGG 4 
-       Goto Spawn
+       Goto Ready
 	}
 }
 
@@ -279,7 +279,7 @@ Actor CacoLichWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
 		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Breath")
-		Goto Spawn
+		Goto Ready
 	Normal:
          TNT1 EF 6 
 		 TNT1 G 0 Bright A_FireCustomMissile("WatcherBall",0,0, 0, 0)
@@ -287,18 +287,18 @@ Actor CacoLichWeapon : PossessedWeapon
          TNT1 G 6 Bright A_FireCustomMissile("WatcherBall",0,0, 0, -4)
          TNT1 G 6 
          TNT1 G 0
-         Goto Spawn
+         Goto Ready
 	 Seeking:
          TNT1 B 6 
 	     TNT1 A 0 A_FireCustomMissile("CacoLichBall",16,0,0,0,0,0)
 	     TNT1 C 4 Bright A_FireCustomMissile("CacoLichBall",-16,0,0,0,0,0)
          TNT1 CD 4	
-	     Goto Spawn
+	     Goto Ready
      Comet:
          TNT1 EF 6 
 	     TNT1 G 5 Bright A_FireCustomMissile("LichComet",0,0,0,0,0,0)
          TNT1 GG 4
-	     Goto Spawn
+	     Goto Ready
       Melee:
 	TNT1 A 0 A_GunFlash
 		TNT1 EF 4 Bright  
@@ -323,7 +323,7 @@ Actor CacoLichWeapon : PossessedWeapon
 		TNT1 A 0 Bright 
 		TNT1 F 3 Bright A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
 		TNT1 FG 3
-		Goto Spawn
+		Goto Ready
 	}
 }
 
@@ -341,7 +341,7 @@ Actor CerebralSlayerWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "DTBFG10K")
 		TNT1 A 0 A_JumpIfInventory("Attack6", 1, "PyroCannon")
 		TNT1 A 0 A_JumpIfInventory("Attack7", 1, "ThirdEye")
-		Goto Spawn
+		Goto Ready
 Normal:
 	TNT1 A 0
 	TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
@@ -355,7 +355,7 @@ Normal:
 	TNT1 C 3 Bright A_FireCustomMissile("SentientExplosiveTracer",Random(-800,800)/100.00,0,0,0,0)
 	TNT1 A 0 A_StopSoundEx("Weapon")	
     TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 BFG9K:
 	TNT1 A 0
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
@@ -436,7 +436,7 @@ BFG9K:
 	TNT1 A 0
 	TNT1 B 2 Bright A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
 	TNT1 AAAAAAA 2 Bright
-	Goto Spawn
+	Goto Ready
 Railgun:
 	TNT1 A 0 A_PlaySound("weapons/rgcharge")
 	TNT1 AA 2 Bright 
@@ -467,7 +467,7 @@ Railgun:
 	TNT1 A 0
 	TNT1 B 5 Bright A_FireCustomMissile("SpiderRail",0,0, 0, 0)
 	TNT1 A 15
-	Goto Spawn
+	Goto Ready
 BFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
 	TNT1 A 0
@@ -517,7 +517,7 @@ BFG10K:
 	TNT1 A 0
 	TNT1 C 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	TNT1 CCCCC 3 Bright
-	Goto Spawn
+	Goto Ready
 DTBFG10K:
 	TNT1 A 0
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
@@ -555,7 +555,7 @@ DTBFG10K:
 	TNT1 A 0
 	TNT1 B 2 Bright A_FireCustomMissile("SlayerDTBFGBall",0,0, 0, 0)
 	TNT1 BBBBBBBBBBBB 2 Bright
-	Goto Spawn
+	Goto Ready
 PyroCannon:
 	TNT1 A 0
 	TNT1 A 0 A_PlaySound("Cardinal/9k")
@@ -575,7 +575,7 @@ PyroCannon:
 	TNT1 A 0
 	TNT1 D 2 Bright A_FireCustomMissile("SlayerPyroShot",0,0, 0, 0)
 	TNT1 DDDDDDDDDDDD 2 Bright
-	Goto Spawn
+	Goto Ready
 ThirdEye:
     TNT1 A 0
 	TNT1 A 0 
@@ -647,7 +647,7 @@ ThirdEye:
 	TNT1 C 2 Bright A_FireCustomMissile("SlayerEyeBFG",0,0, 0, 0)
 	TNT1 A 0 
 	TNT1 AAAAAAAAAAAA 2 Bright
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -662,7 +662,7 @@ Actor CorruptedCyberLordWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
 		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Railgun")
-		Goto Spawn
+		Goto Ready
 Normal:
         TNT1 E 8 
         TNT1 A 0 Bright A_FireCustomMissile("BCyberLordRocket",0,0, 26, 0)
@@ -674,7 +674,7 @@ Normal:
         TNT1 A 0 Bright A_FireCustomMissile("BCyberLordRocket",0,0, 26, 0)
         TNT1 F 6 Bright A_FireCustomMissile("BCyberLordRocket",0,0, -26, 0)
 		TNT1 E 8
-        Goto Spawn
+        Goto Ready
 Seekers:
 		TNT1 E 8 
         TNT1 A 0 Bright A_FireCustomMissile("BCyberLordHomer",0,0, 26, 0)
@@ -686,7 +686,7 @@ Seekers:
         TNT1 A 0 Bright A_FireCustomMissile("BCyberLordHomer",0,0, 26, 0)
         TNT1 F 6 Bright A_FireCustomMissile("BCyberLordHomer",0,0, -26, 0)
 		TNT1 E 8
-		Goto Spawn
+		Goto Ready
 FloorStomp:
         TNT1 G 10 
 		TNT1 A 0 
@@ -715,7 +715,7 @@ FloorStomp:
 		TNT1 A 0 A_FireCustomMissile("BlueAnniFireSpawner",45,0,0,0,0)
 		TNT1 B 2 A_FireCustomMissile("BlueAnniFireSpawner",-45,0,0,0,0)	
 		TNT1 B 20
-        Goto Spawn
+        Goto Ready
 Railgun:
 		TNT1 A 0 A_PlaySound("weapons/rgcharge")
         TNT1 EE 10 
@@ -723,7 +723,7 @@ Railgun:
 		TNT1 A 0 A_FireCustomMissile("BlueAnniRail",0,0,26,0)
         TNT1 F 10 Bright A_FireCustomMissile("BlueAnniRail",0,0,-26,0)
 		TNT1 E 15
-		Goto Spawn
+		Goto Ready
 BFG15K:
 	    TNT1 A 0 A_PlaySound("weapons/charge15k")
 	    TNT1 E 18 Bright 
@@ -746,7 +746,7 @@ BFG15K:
 		TNT1 A 0 A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
 		TNT1 F 4 Bright A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
 		TNT1 E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
-		Goto Spawn
+		Goto Ready
 	}
 }
 
@@ -759,7 +759,7 @@ Actor CryoDemonWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comet")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorHugger")
-		Goto Spawn
+		Goto Ready
 Normal:
         TNT1 EF 7 Bright  
 		TNT1 G 1 Bright A_FireCustomMissile("CBall",0,0, 0, 0)		
@@ -769,15 +769,15 @@ Normal:
 		TNT1 K 1 Bright A_FireCustomMissile("CBall",0,0, 0, 0)		
 		TNT1 A 0 Bright A_FireCustomMissile("CBall",0,0, 0, -5)
 		TNT1 K 5 Bright A_FireCustomMissile("CBall",0,0, 0, 5)		
-        Goto Spawn
+        Goto Ready
 Comet:
         TNT1 MN 8 Bright  	
         TNT1 O 7 Bright A_FireCustomMissile("CryoComet",0,0,0,0,0)	
-        Goto Spawn
+        Goto Ready
 FloorHugger:
         TNT1 MN 8 Bright  	
         TNT1 O 8 Bright A_FireCustomMissile("CIceSpikeSpawner",0,0,0,0,0)	
-		Goto Spawn
+		Goto Ready
 	}
 }
 
@@ -790,7 +790,7 @@ Actor DemolisherMkIIWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG9K")
-		Goto Spawn
+		Goto Ready
 Normal:
 		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
 		TNT1 A 0 A_PlaySound("weapons/12gaugefire")
@@ -802,7 +802,7 @@ Normal:
 		TNT1 H 4 Bright A_FireBullets(22.5, 0, 3, Random(1,5), "BulletPuff")
 		TNT1 A 0 A_PlaySound("monsters/darkmasterwind2")			
     	TNT1 A 0 
-    	Goto Spawn
+    	Goto Ready
 BFG15K:
 	    TNT1 A 0 A_PlaySound("weapons/charge15k")
 	    TNT1 T 18 Bright 
@@ -819,7 +819,7 @@ BFG15K:
 		TNT1 T 4 Bright 
 		TNT1 U 4 Bright A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
 		TNT1 T 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto Spawn
+		Goto Ready
 BFG9K:
 	    TNT1 A 0 A_PlaySound("weapons/bfgf")
         TNT1 T 15 Bright 
@@ -827,7 +827,7 @@ BFG9K:
 	    TNT1 U 8 Bright 
     	TNT1 U 4 Bright A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
 		TNT1 T 15 Bright
-    	Goto Spawn
+    	Goto Ready
 	}
 }
 
@@ -840,7 +840,7 @@ Actor DemolisherMkIIRevengeWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
-		Goto Spawn
+		Goto Ready
 Normal:
 	TNT1 A 0
 	TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
@@ -854,7 +854,7 @@ Normal:
 	TNT1 D 4 Bright A_FireBullets(22.5, 0, 3, Random(1,5), "BulletPuff")
 	TNT1 A 0 A_StopSoundEx("Weapon")	
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 BFG9K:
 	TNT1 A 0
 	TNT1 A 0 A_PlaySound("weapons/bfgf")
@@ -896,7 +896,7 @@ BFG9K:
 	TNT1 A 0
 	TNT1 L 2 Bright A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
 	TNT1 KKKKKKK 2 Bright
-	Goto Spawn
+	Goto Ready
 BFG10K:
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
 	TNT1 A 0
@@ -946,7 +946,7 @@ BFG10K:
 	TNT1 A 0
 	TNT1 K 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	TNT1 KKKKK 3 Bright
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -973,7 +973,7 @@ Actor DTShotgunZombieWeapon : PossessedWeapon
 	TNT1 E 8 A_PlaySound("Weapons/ErasusPump")
     TNT1 A 0 A_SpawnItemEx("ShellCasing", -8, 0, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 	TNT1 E 8
-    Goto Spawn
+    Goto Ready
 Melee:
 	TNT1 A 0 A_GunFlash
     TNT1 E 15 
@@ -984,7 +984,7 @@ Melee:
 	TNT1 E 8 A_PlaySound("Weapons/ErasusPump")
     TNT1 A 0 A_SpawnItemEx("ShellCasing", -8, 0, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 	TNT1 E 8
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -998,7 +998,7 @@ Fire:
 	TNT1 A 0 A_FireCustomMissile("DTSDemonTechProjectile",Random(150,-150)/100.00,0,0,0,0)
 	TNT1 H 2 Bright A_PlaySoundEx("weapons/demontechfire","Weapon")
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -1014,7 +1014,7 @@ Fire:
 	TNT1 A 0 
     TNT1 A 0 
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -1033,7 +1033,7 @@ Actor EMinigunnerWeapon : PossessedWeapon
         TNT1 A 0 Bright A_SpawnItemEx("OrangeShellCasing", 12, 6, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 		TNT1 A 0 A_StopSoundEx("Weapon")
         TNT1 A 0 
-        Goto Spawn
+        Goto Ready
 	}
 }
 
@@ -1047,7 +1047,7 @@ Fire:
     TNT1 G 1 Bright A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(8,-8))
     TNT1 H 3 Bright A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(6,-6))
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 Melee:
 	TNT1 A 0 A_GunFlash
     TNT1 A 15 
@@ -1055,7 +1055,7 @@ Melee:
     TNT1 G 1 Bright 
     TNT1 H 5 Bright A_FireCustomMissile("SpiderFreezeBomb",0,0,0,0)
 	TNT1 A 5 
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -1068,7 +1068,7 @@ Actor HellArchonWeapon : PossessedWeapon
         TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "FastBall")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		Goto Spawn
+		Goto Ready
 	Normal:
         TNT1 EF 5 Bright  
         TNT1 G 0 Bright A_FireCustomMissile("HABall",0,0, 0, 0) 
@@ -1078,7 +1078,7 @@ Actor HellArchonWeapon : PossessedWeapon
         TNT1 K 0 Bright A_FireCustomMissile("HABall",0,0, 0, 0)
 		TNT1 K 0 Bright A_FireCustomMissile("HABall",0,0, 0, 6)
 		TNT1 K 5 Bright A_FireCustomMissile("HABall",0,0, 0, -6)
-        Goto Spawn
+        Goto Ready
 	FastBall:
         TNT1 EF 5 Bright  
         TNT1 G 0 Bright A_FireCustomMissile("ArchonFastBall",0,0, 0, 0)
@@ -1086,11 +1086,11 @@ Actor HellArchonWeapon : PossessedWeapon
         TNT1 IJ 5 Bright 
 		TNT1 K 0 Bright A_FireCustomMissile("ArchonFastBall",0,0, 0, 0) 
         TNT1 K 5 Bright A_FireCustomMissile("ArchonFastBall",0,0, 0, -6)
-        Goto Spawn
+        Goto Ready
 	Comet:
         TNT1 MN 8 Bright  	
         TNT1 O 7 Bright A_FireCustomMissile("HAComet",0,0, 0, 0)		
-		Goto Spawn
+		Goto Ready
 	}
 }
 
@@ -1105,7 +1105,7 @@ Actor HellFireBaronWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
 		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Tracers")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Spread")
-		Goto Spawn
+		Goto Ready
 Normal:
     TNT1 EF 6 Bright 
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
@@ -1118,7 +1118,7 @@ Normal:
 	TNT1 A 0 Bright A_FireCustomMissile("HFBall",0,0, 0, -5)
 	TNT1 G 3 Bright A_FireCustomMissile("HFBall",0,0, 0, 5)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
+	Goto Ready
 Spread:
 	TNT1 KL 8 
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
@@ -1140,7 +1140,7 @@ Spread:
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
 	TNT1 M 7 Bright A_FireCustomMissile("HFBall",0,0, 0, -12)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
+	Goto Ready
 GiantBalls:
     TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
     TNT1 EF 8 
@@ -1154,7 +1154,7 @@ GiantBalls:
 	TNT1 J 0 Bright A_FireCustomMissile("BBall2",0,0, 0, 5)
 	TNT1 J 7 Bright A_FireCustomMissile("BBall2",0,0, 0, -5)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
+	Goto Ready
 Comet:
     TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
     TNT1 EF 6 Bright 
@@ -1170,7 +1170,7 @@ Comet:
 	TNT1 A 0 Bright A_FireCustomMissile("Comet",0,0, 0, -5)
 	TNT1 G 3 Bright A_FireCustomMissile("Comet",0,0, 0, 5)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
+	Goto Ready
 Tracers:
     TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
     TNT1 ML 8 	
@@ -1181,7 +1181,7 @@ Tracers:
 	TNT1 K 0 Bright A_FireCustomMissile("HFBaronTracer",0,0, 0, 10)
 	TNT1 K 8 Bright A_FireCustomMissile("HFBaronTracer",0,0, 0, -10)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -1203,7 +1203,7 @@ Actor HFCyberdemonWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack10", 1, "PyroShot")
 		TNT1 A 0 A_JumpIfInventory("Attack11", 1, "SoulsStorm")
 		TNT1 A 0 A_JumpIfInventory("Attack12", 1, "UltimateCombo")
-		Goto Spawn
+		Goto Ready
 Rockets:
     TNT1 A 0
     TNT1 E 4 
@@ -1247,7 +1247,7 @@ Rockets:
     TNT1 F 3 Bright A_FireCustomMissile("HFCyberRocket",0,0,-26,Random(-6,6))
 	TNT1 A 0
     TNT1 E 4 	
-    Goto Spawn
+    Goto Ready
 Seekers:
     TNT1 A 0
     TNT1 E 4 
@@ -1291,7 +1291,7 @@ Seekers:
     TNT1 F 3 Bright A_FireCustomMissile("CyberSeekingComet",0,0,-26,Random(-6,6))
 	TNT1 A 0
     TNT1 E 4 
-	Goto Spawn
+	Goto Ready
 	FireGrenades:
     TNT1 E 4 
 	TNT1 A 0
@@ -1324,7 +1324,7 @@ Seekers:
 	TNT1 A 0
     TNT1 F 3 Bright A_FireCustomMissile("HFCyberFireballs2",0,0,-26,Random(-6,6))
     TNT1 E 4 	
-	Goto Spawn
+	Goto Ready
 	Stomp:
 	    TNT1 A 0 
 		TNT1 G 5 
@@ -1337,7 +1337,7 @@ Seekers:
 		TNT1 A 0 
 		TNT1 A 0 A_FireCustomMissile("HFCyberStomp",0,0,0,0,0)
 	    TNT1 B 7
-		Goto Spawn
+		Goto Ready
 	FloorStomp:
     TNT1 G 10 
     TNT1 A 0 
@@ -1366,7 +1366,7 @@ Seekers:
 	TNT1 A 0 A_FireCustomMissile("HellCyberFireSpawner2",45,0,0,0,0)
 	TNT1 B 2 A_FireCustomMissile("hellCyberFireSpawner2",-45,0,0,0,0)	
 	TNT1 B 20
-    Goto Spawn
+    Goto Ready
 FuelRockets:
 	TNT1 E 18 Bright 
 	TNT1 A 0
@@ -1401,7 +1401,7 @@ FuelRockets:
 	TNT1 F 3 Bright A_FireCustomMissile("FuelRocket",0,0,-26,Random(-4, 4))
 	TNT1 E 4 	
 	TNT1 A 0
-	Goto Spawn
+	Goto Ready
 FireBalls:
     TNT1 A 0 A_PlaySound("weapons/charge15k")
     TNT1 A 0 
@@ -1450,7 +1450,7 @@ FireBalls:
 	TNT1 A 0
 	TNT1 E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 HF10K:
     TNT1 A 0 A_PlaySound("weapons/charge15k")
 	TNT1 E 18 Bright 
@@ -1495,7 +1495,7 @@ HF10K:
 	TNT1 A 0 A_PlaySound("weapons/bfg15kfire")
 	TNT1 F 3 Bright A_FireCustomMissile("Cardinal10K",0,0,-26,Random(-4, 4))
 	TNT1 E 20 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-	Goto Spawn
+	Goto Ready
 Railgun:
 	TNT1 A 0 A_PlaySound("weapons/rgcharge")
 	TNT1 A 0
@@ -1532,7 +1532,7 @@ Railgun:
     TNT1 F 4 Bright A_FireCustomMissile("CardinalRail",0,0,-26,Random(-2,3))
 	TNT1 A 0
 	TNT1 E 15
-	Goto Spawn
+	Goto Ready
 	PyroShot:
    	  TNT1 A 0 A_PlaySound("Cardinal/9k")
 	  TNT1 A 0 
@@ -1555,7 +1555,7 @@ Railgun:
 	  TNT1 A 0 
 	  TNT1 A 0 A_PlaySound("weapons/dtech10ksteam")
 	  TNT1 EEE 20 Bright A_SpawnItemEx("PyroCannonSteam", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-      Goto Spawn
+      Goto Ready
 SoulsStorm:
 	TNT1 A 3 Bright
 	TNT1 A 3 Bright 
@@ -1671,7 +1671,7 @@ SoulsStorm:
 	TNT1 B 5 Bright A_FireCustomMissile("FamineTracer2",0,0,-26,Random(-2,3))
 	TNT1 A 20 Bright
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 UltimateCombo:
 	TNT1 A 0 
 	TNT1 C 0 Bright A_PlaySoundEx("HFCyb/laugh2","Voice")
@@ -1876,7 +1876,7 @@ UltimateCombo:
 	TNT1 D 4 Bright A_FireCustomMissile("PyroShot",0,0, -26, 0)
 	TNT1 D 20 Bright
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 Hell:
       TNT1 G 3 Bright A_Pain
       TNT1 G 5 
@@ -2380,7 +2380,7 @@ Hell:
 	  TNT1 A 0 Bright
 	  TNT1 A 0 Bright 
       TNT1 BB 3 Bright
-	  Goto Spawn
+	  Goto Ready
 	}
 }
 
@@ -2393,7 +2393,7 @@ Actor HomingRocketZombieWeapon : PossessedWeapon
     TNT1 E 14 
     TNT1 F 6 Bright A_FireCustomMissile("ZombieHomingRocket",0,0, 0, 0)
 	TNT1 E 20 A_PlaySound("rocket/drumspin")
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -2428,7 +2428,7 @@ Actor KSBehemoth2Weapon : PossessedWeapon
        TNT1 A 0 A_FireCustomMissile("BehemothComet",0,0, 45, Random(-7, -12))
        TNT1 H 6 Bright A_FireCustomMissile("BehemothComet",0,0, -45, Random(7, 12))
        TNT1 FG 12
-       Goto Spawn
+       Goto Ready
 Melee:
 	TNT1 A 0 A_GunFlash
        TNT1 A 0 A_PlaySound("monsters/volattack")
@@ -2437,7 +2437,7 @@ Melee:
        TNT1 A 0 A_FireCustomMissile("BehemothSeekingComet",0,0, 45, -16)
        TNT1 H 6 Bright A_FireCustomMissile("BehemothSeekingComet",0,0, -45, 16)
        TNT1 FG 12    
-       Goto Spawn
+       Goto Ready
 	}
 }
 
@@ -2452,7 +2452,7 @@ Actor PaladinWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Rocket")
 		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG10K")
-		Goto Spawn
+		Goto Ready
 	Normal:
 		TNT1 A 0 
 		TNT1 KK 5       
@@ -2473,7 +2473,7 @@ Actor PaladinWeapon : PossessedWeapon
 		TNT1 L 2 Bright A_FireCustomMissile("PaladinBall",0,0,0,Random(-4,4))
 		TNT1 K 2 		
 		TNT1 A 0 
-		Goto Spawn
+		Goto Ready
 	Grenadier:
 	    TNT1 A 0 
 		TNT1 I 8 
@@ -2486,7 +2486,7 @@ Actor PaladinWeapon : PossessedWeapon
 		TNT1 A 0 A_PlaySound("Weapons/GrenadeFire")
 		TNT1 J 7 Bright A_FireCustomMissile("PaladinGrenade",0,0,0,Random(4,-4))	
 		TNT1 I 4 		
-		Goto Spawn
+		Goto Ready
 	Rocket:
 	    TNT1 A 0 
 		TNT1 I 12 
@@ -2500,14 +2500,14 @@ Actor PaladinWeapon : PossessedWeapon
 		TNT1 I 8 
 		TNT1 J 8 Bright A_FireCustomMissile("PaladinGrenade",0,0,0,2)	
 		TNT1 I 8 	
-		Goto Spawn
+		Goto Ready
 	Railgun:
 	    TNT1 A 0 
 		TNT1 A 0 A_PlaySound("weapons/rgcharge")
 		TNT1 IIIIIIIIIIIIIII 2 
 		TNT1 J 7 Bright A_FireCustomMissile("PaladinRail",0,0,8,Random(4,-4))	
 		TNT1 III 4 	
-		Goto Spawn
+		Goto Ready
 	BFG10K:
 	    TNT1 A 0 
 		TNT1 A 0 A_PlaySound("weapons/charge15k")
@@ -2525,7 +2525,7 @@ Actor PaladinWeapon : PossessedWeapon
 		TNT1 J 0 A_PlaySound("weapons/bfg15kfire")
 		TNT1 J 4 Bright A_FireCustomMissile("Paladin10K",0,0,0,Random(4,-4))		
 		TNT1 I 20 A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto Spawn
+		Goto Ready
 	}
 }
 
@@ -2542,14 +2542,14 @@ Actor PhaseElementalWeapon : PossessedWeapon
 		TNT1 F 0 Bright A_FireCustomMissile("PhaseEleBall",0,0, 0, -30)
 		TNT1 F 3 Bright A_FireCustomMissile("PhaseEleBall",0,0, 0, 30)
 		TNT1 ED 4
-		Goto Spawn
+		Goto Ready
 	Melee:
 	TNT1 A 0 A_GunFlash
 	    TNT1 A 0 
         TNT1 DE 5  
         TNT1 F 4 A_CustomPunch(5)
 	    TNT1 ED 3 
-        Goto Spawn
+        Goto Ready
 	}
 }		
 
@@ -2570,7 +2570,7 @@ Fire:
 	TNT1 C 2 Bright A_SkullAttack(23)
     TNT1 DD 2 Bright
 	TNT1 CC 2 Bright
-    Goto Spawn
+    Goto Ready
 	}
 }
 
@@ -2587,7 +2587,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "FloorHugger")
 		TNT1 A 0 A_JumpIfInventory("Attack6", 1, "DarkMatter")
 		TNT1 A 0 A_JumpIfInventory("Attack7", 1, "UltimateFloorHugger")
-		Goto Spawn
+		Goto Ready
 	Seekers:
         TNT1 EF 4 Bright  
         TNT1 G 0 Bright A_FireCustomMissile("PhaseArchonBall",0,0, 0, 0) 
@@ -2597,7 +2597,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
         TNT1 K 0 Bright A_FireCustomMissile("PhaseArchonBall",0,0, 0, 0)
 		TNT1 K 0 Bright A_FireCustomMissile("PhaseArchonBall",0,0, 0, 10)
 		TNT1 K 3 Bright A_FireCustomMissile("PhaseArchonBall",0,0, 0, -10)
-        Goto Spawn
+        Goto Ready
 	Spread:
 	    TNT1 A 0 
 	    TNT1 MN 5  
@@ -2624,7 +2624,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 	    TNT1 O 0 A_FireCustomMissile("PhazoFastShot",0,0,0,2)
 	    TNT1 O 0 A_FireCustomMissile("PhazoFastShot",0,0,0,-2)
         TNT1 O 4 A_FireCustomMissile("PhazoFastShot",0,0,0,0)
-        Goto Spawn
+        Goto Ready
 	Comets:
 	    TNT1 A 0 
         TNT1 MN 8 Bright  	
@@ -2635,7 +2635,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 		TNT1 O 0 Bright A_FireCustomMissile("PArchonComet2",0,0, 0, 6)
 		TNT1 A 0
         TNT1 O 7 Bright A_FireCustomMissile("PArchonComet2",0,0, 0, -6)	
-		Goto Spawn
+		Goto Ready
 	Seekers2:
         TNT1 QQ 5 Bright  
         TNT1 Q 0 Bright A_FireCustomMissile("PhaseArchonTracer",0,0, 0, 0) 
@@ -2645,7 +2645,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
         TNT1 Q 0 Bright A_FireCustomMissile("PhaseArchonTracer",0,0, 0, 0)
 		TNT1 Q 0 Bright A_FireCustomMissile("PhaseArchonTracer",0,0, 0, 6)
 		TNT1 Q 4 Bright A_FireCustomMissile("PhaseArchonTracer",0,0, 0, -6)
-        Goto Spawn
+        Goto Ready
 	DarkMatter:
 	    TNT1 A 0 A_PlaySound("PArchon/Sight2")
         TNT1 EF 10 Bright 
@@ -2659,7 +2659,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 		TNT1 G 0 Bright A_FireCustomMissile("DarkMatterBall",0,0, 0, 5) 
 		TNT1 K 8 Bright A_FireCustomMissile("DarkMatterBall",0,0, 0, -5)
 		TNT1 A 0 
-        Goto Spawn
+        Goto Ready
      FloorHugger:
         TNT1 MN 8 	
 	    TNT1 O 0 Bright A_FireCustomMissile("PhaseArchFire",0,0, 0, 0)
@@ -2667,7 +2667,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 	    TNT1 O 0 Bright A_FireCustomMissile("PhaseArchFire",0,0, 0, -5)
 	    TNT1 O 0 Bright A_FireCustomMissile("PhaseArchFire",0,0, 0, 10)
 	    TNT1 O 8 Bright A_FireCustomMissile("PhaseArchFire",0,0, 0, -10)
-        Goto Spawn
+        Goto Ready
 	UltimateFloorHugger:
 	    TNT1 A 0 A_PlaySound("PArchon/Sight2")
 		TNT1 A 0 
@@ -2719,7 +2719,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 	    TNT1 O 0 Bright A_FireCustomMissile("PhaseAFireSpawner",0,0, 0, 50)
 	    TNT1 O 15 Bright A_FireCustomMissile("PhaseAFireSpawner",0,0, 0, -50)
 		TNT1 A 0 
-        Goto Spawn
+        Goto Ready
 	}
 }
 
@@ -2739,7 +2739,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack8", 1, "PyroShot")
 		TNT1 A 0 A_JumpIfInventory("Attack9", 1, "DTDevastator")
 		TNT1 A 0 A_JumpIfInventory("Attack10", 1, "Nuke")
-		Goto Spawn
+		Goto Ready
 	Normal:   
 	   TNT1 G 2 Bright 
        TNT1 A 0 A_SpawnItemEx("OrangeShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
@@ -2748,7 +2748,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 H 2 Bright A_FireCustomMissile("TerminatorExplosiveTracer",0,0,-17,Random(-800,800)/100.00)
 	   TNT1 A 0 A_StopSoundEx("Weapon")	
        TNT1 A 0 
-	   Goto Spawn
+	   Goto Ready
 	Railgun:
 	   TNT1 A 0 A_PlaySound("weapons/rgcharge")
        TNT1 EEEEEEEEEEEEEEE 3 
@@ -2758,7 +2758,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
        TNT1 EE 4 
        TNT1 F 7 Bright A_FireCustomMissile("CardinalRail",0,0,17,Random(-3,3)) 
 	   TNT1 EE 4 
-       Goto Spawn
+       Goto Ready
 	BFG9K:
 	   TNT1 A 0 A_PlaySound("weapons/bfgf")
 	   TNT1 JJJJJJKKK 3 
@@ -2776,7 +2776,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 JJJJJJKKK 2 
        TNT1 K 2 Bright A_FireCustomMissile("TerminatorBFG9500Ball",0,0,-15,Random(-4,4))
        TNT1 J 4 	   
-       Goto Spawn
+       Goto Ready
 	BFG10K:
 	   TNT1 A 0 A_PlaySound("weapons/charge15k")
        TNT1 JJJJJJJJ 4 
@@ -2803,13 +2803,13 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 J 3 Bright A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	   TNT1 JJJJJ 3 	   
        TNT1 J 4 
-       Goto Spawn
+       Goto Ready
 	DTBFG:
 	   TNT1 A 0 A_PlaySound("Cardinal/9k")
        TNT1 EEEEEEEEEEEEFF 3 Bright 
        TNT1 FF 4 Bright A_FireCustomMissile("CardinalDTBFG10KBall",0,0,15,Random(-10,10))
        TNT1 EEE 4 
-       Goto Spawn
+       Goto Ready
     RedStar:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	   TNT1 A 0 
@@ -2845,7 +2845,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 F 0 A_PlayWeaponSound("star/fire")
 	   TNT1 F 7 Bright A_FireCustomMissile("TerminatorRedStar",0,0,17,0) 
 	   TNT1 E 8 	   
-       Goto Spawn
+       Goto Ready
     PlasmaMinigun:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	   TNT1 A 0 
@@ -2897,7 +2897,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 G 2 Bright 
 	   TNT1 H 2 Bright A_FireBullets(3,3,1,14,"TerminatorPlasmaPuff")
 	   TNT1 G 0 
-	   Goto Spawn
+	   Goto Ready
     PyroShot:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	   TNT1 A 0 
@@ -2924,7 +2924,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 	   TNT1 F 7 Bright A_FireCustomMissile("TerminatorPyroShot",0,0,17,0) 
 	   TNT1 E 8 
 	   TNT1 A 0 
-       Goto Spawn
+       Goto Ready
 DTDevastator:
     TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	TNT1 A 0 
@@ -3038,7 +3038,7 @@ DTDevastator:
     TNT1 F 10 Bright A_FireCustomMissile("TerminatorDevastator",0,0,17,0)
     TNT1 E 50
 	TNT1 A 0 
-    Goto Spawn
+    Goto Ready
 Nuke:
     TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, "Spawn")
     TNT1 A 0 
@@ -3075,7 +3075,7 @@ Nuke:
 	TNT1 EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 2 Bright 
 	TNT1 A 0 A_GiveInventory("Terminator2NukeToken", 1)
 	TNT1 A 0 
-	Goto Spawn
+	Goto Ready
 	}
 }
 
@@ -3091,7 +3091,7 @@ Actor ToxicImpWeapon : PossessedWeapon
 		TNT1 A 0 Bright A_PlaySound("imp/attack")
         TNT1 G 5 Bright A_FireCustomMissile("ToxicBall",0,0, 0, 0)
 		TNT1 FE 4
-        Goto Spawn
+        Goto Ready
     Melee:
 	TNT1 A 0 A_GunFlash
 	    TNT1 A 0
@@ -3100,7 +3100,7 @@ Actor ToxicImpWeapon : PossessedWeapon
         TNT1 G 5 A_CustomPunch(5)
 		TNT1 A 0
         TNT1 FE 5 		
-        Goto Spawn
+        Goto Ready
 	}
 }
 
@@ -3113,7 +3113,7 @@ Actor ToxicLordWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BurstComet")
-		Goto Spawn
+		Goto Ready
 Normal:
         TNT1 EF 6 Bright  
 		TNT1 G 1 Bright A_FireCustomMissile("PoisonBall",0,0, 0, 0)		
@@ -3123,19 +3123,19 @@ Normal:
 		TNT1 K 1 Bright A_FireCustomMissile("PoisonBall",0,0, 0, 0)		
 		TNT1 A 0 A_FireCustomMissile("PoisonBall",0,0, 0, -6)
 		TNT1 K 4 Bright A_FireCustomMissile("PoisonBall",0,0, 0, 6)		
-        Goto Spawn
+        Goto Ready
 GiantBalls:
 		TNT1 EF 7 Bright 
 		TNT1 G 6 Bright A_FireCustomMissile("DukeBall2",0,0, 0, 0)
 		TNT1 IJ 7 Bright 
 		TNT1 K 6 Bright A_FireCustomMissile("DukeBall2",0,0, 0, 0)
-		Goto Spawn
+		Goto Ready
 BurstComet:
         TNT1 AB 8 Bright 
         TNT1 C 2 Bright A_FireCustomMissile("TLordComet",0,0,0,0)
 		TNT1 A 0 A_FireCustomMissile("TLordComet",0,0,0,-10)
 		TNT1 C 5 Bright A_FireCustomMissile("TLordComet",0,0,0,10)
-        Goto Spawn
+        Goto Ready
 	}
 }
 
@@ -3148,7 +3148,7 @@ Actor WidowMakerWeapon : PossessedWeapon
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Autocannon")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "SeekMissile")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "SeekMissile2")
-		Goto Spawn
+		Goto Ready
   Autocannon:
     TNT1 EE 3 
 	TNT1 A 0 A_SpawnItemEx("ShellCasing", 0, 12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
@@ -3156,14 +3156,14 @@ Actor WidowMakerWeapon : PossessedWeapon
 	TNT1 A 0 A_FireBullets(22.5, 18.3, 4, Random(1,5), "WMPuff")
 	TNT1 F 4 Bright A_PlaySoundEx("AShotgun/Fire","Weapon")
     TNT1 A 0 
-	Goto Spawn
+	Goto Ready
   SeekFire:
     TNT1 EEEE 3 
 	TNT1 F 4 Bright A_FireCustomMissile("HellFireRocket",0,0,0,0)
 	TNT1 E 3 
 	TNT1 F 4 Bright A_FireCustomMissile("HellFireRocket",0,0,0,0)
 	TNT1 E 3 Bright
-	Goto Spawn
+	Goto Ready
   SeekMissile2:
     TNT1 G 1 
 	TNT1 G 5 
@@ -3181,6 +3181,6 @@ Actor WidowMakerWeapon : PossessedWeapon
 	TNT1 H 0 Bright A_FireCustomMissile("widowmakerMiniRockets",25,0,10,0,90) 
     TNT1 H 2 Bright 
 	TNT1 G 2
-    Goto Spawn
+    Goto Ready
 	}
 }
