@@ -31,16 +31,17 @@ Actor PuppetMaster : PlayerPawn
 	States
 	{
 	Spawn:
-		TNT1 A 1
+		TNT1 A 1 A_UnsetInvulnerable
 		goto Ready
 	Ready:
-		TNT1 A 1
+		TNT1 A 1 A_UnsetInvulnerable
 		loop
 	See:
+		TNT1 A 0 A_UnsetInvulnerable
 		TNT1 AAAAAAAAAA 2 A_SpawnItemEx ("MGhost",-20,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
 		Loop
 	Missile:
-		TNT1 A 1
+		TNT1 A 1 A_UnsetInvulnerable
 		goto Ready
 	Death:
 		TNT1 A 1 A_hidething

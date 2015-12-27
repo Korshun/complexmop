@@ -7367,3 +7367,5 @@ Actor HitlerNoSuitWeapon : PossessedWeapon
 #include "lca_projectiles.txt"
 
 #include "rm_classes.txt"
+#include "rm_projectiles.txt"
+#include "rm_monsters.txt"

@@ -194,7 +194,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "LegendaryCyberdemon",	6.0 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Cyberdemon", "CYBRZ1" },
 	// randommons
 	{ "CorruptedCyberLord",		6.0, 0, 0, MONSTF_BOSS, "Corrupted Annihilator", "4NNIA1C1" },
-	{ "Terminator2",			6.0, 0, 0, MONSTF_BOSS, "Terminator", "TERMA1" },
+	{ "Terminator2MOP",			6.0, 0, 0, MONSTF_BOSS, "Terminator", "TERMA1" },
 	
 	// Nazis.
 	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
@@ -223,7 +223,7 @@ script mop_count_monstertypes_cl OPEN CLIENTSIDE
 }
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 15
+#define NUM_MONSTER_ITEMS 16
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
@@ -245,6 +245,7 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	"HFCyberToken1",
 	"HFCyberToken2",
 	"HFCyberToken3",
+	"Terminator2NukeToken",
 };
 
 script mop_phaseimp (void)
