@@ -1975,7 +1975,7 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
     Goto Spawn
   See:
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY A 3 Bright A_Hoof
+    HFCY A 3 Bright //A_PlaySound("cyber/hoof")
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
     HFCY ABBCC 3 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
@@ -1985,7 +1985,7 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
     Goto Spawn
 	Rush:
-    TNT1 A 0 A_Hoof
+    TNT1 A 0 //A_PlaySound("cyber/hoof")
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
 	HFCY A 2 Bright 
 	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
