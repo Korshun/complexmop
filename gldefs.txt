@@ -801,3 +801,15 @@ OBJECT LegRevSmallBall3MOP
 Frame LRBA { Light LegRevBall2Light }
 Frame LRB3 { Light LegRevBall2Light }
 }
+
+//================================
+// Monster Projectiles Randommons
+//================================
+
+OBJECT CBallMOP
+{
+FRAME BAL2A {Light BlueBall}
+FRAME BAL2B {Light BlueBall}
+FRAME BAL2C {Light BlueBall}
+FRAME BAL2D {Light BlueBall}
+}

@@ -1,0 +1,4 @@
+Actor CBallMOP : CBall replaces CBall
+{
+	DamageType "MonsterIce"
+}
