@@ -21,6 +21,13 @@ MugShot "XDeath"
 
 StatusBar FullScreen, FullScreenOffsets
 {	
+	IsSelected "LegZombieWeapon"
+	{
+	DrawImage "SEWPA0", -40, -53;
+	DrawImage AmmoIcon1, -32, -6, CenterBottom;
+	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
+	}
+	
 	InInventory IsMarine
 	{
 
