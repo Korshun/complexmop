@@ -160,7 +160,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// lca
 	{ "PhaseOverlord",			0.2 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
 	// randommons
-	{ "Afrit",					0.2, 0, 0, 0, "Afrit", "AFRTA1" },
+	{ "Afrit",					0.2, 0, 0, MONSTF_FLYING, "Afrit", "AFRTA1" },
 	{ "HellFireBaron",			0.2, 0, 0, 0, "HellFire Baron", "HFBYA1" },
 	{ "Paladin",				0.2, 0, 0, 0, "Paladin", "HPALA1" },
 
