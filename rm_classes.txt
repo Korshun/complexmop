@@ -3763,7 +3763,7 @@ Missile:
 	}
 }
 
-Actor PossessedPhaseWarlord : PossessedHellKnight 31040 // phase imp carrier
+Actor PossessedPhaseWarlord : PossessedHellKnight // phase imp carrier
 { 
 Health 1650
 Speed 10 
