@@ -17,6 +17,7 @@ Actor AbaddonWeapon : PossessedWeapon
          ABDD CB 4 
          Goto Spawn
 Melee:
+	TNT1 A 0 A_GunFlash
          ABDD BC 6 
 	     ABDD D 4 Bright A_FireCustomMissile("HeleBall",0,0,0,0,0,0)
          ABDD CB 4	
@@ -103,6 +104,7 @@ Actor AgauresWeapon : PossessedWeapon
     AGUR G 3 BRIGHT A_FireCustomMissile("AgauresBall", 0,0, 0,0, 0, 0)
     Goto Spawn
   Melee:
+	TNT1 A 0 A_GunFlash
     AGUR EF 5 
 	AGUR G 0 A_FireCustomMissile("SpeedyAgauresBall", -10,0, 0,0, 0, 0)
 	AGUR G 0 A_FireCustomMissile("SpeedyAgauresBall", 0,0, 0,0, 0, 0)
@@ -133,6 +135,7 @@ Actor BabyDDemolisherWeapon : PossessedWeapon
     TNT1 A 0 
     Goto Spawn
   Melee:
+	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_PlaySound("weapons/charge15k")
     DMSP G 16 Bright 
 	DMSP G 6 Bright 
@@ -297,6 +300,7 @@ Actor CacoLichWeapon : PossessedWeapon
          CLIH GG 4
 	     Goto Spawn
       Melee:
+	TNT1 A 0 A_GunFlash
 		CLIH EF 4 Bright  
 		TNT1 A 0 Bright A_PlaySound("monster/psoattack")
 		CLIH G 3 Bright A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
@@ -971,6 +975,7 @@ Actor DTShotgunZombieWeapon : PossessedWeapon
 	ZPS1 E 8
     Goto Spawn
 Melee:
+	TNT1 A 0 A_GunFlash
     ZPS1 E 15 
 	TNT1 A 0 A_PlaySound("Weapons/ErasusFire")
 	TNT1 AAAAAAAA 0 Bright A_FireCustomMissile("RedDemonTechTracer",Random(6,-6),0,0,0,0)
@@ -1044,6 +1049,7 @@ Fire:
 	TNT1 A 0 
 	Goto Spawn
 Melee:
+	TNT1 A 0 A_GunFlash
     ISPI A 15 
     TNT1 A 0 A_PlaySound("weapons/iceshot")
     ISPI G 1 Bright 
@@ -2424,6 +2430,7 @@ Actor KSBehemoth2Weapon : PossessedWeapon
        KSFA FG 12
        Goto Spawn
 Melee:
+	TNT1 A 0 A_GunFlash
        TNT1 A 0 A_PlaySound("monsters/volattack")
        KSFA G 15     
        TNT1 A 0  
@@ -2537,6 +2544,7 @@ Actor PhaseElementalWeapon : PossessedWeapon
 		PELE ED 4
 		Goto Spawn
 	Melee:
+	TNT1 A 0 A_GunFlash
 	    TNT1 A 0 
         PELE DE 5  
         PELE F 4 A_CustomPunch(5)
@@ -3085,6 +3093,7 @@ Actor ToxicImpWeapon : PossessedWeapon
 		TIMP FE 4
         Goto Spawn
     Melee:
+	TNT1 A 0 A_GunFlash
 	    TNT1 A 0
         TIMP EF 5 
 		TNT1 A 0
