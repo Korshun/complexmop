@@ -3282,7 +3282,7 @@ actor SuicideBomber
     Goto Spawn
   See:
     ZBMB AAABBBCCCDDD 2 
-    ZBMB A 0 A_PlaySound("suicide/Goto Spawn
+    ZBMB A 0 A_PlaySound("suicide/loop")
     Goto Spawn
   Missile:
     ZBMB A 1 A_PlayWeaponSound("suicide/run")
