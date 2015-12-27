@@ -3,7 +3,7 @@ Actor AbaddonWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
          ABDD BC 6 
          ABDD D 2 Bright 
 		 ABDD D 1 Bright A_FireCustomMissile("ABDBall",0,0,0,0,0,0)
@@ -29,7 +29,7 @@ Actor AfritWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Tracer")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -96,7 +96,7 @@ Actor AgauresWeapon : PossessedWeapon
 {
 	States
 	{
-	  Missile:
+	  Fire:
     AGUR EF 5 
     AGUR G 0 A_FireCustomMissile("AgauresBall", 7,0, 0,0, 0, 0)
     AGUR G 0 A_FireCustomMissile("AgauresBall", -7,0, 0,0, 0, 0)
@@ -121,7 +121,7 @@ Actor BabyDDemolisherWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 	TNT1 A 0 Bright A_PlaySound("monsters/darkmasterwind2")
 	TNT1 A 0 Bright A_PlaySoundEx("weapons/minigunfire","Weapon")
 	TNT1 A 0 Bright A_FireCustomMissile("MonsterTracer",Random(5,-5),0,0,0,0)
@@ -155,7 +155,7 @@ Actor DemobusWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
        TNT1 A 0 A_PlaySound("weapons/charge15k")
        BFAT G 20     
        TNT1 A 0  	   
@@ -181,7 +181,7 @@ Actor BFGMastermindWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -271,7 +271,7 @@ Actor CacoLichWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -329,7 +329,7 @@ Actor CerebralSlayerWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -652,7 +652,7 @@ Actor CorruptedCyberLordWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
@@ -751,7 +751,7 @@ Actor CryoDemonWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comet")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorHugger")
@@ -782,7 +782,7 @@ Actor DemolisherMkIIWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG9K")
@@ -832,7 +832,7 @@ Actor DemolisherMkIIRevengeWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -952,7 +952,7 @@ Actor DTShotgunZombieWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
     ZPS1 E 15 
 	TNT1 A 0 A_PlaySound("Weapons/ErasusFire")
 	TNT1 A 0 Bright A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,0)
@@ -988,7 +988,7 @@ Actor DTechSpiderWeapon : PossessedWeapon
 {
 	States
 	{
-Missile:
+Fire:
 	DTSD G 2 
 	TNT1 A 0 A_FireCustomMissile("DTSDemonTechProjectile",Random(150,-150)/100.00,0,0,0,0)
 	DTSD H 2 Bright A_PlaySoundEx("weapons/demontechfire","Weapon")
@@ -1002,7 +1002,7 @@ Actor DemonTechTrooperWeapon : PossessedWeapon
 {
 	States
 	{
-Missile: 
+Fire: 
     HTF1 A 2 
     TNT1 A 0 A_FireCustomMissile("RedZDemonTechProjectile", Random(-8, 8),0, 0,0, 0)
 	HTF1 B 2 Bright A_PlaySoundEx("weapons/demontechfire","Weapon")
@@ -1018,7 +1018,7 @@ Actor EMinigunnerWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 	    TNT1 A 0 Bright A_PlaySoundEx("weapons/expmgunspin","Voice")
 		TNT1 A 0 A_PlaySound("sentient/fire")
 	    EMNG E 4 Bright A_FireCustomMissile("ZombieExplosiveTracer",Random(5,-5),0,0,0,0)
@@ -1037,7 +1037,7 @@ Actor FreezerSpiderWeapon : PossessedWeapon
 {
 	States
 	{
-Missile:
+Fire:
     TNT1 A 0 A_PlaySound("weapons/iceshot",6,5)
     ISPI G 1 Bright A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(8,-8))
     ISPI H 3 Bright A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(6,-6))
@@ -1058,7 +1058,7 @@ Actor HellArchonWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:  
+	Fire:  
         TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "FastBall")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -1093,7 +1093,7 @@ Actor HellFireBaronWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -1184,7 +1184,7 @@ Actor HFCyberdemonWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Stomp")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FireGrenades")
@@ -2383,7 +2383,7 @@ Actor HomingRocketZombieWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
     MMGY E 14 
     MMGY F 6 Bright A_FireCustomMissile("ZombieHomingRocket",0,0, 0, 0)
 	MMGY E 20 A_PlaySound("rocket/drumspin")
@@ -2407,7 +2407,7 @@ Actor KSBehemoth2Weapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
        TNT1 A 0 A_PlaySound("monsters/volattack")
        KSFA G 15     
        TNT1 A 0  
@@ -2439,7 +2439,7 @@ Actor PaladinWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Grenadier")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Rocket")
@@ -2527,7 +2527,7 @@ Actor PhaseElementalWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 	    TNT1 A 0 
 		PELE D 6 Bright  
 		PELE E 4 Bright	
@@ -2550,7 +2550,7 @@ Actor PhaseSoulWeapon : PossessedWeapon
 {
 	States
 	{
-Missile:
+Fire:
     TNT1 A 0 
 	TNT1 A 0 Bright
 	PSKU A 2 Bright 
@@ -2571,7 +2571,7 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comets")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Spread")
@@ -2720,7 +2720,7 @@ Actor Terminator2MOPWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Railgun")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG9K")
@@ -3076,7 +3076,7 @@ Actor ToxicImpWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 	    TNT1 A 0
         TIMP EF 6 
 		TNT1 A 0
@@ -3100,7 +3100,7 @@ Actor ToxicLordWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:  
+	Fire:  
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BurstComet")
@@ -3135,7 +3135,7 @@ Actor WidowMakerWeapon : PossessedWeapon
 {
 	States
 	{
-	Missile:
+	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Autocannon")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "SeekMissile")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "SeekMissile2")
@@ -3148,7 +3148,7 @@ Actor WidowMakerWeapon : PossessedWeapon
 	WDMK F 4 Bright A_PlaySoundEx("AShotgun/Fire","Weapon")
     TNT1 A 0 
 	Goto Spawn
-  SeekMissile:
+  SeekFire:
     WDMK EEEE 3 
 	WDMK F 4 Bright A_FireCustomMissile("HellFireRocket",0,0,0,0)
 	WDMK E 3 
