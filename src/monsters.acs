@@ -68,8 +68,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// lca
 	{ "LegendaryImp",			2.0, 0, 30, MONSTF_FLYING | MONSTF_LEGENDARY, "Legendary Imp", "LEGNA1" },
 	// randommons
-	{ "Agaures",				0.02, 0, 0, 0, "Agaures", "AGURA1C1" },
-	{ "ToxicImp",				0.02, 0, 0, 0, "Toxic Imp", "TIMPA1" },
+	{ "Agaures",				0.02, 0, 16, 0, "Agaures", "AGURA1C1" },
+	{ "ToxicImp",				0.02, 0, 16, 0, "Toxic Imp", "TIMPA1" },
 
 	// Demons.
 	{ "BullFiend",				0.05, 0, 0, 0, "Bull Fiend", "SAR2A1" },
@@ -181,7 +181,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "LegendarySentient",		6.0 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING | MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Sentient", "LUPRA1" },
 	// randommons
 	{ "BFGMastermind",			6.0, 0, 0, MONSTF_BOSS, "BFG Mastermind", "BFGDA1D1" },
-	{ "CerebralSlayer",			6.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Slayer", "COMMA1" },
+	{ "CerebralSlayer",			6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Slayer", "COMMA1" },
 	{ "DemolisherMkII",			6.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Demolisher Mk II", "DPYTA1"},
 	
 	// Cyberdemons.
