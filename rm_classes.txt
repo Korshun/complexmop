@@ -8,7 +8,7 @@ Height 56
 PainChance 80
 Mass 500
 MeleeDamage 6
-DamageFactor "CacoComet", 0.0
+//DamageFactor "CacoComet", 0.0
 BloodColor "Red"
 SeeSound "caco/sight"
 PainSound "monsters/cacopain"
@@ -62,7 +62,7 @@ PainChance "FatFlamer", 20
 PainChance "FiendFire", 20
 Bloodcolor "ff 50 00"
 Mass 1000
-DamageFactor "NobleComet", 0.0
+//DamageFactor "NobleComet", 0.0
 DropItem "LifeEssence" 100
 DropItem "ArmorBonusMax" 100
 Meleedamage 8
@@ -234,7 +234,7 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
   BloodColor "DarkGreen"
   DropItem "LifeEssence" 140
   DropItem "ArmorBonusMax" 140
-  DamageFactor "Baby15K", 0.0
+  //DamageFactor "Baby15K", 0.0
   Species "BabySpiders"
   +MISSILEMORE
   +QUICKTORETALIATE
@@ -283,8 +283,8 @@ Actor PossessedDemobus : PossessedFatso
 {
 Health 1400
 PainChance 40
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
+//DamageFactor "BeheComet", 0.0
+//DamageFactor "FatFlamer", 0.0
 Species "Fatsos"
 MONSTER 
 +DONTHURTSPECIES
@@ -350,13 +350,13 @@ Actor PossessedBFGMastermind : PossessedSpidermastermind
 	  +QUICKTORETALIATE
       +BOSSDEATH
 	  +MISSILEEVENMORE
-	  DamageFactor "DemolisherEx", 0.0
-      DamageFactor "DarkDemoEx", 0.0
-	  DamageFactor "CerChainguns", 0.0	
-	  DamageFactor "CerEnergyBall", 0.0
-	  DamageFactor "BFGMastermind", 0.0
-      DamageFactor "PDTBFG", 0.3
-      DamageFactor "PDTBFGTracer", 0.3
+	  //DamageFactor "DemolisherEx", 0.0
+      //DamageFactor "DarkDemoEx", 0.0
+	  //DamageFactor "CerChainguns", 0.0	
+	  //DamageFactor "CerEnergyBall", 0.0
+	  //DamageFactor "BFGMastermind", 0.0
+      //DamageFactor "PDTBFG", 0.3
+      //DamageFactor "PDTBFGTracer", 0.3
 	  DropItem "BossLifeEssence" 162 25
       DropItem "BossArmorBonusMax" 162 1
       DropItem "NewCellPack" 186 300
@@ -617,34 +617,34 @@ Actor PossessedCerebralSlayer : PossessedSpiderMastermind
 	+NOGRAVITY	
 	-FLOORCLIP
 	AttackSound ""
-	DamageFactor 0.5
-	DamageFactor "CustomSpray", 0.0
-    DamageFactor "BFG9500Ball", 0.0
-	DamageFactor "PlayerPyro", 0.0
-	DamageFactor "Slayer", 0.0
-    DamageFactor "DemolisherEx", 0.0
-    DamageFactor "DarkDemoEx", 0.0
-    DamageFactor "CerChainguns", 0.0	
-    DamageFactor "CerEnergyBall", 0.0
-    DamageFactor "PDTBFG", 0.1
-	DamageFactor "BFGSplash", 0.0
-    DamageFactor "BFGSpray", 0.0
-    DamageFactor "PDTBFGTracer", 0.015
-    DamageFactor "Cyber10K", 0.1
-    DamageFactor "Legendary", 0.0
-    DamageFactor "PlayerDevBall", 0.015
-    DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-	DamageFactor "SlayerMushroomFireballs", 0.0
-    DamageFactor "PlayerDevTracer", 0.05
-	DamageFactor "Ice", 0.0
-    DamageFactor "FreezerBurn", 0.0
+	//DamageFactor 0.5
+	//DamageFactor "CustomSpray", 0.0
+    //DamageFactor "BFG9500Ball", 0.0
+	//DamageFactor "PlayerPyro", 0.0
+	//DamageFactor "Slayer", 0.0
+    //DamageFactor "DemolisherEx", 0.0
+    //DamageFactor "DarkDemoEx", 0.0
+    //DamageFactor "CerChainguns", 0.0	
+    //DamageFactor "CerEnergyBall", 0.0
+    //DamageFactor "PDTBFG", 0.1
+	//DamageFactor "BFGSplash", 0.0
+    //DamageFactor "BFGSpray", 0.0
+    //DamageFactor "PDTBFGTracer", 0.015
+    //DamageFactor "Cyber10K", 0.1
+    //DamageFactor "Legendary", 0.0
+    //DamageFactor "PlayerDevBall", 0.015
+    //DamageFactor "PlayerDTBFGRailgunSlug", 0.015
+	//DamageFactor "SlayerMushroomFireballs", 0.0
+    //DamageFactor "PlayerDevTracer", 0.05
+	//DamageFactor "Ice", 0.0
+    //DamageFactor "FreezerBurn", 0.0
     // no infight 4 u
-    DamageFactor "Legendary1", 0.0
-	DamageFactor "LegMind", 0.0
-    DamageFactor "VileFires", 0.0
-    DamageFactor "NobleComet", 0.0
-    DamageFactor "ZombieDev", 0.0
-    DamageFactor "BeheComet", 0.0
+    //DamageFactor "Legendary1", 0.0
+	//DamageFactor "LegMind", 0.0
+    //DamageFactor "VileFires", 0.0
+    //DamageFactor "NobleComet", 0.0
+    //DamageFactor "ZombieDev", 0.0
+    //DamageFactor "BeheComet", 0.0
     SeeSound "Slayer/sight"
     PainSound "Slayer/pain"
     DeathSound "Slayer/death"
@@ -1003,9 +1003,9 @@ DropItem "BossLifeEssence" 128 25
 DropItem "BossArmorBonusMax" 128 1
 DropItem "MissileBox" 128 20
 Obituary "%o was exterminated by the Corrupted Annihilator."
-DamageFactor "Cyber10K", 0.0
-DamageFactor "PDTBFG", 0.3
-DamageFactor "PDTBFGTracer", 0.5
+//DamageFactor "Cyber10K", 0.0
+//DamageFactor "PDTBFG", 0.3
+//DamageFactor "PDTBFGTracer", 0.5
 SeeSound "monsters/clsee"
 PainSound "monsters/cyberlordpain"
 DeathSound "monsters/cldie"
@@ -1126,8 +1126,8 @@ Bloodcolor "blue"
 MeleeDamage 8
 DropItem "LifeEssence" 120
 DropItem "ArmorBonusMax" 120
-DamageFactor "NobleComet", 0.0
-DamageFactor "Ice", 0.0
+//DamageFactor "NobleComet", 0.0
+//DamageFactor "Ice", 0.0
 Species "Nobles"
 +MISSILEMORE
 +FASTMELEE
@@ -1197,12 +1197,12 @@ SeeSound "monsters/darkmastermindsee"
 DeathSound "monsters/darkmasterminddie"
 AttackSound ""
 Species "Masterminds"
-DamageFactor "DemolisherEx", 0.0
-DamageFactor "DarkDemoEx", 1.0
-DamageFactor "CerChainguns", 0.0	
-DamageFactor "CerEnergyBall", 0.0
-DamageFactor "PDTBFG", 0.3
-DamageFactor "PDTBFGTracer", 0.5
+//DamageFactor "DemolisherEx", 0.0
+//DamageFactor "DarkDemoEx", 1.0
+//DamageFactor "CerChainguns", 0.0	
+//DamageFactor "CerEnergyBall", 0.0
+//DamageFactor "PDTBFG", 0.3
+//DamageFactor "PDTBFGTracer", 0.5
 States
 {
 Spawn:
@@ -1287,12 +1287,12 @@ Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
   SeeSound "monsters/darkmastermindsee"
   DeathSound "monsters/darkmasterminddie"
   Species "Masterminds"
-  DamageFactor "DemolisherEx", 0.0
-  DamageFactor "DarkDemoEx", 1.0
-  DamageFactor "CerChainguns", 0.0	
-  DamageFactor "CerEnergyBall", 0.0
-  DamageFactor "PDTBFG", 0.3
-  DamageFactor "PDTBFGTracer", 0.7
+  //DamageFactor "DemolisherEx", 0.0
+  //DamageFactor "DarkDemoEx", 1.0
+  //DamageFactor "CerChainguns", 0.0	
+  //DamageFactor "CerEnergyBall", 0.0
+  //DamageFactor "PDTBFG", 0.3
+  //DamageFactor "PDTBFGTracer", 0.7
   States 
   {
 Spawn:
@@ -1438,8 +1438,8 @@ DropItem "NewShell" 256
 DropItem "Demon Tech Shotgun" 125 1
 DropItem "BackPack" 155 1
 DropItem "NewShellBox" 138 
-DamageFactor "DTZPuff", 0.0
-DamageFactor "RedZombieDemonTech", 0.25
+//DamageFactor "DTZPuff", 0.0
+//DamageFactor "RedZombieDemonTech", 0.25
 MONSTER 
 +FLOORCLIP
 +MISSILEMORE
@@ -1512,7 +1512,7 @@ Actor PossessedDTechSpider : PossessedArachnotron
   ActiveSound "minidemo/active"
   PainSound "monsters/fusionitepain"
   DeathSound "minidemo/death"
-  DamageFactor "Baby15K", 0.0
+  //DamageFactor "Baby15K", 0.0
   Species "BabySpiders"
   Tag "Demon Tech Spider"
   MONSTER
@@ -1555,7 +1555,7 @@ DropItem "AmmoPack" 65
 DropItem "HandGrenadeAmmo" 150 1
 DropItem "MineAmmo" 75 1
 DropItem "DemonAmmo" 162 80
-DamageFactor "RedZDemonTechProjectile", 0.0
+//DamageFactor "RedZDemonTechProjectile", 0.0
 MONSTER 
 +FLOORCLIP
 +MISSILEMORE
@@ -1599,7 +1599,7 @@ MONSTER
 +FLOORCLIP 
 +MISSILEMORE
 +QUICKTORETALIATE
-DamageFactor "ZombieEx", 0.0
+//DamageFactor "ZombieEx", 0.0
 DropItem "StimKit" 80
 DropItem "ArmorBooster" 80
 DropItem "AmmoPack" 65
@@ -1649,9 +1649,9 @@ Actor FreezerSpider
   Scale 1.2
   PainChance 30   
   BloodColor "cyan" 
-  DamageFactor "Ice", 0.0
-  DamageFactor "FreezerBurn", 0.0
-  DamageFactor "Baby15K", 0.0
+  //DamageFactor "Ice", 0.0
+  //DamageFactor "FreezerBurn", 0.0
+  //DamageFactor "Baby15K", 0.0
   DropItem "Freezer Rifle" 128 1
   DropItem "LifeEssence" 140
   DropItem "ArmorBonusMax" 140
@@ -1702,7 +1702,7 @@ Scale 1.05
 Meleedamage 8
 DropItem "LifeEssence" 120
 DropItem "ArmorBonusMax" 120
-DamageFactor "NobleComet", 0.0
+//DamageFactor "NobleComet", 0.0
 Species "Nobles"
 MONSTER 
 +FLOORCLIP
@@ -1766,8 +1766,8 @@ PainChance "SoulToxic", 20
 PainChance "FatFlamer", 20
 PainChance "FiendFire", 20
 BloodColor "ff 5f 00"
-DamageFactor "NobleComet", 0.0
-DamageFactor "Ice", 0.0
+//DamageFactor "NobleComet", 0.0
+//DamageFactor "Ice", 0.0
 Species "Nobles"
 DropItem "BossLifeEssence" 128 25
 DropItem "BossArmorBonusMax" 128 1
@@ -1926,41 +1926,41 @@ Actor PossessedHFCyberdemon : PossessedCyberdemon
   PainChance "BFG9500Ball", 60
   PainChance "Player10KEx", 60
   Species "Cybers"
-  DamageFactor "CustomSpray", 0.0
-  DamageFactor "BFG9500Ball", 0.0
-  DamageFactor "HFCyber", 0.0
-  DamageFactor "DemolisherEx", 0.1
-  DamageFactor "DarkDemoEx", 0.1
-  DamageFactor "CerChainguns", 0.0	
-  DamageFactor "CerEnergyBall", 0.0
-  DamageFactor "PDTBFG", 0.05
-  DamageFactor "PDTBFGTracer", 0.05
-  DamageFactor "Cyber10K", 0.0
-  DamageFactor "Legendary", 0.0
-  DamageFactor "PlayerDevBall", 0.015
-  DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-  DamageFactor "PlayerDevTracer", 0.015
-  DamageFactor "BFGSplash", 0.0
-  DamageFactor "BFGSpray", 0.0
-  DamageFactor "PyroShot", 0.0
-  DamageFactor "PlayerRailPuff", 0.015
-  DamageFactor "PlayerPyro", 0.0
-  DamageFactor "PDTPuff", 0.1
-  DamageFactor "Ice", 0.0
-  DamageFactor "FreezerBurn", 0.0
+  //DamageFactor "CustomSpray", 0.0
+  //DamageFactor "BFG9500Ball", 0.0
+  //DamageFactor "HFCyber", 0.0
+  //DamageFactor "DemolisherEx", 0.1
+  //DamageFactor "DarkDemoEx", 0.1
+  //DamageFactor "CerChainguns", 0.0	
+  //DamageFactor "CerEnergyBall", 0.0
+  //DamageFactor "PDTBFG", 0.05
+  //DamageFactor "PDTBFGTracer", 0.05
+  //DamageFactor "Cyber10K", 0.0
+  //DamageFactor "Legendary", 0.0
+  //DamageFactor "PlayerDevBall", 0.015
+  //DamageFactor "PlayerDTBFGRailgunSlug", 0.015
+  //DamageFactor "PlayerDevTracer", 0.015
+  //DamageFactor "BFGSplash", 0.0
+  //DamageFactor "BFGSpray", 0.0
+  //DamageFactor "PyroShot", 0.0
+  //DamageFactor "PlayerRailPuff", 0.015
+  //DamageFactor "PlayerPyro", 0.0
+  //DamageFactor "PDTPuff", 0.1
+  //DamageFactor "Ice", 0.0
+  //DamageFactor "FreezerBurn", 0.0
   // no infight 4 u
-  DamageFactor "Legendary1", 0.0
-  DamageFactor "VileFires", 0.0
-  DamageFactor "NobleComet", 0.0
-  DamageFactor "ZombieDev", 0.0
-  DamageFactor "BeheComet", 0.0
+  //DamageFactor "Legendary1", 0.0
+  //DamageFactor "VileFires", 0.0
+  //DamageFactor "NobleComet", 0.0
+  //DamageFactor "ZombieDev", 0.0
+  //DamageFactor "BeheComet", 0.0
   DropItem "BossLifeEssence" 204 25
   DropItem "BossArmorBonusMax" 204 1
   DropItem "BigGas" 256 100
   DropItem "DemonicChalice" 100 1
   DropItem "PyroCannon" 256 1 
   DropItem "UltraSphere" 100 1
-  DamageFactor 0.5
+  //DamageFactor 0.5
   States
   {
   Spawn:
@@ -3231,7 +3231,7 @@ ACTOR HomingRocketZombie
    DropItem "Missile" 256 5
    DropItem "HandGrenadeAmmo" 200 1
    DropItem "MineAmmo" 100 1
-   DamageFactor "ZombieRocket", 0.25
+   //DamageFactor "ZombieRocket", 0.25
    Obituary "%o was splattered by a Rocket Zombie's Homing rocket."
    States
    {
@@ -3325,8 +3325,8 @@ Speed 0.2625 //6
 Height 64
 Mass 2000
 Monster
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
+//DamageFactor "BeheComet", 0.0
+//DamageFactor "FatFlamer", 0.0
 DropItem "LifeEssence" 140
 DropItem "ArmorBonusMax" 140
 DropItem "BehemothCannon" 128
@@ -3397,7 +3397,7 @@ ACTOR Paladin
 	+AvoidMelee
 	Species "Nobles"
 	DropItem "Grenade Launcher"
-	DamageFactor "NobleComet", 0.0
+	//DamageFactor "NobleComet", 0.0
 	DropItem "Railgun "
 	DropItem "ExtraArmor" 128 1
     DropItem "BossLifeEssence" 210 1
@@ -3564,7 +3564,7 @@ Monster
 renderstyle normal
 DropItem "LifeEssence" 100
 DropItem "ArmorBonusMax" 100
-DamageFactor "SoulToxic", 0.0
+//DamageFactor "SoulToxic", 0.0
 +DONTHURTSPECIES
 +FLOAT
 +NOGRAVITY
@@ -3625,19 +3625,19 @@ Mass 1000
 BloodColor "cf 00 b0" 
 Scale 1.05
 Meleedamage 14
-DamageFactor 0.65
+//DamageFactor 0.65
 DropItem "BossLifeEssence" 128 25
 DropItem "BossArmorBonusMax" 128 1
 DropItem "DemonAmmoBox" 128 200
 DropItem "UltraSphere" 128  
 DropItem "RageRune" 50 // ahahah 
-DamageFactor "NobleComet", 0.0
-DamageFactor "Legendary", 0.1
-DamageFactor "PDTBFG", 0.25
-DamageFactor "PDTBFGTracer", 0.25
-DamageFactor "PlayerDevBall", 0.125
-DamageFactor "PlayerDTBFGRailgunSlug", 0.125
-DamageFactor "PlayerDevTracer", 0.125
+//DamageFactor "NobleComet", 0.0
+//DamageFactor "Legendary", 0.1
+//DamageFactor "PDTBFG", 0.25
+//DamageFactor "PDTBFGTracer", 0.25
+//DamageFactor "PlayerDevBall", 0.125
+//DamageFactor "PlayerDTBFGRailgunSlug", 0.125
+//DamageFactor "PlayerDevTracer", 0.125
 Species "Nobles"
 MONSTER 
 +FLOORCLIP
@@ -3838,29 +3838,29 @@ Species "Cybers"
 +DONTHARMSPECIES
 +QUICKTORETALIATE
 +NoTarget
-DamageFactor "CustomSpray", 0.0
-DamageFactor "BFG9500Ball", 0.0
-DamageFactor "PlayerPyro", 0.0
-DamageFactor "Terminator", 0.0
-DamageFactor "PDTBFG", 0.015
-DamageFactor "PDTBFGTracer", 0.015
-DamageFactor "PlayerRailPuff", 0.015
-DamageFactor "PlayerPyro", 0.0
-DamageFactor "PDTPuff", 0.0
-DamageFactor "Ice", 0.0
-DamageFactor "FreezerBurn", 0.0
-DamageFactor "DemolisherEx", 0.0
-DamageFactor "DarkDemoEx", 0.0
-DamageFactor "CerChainguns", 0.0	
-DamageFactor "CerEnergyBall", 0.0
-DamageFactor "Cyber10K", 0.0
-DamageFactor "Legendary", 0.0
-DamageFactor "Legendary1", 0.0
-DamageFactor "BFGSplash", 0.0
-DamageFactor "BFGSpray", 0.0
-DamageFactor "PlayerDevBall", 0.015
-DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-DamageFactor "PlayerDevTracer", 0.015
+//DamageFactor "CustomSpray", 0.0
+//DamageFactor "BFG9500Ball", 0.0
+//DamageFactor "PlayerPyro", 0.0
+//DamageFactor "Terminator", 0.0
+//DamageFactor "PDTBFG", 0.015
+//DamageFactor "PDTBFGTracer", 0.015
+//DamageFactor "PlayerRailPuff", 0.015
+//DamageFactor "PlayerPyro", 0.0
+//DamageFactor "PDTPuff", 0.0
+//DamageFactor "Ice", 0.0
+//DamageFactor "FreezerBurn", 0.0
+//DamageFactor "DemolisherEx", 0.0
+//DamageFactor "DarkDemoEx", 0.0
+//DamageFactor "CerChainguns", 0.0	
+//DamageFactor "CerEnergyBall", 0.0
+//DamageFactor "Cyber10K", 0.0
+//DamageFactor "Legendary", 0.0
+//DamageFactor "Legendary1", 0.0
+//DamageFactor "BFGSplash", 0.0
+//DamageFactor "BFGSpray", 0.0
+//DamageFactor "PlayerDevBall", 0.015
+//DamageFactor "PlayerDTBFGRailgunSlug", 0.015
+//DamageFactor "PlayerDevTracer", 0.015
 DropItem "DemonAmmo" 256
 DropItem "Demon Tech BFG10K" 250 1
 DropItem "Explosive Minigun" 250 1
@@ -3871,7 +3871,7 @@ DropItem "BossLifeEssence" 250 100
 DropItem "BossArmorBonusMax" 250 100
 DropItem "BFG10K " 256 1
 DropItem "UltraSphere" 100 1
-DamageFactor 0.4
+//DamageFactor 0.4
 SeeSound "monster/termsit" 
 PainSound "monster/termpin" 
 DeathSound "monster/termdth"
@@ -4325,7 +4325,7 @@ MeleeDamage 15
 DropItem "BossLifeEssence" 128 25
 DropItem "BossArmorBonusMax" 128 1
 DropItem "DemonAmmoBox" 128 200
-DamageFactor "NobleComet", 0.0
+//DamageFactor "NobleComet", 0.0
 Species "Nobles"
 +MISSILEMORE
 +FASTMELEE
@@ -4398,7 +4398,7 @@ Actor PossessedWidowMaker : PossessedGuardian
 	+NODROPOFF
 	Radius 22
     Height 60
-	DamageFactor "CadaverRocket", 0.0
+	//DamageFactor "CadaverRocket", 0.0
 	Species "Skeletons"
 	dropitem "Assault Shotgun" 255
 	DropItem "LifeEssence" 150
