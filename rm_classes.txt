@@ -3308,7 +3308,7 @@ actor SuicideBomber
     ZBMB ABCD 1 A_JumpIfCloser(90,"Melee")
     Goto Spawn
   ChargeStop:
-    ZBMB A 1 A_Stop
+    ZBMB A 1 //A_Stop
     Goto Spawn
   Melee:
     ZBMB A 2 A_Die
