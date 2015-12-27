@@ -2416,28 +2416,28 @@ See:
 Strafing:
 		HTWA A 0 A_SpawnItem("FootStep",0,0,0,0)
 		TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
-		HTWA AABB 3 A_GiveInventory("DTZombieStrafing",1)
+		HTWA AABB 3 
 		HTWA C 0 A_SpawnItem("FootStep",0,0,0,0)
 		TNT1 A 0 A_Chase("","Missile",CHF_DONTMOVE)
-        HTWA CCDD 3 A_GiveInventory("DTZombieStrafing",1)
+        HTWA CCDD 3 
 		Goto See
 Pause:
-    TNT1 A 0 A_GiveInventory("DTZombieStrafing",1)
+    TNT1 A 0 
 	HTF1 A 20 A_PlaySound("weapons/demontechsteam")
 	Goto See
 Missile: 
-    TNT1 A 0 A_GiveInventory("DTZombieStrafing",1)
+    TNT1 A 0 
     HTF1 A 2 A_FaceTarget
     TNT1 A 0 A_CustomMissile("RedZDemonTechProjectile", 35, 0, random(-8, 8), 0)
 	HTF1 B 2 Bright A_PlaySoundEx("weapons/demontechfire","Weapon")
-	TNT1 A 0 A_GiveInventory("DTZombieStrafing",1)
+	TNT1 A 0 
 	TNT1 A 0 A_Jump(20,"Pause")
-    TNT1 A 0 A_GiveInventory("DTZombieStrafing",1)
+    TNT1 A 0 
 	TNT1 A 0 A_SpidRefire
 	Goto Missile+1
 	Pain:
 	    TNT1 A 0 A_Jump(87,"PainMissile")
-		TNT1 A 0 A_GiveInventory("DTZombieStrafing",1)
+		TNT1 A 0 
 		HTPA A 3 A_Pain
 		Goto See
 	PainMissile:
