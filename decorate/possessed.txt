@@ -9,6 +9,8 @@ Actor PossessedMonster : PlayerPawn
 	Player.SoundClass "Possessed"
 	
 	DamageFactor "Monster", 0
+	DamageFactor "MonsterIce", 0
+	DamageFactor "MonsterFire", 0
 	DamageFactor "Slime", 0
 	
 	DamageFactor "AfritComet", 0 // Unused?
@@ -66,6 +68,8 @@ Actor PossessedMonster : PlayerPawn
 Actor NewBossBrain : BossBrain replaces BossBrain
 {
 	DamageFactor "Monster", 0
+	DamageFactor "MonsterIce", 0
+	DamageFactor "MonsterFire", 0
 	DamageFactor "Slime", 0
 
 	DamageFactor "AfritComet", 0 // Unused?
