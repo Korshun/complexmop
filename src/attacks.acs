@@ -22,7 +22,7 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "CerebralCardinal", "Normal", "Cyber Rockets", "Cyber Homing Rockets", "\cgBFG95K", "\cgBFG10K Combo", "\cgRailgun", "\cgDemon Tech Combo", "\cgwDemon Tech Devastator", /*"Fusion Nuke", */"X" },
 	{ "LegendaryRevenant", "\cvNormal", "\cvBest Attack", "\cvRage", "\cvRocket", "Dash Punch", "X" },	
 	{ "PhaseOverlord", "\ctNormal", "\ctPhazoLaser", "\ctSpread", "\ctComet", "X" },
-	{ "LegendaryCyberdemon", "Normal", "Legendary Auto Shotgun", "Finder", "Legendary BFG95K", "Legendary Tech", "Legendary BFG", "Legendary Railgun", "Legendary BFG10K", "Legendary Stomp", "Legendary BFG15K", "Legendary DTBFG", "Legendary Devastator", "X" },	
+	{ "LegendaryCyberdemon", "\chNormal", "Legendary Auto Shotgun", "\chFinder", "Legendary BFG95K", "\chLegendary Tech", "Legendary BFG", "Legendary Railgun", "Legendary BFG10K", "Legendary Stomp", "Legendary BFG15K", "Legendary DTBFG", "Legendary Devastator", "X" },	
 	{ "LegendaryHellKnight", "\cnNormal", "Spread", "\chHugger", "\chRage", "\cnBest Attack", "\chRain", "\cv4 Comets", "\chBlue Comet", "X" },
 	{ "LegendaryImp", "\cvNormal", "\cvSeeker", "\cvSuper", "X" },	
 	{ "LegendarySentient", "Normal", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Cannon", "Legendary BFG", "Legendary Storm", "X" },	
