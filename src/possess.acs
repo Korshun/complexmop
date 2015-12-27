@@ -126,6 +126,10 @@ script mop_possess (void)
 	// Lock weapons to prevent firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
 	
+	// lca
+	if (!StrCmp(MonsterTypes[type][MONSTER_ACTORNAME], "PhaseOverlord"))
+		print(s:"\ctPress \"use item\" to phase in");
+	
 	// Wait until the monster dies or puppetmaster leaves.
 	// And record the hp difference in case the monster died.
 	int hp1 = GetActorProperty(0, APROP_HEALTH);

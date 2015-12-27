@@ -2754,6 +2754,9 @@ Actor PhaseOverlordWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		TNT1 A 0 A_GiveInventory("PhaseOverlord_PhaseItem")
+		Goto Super::Ready
 Fire:
 	TNT1 A 0 A_GunFlash
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
@@ -2815,6 +2818,42 @@ Fire:
 	   TNT1 J 0 Bright A_FireCustomMissile("PArchonComet",-5,0,0)
 	   TNT1 J 7 Bright A_FireCustomMissile("PArchonComet",10,0,0)
        Goto Ready
+	}
+}
+
+Actor PhaseOverlord_PhaseItem : CustomInventory
+{
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 1
+	States
+	{
+	Use:
+		TNT1 A 0 ACS_ExecuteAlways(mop_phaseoverlord, 0)
+		Fail
+	}
+}
+
+Actor PhaseOverlord_Phased : Inventory { Inventory.MaxAmount 1 }
+
+Actor PhaseOverlord_Phase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(0.0)
+		TNT1 A 0 A_Print("\ctPhased in.")
+		Stop
+	}
+}
+
+Actor PhaseOverlord_Unphase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1)
+		TNT1 A 0 A_Print("\ctPhased out.")
+		Stop
 	}
 }
 
