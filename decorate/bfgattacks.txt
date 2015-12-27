@@ -65,6 +65,7 @@ ACTOR BFG9500BallMOP : BFG9500Ball replaces BFG9500Ball
 
 Actor SpiderBFG9500BallMOP : SpiderBFG9500Ball replaces SpiderBFG9500Ball
 {
+	DamageType "Monster"
 	States
 	{
 	Death:
@@ -80,6 +81,7 @@ Actor SpiderBFG9500BallMOP : SpiderBFG9500Ball replaces SpiderBFG9500Ball
 
 Actor SentientBFG9500BallMOP : SentientBFG9500Ball replaces SentientBFG9500Ball
 {
+	DamageType "Monster"
 	States
 	{
 	Death:
