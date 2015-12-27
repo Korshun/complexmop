@@ -3,6 +3,8 @@ ACTOR "ChainZombieSpawner MOP" : "ChainZombieSpawner " Replaces "ChainZombieSpaw
 DropItem "AssaultRifleZombie", 256, 52
 DropItem "Chaingunner", 256, 32
 DropItem "Minigunner", 256, 14
+DropItem "DemonTechTrooper", 256, 6
+DropItem "EMinigunner", 256, 5
 DropItem "BFGZombieman", 256, 2
 //DropItem "FreezerZombie", 256, 2
 DropItem "BFG10KGeneral", 256, 1
