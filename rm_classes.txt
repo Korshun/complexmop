@@ -302,7 +302,7 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
   }
 }
 
-ACTOR Demobus : Fatso 
+Actor PossessedDemobus : PossessedFatso 
 {
 Health 1400
 PainChance 40
@@ -355,7 +355,7 @@ Missile:
        }
 }
 
-ACTOR BFGMastermind : Spidermastermind
+Actor PossessedBFGMastermind : PossessedSpidermastermind
     {
       Health 4500
       Height 100
@@ -535,7 +535,7 @@ DTBFG:
       }
  }
 
-ACTOR CacoLich : CacoDemon~
+Actor PossessedCacoLich : PossessedCacoDemon~
 {
 	Health 700
 	Speed 12
@@ -1032,7 +1032,7 @@ ThirdEye:
     }
 }
 
-ACTOR CorruptedCyberLord : Cyberdemon 
+Actor PossessedCorruptedCyberLord : PossessedCyberdemon 
 {
 Health 5500
 PainChance 32
@@ -1347,7 +1347,7 @@ BFG9K:
 
 
 
-Actor DemolisherMkIIRevenge : SpiderMastermind
+Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
 {
   Obituary "The Demolisher Mk II spider erased %o."
   Health 4000 
@@ -1588,7 +1588,7 @@ Melee:
     }
 }
 
-actor DTechSpider : Arachnotron
+Actor PossessedDTechSpider : PossessedArachnotron
 {
   obituary "%o was eliminated by a Demon Tech Spider."
   health 1000
@@ -2006,7 +2006,7 @@ Tracers:
  	}
 }
 
-ACTOR HFCyberdemon : Cyberdemon
+Actor PossessedHFCyberdemon : PossessedCyberdemon
 {
   BloodColor "ff 50 00"
   +DONTHARMSPECIES
@@ -3695,7 +3695,7 @@ Actor PossessedPhaseElemental : PossessedSoulKeeper
       } 
 }		
 
-ACTOR PhaseSoul : TerrorSoul
+Actor PossessedPhaseSoul : PossessedTerrorSoul
 {
 Health 100
 Radius 16
@@ -3763,7 +3763,7 @@ Missile:
 	}
 }
 
-ACTOR PhaseWarlord : HellKnight 31040 // phase imp carrier
+Actor PossessedPhaseWarlord : PossessedHellKnight 31040 // phase imp carrier
 { 
 Health 1650
 Speed 10 
@@ -4565,7 +4565,7 @@ BurstComet:
         } 
 }
 
-actor WidowMaker : Guardian 
+Actor PossessedWidowMaker : PossessedGuardian 
 {
 	health 750
 	speed 10
