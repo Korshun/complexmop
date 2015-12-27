@@ -13,7 +13,7 @@ DropItem "BFG10KGeneral", 256, 1
 Actor PossessedBFG10KGeneral : PossessedMonster
 {
 	Player.MorphWeapon "BFG10KGeneralWeapon"
- 
+Player.ViewHeight 41
 Health 230
 Radius 20
 Height 56
@@ -88,7 +88,7 @@ Missile:
 Actor PossessedBFGCacodemon : PossessedMonster
 {
 	Player.MorphWeapon "BFGCacodemonWeapon"
-
+	Player.ViewHeight 40
 	//DamageFactor "WeakenerBall" , 0.0
 	Health 700
 	Radius 24
@@ -758,7 +758,7 @@ BFG10K:
 Actor PossessedDTDevastatorZombie : PossessedMonster
 {
 	Player.MorphWeapon "DTDevastatorZombieWeapon"
-
+  Player.ViewHeight 41
   obituary "%o was pulverized by a zombie's Demon Tech Devastator."
   health 250
   radius 20
@@ -862,7 +862,7 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
 Actor PossessedEraserZombie : PossessedMonster
 {
 	Player.MorphWeapon "EraserZombieWeapon"
-
+  Player.ViewHeight 41
   obituary "%o was thoroughly rekt by an Eraser Zombie."
   health 210
   radius 20
@@ -927,7 +927,7 @@ Actor PossessedEraserZombie : PossessedMonster
 Actor PossessedHexa-ShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "Hexa-ShotgunZombieWeapon"
-
+Player.ViewHeight 41
 Health 203
 Radius 20
 Height 56
@@ -1867,7 +1867,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
 Actor PossessedLegendaryImp : PossessedMonster
 {
 	Player.MorphWeapon "LegendaryImpWeapon"
-
+  Player.ViewHeight 45
   Health 999
   Radius 20
   Height 56
@@ -3159,7 +3159,7 @@ LegendaryStorm:
 Actor PossessedLegZombie : PossessedMonster
 {
 	Player.MorphWeapon "LegZombieWeapon"
- 
+Player.ViewHeight 41
 Health 999
 Radius 20
 Height 56
@@ -3241,7 +3241,7 @@ Melee:
 Actor PossessedPhaseOverlord : PossessedMonster
 {
 	Player.MorphWeapon "PhaseOverlordWeapon"
- 
+Player.ViewHeight 44
 Health 1650 
 Radius 24 
 Height 64 
