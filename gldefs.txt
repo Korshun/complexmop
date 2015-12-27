@@ -756,6 +756,11 @@ Frame CBRKA { Light Missile1 }
 // Monster Projectiles LCA
 //=========================
 
+OBJECT PlayerLegendaryProjectile
+{
+Frame BTPR { Light LTechProj1 }
+}
+
 OBJECT LegendaryBallMOP
 {
 Frame LKB1A { Light LVoidBall1 }
