@@ -1,7 +1,3 @@
-//================
-// Fullscreen HUD
-//================
-
 Height 32;
 MonoSpaceFonts True, "0";
 
@@ -205,6 +201,13 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 100, Green, 201;
 	}
+	IsSelected "PyroCannon"
+	{
+	DrawImage "SEWPA0", -32, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 100, Green, 201;
+	}
 	IsSelected "Legendary BFG"
 	{
 	DrawImage "SEWPA0", -32, -53;
@@ -219,6 +222,13 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 10, Green, 21;
 	}
+	IsSelected "Demon Tech Shotgun"
+	{
+	DrawImage "SEWPA0", -24, -53;
+	DrawImage AmmoIcon1, -16, -6, CenterBottom;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 30, Green, 61;
+	}	
 	IsSelected "LegendaryPistols"
 	{
 	DrawImage "LEGPA0", -24, -5;
@@ -455,6 +465,12 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 100, Green, 201;
 	}
+	IsSelected "PyroCannon"
+	{
+	DrawImage "SEWBA0", 130, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 100, Green, 201;
+	}
 	IsSelected "Legendary BFG"
 	{
 	DrawImage "SEWBA0", 130, 179;
@@ -467,6 +483,12 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 100, Green, 201;
 	}
+	IsSelected "Demon Tech Shotgun"
+	{
+	DrawImage "SEWBA0", 130, 179;
+	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
+	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 30, Green, 61;
+	}	
 	IsSelected MP40
 	{
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
