@@ -1,39 +1,9 @@
-ACTOR PossessedAbaddon : PossessedMonster
-{
-	Player.MorphWeapon "AbaddonWeapon"
 
-Health 650
-Speed 0.35 //8
-FloatSpeed 5
-Radius 30
-Height 56
-PainChance 80
-Mass 500
-MeleeDamage 6
-//DamageFactor "CacoComet", 0.0
-BloodColor "Red"
-SeeSound "caco/sight"
-PainSound "monsters/cacopain"
-ActiveSound "caco/active"
-MeleeSound "caco/melee"
-DeathSound "cacos/death"
-Obituary "%o was smitten by an Abaddon."
-HitObituary "%o was eaten by an Abaddon." 
-DropItem "LifeEssence" 90
-DropItem "ArmorBonusMax" 90
-MONSTER
-+NOGRAVITY
-+FLOAT
-+MISSILEMORE
-States
+Actor AbaddonWeapon : PossessedWeapon
 {
-Spawn:
-         ABDD A 1 
-		 Goto Spawn
-See:
-         ABDD A 3 		 
-         Goto Spawn
-Missile:
+	States
+	{
+	Missile:
          ABDD BC 6 
          ABDD D 2 Bright 
 		 ABDD D 1 Bright //A_FireCustomMissile("ABDBall",0,0,0,0,0,0)
@@ -55,59 +25,11 @@ Melee:
 }
 
 
-Actor PossessedAfrit : PossessedBaronOfHell
+Actor AfritWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "AfritWeapon"
- 
-Health 1200
-Speed 0.35 //8
-PainChance 30
-PainChance "SoulToxic", 20
-PainChance "FatFlamer", 20
-PainChance "FiendFire", 20
-Bloodcolor "ff 50 00"
-Mass 1000
-//DamageFactor "NobleComet", 0.0
-DropItem "LifeEssence" 100
-DropItem "ArmorBonusMax" 100
-Meleedamage 8
-PainSound "monsters/baronpain"
-MeleeSound "baron/melee"
-Species "Nobles"
-MONSTER
-+FLOAT
-+MISSILEMORE
-+FastMelee
-+NOGRAVITY
-+BOSSDEATH
-+QUICKTORETALIATE
-+DONTHURTSPECIES
--FLOORCLIP
-Obituary "%o was deep fried by an Afrit." 
-HitObituary "%o couldnt take an Afrits heat." 
-States 
-{ 
-Spawn:
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT A 4 Bright 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT B 4 Bright 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT C 4 Bright 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT D 4 Bright 	  
-      Goto Spawn
-See:
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT A 3 Bright 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT B 3 Bright 	 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT C 3 Bright 
-      TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT D 3 Bright 	
-      Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Tracer")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -166,48 +88,15 @@ Tracer:
 	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
       AFRT E 4 Bright 	
       Goto Spawn
-      } 
+	}
 }
 
 
-Actor PossessedAgaures : PossessedImp
+Actor AgauresWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "AgauresWeapon"
-
-  Obituary "%o fell before an agaures."
-  HitObituary "%o was cut open by an agaures."
-  Health 140
-  Radius 20
-  Height 56
-  Mass 500
-  Speed 0.4375 //10
-  PainChance 80
-  MeleeDamage 4
-  DropItem "LifeEssence" 100
-  DropItem "ArmorBonusMax" 100
-  DropItem "DemonAmmo" 100
-  +DONTHURTSPECIES
-  +QUICKTORETALIATE
-  +MissileMore
-  SeeSound "superimp/sight"
-  PainSound "voidimp/pain"
-  DeathSound "superimp/death"
-  ActiveSound "superimp/active"
-  MeleeSound "imps/melee"
-  MONSTER
-  +FLOORCLIP
-  States
-  {
-  Spawn:
-    AGUR A 10 
-    Goto Spawn
-  See:
-   	AGUR AABB 3 
-	TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
-	AGUR CCDD 3 
-	TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
-    Goto Spawn
-  Missile:
+	States
+	{
+	  Missile:
     AGUR EF 5 
     AGUR G 0 //A_FireCustomMissile("AgauresBall", 7,0, 0,0, 0, 0)
     AGUR G 0 //A_FireCustomMissile("AgauresBall", -7,0, 0,0, 0, 0)
@@ -224,45 +113,15 @@ Actor PossessedAgaures : PossessedImp
     AGUR G 3 BRIGHT //A_FireCustomMissile("SpeedyAgauresBall",10,0,0,0,0,0)
 	AGUR EF 5 
 	Goto Spawn
-  }
+	}
 }
 
 
-Actor PossessedBabyDDemolisher : PossessedArachnotron
+Actor BabyDDemolisherWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "BabyDDemolisherWeapon"
-
-  Health 1200
-  PainChance 70
-  Scale 1.2
-  Speed 0.56875 //13
-  Radius 52
-  SeeSound "minidemo/sight"
-  ActiveSound "minidemo/active"
-  PainSound "monsters/fusionitepain"
-  DeathSound "minidemo/death"
-  AttackSound ""
-  BloodColor "DarkGreen"
-  DropItem "LifeEssence" 140
-  DropItem "ArmorBonusMax" 140
-  //DamageFactor "Baby15K", 0.0
-  Species "BabySpiders"
-  +MISSILEMORE
-  +QUICKTORETALIATE
-  Obituary "%o was annihilated by a Baby Dark Demolisher."
-  Tag "Baby Dark Demolisher"
-  States
-  {
-  Spawn:
-    DMSP A 10 
-    Goto Spawn
-  See:
-    DMSP A 2 A_PlaySound("baby/walk")
-    DMSP ABBCC 2 
-    DMSP D 2 A_PlaySound("baby/walk")
-    DMSP DEEFF 2 
-   Goto Spawn
-  Missile:
+	States
+	{
+	Missile:
 	TNT1 A 0 Bright //A_PlaySound("monsters/darkmasterwind2")
 	TNT1 A 0 Bright //A_PlaySoundEx("weapons/minigunfire","Weapon")
 	TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(5,-5),0,0,0,0)
@@ -287,44 +146,16 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
     DMSP H 4 Bright //A_FireCustomMissile("BabyDemo10K",0,0,0,Random(4,-4)) 	
     DMSP G 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
     Goto Spawn
-  }
+	}
 }
 
-Actor PossessedDemobus : PossessedFatso
-{
-	Player.MorphWeapon "DemobusWeapon"
 
-Health 1400
-PainChance 40
-//DamageFactor "BeheComet", 0.0
-//DamageFactor "FatFlamer", 0.0
-Species "Fatsos"
-MONSTER 
-+DONTHURTSPECIES
-+MISSILEMORE
-+MISSILEEvenMORE
-+QUICKTORETALIATE
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 1
-DropItem "DemonAmmoBox" 128 200
-DropItem "BFG10K " 60 1
-SeeSound "monsters/volsee"
-PainSound "monsters/volpain"
-DeathSound "monsters/voldeath"
-ActiveSound "manc/idle"
-Obituary "%o was not expecting a visit from a Demobus."
-States
+
+Actor DemobusWeapon : PossessedWeapon
 {
-Spawn:
-       BFAT A 10 
-       Goto Spawn
-See:  
-       TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
-       BFAT AABBCCDD 3 
-	   TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
-       BFAT EEFF 3 
-       Goto Spawn
-Missile:
+	States
+	{
+	Missile:
        TNT1 A 0 //A_PlaySound("weapons/charge15k")
        BFAT G 20     
        TNT1 A 0  	   
@@ -342,62 +173,15 @@ Missile:
        BFAT H 8 Bright //A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(7, 13))  
        BFAT I 8
        Goto Spawn
-       }
+	}
 }
 
 
-Actor PossessedBFGMastermind : PossessedSpidermastermind
+Actor BFGMastermindWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "BFGMastermindWeapon"
-
-      Health 4500
-      Height 100
-      Mass 2000
-	  Scale 1.05
-	  Radius 65
-      Speed 0.7875 //18
-      PainChance 30
-      Monster
-      +BOSS
-      +MISSILEMORE
-      +FLOORCLIP
-      +NORADIUSDMG
-      +DONTMORPH
-	  +QUICKTORETALIATE
-      +BOSSDEATH
-	  +MISSILEEVENMORE
-	  //DamageFactor "DemolisherEx", 0.0
-      //DamageFactor "DarkDemoEx", 0.0
-	  //DamageFactor "CerChainguns", 0.0	
-	  //DamageFactor "CerEnergyBall", 0.0
-	  //DamageFactor "BFGMastermind", 0.0
-      //DamageFactor "PDTBFG", 0.3
-      //DamageFactor "PDTBFGTracer", 0.3
-	  DropItem "BossLifeEssence" 162 25
-      DropItem "BossArmorBonusMax" 162 1
-      DropItem "NewCellPack" 186 300
-	  DropItem "Demon Tech BFG10K" 256 1
-      BloodColor "Green"
-      PainSound "monsters/darkmasterpain"
-      SeeSound "monsters/darkdemolishersee"
-      DeathSound "monsters/darkmasterminddie"
-      ActiveSound "spider/active"
-      Obituary "%o was destroyed by the BFG Mastermind."
-	  Tag "BFG Mastermind"
-      States
-      {
-      Spawn:
-        BFGD A 10 
-        Goto Spawn
-      See:
-        BFGD A 2 A_PlaySound("spider/walk")
-        BFGD ABB 2 
-        BFGD C 2 A_PlaySound("spider/walk")
-        BFGD CDD 2 
-        BFGD E 2 A_PlaySound("spider/walk")
-        BFGD EFF 2 
-        Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -479,45 +263,15 @@ DTBFG:
        BFGD H 4 Bright //A_FireCustomMissile("BFGSpiderDTBFGBall",0,0,0,0)
        BFGD GGG 4 
        Goto Spawn
-      }
- }
+	}
+}
 
 
-Actor PossessedCacoLich : PossessedCacoDemon~
+Actor CacoLichWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "CacoLichWeapon"
-
-	Health 700
-	Speed 0.525 //12
-	Radius 31
-	Height 56
-	PainChance 96
-	Mass 500
-	PainChance "SoulToxic", 40
-    PainChance "FatFlamer", 40
-    PainChance "FiendFire", 40
-	BloodColor "DarkGreen"
-	DropItem "LifeEssence" 120
-    DropItem "ArmorBonusMax" 120
-	SeeSound "CacoLich/Sight"
-	ActiveSound "CacoLich/Active"
-	PainSound "CacoLich/Pain"
-	DeathSound "CacoLich/Death"
-	Obituary "%o was blasted by the Cacolich"
-	MONSTER
-    +NOGRAVITY
-	+MissileMore
-	+QUICKTORETALIATE
-	+FLOAT
 	States
 	{
-	Spawn:
-         CLIH A 1 
-	   Goto Spawn
-	See:
-	    CLIH A 3 	 
-         Goto Spawn
-      Missile:
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -569,86 +323,13 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 	}
 }
 
-Actor PossessedCerebralSlayer : PossessedSpiderMastermind
-{
-	Player.MorphWeapon "CerebralSlayerWeapon"
 
-    Health 5700
-    Speed 0.65625 //15
-	FloatSpeed 0.65625 //15
-    PainChance 17
-	PainChance "PDTBFG", 10
-	PainChance "SoulToxic", 5
-	PainChance "FatFlamer", 5
-	PainChance "FiendFire", 5
-	PainChance "Explosion", 60
-	PainChance "Player10KEx", 60
-	Scale 1.1
-	Radius 65
-	DropItem "BossLifeEssence" 204 25
-	DropItem "BossArmorBonusMax" 204 1
-	DropItem "DemonAmmoBox" 128 200
-	DropItem "SkullOfPower" 90
-	DropItem "BigGas" 256 100
-	Mass 7000
-	+MISSILEEVENMORE
-	+QUICKTORETALIATE
-	+MISSILEMORE
-	+FLOAT
-	+BOSS
-	+BOSSDEATH
-	+NOGRAVITY	
-	-FLOORCLIP
-	AttackSound ""
-	//DamageFactor 0.5
-	//DamageFactor "CustomSpray", 0.0
-    //DamageFactor "BFG9500Ball", 0.0
-	//DamageFactor "PlayerPyro", 0.0
-	//DamageFactor "Slayer", 0.0
-    //DamageFactor "DemolisherEx", 0.0
-    //DamageFactor "DarkDemoEx", 0.0
-    //DamageFactor "CerChainguns", 0.0	
-    //DamageFactor "CerEnergyBall", 0.0
-    //DamageFactor "PDTBFG", 0.1
-	//DamageFactor "BFGSplash", 0.0
-    //DamageFactor "BFGSpray", 0.0
-    //DamageFactor "PDTBFGTracer", 0.015
-    //DamageFactor "Cyber10K", 0.1
-    //DamageFactor "Legendary", 0.0
-    //DamageFactor "PlayerDevBall", 0.015
-    //DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-	//DamageFactor "SlayerMushroomFireballs", 0.0
-    //DamageFactor "PlayerDevTracer", 0.05
-	//DamageFactor "Ice", 0.0
-    //DamageFactor "FreezerBurn", 0.0
-    // no infight 4 u
-    //DamageFactor "Legendary1", 0.0
-	//DamageFactor "LegMind", 0.0
-    //DamageFactor "VileFires", 0.0
-    //DamageFactor "NobleComet", 0.0
-    //DamageFactor "ZombieDev", 0.0
-    //DamageFactor "BeheComet", 0.0
-    SeeSound "Slayer/sight"
-    PainSound "Slayer/pain"
-    DeathSound "Slayer/death"
-	Species "Masterminds"
-    Obituary "%o was turned to mush by heavy weapons from the Cerebral Slayer."
-	Tag "Cerebral Slayer"
-    States
-    {
-Spawn:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COMM A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COMM B 2 Bright 
-	Goto Spawn
-See:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COMM A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COMM B 2 Bright 
-	Goto Spawn
-Missile:
+
+Actor CerebralSlayerWeapon : PossessedWeapon
+{
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -963,53 +644,15 @@ ThirdEye:
 	TNT1 A 0 
 	SLAY AAAAAAAAAAAA 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
 	Goto Spawn
-    }
+	}
 }
 
 
-Actor PossessedCorruptedCyberLord : PossessedCyberdemon
+Actor CorruptedCyberLordWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "CorruptedCyberLordWeapon"
-
-Health 5500
-PainChance 32
-Scale 1.05
-BloodColor "DarkBlue"
-PainChance "PDTBFG", 20
-PainChance "SoulToxic", 15
-PainChance "FatFlamer", 15
-PainChance "FiendFire", 15
-PainChance "Explosion", 80
-Mass 2500
-Species "Cybers"
-+QUICKTORETALIATE
-+MISSILEEVENMORE
-Speed 0.7875 //18
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 1
-DropItem "MissileBox" 128 20
-Obituary "%o was exterminated by the Corrupted Annihilator."
-//DamageFactor "Cyber10K", 0.0
-//DamageFactor "PDTBFG", 0.3
-//DamageFactor "PDTBFGTracer", 0.5
-SeeSound "monsters/clsee"
-PainSound "monsters/cyberlordpain"
-DeathSound "monsters/cldie"
-States 
-{    
-Spawn: 
-        4NNI A 10 
-		4NNI A 10 
-		4NII A 10 
-		4NII A 10 
-        Goto Spawn
-See: 
-        4NNI A 3 A_Playsound("monsters/clhoof")
-        4NNI ABB 3 		
-        4NNI C 3 A_Playsound("monsters/clhoof") 
-        4NNI CDD 3  		 
-        Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
@@ -1100,48 +743,15 @@ BFG15K:
 		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
 		4NNI E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
 		Goto Spawn
-        }
+	}
 }
 
 
-Actor PossessedCryoDemon : PossessedHellKnight
+Actor CryoDemonWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "CryoDemonWeapon"
- 
-Health 750
-PainChance 80
-Scale 1.05
-Bloodcolor "blue"
-MeleeDamage 8
-DropItem "LifeEssence" 120
-DropItem "ArmorBonusMax" 120
-//DamageFactor "NobleComet", 0.0
-//DamageFactor "Ice", 0.0
-Species "Nobles"
-+MISSILEMORE
-+FASTMELEE
-+QUICKTORETALIATE
-+NoIceDeath
-Obituary "A Cryo Demon turned %o into a popsicle." 
-HitObituary "A Cryo Demon tore %o apart."
-SeeSound "monster/ar2sit" 
-ActiveSound "pyro/active"
-PainSound "superbaron/pain"
-DeathSound "monster/ar2dth"
-MeleeSound "baron/melee"
-States 
-{ 
-Spawn: 
-        CRYO A 7 Bright 
-		CRYO A 7 Bright 
-        Goto Spawn
-See: 
-        CRYO AABB 3 Bright 
-        TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
-        CRYO CCDD 3 Bright 
-        TNT1 A 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
-        Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comet")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorHugger")
@@ -1164,51 +774,15 @@ FloorHugger:
         CRYO MN 8 Bright  	
         CRYO O 8 Bright //A_FireCustomMissile("CIceSpikeSpawner",0,0,0,0,0)	
 		Goto Spawn
-        } 
+	}
 }
 
 
-Actor PossessedDemolisherMkII : PossessedSpiderMastermind
+Actor DemolisherMkIIWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "DemolisherMkIIWeapon"
-
-Health 3500
-Speed 0.65625 //15
-Radius 65
-PainChance 30
-Mass 2500
-PainChance "PDTBFG", 20
-PainChance "SoulToxic", 15
-PainChance "FatFlamer", 15
-PainChance "FiendFire", 15
-PainChance "Explosion", 80
-+MISSILEEVENMORE
-Obituary "The Demolisher Mk II spider erased %o."
-PainSound "monsters/darkmasterpain"
-SeeSound "monsters/darkmastermindsee"
-DeathSound "monsters/darkmasterminddie"
-AttackSound ""
-Species "Masterminds"
-//DamageFactor "DemolisherEx", 0.0
-//DamageFactor "DarkDemoEx", 1.0
-//DamageFactor "CerChainguns", 0.0	
-//DamageFactor "CerEnergyBall", 0.0
-//DamageFactor "PDTBFG", 0.3
-//DamageFactor "PDTBFGTracer", 0.5
-States
-{
-Spawn:
-    	DEMO A 10 
-    	Goto Spawn
-See:
-    	DEMO A 2 A_PlaySound("spider/walk") 
-    	DEMO ABB 2  
-    	DEMO C 2 A_PlaySound("spider/walk") 
-    	DEMO CDD 2  
-    	DEMO E 2 A_PlaySound("spider/walk") 
-    	DEMO EFF 2  
-    	Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG9K")
@@ -1250,57 +824,15 @@ BFG9K:
     	DEMO U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
 		DEMO T 15 Bright
     	Goto Spawn
-        }
+	}
 }
 
 
-Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
+Actor DemolisherMkIIRevengeWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "DemolisherMkIIRevengeWeapon"
-
-  Obituary "The Demolisher Mk II spider erased %o."
-  Health 4000 
-  Radius 65
-  Mass 2500 
-  Speed 0.525 //12
-  Scale 1.1
-  FloatSpeed 0.525 //12
-  PainChance 30
-  MONSTER 
-  +MISSILEEVENMORE
-  +QUICKTORETALIATE
-  +FLOAT
-  +Boss
-  +BossDeath
-  +NOGRAVITY	
-  -FLOORCLIP
-  AttackSound ""
-  DropItem "BossLifeEssence" 128 25
-  PainSound "monsters/darkmasterpain"
-  SeeSound "monsters/darkmastermindsee"
-  DeathSound "monsters/darkmasterminddie"
-  Species "Masterminds"
-  //DamageFactor "DemolisherEx", 0.0
-  //DamageFactor "DarkDemoEx", 1.0
-  //DamageFactor "CerChainguns", 0.0	
-  //DamageFactor "CerEnergyBall", 0.0
-  //DamageFactor "PDTBFG", 0.3
-  //DamageFactor "PDTBFGTracer", 0.7
-  States 
-  {
-Spawn:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT B 2 Bright 
-	Goto Spawn
-See:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT B 2 Bright 
-	Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
@@ -1411,53 +943,16 @@ BFG10K:
 	DPYT K 3 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	DPYT KKKKK 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)	
 	Goto Spawn
-   } 
+	}
 }
 
-ACTOR PossessedDTShotgunZombie : PossessedMonster
-{ 
-	Player.MorphWeapon "DTShotgunZombieWeapon"
 
-Health 199
-Radius 20
-Height 56
-Speed 0.35 //8
-Mass 100
-PainChance 50
-DropItem "PortableMedkit" 166
-DropItem "ArmorPlate" 166
-DropItem "AmmoPack" 108
-DropItem "HandGrenadeAmmo" 200 1
-DropItem "MineAmmo" 200 1
-DropItem "NewShell" 256 
-DropItem "Demon Tech Shotgun" 125 1
-DropItem "BackPack" 155 1
-DropItem "NewShellBox" 138 
-//DamageFactor "DTZPuff", 0.0
-//DamageFactor "RedZombieDemonTech", 0.25
-MONSTER 
-+FLOORCLIP
-+MISSILEMORE
-+MissileEvenMore
-+QUICKTORETALIATE
-SeeSound "superzombie/sight"
-PainSound "superzombie/pain"
-DeathSound "superzombie/death"
-ActiveSound "superzombie/active"
-AttackSound ""
-Obituary "%o was pulverised by a Demon Tech Shotgunner."
-States
+
+Actor DTShotgunZombieWeapon : PossessedWeapon
 {
-Spawn:
-    ZPS1 A 10 
-    Goto Spawn
-See:
-    ZPS1 AABB 3 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    ZPS1 CCDD 3 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    Goto Spawn
-Missile:
+	States
+	{
+	Missile:
     ZPS1 E 15 
 	TNT1 A 0 //A_PlaySound("Weapons/ErasusFire")
 	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,0)
@@ -1485,98 +980,28 @@ Melee:
     TNT1 A 0 //A_SpawnItemEx("ShellCasing", -8, 0, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 	ZPS1 E 8
     Goto Spawn
-    }
+	}
 }
 
 
-Actor PossessedDTechSpider : PossessedArachnotron
+Actor DTechSpiderWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "DTechSpiderWeapon"
-
-  obituary "%o was eliminated by a Demon Tech Spider."
-  health 1000
-  radius 26
-  height 64
-  mass 600
-  Speed 0.525 //12
-  Scale 1.2
-  painchance 80
-  BloodColor "DarkGreen"
-  DropItem "DemonAmmo" 162 80
-  DropItem "Demon Tech Rifle" 256 1
-  DropItem "LifeEssence" 140
-  DropItem "ArmorBonusMax" 140
-  SeeSound "minidemo/sight"
-  ActiveSound "minidemo/active"
-  PainSound "monsters/fusionitepain"
-  DeathSound "minidemo/death"
-  //DamageFactor "Baby15K", 0.0
-  Species "BabySpiders"
-  Tag "Demon Tech Spider"
-  MONSTER
-  +MissileMore
-  +QUICKTORETALIATE
-  states
-  {
-  Spawn:
-    DTSD A 10 
-    Goto Spawn
-  See:
-    DTSD A 2 A_PlaySound("baby/walk")
-    DTSD ABBCC 2 
-    DTSD D 2 A_PlaySound("baby/walk")
-    DTSD DEEFF 2 
-   Goto Spawn
-  Missile:
+	States
+	{
+Missile:
 	DTSD G 2 
 	TNT1 A 0 //A_FireCustomMissile("DTSDemonTechProjectile",Random(150,-150)/100.00,0,0,0,0)
 	DTSD H 2 Bright //A_PlaySoundEx("weapons/demontechfire","Weapon")
 	TNT1 A 0 
 	Goto Spawn
-  }
+	}
 }
 
 
-ACTOR PossessedDemonTechTrooper : PossessedMonster
-{ 
-	Player.MorphWeapon "DemonTechTrooperWeapon"
-
-Health 180
-Radius 20
-Height 56
-Speed 0.35 //8
-Mass 100
-PainChance 70
-Alpha 0.26
-Renderstyle Translucent
-PainChance "RedZombieDemonTech", 0
-DropItem "StimKit" 80
-DropItem "ArmorBooster" 80
-DropItem "AmmoPack" 65
-DropItem "HandGrenadeAmmo" 150 1
-DropItem "MineAmmo" 75 1
-DropItem "DemonAmmo" 162 80
-//DamageFactor "RedZDemonTechProjectile", 0.0
-MONSTER 
-+FLOORCLIP
-+MISSILEMORE
-AttackSound "Null"
-SeeSound "superzombie/sight"
-PainSound "superzombie/pain"
-DeathSound "superzombie/death"
-ActiveSound "superzombie/active"
-Obituary "%o was silenced by a Demon Tech Trooper."
-States
+Actor DemonTechTrooperWeapon : PossessedWeapon
 {
-Spawn:
-    HTWA A 10 
-    Goto Spawn
-See:
-    HTWA AABB 2 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    HTWA CCDD 2 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    Goto Spawn
+	States
+	{
 Missile: 
     HTF1 A 2 
     TNT1 A 0 //A_FireCustomMissile("RedZDemonTechProjectile", Random(-8, 8),0, 0,0, 0)
@@ -1585,57 +1010,22 @@ Missile:
     TNT1 A 0 
 	TNT1 A 0 
 	Goto Spawn
-    }
+	}
 }
 
 
-ACTOR PossessedEMinigunner : PossessedMonster
+Actor EMinigunnerWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "EMinigunnerWeapon"
-
-Health 140
-Radius 20 
-Height 56 
-Speed 0.2625 //6
-Mass 150
-PainChance 60
-MONSTER 
-+FLOORCLIP 
-+MISSILEMORE
-+QUICKTORETALIATE
-//DamageFactor "ZombieEx", 0.0
-DropItem "StimKit" 80
-DropItem "ArmorBooster" 80
-DropItem "AmmoPack" 65
-DropItem "HandGrenadeAmmo" 150 1
-DropItem "MineAmmo" 75 1
-DropItem "BulletMag" 256 10
-DropItem "Explosive Minigun" 90 1
-SeeSound "superzombie/sight"
-PainSound "superzombie/pain"
-DeathSound "superzombie/death"
-ActiveSound "superzombie/active"
-Tag "Explosive Minigunner"
-Obituary "%o do not expect a zombie would have that type of weapon."
 	States
 	{
-	Spawn:
-		EMNG A 10 
-		Goto Spawn
-	See:
-        EMNG AABB 2 
-        TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-        EMNG CCDD 2 
-        TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-		Goto Spawn
-    Missile:
+	Missile:
 	    TNT1 A 0 Bright //A_PlaySoundEx("weapons/expmgunspin","Voice")
 		TNT1 A 0 //A_PlaySound("sentient/fire")
 	    EMNG E 4 Bright //A_FireCustomMissile("ZombieExplosiveTracer",Random(5,-5),0,0,0,0)
-        TNT1 A 0 Bright //A_SpawnItemEx("OrangeShellCasing", 12, 6, 28, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128) 
+        TNT1 A 0 Bright A_SpawnItemEx("OrangeShellCasing", 12, 6, 28, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128) 
 		TNT1 A 0 //A_PlaySound("sentient/fire")
 	    EMNG F 4 Bright //A_FireCustomMissile("ZombieExplosiveTracer",Random(5,-5),0,0,0,0)
-        TNT1 A 0 Bright //A_SpawnItemEx("OrangeShellCasing", 12, 6, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
+        TNT1 A 0 Bright A_SpawnItemEx("OrangeShellCasing", 12, 6, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 		TNT1 A 0 //A_StopSoundEx("Weapon")
         TNT1 A 0 
         Goto Spawn
@@ -1643,45 +1033,10 @@ Obituary "%o do not expect a zombie would have that type of weapon."
 }
 
 
-Actor PossessedFreezerSpider : PossessedMonster
+Actor FreezerSpiderWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "FreezerSpiderWeapon"
-
-  Obituary "%o was frozen by a Freezer Spider"
-  Health 1300
-  Radius 26
-  Height 64
-  Mass 600
-  Speed 0.525 //12
-  Scale 1.2
-  PainChance 30   
-  BloodColor "cyan" 
-  //DamageFactor "Ice", 0.0
-  //DamageFactor "FreezerBurn", 0.0
-  //DamageFactor "Baby15K", 0.0
-  DropItem "Freezer Rifle" 128 1
-  DropItem "LifeEssence" 140
-  DropItem "ArmorBonusMax" 140
-  Species "BabySpiders"
-  SeeSound "minidemo/sight"
-  ActiveSound "minidemo/active"
-  PainSound "monsters/fusionitepain"
-  DeathSound "minidemo/death"
-  Monster
-  +FloorClip
-  +MissileMore
-  +QUICKTORETALIATE
-  States
-  {
-  Spawn:
-    ISPI A 10 
-    Goto Spawn
-  See:
-    ISPI A 2 A_PlaySound("baby/walk")
-    ISPI ABBCC 2 
-    ISPI D 2 A_PlaySound("baby/walk")
-    ISPI DEEFF 2 
-    Goto Spawn
+	States
+	{
 Missile:
     TNT1 A 0 //A_PlaySound("weapons/iceshot",6,5)
     ISPI G 1 Bright //A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(8,-8))
@@ -1695,49 +1050,15 @@ Melee:
     ISPI H 5 Bright //A_FireCustomMissile("SpiderFreezeBomb",0,0,0,0)
 	ISPI A 5 
     Goto Spawn
-  }
+	}
 }
 
 
-Actor PossessedHellArchon : PossessedHellKnight
+Actor HellArchonWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "HellArchonWeapon"
- 
-Health 650
-Speed 0.35 //8 
-PainChance 50
-Mass 1000
-Bloodcolor Red
-Scale 1.05
-Meleedamage 8
-DropItem "LifeEssence" 120
-DropItem "ArmorBonusMax" 120
-//DamageFactor "NobleComet", 0.0
-Species "Nobles"
-MONSTER 
-+FLOORCLIP
-+QUICKTORETALIATE
-+MISSILEMORE
--BOSSDEATH
-Obituary "%o was annihilated by a Hell Archon." 
-HitObituary "The last thing %o saw was a Hell Archon's fist."
-SeeSound "monster/ar2sit" 
-ActiveSound "superbaron/act"
-PainSound "superbaron/pain"
-DeathSound "monster/ar2dth"
-MeleeSound "baron/melee"
-States 
-{ 
-Spawn: 
-        HLAR A 10 Bright  
-        Goto Spawn
-See: 
-        HLAR AABB 3 Bright 
-        HLAR B 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
-        HLAR CCDD 3 Bright 
-        HLAR D 0 Bright A_SpawnItem("HoofStep",0,0,0,0)
-        Goto Spawn
-Missile:  
+	States
+	{
+	Missile:  
         TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "FastBall")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -1764,63 +1085,15 @@ Missile:
         HLAR MN 8 Bright  	
         HLAR O 7 Bright //A_FireCustomMissile("HAComet",0,0, 0, 0)		
 		Goto Spawn
-        } 
+	}
 }
 
 
-Actor PossessedHellFireBaron : PossessedBaronOfHell
+Actor HellFireBaronWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "HellFireBaronWeapon"
-
-Health 1700
-PainChance 30
-Scale 1.1
-PainChance "SoulToxic", 20
-PainChance "FatFlamer", 20
-PainChance "FiendFire", 20
-BloodColor "ff 5f 00"
-//DamageFactor "NobleComet", 0.0
-//DamageFactor "Ice", 0.0
-Species "Nobles"
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 1
-DropItem "DemonAmmoBox" 128 200
-DropItem "MegaSphere" 50
-MeleeDamage 10
-Obituary "%o was Burned to death by a HellFire Baron."
-HitObituary "%o was ripped open by a HellFire Baron."
-SeeSound "HellFireBaron/sight"
-PainSound "monsters/baronpain"
-DeathSound "HellFireBaron/Death"
-MeleeSound "baron/melee"
-+MISSILEEvenMORE
-+FASTMELEE
-+NOICEDEATH
-+DONTHURTSPECIES
-+QUICKTORETALIATE
-States
-{
-Spawn:
-	HFBY A 7 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY A 7 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBI A 7 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBI A 7 
-	Goto Spawn
-See:
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY AABB 3 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY CCDD 3 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    Goto Spawn
-Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -1903,133 +1176,15 @@ Tracers:
 	HFBY K 8 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, -10)
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
     Goto Spawn
- 	}
+	}
 }
 
 
-Actor PossessedHFCyberdemon : PossessedCyberdemon
+Actor HFCyberdemonWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "HFCyberdemonWeapon"
-
-  BloodColor "ff 50 00"
-  +DONTHARMSPECIES
-  +MISSILEMORE
-  +FLOORCLIP
-  +NORADIUSDMG
-  +NOICEDEATH
-  +BOSS
-  +NOTARGET
-  +MISSILEEVENMORE
-  +BOSSDEATH
-  +QUICKTORETALIATE
-  SeeSound "HfCyber/See"
-  PainSound "HFCyber/Pain"
-  ActiveSound "HFCyber/Active"
-  DeathSound "Newcyber/death"
-  Health 6700
-  Scale 1.1
-  Mass 0x7FFFFFFF
-  Radius 45
-  Height 100
-  Speed 0.91875 //21
-  Obituary "The HellFire Cyberdemon converted the Head of %o in one more of their trophies, now is a decoration in his home."
-  PainChance 6
-  PainChance "PDTBFG", 5
-  PainChance "SoulToxic", 5
-  PainChance "FatFlamer", 0
-  PainChance "FiendFire", 0
-  PainChance "Explosion", 60
-  PainChance "BFG9500Ball", 60
-  PainChance "Player10KEx", 60
-  Species "Cybers"
-  //DamageFactor "CustomSpray", 0.0
-  //DamageFactor "BFG9500Ball", 0.0
-  //DamageFactor "HFCyber", 0.0
-  //DamageFactor "DemolisherEx", 0.1
-  //DamageFactor "DarkDemoEx", 0.1
-  //DamageFactor "CerChainguns", 0.0	
-  //DamageFactor "CerEnergyBall", 0.0
-  //DamageFactor "PDTBFG", 0.05
-  //DamageFactor "PDTBFGTracer", 0.05
-  //DamageFactor "Cyber10K", 0.0
-  //DamageFactor "Legendary", 0.0
-  //DamageFactor "PlayerDevBall", 0.015
-  //DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-  //DamageFactor "PlayerDevTracer", 0.015
-  //DamageFactor "BFGSplash", 0.0
-  //DamageFactor "BFGSpray", 0.0
-  //DamageFactor "PyroShot", 0.0
-  //DamageFactor "PlayerRailPuff", 0.015
-  //DamageFactor "PlayerPyro", 0.0
-  //DamageFactor "PDTPuff", 0.1
-  //DamageFactor "Ice", 0.0
-  //DamageFactor "FreezerBurn", 0.0
-  // no infight 4 u
-  //DamageFactor "Legendary1", 0.0
-  //DamageFactor "VileFires", 0.0
-  //DamageFactor "NobleComet", 0.0
-  //DamageFactor "ZombieDev", 0.0
-  //DamageFactor "BeheComet", 0.0
-  DropItem "BossLifeEssence" 204 25
-  DropItem "BossArmorBonusMax" 204 1
-  DropItem "BigGas" 256 100
-  DropItem "DemonicChalice" 100 1
-  DropItem "PyroCannon" 256 1 
-  DropItem "UltraSphere" 100 1
-  //DamageFactor 0.5
-  States
-  {
-  Spawn:
-    TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY A 10 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	HFCY A 10 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	HFCY Z 10 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	HFCY Z 10 Bright 
-    Goto Spawn
-  See:
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY A 3 Bright //A_PlaySound("cyber/hoof")
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY ABBCC 3 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY D 3 Bright A_PlaySound("spider/walk")
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    HFCY D 3 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-    Goto Spawn
-	Rush:
-    TNT1 A 0 //A_PlaySound("cyber/hoof")
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	HFCY A 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostA",0,0,0,0,0,0,0,128)
-	HFCY A 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostA",0,0,0,0,0,0,0,128)
-	HFCY A 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostB",0,0,0,0,0,0,0,128)
-	HFCY B 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostB",0,0,0,0,0,0,0,128)
-	HFCY C 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostC",0,0,0,0,0,0,0,128)
-	HFCY C 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_PlaySound("spider/walk")
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostC",0,0,0,0,0,0,0,128)
-	HFCY D 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostD",0,0,0,0,0,0,0,128)
-	HFCY D 2 Bright 
-	TNT1 A 0 A_SpawnItem("HFCyberFlameSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("HellFireCyberGhostD",0,0,0,0,0,0,0,128)
-	Goto Spawn
-  Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Rockets")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Stomp")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FireGrenades")
@@ -2724,9 +1879,9 @@ Hell:
 	  TNT1 A 0 Bright //A_PlaySound("HFCyb/laugh2")	
 	  HFCY G 50 
 	  TNT1 A 0 Bright //Radius_Quake(10,80,0,24,0)
-	  TNT1 A 0 //A_GiveInventory("Health",1000)
-	  TNT1 A 0 A_JumpIfInventory("HFCyberToken3",3,"Spawn")
-	  TNT1 A 0 //A_GiveInventory("HFCyberToken3",1)
+	  TNT1 A 0 A_GiveInventory("Health",1000)
+	  TNT1 A 0 A_JumpIfInventory("HFCyberToken3",3,"Ready")
+	  TNT1 A 0 A_GiveInventory("HFCyberToken3",1)
 	  HFCY G 0 //A_FireCustomMissile("PentaLine1",-72,0,0,0,2)
       HFCY G 0 //A_FireCustomMissile("PentaLine1",-144,0,0,0,2)
       HFCY G 0 //A_FireCustomMissile("PentaLine1",-216,0,0,0,2)
@@ -3221,130 +2376,39 @@ Hell:
 	  TNT1 A 0 Bright 
       HFCS BB 3 Bright A_SpawnItem("CardinalFireSpawner",0,0,0,0)
 	  Goto Spawn
-  }
+	}
 }
 
-ACTOR PossessedHomingRocketZombie : PossessedMonster
-{
-	Player.MorphWeapon "HomingRocketZombieWeapon"
 
-   Health 120
-   Radius 20
-   Height 56
-   Mass 100
-   Speed 0.35 //8
-   PainChance 90
-   Monster
-   +FLOORCLIP
-   +MissileMore
-   SeeSound "grunt/sight"
-   PainSound "grunt/pain"
-   Deathsound "grunt/death"
-   ActiveSound "grunt/active"
-   PainChance "ZombieRocket", 0
-   DropItem "PortableMedkit" 120
-   DropItem "ArmorPlate" 120
-   DropItem "AmmoPack" 80
-   DropItem "Missile" 256 5
-   DropItem "HandGrenadeAmmo" 200 1
-   DropItem "MineAmmo" 100 1
-   //DamageFactor "ZombieRocket", 0.25
-   Obituary "%o was splattered by a Rocket Zombie's Homing rocket."
-   States
-   {
-   Spawn:
-    MMGY A 10 
-   Goto Spawn
-   See:
-	MMGY AABB 3 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-    MMGY CCDD 3 
-    TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-	Goto Spawn
-   Missile:
+Actor HomingRocketZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Missile:
     MMGY E 14 
     MMGY F 6 Bright //A_FireCustomMissile("ZombieHomingRocket",0,0, 0, 0)
 	MMGY E 20 //A_PlaySound("rocket/drumspin")
     Goto Spawn
-   }
+	}
 }
 
 
-// SPECIAL CASE SUICIDE
-actor PossessedSuicideBomber : PossessedMonster
+Actor SuicideBomberWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "SuicideBomberWeapon"
-
-  obituary "%o was killed by a crazy suicide bomber."
-  health 200
-  radius 20
-  height 56
-  mass 150
-  Speed 0.65625 //15
-  painchance 20
-  DropItem "PortableMedkit" 120
-  DropItem "ArmorPlate" 120
-  DropItem "AmmoPack" 80
-  DropItem "Missile" 256 5
-  DropItem "HandGrenadeAmmo" 200 1
-  DropItem "MineAmmo" 100 1
-  seesound "suicide/sit"
-  attacksound "shotguy/death"
-  painsound "shotguy/pain"
-  deathsound "shotguy/death"
-  MONSTER
-  +FLOORCLIP
-  +MissileMore
-  states
-  {
-  Spawn:
-    ZBMB AB 10 
-    Goto Spawn
-  See:
-    ZBMB AAABBBCCCDDD 2 
-    ZBMB A 0 A_PlaySound("suicide/loop")
-    Goto Spawn
-  }
+	States
+	{
+	Fire:
+		TNT1 A 2 Thing_Damage(0, 1000)
+		Stop
+	}
 }
 
 
-ACTOR PossessedKSBehemoth2 : PossessedMonster
+Actor KSBehemoth2Weapon : PossessedWeapon
 {
-	Player.MorphWeapon "KSBehemoth2Weapon"
-
-Health 1100
-PainChance 80
-Radius 26
-Speed 0.2625 //6
-Height 64
-Mass 2000
-Monster
-//DamageFactor "BeheComet", 0.0
-//DamageFactor "FatFlamer", 0.0
-DropItem "LifeEssence" 140
-DropItem "ArmorBonusMax" 140
-DropItem "BehemothCannon" 128
-Species "Fatsos"
-+MISSILEMORE
-+DONTHURTSPECIES
-+QUICKTORETALIATE
-+FLOAT
-+NOGRAVITY
--FLOORCLIP
-SeeSound "monsters/volsee"
-PainSound "monsters/volpain"
-DeathSound "monsters/voldeath"
-ActiveSound "manc/idle"
-Obituary "%o was squashed by a Behemoth wait again???."
-States
-{
-Spawn:
-       KSFA A 5    
-       Goto Spawn
-See:   
-       KSFA AA 2 
-       Goto Spawn
-Missile:
+	States
+	{
+	Missile:
        TNT1 A 0 //A_PlaySound("monsters/volattack")
        KSFA G 15     
        TNT1 A 0  
@@ -3368,57 +2432,14 @@ Melee:
        KSFA H 6 Bright //A_FireCustomMissile("BehemothSeekingComet",0,0, -45, 16)
        KSFA FG 12    
        Goto Spawn
-       }
+	}
 }
 
 
-ACTOR PossessedPaladin : PossessedMonster
+Actor PaladinWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "PaladinWeapon"
-
-	Health 1750
-	Radius 24
-	Height 64
-	Mass 1000
-	Speed 0.35 //8
-	PainChance 8
-	Monster
-	+FloorClip
-	+DontHarmSpecies
-	+QUICKTORETALIATE
-	+NOTARGET
-    +MISSILEEVENMORE
-    +NORADIUSDMG
-    +DONTHURTSPECIES
-	+AvoidMelee
-	Species "Nobles"
-	DropItem "Grenade Launcher"
-	//DamageFactor "NobleComet", 0.0
-	DropItem "Railgun "
-	DropItem "ExtraArmor" 128 1
-    DropItem "BossLifeEssence" 210 1
-    DropItem "BossArmorBonusMax" 210 1
-	DropItem "DemonAmmoBox" 128 1
-	Obituary "%o played dodgeball with a paladin and lost."
-	HitObituary "A Paladin blew %o away."
-	SeeSound "Paladin/Sight" 
-	PainSound "Paladin/Pain" 
-	DeathSound "Paladin/Death" 
-	ActiveSound "Paladin/Active" 
-	Scale 1.2
 	States
-	{ 
-	Spawn: 
-	   HPAL A 10  
-       Goto Spawn
-	See:
-       TNT1 A 0 
-	   TNT1 A 0 
-       HPAL AABB 3 
-	   TNT1 A 0 A_PlaySound("monster/bruwlk")
-	   HPAL CCDD 3 
-	   TNT1 A 0 A_PlaySound("monster/bruwlk")
-	   Goto Spawn
+	{
 	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Grenadier")
@@ -3499,31 +2520,14 @@ ACTOR PossessedPaladin : PossessedMonster
 		HPAL J 4 Bright //A_FireCustomMissile("Paladin10K",0,0,0,Random(4,-4))		
 		HPAL I 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 		Goto Spawn
-	} 
+	}
 }
 
 
-Actor PossessedPhaseElemental : PossessedSoulKeeper
+Actor PhaseElementalWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "PhaseElementalWeapon"
-
-	Health 600
-	PainChance 80
-	SeeSound "Defier/Sight"
-	DeathSound "Defiler/Death"
-	BloodColor "cf 00 b0"
-	Obituary "%o was pierced by a Phase Elemental."
-	HitObituary "%o is salty to the refined tastes of the Phase Elemental."
-	DropItem "LifeEssence" 90
-	DropItem "ArmorBonusMax" 90
 	States
 	{
-	Spawn:
-		PELE A 10 
-		Goto Spawn
-	See:
-		PELE AABBCCBB 3 
-		Goto Spawn
 	Missile:
 	    TNT1 A 0 
 		PELE D 6 Bright  
@@ -3539,63 +2543,14 @@ Actor PossessedPhaseElemental : PossessedSoulKeeper
         PELE F 4 //A_CustomPunch(5)
 	    PELE ED 3 
         Goto Spawn
-      } 
-}
+	}
+}		
 
 
-Actor PossessedPhaseSoul : PossessedTerrorSoul
+Actor PhaseSoulWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "PhaseSoulWeapon"
-
-Health 100
-Radius 16
-Height 56
-Mass 50
-Speed 0.35 //8
-Damage 5
-PainChance 100
-Species "EleSouls"
-Species "Souls"
-Monster
-renderstyle normal
-DropItem "LifeEssence" 100
-DropItem "ArmorBonusMax" 100
-//DamageFactor "SoulToxic", 0.0
-+DONTHURTSPECIES
-+FLOAT
-+NOGRAVITY
-+MISSILEMORE
-+DONTFALL
-+NOBLOOD
-+NOBLOODDECALS
-AttackSound "skull/melee"
-PainSound "skull/pain"
-PainSound "monsters/terrorsoulpain"
-DeathSound "skull/death"
-ActiveSound "skull/active"
-Obituary "%o was eaten by a Phase soul"
-States
-{
-Spawn:
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU A 2 Bright 
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU A 2 Bright 
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU B 2 Bright 
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU B 2 Bright 
-	Goto Spawn
-See:
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU A 2 Bright 
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU A 2 Bright 
-	TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU B 2 Bright 
-    TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
-	PSKU B 2 Bright 		
-	Goto Spawn
+	States
+	{
 Missile:
     TNT1 A 0 
 	TNT1 A 0 Bright A_SpawnItem("PSoulSpawner",0,0,0,0)
@@ -3613,66 +2568,10 @@ Missile:
 }
 
 
-Actor PossessedPhaseWarlord : PossessedHellKnight // phase imp carrier
-{ 
-	Player.MorphWeapon "PhaseWarlordWeapon"
-
-Health 1650
-Speed 0.4375 //10 
-PainChance 30
-Mass 1000
-BloodColor "cf 00 b0" 
-Scale 1.05
-Meleedamage 14
-//DamageFactor 0.65
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 1
-DropItem "DemonAmmoBox" 128 200
-DropItem "UltraSphere" 128  
-DropItem "RageRune" 50 // ahahah 
-//DamageFactor "NobleComet", 0.0
-//DamageFactor "Legendary", 0.1
-//DamageFactor "PDTBFG", 0.25
-//DamageFactor "PDTBFGTracer", 0.25
-//DamageFactor "PlayerDevBall", 0.125
-//DamageFactor "PlayerDTBFGRailgunSlug", 0.125
-//DamageFactor "PlayerDevTracer", 0.125
-Species "Nobles"
-MONSTER 
-+FLOORCLIP
-+MISSILEMORE
-+FASTMELEE
-+Boss
-+NOTARGET
-+NORADIUSDMG
-+MissileEvenMore
-+QUICKTORETALIATE
-+BOSSDEATH
-Obituary "%o was dismembered by the Phase Warlord." 
-HitObituary "%o was gutted by the Phase Warlord."
-SeeSound "PArchon/Sight"
-ActiveSound "PArchon/Active"
-PainSound "PArchon/Pain"
-DeathSound "PArchon/Death"
-MeleeSound "Baron/Melee"
-States 
-{ 
-Spawn: 
-        ROYL A 10 Bright  
-		TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-        Goto Spawn
-   See:
-       ROYL AA 3 
-	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	   ROYL BB 3 
-	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	   ROYL CC 3 
-	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	   ROYL DD 3 
-	   TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-	   TNT1 A 0 A_SpawnItem("PHellionSmokeSpawner",0,0,0,0)
-	   Goto Spawn
+Actor PhaseWarlordWeapon : PossessedWeapon
+{
+	States
+	{
 	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comets")
@@ -3814,84 +2713,14 @@ Spawn:
 	    ROYL O 15 Bright //A_FireCustomMissile("PhaseAFireSpawner",0,0, 0, -50)
 		TNT1 A 0 
         Goto Spawn
-        } 
+	}
 }
 
 
-Actor PossessedTerminator2MOP : PossessedCyberdemon
+Actor Terminator2MOPWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "Terminator2MOPWeapon"
- 
-Health 7100
-Radius 28 
-Height 86 
-Mass 0x7FFFFFFF
-Speed 0.56875 //13 
-PainChance 1
-Scale 1.4
-Monster
-Obituary "%o was liquidated by the Terminator !"
-Species "Cybers"
-+BOSS
-+MISSILEMORE
-+MISSILEEVENMORE
-+NORADIUSDMG
-+FLOORCLIP 
-+DONTHARMSPECIES
-+QUICKTORETALIATE
-+NoTarget
-//DamageFactor "CustomSpray", 0.0
-//DamageFactor "BFG9500Ball", 0.0
-//DamageFactor "PlayerPyro", 0.0
-//DamageFactor "Terminator", 0.0
-//DamageFactor "PDTBFG", 0.015
-//DamageFactor "PDTBFGTracer", 0.015
-//DamageFactor "PlayerRailPuff", 0.015
-//DamageFactor "PlayerPyro", 0.0
-//DamageFactor "PDTPuff", 0.0
-//DamageFactor "Ice", 0.0
-//DamageFactor "FreezerBurn", 0.0
-//DamageFactor "DemolisherEx", 0.0
-//DamageFactor "DarkDemoEx", 0.0
-//DamageFactor "CerChainguns", 0.0	
-//DamageFactor "CerEnergyBall", 0.0
-//DamageFactor "Cyber10K", 0.0
-//DamageFactor "Legendary", 0.0
-//DamageFactor "Legendary1", 0.0
-//DamageFactor "BFGSplash", 0.0
-//DamageFactor "BFGSpray", 0.0
-//DamageFactor "PlayerDevBall", 0.015
-//DamageFactor "PlayerDTBFGRailgunSlug", 0.015
-//DamageFactor "PlayerDevTracer", 0.015
-DropItem "DemonAmmo" 256
-DropItem "Demon Tech BFG10K" 250 1
-DropItem "Explosive Minigun" 250 1
-DropItem "PyroCannon" 250 1
-DropItem "Demon Tech Devastator" 250 1
-DropItem "DemonAmmoBox" 256 100
-DropItem "BossLifeEssence" 250 100
-DropItem "BossArmorBonusMax" 250 100
-DropItem "BFG10K " 256 1
-DropItem "UltraSphere" 100 1
-//DamageFactor 0.4
-SeeSound "monster/termsit" 
-PainSound "monster/termpin" 
-DeathSound "monster/termdth"
-AttackSound "plasmaminigun/fire"
-ActiveSound "Terminator/termact"
-Tag "Terminator"
-//var int user_amount;
-States 
-   { 
-   Spawn: 
-       TERM A 10 Bright  
-       Goto Spawn
-   See: 
-       TERM A 0 Bright //A_PlaySound("Terminator/terstepA")
-       TERM AABB 3 Bright 
-       TERM C 0 Bright //A_PlaySound("Terminator/terstepA")
-       TERM CCDD 3 Bright  
-       Goto Spawn
+	States
+	{
 	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Railgun")
@@ -4241,44 +3070,14 @@ Nuke:
 	TNT1 A 0 //A_GiveInventory("Terminator2NukeToken", 1)
 	TNT1 A 0 
 	Goto Spawn
-   }
+	}
 }
 
-Actor PossessedToxicImp : PossessedImp
-{
-	Player.MorphWeapon "ToxicImpWeapon"
 
-	Health 200
-	Speed 0.39375 //9
-	PainChance 70
-	DropItem "LifeEssence" 100
-	DropItem "ArmorBonusMax" 100
-	DropItem "DemonAmmo" 100
-    SeeSound "TImp/sight"
-	bloodcolor "DarkGreen"
-	PainSound "TImp/pain"
-	+MissileMore
-	+FloorClip
-	+QUICKTORETALIATE
-    Obituary "%o was corroded by a Toxic Imp."
-	HitObituary "%o was scratched by a Toxic Imp."
-    States
-    {
-    Spawn:
-	    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-        TIMP A 10 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-		TIMP B 10 
-        Goto Spawn
-    See:
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-		TIMP AABB 3 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
-		TIMP CCDD 3 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)	
-        Goto Spawn
+Actor ToxicImpWeapon : PossessedWeapon
+{
+	States
+	{
 	Missile:
 	    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
         TIMP EF 6 
@@ -4295,53 +3094,15 @@ Actor PossessedToxicImp : PossessedImp
 		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
         TIMP FE 5 		
         Goto Spawn
-		}
+	}
 }
 
 
-Actor PossessedToxicLord : PossessedHellKnight
+Actor ToxicLordWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "ToxicLordWeapon"
- 
-Health 1125
-PainChance 45
-PainChance "Explosion", 60
-Scale 1.15
-BloodColor "Green"
-MeleeDamage 15
-DropItem "BossLifeEssence" 128 25
-DropItem "BossArmorBonusMax" 128 1
-DropItem "DemonAmmoBox" 128 200
-//DamageFactor "NobleComet", 0.0
-Species "Nobles"
-+MISSILEMORE
-+FASTMELEE
-+QUICKTORETALIATE
-Obituary "%o was disintegrated by the toxins of the Toxic Lord." 
-HitObituary "%o received a sweet hug from the Toxic Lord."
-SeeSound "TLord/See"    
-DeathSound "TLord/Death"  
-PainSound "TLord/Pain"
-MeleeSound "baron/melee"
-States 
-{ 
-Spawn: 
-        TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
-        TLOD A 10 Bright 
-        Goto Spawn
-See: 
-        TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
-        TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-        TLOD AA 3 Bright 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
-        TLOD BB 3 Bright 
-        TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
-        TLOD CC 3 Bright 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
-		TLOD DD 3 Bright 
-        Goto Spawn
-Missile:  
+	States
+	{
+	Missile:  
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BurstComet")
@@ -4368,48 +3129,15 @@ BurstComet:
 		TNT1 A 0 //A_FireCustomMissile("TLordComet",0,0,0,-10)
 		TLO2 C 5 Bright //A_FireCustomMissile("TLordComet",0,0,0,10)
         Goto Spawn
-        } 
+	}
 }
 
 
-Actor PossessedWidowMaker : PossessedGuardian
+Actor WidowMakerWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "WidowMakerWeapon"
-
-	health 750
-	Speed 0.4375 //10
-	painchance 60
-	+DONTHARMCLASS
-    +DONTHARMSPECIES
-	+MISSILEMORE
-	+MissileEvenMore
-	+AVOIDMELEE
-	+QUICKTORETALIATE
-	+NODROPOFF
-	Radius 22
-    Height 60
-	//DamageFactor "CadaverRocket", 0.0
-	Species "Skeletons"
-	dropitem "Assault Shotgun" 255
-	DropItem "LifeEssence" 150
-    DropItem "ArmorBonusMax" 150
-	dropitem "BackPack" 30
-	SeeSound "widowmaker/sight"
-	ActiveSound "widowmaker/act"
-	PainSound "widowmaker/pain"
-	DeathSound "widowmaker/death"
-	Obituary "%o was perforated by a Widow maker."
-	states{
-  Spawn:
-    WDMK O 10 
-    Goto Spawn
-  See:
-    TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
-    WDMK AAABBB 2 
-    TNT1 A 0 A_SpawnItem("BonyStep",0,0,0,0)
-    WDMK CCCDDD 2 
-    Goto Spawn
-  Missile:
+	States
+	{
+	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Autocannon")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "SeekMissile")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "SeekMissile2")
@@ -4447,5 +3175,5 @@ Actor PossessedWidowMaker : PossessedGuardian
     WDMK H 2 Bright 
 	WDMK G 2
     Goto Spawn
-	}   
+	}
 }
