@@ -1660,6 +1660,7 @@ Actor LegendaryImpWeapon : PossessedWeapon
 	TNT1 F 6 Bright A_FireCustomMissile("LegImpSeekBall",0,0,20)
 	Goto Ready
   Super:
+	TNT1 A 0 Bright SetPlayerProperty(0, true, PROP_FROZEN)
 	TNT1 A 0 Bright A_PlaySound ("legimp/chargingsound")
 	TNT1 A 0 
 	TNT1 E 0 Bright 
@@ -1687,6 +1688,7 @@ Actor LegendaryImpWeapon : PossessedWeapon
 	TNT1 A 0 Bright A_PlaySound ("legimp/fiyabetch")
 	TNT1 A 0 
 	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 Bright SetPlayerProperty(0, false, PROP_FROZEN)
 	Goto Ready
 	}
 }
