@@ -25,9 +25,9 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "LegendaryCyberdemon", "Normal", "Legendary Auto Shotgun", "Finder", "Legendary BFG95K", "Legendary Tech", "Legendary BFG", "Legendary Railgun", "Legendary BFG10K", "Legendary Stomp", "Legendary BFG15K", "Legendary DTBFG", "Legendary Devastator", "X" },	
 	{ "LegendaryHellKnight", "\cnNormal", "Spread", "\chHugger", "\chRage", "\cnBest Attack", "\chRain", "\cv4 Comets", "\chBlue Comet", "X" },
 	{ "LegendaryImp", "\cvNormal", "\cvSeeker", "\cvSuper", "X" },	
-	{ "LegendarySentient", "Cannon", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Legendary BFG", "Legendary Storm", "X" },	
+	{ "LegendarySentient", "Normal", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Cannon", "Legendary BFG", "Legendary Storm", "X" },	
 	{ "Velocirator", "Floor", "Super Floor", "Ghost", "Heal", "X" },
-	
+
 	{ "MONSTERATTACKS" }
 };
 
