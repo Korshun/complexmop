@@ -1,4 +1,4 @@
-#define MAX_MONSTERATTACKS 30
+#define MAX_MONSTERATTACKS 50
 int MonsterAttacks[MAX_MONSTERATTACKS][15] = 
 {
 	{ "Cacomental", "\cgNormal", "\cgSeeking", "\cgComet", "X" },
@@ -27,6 +27,24 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "LegendaryImp", "\cvNormal", "\cvSeeker", "\cvSuper", "X" },	
 	{ "LegendarySentient", "Normal", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Cannon", "Legendary BFG", "Legendary Storm", "X" },	
 	{ "Velocirator", "Floor", "Super Floor", "Ghost", "Heal", "X" },
+	
+	// randommons
+	{ "Afrit", "Normal", "Tracer", "Comet" },
+	{ "BFGMastermind", "Normal", "BFG15K", "BFG10K", "Railgun", "BFG9K", "DTBFG" },
+	{ "CacoLich", "Normal", "Seeking", "Comet", "Breath" },
+	{ "CerebralSlayer", "Normal", "BFG9K", "BFG10K", "Railgun", "DTBFG10K", "Pyro Cannon", "Third Eye" },
+	{ "CorruptedCyberLord", "Normal", "Seekers", "Floor Stomp", "BFG15K", "Railgun" },
+	{ "CryoDemon", "Normal", "Comet", "Floor Hugger" },
+	{ "DemolisherMkII", "Normal", "BFG15K", "BFG9K" },
+	{ "DemolisherMkIIRevenge", "Normal", "BFG9K", "BFG10K" },
+	{ "HellArchon", "Normal", "Fast Ball", "Comet" },
+	{ "HellFireBaron", "Normal", "Giant Balls", "Comet", "Tracers", "Spread" },
+	{ "HFCyberdemon", "Rockets", "Stomp", "Fire Grenades", "Seekers", "Floor Stomp", "Railgun", "Fuel Rockets", "Fire Balls", "HF10K", "Pyro Shot", "Souls Storm", "Ultimate Combo" },
+	{ "Paladin", "Normal", "Grenadier", "Rocket", "Railgun", "BFG10K" },
+	{ "PhaseWarlord", "Seekers", "Comets", "Spread", "Seekers2", "Floor Hugger", "Dark Matter", "Ultimate Floor Hugger" },
+	{ "Terminator2MOP", "Normal", "Railgun", "BFG9K", "BFG10K", "DTBFG", "RedStar", "Plasma Minigun", "PyroShot", "Demon Tech Devastator", "Nuke" },
+	{ "ToxicLord", "Normal", "Giant Balls", "Burst Comet" },
+	{ "WidowMaker", "Autocannon", "Seek Missile", "Seek Missile 2" },
 
 	{ "MONSTERATTACKS" }
 };
