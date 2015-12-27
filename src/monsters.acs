@@ -182,7 +182,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// randommons
 	{ "BFGMastermind",			6.0, 0, 0, MONSTF_BOSS, "BFG Mastermind", "BFGDA1D1" },
 	{ "CerebralSlayer",			6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Slayer", "COMMA1" },
-	{ "DemolisherMkII",			6.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Demolisher Mk II", "DPYTA1"},
+	{ "DemolisherMkII",			6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
+	{ "DemolisherMkIIRevenge",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Demolisher Mk II", "DPYTA1"},
 	
 	// Cyberdemons.
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
