@@ -64,7 +64,7 @@ Melee:
          }
 }
 
-ACTOR Afrit : BaronOfHell 31049
+Actor PossessedAfrit : PossessedBaronOfHell
 { 
 Health 1200
 Speed 8
@@ -180,7 +180,7 @@ Missile:
       } 
 }
 
-Actor Agaures : Imp 21718
+Actor PossessedAgaures : PossessedImp
 {
   Obituary "%o fell before an agaures."
   HitObituary "%o was cut open by an agaures."
@@ -238,7 +238,7 @@ Actor Agaures : Imp 21718
   }
 }
 
-ACTOR BabyDDemolisher : Arachnotron 23336
+Actor PossessedBabyDDemolisher : PossessedArachnotron
 {
   Health 1200
   PainChance 70
@@ -622,7 +622,7 @@ ACTOR CacoLich : CacoDemon~
 	}
 }
 
-ACTOR CerebralSlayer : SpiderMastermind 21306
+Actor PossessedCerebralSlayer : PossessedSpiderMastermind
 {
     Health 5700
     Speed 15
@@ -1193,7 +1193,7 @@ BFG15K:
         }
 }
 
-ACTOR CryoDemon : HellKnight 31155
+Actor PossessedCryoDemon : PossessedHellKnight
 { 
 Health 750
 PainChance 80
@@ -1256,7 +1256,7 @@ FloorHugger:
         } 
 }
 
-ACTOR DemolisherMkII : SpiderMastermind 21141
+Actor PossessedDemolisherMkII : PossessedSpiderMastermind
 {
 Health 3500
 Speed 15
@@ -1797,7 +1797,7 @@ Melee:
   }
 }
 
-ACTOR HellArchon : HellKnight 31340
+Actor PossessedHellArchon : PossessedHellKnight
 { 
 Health 650
 Speed 8 
@@ -1865,7 +1865,7 @@ Missile:
         } 
 }
 
-ACTOR HellFireBaron : BaronOfHell 31042
+Actor PossessedHellFireBaron : PossessedBaronOfHell
 {
 Health 1700
 PainChance 30
@@ -3657,7 +3657,7 @@ ACTOR Paladin
 	} 
 }
 
-ACTOR PhaseElemental : SoulKeeper 21527
+Actor PossessedPhaseElemental : PossessedSoulKeeper
 {
 	Health 600
 	PainChance 80
@@ -4440,7 +4440,7 @@ Nuke:
    }
 }
 
-ACTOR ToxicImp : Imp 21768
+Actor PossessedToxicImp : PossessedImp
 {
 	Health 200
 	Speed 9
@@ -4493,7 +4493,7 @@ ACTOR ToxicImp : Imp 21768
 		}
 }
 
-ACTOR ToxicLord : HellKnight 28528
+Actor PossessedToxicLord : PossessedHellKnight
 { 
 Health 1125
 PainChance 45
