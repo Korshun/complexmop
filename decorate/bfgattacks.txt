@@ -97,10 +97,6 @@ Actor SentientBFG9500BallMOP : SentientBFG9500Ball replaces SentientBFG9500Ball
 
 ACTOR CacoBFG9500BallMOP : CacoBFG9500Ball replaces CacoBFG9500Ball
 {
-	FastSpeed 30
-	-THRUSPECIES
-	DamageType "WeakenerBall"
-	Decal BFG9500Lightning
 	States
 	{
 	Death:
