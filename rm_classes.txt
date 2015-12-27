@@ -3543,7 +3543,7 @@ Actor PossessedPhaseElemental : PossessedSoulKeeper
 	Melee:
 	    TNT1 A 0 
         PELE DE 5  
-        PELE F 4 A_MeleeAttack
+        PELE F 4 A_CustomPunch(5)
 	    PELE ED 3 
         Goto Spawn
       } 
@@ -4307,7 +4307,7 @@ Actor PossessedToxicImp : PossessedImp
 	    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
         TIMP EF 5 
 		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
-        TIMP G 5 A_MeleeAttack
+        TIMP G 5 A_CustomPunch(5)
 		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner2",0,0,0,0)
         TIMP FE 5 		
         Goto Spawn
