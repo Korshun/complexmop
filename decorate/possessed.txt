@@ -56,6 +56,29 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "ZombieDemonTech", 0
 	DamageFactor "ZombieDev", 0
 	
+	// Randommons.
+	DamageFactor "BFGMastermind", 0
+	DamageFactor "Baby15K", 0
+	DamageFactor "BeheComet", 0
+	DamageFactor "CacoComet", 0
+	DamageFactor "CadaverRocket", 0
+	DamageFactor "Cyber10K", 0
+	DamageFactor "DTZPuff", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "EleSouls", 0
+	DamageFactor "HFCyber", 0
+	DamageFactor "ImpComet", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "Nobles", 0
+	DamageFactor "Poison", 0
+	DamageFactor "RedZombieDemonTech", 0
+	DamageFactor "Slayer", 0
+	DamageFactor "Slayer ", 0
+	DamageFactor "Terminator", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieEx", 0
+	DamageFactor "ZombieRocket", 0
+	
 	States
 	{
 	Death:
@@ -114,6 +137,29 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "WeakenerBall", 0
 	DamageFactor "ZombieDemonTech", 0
 	DamageFactor "ZombieDev", 0
+	
+	// Randommons
+	DamageFactor "BFGMastermind", 0
+	DamageFactor "Baby15K", 0
+	DamageFactor "BeheComet", 0
+	DamageFactor "CacoComet", 0
+	DamageFactor "CadaverRocket", 0
+	DamageFactor "Cyber10K", 0
+	DamageFactor "DTZPuff", 0
+	DamageFactor "DemolisherEx", 0
+	DamageFactor "EleSouls", 0
+	DamageFactor "HFCyber", 0
+	DamageFactor "ImpComet", 0
+	DamageFactor "NobleComet", 0
+	DamageFactor "Nobles", 0
+	DamageFactor "Poison", 0
+	DamageFactor "RedZombieDemonTech", 0
+	DamageFactor "Slayer", 0
+	DamageFactor "Slayer ", 0
+	DamageFactor "Terminator", 0
+	DamageFactor "ZombieDemonTech", 0
+	DamageFactor "ZombieEx", 0
+	DamageFactor "ZombieRocket", 0
 }
 
 Actor PossessedWeapon : Weapon
