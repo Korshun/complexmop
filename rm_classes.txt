@@ -54,30 +54,6 @@ Melee:
          }
 }
 
-Actor AbaddonWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-         ABDD BC 6 
-         ABDD D 2 Bright 
-		 ABDD D 1 Bright //A_FireCustomMissile("ABDBall",0,0,0,0,0,0)
-         TNT1 A 0 Bright //A_FireCustomMissile("ABDBall",6,0,0,0,0,0)
-         ABDD D 1 Bright //A_FireCustomMissile("ABDBall",-6,0,0,0,0,0)
-		 ABDD CB 4 
-		 ABDD D 2 Bright 
-		 ABDD D 1 Bright //A_FireCustomMissile("ABDBall",0,0,0,0,0,0)
-         TNT1 A 0 Bright //A_FireCustomMissile("ABDBall",6,0,0,0,0,0)
-         ABDD D 1 Bright //A_FireCustomMissile("ABDBall",-6,0,0,0,0,0)
-         ABDD CB 4 
-         Goto Spawn
-Melee:
-         ABDD BC 6 
-	     ABDD D 4 Bright //A_FireCustomMissile("HeleBall",0,0,0,0,0,0)
-         ABDD CB 4	
-	    Goto Spawn
-         }
-}
 
 Actor PossessedAfrit : PossessedBaronOfHell
 {
@@ -193,71 +169,6 @@ Tracer:
       } 
 }
 
-Actor AfritWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Tracer")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		Goto Spawn
-Normal:
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT S 6 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)	  
-      AFRT T 6 Bright 	  
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 3 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 1 Bright //A_FireCustomMissile("AfritBall",0,0, 0, 0)	  
-	  AFRT U 0 Bright //A_FireCustomMissile("AfritBall",0,0, 0, 3)
-	  AFRT U 1 Bright //A_FireCustomMissile("AfritBall",0,0, 0, -3)
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT T 5 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)	  
-      AFRT S 5 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)	  
-      AFRT T 6 Bright 	  
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 3 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 1 Bright //A_FireCustomMissile("AfritBall",0,0, 0, 0)
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 0 Bright //A_FireCustomMissile("AfritBall",0,0, 0, 3)
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  AFRT U 1 Bright //A_FireCustomMissile("AfritBall",0,0, 0, -3) 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-	  Goto Spawn
-Comet:
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT E 8 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT F 8 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT G 1 Bright //A_FireCustomMissile("Comet",0,0, 0, 0)
-      AFRT G 0 Bright //A_FireCustomMissile("Comet",0,0, 0, 6)
-      AFRT G 4 Bright //A_FireCustomMissile("Comet",0,0, 0, -6)
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT G 6 Bright 
-	  Goto Spawn
-Tracer:
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT G 8 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT F 8 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT E 8 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      TNT1 A 0 Bright 
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      TNT1 A 0 Bright //A_FireCustomMissile("AfritTracer",0,0,40,0)	  
-      AFRT E 1 Bright //A_FireCustomMissile("AfritTracer",0,0,-40,0)
-	  TNT1 A 0 Bright A_SpawnItem("AfritFireSpawner",0,0,0,0)
-      AFRT E 4 Bright 	
-      Goto Spawn
-	}
-}
 
 Actor PossessedAgaures : PossessedImp
 {
@@ -316,29 +227,6 @@ Actor PossessedAgaures : PossessedImp
   }
 }
 
-Actor AgauresWeapon : PossessedWeapon
-{
-	States
-	{
-	  Missile:
-    AGUR EF 5 
-    AGUR G 0 //A_FireCustomMissile("AgauresBall", 7,0, 0,0, 0, 0)
-    AGUR G 0 //A_FireCustomMissile("AgauresBall", -7,0, 0,0, 0, 0)
-    AGUR G 3 BRIGHT //A_FireCustomMissile("AgauresBall", 0,0, 0,0, 0, 0)
-    Goto Spawn
-  Melee:
-    AGUR EF 5 
-	AGUR G 0 //A_FireCustomMissile("SpeedyAgauresBall", -10,0, 0,0, 0, 0)
-	AGUR G 0 //A_FireCustomMissile("SpeedyAgauresBall", 0,0, 0,0, 0, 0)
-    AGUR G 3 BRIGHT //A_FireCustomMissile("SpeedyAgauresBall", 10,0, 0,0, 0, 0)
-	AGUR EF 5 
-	AGUR G 0 //A_FireCustomMissile("SpeedyAgauresBall", -10,0, 0,0, 0, 0)
-	AGUR G 0 //A_FireCustomMissile("SpeedyAgauresBall", 0,0, 0,0, 0, 0)
-    AGUR G 3 BRIGHT //A_FireCustomMissile("SpeedyAgauresBall",10,0,0,0,0,0)
-	AGUR EF 5 
-	Goto Spawn
-	}
-}
 
 Actor PossessedBabyDDemolisher : PossessedArachnotron
 {
@@ -402,38 +290,6 @@ Actor PossessedBabyDDemolisher : PossessedArachnotron
   }
 }
 
-Actor BabyDDemolisherWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-	TNT1 A 0 Bright //A_PlaySound("monsters/darkmasterwind2")
-	TNT1 A 0 Bright //A_PlaySoundEx("weapons/minigunfire","Weapon")
-	TNT1 A 0 Bright //A_FireCustomMissile("MonsterTracer",Random(5,-5),0,0,0,0)
-	TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-    DMSP Q 3 Bright //A_FireBullets(20.0, 0, 1, Random(1,5, "MonsterModdedBulletPuff")*3, "BabyPuff")
-	TNT1 A 0 Bright //A_PlaySoundEx("weapons/minigunfire","Weapon")	
-    TNT1 A 0 Bright //A_SpawnItemEx("RifleCasing", 8, -8, 18, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)	
-    DMSP R 2 Bright //A_FireBullets(20.0, 0, 1, Random(1,5, "MonsterModdedBulletPuff")*3, "BabyPuff")
-    TNT1 A 0 
-    Goto Spawn
-  Melee:
-	TNT1 A 0 //A_PlaySound("weapons/charge15k")
-    DMSP G 16 Bright 
-	DMSP G 6 Bright 
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    DMSP H 4 Bright //A_FireCustomMissile("BabyDemo10K",0,0,0,Random(4,-4)) 
-    DMSP G 6 Bright 
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    DMSP H 4 Bright //A_FireCustomMissile("BabyDemo10K",0,0,0,Random(4,-4)) 
-    DMSP G 6 Bright 	
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    DMSP H 4 Bright //A_FireCustomMissile("BabyDemo10K",0,0,0,Random(4,-4)) 	
-    DMSP G 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-    Goto Spawn
-	}
-}
-
 Actor PossessedDemobus : PossessedFatso
 {
 	Player.MorphWeapon "DemobusWeapon"
@@ -489,30 +345,6 @@ Missile:
        }
 }
 
-Actor DemobusWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-       TNT1 A 0 //A_PlaySound("weapons/charge15k")
-       BFAT G 20     
-       TNT1 A 0  	   
-       TNT1 A 0 Bright //A_FireCustomMissile("DBusBFG15K",0,0, 26, Random(6, -12))
-       BFAT H 6 Bright //A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(12, -6))    
-       BFAT I 6      
-       BFAT G 6    
-       TNT1 A 0 Bright //A_FireCustomMissile("DBusBFG15K",0,0, 26, Random(6, -12))
-       BFAT H 6 Bright //A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(12, -6))
-       BFAT I 10 
-       BFAT G 10 
-       TNT1 A 0 Bright //A_FireCustomMissile("DBusBFG15K",0,0, 26, Random(-7, -13))
-       TNT1 A 0 Bright //A_FireCustomMissile("DBusBFG15K",0,0, 26, Random(0, -6))     
-       TNT1 A 0 Bright //A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(0, 6))
-       BFAT H 8 Bright //A_FireCustomMissile("DBusBFG15K",0,0, -26, Random(7, 13))  
-       BFAT I 8
-       Goto Spawn
-	}
-}
 
 Actor PossessedBFGMastermind : PossessedSpidermastermind
 {
@@ -650,94 +482,6 @@ DTBFG:
       }
  }
 
-Actor BFGMastermindWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
-		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "BFG9K")
-		TNT1 A 0 A_JumpIfInventory("Attack6", 1, "DTBFG")
-		Goto Spawn
-Normal:
-     BFGD H 2 Bright //A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
-	 BFGD H 0 Bright //A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
-	 BFGD H 0 Bright //A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
-     BFGD G 2 Bright //A_FireCustomMissile("BMasterMindPlasma",0,0,0,Random(7,-7))
-     BFGD A 0 
-     Goto Spawn
-BFG9K:
-	    TNT1 A 0 //A_PlaySound("weapons/bfgf")
-        BFGD G 15 Bright 
-	    BFGD G 10 Bright 
-	    BFGD H 8 Bright 
-    	BFGD H 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
-		BFGD G 6 Bright 
-	    TNT1 A 0 //A_PlaySound("weapons/bfgf")
-        BFGD G 15 Bright 
-	    BFGD G 10 Bright 
-	    BFGD H 8 Bright 
-    	BFGD H 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
-		BFGD G 15 Bright
-    	Goto Spawn
-	 BFG15k:
-	    TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	    BFGD G 18 Bright 
-	    BFGD G 6 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 4 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 4 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 4 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 4 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 4 Bright 
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind15K",0,0,0,Random(-4, 4))
-		BFGD G 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto Spawn
-BFG10K:
-	    TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	    BFGD G 18 Bright 
-	    BFGD G 6 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))
-		BFGD G 5 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))
-		BFGD G 5 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))
-		BFGD G 5 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))
-		BFGD G 5 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))
-		BFGD G 5 Bright 
-		TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-		BFGD H 4 Bright //A_FireCustomMissile("BFGMastermind10K",0,0, 0, Random(4, -4))	
-		BFGD G 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-        Goto Spawn
-Railgun:
-	TNT1 A 0 //A_PlaySound("weapons/rgcharge")
-	BFGD GG 10 Bright 
-	BFGD G 10 Bright 
-	BFGD H 10 Bright //A_FireCustomMissile("SpiderRail",0,0, 0, 0)
-	BFGD G 15
-	Goto Spawn
-DTBFG:
-	   BFGD A 0 //A_PlaySound("Cardinal/9k")
-       BFGD GGGGGGGGGGGGHH 3 Bright 
-       BFGD H 4 Bright //A_FireCustomMissile("BFGSpiderDTBFGBall",0,0,0,0)
-       BFGD GGG 4 
-       Goto Spawn
-	}
-}
 
 Actor PossessedCacoLich : PossessedCacoDemon~
 {
@@ -774,62 +518,6 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 	    CLIH A 3 	 
          Goto Spawn
       Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Breath")
-		Goto Spawn
-	Normal:
-         CLIH EF 6 
-		 CLIH G 0 Bright //A_FireCustomMissile("WatcherBall",0,0, 0, 0)
-		 CLIH G 0 Bright //A_FireCustomMissile("WatcherBall",0,0, 0, 4)
-         CLIH G 6 Bright //A_FireCustomMissile("WatcherBall",0,0, 0, -4)
-         CLIH G 6 
-         CLIH G 0
-         Goto Spawn
-	 Seeking:
-         CLIH B 6 
-	     TNT1 A 0 //A_FireCustomMissile("CacoLichBall",16,0,0,0,0,0)
-	     CLIH C 4 Bright //A_FireCustomMissile("CacoLichBall",-16,0,0,0,0,0)
-         CLIH CD 4	
-	     Goto Spawn
-     Comet:
-         CLIH EF 6 
-	     CLIH G 5 Bright //A_FireCustomMissile("LichComet",0,0,0,0,0,0)
-         CLIH GG 4
-	     Goto Spawn
-      Melee:
-		CLIH EF 4 Bright  
-		TNT1 A 0 Bright //A_PlaySound("monster/psoattack")
-		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH F 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH F 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH F 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH F 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		TNT1 A 0 Bright 
-		CLIH F 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))
-		CLIH FG 3
-		Goto Spawn
-	}
-}
-
-Actor CacoLichWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seeking")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
@@ -1278,327 +966,6 @@ ThirdEye:
     }
 }
 
-Actor CerebralSlayerWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Railgun")
-		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "DTBFG10K")
-		TNT1 A 0 A_JumpIfInventory("Attack6", 1, "PyroCannon")
-		TNT1 A 0 A_JumpIfInventory("Attack7", 1, "ThirdEye")
-		Goto Spawn
-Normal:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_SpawnItemEx("OrangeShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-	TNT1 A 0 //A_PlaySound("sentient/fire")
-	COMM D 0 Bright //A_FireCustomMissile("SentientExplosiveTracer",Random(-800,800)/100.00,0,0,0,0)
-	COMM D 3 Bright //A_FireCustomMissile("SentientExplosiveTracer",Random(-800,800)/100.00,0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-    TNT1 A 0 //A_SpawnItemEx("OrangeShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-	TNT1 A 0 //A_PlaySound("sentient/fire")
-	COMM C 0 Bright //A_FireCustomMissile("SentientExplosiveTracer",Random(-800,800)/100.00,0,0,0,0)
-	COMM C 3 Bright //A_FireCustomMissile("SentientExplosiveTracer",Random(-800,800)/100.00,0,0,0,0)
-	TNT1 A 0 //A_StopSoundEx("Weapon")	
-    TNT1 A 0 
-	Goto Spawn
-BFG9K:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 D 2 Bright //A_FireCustomMissile("SentientBFG9500Ball",0,0, 0, 0)
-	COM2 CCC 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 D 2 Bright //A_FireCustomMissile("SentientBFG9500Ball",0,0, 0, 0)
-	COM2 CCC 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 B 2 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
-	COM2 AA 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 A 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 B 2 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
-	COM2 AAAAAAA 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-Railgun:
-	TNT1 A 0 //A_PlaySound("weapons/rgcharge")
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 B 5 Bright //A_FireCustomMissile("SpiderRail",0,0, 0, 0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 B 5 Bright //A_FireCustomMissile("SpiderRail",0,0, 0, 0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner2",0,0,0,0)
-	COM2 B 5 Bright //A_FireCustomMissile("SpiderRail",0,0, 0, 0)
-	COM2 A 15 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-BFG10K:
-	TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 4 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 4 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 C 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    COM2 D 3 Bright //A_FireCustomMissile("Sentient10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-	COM2 C 3 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-	COM2 CCCCC 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-	Goto Spawn
-DTBFG10K:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("Cardinal/9k")
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 DD 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 DD 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 D 2 Bright //A_FireCustomMissile("SentientDTBFG10KBall",0,0, 0, 0)
-	COM2 DDDDDDDDDDDD 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("Cardinal/9k")
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 AA 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 B 2 Bright //A_FireCustomMissile("SlayerDTBFGBall",0,0, 0, 0)
-	COM2 BBBBBBBBBBBB 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-PyroCannon:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("Cardinal/9k")
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 DD 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 DD 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	COM2 D 2 Bright //A_FireCustomMissile("SlayerPyroShot",0,0, 0, 0)
-	COM2 DDDDDDDDDDDD 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-ThirdEye:
-    TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 
-	SLAY BB 2 Bright 
-	TNT1 A 0 Bright //A_PlaySound("Slayer/charge")
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-    SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY CC 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY C 2 Bright //A_FireCustomMissile("SlayerEyeBFG",0,0, 0, 0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY CC 5 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY C 2 Bright //A_FireCustomMissile("SlayerEyeBFG",0,0, 0, 0)
-	SLAY BB 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY CC 5 Bright 
-	TNT1 A 0 A_SpawnItem("SentientBrainSFX",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	SLAY C 2 Bright //A_FireCustomMissile("SlayerEyeBFG",0,0, 0, 0)
-	TNT1 A 0 
-	SLAY AAAAAAAAAAAA 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-	}
-}
 
 Actor PossessedCorruptedCyberLord : PossessedCyberdemon
 {
@@ -1736,103 +1103,6 @@ BFG15K:
         }
 }
 
-Actor CorruptedCyberLordWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Seekers")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorStomp")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "BFG15K")
-		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Railgun")
-		Goto Spawn
-Normal:
-        4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, -26, 0)
-        4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, -26, 0)
-        4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordRocket",0,0, -26, 0)
-		4NNI E 8
-        Goto Spawn
-Seekers:
-		4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, -26, 0)
-        4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, -26, 0)
-        4NNI E 8 
-        TNT1 A 0 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, 26, 0)
-        4NNI F 6 Bright //A_FireCustomMissile("BCyberLordHomer",0,0, -26, 0)
-		4NNI E 8
-		Goto Spawn
-FloorStomp:
-        4NNI G 10 
-		TNT1 A 0 
-		TNT1 A 0 A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		4NMA A 3 Bright //A_PlaySoundEx("monsters/clsee","Voice")
-		TNT1 A 0 
-		4NMA A 3 Bright A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		TNT1 A 0 
-		4NMA A 3 Bright A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		TNT1 A 0 
-		4NMA A 3 Bright A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		TNT1 A 0 
-		4NMA A 3 Bright A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		TNT1 A 0 
-		4NMA A 3 Bright A_SpawnItem("BlueAnniFlameSpawner",0,0,0,0)
-		TNT1 A 0 
-		4NMA A 7 
-		4NMA A 5 
-		TNT1 A 0 //Radius_Quake(10,8,0,24,0)	
-		4NMA B 6 //A_PlaySound("monsters/Darkcyberstomp")
-		4NMA B 2 //A_FireCustomMissile("BlueAnniFireSpawner",0,0,0,0,0)
-		TNT1 A 0 //A_FireCustomMissile("BlueAnniFireSpawner",15,0,0,0,0)
-		4NMA B 2 //A_FireCustomMissile("BlueAnniFireSpawner",-15,0,0,0,0)
-		TNT1 A 0 //A_FireCustomMissile("BlueAnniFireSpawner",30,0,0,0,0)
-		4NMA B 2 //A_FireCustomMissile("BlueAnniFireSpawner",-30,0,0,0,0)
-		TNT1 A 0 //A_FireCustomMissile("BlueAnniFireSpawner",45,0,0,0,0)
-		4NMA B 2 //A_FireCustomMissile("BlueAnniFireSpawner",-45,0,0,0,0)	
-		4NMA B 20
-        Goto Spawn
-Railgun:
-		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
-        4NNI EE 10 
-		4NNI E 10 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnniRail",0,0,26,0)
-        4NNI F 10 Bright //A_FireCustomMissile("BlueAnniRail",0,0,-26,0)
-		4NNI E 15
-		Goto Spawn
-BFG15K:
-	    TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	    4NNI E 18 Bright 
-	    4NNI E 6 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))	
-		4NNI E 4 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))	
-		4NNI E 4 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
-		4NNI E 4 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
-		4NNI E 4 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
-		4NNI E 4 Bright 
-		TNT1 A 0 //A_FireCustomMissile("BlueAnni15K",0,0,-26,Random(-4, 4))
-		4NNI F 4 Bright //A_FireCustomMissile("BlueAnni15K",0,0,26,Random(-4, 4))
-		4NNI E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
-		Goto Spawn
-	}
-}
 
 Actor PossessedCryoDemon : PossessedHellKnight
 {
@@ -1897,35 +1167,6 @@ FloorHugger:
         } 
 }
 
-Actor CryoDemonWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comet")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "FloorHugger")
-		Goto Spawn
-Normal:
-        CRYO EF 7 Bright  
-		CRYO G 1 Bright //A_FireCustomMissile("CBall",0,0, 0, 0)		
-		TNT1 A 0 Bright //A_FireCustomMissile("CBall",0,0, 0, -5)
-		CRYO G 5 Bright //A_FireCustomMissile("CBall",0,0, 0, 5)
-        CRYO IJ 7 Bright  
-		CRYO K 1 Bright //A_FireCustomMissile("CBall",0,0, 0, 0)		
-		TNT1 A 0 Bright //A_FireCustomMissile("CBall",0,0, 0, -5)
-		CRYO K 5 Bright //A_FireCustomMissile("CBall",0,0, 0, 5)		
-        Goto Spawn
-Comet:
-        CRYO MN 8 Bright  	
-        CRYO O 7 Bright //A_FireCustomMissile("CryoComet",0,0,0,0,0)	
-        Goto Spawn
-FloorHugger:
-        CRYO MN 8 Bright  	
-        CRYO O 8 Bright //A_FireCustomMissile("CIceSpikeSpawner",0,0,0,0,0)	
-		Goto Spawn
-	}
-}
 
 Actor PossessedDemolisherMkII : PossessedSpiderMastermind
 {
@@ -2011,56 +1252,6 @@ BFG9K:
     	Goto Spawn
         }
 }
-
-Actor DemolisherMkIIWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG15K")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG9K")
-		Goto Spawn
-Normal:
-		TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 36, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
-		TNT1 A 0 //A_FireCustomMissile("MonsterTracer3",Random(10,-10),0,0,0,0)
-		DEMO G 3 Bright //A_FireBullets(22.5, 0, 3, random(1,5), "BulletPuff")
-    	TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 36, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-		TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
-		TNT1 A 0 //A_FireCustomMissile("MonsterTracer3",Random(10,-10),0,0,0,0)
-		DEMO H 4 Bright //A_FireBullets(22.5, 0, 3, random(1,5), "BulletPuff")
-		TNT1 A 0 //A_PlaySound("monsters/darkmasterwind2")			
-    	TNT1 A 0 
-    	Goto Spawn
-BFG15K:
-	    TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	    DEMO T 18 Bright 
-	    DEMO T 6 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 4 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 4 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 4 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 4 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 4 Bright 
-		DEMO U 4 Bright //A_FireCustomMissile("Spider15K",0,0,0,Random(-4, 4))
-		DEMO T 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		Goto Spawn
-BFG9K:
-	    TNT1 A 0 //A_PlaySound("weapons/bfgf")
-        DEMO T 15 Bright 
-	    DEMO T 10 Bright 
-	    DEMO U 8 Bright 
-    	DEMO U 4 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0,0,0,0)
-		DEMO T 15 Bright
-    	Goto Spawn
-	}
-}
-
 
 
 Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
@@ -2223,124 +1414,6 @@ BFG10K:
    } 
 }
 
-Actor DemolisherMkIIRevengeWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BFG9K")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFG10K")
-		Goto Spawn
-Normal:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, 12, 40, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
-	TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
-	TNT1 A 0 //A_FireCustomMissile("MonsterTracer3",Random(10,-10),0,0,0,0)
-	DPYT C 3 Bright //A_FireBullets(22.5, 0, 3, random(1,5), "BulletPuff")
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-    TNT1 A 0 A_SpawnItemEx("ShellCasing", 10, -12, 40, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-	TNT1 A 0 //A_PlaySound("weapons/12gaugefire")
-	TNT1 A 0 //A_FireCustomMissile("MonsterTracer3",Random(10,-10),0,0,0,0)
-	DPYT D 4 Bright //A_FireBullets(22.5, 0, 3, random(1,5), "BulletPuff")
-	TNT1 A 0 //A_StopSoundEx("Weapon")	
-	TNT1 A 0 
-	Goto Spawn
-BFG9K:
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT LL 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT LL 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT L 2 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
-	DPYT KKK 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfgf")
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT KK 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT LL 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT LL 2 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT L 2 Bright //A_FireCustomMissile("SpiderBFG9500Ball",0,0, 0, 0)
-	DPYT KKKKKKK 2 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	Goto Spawn
-BFG10K:
-	TNT1 A 0 //A_PlaySound("weapons/charge15k")
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 3 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 4 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 4 Bright 	
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	DPYT K 4 Bright 
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)
-	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-    DPYT L 3 Bright //A_FireCustomMissile("DarkDemo10K",0,0, 0, Random(4, -4))
-	TNT1 A 0 A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-	DPYT K 3 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-	DPYT KKKKK 3 Bright A_SpawnItem("SentientFireSpawner",0,0,0,0)	
-	Goto Spawn
-	}
-}
-
 ACTOR PossessedDTShotgunZombie : PossessedMonster
 { 
 	Player.MorphWeapon "DTShotgunZombieWeapon"
@@ -2415,40 +1488,6 @@ Melee:
     }
 }
 
-Actor DTShotgunZombieWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-    ZPS1 E 15 
-	TNT1 A 0 //A_PlaySound("Weapons/ErasusFire")
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,0)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,2)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,-2)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,3)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,-3)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,4)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,-4)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,5)
-	TNT1 A 0 Bright //A_FireCustomMissile("RedZDemonTechProjectile2",0,0,0,-5)
-    ZPS1 F 5 Bright
-    ZPS1 E 10 
-	ZPS1 E 8 //A_PlaySound("Weapons/ErasusPump")
-    TNT1 A 0 //A_SpawnItemEx("ShellCasing", -8, 0, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-	ZPS1 E 8
-    Goto Spawn
-Melee:
-    ZPS1 E 15 
-	TNT1 A 0 //A_PlaySound("Weapons/ErasusFire")
-	TNT1 AAAAAAAA 0 Bright //A_FireCustomMissile("RedDemonTechTracer",Random(6,-6),0,0,0,0)
-    ZPS1 F 5 Bright //A_FireBullets(15.4,10.6,24,Random(1,4, "MonsterModdedBulletPuff")*3,"ZDemonShotgunPuff")
-    ZPS1 E 10 
-	ZPS1 E 8 //A_PlaySound("Weapons/ErasusPump")
-    TNT1 A 0 //A_SpawnItemEx("ShellCasing", -8, 0, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-	ZPS1 E 8
-    Goto Spawn
-	}
-}
 
 Actor PossessedDTechSpider : PossessedArachnotron
 {
@@ -2497,18 +1536,6 @@ Actor PossessedDTechSpider : PossessedArachnotron
   }
 }
 
-Actor DTechSpiderWeapon : PossessedWeapon
-{
-	States
-	{
-Missile:
-	DTSD G 2 
-	TNT1 A 0 //A_FireCustomMissile("DTSDemonTechProjectile",Random(150,-150)/100.00,0,0,0,0)
-	DTSD H 2 Bright //A_PlaySoundEx("weapons/demontechfire","Weapon")
-	TNT1 A 0 
-	Goto Spawn
-	}
-}
 
 ACTOR PossessedDemonTechTrooper : PossessedMonster
 { 
@@ -2561,20 +1588,6 @@ Missile:
     }
 }
 
-Actor DemonTechTrooperWeapon : PossessedWeapon
-{
-	States
-	{
-Missile: 
-    HTF1 A 2 
-    TNT1 A 0 //A_FireCustomMissile("RedZDemonTechProjectile", Random(-8, 8),0, 0,0, 0)
-	HTF1 B 2 Bright //A_PlaySoundEx("weapons/demontechfire","Weapon")
-	TNT1 A 0 
-    TNT1 A 0 
-	TNT1 A 0 
-	Goto Spawn
-	}
-}
 
 ACTOR PossessedEMinigunner : PossessedMonster
 {
@@ -2629,23 +1642,6 @@ Obituary "%o do not expect a zombie would have that type of weapon."
 	}
 }
 
-Actor EMinigunnerWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-	    TNT1 A 0 Bright //A_PlaySoundEx("weapons/expmgunspin","Voice")
-		TNT1 A 0 //A_PlaySound("sentient/fire")
-	    EMNG E 4 Bright //A_FireCustomMissile("ZombieExplosiveTracer",Random(5,-5),0,0,0,0)
-        TNT1 A 0 Bright A_SpawnItemEx("OrangeShellCasing", 12, 6, 28, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128) 
-		TNT1 A 0 //A_PlaySound("sentient/fire")
-	    EMNG F 4 Bright //A_FireCustomMissile("ZombieExplosiveTracer",Random(5,-5),0,0,0,0)
-        TNT1 A 0 Bright A_SpawnItemEx("OrangeShellCasing", 12, 6, 30, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
-		TNT1 A 0 //A_StopSoundEx("Weapon")
-        TNT1 A 0 
-        Goto Spawn
-	}
-}
 
 Actor PossessedFreezerSpider : PossessedMonster
 {
@@ -2702,25 +1698,6 @@ Melee:
   }
 }
 
-Actor FreezerSpiderWeapon : PossessedWeapon
-{
-	States
-	{
-Missile:
-    TNT1 A 0 //A_PlaySound("weapons/iceshot",6,5)
-    ISPI G 1 Bright //A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(8,-8))
-    ISPI H 3 Bright //A_FireCustomMissile("SpiderFreezeBlast",0,0,0,Random(6,-6))
-	TNT1 A 0 
-	Goto Spawn
-Melee:
-    ISPI A 15 
-    TNT1 A 0 //A_PlaySound("weapons/iceshot")
-    ISPI G 1 Bright 
-    ISPI H 5 Bright //A_FireCustomMissile("SpiderFreezeBomb",0,0,0,0)
-	ISPI A 5 
-    Goto Spawn
-	}
-}
 
 Actor PossessedHellArchon : PossessedHellKnight
 {
@@ -2790,39 +1767,6 @@ Missile:
         } 
 }
 
-Actor HellArchonWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:  
-        TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "FastBall")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		Goto Spawn
-	Normal:
-        HLAR EF 5 Bright  
-        HLAR G 0 Bright //A_FireCustomMissile("HABall",0,0, 0, 0) 
-		HLAR G 0 Bright //A_FireCustomMissile("HABall",0,0, 0, 6)
-		HLAR G 5 Bright //A_FireCustomMissile("HABall",0,0, 0, -6)
-        HLAR IJ 5 Bright 
-        HLAR K 0 Bright //A_FireCustomMissile("HABall",0,0, 0, 0)
-		HLAR K 0 Bright //A_FireCustomMissile("HABall",0,0, 0, 6)
-		HLAR K 5 Bright //A_FireCustomMissile("HABall",0,0, 0, -6)
-        Goto Spawn
-	FastBall:
-        HLAR EF 5 Bright  
-        HLAR G 0 Bright //A_FireCustomMissile("ArchonFastBall",0,0, 0, 0)
-		HLAR G 5 Bright //A_FireCustomMissile("ArchonFastBall",0,0, 0, -6) 
-        HLAR IJ 5 Bright 
-		HLAR K 0 Bright //A_FireCustomMissile("ArchonFastBall",0,0, 0, 0) 
-        HLAR K 5 Bright //A_FireCustomMissile("ArchonFastBall",0,0, 0, -6)
-        Goto Spawn
-	Comet:
-        HLAR MN 8 Bright  	
-        HLAR O 7 Bright //A_FireCustomMissile("HAComet",0,0, 0, 0)		
-		Goto Spawn
-	}
-}
 
 Actor PossessedHellFireBaron : PossessedBaronOfHell
 {
@@ -2962,95 +1906,6 @@ Tracers:
  	}
 }
 
-Actor HellFireBaronWeapon : PossessedWeapon
-{
-	States
-	{
-	Missile:
-		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
-		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "GiantBalls")
-		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Comet")
-		TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Tracers")
-		TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Spread")
-		Goto Spawn
-Normal:
-    HFBY EF 6 Bright 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY G 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, 0)
-	TNT1 A 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, -5)
-	HFBY G 3 Bright //A_FireCustomMissile("HFBall",0,0, 0, 5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY HI 6 Bright 
-	HFBY G 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, 0)
-	TNT1 A 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, -5)
-	HFBY G 3 Bright //A_FireCustomMissile("HFBall",0,0, 0, 5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
-Spread:
-	HFBY KL 8 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY M 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, 0)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY M 0 //A_FireCustomMissile("HFBall",0,0, 0, 3)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	TNT1 A 0 //A_FireCustomMissile("HFBall",0,0, 0, -3)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	TNT1 A 0 //A_FireCustomMissile("HFBall",0,0, 0, 6)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY M 0 Bright //A_FireCustomMissile("HFBall",0,0, 0, -6)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	TNT1 A 0 //A_FireCustomMissile("HFBall",0,0, 0, 9)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	TNT1 A 0 //A_FireCustomMissile("HFBall",0,0, 0, -9)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	TNT1 A 0 //A_FireCustomMissile("HFBall",0,0, 0, 12)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY M 7 Bright //A_FireCustomMissile("HFBall",0,0, 0, -12)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
-GiantBalls:
-    TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY EF 8 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY G 0 Bright //A_FireCustomMissile("BBall2",0,0, 0, 0)
-	HFBY G 0 Bright //A_FireCustomMissile("BBall2",0,0, 0, 5)
-	HFBY G 7 Bright //A_FireCustomMissile("BBall2",0,0, 0, -5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY HI 8 
-	HFBY J 0 Bright //A_FireCustomMissile("BBall2",0,0, 0, 0)
-	HFBY J 0 Bright //A_FireCustomMissile("BBall2",0,0, 0, 5)
-	HFBY J 7 Bright //A_FireCustomMissile("BBall2",0,0, 0, -5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
-Comet:
-    TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY EF 6 Bright 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY G 0 Bright //A_FireCustomMissile("Comet",0,0, 0, 0)
-	TNT1 A 0 Bright //A_FireCustomMissile("Comet",0,0, 0, -5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY G 3 Bright //A_FireCustomMissile("Comet",0,0, 0, 5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY HI 6 Bright 
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY G 0 Bright //A_FireCustomMissile("Comet",0,0, 0, 0)
-	TNT1 A 0 Bright //A_FireCustomMissile("Comet",0,0, 0, -5)
-	HFBY G 3 Bright //A_FireCustomMissile("Comet",0,0, 0, 5)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	Goto Spawn
-Tracers:
-    TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    HFBY ML 8 	
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-	HFBY K 0 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, 0)
-	HFBY K 0 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, 5)
-	HFBY K 0 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, -5)
-	HFBY K 0 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, 10)
-	HFBY K 8 Bright //A_FireCustomMissile("HFBaronTracer",0,0, 0, -10)
-	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
-    Goto Spawn
-	}
-}
 
 Actor PossessedHFCyberdemon : PossessedCyberdemon
 {
