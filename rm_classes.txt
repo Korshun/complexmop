@@ -2573,6 +2573,7 @@ Missile:
     TNT1 A 0 
 	TNT1 A 0 
 	Goto Spawn
+	}
 }
 
 ACTOR PossessedEMinigunner : PossessedMonster
@@ -2718,6 +2719,7 @@ Melee:
     ISPI H 5 Bright //A_FireCustomMissile("SpiderFreezeBomb",0,0,0,0)
 	ISPI A 5 
     Goto Spawn
+	}
 }
 
 Actor PossessedHellArchon : PossessedHellKnight
