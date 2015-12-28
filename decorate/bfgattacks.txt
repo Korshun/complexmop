@@ -51,6 +51,7 @@ Actor MonsterCustomSprayRed : CustomSprayRed
 
 ACTOR MonsterGoldenSpray : GoldenSpray
 {
+	+NODAMAGETHRUST
 	DamageType "Monster"
 	States
 	{
