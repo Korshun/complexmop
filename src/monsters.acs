@@ -192,6 +192,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cardinal",				8.0 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
 	// lca
 	{ "LegendaryCyberdemon",	6.0 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Cyberdemon", "CYBRZ1" },
+	{ "LegendaryAnnihilator",   6.0 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Annihilator", "LANIA1C1" },
+	
 	// randommons
 	{ "CorruptedCyberLord",		6.0, 0, 0, MONSTF_BOSS, "Corrupted Annihilator", "4NNIA1C1" },
 	{ "Terminator2MOP",			6.0, 0, 0, MONSTF_BOSS, "Terminator", "TERMA1" },

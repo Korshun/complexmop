@@ -68,6 +68,28 @@ Frame BRE3E { Light RBFG9500BallExplode5 }
 Frame BRE3F { Light RBFG9500BallExplode6 }
 }
 
+OBJECT LegCyberBFG9500BallMOP
+{
+Frame BFR3 { Light RBFG9500Ball1 }
+Frame BRE3A { Light RBFG9500BallExplode1 }
+Frame BRE3B { Light RBFG9500BallExplode2 }
+Frame BRE3C { Light RBFG9500BallExplode3 }
+Frame BRE3D { Light RBFG9500BallExplode4 }
+Frame BRE3E { Light RBFG9500BallExplode5 }
+Frame BRE3F { Light RBFG9500BallExplode6 }
+}
+
+OBJECT LegSentientBFG9500BallMOP
+{
+Frame LFS3 { Light GBFG9500Ball1 }
+Frame LFE3A { Light GBFG9500BallExplode1 }
+Frame LFE3B { Light GBFG9500BallExplode2 }
+Frame LFE3C { Light GBFG9500BallExplode3 }
+Frame LFE3D { Light GBFG9500BallExplode4 }
+Frame LFE3E { Light GBFG9500BallExplode5 }
+Frame LFE3F { Light GBFG9500BallExplode6 }
+}
+
 //================
 // Monster Lights
 //================

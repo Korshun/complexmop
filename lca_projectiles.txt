@@ -32,3 +32,14 @@ Actor LRDashPunchMOP : LRDashPunch replaces LRDashPunch
 {
 	DamageType "Monster"
 }
+
+Actor LegAnniDTBFGProjectileAttackMOP : LegAnniDTBFGProjectileAttack replaces LegAnniDTBFGProjectileAttack
+{
+	DamageType "Monster"
+}
+
+Actor LegSentientDTBFGProjectileAttackMOP : LegSentientDTBFGProjectileAttack replaces LegSentientDTBFGProjectileAttack
+{
+	DamageType "Monster"
+}
+

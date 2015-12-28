@@ -34,6 +34,7 @@ Actor MonsterCustomSpray : CustomSpray
 
 Actor MonsterCustomSprayRed : CustomSprayRed
 {
+	+NODAMAGETHRUST
 	DamageType "Monster"
 	States
 	{
@@ -47,6 +48,62 @@ Actor MonsterCustomSprayRed : CustomSprayRed
 		Stop
 	}
 }
+
+ACTOR MonsterGoldenSpray : GoldenSpray
+{
+	+NODAMAGETHRUST
+	DamageType "Monster"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		LFE2 A 6 Bright A_SpawnItemEx("GoldParticleSpawnerDT", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE2 BCD 6 Bright 
+		Stop
+	}
+}
+
+Actor PlayerGuruSpray : GuruSpray
+{
+	+NODAMAGETHRUST
+	DamageType "Player"
+	States
+	{
+	Spawn:
+	TNT1 A 0
+	TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 A 0 A_SpawnItemEx("GuruSprayGlowX",0,0,0,0,0,0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("GuruSprayGlowY",0,0,0,0,0,0,0,0,0)
+	TNT1 AAAAAA 3 A_SpawnItemEx("GuruSpraySpark",random(24,-24),random(24,-24),random(24,-24),0,0,0,0,0,0)
+	Stop
+	}
+}
+
+Actor MonsterGuruSpray : GuruSpray
+{
+	+NODAMAGETHRUST
+	DamageType "Monster"
+	States
+	{
+	Spawn:
+	TNT1 A 0
+	TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+	TNT1 A 0 A_SpawnItemEx("GuruSprayGlowX",0,0,0,0,0,0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("GuruSprayGlowY",0,0,0,0,0,0,0,0,0)
+	TNT1 AAAAAA 3 A_SpawnItemEx("GuruSpraySpark",random(24,-24),random(24,-24),random(24,-24),0,0,0,0,0,0)
+	Stop
+	}
+}
+
 
 ACTOR BFG9500BallMOP : BFG9500Ball replaces BFG9500Ball
 {
@@ -110,4 +167,72 @@ ACTOR CacoBFG9500BallMOP : CacoBFG9500Ball replaces CacoBFG9500Ball
 	}
 }
 
+ACTOR LegCyberBFG9500BallMOP : LegCyberBFG9500Ball replaces LegCyberBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwaveGold", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("KaboomGold", 0, 0, random(0,360), 2, random(0,360))
+		LFE3 AB 8 Bright A_SpawnItemEx("GoldParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE3 C 8 Bright A_BFGSpray("MonsterGoldenSpray", 40, 1)
+		LFE3 DEF 8 Bright
+		Stop    
+    }
+}
+
+ACTOR LegSentientBFG9500BallMOP : LegSentientBFG9500Ball replaces LegSentientBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwaveGold", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("KaboomGold", 0, 0, random(0,360), 2, random(0,360))
+		LFE3 AB 8 Bright A_SpawnItemEx("GoldParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE3 C 8 Bright A_BFGSpray("MonsterGoldenSpray", 40, 1)
+		LFE3 DEF 8 Bright
+		Stop    
+    }
+}
+
+ACTOR PlayerGuruBall : GuruBall replaces GuruBall
+{
+  States
+  {
+  Death:
+	TNT1 A 0 A_PlaySound("Weapons/GuruBlast3",5)
+	//COLLATERAL DAMAGE EFFECTS
+	TNT1 A 0 A_Explode(6000,486,0,1)
+	TNT1 A 0 A_BFGSpray("PlayerGuruSpray",15,1)
+
+	//IMPACT STUFF
+	TNT1 A 0 A_SpawnItemEx("GuruStruckGlowX",0,0,10,0,0,0,0,128,0)
+	TNT1 A 0 A_SpawnItemEx("GuruStruckGlowY",0,0,10,0,0,0,0,128,0)
+	TNT1 AAAAAAAAAAA 0 A_SpawnItemEx("GuruSphereSmoke",random(126,-126),random(126,-126),random(66,-66),0.00001*random(100000,-100000),0.00001*random(100000,-100000),0.00001*random(100000,-100000),random(0,359),0,0)
+	TNT1 AAAAAAAAAAA 0 A_SpawnItemEx("GuruChunkSpark",random(126,-126),random(126,-126),random(66,-66),0,0,0,0,0,0)
+	TNT1 AAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEx("GuruChunkSpark",random(126,-126),random(126,-126),random(66,-66),0,0,0,0,0,0)
+	Stop
+  }
+}
+
+Actor SentientGuruBallMOP : SentientGuruBall replaces SentientGuruBall
+{
+  States
+  {
+  Death:
+	TNT1 A 0 A_PlaySound("Weapons/GuruBlast3",5)
+	//COLLATERAL DAMAGE EFFECTS
+	TNT1 A 0 A_Explode(6000,486,0,1)
+	TNT1 A 0 A_BFGSpray("MonsterGuruSpray",15,1)
+	//IMPACT STUFF
+	TNT1 A 0 A_SpawnItemEx("GuruStruckGlowX",0,0,10,0,0,0,0,128,0)
+	TNT1 A 0 A_SpawnItemEx("GuruStruckGlowY",0,0,10,0,0,0,0,128,0)
+	TNT1 AAAAAAAAAAA 0 A_SpawnItemEx("SentientGuruSphereSmoke",random(126,-126),random(126,-126),random(66,-66),0.00001*random(100000,-100000),0.00001*random(100000,-100000),0.00001*random(100000,-100000),random(0,359),0,0)
+	TNT1 AAAAAAAAAAA 0 A_SpawnItemEx("GuruChunkSpark",random(126,-126),random(126,-126),random(66,-66),0,0,0,0,0,0)
+	TNT1 AAAAAAAAAAAAAAAAAAA 2 A_SpawnItemEx("GuruChunkSpark",random(126,-126),random(126,-126),random(66,-66),0,0,0,0,0,0)
+	Stop
+  }
+}
 
