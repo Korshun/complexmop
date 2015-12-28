@@ -236,3 +236,36 @@ Actor SentientGuruBallMOP : SentientGuruBall replaces SentientGuruBall
   }
 }
 
+Actor TerminatorBFG9500BallMOP : TerminatorBFG9500Ball replaces TerminatorBFG9500Ball
+{
+States
+{
+Death:
+	TNT1 A 0
+	TNT1 A 0 A_SpawnItemEx("BFGShockwaveRed2", 0, 0, 0, 0, 0, 0, 0, 128)
+    TNT1 AAAAAA 0 A_CustomMissile("Kaboom18", 0, 0, random(0,360), 2, random(0,360))
+    BRE3 AB 8 Bright A_SpawnItemEx("RedParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+    BRE3 C 8 Bright A_BFGSpray("MonsterCustomSprayRed", 40, 1)
+    BRE3 DEF 8 Bright
+    Stop    
+    }
+
+}
+
+Actor TerminatorRedStarMOP : TerminatorRedStar replaces TerminatorRedStar
+{
+    States
+    {
+    Spawn:
+        STAR ABCD 2 Bright A_CustomMissile("RedstarFX",0,0,0,0)
+        Loop
+    Death:
+	    TNT1 A 0 A_Explode(192,384,0)
+	    TNT1 A 0 Radius_Quake(15,20,0,20,0)
+	    TNT1 A 0 A_SpawnItemEx("DTech10KShockwave2", 0, 0, 15, 0, 0, 0, 0, 128)
+        TNT1 A 20 A_SpawnItem("RedDTBFGEx",0,-10)
+		STAR E 3 Bright A_BFGSpray("MonsterCustomSprayRed", 40, 1)
+        STAR FGHIJKLMNO 3 Bright
+        Stop
+    }
+}

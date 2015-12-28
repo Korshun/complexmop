@@ -523,6 +523,11 @@ Actor SpiderRailMOP : SpiderRail replaces SpiderRail
 	DamageType "Monster"
 }
 
+Actor BFGSpiderDTBFGBallMOP : BFGSpiderDTBFGBall replaces BFGSpiderDTBFGBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedCacoLich : PossessedCacoDemon~
 {
