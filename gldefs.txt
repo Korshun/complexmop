@@ -480,6 +480,118 @@ Frame HTLRF { Light ZOMBIEATK }
 Frame HTLRG { Light ZOMBIEATK }
 }
 
+//===========================
+// Randommons Monster Lights
+//===========================
+
+OBJECT PossessedAfrit
+{
+Frame AFRTA { Light PyroDemonExplosion1 }
+Frame AFRTB { Light PyroDemonExplosion1 }
+Frame AFRTC { Light PyroDemonExplosion1 }
+Frame AFRTD { Light PyroDemonExplosion1 }
+Frame AFRTE { Light PyroDemonExplosion1 }
+Frame AFRTF { Light PyroDemonExplosion1 }
+Frame AFRTG { Light PyroDemonExplosion1 }
+Frame AFRTH { Light PyroDemonExplosion1 }
+Frame AFRTI { Light PyroDemonExplosion1 }
+Frame AFRTJ { Light PyroDemonExplosion1 }
+Frame AFRTK { Light PyroDemonExplosion1 }
+Frame AFRTL { Light PyroDemonExplosion1 }
+Frame AFRTM { Light PyroDemonExplosion1 }
+Frame AFRTN { Light PyroDemonExplosion1 }
+Frame AFRTO { Light PyroDemonExplosion1 }
+Frame AFRTP { Light PyroDemonExplosion1 }
+Frame AFRTQ { Light PyroDemonExplosion1 }
+Frame AFRTR { Light PyroDemonExplosion1 }
+Frame AFRTS { Light PyroDemonExplosion1 }
+Frame AFRTT { Light PyroDemonExplosion1 }
+Frame AFRTU { Light PyroDemonExplosion1 }
+}
+
+OBJECT PossessedBabyDDemolisher
+{
+Frame DMSPG { Light BabyDemolisherLight1 }
+Frame DMSPH { Light BabyDemolisherLight2 }
+Frame DMSPQ { Light DDemolisherAttack1 }
+Frame DMSPR { Light ZOMBIEATK }
+}
+
+OBJECT PossessedBFGMastermind
+{
+Frame BFGDG { Light DDemolisherAttack2 }
+Frame BFGDH { Light DDemolisherAttack3 }
+Frame BFGDJ { Light DDemolisherExplode1 }
+Frame BFGDK { Light DDemolisherExplode1 }
+Frame BFGDL { Light DDemolisherExplode1 }
+Frame BFGDM { Light DDemolisherExplode1 }
+Frame BFGDN { Light DDemolisherExplode1 }
+Frame BFGDO { Light DDemolisherExplode1 }
+Frame BFGDP { Light DDemolisherExplode1 }
+Frame BFGDQ { Light DDemolisherExplode1 }
+Frame BFGDR { Light DDemolisherExplode1 }
+}
+
+OBJECT PossessedCerebralSlayer
+{
+Frame COMM { Light BossFire1 }
+}
+
+OBJECT PossessedCryoDemon
+{
+Frame CRYOR { Light LegNobleCM2 }
+Frame CRYOS { Light LegNobleCM2 }
+Frame CRYOT { Light LegNobleCM2 }
+Frame CRYOU { Light LegNobleCM2 }
+Frame CRYOV { Light LegNobleCM2 }
+Frame CRYOW { Light LegNobleCM2 }
+Frame CRYOX { Light LegNobleCM2 }
+Frame CRYOY { Light LegNobleCM2 }
+Frame CRYOZ { Light LegNobleCM2 }
+}
+
+OBJECT PossessedDTechSpider
+{
+Frame DTSDG { Light BabyDemolisherLight1 }
+Frame DTSDH { Light BabyDemolisherLight2 }
+}
+
+OBJECT PossessedEMinigunner
+{
+Frame EMNGF { Light ZOMBIEATK }
+}
+
+OBJECT PossessedHellArchon
+{
+Frame HLARR { Light HellArchonExplosion1 }
+Frame HLARS { Light HellArchonExplosion1 }
+Frame HLART { Light HellArchonExplosion1 }
+Frame HLARU { Light HellArchonExplosion1 }
+Frame HLARV { Light HellArchonExplosion1 }
+Frame HLARW { Light HellArchonExplosion1 }
+Frame HLARX { Light HellArchonExplosion1 }
+Frame HLARY { Light HellArchonExplosion1 }
+Frame HLARZ { Light HellArchonExplosion1 }
+}
+
+OBJECT PossessedHellFireBaron
+{
+Frame HFBY { Light PyroDemonExplosion1 }
+Frame HFBI { Light PyroDemonExplosion1 }
+Frame HFBX { Light PyroDemonExplosion1 }
+}
+
+OBJECT PossessedHFCyberdemon
+{
+Frame HFCY { Light BossFire1 }
+}
+
+OBJECT PossessedWidowMaker
+{
+Frame WDMKF { Light InfernoVileFire1 }
+Frame WDMKH { Light InfernoVileFire1 }
+}
+
 //=====================
 // Monster Projectiles
 //=====================
