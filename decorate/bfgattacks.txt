@@ -48,6 +48,22 @@ Actor MonsterCustomSprayRed : CustomSprayRed
 	}
 }
 
+ACTOR MonsterGoldenSpray : GoldenSpray
+{
+	DamageType "Monster"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		TNT1 AAAAA 0 A_Explode(Random(1, 8), 1)
+		LFE2 A 6 Bright A_SpawnItemEx("GoldParticleSpawnerDT", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE2 BCD 6 Bright 
+		Stop
+	}
+}
+
 ACTOR BFG9500BallMOP : BFG9500Ball replaces BFG9500Ball
 {
 	States
@@ -110,4 +126,33 @@ ACTOR CacoBFG9500BallMOP : CacoBFG9500Ball replaces CacoBFG9500Ball
 	}
 }
 
+ACTOR LegCyberBFG9500BallMOP : LegCyberBFG9500Ball replaces LegCyberBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwaveGold", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("KaboomGold", 0, 0, random(0,360), 2, random(0,360))
+		LFE3 AB 8 Bright A_SpawnItemEx("GoldParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE3 C 8 Bright A_BFGSpray("MonsterGoldenSpray", 40, 1)
+		LFE3 DEF 8 Bright
+		Stop    
+    }
+}
+
+ACTOR LegSentientBFG9500BallMOP : LegSentientBFG9500Ball replaces LegSentientBFG9500Ball
+{
+	States
+	{
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("BFGShockwaveGold", 0, 0, 0, 0, 0, 0, 0, 128)
+		TNT1 AAAAAA 0 A_CustomMissile("KaboomGold", 0, 0, random(0,360), 2, random(0,360))
+		LFE3 AB 8 Bright A_SpawnItemEx("GoldParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+		LFE3 C 8 Bright A_BFGSpray("MonsterGoldenSpray", 40, 1)
+		LFE3 DEF 8 Bright
+		Stop    
+    }
+}
 
