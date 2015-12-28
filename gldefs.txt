@@ -828,6 +828,43 @@ Frame LRB3 { Light LegRevBall2Light }
 // Monster Projectiles Randommons
 //================================
 
+OBJECT ABDBallMOP
+{
+Frame ABD2A { Light DevilBall1 }
+Frame ABD2B { Light DevilBall1 }
+Frame ABD2C { Light DevilBallExplode1 }
+Frame ABD2D { Light DevilBallExplode2 }
+Frame ABD2E { Light DevilBallExplode3 }
+Frame ABD2F { Light ABBallExplode1 }
+Frame ABD2G { Light ABBallExplode2 }
+}
+
+OBJECT AgauresBallMOP
+{
+Frame BLVB { Light RDTechProj1 }
+}
+
+OBJECT CacoLichBallMOP
+{
+Frame CB4LA { Light WatcherBall1 }
+Frame CB4LB { Light WatcherBall1 }
+Frame CB4LC { Light WatcherBall1 }
+Frame CB4LD { Light WatcherTracerExplode2 }
+Frame CB4LE { Light WatcherTracerExplode3 }
+Frame CB4LF { Light WatcherTracerExplode4 }
+Frame CB4LG { Light WatcherTracerExplode5 }
+}
+
+OBJECT BCyberLordRocketMOP
+{
+Frame BMISA { Light LMissile1a }
+}
+
+OBJECT BCyberLordHomerMOP
+{
+Frame BHMIA { Light LMissile1a }
+}
+
 OBJECT CBallMOP
 {
 FRAME BAL2A {Light BlueBall}
