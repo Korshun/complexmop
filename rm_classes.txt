@@ -1211,6 +1211,12 @@ FloorHugger:
         } 
 }
 
+Actor CBallMOP : CBall replaces CBall
+{
+	DamageType "MonsterIce"
+}
+
+
 
 Actor PossessedDemolisherMkII : PossessedSpiderMastermind
 {
@@ -3329,7 +3335,6 @@ ACTOR PossessedHomingRocketZombie : PossessedMonster
 }
 
 
-// SPECIAL CASE SUICIDE
 actor PossessedSuicideBomber : PossessedMonster
 {
 	Player.MorphWeapon "SuicideBomberWeapon"
@@ -3364,6 +3369,11 @@ actor PossessedSuicideBomber : PossessedMonster
     ZBMB A 0 A_PlaySound("suicide/loop")
     Goto Spawn
   }
+}
+
+Actor SuicideBombMOP : SuicideBomb replaces SuicideBomb
+{
+	DamageType "Monster"
 }
 
 
