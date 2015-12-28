@@ -28,7 +28,7 @@ DropItem "HandGrenadeAmmo" 200 1
 DropItem "MineAmmo" 123 1
 //DamageFactor "GeneralTracer", 0.0
 Species "ZombieDeud"
-MONSTER 
+//Monster 
 +FLOORCLIP
 +MISSILEMORE
 +MISSILEEVENMORE
@@ -95,7 +95,7 @@ Actor PossessedBFGCacodemon : PossessedMonster
 	Meleedamage 8
 	Speed 0.4375 //10
 	PainChance 128
-	Monster
+	//Monster
 	+FLOAT
 	+NOGRAVITY
 	+MISSILEEVENMORE
@@ -151,7 +151,7 @@ Actor PossessedCerebralCardinal : PossessedMonster
   painsound "CerebralCardinal/pain"
   Minmissilechance 1
   Scale 1.0
-  Monster
+  //Monster
   +FLOAT
   +NOGRAVITY
   +FLOORCLIP
@@ -777,7 +777,7 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
   deathsound "chainguy/death"
   activesound "chainguy/active"
   missiletype "ZombieDevastatorBall"
-  MONSTER
+  //Monster
   +FLOORCLIP
   +QUICKTORETALIATE
   states
@@ -880,7 +880,7 @@ Actor PossessedEraserZombie : PossessedMonster
   painsound "chainguy/pain"
   deathsound "chainguy/death"
   activesound "chainguy/active"
-  MONSTER
+  //Monster
   +FLOORCLIP
   +QUICKTORETALIATE
   states
@@ -941,7 +941,7 @@ DropItem "NewShell" 256
 DropItem "Hexa-Shotgun" 125 1
 DropItem "BackPack" 155 1
 DropItem "NewShellBox" 138 
-MONSTER 
+//Monster 
 +FLOORCLIP
 +MISSILEMORE
 +MISSILEEVENMORE
@@ -999,7 +999,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   Speed 0.83125 //19
   PainChance 1
   BloodColor "Blue"
-  Monster
+  //Monster
   MinMissileChance 160
   DropItem "LegendaryUltraSphere" 215
   DropItem "LegendaryRune" 200 1
@@ -1621,7 +1621,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
   Mass 1000
   Speed 0.35 //8
   PainChance 45 
-  Monster
+  //Monster
   +NORADIUSDMG
   +BOSS
   +BOSSDEATH
@@ -1872,7 +1872,7 @@ Actor PossessedLegendaryImp : PossessedMonster
   Mass 100
   Speed 0.35 //8
   PainChance 50
-  Monster
+  //Monster
   MeleeDamage 15
   //DamageFactor "Legendary1", 0.0
   DamageFactor 0.75
@@ -2010,7 +2010,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   Mass 1000
   Speed 0.525 //12
   PainChance 55
-  Monster
+  //Monster
   MeleeThreshold 196
   +NORADIUSDMG
   +FLOORCLIP
@@ -3186,7 +3186,7 @@ DamageFactor "PlayerDTBFGRailgunSlug", 0.125
 DamageFactor "PlayerDevTracer", 0.125
 DamageFactor 0.75
 //DamageFactor "Legendary", 0.0
-MONSTER 
+//Monster 
 +NOTIMEFREEZE
 +FLOORCLIP
 +MISSILEMORE
@@ -3251,7 +3251,7 @@ DropItem "UltraSphere" 40
 DropItem "ExtraArmor" 65 
 DropItem "BossLifeEssence" 210 
 DropItem "BossArmorBonusMax" 210 
-MONSTER
+//Monster
 MeleeDamage 12
 Obituary "%o's aorta was punctured by a Phase Overlord."
 HitObituary "%o's penis was split in two by a Phase Overlord."
@@ -3263,9 +3263,9 @@ BloodColor "cf 00 b0"
 +MISSILEEVENMORE
 +NORADIUSDMG
 +DONTHURTSPECIES
-SeeSound "monster/arcsit" 
+SeeSound "//Monster/arcsit" 
 PainSound "baron/pain" 
-DeathSound "monster/arcdth"
+DeathSound "//Monster/arcdth"
 MeleeSound "baron/melee"
 SpawnID 174
 States 
@@ -3377,7 +3377,7 @@ Actor PossessedVelocirator : PossessedArchvile
   //DamageFactor "VileFires", 0.0
   DamageFactor "PoP15K", 0.0
   Obituary "%o was atomized by a Velocirator Vile."
-  Monster
+  //Monster
   PainChance 5
   +FLOORCLIP
   +NOTARGET
@@ -3503,4 +3503,3 @@ See:
 	HIA2 A 5 Bright
     Goto Spawn	  
     }
-}
