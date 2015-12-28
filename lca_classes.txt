@@ -3507,6 +3507,8 @@ See:
 
 Actor PossessedLegendaryAnnihilator : PossessedCyberdemon
 {
+	Player.MorphWeapon "LegendaryAnnihilatorWeapon"
+
 Health 9999
 Scale 1.2
 Speed 20
