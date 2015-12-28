@@ -145,7 +145,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// lca
 	{ "LegendaryHellKnight",	3.0, 0, 0, MONSTF_LEGENDARY, "Legendary Hell Knight", "LNBLA1" },
 	// randommons
-	{ "CryoDemon",				0.17, 0, 0, 0, "Cryo Demon", "CRSPA0" },
+	{ "CryoDemon",				0.17, 0, 0, 0, "Cryo Demon", "CRYOA1C1" },
 	{ "HellArchon",				0.17, 0, 0, 0, "Hell Archon", "HLARA1C1" },
 	{ "PhaseWarlord",			0.17, 0, 0, 0, "Phase Warlord", "ROYLA1C1" },
 	{ "ToxicLord",				0.17, 0, 0, 0, "Toxic Lord", "TLODA1C1" },
