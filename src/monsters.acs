@@ -307,6 +307,99 @@ script mop_phaseoverlord (void)
 	TakeInventory("PhaseOverlord_Phased", 1);
 }
 
+script mop_phasesoul (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseSoul_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseSoul_Phased", 1);
+	GiveInventory("PhaseSoul_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseSoul_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseSoul_Phased", 1);
+}
+
+script mop_phasewarlord (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseWarlord_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseWarlord_Phased", 1);
+	GiveInventory("PhaseWarlord_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseWarlord_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseWarlord_Phased", 1);
+}
+
+script mop_phaseelemental (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseElemental_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseElemental_Phased", 1);
+	GiveInventory("PhaseElemental_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseElemental_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseElemental_Phased", 1);
+}
+
 script mop_stopvile (void)
 {
 	SetActorVelocity(0, 0, 0, GetActorVelZ(0), false, true);

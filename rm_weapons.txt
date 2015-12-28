@@ -2642,6 +2642,9 @@ Actor PhaseElementalWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		TNT1 A 0 A_GiveInventory("PhaseElemental_PhaseItem")
+		Goto Super::Ready
 	Fire:
 	    TNT1 A 0 
 		TNT1 D 6 Bright  
@@ -2661,11 +2664,50 @@ Actor PhaseElementalWeapon : PossessedWeapon
 	}
 }		
 
+Actor PhaseElemental_PhaseItem : CustomInventory
+{
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 1
+	States
+	{
+	Use:
+		TNT1 A 0 ACS_ExecuteAlways(mop_phaseelemental, 0)
+		Fail
+	}
+}
+
+Actor PhaseElemental_Phased : Inventory { Inventory.MaxAmount 1 }
+
+Actor PhaseElemental_Phase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(0.15)
+		TNT1 A 0 A_Print("\ctPhased in.")
+		Stop
+	}
+}
+
+Actor PhaseElemental_Unphase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1)
+		TNT1 A 0 A_Print("\ctPhased out.")
+		Stop
+	}
+}
+
 
 Actor PhaseSoulWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		TNT1 A 0 A_GiveInventory("PhaseSoul_PhaseItem")
+		Goto Super::Ready
 Fire:
     TNT1 A 0 A_JumpIfCloser(80, "Melee")
 	TNT1 A 2 A_Recoil(-5)
@@ -2678,11 +2720,50 @@ Fire:
 	}
 }
 
+Actor PhaseSoul_PhaseItem : CustomInventory
+{
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 1
+	States
+	{
+	Use:
+		TNT1 A 0 ACS_ExecuteAlways(mop_phasesoul, 0)
+		Fail
+	}
+}
+
+Actor PhaseSoul_Phased : Inventory { Inventory.MaxAmount 1 }
+
+Actor PhaseSoul_Phase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(0.15)
+		TNT1 A 0 A_Print("\ctPhased in.")
+		Stop
+	}
+}
+
+Actor PhaseSoul_Unphase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1)
+		TNT1 A 0 A_Print("\ctPhased out.")
+		Stop
+	}
+}
+
 
 Actor PhaseWarlordWeapon : PossessedWeapon
 {
 	States
 	{
+	Ready:
+		TNT1 A 0 A_GiveInventory("PhaseWarlord_PhaseItem")
+		Goto Super::Ready
 	Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Seekers")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Comets")
@@ -2824,6 +2905,42 @@ Actor PhaseWarlordWeapon : PossessedWeapon
 	    TNT1 O 15 Bright A_FireCustomMissile("PhaseAFireSpawner",0,0, 0, -50)
 		TNT1 A 0 
         Goto Ready
+	}
+}
+
+Actor PhaseWarlord_PhaseItem : CustomInventory
+{
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 1
+	States
+	{
+	Use:
+		TNT1 A 0 ACS_ExecuteAlways(mop_phasewarlord, 0)
+		Fail
+	}
+}
+
+Actor PhaseWarlord_Phased : Inventory { Inventory.MaxAmount 1 }
+
+Actor PhaseWarlord_Phase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(0.15)
+		TNT1 A 0 A_Print("\ctPhased in.")
+		Stop
+	}
+}
+
+Actor PhaseWarlord_Unphase : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1)
+		TNT1 A 0 A_Print("\ctPhased out.")
+		Stop
 	}
 }
 

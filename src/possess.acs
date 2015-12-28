@@ -131,6 +131,13 @@ script mop_possess (void)
 		print(s:"\ctPress \"use item\" to phase in");
 	else if (!StrCmp(MonsterTypes[type][MONSTER_ACTORNAME], "LegZombie"))
 		GiveInventory("LDemonMagazine", 50);
+	// randommons
+	else if (!StrCmp(MonsterTypes[type][MONSTER_ACTORNAME], "PhaseSoul"))
+		print(s:"\ctPress \"use item\" to phase in");
+	else if (!StrCmp(MonsterTypes[type][MONSTER_ACTORNAME], "PhaseElemental"))
+		print(s:"\ctPress \"use item\" to phase in");
+	else if (!StrCmp(MonsterTypes[type][MONSTER_ACTORNAME], "PhaseWarlord"))
+		print(s:"\ctPress \"use item\" to phase in");
 	
 	// Wait until the monster dies or puppetmaster leaves.
 	// And record the hp difference in case the monster died.
