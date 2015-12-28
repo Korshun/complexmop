@@ -7370,3 +7370,4 @@ Actor HitlerNoSuitWeapon : PossessedWeapon
 #include "rm_weapons.txt"
 #include "rm_projectiles.txt"
 #include "rm_monsters.txt"
+#include "rm_replaced.txt"

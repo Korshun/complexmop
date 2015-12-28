@@ -127,8 +127,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// lca
 	{ "NewBehemoth",			0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	// randommons
-	{ "KSBehemoth",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
-	{ "KSBehemoth2",			0.2 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_FLYING, "Behemoth", "KSFAA1" },
+	{ "KSBehemoth",				0.2 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Kinder Surprise Behemoth", "FAT2A1D1" },
+	{ "KSBehemoth2",			0.01, 0, 0, MONSTF_FLYING, "Kinder Surprise Behemoth", "KSFAA1" },
 	{ "NewBarbatos",			0.2 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
 	{ "Demobus",				0.2, 0, 0, 0, "Demobus", "BFATA1" },
 	
