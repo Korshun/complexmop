@@ -2419,9 +2419,9 @@ Actor HomingRocketZombieWeapon : PossessedWeapon
 	States
 	{
 	Fire:
-    TNT1 E 14 
     TNT1 F 6 Bright A_FireCustomMissile("ZombieHomingRocket",0,0, 0, 0)
 	TNT1 E 20 A_PlaySound("rocket/drumspin")
+	TNT1 E 14 
     Goto Ready
 	}
 }
