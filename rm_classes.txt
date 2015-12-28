@@ -58,6 +58,7 @@ Melee:
 Actor PossessedAfrit : PossessedBaronOfHell
 {
 	Player.MorphWeapon "AfritWeapon"
+	Player.ViewHeight 70
  
 Health 1200
 Speed 0.35 //8
@@ -542,7 +543,7 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 	     CLIH G 5 Bright //A_FireCustomMissile("LichComet",0,0,0,0,0,0)
          CLIH GG 4
 	     Goto Spawn
-      Melee:
+      Breath:
 		CLIH EF 4 Bright  
 		TNT1 A 0 Bright //A_PlaySound("monster/psoattack")
 		CLIH G 3 Bright //A_FireCustomMissile("LichBreath",0,0, 0, Random(18,-18))

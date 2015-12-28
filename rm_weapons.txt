@@ -2569,18 +2569,14 @@ Actor PhaseSoulWeapon : PossessedWeapon
 	States
 	{
 Fire:
-    TNT1 A 0 
-	TNT1 A 0 Bright
-	TNT1 A 2 Bright 
-	TNT1 A 0 Bright
-	TNT1 A 2 Bright 
-	TNT1 A 0 Bright
-	TNT1 C 2 Bright 
-	TNT1 A 0 Bright
-	TNT1 C 2 Bright A_SkullAttack(23)
-    TNT1 DD 2 Bright
-	TNT1 CC 2 Bright
+    TNT1 A 0 A_JumpIfCloser(80, "Melee")
+	TNT1 A 2 A_Recoil(-5)
     Goto Ready
+	Melee:
+		TNT1 A 0 A_CustomPunch(5)
+		TNT1 A 16
+		Goto Ready
+	
 	}
 }
 
@@ -3071,7 +3067,10 @@ DTDevastator:
     Goto Ready
 Nuke:
 	TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
-    TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, "Spawn")
+    TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, 3)
+	TNT1 A 0 A_Print("No more nukes.")
+	TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
+	Goto Ready
     TNT1 A 0 
     TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	TNT1 A 0 A_PlaySound("weapons/nuclearmissilecharge2")
@@ -3189,7 +3188,7 @@ Actor WidowMakerWeapon : PossessedWeapon
 	TNT1 F 4 Bright A_PlaySoundEx("AShotgun/Fire","Weapon")
     TNT1 A 0 
 	Goto Ready
-  SeekFire:
+  SeekMissile:
     TNT1 EEEE 3 
 	TNT1 F 4 Bright A_FireCustomMissile("HellFireRocket",0,0,0,0)
 	TNT1 E 3 
