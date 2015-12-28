@@ -3696,10 +3696,10 @@ LegendaryRailguns:
 		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
         LANI EE 10 Bright 
 		LANI E 10 Bright 
-		LANI F 0 //A_FireCustomMissile("LegendaryCyberRail",0,0-22)
+		LANI F 0 //A_FireCustomMissile("LegendaryCyberRail",0,0,-22)
         LANI F 10 Bright //A_FireCustomMissile("LegendaryCyberRail",0,0,22)
 		LANI EEE 5 Bright 
-		LANI F 0 //A_FireCustomMissile("LegendaryCyberRail",0,0-22)
+		LANI F 0 //A_FireCustomMissile("LegendaryCyberRail",0,0,-22)
         LANI F 10 Bright //A_FireCustomMissile("LegendaryCyberRail",0,0,22)
 		LANI E 15 Bright
 		LANI E 5 Bright
