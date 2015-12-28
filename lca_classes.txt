@@ -3593,10 +3593,8 @@ Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack7", 1, "AkimboRif")
 		TNT1 A 0 A_JumpIfInventory("Attack8", 1, "LegendaryBFG15Ks")
 		TNT1 A 0 A_JumpIfInventory("Attack9", 1, "LegendaryDTBFG")
-		TNT1 A 0 A_JumpIfInventory("Attack10", 1, "LegendaryBFG15K")
-		TNT1 A 0 A_JumpIfInventory("Attack11", 1, "LegendaryDTBFG")
-		TNT1 A 0 A_JumpIfInventory("Attack12", 1, "LegendaryDevastator")
-		TNT1 A 0 A_JumpIfInventory("Attack13", 1, "LegendaryBFGs")
+		TNT1 A 0 A_JumpIfInventory("Attack10", 1, "LegendaryDevastator")
+		TNT1 A 0 A_JumpIfInventory("Attack11", 1, "LegendaryBFGs")
 		Goto Spawn
 Normal:
         LANI E 5 Bright 

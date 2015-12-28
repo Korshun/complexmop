@@ -27,9 +27,11 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "LegendaryImp", "\cvNormal", "\cvSeeker", "\cvSuper", "X" },	
 	{ "LegendarySentient", "Normal", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Cannon", "Legendary BFG", "Legendary Storm", "X" },	
 	{ "Velocirator", "Floor", "Super Floor", "Ghost", "Heal", "X" },
+	{ "LegendaryAnnihilator", "Normal", "Legendary Nades", "Legendary Railguns", "Legendary BFG95Ks", "Legendary Seekers", "Legendary BFG10Ks", "Akimbo Rifles", "Legendary BFG15Ks", "LegendaryDTBFG", "LegendaryDevastator", "LegendaryBFGs", "X" },
 
 	{ "MONSTERATTACKS" }
 };
+
 
 function int FindMonsterAttackList(str actorname)
 {
