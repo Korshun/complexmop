@@ -40,10 +40,10 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "DemolisherMkIIRevenge", "Normal", "\cdBFG9K", "\cdBFG10K", "X" },
 	{ "HellArchon", "\ciNormal", "\cgFast Ball", "\cgComet", "X" },
 	{ "HellFireBaron", "\ciNormal", "\ciGiant Balls", "\ciComet", "\ciTracers", "\ciSpread", "X" },
-	{ "HFCyberdemon", "Rockets", "Stomp", "Fire Grenades", "Seekers", "Floor Stomp", "Railgun", "Fuel Rockets", "Fire Balls", "HF10K", "Pyro Shot", "Souls Storm", "Ultimate Combo", "X" },
+	{ "HFCyberdemon", "Rockets", "Stomp", "Fire Grenades", "Seekers", "Floor Stomp", "\cgRailgun", "Fuel Rockets", "Fire Balls", "HF10K", "Pyro Shot", "Souls Storm", "Ultimate Combo", "X" },
 	{ "Paladin", "\cgNormal", "Grenadier", "Rocket", "\cgRailgun", "\cgBFG10K", "X" },
 	{ "PhaseWarlord", "\ctSeekers", "\ctComets", "\ctSpread", "\ctSeekers2", "\ctFloor Hugger", "\cmDark Matter", "\ctUltimate Floor Hugger", "X" },
-	{ "Terminator2MOP", "Normal", "Railgun", "BFG9K", "BFG10K", "DTBFG", "RedStar", "Plasma Minigun", "PyroShot", "Demon Tech Devastator", "Nuke", "X" },
+	{ "Terminator2MOP", "Normal", "\cgRailgun", "\cgBFG9K", "\cgBFG10K", "\cgDTBFG", "\cgRed Star", "\cgPlasma Minigun", "\ciPyro Shot", "\cgDemon Tech Devastator", "Nuke", "X" },
 	{ "ToxicLord", "\cdNormal", "\cdGiant Balls", "\cdBurst Comet", "X" },
 	{ "WidowMaker", "Autocannon", "Seek Missile", "Seek Missile 2", "X" },
 
