@@ -190,6 +190,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "LegendaryAnnihilator",   6.0 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Annihilator", "LANIA1C1" },
 	// randommons
 	{ "CorruptedCyberLord",		6.0, 0, 0, MONSTF_BOSS, "Corrupted Annihilator", "4NNIA1C1" },
+	{ "HFCyberdemon",			6.0, 0, 0, MONSTF_BOSS, "HellFire Cyberdemon", "HFCYA1" },
 	{ "Terminator2MOP",			6.0, 0, 0, MONSTF_BOSS, "Terminator", "TERMA1" },
 	
 	// Nazis.
