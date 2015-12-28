@@ -299,7 +299,7 @@ Actor CacoLichWeapon : PossessedWeapon
 	     TNT1 G 5 Bright A_FireCustomMissile("LichComet",0,0,0,0,0,0)
          TNT1 GG 4
 	     Goto Ready
-      AltFire:
+      Breath:
 	TNT1 A 0 A_GunFlash
 		TNT1 EF 4 Bright  
 		TNT1 A 0 Bright A_PlaySound("monster/psoattack")
@@ -3065,12 +3065,13 @@ DTDevastator:
 	TNT1 A 0 
 	TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
     Goto Ready
-Nuke:
-	TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
-    TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, 3)
+NoNukes:
 	TNT1 A 0 A_Print("No more nukes.")
 	TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 	Goto Ready
+Nuke:
+	TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
+    TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, "NoNukes")
     TNT1 A 0 
     TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	TNT1 A 0 A_PlaySound("weapons/nuclearmissilecharge2")

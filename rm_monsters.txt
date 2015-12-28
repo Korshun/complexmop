@@ -189,7 +189,7 @@ States
        Goto See	
     RedStar:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
-	   TNT1 A 0 A_SetInvulnerable
+	   TNT1 A 0 
 	   TERM E 0 A_FaceTarget
        TERM EEEE 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM E 0 A_FaceTarget
@@ -211,7 +211,7 @@ States
        TERM EEEE 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM E 0 A_FaceTarget
        TERM EEEE 2 Bright A_SpawnItemEx("TerminatorLineSpawner")  	   
-	   TNT1 A 0 A_UnSetInvulnerable
+	   TNT1 A 0 
 	   TERM E 0 A_FaceTarget
 	   TERM F 0 A_PlayWeaponSound("star/fire")
 	   TERM F 7 Bright A_CustomMissile("TerminatorRedStar",48,17,0) 
@@ -226,7 +226,7 @@ States
        Goto See
     PlasmaMinigun:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
-	   TNT1 A 0 A_SetInvulnerable
+	   TNT1 A 0 
 	   TERM E 0 A_FaceTarget
        TERM GGGG 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM G 0 A_FaceTarget
@@ -248,7 +248,7 @@ States
        TERM GGGG 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM G 0 A_FaceTarget
        TERM GGGG 2 Bright A_SpawnItemEx("TerminatorLineSpawner")  	   
-	   TNT1 A 0 A_UnSetInvulnerable
+	   TNT1 A 0 
 	Go:   
 	   TERM G 2 Bright A_FaceTarget
 	   TERM H 2 Bright A_CustomBulletAttack(3,3,1,14,"TerminatorPlasmaPuff")
@@ -279,7 +279,7 @@ States
 	   Loop
     PyroShot:
 	   TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
-	   TNT1 A 0 A_SetInvulnerable
+	   TNT1 A 0 
 	   TERM E 0 A_FaceTarget
        TERM EEEE 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM E 0 A_FaceTarget
@@ -302,11 +302,11 @@ States
 	   TERM E 0 A_FaceTarget
 	   TERM F 7 Bright A_CustomMissile("TerminatorPyroShot",48,17,0) 
 	   TERM E 8 A_FaceTarget
-	   TNT1 A 0 A_UnSetInvulnerable
+	   TNT1 A 0 
        Goto See
 DTDevastator:
     TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
-	TNT1 A 0 A_SetInvulnerable
+	TNT1 A 0 
     TERM E 0 Bright A_FaceTarget
 	TNT1 A 0 Bright A_SpawnItemEx("TerminatorLineSpawner")
     TERM E 0 Bright A_PlaySound ("devastator/charge")
@@ -416,13 +416,13 @@ DTDevastator:
     TERM F 0 A_PlaySound ("devastator/fire")
     TERM F 10 Bright A_CustomMissile("TerminatorDevastator",48,17,0)
     TERM E 50
-	TNT1 A 0 A_UnSetInvulnerable
+	TNT1 A 0 
 	TNT1 A 0 A_Jump(10,"Nuke")
     goto See
 // AHHAHAHAHAHAH
 Nuke:
     TNT1 A 0 A_JumpIfInventory("Terminator2NukeToken", 3, "Missile")
-    TNT1 A 0 A_SetInvulnerable
+    TNT1 A 0 
     TNT1 A 0 A_PlaySoundEx("monster/termsit2","TSIGHT")
 	TNT1 A 0 A_PlaySound("weapons/nuclearmissilecharge2")
 	TNT1 A 0 Bright A_SpawnItemEx("TerminatorLineSpawner")
@@ -455,7 +455,7 @@ Nuke:
 	TERM F 6 Bright A_CustomMissile("TerminatorNuke", 48, 17, 0)
 	TERM EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 2 Bright 
 	TNT1 A 0 A_GiveInventory("Terminator2NukeToken", 1)
-	TNT1 A 0 A_UnSetInvulnerable
+	TNT1 A 0 
 	Goto See
    Pain:
 	   TNT1 A 0 A_Jump(64,"Healing")	
@@ -469,12 +469,12 @@ Nuke:
        Goto Missile	   
     Healing:
 	   TNT1 A 0 A_PlaySound("monster/termsit")
-	   TNT1 A 0 A_SetInvulnerable
+	   TNT1 A 0 
 	   TERM L 2 HealThing(350)
        TERM LLLLLLLLLLLLLLLLLLLL 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM LLLLLLLLLLLLLLLLLLLL 2 Bright A_SpawnItemEx("TerminatorLineSpawner")
 	   TERM L 2 A_CustomMissile("TerminatorPulse")
-	   TNT1 A 0 A_UnSetInvulnerable
+	   TNT1 A 0 
 	   TERM L 2
        Goto See
    Death:
