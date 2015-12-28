@@ -3511,7 +3511,7 @@ Actor PossessedLegendaryAnnihilator : PossessedCyberdemon
 
 Health 9999
 Scale 1.2
-Speed 20
+Speed 0.875 //20
 Radius 50
 Height 115
 Mass 0x7FFFFFFF
