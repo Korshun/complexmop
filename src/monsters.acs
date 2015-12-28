@@ -134,6 +134,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Famine",					0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Famine", "NREVA1D1" },
 	// lca
 	{ "LegendaryRevenant",		3.0, 0, 0, MONSTF_LEGENDARY, "Legendary Revenant", "LREVA1D1" },
+	// randommons
 	{ "WidowMaker",				3.0, 0, 0, 0, "Widow maker", "WDMKA1" },
 	
 	// Hell knights.
@@ -177,8 +178,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// randommons
 	{ "BFGMastermind",			6.0, 0, 0, MONSTF_BOSS, "BFG Mastermind", "BFGDA1D1" },
 	{ "CerebralSlayer",			6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Slayer", "COMMA1" },
-	{ "DemolisherMkII",			6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
-	{ "DemolisherMkIIRevenge",	6.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Demolisher Mk II", "DPYTA1"},
+	{ "DemolisherMkII",			6.0, 0, 0, MONSTF_BOSS, "Demolisher Mk II", "DEMOA1D1" },
+	{ "DemolisherMkIIRevenge",	0.1, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Demolisher Mk II", "DPYTA1"},
 	
 	// Cyberdemons.
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
@@ -187,7 +188,6 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	// lca
 	{ "LegendaryCyberdemon",	6.0 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Cyberdemon", "CYBRZ1" },
 	{ "LegendaryAnnihilator",   6.0 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Annihilator", "LANIA1C1" },
-	
 	// randommons
 	{ "CorruptedCyberLord",		6.0, 0, 0, MONSTF_BOSS, "Corrupted Annihilator", "4NNIA1C1" },
 	{ "Terminator2MOP",			6.0, 0, 0, MONSTF_BOSS, "Terminator", "TERMA1" },
