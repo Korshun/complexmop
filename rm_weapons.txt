@@ -984,6 +984,7 @@ Actor DTShotgunZombieWeapon : PossessedWeapon
 	  ERAR DCBA 1
       ERAG C 1
       ERAG A 3
+	  ERAG A 15
       Goto Ready
 	AltFire:
 		TNT1 A 0 A_GunFlash
@@ -1008,6 +1009,7 @@ Actor DTShotgunZombieWeapon : PossessedWeapon
       ERAG C 1
       ERAG A 2
 	  ERAG A 5
+	  ERAG A 15
       Goto Ready
 	Flash:
        TNT1 A 2 A_Light2
