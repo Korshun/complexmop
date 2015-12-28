@@ -21,7 +21,7 @@ Obituary "%o was smitten by an Abaddon."
 HitObituary "%o was eaten by an Abaddon." 
 DropItem "LifeEssence" 90
 DropItem "ArmorBonusMax" 90
-MONSTER
+//Monster
 +NOGRAVITY
 +FLOAT
 +MISSILEMORE
@@ -74,7 +74,7 @@ Meleedamage 8
 PainSound "monsters/baronpain"
 MeleeSound "baron/melee"
 Species "Nobles"
-MONSTER
+//Monster
 +FLOAT
 +MISSILEMORE
 +FastMelee
@@ -194,7 +194,7 @@ Actor PossessedAgaures : PossessedImp
   DeathSound "superimp/death"
   ActiveSound "superimp/active"
   MeleeSound "imps/melee"
-  MONSTER
+  //Monster
   +FLOORCLIP
   States
   {
@@ -299,7 +299,7 @@ PainChance 40
 //DamageFactor "BeheComet", 0.0
 //DamageFactor "FatFlamer", 0.0
 Species "Fatsos"
-MONSTER 
+//Monster 
 +DONTHURTSPECIES
 +MISSILEMORE
 +MISSILEEvenMORE
@@ -357,7 +357,7 @@ Actor PossessedBFGMastermind : PossessedSpidermastermind
 	  Radius 65
       Speed 0.7875 //18
       PainChance 30
-      Monster
+      //Monster
       +BOSS
       +MISSILEMORE
       +FLOORCLIP
@@ -504,7 +504,7 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 	PainSound "CacoLich/Pain"
 	DeathSound "CacoLich/Death"
 	Obituary "%o was blasted by the Cacolich"
-	MONSTER
+	//Monster
     +NOGRAVITY
 	+MissileMore
 	+QUICKTORETALIATE
@@ -1266,7 +1266,7 @@ Actor PossessedDemolisherMkIIRevenge : PossessedSpiderMastermind
   Scale 1.1
   FloatSpeed 0.525 //12
   PainChance 30
-  MONSTER 
+  //Monster 
   +MISSILEEVENMORE
   +QUICKTORETALIATE
   +FLOAT
@@ -1435,7 +1435,7 @@ DropItem "BackPack" 155 1
 DropItem "NewShellBox" 138 
 //DamageFactor "DTZPuff", 0.0
 //DamageFactor "RedZombieDemonTech", 0.25
-MONSTER 
+//Monster 
 +FLOORCLIP
 +MISSILEMORE
 +MissileEvenMore
@@ -1513,7 +1513,7 @@ Actor PossessedDTechSpider : PossessedArachnotron
   //DamageFactor "Baby15K", 0.0
   Species "BabySpiders"
   Tag "Demon Tech Spider"
-  MONSTER
+  //Monster
   +MissileMore
   +QUICKTORETALIATE
   states
@@ -1557,7 +1557,7 @@ DropItem "HandGrenadeAmmo" 150 1
 DropItem "MineAmmo" 75 1
 DropItem "DemonAmmo" 162 80
 //DamageFactor "RedZDemonTechProjectile", 0.0
-MONSTER 
+//Monster 
 +FLOORCLIP
 +MISSILEMORE
 AttackSound "Null"
@@ -1599,7 +1599,7 @@ Height 56
 Speed 0.2625 //6
 Mass 150
 PainChance 60
-MONSTER 
+//Monster 
 +FLOORCLIP 
 +MISSILEMORE
 +QUICKTORETALIATE
@@ -1667,7 +1667,7 @@ Actor PossessedFreezerSpider : PossessedMonster
   ActiveSound "minidemo/active"
   PainSound "monsters/fusionitepain"
   DeathSound "minidemo/death"
-  Monster
+  //Monster
   +FloorClip
   +MissileMore
   +QUICKTORETALIATE
@@ -1714,7 +1714,7 @@ DropItem "LifeEssence" 120
 DropItem "ArmorBonusMax" 120
 //DamageFactor "NobleComet", 0.0
 Species "Nobles"
-MONSTER 
+//Monster 
 +FLOORCLIP
 +QUICKTORETALIATE
 +MISSILEMORE
@@ -3234,7 +3234,7 @@ ACTOR PossessedHomingRocketZombie : PossessedMonster
    Mass 100
    Speed 0.35 //8
    PainChance 90
-   Monster
+   //Monster
    +FLOORCLIP
    +MissileMore
    SeeSound "grunt/sight"
@@ -3292,7 +3292,7 @@ actor PossessedSuicideBomber : PossessedMonster
   attacksound "shotguy/death"
   painsound "shotguy/pain"
   deathsound "shotguy/death"
-  MONSTER
+  //Monster
   +FLOORCLIP
   +MissileMore
   states
@@ -3318,7 +3318,7 @@ Radius 26
 Speed 0.2625 //6
 Height 64
 Mass 2000
-Monster
+//Monster
 //DamageFactor "BeheComet", 0.0
 //DamageFactor "FatFlamer", 0.0
 DropItem "LifeEssence" 140
@@ -3382,7 +3382,7 @@ ACTOR PossessedPaladin : PossessedMonster
 	Mass 1000
 	Speed 0.35 //8
 	PainChance 8
-	Monster
+	//Monster
 	+FloorClip
 	+DontHarmSpecies
 	+QUICKTORETALIATE
@@ -3556,7 +3556,7 @@ Damage 5
 PainChance 100
 Species "EleSouls"
 Species "Souls"
-Monster
+//Monster
 renderstyle normal
 DropItem "LifeEssence" 100
 DropItem "ArmorBonusMax" 100
@@ -3638,7 +3638,7 @@ DropItem "RageRune" 50 // ahahah
 //DamageFactor "PlayerDTBFGRailgunSlug", 0.125
 //DamageFactor "PlayerDevTracer", 0.125
 Species "Nobles"
-MONSTER 
+//Monster 
 +FLOORCLIP
 +MISSILEMORE
 +FASTMELEE
@@ -3829,7 +3829,7 @@ Mass 0x7FFFFFFF
 Speed 0.56875 //13 
 PainChance 1
 Scale 1.4
-Monster
+//Monster
 Obituary "%o was liquidated by the Terminator !"
 Species "Cybers"
 +BOSS
