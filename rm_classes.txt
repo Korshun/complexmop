@@ -54,6 +54,10 @@ Melee:
          }
 }
 
+Actor ABDBallMOP : ABDBall replaces ABDBall
+{
+	DamageType "Monster"
+}
 
 Actor PossessedAfrit : PossessedBaronOfHell
 {
@@ -170,6 +174,10 @@ Tracer:
       } 
 }
 
+Actor AfritBallMOP : AfritBall replaces AfritBall
+{
+	DamageType "Monster"
+}
 
 Actor PossessedAgaures : PossessedImp
 {
@@ -226,6 +234,16 @@ Actor PossessedAgaures : PossessedImp
 	AGUR EF 5 
 	Goto Spawn
   }
+}
+
+Actor AgauresBallMOP : AgauresBall replaces AgauresBall
+{
+	DamageType "Monster"
+}
+
+Actor SpeedyAgauresBallMOP : SpeedyAgauresBall replaces SpeedyAgauresBall
+{
+	DamageType "Monster"
 }
 
 
@@ -482,6 +500,12 @@ DTBFG:
        Goto Spawn
       }
  }
+ 
+
+Actor SpiderRailMOP : SpiderRail replaces SpiderRail
+{
+	DamageType "Monster"
+}
 
 
 Actor PossessedCacoLich : PossessedCacoDemon~
@@ -568,6 +592,11 @@ Actor PossessedCacoLich : PossessedCacoDemon~
 		CLIH FG 3
 		Goto Spawn
 	}
+}
+
+Actor CacoLichBallMOP : CacoLichBall replaces CacoLichBall
+{
+	DamageType "Monster"
 }
 
 Actor PossessedCerebralSlayer : PossessedSpiderMastermind
@@ -1104,6 +1133,20 @@ BFG15K:
         }
 }
 
+Actor BCyberLordRocketMOP : BCyberLordRocket replaces BCyberLordRocket
+{
+	DamageType "Monster"
+}
+
+Actor BCyberLordHomerMOP : BCyberLordHomer replaces BCyberLordHomer
+{
+	DamageType "Monster"
+}
+
+Actor BlueAnniRailMOP : BlueAnniRail replaces BlueAnniRail
+{
+	DamageType "Monster"
+}
 
 Actor PossessedCryoDemon : PossessedHellKnight
 {
@@ -1768,6 +1811,16 @@ Missile:
         } 
 }
 
+Actor HABallMOP : HABall replaces HABall
+{
+	DamageType "Monster"
+}
+
+Actor ArchonFastBallMOP : ArchonFastBall replaces ArchonFastBall
+{
+	DamageType "Monster"
+}
+
 
 Actor PossessedHellFireBaron : PossessedBaronOfHell
 {
@@ -1905,6 +1958,11 @@ Tracers:
 	TNT1 A 0 A_SpawnItemEx("HellFireBaronFlameSpawner")
     Goto Spawn
  	}
+}
+
+Actor HFBallMOP : HFBall replaces HFBall
+{
+	DamageType "Monster"
 }
 
 
@@ -3817,6 +3875,17 @@ Spawn:
         Goto Spawn
         } 
 }
+
+Actor PhazoFastShotMOP : PhazoFastShot replaces PhazoFastShot
+{
+	DamageType "Monster"
+}
+
+Actor PhaseArchonTracerMOP : PhaseArchonTracer replaces PhaseArchonTracer
+{
+	DamageType "Monster"
+}
+
 
 
 Actor PossessedTerminator2MOP : PossessedCyberdemon

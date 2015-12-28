@@ -2,3 +2,8 @@ Actor CBallMOP : CBall replaces CBall
 {
 	DamageType "MonsterIce"
 }
+
+Actor SuicideBombMOP : SuicideBomb replaces SuicideBomb
+{
+	DamageType "Monster"
+}
