@@ -3263,9 +3263,9 @@ BloodColor "cf 00 b0"
 +MISSILEEVENMORE
 +NORADIUSDMG
 +DONTHURTSPECIES
-SeeSound "//Monster/arcsit" 
+SeeSound "monster/arcsit" 
 PainSound "baron/pain" 
-DeathSound "//Monster/arcdth"
+DeathSound "monster/arcdth"
 MeleeSound "baron/melee"
 SpawnID 174
 States 
