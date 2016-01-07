@@ -48,7 +48,7 @@ States
 	  TNT1 A 0
 	  TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_checkteleportmissile) == 0, "RealSpawn")
 	  TNT1 A 0 A_ChangeFlag(NOTELEPORT, false)
-   RealSpawn:
+RealSpawn:
 	  TNT1 A 0
       HGN1 A 3 A_StopSound
       HGN1 BCDEFGHABCDEFGHABCDEFGH 3
