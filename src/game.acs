@@ -43,6 +43,9 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 	case PLAYER_MOP: Log(n:player+1, s:" becomes a Puppet Master."); break;
 	}
 	
+	if (manyplayers < 2)
+		terminate;
+	
 	if (TeamCount(PLAYER_MARINE) - TeamCount(PLAYER_MOP) == manyplayers)
 		Log(s:"There are so many marines, join puppetmaster team, please!");
 	else if (TeamCount(PLAYER_MOP) - TeamCount(PLAYER_MARINE) == manyplayers)
@@ -52,6 +55,10 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 script mop_checkteambalance(void)
 {
 	int manyplayers = GetCVar("mop_manyplayers")+1;
+
+	if (manyplayers < 2)
+		terminate;
+
 	bool toomanymarines = (TeamCount(PLAYER_MARINE) - TeamCount(PLAYER_MOP) == manyplayers);
 	bool toomanymops = (TeamCount(PLAYER_MOP) - TeamCount(PLAYER_MARINE) == manyplayers);
 	
