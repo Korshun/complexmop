@@ -957,3 +957,13 @@ script mop_marines_isbfgavailable (void)
 
 	SetResultValue(value);
 }
+
+script mop_checkteleportmissile (void)
+{
+	SetActivatorToTarget(0);
+
+	if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_SPEED)
+		SetResultValue(true);
+	else
+		SetResultValue(false);
+}
