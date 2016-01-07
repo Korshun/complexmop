@@ -751,3 +751,12 @@ OBJECT CardinalHomingRocketMOP
 {
 Frame CBRKA { Light Missile1 }
 }
+
+//
+// Replaced projectiles
+//
+
+OBJECT TeleNewRocket
+{
+Frame MIS2A { Light Missile1 }
+}
