@@ -862,7 +862,9 @@ script mop_marines_giveextralives (int type)
 script mop_marines_nobfgtimer death
 {
 	int player = PlayerNumber();
-	if(PlayerClasses[player] == PLAYER_MOP)
+	SetActivatorToTarget(0);
+	int killer = PlayerNumber();
+	if(PlayerClasses[player] == PLAYER_MOP || PlayerClasses[killer] == PLAYER_MARINE)
 		terminate;
 	
 	int time = GetCvar("mop_marinesnobfgtime");
