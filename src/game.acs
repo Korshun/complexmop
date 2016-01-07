@@ -190,7 +190,7 @@ script mop_prevent_respawns RESPAWN
 
 script mop_disconnect (int player) DISCONNECT
 {
-	PlayerClasses[PlayerNumber()] = 0;
+	PlayerClasses[player] = 0;
 	UpdatePlayerCount();
 	HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
 }
