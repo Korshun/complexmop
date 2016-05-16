@@ -107,6 +107,13 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
 	}
+    IsSelected "Legendary Assault Shotgun"
+    {
+    DrawImage "SEWPA0", -56, -53;
+    DrawImage AmmoIcon1, -32, -6, CenterBottom;
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
+    DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 2, Green, 6;
+    }
     IsSelected "Assault Rifle"
 	{
 	DrawImage "SEWPA0", -56, -53;
@@ -128,6 +135,21 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, DrawShadow, -27, -22, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, DrawShadow, -27, -22, 0, Red, 25, Green, 51;
 	}	
+    IsSelected "Legendary Plasmatic Cannon"
+    {
+    DrawImage "SEWPA0", -56, -53;
+    DrawImage "LEGWZ0", -25, -6, CenterBottom;
+    }  
+	IsSelected "Freezer Rifle"
+	{
+	DrawImage "SEWPAO", -56, -53;
+	DrawImage "RIPGA0", -28, -6, CenterBottom;
+	}
+	IsSelected BehemothCannon
+	{
+    DrawImage "SEWPA0", -48, -53;
+	DrawImage "FHMRH0", -25, -6, CenterBottom;
+	}
     IsSelected "Rocket Launcher"
 	{
 	DrawImage "SEWPA0", -48, -53;
@@ -226,18 +248,20 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, DrawShadow, -27, -22, 0;
 	}
 	
-	DrawImage "HDCPA0", -14, -94;
-	DrawNumber 3, INDEXFONT, White, Ammo BulletMag, -16, -94;	
-	DrawImage "HDSLA0", -16, -87;
-	DrawNumber 3, INDEXFONT, White, Ammo NewShell, -16, -87;
-	DrawImage "HDRKA0", -15, -80;
-	DrawNumber 3, INDEXFONT, White, Ammo Missile, -16, -80;
-	DrawImage "HDCLA0", -14, -73;
-	DrawNumber 3, INDEXFONT, White, Ammo NewCell, -16, -73;
-	DrawImage "HDTKA0", -14, -66;
-	DrawNumber 3, INDEXFONT, White, Ammo DemonAmmo, -16, -66;
-	DrawImage "HDTKB0", -14, -59;
-	DrawNumber 3, INDEXFONT, White, Ammo LDemonAmmo, -16, -59;
+    DrawImage "HDCPA0", -14, -101;
+    DrawNumber 3, INDEXFONT, White, Ammo BulletMag, -16, -101; 
+    DrawImage "HDSLA0", -16, -94;
+    DrawNumber 3, INDEXFONT, White, Ammo NewShell, -16, -94;
+    DrawImage "HDRKA0", -15, -87;
+    DrawNumber 3, INDEXFONT, White, Ammo Missile, -16, -87;
+    DrawImage "HDCLA0", -14, -80;
+    DrawNumber 3, INDEXFONT, White, Ammo NewCell, -16, -80;
+    DrawImage "HDTKA0", -14, -73;
+    DrawNumber 3, INDEXFONT, White, Ammo DemonAmmo, -16, -73;
+    DrawImage "HDTKB0", -14, -66;
+    DrawNumber 3, INDEXFONT, White, Ammo LDemonAmmo, -16, -66;
+    DrawImage "LHELB0", -14, -59;
+    DrawNumber 3, INDEXFONT, White, Ammo LegendaryShell, -16, -59;
 	
 	DrawImage "IGRNA0", -32, -54;
 	DrawNumber 1, INDEXFONT, White, HandGrenadeAmmo, -37, -59;
@@ -257,6 +281,10 @@ StatusBar FullScreen, FullScreenOffsets
 	DrawSwitchableImage RedCard && RedSkull, "", "STKEYS2", "STKEYS5", "STKEYS8", -14, 22;
 	
 	DrawSelectedInventory INDEXFONT, -102, -32, -70, -12, White;
+   
+    InInventory LegendaryRuneItem, 1 {
+        DrawImage "LGRNA0", 22, -57, CenterBottom;
+    }
 	
 	}
 }
@@ -357,6 +385,12 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
 	DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 2, Green, 6;
 	}
+    IsSelected "Legendary Assault Shotgun"
+    {
+    DrawImage "SEWBA0", 118, 169;
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 172, 0;
+    DrawNumber 2, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 172, 0, Red, 2, Green, 6;
+    }
     IsSelected "Assault Rifle"
 	{
 	DrawImage "SEWBA0", 130, 169;
@@ -376,6 +410,12 @@ StatusBar Normal
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 25, Green, 51;
 	}	
+    IsSelected "Legendary Plasmatic Cannon"
+    {
+    DrawImage "SEWBA0", 130, 169;
+    DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
+    DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 25, Green, 51;
+    }
     IsSelected "Rocket Launcher"
 	{
 	DrawImage "SEWBA0", 106, 179;
@@ -445,7 +485,7 @@ StatusBar Normal
 	}
 	IsSelected BehemothCannon
 	{
-	DrawImage "SEWBA0", 130, 179;
+	DrawImage "SEWBA0", 106, 179;
 	DrawNumber 3, HUDFONT_DOOM, DarkGrey, Ammo1, 44, 171, 0;
 	DrawNumber 3, HUDFONT_DOOM, Gold, Ammo1, WhenNotZero, 44, 171, 0, Red, 100, Green, 201;
 	}
