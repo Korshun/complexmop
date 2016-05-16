@@ -97,8 +97,8 @@ Actor PossessedBFGCacodemon : PossessedMonster
 	ActiveSound "caco/active"
 	MeleeSound "caco/melee"
 	Obituary "%o was eradicated by a BFG Cacodemon."
-	DropItem "BFG9500" 190 1
-	DropItem "BossLifeEssence"150
+	DropItem "BFG9500" 90 1
+	DropItem "BossLifeEssence" 150
     DropItem "BossArmorBonusMax" 150
 	DropItem "NewCellPack" 255 
 	bloodcolor "Purple"
