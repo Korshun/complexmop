@@ -2991,7 +2991,8 @@ Fire:
 	TNT1 A 0 A_FireCustomMissile("VelociratorResRadius",340,0,0,0)
 	TNT1 A 0 A_FireCustomMissile("VelociratorResRadius",360,0,0,0)
 	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-    TNT1 AAAABBBBCCCC 4 Bright //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)		
+    TNT1 AAAABBBBCCCC 4 Bright //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 C 0 Bright HealThing(100)
     Goto Ready	  
 	}
 }

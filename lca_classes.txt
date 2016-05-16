@@ -3491,6 +3491,7 @@ See:
 	TNT1 A 0 //A_FireCustomMissile("VelociratorResRadius",360,0,0,0)
 	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
     HIA2 AAAABBBBCCCC 4 Bright //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)	
+	HIA2 C 0 Bright //HealThing(100)
 	HIA2 A 5 Bright
     Goto Spawn	  
     }
