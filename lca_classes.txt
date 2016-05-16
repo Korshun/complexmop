@@ -1,13 +1,3 @@
-ACTOR "ChainZombieSpawner MOP" : "ChainZombieSpawner " Replaces "ChainZombieSpawner "
-{
-DropItem "AssaultRifleZombie", 256, 52
-DropItem "Chaingunner", 256, 32
-DropItem "Minigunner", 256, 14
-DropItem "BFGZombieman", 256, 2
-//DropItem "FreezerZombie", 256, 2
-DropItem "BFG10KGeneral", 256, 1
-}
-
 Actor PossessedBFG10KGeneral : PossessedMonster
 {
 	Player.MorphWeapon "BFG10KGeneralWeapon"
