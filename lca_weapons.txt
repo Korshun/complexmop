@@ -2768,9 +2768,9 @@ Actor LegZombieWeapon : PossessedWeapon
   	 TNT1 A 0 A_JumpIfInventory("LDemonMagazine",50,"Ready")
      BTKR AB 2 Bright
 	 BTKR C 3 Bright
-	 BTKR D 4 Bright A_PlayWeaponSound("weapons/demontecheject")
+	 BTKR D 4 Bright A_PlaySound("weapons/demontecheject")
 	 TNT1 A 0 Radius_Quake(2,2,0,1,0)
-	 BTKR E 2 Bright A_PlayWeaponSound("weapons/demontechsteam")
+	 BTKR E 2 Bright A_PlaySound("weapons/demontechsteam")
 	 BTKR F 2 Bright Radius_Quake(2,2,0,1,0)
 	 BTKR GHI 2 Bright Radius_Quake(2,2,0,1,0)
 	 BTKR J 3 Bright //A_FireCustomMissile("LDemonTechEmptyMag", 0, 0, 0, 1)
