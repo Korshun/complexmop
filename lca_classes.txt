@@ -753,11 +753,11 @@ Actor PossessedDTDevastatorZombie : PossessedMonster
   height 56
   mass 100
   Speed 0.35 //8
-  painchance 55
+  painchance 45
   DropItem "Armorplate" 186 2
   DropItem "Portablemedkit" 159 2
   DropItem "Backpack" 190 1
-  DropItem "Demon Tech Devastator" 70 1
+  DropItem "Demon Tech Devastator" 65 1
   DropItem "HandGrenadeAmmo" 210 3
   DropItem "MineAmmo" 210 3
   DropItem "DemonAmmoBox" 255 
@@ -928,7 +928,7 @@ DropItem "AmmoPack" 108
 DropItem "HandGrenadeAmmo" 200 1
 DropItem "MineAmmo" 200 1
 DropItem "NewShell" 256 
-DropItem "Hexa-Shotgun" 125 1
+DropItem "Hexa-Shotgun" 100 1
 DropItem "BackPack" 155 1
 DropItem "NewShellBox" 138 
 //Monster 
@@ -1000,6 +1000,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   DropItem "DemonicChalice" 200
   DropItem "Legendary Plasmatic Rifle" 140 1
   DropItem "LegAmmoSphere" 128 1
+  DropItem "Legendary Assault Shotgun" 100 1
   +QUICKTORETALIATE
   +NOTIMEFREEZE
   +NORADIUSDMG
@@ -1418,7 +1419,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 2 Bright 
 	CYBR F 2 Bright 
 	CYBR F 2 Bright 
-	CYBR F 0 Bright //A_FireCustomMissile("LegAnniDTBFGBall", 0,0, -26)
+	CYBR F 0 Bright //A_FireCustomMissile("LegCybDTBFGBall", 0,0, -26)
 	CYBR F 0 Bright //A_PlaySound ("Cardinal/9k")
 	CYBR E 2 Bright 
 	CYBR E 2 Bright 
@@ -1438,7 +1439,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR F 2 Bright 
 	CYBR F 2 Bright 
 	CYBR F 2 Bright 
-	CYBR F 0 Bright //A_FireCustomMissile("LegAnniDTBFGBall", 0,0, -26)
+	CYBR F 0 Bright //A_FireCustomMissile("LegCybDTBFGBall", 0,0, -26)
 	CYBR E 30 Bright
 	CYBR E 5 Bright
 	Goto Spawn

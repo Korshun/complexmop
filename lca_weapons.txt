@@ -1281,7 +1281,7 @@ Fire:
 	TNT1 F 2 Bright 
 	TNT1 F 2 Bright 
 	TNT1 F 2 Bright 
-	TNT1 F 0 Bright A_FireCustomMissile("LegAnniDTBFGBall", 0,0, -26)
+	TNT1 F 0 Bright A_FireCustomMissile("LegCybDTBFGBall", 0,0, -26)
 	TNT1 F 0 Bright A_PlaySound ("Cardinal/9k")
 	TNT1 E 2 Bright 
 	TNT1 E 2 Bright 
@@ -1301,7 +1301,7 @@ Fire:
 	TNT1 F 2 Bright 
 	TNT1 F 2 Bright 
 	TNT1 F 2 Bright 
-	TNT1 F 0 Bright A_FireCustomMissile("LegAnniDTBFGBall", 0,0, -26)
+	TNT1 F 0 Bright A_FireCustomMissile("LegCybDTBFGBall", 0,0, -26)
 	TNT1 E 30 Bright
 	TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
 	Goto Ready
