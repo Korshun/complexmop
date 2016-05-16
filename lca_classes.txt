@@ -3384,17 +3384,17 @@ Actor PossessedVelocirator : PossessedArchvile
   { 
   Spawn: 
     HIAB A 10 Bright  	
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	Goto Spawn 
 See:
     HIAB A 0 A_SpawnItem("HumanishStep",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB AABBCC 2 Bright
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	TNT1 A 0 Bright A_SpawnItem("HumanishStep",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB DDEEFF 2 Bright
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	Goto Spawn
   Missile:
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Floor")
@@ -3403,13 +3403,13 @@ See:
 	TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Heal")
 	Goto Spawn
   Floor:
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
     HIA2 AAAA 4 Bright 
 	TNT1 A 0 //A_PlaySound("brain/spit")
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIA2 B 0 //A_FireCustomMissile("VeloFloorTracer",0,0,32)
     HIA2 B 6 Bright //A_FireCustomMissile("VeloFloorTracer",0,0,-32)
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
     HIA2 CC 4 Bright
 	HIA2 A 5 Bright
     Goto Spawn
@@ -3431,38 +3431,38 @@ See:
 	HIA2 AAAAAA 2 Bright A_SpawnItem("DukeHealFlameSpawner",0,0,0,0)
 	HIA2 A 4  Bright 
 	TNT1 A 0 //A_PlaySound("brain/spit")
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIA2 BBBBB 0 Bright //A_FireCustomMissile("VeloFireSpawner",Random(0,359),0,32)
 	HIA2 B 0 //A_FireCustomMissile("VeloFireSpawner",Random(-3,3),0,32)
 	HIA2 B 0 //A_FireCustomMissile("VeloFireSpawner",0,0,32)
 	HIA2 B 0 //A_FireCustomMissile("VeloFireSpawner",Random(-3,3),0,-32)
     HIA2 B 6 Bright //A_FireCustomMissile("VeloFireSpawner",0,0,-32)
 	TNT1 A 0 
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
     HIA2 CC 4 Bright
 	HIA2 A 5 Bright
     Goto Spawn
   Ghost:
 	HIAB GHIJKLM 5  Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 //A_FireCustomMissile("VeloGhost",0,0,0)
     HIAB P 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB P 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB N 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB N 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB O 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB P 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB N 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB O 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB O 5 //A_FireCustomMissile("VeloGhost",Random(-4,4),0,0)
     HIAB P 3 Bright 
-    TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
 	HIAB P 5 //A_FireCustomMissile("VeloGhost",0,0)
     HIAB N 3 Bright 
 	HIAB P 5 Bright
@@ -3489,8 +3489,8 @@ See:
 	TNT1 A 0 //A_FireCustomMissile("VelociratorResRadius",320,0,0,0)
 	TNT1 A 0 //A_FireCustomMissile("VelociratorResRadius",340,0,0,0)
 	TNT1 A 0 //A_FireCustomMissile("VelociratorResRadius",360,0,0,0)
-	TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
-    HIA2 AAAABBBBCCCC 4 Bright A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)	
+	TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)
+    HIA2 AAAABBBBCCCC 4 Bright //A_SpawnItem("GHellionSmokeSpawner",0,0,0,0)	
 	HIA2 A 5 Bright
     Goto Spawn	  
     }
