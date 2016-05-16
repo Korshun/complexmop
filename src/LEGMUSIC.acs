@@ -4,57 +4,74 @@
 
 
 bool is_mon_music_playing = false;
+bool is_mon_int_music_playing = false;
 bool is_weap_music_playing = false;
 int fired_epic = 0;
 
-str musicNames[16] = { "D_LEGM0", "D_LEGM1", "D_LEGM2", "D_LEGM3", "D_LEGM4", "D_LEGM5", "D_LEGM6", "D_LEGM7", "D_LEGM8", "D_LEGM9", "D_LEGM10", "D_LEGM11", "D_LEGM12", "D_LEGM13", "D_LEGM14", "D_LEGM15" };
-
 //weapon music start
-Script 5430( int mNum )
+Script 5430( int mNum ) CLIENTSIDE
 {
-	Delay( 1 );
-	if( !is_mon_music_playing )
-	{
-		fired_epic = fired_epic + 1;
-		if( fired_epic == 5 )
-		{
-			SetMusic( musicNames[mNum], 0 );
-			is_weap_music_playing = true;
-		}
-	}
+    Delay( 1 );
+
+    if(GetCvar("lca_legweapmusic") && !is_mon_music_playing && !is_mon_int_music_playing)
+    {
+        fired_epic = fired_epic + 1;
+        if( fired_epic == 5 )
+        {
+            SetMusic( StrParam(s:"D_LEGM", i:mNum), 0 );
+            is_weap_music_playing = true;
+        }
+    }
 }
 
 //weapon music stop
-Script 5431( void )
+Script 5431( void ) CLIENTSIDE
 {
-	if( is_weap_music_playing || !is_mon_music_playing )
-	{
-		SetMusic( "*", 0 );
-		fired_epic = 0;
-		is_weap_music_playing = false;
-	}
+    if (GetCvar("lca_legweapmusic") && is_weap_music_playing)
+    {
+        SetMusic( "*", 0 );
+        fired_epic = 0;
+        is_weap_music_playing = false;
+    }
 }
 
 //monster music start
-Script 5432( int mNum )
+Script 5432( int mNum ) CLIENTSIDE
 {
 /*
-	Delay( 1 );
-	if ( is_mon_music_playing == false )
-	{
-		SetMusic( musicNames[mNum], 0 );
-		is_mon_music_playing = true;
-		is_weap_music_playing = false;
-	}
+    Delay( 1 );
+
+    if (GetCvar("lca_legmusic") && !is_mon_music_playing && !is_mon_int_music_playing)
+    {
+        SetMusic( StrParam(s:"D_LEGM", i:mNum), 0 );
+        is_mon_music_playing = true;
+        is_weap_music_playing = false;
+    }
 */
 }
 
 //monster music stop
-Script 5433( void )
+Script 5433( void ) CLIENTSIDE
 {
 /*
-	SetMusic( "*", 0 );
-	fired_epic = 0;
-	is_mon_music_playing = false;
+    if (GetCvar("lca_legmusic")) {
+        SetMusic( "*", 0 );
+        fired_epic = 0;
+        is_mon_music_playing = false;
+        is_mon_int_music_playing = false;
+        is_weap_music_playing = false;
+    }
+*/
+}
+
+//monster music intermission
+Script 5434( void ) CLIENTSIDE
+{
+/*
+    if (GetCvar("lca_legmusic")) {
+        SetMusic( "D_LEGINT", 0 );
+        is_mon_music_playing = false;
+        is_mon_int_music_playing = true;
+    }
 */
 }
