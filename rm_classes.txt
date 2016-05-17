@@ -4500,19 +4500,19 @@ MeleeSound "baron/melee"
 States 
 { 
 Spawn: 
-        TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
+        TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
         TLOD A 10 Bright 
         Goto Spawn
 See: 
-        TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
+        TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
         TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
         TLOD AA 3 Bright 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
         TLOD BB 3 Bright 
         TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
         TLOD CC 3 Bright 
-		TNT1 A 0 A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
+		TNT1 A 0 //A_SpawnItem("GHellionSmokeSpawner4",0,0,0,0)
 		TLOD DD 3 Bright 
         Goto Spawn
 Missile:  
