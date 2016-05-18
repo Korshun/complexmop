@@ -87,7 +87,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cacomental",				0.15 * 100 / 1.0 * LF2 / 100, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
 	// lca
 	{ "BFGCacodemon",			0.15 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
-	{ "LegendaryRedeemer",		0.15 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Redeemer", "LREDA1" },
+	{ "LegendaryRedeemer",		0.15 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_FLYING | MONSTF_LEGENDARY, "Legendary Redeemer", "LREDA1" },
 	
 	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
@@ -184,7 +184,7 @@ script mop_count_monstertypes_cl OPEN CLIENTSIDE
 }
 
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 10
+#define NUM_MONSTER_ITEMS 11
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
 	"SSGZombieToken",
@@ -198,7 +198,8 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	// lca
 	"Hexa-ZombieToken",
 	"LegSentientToken",
-	"FusionNuke"
+	"FusionNuke",
+	"ASGZAmmo"
 };
 
 script mop_phaseimp (void)
