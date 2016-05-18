@@ -4139,3 +4139,5 @@ LegendaryDevastator:
 	Goto Spawn
         }
 }
+
+#include "lca_new_classes.txt"
