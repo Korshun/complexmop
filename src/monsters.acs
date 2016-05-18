@@ -43,6 +43,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Hexa-ShotgunZombie",		0.07 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Hexa-Shotgun Zombie", "HSZIA1" },
 	{ "EraserZombie",			0.15, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
 	{ "DTDevastatorZombie",		0.17, 0, 0, 0, "Demon Tech Devastator Zombie", "DEVZA1" },
+	{ "LegendaryAssaultCaptain", 0.07 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_LEGENDARY, "Legendary Assault Captain", "LASGA1" },
 	
 	// Chaingunners.
 	{ "AssaultRifleZombie",		0.065, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
@@ -50,6 +51,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Minigunner",				0.065 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Minigunner", "CPS2A1" },
 	{ "BFGZombieman",			0.065 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	// lca
+	{ "FreezerZombie",			0.17, 0, 0, 0, "Freezer Zombie", "FRZR", },
 	{ "BFG10KGeneral",			0.17, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	// Imps.
@@ -65,6 +67,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "CyberFiend",				0.05 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
 	{ "MagmaFiend",				0.05 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
 	{ "DTechFiend",				0.05 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "DTech Fiend", "DPNKA1" },
+	// lca
+	{ "LegendaryFiend",			0.05 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Fiend", "" },
 	
 	// Spectres.
 	{ "Spectre~",				0.06, 0, 0, 0, "Spectre", "SAR2A1" },
@@ -83,6 +87,7 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Cacomental",				0.15 * 100 / 1.0 * LF2 / 100, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
 	// lca
 	{ "BFGCacodemon",			0.15 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
+	{ "LegendaryRedeemer",		0.15 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Redeemer", "LREDA1" },
 	
 	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
@@ -101,6 +106,8 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "Daedabus",				0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Daedabus", "HECTC1" },
 	{ "Behemoth",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
 	{ "Barbatos",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	// lca
+	{ "LegendaryBehemoth",		0.2 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Behemoth", "LEG2A1" },
 	
 	// Revenants.
 	{ "Guardian",				0.2, 0, 0, 0, "Guardian", "SKELA1D1" },
@@ -123,7 +130,9 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "BruiserDemon",			0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Bruiser Demon", "FRITA1" },
 	{ "Cybruiser",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Cybruiser", "BRUSA1" },
 	// lca
-	{ "PhaseOverlord",			0.2 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
+	{ "PhaseOverlord",			0.2 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
+	{ "Cydestroyer",			0.2 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "Cydestroyer", "BR2SA1" },
+	{ "LegendaryCyberNoble",	0.2 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Cyber Noble", "LCBSA1" },
 
 	// Archviles.
 	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
