@@ -2,7 +2,7 @@ ACTOR PossessedLegendaryFiend : PossessedMonster
 {
 Health 1050
 PainChance 55
-Speed 14
+Speed 0.6125 //14
 Radius 30
 Height 56
 Mass 550
@@ -217,7 +217,7 @@ ACTOR PossessedCydestroyer : PossessedMonster
   Radius 24
   Height 64
   Mass 1000
-  Speed 12
+  Speed 0.525 //12
   PainChance 65
   Scale 1.1
   Species "Nobles"
@@ -667,7 +667,7 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
   Radius 24
   Height 78
   Mass 1500
-  Speed 8
+  Speed 0.35 //8
   PainChance 45 
   +NORADIUSDMG
   +BOSS
@@ -1076,7 +1076,7 @@ Health 1400
 Radius 31
 Height 56
 Mass 400
-Speed 12
+Speed 0.525 //12
 PainChance 28
 +FLOAT
 +NOGRAVITY
@@ -1388,7 +1388,7 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
     Health 1020
     Radius 20
     Height 56
-    Speed 12
+    Speed 0.525 //12
     PainChance 20
     +NOTIMEFREEZE
 	+BOSS
@@ -1629,7 +1629,7 @@ Height 64
 Health 2200
 PainChance 30
 Scale 1.25
-Speed 9
+Speed 0.39375 //9
 DamageFactor "BeheComet", 0.0
 DamageFactor "FatFlamer", 0.0
 DamageFactor "Legendary", 0.0
@@ -1939,7 +1939,7 @@ ACTOR PossessedFreezerZombie : PossessedChaingunGuy
 Health 215
 Radius 20
 Height 56
-Speed 8
+Speed 0.35 //8
 Mass 100
 PainChance 105
 +FLOORCLIP
