@@ -2029,7 +2029,7 @@ Missile3:
 		   FRZR F 1 Bright A_CustomMissile("ZombieFlameShot",32,0,random(-4,4),0)
 		   TNT1 A 0 
 		   FRZR F 1 Bright A_CustomMissile("ZombieFlameShot",32,0,random(-4,4),0)
-		   FRZR EE 12 A_StopSound(6)
+		   FRZR EE 12 //A_StopSound(6)
 	   Goto Spawn
     }
 }
