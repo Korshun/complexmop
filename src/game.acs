@@ -229,7 +229,7 @@ script mop_respawn_protection (void)
 			s:"Respawn protection: ",
 			d:i,
 			s:"...";
-			HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 0
+			HUDMSG_PLAIN, HID_RESPAWNPROTECTION, CR_GOLD, 640.0/2 + 0.8, (480.0/2)+100.0, 1.5
 		);
 		
 		for (int j = 0; j < 35; j++)
