@@ -2,7 +2,7 @@ Actor LegendaryFiendWeapon : PossessedWeapon
 {
 	States
 	{
-  Missile:
+  Fire:
     TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Ripperr")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Lunge")
@@ -142,7 +142,7 @@ Actor CydestroyerWeapon : PossessedWeapon
 {
 	States
 	{
-  Missile:
+  Fire:
    	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Flamethrowers")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Grenadier")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Rockets")
@@ -553,7 +553,7 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
 {
 	States
 	{
-  Missile:
+  Fire:
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "LegendaryAsg")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "Hugger")
@@ -802,7 +802,7 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 {
 	States
 	{
-  Missile:
+  Fire:
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Laser")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "TrapAttack")
@@ -956,7 +956,7 @@ Actor LegendaryAssaultCaptainWeapon : PossessedWeapon
 {
 	States
 	{
-   Missile:
+   Fire:
 		LASG E 3 Bright
         LASG E 4 Bright 
 		TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
@@ -985,7 +985,7 @@ Actor LegendaryBehemothWeapon : PossessedWeapon
 {
 	States
 	{
-    Missile:
+    Fire:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BlueFlame")
 		TNT1 A 0 A_JumpIfInventory("Attack3", 1, "BFGG")
