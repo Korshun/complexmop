@@ -90,7 +90,7 @@ States
 	LFND EF 7 Bright 
 	TNT1 A 0 A_ChangeFlag(SLIDESONWALLS,1)
 	TNT1 A 0 ThrustThingZ(0,20,0,1)
-    LFND F 2 Bright A_Recoil(-26)
+    LFND F 2 Bright //A_Recoil(-26)
 	LFND F 3 Bright A_CustomMissile("LFLunge",18,0,0,CMF_AIMDIRECTION)
 	LFND G 6 Bright
 	LFND G 2 Bright A_ScaleVelocity(0.2)
@@ -123,7 +123,7 @@ States
 	LFND G 0 
 	LFND G 3 Bright
 	TNT1 A 0 ThrustThingZ(0,20,0,1)
-    LFND F 2 A_Recoil(-100)
+    LFND F 2 //A_Recoil(-100)
 	TNT1 A 0 //A_PlaySound("cyberfiend/melee")
 	LFND G 0 A_SpawnItemEx("LFGhost",0,0,0,0,0,0,0,128)
 	LFND G 0 A_SpawnItem("LFiendFlameSpawner",0,0,0,0)
@@ -1153,7 +1153,7 @@ States
 	LRED G 0
 	TNT1 A 0 A_JumpIf(user_suicide == 1,"SeeSuicide")
 	LRED G 0 A_SetAngle(angle+random(0,359))
-	LRED G 0 A_Recoil(-50)
+	LRED G 0 //A_Recoil(-50)
 	LRED G 0 
 	LRED GGGGGGGGGGGGG 1 A_SpawnItemEx("LegendaryRedeemerGhost2")
 	LRED G 1 A_Stop
