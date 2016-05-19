@@ -1,5 +1,5 @@
 #define MAX_MONSTERATTACKS 30
-int MonsterAttacks[MAX_MONSTERATTACKS][15] = 
+int MonsterAttacks[MAX_MONSTERATTACKS][18] = 
 {
 	{ "Cacomental", "\cgNormal", "\cgSeeking", "\cgComet", "X" },
 	{ "HellKnight~", "\cdNormal", "\cdBurst Ball", "\cdComet", "X" },
@@ -28,6 +28,11 @@ int MonsterAttacks[MAX_MONSTERATTACKS][15] =
 	{ "LegendarySentient", "Normal", "Legendary BFG9K", "Legendary BFG10K", "Legendary DTBFG10K", "Legendary BFG15K", "\chLegendary Tech", "Cannon", "Legendary BFG", "Legendary Storm", "X" },	
 	{ "Velocirator", "\cdFloor", "\cdSuper Floor", "\cdGhost", "\cgHeal", "X" },
 	{ "LegendaryAnnihilator", "\chNormal", "\chLegendary Nades", "Legendary Railguns", "Legendary BFG95Ks", "\chLegendary Seekers", "Legendary BFG10Ks", "\chLegendary Rifles Akimbo", "Legendary BFG15Ks", "Legendary DTBFGs", "Legendary Devastator", "Legendary BFGs", "X" },
+	{ "LegendaryFiend", "Normal", "Ripperr", "Lunge", "Rage", "X" },	
+	{ "Cydestroyer", "Flamethrowers", "Grenadier", "Rockets", "HomingRockets", "ShoulderHomingRockets", "ShoulderRockets", "RocketSpammingCombo", "BFG15K", "BFG10K", "RailgunV2", "X" },	
+	{ "LegendaryCyberNoble", "Normal", "LegendaryAsg", "Hugger", "Rage", "BestAttack", "Rain", "Rockets", "Seekers", "BFG10K", "Railgun", "RocketRage", "BestAttack2", "LegCannon1", "LegCannon2", "X" },	
+	{ "LegendaryRedeemer", "Normal", "Laser", "TrapAttack", "Thunder", "Storm", "Portal", "Suicide", "X" },	
+	{ "LegendaryBehemoth", "Normal", "BlueFlame", "BFGG", "Combo", "Floor", "X" },
 
 	{ "MONSTERATTACKS" }
 };
