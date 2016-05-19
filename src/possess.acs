@@ -2,8 +2,6 @@ int LastDeathPosition[MAX_PLAYERS][4];
 
 int MonsterItemsTemp[NUM_MONSTER_ITEMS];
 
-#define MAGIC 2146435153
-
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -35,19 +33,7 @@ script mop_possess (void)
 		terminate;
 	}
 	
-	int flags = MonsterTypes[type][MONSTER_FLAGS] - MAGIC;
-	
-	// Bydlofix for flags.
-	if (flags == -78)
-		flags = MONSTF_FLYING | MONSTF_BOSS;
-	else if (flags == 3)
-		flags = MONSTF_LEGENDARY;
-	else if (flags == 4)
-		flags = MONSTF_FLYING | MONSTF_LEGENDARY;
-	else if (flags == -77)
-		flags = MONSTF_LEGENDARY | MONSTF_BOSS;
-	else if (flags == 5)
-		flags = MONSTF_FLYING | MONSTF_BOSS | MONSTF_LEGENDARY;
+	int flags = MonsterTypes[type][MONSTER_FLAGS];
 
 	int frags = MopFrags[player-1000];
 	int required = GetCVar("mop_possfrags_bosses");
@@ -109,12 +95,12 @@ script mop_possess (void)
 	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), DamageFactor, spawnhealth << 16 | type);
 	
 	// Run script.
-	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT] - MAGIC;
+	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT];
 	if (scriptnum != 0)
 		ACS_ExecuteAlways(scriptnum, 0);
 	
 	// Run evasion script.
-	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED] - MAGIC;
+	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED];
 	if (evadespeed != 0)
 		ACS_ExecuteAlways(mop_evade, 0, evadespeed);
 		
