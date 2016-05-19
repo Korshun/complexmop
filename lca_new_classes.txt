@@ -781,7 +781,7 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 	Teleport:
     LCBS P 1 Bright A_UnSetShootable
 	LCBS PPPP 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LCBS PPPPPPPPPP 1  A_FadeOut(0.1,0)
+	LCBS PPPPPPPPPP 1  //A_FadeOut(0.1,0)
 	LCBS P 2 
 	LCBS PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 
 	LCBS PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 
@@ -1161,7 +1161,7 @@ States
   Teleport:
     LRED A 1 A_UnSetShootable
 	LRED AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
-	LRED AAAAAAAAAAA 1 A_FadeOut(0.1,0)
+	LRED AAAAAAAAAAA 1 //A_FadeOut(0.1,0)
 	LRED AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 
 	LRED A 8
 	LRED AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
@@ -1731,7 +1731,7 @@ States
 	Teleport:
 	   LEG2 A 1 Bright A_UnSetShootable
 	   LEG2 AAAA 0 A_SpawnItemEx("LHellionSmokeSpawner",random(-24,24),random(-24,24),0)
-	   LEG2 AAAAAAAAAA 1  A_FadeOut(0.1,0)
+	   LEG2 AAAAAAAAAA 1  //A_FadeOut(0.1,0)
 	   LEG2 A 2 
 	   LEG2 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 
 	   LEG2 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 
