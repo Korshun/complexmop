@@ -99,29 +99,17 @@ States
 	TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,0)
 	LFND G 1 Bright //A_ScaleVelocity(0)
 	Goto Spawn
-  Rage:	
-    LFND G 1 A_JumpIfCloser(1500,1)
-    Goto Spawn
+  Rage:
     LFND G 1 Bright //A_PlaySound("blooddemon/sight")
 	LFND G 0 
 	LFND G 1 Bright 
-  RageWait:
-    TNT1 A 0 A_JumpIf(user_ragewait >= 16,"RageGo")
-	TNT1 A 0 A_SetUserVar("user_ragewait",user_ragewait+1)
-    LFND G 0 A_JumpIfTargetInLos(2)
-	LFND G 0 A_Jump(256,2)
-	LFND G 0 
-	LFND G 2 Bright //A_SpawnItem("LFiendFlameSpawner",0,0,0,0)
-	Goto Spawn
+	LFND G 36 Bright //A_SpawnItem("LFiendFlameSpawner",0,0,0,0)
   RageGo:
-    TNT1 A 0 A_SetUserVar("user_ragewait",0) 
 	LFND G 0 
 	TNT1 A 0 //ThrustThingZ(0,35,0,1)
     TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,1)
 	TNT1 A 0 //A_ChangeFlag(NOPAIN,1)
 	LFND G 9 Bright
-	LFND G 0 A_JumpIfTargetInLos(2)
-	LFND G 0 A_Jump(256,2)
 	LFND G 0 
 	LFND G 3 Bright
 	TNT1 A 0 //ThrustThingZ(0,20,0,1)
