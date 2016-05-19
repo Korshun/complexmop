@@ -11,13 +11,6 @@
 #define MONSTF_BOSS 2
 #define MONSTF_LEGENDARY 4
 
-// experemental levelfactor
-//              1      2        3      4
-//           srong  serious   hard    OP
-#define LF1 1.25
-#define LF2 1.5
-#define LF3 1.75
-#define LF4 2.0
 
 int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
@@ -73,7 +66,7 @@ function void InitMonsters(void)
 	AddMonster(0.0525,	"MPO2A1",	"RocketZombie", "Rocket zombie");
 	
 	// LCA Zombiemen.
-	AddMonster(2.0,	"LPOSA1", "LegZombie", "Legendary Zombie");
+	AddMonster(2.0,		"LPOSA1", "LegZombie", "Legendary Zombie");
 	LegendaryMonster();
 
 	// Shotgunners.
@@ -83,10 +76,10 @@ function void InitMonsters(void)
 	AddMonster(0.0875,	"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
 	
 	// LCA Shotgunners.
-	AddMonster(0.07 * 100 / 1.0 * LF3 / 100,	"HSZIA1", "Hexa-ShotgunZombie", "Hexa-Shotgun Zombie");
+	AddMonster(0.1225,	"HSZIA1", "Hexa-ShotgunZombie", "Hexa-Shotgun Zombie");
 	AddMonster(0.15,	"PYRZA1", "EraserZombie", "Eraser Zombie");
 	AddMonster(0.17,	"DEVZA1", "DTDevastatorZombie", "Demon Tech Devastator Zombie");
-	AddMonster(0.07 * 100 / 1.0 * LF4 / 100,	"LASGA1", "LegendaryAssaultCaptain", "Legendary Assault Captain");
+	AddMonster(0.14,	"LASGA1", "LegendaryAssaultCaptain", "Legendary Assault Captain");
 	LegendaryMonster();
 	EvadingMonster(20);
 	
@@ -119,7 +112,7 @@ function void InitMonsters(void)
 	AddMonster(0.0875,	"DPNKA1",   "DTechFiend", "DTech Fiend");
 	
 	// LCA Demons.
-	AddMonster(0.05 * 100 / 1.0 * LF4 / 100,	"", "LegendaryFiend", "Legendary Fiend");
+	AddMonster(0.1,		"", "LegendaryFiend", "Legendary Fiend");
 	LegendaryMonster();
 
 	// Spectres.
@@ -151,10 +144,10 @@ function void InitMonsters(void)
 	EvadingMonster(14);
 	
 	// LCA Cacodemons.
-	AddMonster(0.15 * 100 / 1.0 * LF4 / 100,	"BFCDA1", "BFGCacodemon", "BFG Cacodemon");
+	AddMonster(0.30,	"BFCDA1", "BFGCacodemon", "BFG Cacodemon");
 	FlyingMonster();
 	EvadingMonster(20);
-	AddMonster(0.15 * 100 / 1.0 * LF4 / 100,	"LREDA1", "LegendaryRedeemer", "Legendary Redeemer");
+	AddMonster(0.30,	"LREDA1", "LegendaryRedeemer", "Legendary Redeemer");
 	FlyingMonster();
 	LegendaryMonster();
 	
@@ -184,7 +177,7 @@ function void InitMonsters(void)
 	FlyingMonster();
 	
 	// LCA Mancubi.
-	AddMonster(0.2 * 100 / 1.0 * LF4 / 100,	"LEG2A1", "LegendaryBehemoth", "Legendary Behemoth");
+	AddMonster(0.4,		"LEG2A1", "LegendaryBehemoth", "Legendary Behemoth");
 	LegendaryMonster();
 	
 	// Revenants.
@@ -213,9 +206,9 @@ function void InitMonsters(void)
 	AddMonster(0.3,		"BRUSA1",   "Cybruiser", "Cybruiser");
 	
 	// Legendary Barons of hell.
-	AddMonster(0.2 * 100 / 1.0 * LF3 / 100,	"BOS3A1C1", "PhaseOverlord", "Phase Overlord");
-	AddMonster(0.2 * 100 / 1.0 * LF4 / 100,	"BR2SA1", "Cydestroyer", "Cydestroyer");
-	AddMonster(0.2 * 100 / 1.0 * LF4 / 100,	"LCBSA1", "LegendaryCyberNoble", "Legendary Cyber Noble");
+	AddMonster(0.35,	"BOS3A1C1", "PhaseOverlord", "Phase Overlord");
+	AddMonster(0.4,		"BR2SA1", "Cydestroyer", "Cydestroyer");
+	AddMonster(0.4,		"LCBSA1", "LegendaryCyberNoble", "Legendary Cyber Noble");
 	LegendaryMonster();
 	
 	// Archviles.
@@ -224,7 +217,7 @@ function void InitMonsters(void)
 	AddMonster(0.5,		"HELNA1D1", "DarkHellion", "Dark Hellion");
 	
 	// LCA Archviles.
-	AddMonster(0.5 * 100 / 1.0 * LF2 / 100,	"HIABA1D1", "Velocirator", "Velocirator Vile");
+	AddMonster(0.75,	"HIABA1D1", "Velocirator", "Velocirator Vile");
 	
 	// Spider masterminds.
 	AddMonster(6.0,		"DEMOA1D1", "Demolisher", "Demolisher");
@@ -236,10 +229,10 @@ function void InitMonsters(void)
 	FlyingMonster();
 	
 	// LCA Spider masterminds.
-	AddMonster(6.0 * 100 / 1.0 * LF2 / 100,	"ARCYA1", "CerebralCardinal", "Cerebral Cardinal");
+	AddMonster(9.0,		"ARCYA1", "CerebralCardinal", "Cerebral Cardinal");
 	BossMonster();
 	FlyingMonster();
-	AddMonster(6.0 * 100 / 1.0 * LF4 / 100,	"LUPRA1", "LegendarySentient", "Legendary Sentient");
+	AddMonster(12.0,	"LUPRA1", "LegendarySentient", "Legendary Sentient");
 	LegendaryMonster();
 	BossMonster();
 	FlyingMonster();
@@ -254,10 +247,10 @@ function void InitMonsters(void)
 	FlyingMonster();
 	
 	// LCA Cyberdemons.
-	AddMonster(6.0 * 100 / 1.0 * LF3 / 100,	"CYBRZ1", "LegendaryCyberdemon", "Legendary Cyberdemon");
+	AddMonster(10.5,	"CYBRZ1", "LegendaryCyberdemon", "Legendary Cyberdemon");
 	LegendaryMonster();
 	BossMonster();
-	AddMonster(6.0 * 100 / 1.0 * LF4 / 100,	"LANIA1C1", "LegendaryAnnihilator", "Legendary Annihilator");
+	AddMonster(12.0,	"LANIA1C1", "LegendaryAnnihilator", "Legendary Annihilator");
 	LegendaryMonster();
 	BossMonster();
 	
