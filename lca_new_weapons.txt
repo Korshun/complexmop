@@ -1,70 +1,7 @@
-Actor PossessedLegendaryFiend : PossessedMonster
+Actor LegendaryFiendWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "LegendaryFiendWeapon"
-
-Health 1050
-PainChance 55
-Speed 0.6125 //14
-Radius 30
-Height 56
-Mass 550
-+BOSS
-+BOSSDEATH
-+FLOORCLIP
-+MISSILEMORE
-+MISSILEEVENMORE
-+QUICKTORETALIATE 
-+NOICEDEATH
-+DONTGIB
-+DONTHURTSPECIES
-+NOTARGET
-+BRIGHT
-Species "Fiends"
-SeeSound "blooddemon/sight"
-PainSound "blooddemon/pain"
-DeathSound "blooddemon/death"
-ActiveSound "blooddemon/active"
-AttackSound "cyberfiend/melee"
-BloodColor "Blue"
-Scale 1.2
-MeleeDamage 5
-DamageFactor 0.60
-DamageFactor "Legendary", 0.0
-DamageFactor "Legendary1", 0.0
-DamageFactor "PDTBFG", 0.15
-DamageFactor "PDTBFGTracer", 0.15
-DamageFactor "PlayerDevBall", 0.115
-DamageFactor "PlayerDevBall2", 0.115
-DamageFactor "PlayerDTBFGRailgunSlug", 0.115
-DamageFactor "PlayerDevTracer", 0.115
-DropItem "LegendaryArmor" 90 1
-DropItem "LDemonAmmoBox" 220
-DropItem "LDemonAmmo" 256
-DropItem "LegTimeFreezeSphere" 45
-DropItem "BossLifeEssence" 256
-DropItem "BossArmorBonusMax" 256
-DropItem "Legendary Plasmatic Rifle" 40 1
-Obituary "%o was just a pile of bones after being killed by a Legendary Fiend."
-HitObituary "%o was chewed up then shitted back out by a Legendary Fiend."
-var int user_ragewait;
-States
-{
-  Spawn:
-    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LFND P 12 Bright 
-	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LFND Q 12 Bright 
-	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    Goto Spawn
-  See:
-    TNT1 A 0 ACS_ExecuteAlways(5432,0,10)
-	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	TNT1 A 0 A_PlaySound("blooddemon/walk")
-    LFND AABB 2 Bright 
-	TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_PlaySound("blooddemon/walk")
-    LFND CCDD 2 Bright 
-    Goto Spawn
+	States
+	{
   Missile:
     TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Ripperr")
@@ -198,55 +135,13 @@ States
 	TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,0)
 	TNT1 A 0 //A_ChangeFlag(NOPAIN,0)
 	Goto Spawn
-  }
+	}
 }
 
-
-Actor PossessedCydestroyer : PossessedMonster
+Actor CydestroyerWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "CydestroyerWeapon"
- 
-  Health 1800
-  Radius 24
-  Height 64
-  Mass 1000
-  Speed 0.525 //12
-  PainChance 65
-  Scale 1.1
-  Species "Nobles"
-  Obituary "%o's anus was made 3 sizes bigger by a Cydestroyer."
-  SeeSound "cydes/sight" 
-  PainSound "cydes/pain"
-  DeathSound "cydes/death"
-  ActiveSound "cbaron/active"
-  DamageFactor "NobleComet", 0.0
-  DropItem "BossLifeEssence" 200 25
-  DropItem "BossArmorBonusMax" 200 1
-  DropItem "NewCellPack" 128
-  DropItem "DemonAmmoBox" 128 200
-  DropItem "Railgun " 150
-  DropItem "Grenade Launcher" 100
-  DropItem "BFG10K " 50 
-  +MISSILEMORE
-  +MISSILEEVENMORE
-  +DONTHURTSPECIES
-  +QUICKTORETALIATE
-  +NOTARGET
-  +DONTHURTSPECIES
-  States 
-  { 
-  Spawn: 
-    BR2S A 7 
-	BR2S A 7 
-    BR2I A 7 
-	BR2I A 7 	
-    Goto Spawn
-  See:
-    BR2S AABB 3 
-    TNT1 A 0 //A_PlaySound("monster/bruwlk")
-    BR2S CCDD 3 
-    TNT1 A 0 //A_PlaySound("monster/bruwlk")
-    Goto Spawn
+	States
+	{
   Missile:
    	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Flamethrowers")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Grenadier")
@@ -650,99 +545,14 @@ Actor PossessedCydestroyer : PossessedMonster
        BR3S B 1 Bright //A_FireCustomMissile("CydestroyerFlamethrower", Random(6, -6),0, -20,0,0) 
 	   BR2S EE 12
 	   Goto Spawn
-    } 
+
+	}
 }
 
-
-Actor PossessedLegendaryCyberNoble : PossessedMonster
+Actor LegendaryCyberNobleWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "LegendaryCyberNobleWeapon"
- 
-  Health 2300
-  Radius 24
-  Height 78
-  Mass 1500
-  Speed 0.35 //8
-  PainChance 45 
-  +NORADIUSDMG
-  +BOSS
-  +BOSSDEATH
-  +FLOORCLIP
-  +MISSILEMORE
-  +QUICKTORETALIATE
-  +MISSILEMORE
-  +MISSILEEVENMORE  
-  +NOICEDEATH
-  +DONTGIB
-  +FASTMELEE
-  +DONTHURTSPECIES
-  +NOTARGET
-  Scale 1.23
-  SeeSound "lcnoble/see"
-  PainSound "lcnoble/pain"
-  DeathSound "lcnoble/death"
-  ActiveSound "lcnoble/active"
-  MeleeSound "baron/melee"
-  MeleeDamage 18
-  BloodColor "Blue"
-  DamageFactor 0.65
-  DamageFactor "Legendary1", 0.0
-  DamageFactor "Cyber10K", 0.0
-  DamageFactor "LegMind", 0.0
-  DamageFactor "Legendary", 0.0
-  DamageFactor "NobleComet", 0.0
-  DamageFactor "PDTBFG", 0.25
-  DamageFactor "PDTBFGTracer", 0.25
-  DamageFactor "PlayerDevBall", 0.125
-  DamageFactor "PlayerDevBall2", 0.125
-  DamageFactor "PlayerDTBFGRailgunSlug", 0.125
-  DamageFactor "PlayerDevTracer", 0.125
-  Species "Nobles"
-  Obituary "%o was mechanized by a Legendary Hell Knight that was given a second chance."
-  HitObituary "%o got his skull cracked open by a Legendary Cyber Noble."
-  DropItem "LegendarySphere" 192 1
-  DropItem "LegendaryRune" 145 1
-  DropItem "LDemonAmmoBox" 256
-  DropItem "LDemonAmmo" 256
-  DropItem "BossLifeEssence" 256
-  DropItem "BossArmorBonusMax" 256
-  DropItem "Legendary Plasmatic Cannon" 128 1
-  DropItem "Legendary Assault Shotgun" 128
-  DropItem "LegendaryShell" 256 4
-  DropItem "LegendaryShellBox" 128
-  var int user_missile;
-  States 
-  { 
-  Spawn: 
-    TNT1 AA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    LCBS A 7 
-	TNT1 AA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LCBS A 7 
-	TNT1 AA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LCBS Z 7 
-	TNT1 AA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LCBS Z 7 
-	TNT1 AA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    Goto Spawn
-  See:
-    TNT1 A 0 ACS_ExecuteAlways(5432,0,14)
-	LCBS AA 3 Bright 
-	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LCBS BB 3 Bright 
-	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_SpawnItem("HoofStep",0,0,0,0)
-    TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LCBS CC 3 Bright 
-	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_PlaySound("monster/bruwlk")
-	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	LCBS DD 3 Bright 
-	TNT1 AAA 0 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-    TNT1 A 0 A_PlaySound("monster/bruwlk")
-	TNT1 A 0 A_SpawnItemEx("GoldWalkFire",0,0,0,0,0,0,0,128)
-	Goto Spawn
+	States
+	{
   Missile:
   	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "LegendaryAsg")
@@ -985,78 +795,13 @@ Actor PossessedLegendaryCyberNoble : PossessedMonster
 	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",Random(-4, 4),0,26,0)
 	LCBS E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
 	Goto Spawn
-    } 
+	}
 }
 
-
-//===================
-// Legendary Redeemer
-//===================
-
-Actor PossessedLegendaryRedeemer : PossessedMonster
+Actor LegendaryRedeemerWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "LegendaryRedeemerWeapon"
-
-Health 1400
-Radius 31
-Height 56
-Mass 400
-Speed 0.525 //12
-PainChance 28
-+FLOAT
-+NOGRAVITY
-+NOTARGET
-+BOSS
-+AVOIDMELEE
-+NOTIMEFREEZE
-+MISSILEMORE
-+MISSILEEVENMORE
-+NOICEDEATH
-+DONTGIB
-+QUICKTORETALIATE
-+DONTHARMSPECIES
-BloodColor "Blue"
-//Species "Caco" Complex Doom Cacodemons don't have species :/
-Species "Redeemer"
-DamageFactor 0.6
-DamageFactor "CacoComet", 0.0
-DamageFactor "Legendary1", 0.0
-DamageFactor "Legendary", 0.0
-DamageFactor "PDTBFG", 0.10
-DamageFactor "PDTBFGTracer", 0.10
-DamageFactor "PlayerDevBall", 0.110
-DamageFactor "PlayerDevBall2", 0.110
-DamageFactor "PlayerDTBFGRailgunSlug", 0.110
-DamageFactor "PlayerDevTracer", 0.110
-DropItem "BossLifeEssence" 256
-DropItem "BossArmorBonusMax" 256
-DropItem "LDemonAmmo" 256
-DropItem "LDemonAmmoBox" 256
-DropItem "LegTimeFreezeSphere" 80 1
-DropItem "LegendarySphere" 150 1
-DropItem "Legendary Plasmatic Rifle" 190 1
-DropItem "LegendaryRune" 56 1
-SeeSound "redeemer/see"
-PainSound "redeemer/pain"
-DeathSound "redeemer/death"
-ActiveSound "redeemer/idle"
-Obituary "not one cell was left of %o after being defeated by a Legendary Redeemer."
-var int user_delay;
-var int user_portal;
-var int user_suicide;
-var int user_timer;
-States
-{
-  Spawn:
-    LRED AAA 0 //A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
-    LRED A 10 Bright 
-    Goto Spawn
-  See:
-    TNT1 A 0 ACS_ExecuteAlways(5432,0,15)
-	TNT1 AAA 0 //A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
-    LRED AAA 2 Bright 
-    Goto Spawn
-
+	States
+	{
   Missile:
 	TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Laser")
@@ -1204,98 +949,13 @@ States
 	LRED G 0 //A_Stop
 	LRED G 3 Bright //A_SpawnItemEx("LegRedPortal",64,0,0,0,0,0,0,SXF_SETMASTER|32)
 	Goto Spawn
-  /*
-  Suicide:
-    LRED EEEEEEEEEEEEEFFFFFFFFFFFFFFFGGGGGGGGGGGGGGGGG 3 Bright A_SpawnItem("LRedFlameSpawner",0,0,0,0)
-	LRED GGGG 5 Bright 
-	TNT1 A 0 A_SpawnItem("LRedFlameSpawner",0,0,0,0)
-    LRED G 3 Bright A_SkullAttack(35)
-    Goto Spawn //Goto Kamikaze+4 
-  Explode:
-    TNT1 A 0
-	TNT1 A 0 //A_FireCustomMissile("LegSuicideBomb",0,0,0,0,0)
-    TNT1 A 0 A_SpawnItemEx("LegendaryStrike")
-    LRD4 G 3 Bright A_Die
-    Goto Spawn
-  */
-  }
+	}
 }
 
-
-Actor PossessedLegendaryAssaultCaptain : PossessedMonster
+Actor LegendaryAssaultCaptainWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "LegendaryAssaultCaptainWeapon"
-
-    Health 1020
-    Radius 20
-    Height 56
-    Speed 0.525 //12
-    PainChance 20
-    +NOTIMEFREEZE
-	+BOSS
-	+BOSSDEATH
-	+FLOORCLIP
-	+MISSILEMORE
-	+MISSILEEVENMORE
-	+QUICKTORETALIATE
-	+NOICEDEATH
-	+NODROPOFF
-	+DONTGIB
-	+NOTARGET
-	+NORADIUSDMG
-    SeeSound "lasgguy/sight"
-    AttackSound "Weapons/LegAutoShotgun"
-    PainSound "lasgguy/pain"
-    DeathSound "lasgguy/death"
-    ActiveSound "lasgguy/active"
-    Obituary "%o was outsmarted and outgunned by a Legendary Assault Captain."
-	BloodColor "Blue"
-	DropItem "Legendary Assault Shotgun" 200
-	DropItem "LegendaryShell" 256 4
-	DropItem "LegendaryShellBox" 128
-	DropItem "LegendaryArmor" 90 1
-	DropItem "LegAmmoSphere" 93 1
-	DropItem "HandGrenadeAmmo" 235 2
-	DropItem "MineAmmo" 240 2
-	DropItem "Backpack" 200 1
-	DropItem "Armorplate" 210 1
-	DropItem "Portablemedkit" 215 1
-	DropItem "StimKit" 220 3
-	DropItem "HealthFlask" 225 5
-	DropItem "LegendaryRune" 25 1
-	Species "Zombie"
-	DamageFactor "PDTBFG", 0.20
-	DamageFactor "PDTBFGTracer", 0.20
-	DamageFactor "PlayerDevBall", 0.120
-	DamageFactor "PlayerDevBall2", 0.120
-	DamageFactor "PlayerDTBFGRailgunSlug", 0.120
-	DamageFactor "PlayerDevTracer", 0.120
-	DamageFactor "Legendary", 0.0
-	DamageFactor "LACGrenade", 0.0
-	DamageFactor 0.70
-    States
-    {
-    Spawn:
-	    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-        LASG A 10 Bright 
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-		LASG Z 10 Bright 
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-        Goto Spawn
-    See:
-		TNT1 A 0 ACS_ExecuteAlways(5432,0,9)
-	    TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-        LASG AA 4 Bright 
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-		LASG BB 4 Bright 
-		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-		LASG CC 4 Bright 
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-		LASG DD 4 Bright 
-		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-		Goto Spawn
+	States
+	{
    Missile:
 		LASG E 3 Bright
         LASG E 4 Bright 
@@ -1318,95 +978,13 @@ Actor PossessedLegendaryAssaultCaptain : PossessedMonster
 		TNT1 A 0 //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     	TNT1 A 0 //A_ChangeFlag("NoPain", 0)
     	Goto Spawn
-    }
+	}
 }
 
-
-//===================
-// Legendary Behemoth
-//===================
-Actor PossessedLegendaryBehemoth : PossessedMonster
+Actor LegendaryBehemothWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "LegendaryBehemothWeapon"
-
-Radius 48
-Height 64
-Health 2200
-PainChance 30
-Scale 1.25
-Speed 0.39375 //9
-DamageFactor "BeheComet", 0.0
-DamageFactor "FatFlamer", 0.0
-DamageFactor "Legendary", 0.0
-DamageFactor "Legendary1", 0.0
-DamageFactor "PDTBFG", 0.25
-DamageFactor "PDTBFGTracer", 0.25
-DamageFactor "PlayerDevBall", 0.125
-DamageFactor "PlayerDevBall2", 0.125
-DamageFactor "PlayerDTBFGRailgunSlug", 0.125
-DamageFactor "PlayerDevTracer", 0.125
-DamageFactor 0.65
-DropItem "LifeEssence" 140
-DropItem "ArmorBonusMax" 140
-BloodColor "Blue"
-Species "Fatsos"
-+FLOORCLIP
-+BOSS
-+BOSSDEATH
-+MISSILEMORE
-+MISSILEEVENMORE
-+QUICKTORETALIATE
-+DONTHURTSPECIES
-+NOICEDEATH
-+DONTGIB
-+NOTARGET
-+NORADIUSDMG
-+Bright
-Mass 1500
-SeeSound "FreezerBehe/Sight"
-PainSound "FreezerBehe/Pain"
-DeathSound "FreezerBehe/Death"
-ActiveSound "manc/idle"
-DropItem "LegendarySphere" 110 1
-DropItem "LegendaryRune" 110 1
-DropItem "LDemonAmmoBox" 256 
-DropItem "LDemonAmmo" 256 
-DropItem "BossLifeEssence" 256 
-DropItem "BossArmorBonusMax" 256 
-DropItem "Legendary Plasmatic Cannon" 180 1
-DropItem "LegTimeFreezeSphere" 80
-Obituary "%o was turned into a pile of gold and blue meat slime by a Legendary Behemoth."
-var int user_heal;
-States
-{
-    Spawn:
-	   LEG2 CCC 0 Bright //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 C 8 Bright 
-	   LEG2 CCC 0 Bright //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 C 8 Bright 
-	   LEG2 CCC 0 Bright //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEGI C 8 Bright 
-	   LEGI CCC 0 Bright //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEGI C 8 Bright 
-	   LEGI CCC 0 Bright //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-       Goto Spawn
-    See:
-	   TNT1 A 0 ACS_ExecuteAlways(5432,0,11)
-       TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)   
-	   LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-       LEG2 AA 2 Bright 
-	   LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 BB 2 Bright 
-	   LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 CC 2 Bright 
-	   LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 DD 2 Bright 
-       TNT1 A 0 A_SpawnItem("BeefyStep",0,0,0,0)
-       LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 EE 2 Bright 
-	   LEG2 AAA 0 //A_SpawnItemEx("LHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
-	   LEG2 FF 2 Bright 
-       Goto Spawn
+	States
+	{
     Missile:
 		TNT1 A 0 A_JumpIfInventory("Attack1", 1, "Normal")
 		TNT1 A 0 A_JumpIfInventory("Attack2", 1, "BlueFlame")
@@ -1599,99 +1177,14 @@ States
        LEG2 H 1 Bright //A_FireCustomMissile("LegBehFlame", Random(6, -6),0, -30,0,0) 
 	   LEG2 IG 12 Bright
 	   Goto Spawn
-       }
+	}
 }
 
-
-Actor PossessedFreezerZombie : PossessedChaingunGuy
+Actor FreezerZombieWeapon : PossessedWeapon
 {
-	Player.MorphWeapon "FreezerZombieWeapon"
-
-Health 215
-Radius 20
-Height 56
-Speed 0.35 //8
-Mass 100
-PainChance 105
-+FLOORCLIP
-+MISSILEMORE
-+MISSILEEVENMORE
-+QUICKTORETALIATE
-SeeSound "grunt/sight"
-PainSound "grunt/pain"
-DeathSound "grunt/death"
-ActiveSound "grunt/active"
-Obituary "%o couldn't handle the Freezer Zombie's chilled weaponry."
-DropItem "Freezer Rifle" 128 1
-DropItem "HandGrenadeAmmo" 142 2
-DropItem "MineAmmo" 167 2
-DropItem "Armorplate" 152 1
-DropItem "Portablemedkit" 156 1
-DropItem "Backpack" 122 1
-DropItem "NewCellPack" 250 
-DamageFactor "Ice", 0.0
-DamageFactor "FreezerBurn", 0.0
-States
-{
-Spawn:
-        FRZR AZ 10 
-        Goto Spawn
-See:
-        FRZR AABB 3 
-		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-		FRZR CCDD 3 
-		TNT1 A 0 A_SpawnItem("FootStep",0,0,0,0)
-        Goto Spawn
-Missile:
-        FRZR E 10 
-		TNT1 A 0 //A_PlaySound("weapons/iceshot",6,5)
-        FRZR F 2 Bright //A_FireCustomMissile("NewZombieFreezeBlast", 0,0, 4,0)
-		FRZR E 4 
-        TNT1 A 0 A_SentinelRefire
-        Goto Spawn //Goto Missile2+1
-Missile3:
-           TNT1 A 0 //A_PlaySound ("freeze/altfire", 6)
-	       FRZR EE 10 
-		   TNT1 A 0 //A_PlaySound("freeze/althold", 6)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-           FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)		 
-		   TNT1 A 0 
-           FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   TNT1 A 0 
-		   FRZR F 1 Bright //A_FireCustomMissile("ZombieFlameShot",Random(-4,4),0,0,0,0)
-		   FRZR EE 12 //A_StopSound(6)
-	   Goto Spawn
-    }
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }

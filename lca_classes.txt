@@ -4141,3 +4141,4 @@ LegendaryDevastator:
 }
 
 #include "lca_new_classes.txt"
+#include "lca_new_weapons.txt"
