@@ -1189,32 +1189,32 @@ States
 	Goto Spawn
   Normal:
     LRED BC 5 Bright 
-	LRED D 0 A_CustomMissile("LegRedBall",30,10,0,0,0)
-    LRED D 0 A_CustomMissile("LegRedBall",30,-10,0,0,0)
-	LRED D 0 A_CustomMissile("LegRedBall",20,10,0,0,0)
-    LRED D 5 Bright A_CustomMissile("LegRedBall",20,-10,0,0,0)
+	LRED D 0 //A_FireCustomMissile("LegRedBall",0,0,10,0,0,0)
+    LRED D 0 //A_FireCustomMissile("LegRedBall",0,0,-10,0,0,0)
+	LRED D 0 //A_FireCustomMissile("LegRedBall",0,0,10,0,0,0)
+    LRED D 5 Bright //A_FireCustomMissile("LegRedBall",0,0,-10,0,0,0)
 	LRED D 0 A_Jump(127,"See","Avoid","Laser")
 	LRED D 0 A_CposRefire
     Goto Spawn
   Laser:
     LRED BC 5 Bright 
-    LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+    LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 
-	LRED D 5 Bright A_CustomMissile("LegRedLaser",25,0,0,0,0)
+	LRED D 5 Bright //A_FireCustomMissile("LegRedLaser",0,0,0,0,0,0)
 	LRED D 0 A_Jump(127,"Void","Teleport")
     Goto Spawn
    Void:
@@ -1593,7 +1593,7 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
 		Goto Spawn
 	Mine:
 	    LASG C 1 Bright
-		LASG C 12 Bright A_CustomMissile("LACThrownMine",32,0,0,2,15)
+		LASG C 12 Bright //A_FireCustomMissile("LACThrownMine",0,0,0,0,0,15)
 		LASG E 12 Bright
 		LASG C 3 Bright
 		Goto Spawn
@@ -1601,7 +1601,7 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
 		TNT1 A 0 //A_PlaySound("weapons/hgrenadepin",0,1.0,0)
 		LASG CE 4 Bright 
 		TNT1 A 0 //A_PlaySound("weapons/hgrenadethrow",0,1.0,0)
-		LASG E 1 Bright A_CustomMissile("LACGrenade",32,0,0,2,4)
+		LASG E 1 Bright //A_FireCustomMissile("LACGrenade",0,0,0,0,0,4)
 		Goto Spawn
     Reload:
     	TNT1 A 0 //A_ChangeFlag("NoPain", 1)
