@@ -95,12 +95,12 @@ script mop_possess (void)
 	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), DamageFactor, spawnhealth << 16 | type);
 	
 	// Run script.
-	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT]- 2146435072;
+	int scriptnum = MonsterTypes[type][MONSTER_SCRIPT];
 	if (scriptnum != 0)
 		ACS_ExecuteAlways(scriptnum, 0);
 	
 	// Run evasion script.
-	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED] - 2146435072;
+	int evadespeed = MonsterTypes[type][MONSTER_EVADESPEED];
 	if (evadespeed != 0)
 		ACS_ExecuteAlways(mop_evade, 0, evadespeed);
 		

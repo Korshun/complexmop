@@ -12,131 +12,189 @@
 
 int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
-int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
+int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES];
+
+function void AddMonster(int difficulty, str sprite, str actorname, str name)
+{
+	MonsterTypes[NumMonsterTypes][MONSTER_ACTORNAME] = actorname;
+	MonsterTypes[NumMonsterTypes][MONSTER_DIFFICULTY] = difficulty;
+	MonsterTypes[NumMonsterTypes][MONSTER_SCRIPT] = 0;
+	MonsterTypes[NumMonsterTypes][MONSTER_EVADESPEED] = 0;
+	MonsterTypes[NumMonsterTypes][MONSTER_FLAGS] = 0;
+	MonsterTypes[NumMonsterTypes][MONSTER_NAME] = name;
+	MonsterTypes[NumMonsterTypes][MONSTER_SPRITE] = sprite;
+	NumMonsterTypes++;
+}
+
+function void AddSpawnedMonster(str sprite, str actorname, str name)
+{
+	AddMonster(0, sprite, actorname, name);
+}
+
+function void FlyingMonster(void)
+{
+	MonsterTypes[NumMonsterTypes - 1][MONSTER_FLAGS] |= MONSTF_FLYING;
+}
+
+function void BossMonster(void)
+{
+	MonsterTypes[NumMonsterTypes - 1][MONSTER_FLAGS] |= MONSTF_BOSS;
+}
+
+function void EvadingMonster(int speed)
+{
+	MonsterTypes[NumMonsterTypes - 1][MONSTER_EVADESPEED] = speed;
+}
+
+
+function void InitMonsters(void)
 {
 	// Barrels.
-	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
+	AddMonster(0.01,	"BAR1A0",	"ModdedExplosiveBarrel", "Explosive Barrel");
 	
 	// Zombiemen.
-	{ "PlasmaGunner",			0.0375, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
-	{ "RailGunner",				0.03, 0, 0, 0, "Railgunner", "RPOSA1" },
-	{ "DemonTechZombie",		0.045, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
-	{ "RocketZombie",			0.0525, 0, 0, 0, "Rocket zombie", "MPO2A1" },
-	
+	AddMonster(0.0375,	"ZMAYA1",	"PlasmaGunner", "Plasma zombie");
+	AddMonster(0.03, 	"RPOSA1",	"RailGunner", "Railgunner");
+	AddMonster(0.045,	"ZSP3A1",	"DemonTechZombie", "Demon Tech zombie");
+	AddMonster(0.0525,	"MPO2A1",	"RocketZombie", "Rocket zombie");
+
 	// Shotgunners.
-	{ "ShotgunZombie",			0.05, 0, 0, 0, "Shotgunner", "ZSP1A1" },
-	{ "AssaultShotgunZombie",	0.0625, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
-	{ "SuperShotgunZombie",		0.075, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
-	{ "QuadShotgunZombie",		0.0875, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
+	AddMonster(0.05, 	"ZSP1A1",	"ShotgunZombie", "Shotgunner");
+	AddMonster(0.0625,	"ASGZA1",	"AssaultShotgunner", "Assault Shotgunner");
+	AddMonster(0.075,	"UDM2A1",	"SuperShotgunZombie", "Super Shotgun zombie");
+	AddMonster(0.0875,	"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
 	
 	// Chaingunners.
-	{ "AssaultRifleZombie",		0.065, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
-	{ "Chaingunner",			0.08125, 0, 0, 0, "Chaingunner", "DPOSA1" },
-	{ "Minigunner",				0.0975, 0, 0, 0, "Minigunner", "CPS2A1" },
-	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
+	AddMonster(0.065,	"ARZMA1",	"AssaultRifleZombie", "Assault Rifle zombie");
+	AddMonster(0.08125, "DPOSA1",	"Chaingunner", "Chaingunner");
+	AddMonster(0.0975,	"CPS2A1",	"Minigunner", "Minigunner");
+	AddMonster(0.13,	"BFGZA1",	"BFGZombieman", "BFG zombie");
 	
 	// Imps.
-	{ "Imp",					0.02, 0, 0, 0, "Imp", "SIMPA1" },
-	{ "VoidImp",				0.025, 0, 0, 0, "Void Imp", "DRKSA1" },
-	{ "Devil",					0.02, 0, 0, 0, "Devil", "SLHVA1C1" },
-	{ "PhaseImp",				0.025, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
+	AddMonster(0.02,	"SIMPA1",	"Imp", "Imp");
+	AddMonster(0.025,	"DRKSA1",	"VoidImp", "Void Imp");
+	AddMonster(0.02,	"SLHVA1C1",	"Devil", "Devil");
+	AddMonster(0.025,	"DIMPA1C1", "PhaseImp", "Phase Imp");
+	EvadingMonster(16);
 	
 	// Demons.
-	{ "BullFiend",				0.05, 0, 0, 0, "Bull Fiend", "SAR2A1" },
-	{ "CyberFiend",				0.0625, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
-	{ "MagmaFiend",				0.075, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
-	{ "DTechFiend",				0.0875, 0, 0, 0, "DTech Fiend", "DPNKA1" },
+	AddMonster(0.05,	"SAR2A1",   "BullFiend", "Bull Fiend");
+	AddMonster(0.0625,	"CYFNA1",	"CyberFiend", "Cyber Fiend");
+	AddMonster(0.075,	"SAR3A1C1", "MagmaFiend", "Magma Fiend");
+	AddMonster(0.0875,	"DPNKA1",   "DTechFiend", "DTech Fiend");
 	
 	// Spectres.
-	{ "Spectre~",				0.06, 0, 0, 0, "Spectre", "SAR2A1" },
-	{ "Lurker",					0.06, 0, 0, 0, "Lurker", "CYFNA1" },
-	{ "Spook",					0.06, 0, 0, 0, "Spook", "SAR4A1" },
+	AddMonster(0.06,	"SAR2A1",   "Spectre~", "Spectre");
+	AddMonster(0.06,	"CYFNA1",   "Lurker", "Lurker");
+	AddMonster(0.06,	"SAR4A1",   "Spook", "Spook");
 	
 	// Lost souls.
-	{ "TerrorSoul",				0.09, 0, 0, MONSTF_FLYING, "Terror Soul", "TERRA1" },
-	{ "ForgottenOne",			0.1125, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
-	{ "PoisonSoul",				0.135, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
-	{ "Rictus",					0.1575, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
+	AddMonster(0.09,	"TERRA1",   "TerrorSoul", "Terror Soul");
+	FlyingMonster();
+	AddMonster(0.1125,	"FRGOA1",   "ForgottenOne", "Forgotten One");
+	FlyingMonster();
+	EvadingMonster(16);
+	AddMonster(0.135,	"PHNTA1",   "PoisonSoul", "Poison Soul");
+	FlyingMonster();
+	EvadingMonster(16);
+	AddMonster(0.1575,	"RICTA1",   "Rictus", "Rictus");
+	FlyingMonster();
 	
 	// Cacodemons.
-	{ "Cacodemon~",				0.15, 0, 14, MONSTF_FLYING, "Cacodemon", "CALIA1" },
-	{ "Watcher",				0.1875, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
-	{ "Cacomental",				0.225, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
+	AddMonster(0.15,	"CALIA1",   "Cacodemon~", "Cacodemon");
+	FlyingMonster();
+	EvadingMonster(14);
+	AddMonster(0.1875,	"HED4A1",   "Watcher", "Watcher");
+	FlyingMonster();
+	EvadingMonster(14);
+	AddMonster(0.225,	"INFCA1",   "Cacomental", "Cacomental");
+	FlyingMonster();
+	EvadingMonster(14);
 	
 	// Pain elementals.
-	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
-	{ "Defiler",				0.2125, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
-	{ "PoisonElemental",		0.255, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
-	{ "BombElemental",			0.255, 0, 0, MONSTF_FLYING, "Bomb Elemental", "INFPA1" },
+	AddMonster(0.17,	"PLEMA1",   "SoulKeeper", "Soul Keeper");
+	FlyingMonster();
+	AddMonster(0.2125,	"DEFIA1",   "Defiler", "Defiler");
+	FlyingMonster();
+	AddMonster(0.255,	"INFRA1",   "PoisonElemental", "Poison Elemental");
+	FlyingMonster();
+	AddMonster(0.255,	"INFPA1",   "BombElemental", "Bomb Elemental");
+	FlyingMonster();
 	
 	// Arachnotrons.
-	{ "Dualachnotron",			0.2, 0, 0, 0, "Dualachnotron", "CSPIA1" },
-	{ "Fusionite",				0.25, 0, 0, 0, "Fusionite", "FSPIA1D1" },
-	{ "BabyDemolisher",			0.3, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
-	{ "BabySentient",			0.4, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
+	AddMonster(0.2,		"CSPIA1",   "Dualachnotron", "Dualachnotron");
+	AddMonster(0.25,	"FSPIA1D1", "Fusionite", "Fusionite");
+	AddMonster(0.3,		"MSPIA1D1", "BabyDemolisher", "Baby Demolisher");
+	AddMonster(0.4,		"MARPA1",   "BabySentient", "Baby Sentient");
+	FlyingMonster();
+	EvadingMonster(20);
 	
 	// Mancubi.
-	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
-	{ "Daedabus",				0.25, 0, 0, 0, "Daedabus", "HECTC1" },
-	{ "Behemoth",				0.3, 0, 0, 0, "Behemoth", "FAT2A1D1" },
-	{ "Barbatos",				0.35, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	AddMonster(0.2,		"TABUC1",   "Hectebus", "Hectebus");
+	AddMonster(0.25,	"HECTC1",   "Daedabus", "Daedabus");
+	AddMonster(0.3,		"FAT2A1D1", "Behemoth", "Behemoth");
+	AddMonster(0.35,	"FFATA1",   "Barbatos", "Barbatos");
+	FlyingMonster();
 	
 	// Revenants.
-	{ "Guardian",				0.2, 0, 0, 0, "Guardian", "SKELA1D1" },
-	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
-	{ "HellfireRevenant",		0.3, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
-	{ "Famine",					0.3, 0, 0, 0, "Famine", "NREVA1D1" },
+	AddMonster(0.2,		"SKELA1D1", "Guardian", "Guardian");
+	AddMonster(0.25,	"RASKA1",   "Cadaver", "Cadaver");
+	AddMonster(0.3,		"GREVA1D1", "HellfireRevenant", "Hellfire Revenant");
+	AddMonster(0.3,		"NREVA1D1", "Famine", "Famine");
 	
 	// Hell knights.
-	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1" },
-	{ "PyroDemon",				0.2125, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
-	{ "CyberNoble",				0.255, 0, 0, 0, "Cyber Noble", "CBOSA1" },
-	{ "HellDuke",				0.2975, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
+	AddMonster(0.17,	"LOHSA1",   "HellKnight~", "Hell Knight");
+	AddMonster(0.2125,	"PYROA1C1", "PyroDemon", "Pyro Demon");
+	AddMonster(0.255,	"CBOSA1",   "CyberNoble", "Cyber Noble");
+	AddMonster(0.2975,	"HDUKA1C1", "HellDuke", "Hell Duke");
 	
 	// Barons of hell.
-	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
-	{ "BruiserDemon",			0.3, 0, 0, 0, "Bruiser Demon", "FRITA1" },
-	{ "Cybruiser",				0.3, 0, 0, 0, "Cybruiser", "BRUSA1" },
+	AddMonster(0.2,		"HFRYA1",   "BaronOfHell~", "Baron Of Hell");
+	AddMonster(0.3,		"FRITA1",   "BruiserDemon", "Bruiser Demon");
+	AddMonster(0.3,		"BRUSA1",   "Cybruiser", "Cybruiser");
 	
 	// Archviles.
-	{ "Exile",					0.5, 0, 0, 0, "Exile", "VILEA1D1" },
-	{ "Diabolist",				0.5, 0, 0, 0, "Diabolist", "DIABA1D1" },
-	{ "DarkHellion",			0.5, 0, 0, 0, "Dark Hellion", "HELNA1D1" },
+	AddMonster(0.5,		"VILEA1D1", "Exile", "Exile");
+	AddMonster(0.5,		"DIABA1D1", "Diabolist", "Diabolist");
+	AddMonster(0.5,		"HELNA1D1", "DarkHellion", "Dark Hellion");
 	
 	// Spider masterminds.
-	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
-	{ "DarkDemolisher",			7.5, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
-	{ "CerebralSentient",		9.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
+	AddMonster(6.0,		"DEMOA1D1", "Demolisher", "Demolisher");
+	BossMonster();
+	AddMonster(7.5,		"DEM2A1D1", "DarkDemolisher", "Dark Demolisher");
+	BossMonster();
+	AddMonster(9.0,		"SUPRA1",   "CerebralSentient", "Cerebral Sentient");
+	BossMonster();
+	FlyingMonster();
 	
 	// Cyberdemons.
-	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
-	{ "DarkCyberdemon",			10.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
-	{ "Cardinal",				12.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
+	AddMonster(8.0,		"ANNIA1C1", "CyberLord", "Annihilator");
+	BossMonster();
+	AddMonster(10.0,	"CBEPA1",   "DarkCyberdemon", "Dark Cyberdemon");
+	BossMonster();
+	AddMonster(12.0,	"CARDA1",   "Cardinal", "Cardinal");
+	BossMonster();
+	FlyingMonster();
 	
 	// Nazis.
-	{ "Guard",					0.06, 0, 0, 0, "Nazi Guard", "NGRIA1" },
-	{ "SSNazi",					0.06, 0, 0, 0, "SS Nazi", "SSWIA1" },
-	{ "Mutant",					0.06, 0, 0, 0, "Nazi Mutant", "MUTIA1" },
-	{ "Officer",				0.06, 0, 0, 0, "Nazi Officer", "OPOIA1" },
-	{ "NaziDog",				0.06, 0, 0, 0, "Nazi Dog", "NDOGA1" },
-	{ "Hitler",					0.5, 0, 0, 0, "Adolf Hitler", "HTL1A1C1" },
-	{ "HitlerNoSuit",			0.01, 0, 0, 0, "Adolf Hitler", "HTLRA1" },
-	
-	{ "MONSTERTYPES" }
-};
-
-function void CountMonsterTypes(void)
-{
-	while (StrCmp(MonsterTypes[NumMonsterTypes][0], "MONSTERTYPES"))
-		NumMonsterTypes++;
+	AddMonster(0.06,	"NGRIA1",   "Guard", "Nazi Guard");
+	AddMonster(0.06,	"SSWIA1",   "SSNazi", "SS Nazi");
+	AddMonster(0.06,	"MUTIA1",   "Mutant", "Nazi Mutant");
+	AddMonster(0.06,	"OPOIA1",   "Officer", "Nazi Officer");
+	AddMonster(0.06,	"NDOGA1",   "NaziDog", "Nazi Dog");
+	AddMonster(0.5,		"HTL1A1C1", "Hitler", "Adolf Hitler");
+	AddSpawnedMonster(	"HTLRA1",   "HitlerNoSuit", "Adolf Hitler");
 }
+
 script mop_count_monstertypes_sv OPEN
 {
-	CountMonsterTypes();
+	InitMonsters();
+	//CountMonsterTypes();
 }
 script mop_count_monstertypes_cl OPEN CLIENTSIDE
 {
-	CountMonsterTypes();
+	InitMonsters();
+	//CountMonsterTypes();
 }
 
 // List of items that monsters can carry.
