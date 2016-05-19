@@ -15,9 +15,8 @@ int BoomEdition = true;
 #define mop_attackswitching 808
 #define mop_stopvile 809
 #define mop_phaseoverlord 810
-// FREE SLOT 810
-// FREE SLOT 811
-// FREE SLOT 812
+#define mop_checkteambalance 811
+#define mop_checkteleportmissile 812
 // FREE SLOT 813
 // FREE SLOT 814
 // FREE SLOT 815

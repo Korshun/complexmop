@@ -7,6 +7,15 @@ OBJECT ComplexMoPPlayer
 Frame PLAYF { Light ZOMBIEATK }
 }
 
+//
+// Replaced projectiles
+//
+
+OBJECT TeleNewRocket
+{
+Frame MIS2A { Light Missile1 }
+}
+
 //===============
 // Replaced BFGs
 //===============

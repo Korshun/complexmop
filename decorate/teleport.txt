@@ -1,0 +1,57 @@
+ACTOR TeleNewRocket : NewRocket replaces NewRocket
+{
+States
+{
+Spawn:
+	TNT1 A 0
+	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_checkteleportmissile) == 0, "RealSpawn")
+	TNT1 A 0 A_ChangeFlag(NOTELEPORT, false)
+RealSpawn:
+    TNT1 A 0 Bright A_CustomMissile("MissileTrail",Random(4,6),Random(-2,2)) 
+    TNT1 A 0 Bright A_CustomMissile("ProjectileTrailParticleOrange",Random(4,6),Random(-2,2)) 
+    MIS2 A 1 Bright
+    Loop
+    }
+}
+
+Actor TeleRifleGrenade : RifleGrenade replaces RifleGrenade
+{
+  States
+  {
+  Spawn:
+	TNT1 A 0
+	TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_checkteleportmissile) == 0, "RealSpawn")
+	TNT1 A 0 A_ChangeFlag(NOTELEPORT, false)
+  RealSpawn:
+    TNT1 A 0
+	TNT1 A 0 A_StopSound
+  SpawnLoop:
+    GRND A 1 A_CustomMissile("GrenadeTrail",Random(-1,1),Random(-1,1))     		
+    Loop
+  Death:
+  	TNT1 A 0
+	TNT1 A 0 A_SpawnItemEx("OrangeParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128) 
+    TNT1 AAA 0 A_CustomMissile("Kaboom3", 0, 0, random(0,360), 2, random(0,360))
+	TNT1 AAA 0 A_CustomMissile("SmokeFX2", 0, 0, random(0,360), 2, random(0,360))
+	TNT1 AAAA 0 A_SpawnItemEx("Debris",0,0,0,Random(4,-4),Random(4,-4),Random(4,8),0,128)
+    TNT1 A 0 A_Explode
+    TNT1 A 1 A_SpawnItem("RocketEx")
+    Stop	
+    }
+}
+
+ACTOR TeleThrownGrenade : ThrownGrenade replaces ThrownGrenade
+{
+States
+{
+   Spawn:
+	  TNT1 A 0
+	  TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(mop_checkteleportmissile) == 0, "RealSpawn")
+	  TNT1 A 0 A_ChangeFlag(NOTELEPORT, false)
+RealSpawn:
+	  TNT1 A 0
+      HGN1 A 3 A_StopSound
+      HGN1 BCDEFGHABCDEFGHABCDEFGH 3
+      Goto Death 
+}
+}

@@ -27,18 +27,18 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	{ "ModdedExplosiveBarrel",  0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
 	
 	// Zombiemen.
-	{ "PlasmaGunner",			0.03 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
+	{ "PlasmaGunner",			0.0375, 0, 0, 0, "Plasma zombie", "ZMAYA1" },
 	{ "RailGunner",				0.03, 0, 0, 0, "Railgunner", "RPOSA1" },
-	{ "DemonTechZombie",		0.03 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
-	{ "RocketZombie",			0.03 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Rocket zombie", "MPO2A1" },
+	{ "DemonTechZombie",		0.045, 0, 0, 0, "Demon Tech zombie", "ZSP3A1" },
+	{ "RocketZombie",			0.0525, 0, 0, 0, "Rocket zombie", "MPO2A1" },
 	// lca
 	{ "LegZombie",				2.0, 0, 0, MONSTF_LEGENDARY, "Legendary Zombie", "LPOSA1" },
 	
 	// Shotgunners.
 	{ "ShotgunZombie",			0.05, 0, 0, 0, "Shotgunner", "ZSP1A1" },
-	{ "AssaultShotgunZombie",	0.05 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
-	{ "SuperShotgunZombie",		0.05 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
-	{ "QuadShotgunZombie",		0.05 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
+	{ "AssaultShotgunZombie",	0.0625, 0, 0, 0, "Assault Shotgunner", "ASGZA1" },
+	{ "SuperShotgunZombie",		0.075, 0, 0, 0, "Super Shotgun zombie", "UDM2A1" },
+	{ "QuadShotgunZombie",		0.0875, 0, 0, 0, "Quad Shotgunner", "QSZMA1" },
 	// lca
 	{ "Hexa-ShotgunZombie",		0.07 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Hexa-Shotgun Zombie", "HSZIA1" },
 	{ "EraserZombie",			0.15, 0, 0, 0, "Eraser Zombie", "PYRZA1" },
@@ -47,26 +47,26 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	
 	// Chaingunners.
 	{ "AssaultRifleZombie",		0.065, 0, 0, 0, "Assault Rifle zombie", "ARZMA1" },
-	{ "Chaingunner",			0.065 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Chaingunner", "DPOSA1" },
-	{ "Minigunner",				0.065 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Minigunner", "CPS2A1" },
-	{ "BFGZombieman",			0.065 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "BFG zombie", "BFGZA1" },
+	{ "Chaingunner",			0.08125, 0, 0, 0, "Chaingunner", "DPOSA1" },
+	{ "Minigunner",				0.0975, 0, 0, 0, "Minigunner", "CPS2A1" },
+	{ "BFGZombieman",			0.13, 0, 0, 0, "BFG zombie", "BFGZA1" },
 	// lca
 	{ "FreezerZombie",			0.17, 0, 0, 0, "Freezer Zombie", "FRZR", },
 	{ "BFG10KGeneral",			0.17, 0, 0, 0, "BFG10K General", "BF10A1" },
 	
 	// Imps.
 	{ "Imp",					0.02, 0, 0, 0, "Imp", "SIMPA1" },
-	{ "VoidImp",				0.02 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Void Imp", "DRKSA1" },
+	{ "VoidImp",				0.025, 0, 0, 0, "Void Imp", "DRKSA1" },
 	{ "Devil",					0.02, 0, 0, 0, "Devil", "SLHVA1C1" },
-	{ "PhaseImp",				0.02 * 100 / 1.0 * LF1 / 100, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
+	{ "PhaseImp",				0.025, 0, 16, 0, "Phase Imp", "DIMPA1C1" },
 	// lca
 	{ "LegendaryImp",			2.0, 0, 30, MONSTF_FLYING | MONSTF_LEGENDARY, "Legendary Imp", "LEGNA1" },
 
 	// Demons.
 	{ "BullFiend",				0.05, 0, 0, 0, "Bull Fiend", "SAR2A1" },
-	{ "CyberFiend",				0.05 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
-	{ "MagmaFiend",				0.05 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
-	{ "DTechFiend",				0.05 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "DTech Fiend", "DPNKA1" },
+	{ "CyberFiend",				0.0625, 0, 0, 0, "Cyber Fiend", "CYFNA1" },
+	{ "MagmaFiend",				0.075, 0, 0, 0, "Magma Fiend", "SAR3A1C1" },
+	{ "DTechFiend",				0.0875, 0, 0, 0, "DTech Fiend", "DPNKA1" },
 	// lca
 	{ "LegendaryFiend",			0.05 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Fiend", "" },
 	
@@ -77,58 +77,58 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	
 	// Lost souls.
 	{ "TerrorSoul",				0.09, 0, 0, MONSTF_FLYING, "Terror Soul", "TERRA1" },
-	{ "ForgottenOne",			0.09 * 100 / 1.0 * LF1 / 100, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
-	{ "PoisonSoul",				0.09 * 100 / 1.0 * LF2 / 100, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
-	{ "Rictus",					0.09 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
+	{ "ForgottenOne",			0.1125, 0, 16, MONSTF_FLYING, "Forgotten One", "FRGOA1" },
+	{ "PoisonSoul",				0.135, 0, 16, MONSTF_FLYING, "Poison Soul", "PHNTA1" },
+	{ "Rictus",					0.1575, 0, 0, MONSTF_FLYING, "Rictus", "RICTA1" },
 	
 	// Cacodemons.
 	{ "Cacodemon~",				0.15, 0, 14, MONSTF_FLYING, "Cacodemon", "CALIA1" },
-	{ "Watcher",				0.15 * 100 / 1.0 * LF1 / 100, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
-	{ "Cacomental",				0.15 * 100 / 1.0 * LF2 / 100, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
+	{ "Watcher",				0.1875, 0, 14, MONSTF_FLYING, "Watcher", "HED4A1" },
+	{ "Cacomental",				0.225, 0, 14, MONSTF_FLYING, "Cacomental", "INFCA1" },
 	// lca
 	{ "BFGCacodemon",			0.15 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING, "BFG Cacodemon", "BFCDA1" },
 	{ "LegendaryRedeemer",		0.15 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_FLYING | MONSTF_LEGENDARY, "Legendary Redeemer", "LREDA1" },
 	
 	// Pain elementals.
 	{ "SoulKeeper",				0.17, 0, 0, MONSTF_FLYING, "Soul Keeper", "PLEMA1" },
-	{ "Defiler",				0.17 * 100 / 1.0 * LF1 / 100, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
-	{ "PoisonElemental",		0.17 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
-	{ "BombElemental",			0.17 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Bomb Elemental", "INFPA1" },
+	{ "Defiler",				0.2125, 0, 0, MONSTF_FLYING, "Defiler", "DEFIA1" },
+	{ "PoisonElemental",		0.255, 0, 0, MONSTF_FLYING, "Poison Elemental", "INFRA1" },
+	{ "BombElemental",			0.255, 0, 0, MONSTF_FLYING, "Bomb Elemental", "INFPA1" },
 	
 	// Arachnotrons.
 	{ "Dualachnotron",			0.2, 0, 0, 0, "Dualachnotron", "CSPIA1" },
-	{ "Fusionite",				0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Fusionite", "FSPIA1D1" },
-	{ "BabyDemolisher",			0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
-	{ "BabySentient",			0.2 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
+	{ "Fusionite",				0.25, 0, 0, 0, "Fusionite", "FSPIA1D1" },
+	{ "BabyDemolisher",			0.3, 0, 0, 0, "Baby Demolisher", "MSPIA1D1" },
+	{ "BabySentient",			0.4, 0, 20, MONSTF_FLYING, "Baby Sentient", "MARPA1" },
 	
 	// Mancubi.
 	{ "Hectebus",				0.2, 0, 0, 0, "Hectebus", "TABUC1" },
-	{ "Daedabus",				0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Daedabus", "HECTC1" },
-	{ "Behemoth",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Behemoth", "FAT2A1D1" },
-	{ "Barbatos",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
+	{ "Daedabus",				0.25, 0, 0, 0, "Daedabus", "HECTC1" },
+	{ "Behemoth",				0.3, 0, 0, 0, "Behemoth", "FAT2A1D1" },
+	{ "Barbatos",				0.35, 0, 0, MONSTF_FLYING, "Barbatos", "FFATA1" },
 	// lca
 	{ "LegendaryBehemoth",		0.2 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_LEGENDARY, "Legendary Behemoth", "LEG2A1" },
 	
 	// Revenants.
 	{ "Guardian",				0.2, 0, 0, 0, "Guardian", "SKELA1D1" },
-	{ "Cadaver",				0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Cadaver", "RASKA1" },
-	{ "HellfireRevenant",		0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
-	{ "Famine",					0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Famine", "NREVA1D1" },
+	{ "Cadaver",				0.25, 0, 0, 0, "Cadaver", "RASKA1" },
+	{ "HellfireRevenant",		0.3, 0, 0, 0, "Hellfire Revenant", "GREVA1D1" },
+	{ "Famine",					0.3, 0, 0, 0, "Famine", "NREVA1D1" },
 	// lca
 	{ "LegendaryRevenant",		3.0, 0, 0, MONSTF_LEGENDARY, "Legendary Revenant", "LREVA1D1" },
 	
 	// Hell knights.
 	{ "HellKnight~",			0.17, 0, 0, 0, "Hell Knight", "LOHSA1" },
-	{ "PyroDemon",				0.17 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
-	{ "CyberNoble",				0.17 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Cyber Noble", "CBOSA1" },
-	{ "HellDuke",				0.17 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
+	{ "PyroDemon",				0.2125, 0, 0, 0, "Pyro Demon", "PYROA1C1" },
+	{ "CyberNoble",				0.255, 0, 0, 0, "Cyber Noble", "CBOSA1" },
+	{ "HellDuke",				0.2975, 0, 0, 0, "Hell Duke", "HDUKA1C1" },
 	// lca
 	{ "LegendaryHellKnight",	3.0, 0, 0, MONSTF_LEGENDARY, "Legendary Hell Knight", "LNBLA1" },
 	
 	// Barons of hell.
 	{ "BaronOfHell~",			0.2, 0, 0, 0, "Baron Of Hell", "HFRYA1" },
-	{ "BruiserDemon",			0.2 * 100 / 1.0 * LF1 / 100, 0, 0, 0, "Bruiser Demon", "FRITA1" },
-	{ "Cybruiser",				0.2 * 100 / 1.0 * LF2 / 100, 0, 0, 0, "Cybruiser", "BRUSA1" },
+	{ "BruiserDemon",			0.3, 0, 0, 0, "Bruiser Demon", "FRITA1" },
+	{ "Cybruiser",				0.3, 0, 0, 0, "Cybruiser", "BRUSA1" },
 	// lca
 	{ "PhaseOverlord",			0.2 * 100 / 1.0 * LF3 / 100, 0, 0, 0, "Phase Overlord", "BOS3A1C1" },
 	{ "Cydestroyer",			0.2 * 100 / 1.0 * LF4 / 100, 0, 0, 0, "Cydestroyer", "BR2SA1" },
@@ -143,16 +143,16 @@ int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
 	
 	// Spider masterminds.
 	{ "Demolisher",				6.0, 0, 0, MONSTF_BOSS, "Demolisher", "DEMOA1D1" },
-	{ "DarkDemolisher",			6.0 * 100 / 1.0 * LF1 / 100, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
-	{ "CerebralSentient",		6.0 * 100 / 1.0 * LF2 / 100, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
+	{ "DarkDemolisher",			7.5, 0, 0, MONSTF_BOSS, "Dark Demolisher", "DEM2A1D1" },
+	{ "CerebralSentient",		9.0, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Sentient", "SUPRA1" },
 	// lca
 	{ "CerebralCardinal",		6.0 * 100 / 1.0 * LF2 / 100, 0, 20, MONSTF_FLYING | MONSTF_BOSS, "Cerebral Cardinal", "ARCYA1" },
 	{ "LegendarySentient",		6.0 * 100 / 1.0 * LF4 / 100, 0, 20, MONSTF_FLYING | MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Sentient", "LUPRA1" },
 	
 	// Cyberdemons.
 	{ "CyberLord",				8.0, 0, 0, MONSTF_BOSS, "Annihilator", "ANNIA1C1" },
-	{ "DarkCyberdemon",			8.0 * 100 / 1.0 * LF1 / 100, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
-	{ "Cardinal",				8.0 * 100 / 1.0 * LF2 / 100, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
+	{ "DarkCyberdemon",			10.0, 0, 0, MONSTF_BOSS, "Dark Cyberdemon", "CBEPA1" },
+	{ "Cardinal",				12.0, 0, 0, MONSTF_FLYING | MONSTF_BOSS, "Cardinal", "CARDA1" },
 	// lca
 	{ "LegendaryCyberdemon",	6.0 * 100 / 1.0 * LF3 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Cyberdemon", "CYBRZ1" },
 	{ "LegendaryAnnihilator",   6.0 * 100 / 1.0 * LF4 / 100, 0, 0, MONSTF_BOSS | MONSTF_LEGENDARY, "Legendary Annihilator", "LANIA1C1" },

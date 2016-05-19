@@ -6,6 +6,7 @@
 #include "decorate/weapons.txt"
 #include "decorate/doom2.txt"
 #include "decorate/bfgattacks.txt"
+#include "decorate/teleport.txt"
 
 const int PROP_FROZEN = 0;
 
