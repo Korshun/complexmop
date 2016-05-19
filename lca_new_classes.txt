@@ -6,7 +6,6 @@ Speed 14
 Radius 30
 Height 56
 Mass 550
-Monster
 +BOSS
 +BOSSDEATH
 +FLOORCLIP
@@ -223,7 +222,6 @@ ACTOR PossessedCydestroyer : PossessedMonster
   Mass 1000
   Speed 12
   PainChance 65
-  Monster
   Scale 1.1
   Species "Nobles"
   Obituary "%o's anus was made 3 sizes bigger by a Cydestroyer."
@@ -838,7 +836,6 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
   Mass 1500
   Speed 8
   PainChance 45 
-  Monster
   +NORADIUSDMG
   +BOSS
   +BOSSDEATH
@@ -1264,7 +1261,6 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 
 Actor PossessedLegendaryRedeemer : PossessedMonster
 {
-Monster
 Health 1400
 Radius 31
 Height 56
@@ -1586,7 +1582,6 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
     Height 56
     Speed 12
     PainChance 20
-    MONSTER
     +NOTIMEFREEZE
 	+BOSS
 	+BOSSDEATH
@@ -1838,7 +1833,6 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
 //===================
 ACTOR PossessedLegendaryBehemoth : PossessedMonster
 {
-Monster
 Radius 48
 Height 64
 Health 2200
@@ -2163,7 +2157,6 @@ Height 56
 Speed 8
 Mass 100
 PainChance 105
-MONSTER 
 +FLOORCLIP
 +MISSILEMORE
 +MISSILEEVENMORE
