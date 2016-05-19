@@ -71,18 +71,18 @@ States
 	Goto Spawn
   Normal:		
 	LFND EF 6 Bright 
-    LFND G 6 Bright A_CustomMissile("LegFiendBall2",32,0,0)
+    LFND G 6 Bright //A_FireCustomMissile("LegFiendBall2",0,0,0,0)
 	LFND EF 6 Bright 
-    LFND G 6 Bright A_CustomMissile("LegFiendBall2",32,0,0)	
+    LFND G 6 Bright //A_FireCustomMissile("LegFiendBall2",0,0,0,0)	
     LFND E 2 Bright 
     Goto Spawn
   Ripperr:		
 	LFND EF 9 Bright 
-    LFND GGG 3 Bright A_CustomMissile("LegFiendBall",32,0,MOPRANDOMMOPLP-2MOPCOMMA2MOPRP)
+    LFND GGG 3 Bright //A_FireCustomMissile("LegFiendBall",MOPRANDOMMOPLP-2MOPCOMMA2MOPRP,0,0,0)
 	LFND G 0 
-	LFND GGG 3 Bright A_CustomMissile("LegFiendBall",32,0,MOPRANDOMMOPLP-2MOPCOMMA2MOPRP)
+	LFND GGG 3 Bright //A_FireCustomMissile("LegFiendBall",MOPRANDOMMOPLP-2MOPCOMMA2MOPRP,0,0,0)
     LFND G 0 
-	LFND GGG 3 Bright A_CustomMissile("LegFiendBall",32,0,MOPRANDOMMOPLP-2MOPCOMMA2MOPRP)
+	LFND GGG 3 Bright //A_FireCustomMissile("LegFiendBall",MOPRANDOMMOPLP-2MOPCOMMA2MOPRP,0,0,0)
     LFND E 2 Bright 
     Goto Spawn
   Lunge:
@@ -289,16 +289,16 @@ ACTOR PossessedCydestroyer : PossessedMonster
   Grenadier:
 	BR2S E 8 
 	TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
-	BR3S B 0 Bright A_CustomMissile("CydestroyerGrenade",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 7 Bright A_CustomMissile("CydestroyerGrenade",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+	BR3S B 0 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 7 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 12 
 	TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
-	BR3S B 0 Bright A_CustomMissile("CydestroyerGrenade",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 7 Bright A_CustomMissile("CydestroyerGrenade",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+	BR3S B 0 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 7 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 12 
 	TNT1 A 0 //A_PlaySound("Weapons/GrenadeFire")
-	BR3S B 0 Bright A_CustomMissile("CydestroyerGrenade",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 7 Bright A_CustomMissile("CydestroyerGrenade",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+	BR3S B 0 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 7 Bright //A_FireCustomMissile("CydestroyerGrenade",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 12 		
 	Goto Spawn
   Rockets:
@@ -328,54 +328,54 @@ ACTOR PossessedCydestroyer : PossessedMonster
   ShoulderHomingRockets:
     BR2S E 10 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR2S E 10
 	Goto Spawn
   ShoulderRockets:
     BR2S E 10 
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR3S A 1 Bright 
 	BR3S A 0 //A_PlaySound("smissile/fire")
-	BR3S A 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR3S A 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR2S E 10
 	Goto Spawn
    RocketSpammingCombo:
@@ -401,63 +401,63 @@ ACTOR PossessedCydestroyer : PossessedMonster
     //BR2S E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
 	BR2S E 2 
     //BR2S E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("CyNobleRocket",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("CyNobleRocket",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("CyNobleRocket",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("CyNobleRocket",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("CyNobleRocket",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("CyNobleRocket",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket2",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket2",0,0,-20,0)
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("BruiserMissile",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("BruiserMissile",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("BruiserMissile",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("BruiserMissile",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	BR2S F 0 Bright //A_FireCustomMissile("BruiserMissile",0,0,-20,0,0)
 	BR2S F 1 Bright //A_FireCustomMissile("BruiserMissile",0,0,20,0,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,20,0)
 	BR2S F 1 Bright 
 	BR2S F 0 //A_PlaySound("smissile/fire")
-	BR2S F 6 Bright A_CustomMissile("ShoulderRocket",60,-20,0)
+	BR2S F 6 Bright //A_FireCustomMissile("ShoulderRocket",0,0,-20,0)
 	TNT1 A 0 //A_ChangeFlag("NoPain", 0)
 	BR2S E 20
 	Goto Spawn
@@ -465,20 +465,20 @@ ACTOR PossessedCydestroyer : PossessedMonster
 	TNT1 A 0 //A_PlaySound("weapons/charge15k")
     BR2S E 18 
 	BR2S E 6 
-    BR3S B 0 Bright A_CustomMissile("Cybruiser15K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cybruiser15K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 4 
-    BR3S B 0 Bright A_CustomMissile("Cybruiser15K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cybruiser15K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 4 
-    BR3S B 0 Bright A_CustomMissile("Cybruiser15K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cybruiser15K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 4 
-	BR3S B 0 Bright A_CustomMissile("Cybruiser15K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cybruiser15K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+	BR3S B 0 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 4 
-    BR3S B 0 Bright A_CustomMissile("Cybruiser15K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cybruiser15K",35,20, MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cybruiser15K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cybruiser15K", MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	Goto Spawn
    BFG10K:
@@ -486,16 +486,16 @@ ACTOR PossessedCydestroyer : PossessedMonster
     BR2S E 18 
 	BR2S E 6 
 	TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
-    BR3S B 0 Bright A_CustomMissile("Cy10K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cy10K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 8 
 	TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
-    BR3S B 0 Bright A_CustomMissile("Cy10K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cy10K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 8 
 	TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
-    BR3S B 0 Bright A_CustomMissile("Cy10K",35,-20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
-	BR3S B 4 Bright A_CustomMissile("Cy10K",35,20,MOPRANDOMMOPLP4MOPCOMMA-4MOPRP)
+    BR3S B 0 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,-20,0)
+	BR3S B 4 Bright //A_FireCustomMissile("Cy10K",MOPRANDOMMOPLP4MOPCOMMA-4MOPRP,0,20,0)
 	BR2S E 20 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
 	Goto Spawn
    RailgunV2:
@@ -584,8 +584,8 @@ ACTOR PossessedCydestroyer : PossessedMonster
 	TNT1 A 0 //A_ChangeFlag("NoPain", 0)
 	BR2S E 10 Bright 
 	BR3S A 0 //A_PlayWeaponSound("lrball3/shot")
-    BR3S A 0 A_CustomMissile("SuperBall",60,-20,0)	
-    BR3S A 10 A_CustomMissile("SuperBall",60,20,0)
+    BR3S A 0 //A_FireCustomMissile("SuperBall",0,0,-20,0)	
+    BR3S A 10 //A_FireCustomMissile("SuperBall",0,0,20,0)
     BR3S A 10 
 	Goto Spawn
 	Flamethrowers:
@@ -816,15 +816,15 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 	Goto Spawn
   Normal:
     LCBS PQ 5 Bright 
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,-8)
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,-4)
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,4)
-	LCBS R 5 Bright A_CustomMissile("LegNobleBall",40,0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",-8,0,0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",-4,0,0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",4,0,0,0)
+	LCBS R 5 Bright //A_FireCustomMissile("LegNobleBall",0,0,0,0)
     LCBS PQ 5 Bright 
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,-8)
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,-4)
-	LCBS R 0 A_CustomMissile("LegNobleBall",40,0,4)
-	LCBS R 5 Bright A_CustomMissile("LegNobleBall",40,0,0)	
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",-8,0,0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",-4,0,0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleBall",4,0,0,0)
+	LCBS R 5 Bright //A_FireCustomMissile("LegNobleBall",0,0,0,0)	
 	Goto Spawn
    LegendaryAsg:
     LCBS E 5 Bright 
@@ -838,26 +838,26 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
   Hugger:
     LCBS RQ 9 Bright 
 	LCBS PPPP 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	LCBS P 0 A_CustomMissile("LegNobleBall3",38,-20,0)
-    LCBS P 0 Bright A_CustomMissile("LegNobleBall3",38,-20,0)
+	LCBS P 0 //A_FireCustomMissile("LegNobleBall3",0,0,-20,0)
+    LCBS P 0 Bright //A_FireCustomMissile("LegNobleBall3",0,0,-20,0)
 	LCBS PPPP 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn
   BlueComet:
     LCBS PQ 7 Bright 
-	LCBS R 2 Bright A_CustomMissile("LegNobleComet", 38, 0, 0)
-	LCBS R 0 A_CustomMissile("LegNobleComet", 38, 0, 6)
-	LCBS R 4 Bright A_CustomMissile("LegNobleComet", 38, 0, -6)
+	LCBS R 2 Bright //A_FireCustomMissile("LegNobleComet", 0,0, 0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleComet", 6,0, 0,0)
+	LCBS R 4 Bright //A_FireCustomMissile("LegNobleComet", -6,0, 0,0)
     LCBS PQ 7 Bright 
-	LCBS R 2 Bright A_CustomMissile("LegNobleComet", 38, 0, 0)
-	LCBS R 0 A_CustomMissile("LegNobleComet", 38, 0, 6)
-	LCBS R 4 Bright A_CustomMissile("LegNobleComet", 38, 0, -6)
+	LCBS R 2 Bright //A_FireCustomMissile("LegNobleComet", 0,0, 0,0)
+	LCBS R 0 //A_FireCustomMissile("LegNobleComet", 6,0, 0,0)
+	LCBS R 4 Bright //A_FireCustomMissile("LegNobleComet", -6,0, 0,0)
     Goto Spawn
    4Comets:
     LCBS PQ 8 Bright 
-	LCBS R 0 A_CustomMissile("BigBlueComet", 38, 0, 0)
-	LCBS R 0 A_CustomMissile("BigBlueComet", 38, 0, -5)
-	LCBS R 0 A_CustomMissile("BigBlueComet", 38, 0, 5)
-	LCBS R 7 Bright A_CustomMissile("BigBlueComet", 38, 0, 10)
+	LCBS R 0 //A_FireCustomMissile("BigBlueComet", 0,0, 0,0)
+	LCBS R 0 //A_FireCustomMissile("BigBlueComet", -5,0, 0,0)
+	LCBS R 0 //A_FireCustomMissile("BigBlueComet", 5,0, 0,0)
+	LCBS R 7 Bright //A_FireCustomMissile("BigBlueComet", 10,0, 0,0)
 	Goto Spawn
   Rage:	
     LCBS Q 1 Bright //A_PlaySound("lcnoble/see")
@@ -868,7 +868,7 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
   Raging:
     LCBS Q 0 A_JumpIf(user_missile >= 28,"See")	 
     LCBS Q 0 A_SetUserVar("user_missile",user_missile+1)
-    LCBS QQ 0 Bright A_CustomMissile("LegNobleBall3Small",0,0,MOPRANDOMMOPLP0MOPCOMMA359MOPRP)	
+    LCBS QQ 0 Bright //A_FireCustomMissile("LegNobleBall3Small",MOPRANDOMMOPLP0MOPCOMMA359MOPRP,0,0,0)	
     LCBS Q 4 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
     Goto Spawn
   BestAttack:
@@ -880,9 +880,9 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 	LCBS QQQQQQQQQQQQQQQQQ 2 Bright //A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
 	LCBS R 2 Bright 
 	TNT1 A 0 
-	LCBS R 1 Bright A_CustomMissile("FakeLegNobleBall4",38,0,6)
-	LCBS R 0 Bright A_CustomMissile("FakeLegNobleBall4",38,0,-6)
-    LCBS R 8 Bright A_CustomMissile("LegNobleBall4",38,0,0)
+	LCBS R 1 Bright //A_FireCustomMissile("FakeLegNobleBall4",6,0,0,0)
+	LCBS R 0 Bright //A_FireCustomMissile("FakeLegNobleBall4",-6,0,0,0)
+    LCBS R 8 Bright //A_FireCustomMissile("LegNobleBall4",0,0,0,0)
     Goto Spawn
   BestAttack2:
     LCBS E 1 Bright //A_PlaySound("lcnoble/see")
@@ -894,7 +894,7 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 	LCBS F 2 Bright 
 	TNT1 A 0 //A_PlayWeaponSound("star/fire")
 	TNT1 A 0 
-    LCBS F 8 Bright A_CustomMissile("LegCyberKnightBlueStar",40,6,0)
+    LCBS F 8 Bright //A_FireCustomMissile("LegCyberKnightBlueStar",0,0,6,0)
     Goto Spawn
   LegCannon1:
     LCBS E 0 Bright 
@@ -946,10 +946,10 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
     LCBS Q 2 Bright 
     LCBS QQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
     LCBS Q 2 Bright 
-    LCBS Q 0 A_CustomMissile("BlueRainCometNull",32,0,200)
-    LCBS Q 0 A_CustomMissile("BlueRainCometNull",32,0,90)
-    LCBS Q 0 A_CustomMissile("BlueRainCometNull",32,0,-90)	
-    LCBS Q 8 Bright A_CustomMissile("BlueRainCometNull",32,0,0)
+    LCBS Q 0 //A_FireCustomMissile("BlueRainCometNull",200,0,0,0)
+    LCBS Q 0 //A_FireCustomMissile("BlueRainCometNull",90,0,0,0)
+    LCBS Q 0 //A_FireCustomMissile("BlueRainCometNull",-90,0,0,0)	
+    LCBS Q 8 Bright //A_FireCustomMissile("BlueRainCometNull",0,0,0,0)
     TNT1 A 0 
     LCBS Q 2 Bright 
     LCBS QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
@@ -997,12 +997,12 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
     Goto Spawn
   RocketRage:
     LCBS EE 2 Bright 
-    LCBS F 0 A_CustomMissile("LegendaryRocket", 40, 26, MOPRANDOMMOPLP-6MOPCOMMA 6MOPRP)
+    LCBS F 0 //A_FireCustomMissile("LegendaryRocket", MOPRANDOMMOPLP-6MOPCOMMA 6MOPRP,0, 26,0)
 	LCBS FF 2 Bright 
 	TNT1 A 0 A_CposRefire
 	Goto Spawn
 	LCBS EE 2 Bright 
-    LCBS F 0 A_CustomMissile("LegendaryHomingRocket", 40, 26, MOPRANDOMMOPLP-6MOPCOMMA 6MOPRP)
+    LCBS F 0 //A_FireCustomMissile("LegendaryHomingRocket", MOPRANDOMMOPLP-6MOPCOMMA 6MOPRP,0, 26,0)
 	LCBS FF 2 Bright 
 	TNT1 A 0 A_CposRefire
 	Goto Spawn
@@ -1018,34 +1018,34 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
 	LCBS E 18 Bright 
 	LCBS E 6 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)	
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)	
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)	
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)	
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 4 Bright 
 	TNT1 A 0 //A_PlaySound("weapons/bfg15kfire")
-	LCBS F 3 Bright A_CustomMissile("Legendary10KProjectile",40,26,MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP)
+	LCBS F 3 Bright //A_FireCustomMissile("Legendary10KProjectile",MOPRANDOMMOPLP-4MOPCOMMA 4MOPRP,0,26,0)
 	LCBS E 20 Bright //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)	
 	Goto Spawn
  MinionSummoner:
@@ -1323,7 +1323,7 @@ States
 	Goto Spawn
   ThunderDone:
 	LRED G 3 Bright 
-	LRED G 3 Bright A_CustomMissile("LegRedThunderBall",5,0,0)
+	LRED G 3 Bright //A_FireCustomMissile("LegRedThunderBall",0,0,0,0)
 	LRED G 1 
 	LRED G 0 A_Jump(127,"Avoid")
 	Goto Spawn
@@ -1747,20 +1747,20 @@ States
        TNT1 A 0 //A_PlaySound("monsters/volattack")
        LEG2 G 15 Bright     
        TNT1 A 0  
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP0MOPCOMMA 6MOPRP)
-       LEG2 H 2 Bright A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP0MOPCOMMA -6MOPRP)	   
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP)
-       LEG2 H 6 Bright A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP7MOPCOMMA 12MOPRP)
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA 6MOPRP,0, -30,0)
+       LEG2 H 2 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA -6MOPRP,0, 30,0)	   
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP,0, 30,0)
+       LEG2 H 6 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP7MOPCOMMA 12MOPRP,0, -30,0)
        LEG2 IG 8 Bright       
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP0MOPCOMMA 6MOPRP)
-       LEG2 H 2 Bright A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP0MOPCOMMA -6MOPRP)	   
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP)
-       LEG2 H 6 Bright A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP7MOPCOMMA 12MOPRP)
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA 6MOPRP,0, -30,0)
+       LEG2 H 2 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA -6MOPRP,0, 30,0)	   
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP,0, 30,0)
+       LEG2 H 6 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP7MOPCOMMA 12MOPRP,0, -30,0)
        LEG2 IG 8 Bright 
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP0MOPCOMMA 6MOPRP)
-       LEG2 H 2 Bright A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP0MOPCOMMA -6MOPRP)	   
-       TNT1 A 0 A_CustomMissile("LegBehComet", 30, 30, MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP)
-       LEG2 H 6 Bright A_CustomMissile("LegBehComet", 30, -30, MOPRANDOMMOPLP7MOPCOMMA 12MOPRP)
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA 6MOPRP,0, -30,0)
+       LEG2 H 2 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP0MOPCOMMA -6MOPRP,0, 30,0)	   
+       TNT1 A 0 //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP-7MOPCOMMA -12MOPRP,0, 30,0)
+       LEG2 H 6 Bright //A_FireCustomMissile("LegBehComet", MOPRANDOMMOPLP7MOPCOMMA 12MOPRP,0, -30,0)
        LEG2 IG 8 Bright A_Jump(48,"BFGG")
        Goto Spawn
     BFGG:
@@ -1809,8 +1809,8 @@ States
        LEG2 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",MOPRANDOMMOPLP-24MOPCOMMA24MOPRP,MOPRANDOMMOPLP-24MOPCOMMA24MOPRP,0)
 	   LEG2 G 0 
 	   TNT1 A 0 //A_ChangeFlag(NOPAIN,1)  
-	   LEG2 H 0 A_CustomMissile("LegBehBFGBall", 30, 30, 0)
-       LEG2 H 6 Bright A_CustomMissile("LegBehBFGBall", 30, -30, 0)
+	   LEG2 H 0 //A_FireCustomMissile("LegBehBFGBall", 0,0, 30,0)
+       LEG2 H 6 Bright //A_FireCustomMissile("LegBehBFGBall", 0,0, -30,0)
 	   TNT1 A 0 //A_ChangeFlag(NOPAIN,0)
        LEG2 IG 8 Bright A_Jump(80,"Floor")
        Goto Spawn
@@ -1818,48 +1818,48 @@ States
 	   TNT1 A 0 //A_PlaySound("monsters/volattack")
        LEG2 G 15 Bright     
        TNT1 A 0     
-       TNT1 A 0 A_CustomMissile("LegBehFloorFire", 30, 30, 0)
-       LEG2 H 8 Bright A_CustomMissile("LegBehFloorFire", 30, -30, 0)
+       TNT1 A 0 //A_FireCustomMissile("LegBehFloorFire", 0,0, 30,0)
+       LEG2 H 8 Bright //A_FireCustomMissile("LegBehFloorFire", 0,0, -30,0)
        LEG2 IG 8 Bright       
-       TNT1 A 0 A_CustomMissile("LegBehFloorFire", 30, 30, 0)
-       LEG2 H 8 Bright A_CustomMissile("LegBehFloorFire", 30, -30, 0)
+       TNT1 A 0 //A_FireCustomMissile("LegBehFloorFire", 0,0, 30,0)
+       LEG2 H 8 Bright //A_FireCustomMissile("LegBehFloorFire", 0,0, -30,0)
        LEG2 IG 8 Bright A_Jump(80,"Combo")
        Goto Spawn
     Combo:
        TNT1 A 0 //A_PlaySound("monsters/volattack")
        LEG2 G 8 Bright     
        TNT1 A 0      
-       LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+       LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, 30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, 30,0)
        LEG2 IG 2 Bright 
-	   LEG2 H 4 Bright A_CustomMissile("LegRevBall", 30, -30, 0)
+	   LEG2 H 4 Bright //A_FireCustomMissile("LegRevBall", 0,0, -30,0)
        LEG2 IG 2 Bright 
        Goto Spawn
     BlueFlame:
@@ -1979,7 +1979,7 @@ Missile:
 Missile2:
         FRZR E 10 
 		TNT1 A 0 //A_PlaySound("weapons/iceshot",6,5)
-        FRZR F 2 Bright A_CustomMissile("NewZombieFreezeBlast", 30, 4, 0)
+        FRZR F 2 Bright //A_FireCustomMissile("NewZombieFreezeBlast", 0,0, 4,0)
 		FRZR E 4 
         TNT1 A 0 A_SentinelRefire
         Goto Spawn //Goto Missile2+1
