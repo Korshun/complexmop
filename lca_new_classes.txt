@@ -1,5 +1,7 @@
-ACTOR PossessedLegendaryFiend : PossessedMonster
+Actor PossessedLegendaryFiend : PossessedMonster
 {
+	Player.MorphWeapon "LegendaryFiendWeapon"
+
 Health 1050
 PainChance 55
 Speed 0.6125 //14
@@ -211,8 +213,19 @@ States
   }
 }
 
-ACTOR PossessedCydestroyer : PossessedMonster
-{ 
+Actor LegendaryFiendWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+Actor PossessedCydestroyer : PossessedMonster
+{
+	Player.MorphWeapon "CydestroyerWeapon"
+ 
   Health 1800
   Radius 24
   Height 64
@@ -660,9 +673,20 @@ ACTOR PossessedCydestroyer : PossessedMonster
     } 
 }
 
+Actor CydestroyerWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
 
-ACTOR PossessedLegendaryCyberNoble : PossessedMonster
-{ 
+
+Actor PossessedLegendaryCyberNoble : PossessedMonster
+{
+	Player.MorphWeapon "LegendaryCyberNobleWeapon"
+ 
   Health 2300
   Radius 24
   Height 78
@@ -1066,12 +1090,23 @@ ACTOR PossessedLegendaryCyberNoble : PossessedMonster
     } 
 }
 
+Actor LegendaryCyberNobleWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
 //===================
 // Legendary Redeemer
 //===================
 
 Actor PossessedLegendaryRedeemer : PossessedMonster
 {
+	Player.MorphWeapon "LegendaryRedeemerWeapon"
+
 Health 1400
 Radius 31
 Height 56
@@ -1383,8 +1418,19 @@ States
   }
 }
 
-ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
+Actor LegendaryRedeemerWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+Actor PossessedLegendaryAssaultCaptain : PossessedMonster
+{
+	Player.MorphWeapon "LegendaryAssaultCaptainWeapon"
+
     Health 1020
     Radius 20
     Height 56
@@ -1618,12 +1664,23 @@ ACTOR PossessedLegendaryAssaultCaptain : PossessedMonster
     }
 }
 
+Actor LegendaryAssaultCaptainWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
 
 //===================
 // Legendary Behemoth
 //===================
-ACTOR PossessedLegendaryBehemoth : PossessedMonster
+Actor PossessedLegendaryBehemoth : PossessedMonster
 {
+	Player.MorphWeapon "LegendaryBehemothWeapon"
+
 Radius 48
 Height 64
 Health 2200
@@ -1934,8 +1991,19 @@ States
        }
 }
 
-ACTOR PossessedFreezerZombie : PossessedChaingunGuy
+Actor LegendaryBehemothWeapon : PossessedWeapon
 {
+	States
+	{
+	Fire:
+		Goto Ready
+	}
+}
+
+Actor PossessedFreezerZombie : PossessedChaingunGuy
+{
+	Player.MorphWeapon "FreezerZombieWeapon"
+
 Health 215
 Radius 20
 Height 56
@@ -2028,4 +2096,13 @@ Missile3:
 		   FRZR EE 12 //A_StopSound(6)
 	   Goto Spawn
     }
+}
+
+Actor FreezerZombieWeapon : PossessedWeapon
+{
+	States
+	{
+	Fire:
+		Goto Ready
+	}
 }
