@@ -17,8 +17,8 @@ int BoomEdition = true;
 #define mop_phaseoverlord 810
 #define mop_checkteambalance 811
 #define mop_checkteleportmissile 812
-// FREE SLOT 813
-// FREE SLOT 814
+#define mop_possessedflameremover 813
+#define mop_playernumber 814
 // FREE SLOT 815
 // FREE SLOT 816
 #define mop_wincondition 817

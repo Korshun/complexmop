@@ -979,3 +979,22 @@ script mop_checkteleportmissile (void)
 	else
 		SetResultValue(false);
 }
+
+script mop_possessedflameremover (void)
+{
+	int player = GetActorVelZ(0) / 1.0;
+	SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), 0, false, false);
+	
+	if (ConsolePlayerNumber() < 0)
+		terminate;
+	if (!PlayerInGame(ConsolePlayerNumber()))
+		terminate;
+
+	if (player == ConsolePlayerNumber())
+		Thing_Remove(0);
+}
+
+script mop_playernumber (void)
+{
+	SetResultValue(PlayerNumber());
+}
