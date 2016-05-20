@@ -274,23 +274,23 @@ Actor CydestroyerWeapon : PossessedWeapon
 	TNT1 E 1 Bright 
 	TNT1 EEEEEEEEEE 2 Bright 
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
     TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("OHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 F 6 Bright A_FireCustomMissile("ShoulderRocket2",0,0,20,0)
 	TNT1 F 1 Bright 
 	TNT1 F 0 A_PlaySound("smissile/fire")
@@ -404,73 +404,73 @@ Actor CydestroyerWeapon : PossessedWeapon
 	TNT1 EEEEEEEEEE 2 Bright 
 	TNT1 E 2 Bright A_PlayWeaponSound("lrball3/charge")
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)	
+    TNT1 E 2 Bright 	
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)
+    TNT1 E 2 Bright 
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)
+    TNT1 E 2 Bright 
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)
+    TNT1 E 2 Bright 
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)
+    TNT1 E 2 Bright 
 	TNT1 E 2 
-    TNT1 E 2 Bright A_SpawnItem("RHellionSmokeSpawner",0,0,0,0)
+    TNT1 E 2 Bright 
 	TNT1 A 0 A_ChangeFlag("NoPain", 0)
 	TNT1 E 10 Bright 
 	TNT1 A 0 A_PlayWeaponSound("lrball3/shot")
@@ -593,10 +593,10 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
 	Goto Ready
   Hugger:
     TNT1 RQ 9 Bright 
-	TNT1 PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 PPPP 2 Bright 
 	TNT1 P 0 A_FireCustomMissile("LegNobleBall3",0,0,-20,0)
     TNT1 P 0 Bright A_FireCustomMissile("LegNobleBall3",0,0,-20,0)
-	TNT1 PPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 PPPP 2 Bright 
     Goto Ready
   BlueComet:
     TNT1 PQ 7 Bright 
@@ -619,18 +619,18 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
     TNT1 Q 1 Bright A_PlaySound("lcnoble/see")
 	TNT1 Q 1 Bright 
 	TNT1 Q 1 Bright
-    TNT1 RRRR 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
-	TNT1 QQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 RRRR 2 Bright 
+	TNT1 QQQQ 2 Bright 
     TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
-    TNT1 Q 112 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+    TNT1 Q 112 Bright 
     Goto Ready
   BestAttack:
     TNT1 Q 1 Bright A_PlaySound("lcnoble/see")
     TNT1 P 2 Bright 
 	TNT1 A 0 
-	TNT1 PPPPPPPPPPPPPPPPP 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 PPPPPPPPPPPPPPPPP 2 Bright 
 	TNT1 Q 2 Bright 
-	TNT1 QQQQQQQQQQQQQQQQQ 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 QQQQQQQQQQQQQQQQQ 2 Bright 
 	TNT1 R 2 Bright 
 	TNT1 A 0 
 	TNT1 R 1 Bright A_FireCustomMissile("FakeLegNobleBall4",6,0,0,0)
@@ -641,9 +641,9 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
     TNT1 E 1 Bright A_PlaySound("lcnoble/see")
     TNT1 E 2 Bright 
 	TNT1 A 0 
-	TNT1 EEEEEEEEEEEEEEEEE 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 EEEEEEEEEEEEEEEEE 2 Bright 
 	TNT1 E 2 Bright 
-	TNT1 EEEEEEEEEEEEEEEFF 2 Bright A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+	TNT1 EEEEEEEEEEEEEEEFF 2 Bright 
 	TNT1 F 2 Bright 
 	TNT1 A 0 A_PlayWeaponSound("star/fire")
 	TNT1 A 0 
@@ -695,9 +695,9 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
 	Goto Ready
   Rain:
     TNT1 P 2 Bright 
-    TNT1 PPPPPPP 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 PPPPPPP 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
     TNT1 Q 0 A_FireCustomMissile("BlueRainCometNull",200,0,0,0)
     TNT1 Q 0 A_FireCustomMissile("BlueRainCometNull",90,0,0,0)
@@ -705,19 +705,19 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
     TNT1 Q 8 Bright A_FireCustomMissile("BlueRainCometNull",0,0,0,0)
     TNT1 A 0 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
 	TNT1 Q 2 Bright 
-    TNT1 QQQQQQQQ 2 Bright A_SpawnItem("BHellionSmokeSpawner",0,0,0,0)
+    TNT1 QQQQQQQQ 2 Bright 
     TNT1 A 0 
     Goto Ready
   Rockets:
@@ -856,59 +856,59 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 	TNT1 E 0 
 	TNT1 A 0 A_PlaySound("redeemer/see")
 	TNT1 A 0 Radius_Quake(8,60,0,20,0)
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeYSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 A 0 A_GiveToTarget("LegRedStormBoltAttack",1)
 	TNT1 AA 0 A_SpawnItemEx("LegRedStormBoltSpawner",Random(512,-512),Random(512,-51),0,0,0,0,SXF_NOCHECKPOSITION,64)
     TNT1 G 3 Bright 
@@ -921,18 +921,18 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 	TNT1 E 0 
 	TNT1 A 0 A_PlaySound("redeemer/see")
 	TNT1 A 0 Radius_Quake(8,60,0,20,0)
-	TNT1 AAA 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 G 0 
 	TNT1 G 3 Bright A_SpawnItemEx("LegRedThunderCharge",64,0,0)
-  	TNT1 GGG 0 A_SpawnItem("LRedeBSmokeSpawner",0,0,0,0)
+  	TNT1 GGG 0 
 	TNT1 G 171 Bright
 	TNT1 G 3 Bright 
 	TNT1 G 3 Bright A_FireCustomMissile("LegRedThunderBall",0,0,0,0)
@@ -944,15 +944,15 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 	TNT1 E 0 
 	TNT1 A 0 A_PlaySound("brain/spit")
 	TNT1 A 0 Radius_Quake(8,60,0,20,0)
-	TNT1 AAA 0 A_SpawnItem("LRedeGSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeGSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 E 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeGSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeGSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
     TNT1 F 3 Bright 
-	TNT1 AAA 0 A_SpawnItem("LRedeGSmokeSpawner",0,0,0,0)
+	TNT1 AAA 0 
 	TNT1 G 0 A_Stop
 	TNT1 G 3 Bright A_SpawnItemEx("LegRedPortal",64,0,0,0,0,0,0,SXF_SETMASTER|32)
 	Goto Ready
@@ -966,7 +966,7 @@ Actor LegendaryAssaultCaptainWeapon : PossessedWeapon
    Fire:
 		TNT1 E 3 Bright
         TNT1 E 4 Bright 
-		TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 
 		TNT1 A 0 A_GiveInventory ("ASGZAmmo", 1)
 		TNT1 A 0 A_SpawnItemEx("BlueShellCasing", -8, 7, 30, 4, 0, (0.1)*Random(30, 40), Random(-80, -90), 128)
 		TNT1 AAAA 0 Bright A_FireCustomMissile("LegendaryBlueTracer",Random(6,-6),0,0,0,0)
@@ -977,12 +977,12 @@ Actor LegendaryAssaultCaptainWeapon : PossessedWeapon
     	TNT1 A 0 A_ChangeFlag("NoPain", 1)
     	TNT1 A 0 A_PlaySound("lasgguy/asgout")
 		TNT1 A 0 A_SpawnItemEx("LegendaryEmptyDrumSpawner", -8, 7, 30, 4, 0, (0.1)*Random(30, 40), Random(-80, -90), 128)
-		TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 
     	TNT1 E 48 Bright A_TakeInventory ("ASGZAmmo", 16)
-		TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 
     	TNT1 E 8 Bright A_PlaySound("lasgguy/asgin") 
 		TNT1 E 20 Bright A_PlaySound("LShotgun/Cock")
-		TNT1 A 0 A_SpawnItem("LHellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 
     	TNT1 A 0 A_ChangeFlag("NoPain", 0)
     	Goto Ready
 	}
@@ -1024,45 +1024,45 @@ Actor LegendaryBehemothWeapon : PossessedWeapon
 	   TNT1 G 0 
 	   TNT1 G 1 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
 	   TNT1 A 0 A_PlaySound("monsters/volattack")
 	   TNT1 A 0 A_PlayWeaponSound("weapons/bfgf")
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
-       TNT1 G 2 Bright A_SpawnItemEx("BHellionSmokeSpawner",Random(-24,24),Random(-24,24),0)
+       TNT1 G 2 Bright 
 	   TNT1 G 0 
 	   TNT1 A 0 A_ChangeFlag(NOPAIN,1)  
 	   TNT1 H 0 A_FireCustomMissile("LegBehBFGBall", 0,0, 30,0)
