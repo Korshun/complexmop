@@ -1,6 +1,6 @@
 // Remove monster music.
-#library "LEGMUSIC"
-#include "zcommon.acs"
+//#library "LEGMUSIC"
+//#include "zcommon.acs"
 
 
 bool is_mon_music_playing = false;

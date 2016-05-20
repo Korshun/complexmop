@@ -78,3 +78,8 @@ int BoomEdition = true;
 #include "attacks.acs"
 #include "evade.acs"
 #include "possess.acs"
+
+
+// LCA fixes
+#include "INVSTUFF.acs"
+#include "LEGMUSIC.acs"
