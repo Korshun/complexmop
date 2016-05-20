@@ -1820,11 +1820,23 @@ Actor PossessedTerrorSoul : PossessedMonster
 	{
 	Spawn:
 	See:
-		TERR A 2 Bright //A_SpawnItem("SoulFireSpawner",0,0,0,0)
+		TERR A 2 Bright A_SpawnItemEx("PossessedSoulFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Loop
 	Missile:
-		TERR BBBA 2 Bright //A_SpawnItem("SoulFireSpawner",0,0,0,0)
+		TERR BBBA 2 Bright A_SpawnItemEx("PossessedSoulFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
+	}
+}
+
+Actor PossessedSoulFireSpawner : SoulFireSpawner
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
 	}
 }
 

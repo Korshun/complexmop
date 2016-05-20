@@ -16,8 +16,8 @@ int BoomEdition = true;
 #define mop_stopvile 809
 #define mop_checkteambalance 810
 #define mop_checkteleportmissile 811
-// FREE SLOT 812
-// FREE SLOT 813
+#define mop_possessedflameremover 812
+#define mop_playernumber 813
 // FREE SLOT 814
 // FREE SLOT 815
 // FREE SLOT 816
