@@ -1886,28 +1886,40 @@ Actor PossessedForgottenOne : PossessedTerrorSoul
 	States
 	{
 	Spawn:
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO B 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO B 2 Bright
 		Loop
 	See:
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO B 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		FRGO B 2 Bright
 		Loop
 	Missile:
-		FRGO CCDD 2 Bright //A_SpawnItem("ForgottenOneFireSpawner",0,0,0,0)
+		FRGO CCDD 2 Bright A_SpawnItemEx("PossessedForgottenOneFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
+	}
+}
+
+Actor PossessedForgottenOneFireSpawner : ForgottenOneFireSpawner
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
 	}
 }
 
@@ -1946,29 +1958,29 @@ Actor PossessedPoisonSoul : PossessedTerrorSoul
 	States
 	{
 	Spawn:
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT B 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT B 2 Bright
 		Loop
 	See:
 		TNT1 A 0 Bright A_SpawnItemEx("PoisonSoulCloud",Random(-8,8),Random(-8,8),Random(2,16),Random(-2,-4),0,(0.1)*Random(-10,10),Random(-20,20),0)
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT A 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT B 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		PHNT B 2 Bright
 		Loop
 	Missile:
-		PHNT DD 2 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
-		PHNT CC 2 Bright //A_SpawnItem("SoulGasSpawner",0,0,0,0)
+		PHNT DD 2 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		PHNT CC 2 Bright A_SpawnItemEx("PossessedSoulGasSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	}
 }
@@ -2015,17 +2027,17 @@ Actor PossessedRictus : PossessedTerrorSoul
 	States
 	{
 	Spawn:
-		TNT1 A 0 //A_SpawnItem("RictFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedRictFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		RICT A 2 Bright
 		Loop
 	See:
-		TNT1 A 0 //A_SpawnItem("RictFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedRictFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		RICT A 2 Bright
 		Loop
 	Missile:
-		TNT1 A 0 //A_SpawnItem("RictFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedRictFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		RICT B 2 Bright 
-		RICT BA 2 Bright //A_SpawnItem("RictFireSpawner",0,0,0,0)
+		RICT BA 2 Bright A_SpawnItemEx("PossessedRictFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	Suicide:
 		TNT1 A 0 A_SpawnItem("RictFireSpawner",0,0,0,0)
@@ -3590,7 +3602,7 @@ Actor PossessedBabySentient : PossessedArachnotron
 		TNT1 A 0 //A_SpawnItemEx("OrangeShellCasing", 8, 8, 18, Random(2, 6), 0, Random(1, 3), Random(80, 90), 128)
 		MARP K 2 Bright
 		MARP K 2 Bright A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
-		TNT1 A 0 //A_SpawnItem("BabySentientFireSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedBabySentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0
 		TNT1 A 0 //A_SpawnItemEx("OrangeShellCasing", 8, -8, 18, Random(2, 6), 0, Random(1, 3), Random(-80, -90), 128)
 		MARP L 2 Bright
@@ -5150,37 +5162,37 @@ Actor PossessedDarkHellion : PossessedArchvile
 	States 
 	{ 
 	Spawn: 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN A 4 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN A 4
 		Loop 
 	See:
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		HELN A 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN A 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN B 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN B 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN C 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN C 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN D 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN D 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 A_SpawnItem("HumanishStep",0,0,0,0)
 		HELN E 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN E 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN F 2 
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELN F 2 
 		Goto Spawn
 	Missile:
@@ -5203,29 +5215,29 @@ Actor PossessedDarkHellion : PossessedArchvile
 		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,300,0)
 		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,320,0)
 		TNT1 A 0 A_CustomMissile("HellionResRadius",10,0,340,0)
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH B 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH B 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH B 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH B 4 Bright	
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright
-		TNT1 A 0 //A_SpawnItem("HellionSmokeSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		HELH A 4 Bright		
 		Goto Spawn
     }
@@ -6141,18 +6153,18 @@ Actor PossessedDarkCyberdemon : PossessedCyberdemon
 	FloorStomp:
 		CBEP G 10
 		TNT1 A 0 //A_SetInvulnerable
-		TNT1 A 0 //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CBE3 G 3 Bright //A_PlaySoundEx("DarkCyber/Laugh","Voice")
 		TNT1 A 0
-		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0
-		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0
-		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0
-		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0
-		CBE3 G 3 Bright //A_SpawnItem("DarkCyberFlameSpawner",0,0,0,0)
+		CBE3 G 3 Bright A_SpawnItemEx("PossessedDarkCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 //A_UnsetInvulnerable
 		CBEP G 7
 		CBE3 A 5
@@ -6355,15 +6367,15 @@ Actor PossessedCardinal : PossessedCyberdemon
 	States
 	{
 	Spawn:
-		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD A 2 Bright
-		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD B 2 Bright
 		Loop
 	See:
-		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD A 2 Bright
-		TNT1 A 0 Bright ////A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright //A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD B 2 Bright
 		Loop
 	Missile:
@@ -6376,211 +6388,211 @@ Actor PossessedCardinal : PossessedCyberdemon
 		TNT1 A 0 A_JumpIfInventorY("Attack5", 1, "DTBFG10K")
 		Goto Spawn
 	Normal:
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalRocket", Random(-6, 6 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		CARD CCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		CARD CCC 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	Seekers:
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 6 Bright //A_FireCustomMissile("CardinalHomingRocket", Random(-8, 8 ), 0, 0)
-		CARD D 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		CARD CCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD D 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		CARD CCC 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	Railgun:
 		TNT1 A 0 //A_PlaySound("weapons/rgcharge")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 2 Bright //A_FireCustomMissile("CardinalRail")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 2 Bright 
-		CARD CCCCCCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD CCCCCCC 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn	  
 	BFG10K:
 		TNT1 A 0 //A_PlaySound("weapons/charge15k")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright //A_PlaySound("weapons/bfg15kfire")
 		CARD D 3 Bright //A_FireCustomMissile("Cardinal10K", Random(4, -4 ), 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 //A_PlaySound("weapons/bfg15kcooldown",CHAN_AUTO)
-		CARD CCCCC 4 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		CARD CCCCC 4 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	DTBFG10K:
 		TNT1 A 0 //A_PlaySound("Cardinal/9k")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD C 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 4 Bright
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		CARD D 4 Bright //A_FireCustomMissile("CardinalDTBFG10KBall", 0, 0, 0)
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
-		CARD DCC 4 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+		CARD DCC 4 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
 	}
 }
@@ -6700,47 +6712,47 @@ Actor CardinalWeapon : PossessedWeapon
 		Goto Ready
 	Railgun:
 		TNT1 A 0 A_PlaySound("weapons/rgcharge")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 C 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 D 2 Bright A_FireCustomMissile("CardinalRail")
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 D 2 Bright 
-		TNT1 A 0 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 A 0 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 D 2 Bright 
-		TNT1 CCCCCCC 2 Bright //A_SpawnItem("CardinalFireSpawner",0,0,0,0)
+		TNT1 CCCCCCC 2 Bright A_SpawnItemEx("PossessedCardinalFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Ready
 	BFG10K:
 		TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
