@@ -1901,6 +1901,33 @@ Actor PossessedPHellionSmokeSpawner : LHellionSmokeSpawner
 	}
 }
 
+Actor PossessedRHellionSmokeSpawner : RHellionSmokeSpawner
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
+	}
+}
+
+Actor PossessedOHellionSmokeSpawner : OHellionSmokeSpawner
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
+	}
+}
+
+
+
+
 Actor PossessedLegendaryImp : PossessedMonster
 {
 	Player.MorphWeapon "LegendaryImpWeapon"
