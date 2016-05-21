@@ -2086,7 +2086,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   +FLOORCLIP
   +MISSILEMORE
   +QUICKTORETALIATE
-  +NODROPOFF
+  //+NODROPOFF
   +MISSILEMORE
   +MISSILEEVENMORE  
   +NOICEDEATH
@@ -2094,7 +2094,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   +FASTMELEE
   +DONTHURTSPECIES
   +NOTARGET
-  +NODROPOFF
+  //+NODROPOFF
   Scale 1.1
   SeeSound "skeleton/sight"
   PainSound "monsters/guardianpain"
@@ -3278,7 +3278,7 @@ DamageFactor 0.75
 +MISSILEEVENMORE
 +QUICKTORETALIATE
 +NOICEDEATH
-+NODROPOFF
+//+NODROPOFF
 +DONTGIB
 +NOTARGET
 SeeSound "legzom/sight"
