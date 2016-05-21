@@ -1300,8 +1300,6 @@ Actor PossessedLegendaryAssaultCaptain : PossessedMonster
 		TNT1 A 0 A_SpawnItemEx("PossessedLHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		Goto Spawn
    Missile:
-		LASG E 3 Bright
-        LASG E 4 Bright 
 		TNT1 A 0 A_SpawnItemEx("PossessedLHellionSmokeSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 //A_GiveInventory ("ASGZAmmo", 1)
 		TNT1 A 0 //A_SpawnItemEx("BlueShellCasing", -8, 7, 30, 4, 0, (0.1)*Random(30, 40), Random(-80, -90), 128)
