@@ -815,7 +815,7 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 	TNT1 A 0 A_JumpIfInventory("Attack2", 1, "Laser")
 	TNT1 A 0 A_JumpIfInventory("Attack3", 1, "TrapAttack")
 	TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Thunder")
-	TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Storm")
+	//TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Storm")
 	Goto Ready
   Normal:
     TNT1 BC 5 Bright 

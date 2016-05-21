@@ -31,7 +31,7 @@ int MonsterAttacks[MAX_MONSTERATTACKS][18] =
 	{ "LegendaryFiend", "\cgNormal", "\cjRipperr", "Lunge", "Rage", "X" },	
 	{ "Cydestroyer", "\ciFlamethrowers", "Grenadier", "Rockets", "Homing Rockets", "Shoulder Homing Rockets", "Shoulder Rockets", "Rocket Spamming Combo", "\cgBFG15K", "\cgBFG10K", "\cgRailgun V2", "X" },	
 	{ "LegendaryCyberNoble", "\cnNormal", "Legendary Assault Shotgun", "\chHugger", "\cnRage", "\chBest Attack", "\chRain", "\cvRockets", "\cvSeekers", "BFG10K", "Railgun", "\cvRocket Rage", "\cvBest Attack 2", "\cvLegendary Cannon 1", "	\cvLegendary Cannon 2", "X" },	
-	{ "LegendaryRedeemer", "\сhNormal", "\chLaser", "\chTrap Attack", "\cjThunder", "\cdStorm", "X" },	
+	{ "LegendaryRedeemer", "\chNormal", "\chLaser", "\chTrap Attack", "\cjThunder", /*"\cdStorm",*/ "X" },	
 	{ "LegendaryBehemoth", "\chNormal", "\chBlueFlame", "\сnBFGG", "\cvCombo", "\cvFloor", "X" },
 
 	{ "MONSTERATTACKS" }
