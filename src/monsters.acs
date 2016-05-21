@@ -71,9 +71,9 @@ function void InitMonsters(void)
 
 	// Shotgunners.
 	AddMonster(0.05, 	"ZSP1A1",	"ShotgunZombie", "Shotgunner");
-	AddMonster(0.0625,	"ASGZA1",	"AssaultShotgunner", "Assault Shotgunner");
+	AddMonster(0.0625,	"ASGZA1",	"AssaultShotgunZombie", "Assault Shotgunner");
 	AddMonster(0.075,	"UDM2A1",	"SuperShotgunZombie", "Super Shotgun zombie");
-	AddMonster(0.0875,	"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
+	AddMonster(0.5,		"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
 	
 	// LCA Shotgunners.
 	AddMonster(0.1225,	"HSZIA1", "Hexa-ShotgunZombie", "Hexa-Shotgun Zombie");

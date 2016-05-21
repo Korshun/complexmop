@@ -39,8 +39,8 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 {
 	switch(team)
 	{
-	case PLAYER_MARINE: Log(n:player+1, s:" becomes a Doom Guy."); break;
-	case PLAYER_MOP: Log(n:player+1, s:" becomes a Puppet Master."); break;
+	case PLAYER_MARINE: Log(n:player+1, s:" became a Doom Guy."); break;
+	case PLAYER_MOP: Log(n:player+1, s:" became a Puppet Master."); break;
 	}
 	
 	if (manyplayers < 2)
@@ -717,7 +717,7 @@ script mop_log_kill(int killer, int victim, int type) clientside
 	switch(type)
 	{
 	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
-	case 1: Log(n:victim+1, s:" \cddied."); break;
+	case 1: Log(n:victim+1, s:"'s monster \cddied."); break;
 	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
 	}
 }
