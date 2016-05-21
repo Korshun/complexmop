@@ -62,7 +62,7 @@ function void InitMonsters(void)
 	AddMonster(0.05, 	"ZSP1A1",	"ShotgunZombie", "Shotgunner");
 	AddMonster(0.0625,	"ASGZA1",	"AssaultShotgunZombie", "Assault Shotgunner");
 	AddMonster(0.075,	"UDM2A1",	"SuperShotgunZombie", "Super Shotgun zombie");
-	AddMonster(0.0875,	"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
+	AddMonster(0.5,		"QSZMA1",	"QuadShotgunZombie", "Quad Shotgunner");
 	
 	// Chaingunners.
 	AddMonster(0.065,	"ARZMA1",	"AssaultRifleZombie", "Assault Rifle zombie");
