@@ -54,6 +54,8 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 
 script mop_checkteambalance(void)
 {
+	// WIP
+	/*
 	int manyplayers = GetCVar("mop_manyplayers")+1;
 
 	if (manyplayers < 2)
@@ -64,6 +66,7 @@ script mop_checkteambalance(void)
 	
 	if (GetCVar("mop_forceteamjoin")==true && (toomanymarines || toomanymops))
 		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:PlayerNumber(), s:" \"Join another team.\""));
+	*/
 }
 
 function void InitPuppetmasterInventory(void)
