@@ -37,3 +37,13 @@ Actor LegBehBFGBallMOP : LegBehBFGBall replaces LegBehBFGBall
 {
 	DamageType "Monster"
 }
+
+Actor NewZombieFreezeBlastMOP : NewZombieFreezeBlast replaces NewZombieFreezeBlast
+{
+	DamageType "MonsterIce"
+}
+
+Actor ZombieFlameShotMOP : ZombieFlameShot replaces ZombieFlameShot
+{
+	DamageType "MonsterIce"
+}
