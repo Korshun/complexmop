@@ -817,11 +817,6 @@ Actor LegendaryRedeemerWeapon : PossessedWeapon
 	TNT1 A 0 A_JumpIfInventory("Attack4", 1, "Thunder")
 	TNT1 A 0 A_JumpIfInventory("Attack5", 1, "Storm")
 	Goto Ready
-  Trap:
-    TNT1 BC 5 Bright
-	TNT1 D 0 A_PlaySound("reedemer/trap")
-    TNT1 D 5 Bright A_SpawnItemEx("LegRedTrap",45,0,16,15)
-    Goto Ready
   Normal:
     TNT1 BC 5 Bright 
 	TNT1 D 0 A_FireCustomMissile("LegRedBall",0,0,10,0,0,0)
