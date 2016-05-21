@@ -177,7 +177,7 @@ function void InitMonsters(void)
 	FlyingMonster();
 	
 	// LCA Mancubi.
-	AddMonster(0.4,		"LEG2A1", "LegendaryBehemoth", "Legendary Behemoth");
+	AddMonster(0.4,		"LEG2A1D1", "LegendaryBehemoth", "Legendary Behemoth");
 	LegendaryMonster();
 	
 	// Revenants.
