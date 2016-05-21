@@ -112,7 +112,7 @@ function void InitMonsters(void)
 	AddMonster(0.0875,	"DPNKA1",   "DTechFiend", "DTech Fiend");
 	
 	// LCA Demons.
-	AddMonster(0.1,		"", "LegendaryFiend", "Legendary Fiend");
+	AddMonster(0.1,		"LFNDA1C1", "LegendaryFiend", "Legendary Fiend");
 	LegendaryMonster();
 
 	// Spectres.

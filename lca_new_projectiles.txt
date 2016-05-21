@@ -1,0 +1,39 @@
+Actor LegFiendBall2MOP : LegFiendBall2 replaces LegFiendBall2
+{
+	DamageType "Monster"
+}
+
+Actor LegFiendBallMOP : LegFiendBall replaces LegFiendBall
+{
+	DamageType "Monster"
+}
+
+Actor LFLungeMOP : LFLunge replaces LFLunge
+{
+	DamageType "Monster"
+}
+
+Actor BigLFLungeMOP : BigLFLunge replaces BigLFLunge
+{
+	DamageType "Monster"
+}
+
+Actor LegRedBallMOP : LegRedBall replaces LegRedBall
+{
+	DamageType "Monster"
+}
+
+Actor LegRedLaserMOP : LegRedLaser replaces LegRedLaser
+{
+	DamageType "Monster"
+}
+
+Actor LegRedTrapMOP : LegRedTrap replaces LegRedTrap
+{
+	DamageType "Monster"
+}
+
+Actor LegBehBFGBallMOP : LegBehBFGBall replaces LegBehBFGBall
+{
+	DamageType "Monster"
+}

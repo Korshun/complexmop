@@ -38,10 +38,12 @@ Actor LegendaryFiendWeapon : PossessedWeapon
 	TNT1 G 1 Bright A_ScaleVelocity(0)
 	Goto Ready
   Rage:
+	TNT1 A 0 SetPlayerProperty(0, true, PROP_FROZEN)
     TNT1 G 1 Bright A_PlaySound("blooddemon/sight")
 	TNT1 G 0 
 	TNT1 G 1 Bright 
 	TNT1 G 36 Bright 
+	TNT1 A 0 SetPlayerProperty(0, false, PROP_FROZEN)
   RageGo:
 	TNT1 G 0 
 	TNT1 A 0 ThrustThingZ(0,35,0,1)
@@ -571,6 +573,8 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
 	TNT1 A 0 A_JumpIfInventory("Attack12", 1, "BestAttack2")
 	TNT1 A 0 A_JumpIfInventory("Attack13", 1, "LegCannon1")
 	TNT1 A 0 A_JumpIfInventory("Attack14", 1, "LegCannon2")
+	TNT1 A 0 A_JumpIfInventory("Attack15", 1, "BlueComet")
+	TNT1 A 0 A_JumpIfInventory("Attack16", 1, "4Comets")
 	Goto Ready
   Normal:
     TNT1 PQ 5 Bright 
