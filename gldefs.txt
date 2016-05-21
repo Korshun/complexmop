@@ -997,26 +997,26 @@ Frame LRBA { Light LegRevBall2Light }
 Frame LRB3 { Light LegRevBall2Light }
 }
 
-OBJECT LegFiendBall
+OBJECT LegFiendBallMOP
 {
 Frame LFB1 { Light LMissile1a }
 }
 
-OBJECT LegFiendBall
+OBJECT LegFiendBallMOP
 {
 Frame LFB2 { Light LMissile1a }
 }
 
-OBJECT LegRedBall{Frame LRD1 { Light LMissile1a }}
-OBJECT LegRedLaser{Frame LRD2 { Light LMissile1a }}
+OBJECT LegRedBallMOP{Frame LRD1 { Light LMissile1a }}
+OBJECT LegRedLaserMOP{Frame LRD2 { Light LMissile1a }}
 
-OBJECT LegRedTrap
+OBJECT LegRedTrapMOP
 {
 Frame LRD4{ Light LegImpSeekBallExplode3 }
 Frame LROC{ Light LegImpSeekBallExplode3 }
 }
 
-OBJECT LegBehBFGBall
+OBJECT LegBehBFGBallMOP
 {
 Frame LTB1A { Light BBFG9500Ball1 }
 Frame LTB1B { Light BBFG9500Ball1 }
