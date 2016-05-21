@@ -104,6 +104,7 @@ function void InitMonsters(void)
 	AddMonster(2.0,	"LEGNA1", "LegendaryImp", "Legendary Imp");
 	LegendaryMonster();
 	EvadingMonster(20);
+	FlyingMonster();
 	
 	// Demons.
 	AddMonster(0.05,	"SAR2A1",   "BullFiend", "Bull Fiend");
