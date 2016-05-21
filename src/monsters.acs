@@ -77,8 +77,8 @@ function void InitMonsters(void)
 	
 	// LCA Shotgunners.
 	AddMonster(0.1225,	"HSZIA1", "Hexa-ShotgunZombie", "Hexa-Shotgun Zombie");
-	AddMonster(0.15,	"PYRZA1", "EraserZombie", "Eraser Zombie");
-	AddMonster(0.17,	"DEVZA1", "DTDevastatorZombie", "Demon Tech Devastator Zombie");
+	AddMonster(1.0,		"PYRZA1", "EraserZombie", "Eraser Zombie");
+	AddMonster(1.5,		"DEVZA1", "DTDevastatorZombie", "Demon Tech Devastator Zombie");
 	AddMonster(0.14,	"LASGA1", "LegendaryAssaultCaptain", "Legendary Assault Captain");
 	LegendaryMonster();
 	EvadingMonster(20);
