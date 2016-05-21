@@ -783,6 +783,170 @@ OBJECT CardinalHomingRocketMOP
 Frame CBRKA { Light Missile1 }
 }
 
+//==============================
+// Possessed Legendary Monsters
+//==============================
+
+OBJECT PossessedLegZombie
+{
+Frame LPOSA { Light SmallLegLight }
+Frame LPOSB { Light SmallLegLight }
+Frame LPOSC { Light SmallLegLight }
+Frame LPOSD { Light SmallLegLight }
+Frame LPOSE { Light SmallLegLight }
+Frame LPOSF { Light SmallLegLight }
+Frame LPOSG { Light SmallLegLight }
+Frame LPOSQ { Light SmallLegLight }
+}
+
+OBJECT PossessedLegendaryAssaultCaptain
+{
+Frame LASGA { Light SmallLegLight }
+Frame LASGB { Light SmallLegLight }
+Frame LASGC { Light SmallLegLight }
+Frame LASGD { Light SmallLegLight }
+Frame LASGE { Light SmallLegLight }
+Frame LASGF { Light SmallLegLight }
+Frame LASGG { Light SmallLegLight }
+Frame LASGZ { Light SmallLegLight }
+}
+
+OBJECT PossessedLegendaryCyberdemon
+{
+Frame CYBRA { Light BigLegLight }
+Frame CYBRB { Light BigLegLight }
+Frame CYBRC { Light BigLegLight }
+Frame CYBRD { Light BigLegLight }
+Frame CYBRE { Light BigLegLight }
+Frame CYBRF { Light BigLegLight }
+Frame CYBRG { Light BigLegLight }
+Frame CYBRZ { Light BigLegLight }
+Frame LBE3A { Light BigLegLight }
+Frame LBE3B { Light BigLegLight }
+Frame LBE3C { Light BigLegLight }
+Frame LBE3D { Light BigLegLight }
+Frame LBE3E { Light BigLegLight }
+Frame LBE3F { Light BigLegLight }
+Frame LBE3G { Light BigLegLight }
+}
+
+OBJECT PossessedLegendaryImp
+{
+Frame LEGNA { Light SmallLegLight }
+Frame LEGNB { Light SmallLegLight }
+Frame LEGNC { Light SmallLegLight }
+Frame LEGND { Light SmallLegLight }
+Frame LEGNE { Light SmallLegLight }
+Frame LEGNF { Light SmallLegLight }
+Frame LEGNG { Light SmallLegLight }
+Frame LEGNH { Light SmallLegLight }
+Frame LEGMF { Light SmallLegLight }
+Frame LEGNQ { Light SmallLegLight }
+}
+
+OBJECT PossessedLegendaryHellKnight
+{
+Frame LNBLA { Light MediumLegLight }
+Frame LNBLB { Light MediumLegLight }
+Frame LNBLC { Light MediumLegLight }
+Frame LNBLD { Light MediumLegLight }
+Frame LNBLE { Light MediumLegLight }
+Frame LNBLF { Light MediumLegLight }
+Frame LNBLG { Light MediumLegLight }
+Frame LNBLS { Light MediumLegLight }
+Frame LNBLT { Light MediumLegLight }
+Frame LNBLP { Light MediumLegLight }
+Frame LNBLQ { Light MediumLegLight }
+Frame LNBLR { Light MediumLegLight }
+Frame LNBLU { Light MediumLegLight }
+Frame LNBLZ { Light MediumLegLight }
+}
+
+OBJECT PossessedLegendaryRevenant
+{
+Frame LREVA { Light MediumLegLight }
+Frame LREVB { Light MediumLegLight }
+Frame LREVC { Light MediumLegLight }
+Frame LREVD { Light MediumLegLight }
+Frame LREVE { Light MediumLegLight }
+Frame LREVF { Light MediumLegLight }
+Frame LREVG { Light MediumLegLight }
+Frame LREVH { Light MediumLegLight }
+Frame LREVI { Light MediumLegLight }
+Frame LREVJ { Light MediumLegLight }
+Frame LREVK { Light MediumLegLight }
+Frame LREVR { Light MediumLegLight }
+Frame LREVS { Light MediumLegLight }
+Frame LREVT { Light MediumLegLight }
+Frame LREVL { Light MediumLegLight }
+}
+
+OBJECT PossessedLegendaryAnnihilator
+{
+Frame LANIA { Light BigLegLight }
+Frame LNIIA { Light BigLegLight }
+Frame LANIB { Light BigLegLight }
+Frame LANIC { Light BigLegLight }
+Frame LANID { Light BigLegLight }
+Frame LANIE { Light BigLegLight }
+Frame LANIF { Light BigLegLight }
+Frame LANIG { Light BigLegLight }
+}
+
+OBJECT PossessedVelocirator
+{
+Frame HIABA { Light SmallGreenLight }
+Frame HIABB { Light SmallGreenLight }
+Frame HIABC { Light SmallGreenLight }
+Frame HIABD { Light SmallGreenLight }
+Frame HIABE { Light SmallGreenLight }
+Frame HIABF { Light SmallGreenLight }
+Frame HIABG { Light SmallGreenLight }
+Frame HIABH { Light SmallGreenLight }
+Frame HIABI { Light SmallGreenLight }
+Frame HIABJ { Light SmallGreenLight }
+Frame HIABK { Light SmallGreenLight }
+Frame HIABL { Light SmallGreenLight }
+Frame HIABM { Light SmallGreenLight }
+Frame HIABN { Light SmallGreenLight }
+Frame HIABO { Light SmallGreenLight }
+Frame HIABP { Light SmallGreenLight }
+Frame HIABQ { Light SmallGreenLight }
+Frame HIA2A { Light SmallGreenLight }
+Frame HIA2B { Light SmallGreenLight }
+Frame HIA2C { Light SmallGreenLight }
+}
+
+OBJECT PossessedLegendaryBehemoth
+{
+Frame LEG2A { Light MediumLegLight }
+Frame LEG2B { Light MediumLegLight }
+Frame LEG2C { Light MediumLegLight }
+Frame LEGIC { Light MediumLegLight }
+Frame LEG2D { Light MediumLegLight }
+Frame LEG2E { Light MediumLegLight }
+Frame LEG2F { Light MediumLegLight }
+Frame LEG2G { Light MediumLegLight }
+Frame LEG2H { Light MediumLegLight }
+Frame LEG2I { Light MediumLegLight }
+Frame LEG2J { Light MediumLegLight }
+}
+
+OBJECT PossessedLegendaryFiend
+{
+Frame LFNDA { Light SmallLegPinkyLight }
+Frame LFNDB { Light SmallLegPinkyLight }
+Frame LFNDC { Light SmallLegPinkyLight }
+Frame LFNDD { Light SmallLegPinkyLight }
+Frame LFNDE { Light SmallLegPinkyLight }
+Frame LFNDF { Light SmallLegPinkyLight }
+Frame LFNDG { Light SmallLegPinkyLight }
+Frame LFNDH { Light SmallLegPinkyLight }
+Frame LFNDP { Light SmallLegPinkyLight }
+Frame LFNDQ { Light SmallLegPinkyLight }
+}
+
+
 //=========================
 // Monster Projectiles LCA
 //=========================
