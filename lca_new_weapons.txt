@@ -626,7 +626,61 @@ Actor LegendaryCyberNobleWeapon : PossessedWeapon
     TNT1 RRRR 2 Bright 
 	TNT1 QQQQ 2 Bright 
     TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
-    TNT1 Q 112 Bright 
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
+	TNT1 QQ 0 Bright A_FireCustomMissile("LegNobleBall3Small",Random(0,359),0,0,0)	
+    TNT1 Q 4 Bright 
     Goto Ready
   BestAttack:
     TNT1 Q 1 Bright A_PlaySound("lcnoble/see")
