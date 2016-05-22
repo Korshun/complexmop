@@ -98,21 +98,21 @@ script mop_enter ENTER
 			
 			TakeInventory("NewMelee", 1);
 			TakeInventory("Handgun", 1);
-			TakeInventory("Chainsaw", 1);
+			TakeInventory("Chainsaw ", 1);
 			TakeInventory("Combat Shotgun", 1);
 			TakeInventory("Assault Shotgun", 1);
 			TakeInventory("Double Barrel Shotgun", 1);
 			TakeInventory("Quad Barrel Shotgun", 1);
 			TakeInventory("Assault Rifle", 1);
-			TakeInventory("Minigun", 1);
+			TakeInventory("Minigun ", 1);
 			TakeInventory("Rocket Launcher", 1);
 			TakeInventory("Grenade Launcher", 1);
 			TakeInventory("Plasma Rifle", 1);
-			TakeInventory("Railgun", 1);
-			TakeInventory("BFG9500", 1);
-			TakeInventory("BFG10K", 1);
+			TakeInventory("Railgun ", 1);
+			TakeInventory("MOP BFG9500", 1);
+			TakeInventory("MOP BFG10K", 1);
 			TakeInventory("Demon Tech Rifle", 1);
-			TakeInventory("Demon Tech BFG10K", 1);
+			TakeInventory("MOP Demon Tech BFG10K", 1);
 			TakeInventory("MP40", 1);
 			
 			TakeInventory("Legendary Plasmatic Rifle", 1);
@@ -717,7 +717,7 @@ script mop_log_kill(int killer, int victim, int type) clientside
 	switch(type)
 	{
 	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
-	case 1: Log(n:victim+1, s:"'s monster \cddied."); break;
+	case 1: Log(n:victim+1, s:"\cd's monster died."); break;
 	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
 	}
 }
