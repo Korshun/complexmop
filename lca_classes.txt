@@ -162,7 +162,7 @@ Actor PossessedCerebralCardinal : PossessedMonster
   DamageFactor "PDTBFG", 0.1
   DamageFactor "PDTBFGTracer", 0.3
   //DamageFactor "Cyber10k", 0.0
-  //DamageFactor "Legendary", 0.5
+  DamageFactor "MonsterLegendary", 0.5
   DamageFactor "PlayerDevBall", 0.05
   DamageFactor "PlayerDevBall2", 0.05
   DamageFactor "PlayerDTBFGRailgunSlug", 0.05
@@ -974,7 +974,7 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   DamageFactor "PDTBFG", 0.05
   DamageFactor "PDTBFGTracer", 0.05
   DamageFactor "Cyber10k", 0.0
-  DamageFactor "Legendary", 0.0
+  DamageFactor "MonsterLegendary", 0.0
   DamageFactor "BFGSplash", 0.25
   DamageFactor "BFGSpray", 0.25
   DamageFactor "PlayerDevBall", 0.025
@@ -1636,7 +1636,7 @@ Actor PossessedLegendaryHellKnight : PossessedMonster
   BloodColor "Blue"
   DamageFactor 0.65
   //DamageFactor "Legendary1", 0.0
-  //DamageFactor "Legendary", 0.0
+  DamageFactor "MonsterLegendary", 0.0
   //DamageFactor "NobleComet", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
@@ -1942,7 +1942,7 @@ Actor PossessedLegendaryImp : PossessedMonster
   MeleeDamage 15
   DamageFactor "Legendary1", 0.0
   DamageFactor 0.75
-  DamageFactor "Legendary", 0.0
+  DamageFactor "MonsterLegendary", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
   DamageFactor "PlayerDevBall", 0.125
@@ -2105,7 +2105,7 @@ Actor PossessedLegendaryRevenant : PossessedMonster
   MeleeDamage 7
   DamageFactor 0.65
   DamageFactor "Legendary1", 0.0
-  DamageFactor "Legendary", 0.0
+  DamageFactor "MonsterLegendary", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
   DamageFactor "PlayerDevBall", 0.125
@@ -2404,7 +2404,7 @@ Actor PossessedLegendarySentient : PossessedSpiderMastermind
     DamageFactor "DarkDemoEx", 0.05
 	DamageFactor "CerChainguns", 0.0	
 	DamageFactor "CerEnergyBall", 0.0
-	DamageFactor "Legendary", 0.0
+	DamageFactor "MonsterLegendary", 0.0
 	DamageFactor "PDTBFG", 0.1
 	DamageFactor "PDTBFGTracer", 0.1
 	DamageFactor "LegMind", 0.0
@@ -3268,7 +3268,7 @@ DamageFactor "PlayerDevBall2", 0.125
 DamageFactor "PlayerDTBFGRailgunSlug", 0.125
 DamageFactor "PlayerDevTracer", 0.125
 DamageFactor 0.75
-DamageFactor "Legendary", 0.0
+DamageFactor "MonsterLegendary", 0.0
 //Monster 
 +NOTIMEFREEZE
 +BOSS
@@ -3612,7 +3612,7 @@ Obituary "%o learned the hard way that no one can beat the Legendary Annihilator
 //DamageFactor "Cyber10K", 0.0
 //DamageFactor "PDTBFG", 0.01
 //DamageFactor "PDTBFGTracer", 0.01
-//DamageFactor "Legendary", 0.0
+DamageFactor "MonsterLegendary", 0.0
 //DamageFactor "BFGSplash", 0.2
 //DamageFactor "BFGSpray", 0.2
 //DamageFactor "CerEnergyBall", 0.0
@@ -4258,7 +4258,7 @@ BloodColor "Blue"
 Scale 1.2
 MeleeDamage 5
 DamageFactor 0.60
-DamageFactor "Legendary", 0.0
+DamageFactor "MonsterLegendary", 0.0
 DamageFactor "Legendary1", 0.0
 DamageFactor "PDTBFG", 0.15
 DamageFactor "PDTBFGTracer", 0.15
@@ -4934,7 +4934,7 @@ Actor PossessedLegendaryCyberNoble : PossessedMonster
   DamageFactor "Legendary1", 0.0
   DamageFactor "Cyber10K", 0.0
   DamageFactor "LegMind", 0.0
-  DamageFactor "Legendary", 0.0
+  DamageFactor "MonsterLegendary", 0.0
   DamageFactor "NobleComet", 0.0
   DamageFactor "PDTBFG", 0.25
   DamageFactor "PDTBFGTracer", 0.25
@@ -5336,7 +5336,7 @@ Species "Redeemer"
 DamageFactor 0.6
 DamageFactor "CacoComet", 0.0
 DamageFactor "Legendary1", 0.0
-DamageFactor "Legendary", 0.0
+DamageFactor "MonsterLegendary", 0.0
 DamageFactor "PDTBFG", 0.10
 DamageFactor "PDTBFGTracer", 0.10
 DamageFactor "PlayerDevBall", 0.110
@@ -5587,7 +5587,7 @@ Actor PossessedLegendaryAssaultCaptain : PossessedMonster
 	DamageFactor "PlayerDevBall2", 0.120
 	DamageFactor "PlayerDTBFGRailgunSlug", 0.120
 	DamageFactor "PlayerDevTracer", 0.120
-	DamageFactor "Legendary", 0.0
+	DamageFactor "MonsterLegendary", 0.0
 	DamageFactor "LACGrenade", 0.0
 	DamageFactor 0.70
     States
@@ -5653,7 +5653,7 @@ Scale 1.25
 Speed 0.39375 //9
 DamageFactor "BeheComet", 0.0
 DamageFactor "FatFlamer", 0.0
-DamageFactor "Legendary", 0.0
+DamageFactor "MonsterLegendary", 0.0
 DamageFactor "Legendary1", 0.0
 DamageFactor "PDTBFG", 0.25
 DamageFactor "PDTBFGTracer", 0.25
