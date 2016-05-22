@@ -1,0 +1,22 @@
+// Replace legendary armor to add MonsterLegendary damagefactor.
+ACTOR LegendaryArmorMOP : LegendaryArmor
+{
+	+INVENTORY.BIGPOWERUP
+	Scale 1.2
+	Mass 0x7FFFFFFF
+	DamageFactor "PDTBFG", 0.10
+	DamageFactor "PDTBFGTracer", 0.10
+	DamageFactor "Cyber10K", 0.01
+	DamageFactor "Legendary", 0.10
+	DamageFactor "MonsterLegendary", 0.10
+	DamageFactor "BFGSplash", 0.35
+	DamageFactor "BFGSpray", 0.35
+	DamageFactor "Explosion", 0.5
+	DamageFactor "Plasma", 0.5
+	DamageFactor 0.8
+	Inventory.Pickupmessage "Legendary Armor. You won't die so easily"
+	Inventory.Icon "LEGAA0"
+	Inventory.PickupSound "legendaryarmor/pickup"
+	Armor.SavePercent 200
+	Armor.SaveAmount 500
+}	
