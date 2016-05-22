@@ -43,13 +43,24 @@ Actor LegSentientDTBFGProjectileAttackMOP : LegSentientDTBFGProjectileAttack rep
 	DamageType "Monster"
 }
 
-Actor LegendaryProjectileMOP : LegendaryProjectile replaces LegendaryProjectile
-{
-	DamageType "MonsterLegendary"
-}
-
 Actor LegSentientDTBFGBallMOP : LegSentientDTBFGBall replaces LegSentientDTBFGBall
 {
 	DamageType "Monster"
 }
 
+// Legendary projectiles.
+
+Actor LegendaryProjectileMOP : LegendaryProjectile replaces LegendaryProjectile
+{
+	DamageType "MonsterLegendary"
+}
+
+Actor CyberLegendaryProjectileMOP : CyberLegendaryProjectile replaces CyberLegendaryProjectile
+{
+	DamageType "MonsterLegendary"
+}
+
+Actor SentientProjectileMOP : SentientLegendaryProjectile replaces SentientLegendaryProjectile
+{
+	DamageType "MonsterLegendary"
+}

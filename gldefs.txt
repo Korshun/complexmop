@@ -783,14 +783,24 @@ OBJECT CardinalHomingRocketMOP
 Frame CBRKA { Light Missile1 }
 }
 
+OBJECT LegSentientDTBFGBallMOP
+{
+Frame LGS1 { Light GBFG9500Ball1 }
+}
+
 OBJECT LegendaryProjectileMOP
 {
 Frame BTPR { Light LTechProj1 }
 }
 
-OBJECT LegSentientDTBFGBallMOP
+OBJECT SentientLegendaryProjectile
 {
-Frame LGS1 { Light GBFG9500Ball1 }
+Frame BTPR { Light LTechProj1 }
+}
+
+OBJECT CyberLegendaryProjectile
+{
+Frame BTPR { Light LTechProj1 }
 }
 
 
