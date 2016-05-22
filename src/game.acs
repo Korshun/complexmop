@@ -117,14 +117,16 @@ script mop_enter ENTER
 			
 			TakeInventory("Legendary Plasmatic Rifle", 1);
 			TakeInventory("Advanced Necronomicon", 1);
-			TakeInventory("Legendary BFG", 1);
+			TakeInventory("MOP Legendary BFG", 1);
 			TakeInventory("LegendaryPistols", 1);
 			TakeInventory("Assault Shotgun ", 1);
 			TakeInventory("Hexa-Shotgun", 1);
 			TakeInventory("Freezer Rifle", 1);
 			TakeInventory("BehemothCannon", 1);
 			TakeInventory("Explosive Minigun", 1);
-			TakeInventory("Demon Tech Devastator", 1);	
+			TakeInventory("MOP Demon Tech Devastator", 1);	
+			TakeInventory("Legendary Assault Shotgun", 1);
+			TakeInventory("Legendary Plasmatic Cannon", 1);
 			
 			GiveInventory("Handgun", 1);
 			GiveInventory("HandGrenadeAmmo", 2);
