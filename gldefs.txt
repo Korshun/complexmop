@@ -783,6 +783,17 @@ OBJECT CardinalHomingRocketMOP
 Frame CBRKA { Light Missile1 }
 }
 
+OBJECT LegendaryProjectileMOP
+{
+Frame BTPR { Light LTechProj1 }
+}
+
+OBJECT LegSentientDTBFGBallMOP
+{
+Frame LGS1 { Light GBFG9500Ball1 }
+}
+
+
 //==============================
 // Possessed Legendary Monsters
 //==============================
