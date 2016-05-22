@@ -4321,13 +4321,13 @@ States
   Lunge:
 	TNT1 A 0 //A_PlaySound("cyberfiend/melee")
 	LFND EF 7 Bright 
-	TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,1)
+	TNT1 A 0 
 	TNT1 A 0 //ThrustThingZ(0,20,0,1)
     LFND F 2 Bright //A_Recoil(-26)
 	LFND F 3 Bright //A_FireCustomMissile("LFLunge",0,0,0,0,0)
 	LFND G 6 Bright
 	LFND G 2 Bright //A_ScaleVelocity(0.2)
-	TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,0)
+	TNT1 A 0 
 	LFND G 1 Bright //A_ScaleVelocity(0)
 	LFND E 5 Bright
 	Goto Spawn
@@ -4339,7 +4339,7 @@ States
   RageGo:
 	LFND G 0 
 	TNT1 A 0 //ThrustThingZ(0,35,0,1)
-    TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,1)
+    TNT1 A 0 
 	TNT1 A 0 //A_ChangeFlag(NOPAIN,1)
 	LFND G 9 Bright
 	LFND G 0 
@@ -4427,7 +4427,7 @@ States
 	LFND G 0 //A_SpawnItem("LFiendFlameSpawner",0,0,0,0)
 	LFND G 0 //A_FireCustomMissile("BigLFLunge",0,0,0,0,0)
 	LFND G 2 Bright 
-	TNT1 A 0 //A_ChangeFlag(SLIDESONWALLS,0)
+	TNT1 A 0 
 	TNT1 A 0 //A_ChangeFlag(NOPAIN,0)
 	LFND G 5 Bright
 	Goto Spawn
