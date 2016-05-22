@@ -109,10 +109,10 @@ script mop_enter ENTER
 			TakeInventory("Grenade Launcher", 1);
 			TakeInventory("Plasma Rifle", 1);
 			TakeInventory("Railgun ", 1);
-			TakeInventory("BFG9500", 1);
-			TakeInventory("BFG10K ", 1);
+			TakeInventory("MOP BFG9500", 1);
+			TakeInventory("MOP BFG10K", 1);
 			TakeInventory("Demon Tech Rifle", 1);
-			TakeInventory("Demon Tech BFG10K", 1);
+			TakeInventory("MOP Demon Tech BFG10K", 1);
 			TakeInventory("MP40", 1);
 			
 			GiveInventory("Handgun", 1);
