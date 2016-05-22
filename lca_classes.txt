@@ -1023,15 +1023,15 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   States
   {
   Spawn:
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	CYBR A 10 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	CYBR A 10 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	CYBR Z 10 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	CYBR Z 10 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	Goto Spawn
   See:
 	TNT1 A 0 ACS_ExecuteAlways(5432,0,2)
@@ -1089,9 +1089,9 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   LegendaryStomp:
     CYBR G 10 Bright 
 	TNT1 A 0 
-	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner2",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner2", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	LBE3 G 3 Bright //A_PlaySoundEx("Legcyber/laugh4","LAUGH3")
-	LBE3 GGGGGGGGGGGGGGGGGGGGGGGGGGGGG 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	LBE3 GGGGGGGGGGGGGGGGGGGGGGGGGGGGG 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 
 	TNT1 A 0 
 	TNT1 A 0 
@@ -1263,80 +1263,80 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
   LegendaryTech:
     CYBR G 30 Bright 
 	TNT1 A 0 
-	TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     CYBR G 3 Bright //A_PlaySoundEx("Legcyber/laugh2","LAUGH2")
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR G 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	CYBR G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 
 	CYBR F 3 Bright //A_FireCustomMissile("CyberLegendaryProjectile",Random(100,-100)/100.00,0,0,-26)
     TNT1 A 0 Bright //A_PlayWeaponSound("BlueDTRFire")
@@ -1504,84 +1504,84 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR E 3 Bright //A_PlaySoundEx("monster/laugh","TBBCSPT1")
 	CYBR E 3 Bright //A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
 	TNT1 A 0 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     CYBR E 3 Bright //A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 Bright 
-	CYBR E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	CYBR E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 
 	CYBR EEEEEEEEEEEEE 0 Bright A_SpawnItemEx("LegendaryCyberFlameSpawner2")
     CYBR EEEEEEEEEEE 1 //A_FadeOut(0.1,0)
@@ -1599,6 +1599,43 @@ Actor PossessedLegendaryCyberdemon : PossessedCyberdemon
 	CYBR E 5 Bright
 	Goto Spawn
   }
+}
+
+
+Actor PossessedLegendaryCyberFlameSpawner : LegendaryCyberFlameSpawner
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
+	}
+}
+
+Actor PossessedLegendaryCyberFlameSpawner2 : LegendaryCyberFlameSpawner2
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
+	}
+}
+
+Actor PossessedLegendaryCyberFlameSpawner3 : LegendaryCyberFlameSpawner3
+{
+	+CLIENTSIDEONLY
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 ACS_ExecuteWithResult(mop_possessedflameremover)
+		Goto Super::Spawn
+	}
 }
 
 
@@ -2421,7 +2458,7 @@ Actor PossessedLegendarySentient : PossessedSpiderMastermind
     States
     {
 Spawn:
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	LUPR A 2 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
@@ -2476,117 +2513,117 @@ LegendaryTech:
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR NN 2 Bright 
     TNT1 A 0 
-    TNT1 A 0 A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 3 Bright //A_PlaySound("legsentient/laugh",5)
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR O 3 Bright //A_FireCustomMissile("SentientLegendaryProjectile",Random(100,-100)/100.00,0,0,0)
@@ -2978,124 +3015,124 @@ LegendaryBFG:
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 3 Bright //A_PlaySound("Legcyber/BFG",6)    
     TNT1 A 0 Bright 
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 3 Bright //A_PlaySound("Legcyber/BFG",6)    
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 Bright 
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
-    LUPR N 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    LUPR N 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     TNT1 A 0 
     LUPR NNNNNNNNNNNNN 0 A_SpawnItemEx("LegendaryCyberFlameSpawner2")
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
@@ -3176,25 +3213,25 @@ LegendaryStorm:
     TNT1 A 0 //A_PlaySound("sentient/laugh",5)  
 	LUPR NN 4 Bright //A_GiveInventory("LegSentientStrafe3",1)
 	TNT1 A 0 A_Stop
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
-	TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	TNT1 A 0 A_SpawnItemEx("PossessedLegSentientFireSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     LUPR N 4 Bright 
 	LUPR NNNNNNN 4 Bright //A_GiveInventory("LegSentientStrafe3",1)
@@ -3656,15 +3693,15 @@ ActiveSound "Legcyber/laugh3"
 States 
 {    
 Spawn: 
-        TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
         LANI A 10 Bright
-		TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		LANI A 10 Bright
-		TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		LNII A 10 Bright
-		TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		LNII A 10 Bright
-		TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
         Loop 
 See: 
         TNT1 A 0 ACS_ExecuteAlways(5432,0,5)
@@ -3800,84 +3837,84 @@ LegendaryBFGs:
 	    LANI E 3 Bright //A_PlaySoundEx("monster/laugh","TBBCSPT1")
 	    LANI E 3 Bright //A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
 	    TNT1 A 0 Bright 
-	    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
         LANI E 3 Bright //A_PlaySoundEx("Legcyber/BFG","GURUCHRG")	
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI E 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner",0,0,0,0)
+	    LANI E 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 
 		TNT1 A 0 //A_PlayWeaponSound("Weapons/GuruFire")
   	    TNT1 A 0 //A_PlayWeaponSound("Weapons/GuruAddFire")
@@ -3996,80 +4033,80 @@ LegendaryBFG10Ks:
 AkimboRif:
         LANI G 30 Bright 
 	    TNT1 A 0 
-	    TNT1 A 0 //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    TNT1 A 0 A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
         LANI G 3 Bright //A_PlaySoundEx("Legcyber/laugh2","LAUGH2")
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-        LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+        LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
     	TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-    	LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+    	LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 	    TNT1 A 0 Bright 
-	    LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+	    LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 Bright 
-		LANI G 3 Bright //A_SpawnItem("LegendaryCyberFlameSpawner3",0,0,0,0)
+		LANI G 3 Bright A_SpawnItemEx("PossessedLegendaryCyberFlameSpawner3", 0,0,0, 0,0,ACS_ExecuteWithResult(mop_playernumber))
 		TNT1 A 0 
 		LANI F 0 //A_FireCustomMissile("CyberLegendaryProjectile",Random(100,-100)/100.00,0,22)
 		LANI F 3 Bright //A_FireCustomMissile("CyberLegendaryProjectile",Random(100,-100)/100.00,0,-22)
