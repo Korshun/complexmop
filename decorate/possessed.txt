@@ -100,7 +100,6 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "Cyber10k", 0
 	DamageFactor "GeneralTracer", 0
 	DamageFactor "Hell", 0
-	DamageFactor "Ice", 0
 	DamageFactor "LegMind", 0
 	DamageFactor "Legendary", 0
 	DamageFactor "Legendary1", 0
