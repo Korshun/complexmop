@@ -43,7 +43,7 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "GeneralTracer", 0
 	DamageFactor "Hell", 0
 	DamageFactor "LegMind", 0
-	DamageFactor "Legendary", 0
+	DamageFactor "MonsterLegendary", 0
 	DamageFactor "Legendary1", 0
 	DamageFactor "NobleComet", 0
 	DamageFactor "Nobles", 0
@@ -101,7 +101,7 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "GeneralTracer", 0
 	DamageFactor "Hell", 0
 	DamageFactor "LegMind", 0
-	DamageFactor "Legendary", 0
+	DamageFactor "MonsterLegendary", 0
 	DamageFactor "Legendary1", 0
 	DamageFactor "NobleComet", 0
 	DamageFactor "Nobles", 0
