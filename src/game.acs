@@ -705,7 +705,7 @@ script mop_log_kill(int killer, int victim, int type) clientside
 	switch(type)
 	{
 	case 0: Log(n:killer+1, s:"\cg -> \c-", n:victim+1); break;
-	case 1: Log(n:victim+1, s:"'s monster \cddied."); break;
+	case 1: Log(n:victim+1, s:"\cd's monster died."); break;
 	case 2: Log(n:killer+1, s:"\ct TEAMKILLED! \c-", n:victim+1); break;
 	}
 }
